@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
+		D2B0615C1C7E62040088CEBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* ViewController.swift */; };
+		D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Main.storyboard */; };
+		D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */; };
+		D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B061631C7E62040088CEBE /* Assets.xcassets */; };
+		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
+		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
+		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2B0616E1C7E62050088CEBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B0614E1C7E62040088CEBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2B061551C7E62040088CEBE;
+			remoteInfo = pep9pad;
+		};
+		D2B061791C7E62050088CEBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D2B0614E1C7E62040088CEBE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2B061551C7E62040088CEBE;
+			remoteInfo = pep9pad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2B0615B1C7E62040088CEBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pep9pad.xcdatamodel; sourceTree = "<group>"; };
+		D2B061631C7E62040088CEBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D2B061661C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D2B061681C7E62040088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B0616D1C7E62050088CEBE /* pep9padTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2B061711C7E62050088CEBE /* pep9padTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padTests.swift; sourceTree = "<group>"; };
+		D2B061731C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
+		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2B061531C7E62040088CEBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0616A1C7E62050088CEBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B061751C7E62050088CEBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D2B0614D1C7E62040088CEBE = {
+			isa = PBXGroup;
+			children = (
+				D2B061581C7E62040088CEBE /* pep9pad */,
+				D2B061701C7E62050088CEBE /* pep9padTests */,
+				D2B0617B1C7E62050088CEBE /* pep9padUITests */,
+				D2B061571C7E62040088CEBE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2B061571C7E62040088CEBE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061561C7E62040088CEBE /* pep9pad.app */,
+				D2B0616D1C7E62050088CEBE /* pep9padTests.xctest */,
+				D2B061781C7E62050088CEBE /* pep9padUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D2B061581C7E62040088CEBE /* pep9pad */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
+				D2B0615B1C7E62040088CEBE /* ViewController.swift */,
+				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
+				D2B061631C7E62040088CEBE /* Assets.xcassets */,
+				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
+				D2B061681C7E62040088CEBE /* Info.plist */,
+				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
+			);
+			path = pep9pad;
+			sourceTree = "<group>";
+		};
+		D2B061701C7E62050088CEBE /* pep9padTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061711C7E62050088CEBE /* pep9padTests.swift */,
+				D2B061731C7E62050088CEBE /* Info.plist */,
+			);
+			path = pep9padTests;
+			sourceTree = "<group>";
+		};
+		D2B0617B1C7E62050088CEBE /* pep9padUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */,
+				D2B0617E1C7E62050088CEBE /* Info.plist */,
+			);
+			path = pep9padUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D2B061551C7E62040088CEBE /* pep9pad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2B061811C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9pad" */;
+			buildPhases = (
+				D2B061521C7E62040088CEBE /* Sources */,
+				D2B061531C7E62040088CEBE /* Frameworks */,
+				D2B061541C7E62040088CEBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pep9pad;
+			productName = pep9pad;
+			productReference = D2B061561C7E62040088CEBE /* pep9pad.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D2B0616C1C7E62050088CEBE /* pep9padTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2B061841C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9padTests" */;
+			buildPhases = (
+				D2B061691C7E62050088CEBE /* Sources */,
+				D2B0616A1C7E62050088CEBE /* Frameworks */,
+				D2B0616B1C7E62050088CEBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2B0616F1C7E62050088CEBE /* PBXTargetDependency */,
+			);
+			name = pep9padTests;
+			productName = pep9padTests;
+			productReference = D2B0616D1C7E62050088CEBE /* pep9padTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D2B061771C7E62050088CEBE /* pep9padUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2B061871C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9padUITests" */;
+			buildPhases = (
+				D2B061741C7E62050088CEBE /* Sources */,
+				D2B061751C7E62050088CEBE /* Frameworks */,
+				D2B061761C7E62050088CEBE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2B0617A1C7E62050088CEBE /* PBXTargetDependency */,
+			);
+			name = pep9padUITests;
+			productName = pep9padUITests;
+			productReference = D2B061781C7E62050088CEBE /* pep9padUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D2B0614E1C7E62040088CEBE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Pepperdine University";
+				TargetAttributes = {
+					D2B061551C7E62040088CEBE = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					D2B0616C1C7E62050088CEBE = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = D2B061551C7E62040088CEBE;
+					};
+					D2B061771C7E62050088CEBE = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = D2B061551C7E62040088CEBE;
+					};
+				};
+			};
+			buildConfigurationList = D2B061511C7E62040088CEBE /* Build configuration list for PBXProject "pep9pad" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D2B0614D1C7E62040088CEBE;
+			productRefGroup = D2B061571C7E62040088CEBE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2B061551C7E62040088CEBE /* pep9pad */,
+				D2B0616C1C7E62050088CEBE /* pep9padTests */,
+				D2B061771C7E62050088CEBE /* pep9padUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D2B061541C7E62040088CEBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
+				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
+				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B0616B1C7E62050088CEBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B061761C7E62050088CEBE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2B061521C7E62040088CEBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
+				D2B0615C1C7E62040088CEBE /* ViewController.swift in Sources */,
+				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B061691C7E62050088CEBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2B061741C7E62050088CEBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2B0616F1C7E62050088CEBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2B061551C7E62040088CEBE /* pep9pad */;
+			targetProxy = D2B0616E1C7E62050088CEBE /* PBXContainerItemProxy */;
+		};
+		D2B0617A1C7E62050088CEBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2B061551C7E62040088CEBE /* pep9pad */;
+			targetProxy = D2B061791C7E62050088CEBE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D2B0615D1C7E62040088CEBE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2B0615E1C7E62040088CEBE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2B061661C7E62040088CEBE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D2B0617F1C7E62050088CEBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		D2B061801C7E62050088CEBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D2B061821C7E62050088CEBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pep9pad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9pad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D2B061831C7E62050088CEBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = pep9pad/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9pad;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D2B061851C7E62050088CEBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = pep9padTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9padTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pep9pad.app/pep9pad";
+			};
+			name = Debug;
+		};
+		D2B061861C7E62050088CEBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = pep9padTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9padTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/pep9pad.app/pep9pad";
+			};
+			name = Release;
+		};
+		D2B061881C7E62050088CEBE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = pep9padUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9padUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = pep9pad;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D2B061891C7E62050088CEBE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = pep9padUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9padUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = pep9pad;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D2B061511C7E62040088CEBE /* Build configuration list for PBXProject "pep9pad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B0617F1C7E62050088CEBE /* Debug */,
+				D2B061801C7E62050088CEBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2B061811C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9pad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B061821C7E62050088CEBE /* Debug */,
+				D2B061831C7E62050088CEBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D2B061841C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9padTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B061851C7E62050088CEBE /* Debug */,
+				D2B061861C7E62050088CEBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D2B061871C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9padUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2B061881C7E62050088CEBE /* Debug */,
+				D2B061891C7E62050088CEBE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */,
+			);
+			currentVersion = D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */;
+			path = pep9pad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D2B0614E1C7E62040088CEBE /* Project object */;
+}
