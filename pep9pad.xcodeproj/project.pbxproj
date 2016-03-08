@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CPUViewController.swift */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
-		D2B0615C1C7E62040088CEBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* ViewController.swift */; };
+		D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* MasterViewController.swift */; };
 		D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Main.storyboard */; };
 		D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */; };
 		D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B061631C7E62040088CEBE /* Assets.xcassets */; };
@@ -35,9 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46C608D01C8EAC1E00CC161A /* CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D2B0615B1C7E62040088CEBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D2B0615B1C7E62040088CEBE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pep9pad.xcdatamodel; sourceTree = "<group>"; };
 		D2B061631C7E62040088CEBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,6 +78,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
+				D2B061631C7E62040088CEBE /* Assets.xcassets */,
+				D2B061681C7E62040088CEBE /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46C608D31C8EADC500CC161A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		46C608D41C8EADD700CC161A /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +127,12 @@
 		D2B061581C7E62040088CEBE /* pep9pad */ = {
 			isa = PBXGroup;
 			children = (
-				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
-				D2B0615B1C7E62040088CEBE /* ViewController.swift */,
+				D2B0615B1C7E62040088CEBE /* MasterViewController.swift */,
+				46C608D01C8EAC1E00CC161A /* CPUViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
-				D2B061631C7E62040088CEBE /* Assets.xcassets */,
-				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
-				D2B061681C7E62040088CEBE /* Info.plist */,
-				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
+				46C608D41C8EADD700CC161A /* Launch */,
+				46C608D31C8EADC500CC161A /* Core Data */,
+				46C608D21C8EADBB00CC161A /* Supporting Files */,
 			);
 			path = pep9pad;
 			sourceTree = "<group>";
@@ -260,7 +287,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
-				D2B0615C1C7E62040088CEBE /* ViewController.swift in Sources */,
+				46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */,
+				D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +516,7 @@
 				D2B061831C7E62050088CEBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2B061841C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9padTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +525,7 @@
 				D2B061861C7E62050088CEBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D2B061871C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9padUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +534,7 @@
 				D2B061891C7E62050088CEBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
