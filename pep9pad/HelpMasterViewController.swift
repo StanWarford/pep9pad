@@ -35,28 +35,56 @@ class HelpMasterViewController: UITableViewController {
             tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "helpID")
             v = tableView.dequeueReusableCellWithIdentifier("helpID")!
         }
-        if indexPath.section == 0 {
+        
+        switch indexPath.section {
+        case 0:
+            v.textLabel!.text = Array(Documentation.allValues.values)[indexPath.row]
+        case 1:
             v.textLabel!.text = Examples.allValues[indexPath.row].rawValue
+        default:
+            v.textLabel?.text = "Error"
         }
+        
         return v
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //TODO: Implement
+        switch indexPath.section {
+        case 0:
+            helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[indexPath.row])
+        case 1:
+            //TODO: Implement
+            print("TODO: Implement selection")
+        default:
+            print("Error")
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        switch section {
+        case 0:
+            return Documentation.allValues.count
+        case 1:
             return Examples.allValues.count
+        default:
+            return 0
         }
-        return 0
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        switch section {
+        case 0:
+            return "Documentation"
+        case 1:
             return "Examples"
+        default:
+            return ""
         }
-        return ""
+
     }
     
     

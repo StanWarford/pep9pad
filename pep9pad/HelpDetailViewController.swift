@@ -10,10 +10,14 @@ import UIKit
 
 class HelpDetailViewController: UIViewController {
 
+    internal var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let rect = CGRectMake(view.bounds.origin.x, view.bounds.origin.y, view.bounds.width-320, view.bounds.height)
+        webView = UIWebView(frame: rect)
+        view.addSubview(webView)
+        loadDocumentation(.AssemblyLanguage)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +25,9 @@ class HelpDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loadDocumentation(doc: Documentation) {
+        let url = NSBundle.mainBundle().URLForResource(doc.rawValue, withExtension:"html")
+        let request = NSURLRequest(URL: url!)
+        webView.loadRequest(request)
     }
-    */
-
 }

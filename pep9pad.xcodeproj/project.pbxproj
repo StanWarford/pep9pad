@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46B58BD21C8FD75A006E46B4 /* ExampleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* ExampleEnum.swift */; };
-		46B58BD51C8FE155006E46B4 /* HelpWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B58BD41C8FE155006E46B4 /* HelpWebView.xib */; };
+		461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461875951C90089F0095B818 /* HelpDocumentation.swift */; };
+		4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875991C900CA10095B818 /* assemblylanguage.html */; };
+		461875A41C900D740095B818 /* debuggingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 4618759B1C900D730095B818 /* debuggingprograms.html */; };
+		461875A51C900D740095B818 /* examples.html in Resources */ = {isa = PBXBuildFile; fileRef = 4618759C1C900D730095B818 /* examples.html */; };
+		461875A61C900D740095B818 /* figures in Resources */ = {isa = PBXBuildFile; fileRef = 4618759D1C900D730095B818 /* figures */; };
+		461875A71C900D740095B818 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 4618759E1C900D730095B818 /* images */; };
+		461875A81C900D740095B818 /* machinelanguage.html in Resources */ = {isa = PBXBuildFile; fileRef = 4618759F1C900D740095B818 /* machinelanguage.html */; };
+		461875A91C900D740095B818 /* pep9reference.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A01C900D740095B818 /* pep9reference.html */; };
+		461875AA1C900D740095B818 /* problems.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A11C900D740095B818 /* problems.html */; };
+		461875AB1C900D740095B818 /* writingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A21C900D740095B818 /* writingprograms.html */; };
+		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
+		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CPUViewController.swift */; };
 		46F46D331C8F49340092EF04 /* Enu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enu.swift */; };
 		46F46D351C8F661D0092EF04 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D341C8F661D0092EF04 /* Argument.swift */; };
@@ -43,8 +53,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46B58BD11C8FD75A006E46B4 /* ExampleEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleEnum.swift; sourceTree = "<group>"; };
-		46B58BD41C8FE155006E46B4 /* HelpWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpWebView.xib; sourceTree = "<group>"; };
+		461875951C90089F0095B818 /* HelpDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDocumentation.swift; sourceTree = "<group>"; };
+		461875991C900CA10095B818 /* assemblylanguage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = assemblylanguage.html; sourceTree = "<group>"; };
+		4618759B1C900D730095B818 /* debuggingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = debuggingprograms.html; sourceTree = "<group>"; };
+		4618759C1C900D730095B818 /* examples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = examples.html; sourceTree = "<group>"; };
+		4618759D1C900D730095B818 /* figures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = figures; sourceTree = "<group>"; };
+		4618759E1C900D730095B818 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		4618759F1C900D740095B818 /* machinelanguage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = machinelanguage.html; sourceTree = "<group>"; };
+		461875A01C900D740095B818 /* pep9reference.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pep9reference.html; sourceTree = "<group>"; };
+		461875A11C900D740095B818 /* problems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = problems.html; sourceTree = "<group>"; };
+		461875A21C900D740095B818 /* writingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingprograms.html; sourceTree = "<group>"; };
+		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
+		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		46F46D321C8F49340092EF04 /* Enu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enu.swift; sourceTree = "<group>"; };
 		46F46D341C8F661D0092EF04 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
@@ -97,9 +117,9 @@
 			children = (
 				46F46D361C8F70070092EF04 /* Help.storyboard */,
 				46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */,
-				46B58BD11C8FD75A006E46B4 /* ExampleEnum.swift */,
+				46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */,
 				46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */,
-				46B58BD41C8FE155006E46B4 /* HelpWebView.xib */,
+				461875951C90089F0095B818 /* HelpDocumentation.swift */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -107,6 +127,16 @@
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				461875991C900CA10095B818 /* assemblylanguage.html */,
+				4618759B1C900D730095B818 /* debuggingprograms.html */,
+				4618759C1C900D730095B818 /* examples.html */,
+				4618759D1C900D730095B818 /* figures */,
+				4618759E1C900D730095B818 /* images */,
+				4618759F1C900D740095B818 /* machinelanguage.html */,
+				461875A01C900D740095B818 /* pep9reference.html */,
+				461875A11C900D740095B818 /* problems.html */,
+				461875A21C900D740095B818 /* writingprograms.html */,
+				461875A31C900D740095B818 /* writingtraphandlers.html */,
 				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061631C7E62040088CEBE /* Assets.xcassets */,
 				D2B061681C7E62040088CEBE /* Info.plist */,
@@ -288,11 +318,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461875AB1C900D740095B818 /* writingprograms.html in Resources */,
+				461875A71C900D740095B818 /* images in Resources */,
+				461875A61C900D740095B818 /* figures in Resources */,
+				461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */,
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
-				46B58BD51C8FE155006E46B4 /* HelpWebView.xib in Resources */,
+				461875AA1C900D740095B818 /* problems.html in Resources */,
+				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
+				461875A91C900D740095B818 /* pep9reference.html in Resources */,
 				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
+				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
+				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
+				461875A51C900D740095B818 /* examples.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,9 +362,10 @@
 				D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
-				46B58BD21C8FD75A006E46B4 /* ExampleEnum.swift in Sources */,
+				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
+				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
