@@ -112,6 +112,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465C76241C90DBF30029311F /* Help Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				461875991C900CA10095B818 /* assemblylanguage.html */,
+				4618759B1C900D730095B818 /* debuggingprograms.html */,
+				4618759C1C900D730095B818 /* examples.html */,
+				4618759D1C900D730095B818 /* figures */,
+				4618759E1C900D730095B818 /* images */,
+				4618759F1C900D740095B818 /* machinelanguage.html */,
+				461875A01C900D740095B818 /* pep9reference.html */,
+				461875A11C900D740095B818 /* problems.html */,
+				461875A21C900D740095B818 /* writingprograms.html */,
+				461875A31C900D740095B818 /* writingtraphandlers.html */,
+			);
+			name = "Help Documentation";
+			sourceTree = "<group>";
+		};
 		46B58BD31C8FD872006E46B4 /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,16 +144,6 @@
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				461875991C900CA10095B818 /* assemblylanguage.html */,
-				4618759B1C900D730095B818 /* debuggingprograms.html */,
-				4618759C1C900D730095B818 /* examples.html */,
-				4618759D1C900D730095B818 /* figures */,
-				4618759E1C900D730095B818 /* images */,
-				4618759F1C900D740095B818 /* machinelanguage.html */,
-				461875A01C900D740095B818 /* pep9reference.html */,
-				461875A11C900D740095B818 /* problems.html */,
-				461875A21C900D740095B818 /* writingprograms.html */,
-				461875A31C900D740095B818 /* writingtraphandlers.html */,
 				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061631C7E62040088CEBE /* Assets.xcassets */,
 				D2B061681C7E62040088CEBE /* Info.plist */,
@@ -191,6 +198,7 @@
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
+				465C76241C90DBF30029311F /* Help Documentation */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
 			);
 			path = pep9pad;
