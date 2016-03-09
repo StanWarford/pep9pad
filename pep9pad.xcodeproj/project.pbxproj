@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46B58BD21C8FD75A006E46B4 /* ExampleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* ExampleEnum.swift */; };
+		46B58BD51C8FE155006E46B4 /* HelpWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B58BD41C8FE155006E46B4 /* HelpWebView.xib */; };
 		46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CPUViewController.swift */; };
+		46F46D331C8F49340092EF04 /* Enu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enu.swift */; };
+		46F46D351C8F661D0092EF04 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D341C8F661D0092EF04 /* Argument.swift */; };
+		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
+		46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */; };
+		46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
 		D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* MasterViewController.swift */; };
 		D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Main.storyboard */; };
@@ -36,7 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46B58BD11C8FD75A006E46B4 /* ExampleEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleEnum.swift; sourceTree = "<group>"; };
+		46B58BD41C8FE155006E46B4 /* HelpWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpWebView.xib; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
+		46F46D321C8F49340092EF04 /* Enu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enu.swift; sourceTree = "<group>"; };
+		46F46D341C8F661D0092EF04 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
+		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
+		46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterViewController.swift; sourceTree = "<group>"; };
+		46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2B0615B1C7E62040088CEBE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +92,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46B58BD31C8FD872006E46B4 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				46F46D361C8F70070092EF04 /* Help.storyboard */,
+				46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */,
+				46B58BD11C8FD75A006E46B4 /* ExampleEnum.swift */,
+				46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */,
+				46B58BD41C8FE155006E46B4 /* HelpWebView.xib */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +156,9 @@
 				D2B0615B1C7E62040088CEBE /* MasterViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* CPUViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
+				46F46D341C8F661D0092EF04 /* Argument.swift */,
+				46F46D321C8F49340092EF04 /* Enu.swift */,
+				46B58BD31C8FD872006E46B4 /* Help */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
@@ -260,8 +289,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
+				46B58BD51C8FE155006E46B4 /* HelpWebView.xib in Resources */,
 				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
+				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,10 +317,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F46D331C8F49340092EF04 /* Enu.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */,
+				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
+				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
+				46B58BD21C8FD75A006E46B4 /* ExampleEnum.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
+				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
