@@ -18,6 +18,11 @@
 		461875AA1C900D740095B818 /* problems.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A11C900D740095B818 /* problems.html */; };
 		461875AB1C900D740095B818 /* writingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A21C900D740095B818 /* writingprograms.html */; };
 		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
+		463A662B1C97CC14004C35B2 /* Inconsolata-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463A66291C97CC14004C35B2 /* Inconsolata-Bold.ttf */; };
+		463A662C1C97CC14004C35B2 /* Inconsolata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463A662A1C97CC14004C35B2 /* Inconsolata-Regular.ttf */; };
+		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
+		463A66311C97CE0E004C35B2 /* PepTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextViewController.swift */; };
+		463A66331C97CE59004C35B2 /* PepTextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463A66321C97CE59004C35B2 /* PepTextViewController.storyboard */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CPUViewController.swift */; };
 		46F46D331C8F49340092EF04 /* Enu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enu.swift */; };
@@ -64,6 +69,11 @@
 		461875A11C900D740095B818 /* problems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = problems.html; sourceTree = "<group>"; };
 		461875A21C900D740095B818 /* writingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingprograms.html; sourceTree = "<group>"; };
 		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
+		463A66291C97CC14004C35B2 /* Inconsolata-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inconsolata-Bold.ttf"; path = "fonts/Inconsolata-Bold.ttf"; sourceTree = "<group>"; };
+		463A662A1C97CC14004C35B2 /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inconsolata-Regular.ttf"; path = "fonts/Inconsolata-Regular.ttf"; sourceTree = "<group>"; };
+		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		463A66301C97CE0E004C35B2 /* PepTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextViewController.swift; sourceTree = "<group>"; };
+		463A66321C97CE59004C35B2 /* PepTextViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PepTextViewController.storyboard; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		46F46D321C8F49340092EF04 /* Enu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enu.swift; sourceTree = "<group>"; };
@@ -112,6 +122,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		463A662D1C97CD5F004C35B2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				463A662E1C97CD6C004C35B2 /* Fonts.swift */,
+				463A66291C97CC14004C35B2 /* Inconsolata-Bold.ttf */,
+				463A662A1C97CC14004C35B2 /* Inconsolata-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		465C76241C90DBF30029311F /* Help Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +164,7 @@
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				463A662D1C97CD5F004C35B2 /* Fonts */,
 				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061631C7E62040088CEBE /* Assets.xcassets */,
 				D2B061681C7E62040088CEBE /* Info.plist */,
@@ -193,8 +214,10 @@
 				D2B0615B1C7E62040088CEBE /* MasterViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* CPUViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
+				463A66321C97CE59004C35B2 /* PepTextViewController.storyboard */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
 				46F46D321C8F49340092EF04 /* Enu.swift */,
+				463A66301C97CE0E004C35B2 /* PepTextViewController.swift */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
@@ -331,12 +354,15 @@
 				461875A61C900D740095B818 /* figures in Resources */,
 				461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */,
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
+				463A662C1C97CC14004C35B2 /* Inconsolata-Regular.ttf in Resources */,
 				461875AA1C900D740095B818 /* problems.html in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
+				463A662B1C97CC14004C35B2 /* Inconsolata-Bold.ttf in Resources */,
 				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
+				463A66331C97CE59004C35B2 /* PepTextViewController.storyboard in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
 				461875A51C900D740095B818 /* examples.html in Resources */,
@@ -368,12 +394,14 @@
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */,
+				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
+				463A66311C97CE0E004C35B2 /* PepTextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
