@@ -21,10 +21,95 @@
 		463A662B1C97CC14004C35B2 /* Inconsolata-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463A66291C97CC14004C35B2 /* Inconsolata-Bold.ttf */; };
 		463A662C1C97CC14004C35B2 /* Inconsolata-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 463A662A1C97CC14004C35B2 /* Inconsolata-Regular.ttf */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
-		463A66311C97CE0E004C35B2 /* PepTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextViewController.swift */; };
-		463A66331C97CE59004C35B2 /* PepTextViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 463A66321C97CE59004C35B2 /* PepTextViewController.storyboard */; };
+		463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextView.swift */; };
+		467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Asm.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CPUViewController.swift */; };
+		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
+		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
+		46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8A611C9892F6001405CE /* PepFileType.swift */; };
+		46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A631C9895CC001405CE /* exer0804.pep */; };
+		46EC8AB61C9895CC001405CE /* fig0433.pepb in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A641C9895CC001405CE /* fig0433.pepb */; };
+		46EC8AB71C9895CC001405CE /* fig0433.peph in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A651C9895CC001405CE /* fig0433.peph */; };
+		46EC8AB81C9895CC001405CE /* fig0433.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A661C9895CC001405CE /* fig0433.pepo */; };
+		46EC8AB91C9895CC001405CE /* fig0435.pepb in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A671C9895CC001405CE /* fig0435.pepb */; };
+		46EC8ABA1C9895CC001405CE /* fig0435.peph in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A681C9895CC001405CE /* fig0435.peph */; };
+		46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A691C9895CC001405CE /* fig0435.pepo */; };
+		46EC8ABC1C9895CC001405CE /* fig0436.pepb in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A6A1C9895CC001405CE /* fig0436.pepb */; };
+		46EC8ABD1C9895CC001405CE /* fig0436.peph in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A6B1C9895CC001405CE /* fig0436.peph */; };
+		46EC8ABE1C9895CC001405CE /* fig0436.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A6C1C9895CC001405CE /* fig0436.pepo */; };
+		46EC8ABF1C9895CC001405CE /* fig0437.pepb in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A6D1C9895CC001405CE /* fig0437.pepb */; };
+		46EC8AC01C9895CC001405CE /* fig0437.peph in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A6E1C9895CC001405CE /* fig0437.peph */; };
+		46EC8AC11C9895CC001405CE /* fig0437.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A6F1C9895CC001405CE /* fig0437.pepo */; };
+		46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A701C9895CC001405CE /* fig0503.pep */; };
+		46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A711C9895CC001405CE /* fig0506.pep */; };
+		46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A721C9895CC001405CE /* fig0507.pep */; };
+		46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A731C9895CC001405CE /* fig0510.pep */; };
+		46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A741C9895CC001405CE /* fig0511.pep */; };
+		46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A761C9895CC001405CE /* fig0513.pep */; };
+		46EC8AC81C9895CC001405CE /* fig0514a.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A771C9895CC001405CE /* fig0514a.pep */; };
+		46EC8AC91C9895CC001405CE /* fig0514b.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A781C9895CC001405CE /* fig0514b.pep */; };
+		46EC8ACA1C9895CC001405CE /* fig0515.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A791C9895CC001405CE /* fig0515.pep */; };
+		46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7A1C9895CC001405CE /* fig0516.pep */; };
+		46EC8ACC1C9895CC001405CE /* fig0519.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7B1C9895CC001405CE /* fig0519.c */; };
+		46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7C1C9895CC001405CE /* fig0519.pep */; };
+		46EC8ACE1C9895CC001405CE /* fig0522.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7D1C9895CC001405CE /* fig0522.c */; };
+		46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7E1C9895CC001405CE /* fig0522.pep */; };
+		46EC8AD01C9895CC001405CE /* fig0527.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7F1C9895CC001405CE /* fig0527.c */; };
+		46EC8AD11C9895CC001405CE /* fig0527.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A801C9895CC001405CE /* fig0527.pep */; };
+		46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A811C9895CC001405CE /* fig0601.pep */; };
+		46EC8AD31C9895CC001405CE /* fig0604.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A821C9895CC001405CE /* fig0604.c */; };
+		46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A831C9895CC001405CE /* fig0604.pep */; };
+		46EC8AD51C9895CC001405CE /* fig0606.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A841C9895CC001405CE /* fig0606.c */; };
+		46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A851C9895CC001405CE /* fig0606.pep */; };
+		46EC8AD71C9895CC001405CE /* fig0608.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A861C9895CC001405CE /* fig0608.c */; };
+		46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A871C9895CC001405CE /* fig0608.pep */; };
+		46EC8AD91C9895CC001405CE /* fig0610.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A881C9895CC001405CE /* fig0610.c */; };
+		46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A891C9895CC001405CE /* fig0610.pep */; };
+		46EC8ADB1C9895CC001405CE /* fig0612.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8A1C9895CC001405CE /* fig0612.c */; };
+		46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8B1C9895CC001405CE /* fig0612.pep */; };
+		46EC8ADD1C9895CC001405CE /* fig0614.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8C1C9895CC001405CE /* fig0614.c */; };
+		46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8D1C9895CC001405CE /* fig0614.pep */; };
+		46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8E1C9895CC001405CE /* fig0616.pep */; };
+		46EC8AE01C9895CC001405CE /* fig0618.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8F1C9895CC001405CE /* fig0618.c */; };
+		46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A901C9895CC001405CE /* fig0618.pep */; };
+		46EC8AE21C9895CC001405CE /* fig0621.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A911C9895CC001405CE /* fig0621.c */; };
+		46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A921C9895CC001405CE /* fig0621.pep */; };
+		46EC8AE41C9895CC001405CE /* fig0623.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A931C9895CC001405CE /* fig0623.c */; };
+		46EC8AE51C9895CC001405CE /* fig0623.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A941C9895CC001405CE /* fig0623.pep */; };
+		46EC8AE61C9895CC001405CE /* fig0625.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A951C9895CC001405CE /* fig0625.c */; };
+		46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A961C9895CC001405CE /* fig0625.pep */; };
+		46EC8AE81C9895CD001405CE /* fig0627.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A971C9895CC001405CE /* fig0627.c */; };
+		46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A981C9895CC001405CE /* fig0627.pep */; };
+		46EC8AEA1C9895CD001405CE /* fig0629.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A991C9895CC001405CE /* fig0629.c */; };
+		46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9A1C9895CC001405CE /* fig0629.pep */; };
+		46EC8AEC1C9895CD001405CE /* fig0632.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9B1C9895CC001405CE /* fig0632.c */; };
+		46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9C1C9895CC001405CE /* fig0632.pep */; };
+		46EC8AEE1C9895CD001405CE /* fig0634.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9D1C9895CC001405CE /* fig0634.c */; };
+		46EC8AEF1C9895CD001405CE /* fig0634.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9E1C9895CC001405CE /* fig0634.pep */; };
+		46EC8AF01C9895CD001405CE /* fig0636.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9F1C9895CC001405CE /* fig0636.c */; };
+		46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA01C9895CC001405CE /* fig0636.pep */; };
+		46EC8AF21C9895CD001405CE /* fig0638.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA11C9895CC001405CE /* fig0638.c */; };
+		46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA21C9895CC001405CE /* fig0638.pep */; };
+		46EC8AF41C9895CD001405CE /* fig0640.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA31C9895CC001405CE /* fig0640.c */; };
+		46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA41C9895CC001405CE /* fig0640.pep */; };
+		46EC8AF61C9895CD001405CE /* fig0642.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA51C9895CC001405CE /* fig0642.c */; };
+		46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA61C9895CC001405CE /* fig0642.pep */; };
+		46EC8AF81C9895CD001405CE /* fig0644.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA71C9895CC001405CE /* fig0644.c */; };
+		46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA81C9895CC001405CE /* fig0644.pep */; };
+		46EC8AFA1C9895CD001405CE /* fig0646.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA91C9895CC001405CE /* fig0646.c */; };
+		46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAA1C9895CC001405CE /* fig0646.pep */; };
+		46EC8AFC1C9895CD001405CE /* fig0648.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAB1C9895CC001405CE /* fig0648.c */; };
+		46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAC1C9895CC001405CE /* fig0648.pep */; };
+		46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAD1C9895CC001405CE /* pep9os.pep */; };
+		46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAE1C9895CC001405CE /* prob0826.pep */; };
+		46EC8B001C9895CD001405CE /* prob0827.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAF1C9895CC001405CE /* prob0827.pep */; };
+		46EC8B011C9895CD001405CE /* prob0828.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB01C9895CC001405CE /* prob0828.pep */; };
+		46EC8B021C9895CD001405CE /* prob0829.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB11C9895CC001405CE /* prob0829.pep */; };
+		46EC8B031C9895CD001405CE /* prob0830.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB21C9895CC001405CE /* prob0830.pep */; };
+		46EC8B041C9895CD001405CE /* prob0831.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB31C9895CC001405CE /* prob0831.pep */; };
+		46EC8B051C9895CD001405CE /* prob0832.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB41C9895CC001405CE /* prob0832.pep */; };
+		46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8B091C98AA6E001405CE /* DoubleTextViewController.swift */; };
 		46F46D331C8F49340092EF04 /* Enu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enu.swift */; };
 		46F46D351C8F661D0092EF04 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D341C8F661D0092EF04 /* Argument.swift */; };
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
@@ -72,10 +157,96 @@
 		463A66291C97CC14004C35B2 /* Inconsolata-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inconsolata-Bold.ttf"; path = "fonts/Inconsolata-Bold.ttf"; sourceTree = "<group>"; };
 		463A662A1C97CC14004C35B2 /* Inconsolata-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inconsolata-Regular.ttf"; path = "fonts/Inconsolata-Regular.ttf"; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		463A66301C97CE0E004C35B2 /* PepTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextViewController.swift; sourceTree = "<group>"; };
-		463A66321C97CE59004C35B2 /* PepTextViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PepTextViewController.storyboard; sourceTree = "<group>"; };
+		463A66301C97CE0E004C35B2 /* PepTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextView.swift; sourceTree = "<group>"; };
+		467D71FB1CBEEF3B0090101F /* Asm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asm.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
+		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
+		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
+		46EC8A611C9892F6001405CE /* PepFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepFileType.swift; sourceTree = "<group>"; };
+		46EC8A631C9895CC001405CE /* exer0804.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = exer0804.pep; path = pep9pad/figures/exer0804.pep; sourceTree = "<group>"; };
+		46EC8A641C9895CC001405CE /* fig0433.pepb */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0433.pepb; path = pep9pad/figures/fig0433.pepb; sourceTree = "<group>"; };
+		46EC8A651C9895CC001405CE /* fig0433.peph */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0433.peph; path = pep9pad/figures/fig0433.peph; sourceTree = "<group>"; };
+		46EC8A661C9895CC001405CE /* fig0433.pepo */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0433.pepo; path = pep9pad/figures/fig0433.pepo; sourceTree = "<group>"; };
+		46EC8A671C9895CC001405CE /* fig0435.pepb */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0435.pepb; path = pep9pad/figures/fig0435.pepb; sourceTree = "<group>"; };
+		46EC8A681C9895CC001405CE /* fig0435.peph */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0435.peph; path = pep9pad/figures/fig0435.peph; sourceTree = "<group>"; };
+		46EC8A691C9895CC001405CE /* fig0435.pepo */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0435.pepo; path = pep9pad/figures/fig0435.pepo; sourceTree = "<group>"; };
+		46EC8A6A1C9895CC001405CE /* fig0436.pepb */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0436.pepb; path = pep9pad/figures/fig0436.pepb; sourceTree = "<group>"; };
+		46EC8A6B1C9895CC001405CE /* fig0436.peph */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0436.peph; path = pep9pad/figures/fig0436.peph; sourceTree = "<group>"; };
+		46EC8A6C1C9895CC001405CE /* fig0436.pepo */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0436.pepo; path = pep9pad/figures/fig0436.pepo; sourceTree = "<group>"; };
+		46EC8A6D1C9895CC001405CE /* fig0437.pepb */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0437.pepb; path = pep9pad/figures/fig0437.pepb; sourceTree = "<group>"; };
+		46EC8A6E1C9895CC001405CE /* fig0437.peph */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0437.peph; path = pep9pad/figures/fig0437.peph; sourceTree = "<group>"; };
+		46EC8A6F1C9895CC001405CE /* fig0437.pepo */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0437.pepo; path = pep9pad/figures/fig0437.pepo; sourceTree = "<group>"; };
+		46EC8A701C9895CC001405CE /* fig0503.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0503.pep; path = pep9pad/figures/fig0503.pep; sourceTree = "<group>"; };
+		46EC8A711C9895CC001405CE /* fig0506.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0506.pep; path = pep9pad/figures/fig0506.pep; sourceTree = "<group>"; };
+		46EC8A721C9895CC001405CE /* fig0507.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0507.pep; path = pep9pad/figures/fig0507.pep; sourceTree = "<group>"; };
+		46EC8A731C9895CC001405CE /* fig0510.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0510.pep; path = pep9pad/figures/fig0510.pep; sourceTree = "<group>"; };
+		46EC8A741C9895CC001405CE /* fig0511.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0511.pep; path = pep9pad/figures/fig0511.pep; sourceTree = "<group>"; };
+		46EC8A751C9895CC001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
+		46EC8A761C9895CC001405CE /* fig0513.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0513.pep; path = pep9pad/figures/fig0513.pep; sourceTree = "<group>"; };
+		46EC8A771C9895CC001405CE /* fig0514a.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0514a.pep; path = pep9pad/figures/fig0514a.pep; sourceTree = "<group>"; };
+		46EC8A781C9895CC001405CE /* fig0514b.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0514b.pep; path = pep9pad/figures/fig0514b.pep; sourceTree = "<group>"; };
+		46EC8A791C9895CC001405CE /* fig0515.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0515.pep; path = pep9pad/figures/fig0515.pep; sourceTree = "<group>"; };
+		46EC8A7A1C9895CC001405CE /* fig0516.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0516.pep; path = pep9pad/figures/fig0516.pep; sourceTree = "<group>"; };
+		46EC8A7B1C9895CC001405CE /* fig0519.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0519.c; path = pep9pad/figures/fig0519.c; sourceTree = "<group>"; };
+		46EC8A7C1C9895CC001405CE /* fig0519.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0519.pep; path = pep9pad/figures/fig0519.pep; sourceTree = "<group>"; };
+		46EC8A7D1C9895CC001405CE /* fig0522.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0522.c; path = pep9pad/figures/fig0522.c; sourceTree = "<group>"; };
+		46EC8A7E1C9895CC001405CE /* fig0522.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0522.pep; path = pep9pad/figures/fig0522.pep; sourceTree = "<group>"; };
+		46EC8A7F1C9895CC001405CE /* fig0527.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0527.c; path = pep9pad/figures/fig0527.c; sourceTree = "<group>"; };
+		46EC8A801C9895CC001405CE /* fig0527.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0527.pep; path = pep9pad/figures/fig0527.pep; sourceTree = "<group>"; };
+		46EC8A811C9895CC001405CE /* fig0601.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0601.pep; path = pep9pad/figures/fig0601.pep; sourceTree = "<group>"; };
+		46EC8A821C9895CC001405CE /* fig0604.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0604.c; path = pep9pad/figures/fig0604.c; sourceTree = "<group>"; };
+		46EC8A831C9895CC001405CE /* fig0604.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0604.pep; path = pep9pad/figures/fig0604.pep; sourceTree = "<group>"; };
+		46EC8A841C9895CC001405CE /* fig0606.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0606.c; path = pep9pad/figures/fig0606.c; sourceTree = "<group>"; };
+		46EC8A851C9895CC001405CE /* fig0606.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0606.pep; path = pep9pad/figures/fig0606.pep; sourceTree = "<group>"; };
+		46EC8A861C9895CC001405CE /* fig0608.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0608.c; path = pep9pad/figures/fig0608.c; sourceTree = "<group>"; };
+		46EC8A871C9895CC001405CE /* fig0608.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0608.pep; path = pep9pad/figures/fig0608.pep; sourceTree = "<group>"; };
+		46EC8A881C9895CC001405CE /* fig0610.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0610.c; path = pep9pad/figures/fig0610.c; sourceTree = "<group>"; };
+		46EC8A891C9895CC001405CE /* fig0610.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0610.pep; path = pep9pad/figures/fig0610.pep; sourceTree = "<group>"; };
+		46EC8A8A1C9895CC001405CE /* fig0612.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0612.c; path = pep9pad/figures/fig0612.c; sourceTree = "<group>"; };
+		46EC8A8B1C9895CC001405CE /* fig0612.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0612.pep; path = pep9pad/figures/fig0612.pep; sourceTree = "<group>"; };
+		46EC8A8C1C9895CC001405CE /* fig0614.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0614.c; path = pep9pad/figures/fig0614.c; sourceTree = "<group>"; };
+		46EC8A8D1C9895CC001405CE /* fig0614.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0614.pep; path = pep9pad/figures/fig0614.pep; sourceTree = "<group>"; };
+		46EC8A8E1C9895CC001405CE /* fig0616.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0616.pep; path = pep9pad/figures/fig0616.pep; sourceTree = "<group>"; };
+		46EC8A8F1C9895CC001405CE /* fig0618.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0618.c; path = pep9pad/figures/fig0618.c; sourceTree = "<group>"; };
+		46EC8A901C9895CC001405CE /* fig0618.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0618.pep; path = pep9pad/figures/fig0618.pep; sourceTree = "<group>"; };
+		46EC8A911C9895CC001405CE /* fig0621.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0621.c; path = pep9pad/figures/fig0621.c; sourceTree = "<group>"; };
+		46EC8A921C9895CC001405CE /* fig0621.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0621.pep; path = pep9pad/figures/fig0621.pep; sourceTree = "<group>"; };
+		46EC8A931C9895CC001405CE /* fig0623.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0623.c; path = pep9pad/figures/fig0623.c; sourceTree = "<group>"; };
+		46EC8A941C9895CC001405CE /* fig0623.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0623.pep; path = pep9pad/figures/fig0623.pep; sourceTree = "<group>"; };
+		46EC8A951C9895CC001405CE /* fig0625.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0625.c; path = pep9pad/figures/fig0625.c; sourceTree = "<group>"; };
+		46EC8A961C9895CC001405CE /* fig0625.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0625.pep; path = pep9pad/figures/fig0625.pep; sourceTree = "<group>"; };
+		46EC8A971C9895CC001405CE /* fig0627.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0627.c; path = pep9pad/figures/fig0627.c; sourceTree = "<group>"; };
+		46EC8A981C9895CC001405CE /* fig0627.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0627.pep; path = pep9pad/figures/fig0627.pep; sourceTree = "<group>"; };
+		46EC8A991C9895CC001405CE /* fig0629.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0629.c; path = pep9pad/figures/fig0629.c; sourceTree = "<group>"; };
+		46EC8A9A1C9895CC001405CE /* fig0629.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0629.pep; path = pep9pad/figures/fig0629.pep; sourceTree = "<group>"; };
+		46EC8A9B1C9895CC001405CE /* fig0632.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0632.c; path = pep9pad/figures/fig0632.c; sourceTree = "<group>"; };
+		46EC8A9C1C9895CC001405CE /* fig0632.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0632.pep; path = pep9pad/figures/fig0632.pep; sourceTree = "<group>"; };
+		46EC8A9D1C9895CC001405CE /* fig0634.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0634.c; path = pep9pad/figures/fig0634.c; sourceTree = "<group>"; };
+		46EC8A9E1C9895CC001405CE /* fig0634.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0634.pep; path = pep9pad/figures/fig0634.pep; sourceTree = "<group>"; };
+		46EC8A9F1C9895CC001405CE /* fig0636.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0636.c; path = pep9pad/figures/fig0636.c; sourceTree = "<group>"; };
+		46EC8AA01C9895CC001405CE /* fig0636.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0636.pep; path = pep9pad/figures/fig0636.pep; sourceTree = "<group>"; };
+		46EC8AA11C9895CC001405CE /* fig0638.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0638.c; path = pep9pad/figures/fig0638.c; sourceTree = "<group>"; };
+		46EC8AA21C9895CC001405CE /* fig0638.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0638.pep; path = pep9pad/figures/fig0638.pep; sourceTree = "<group>"; };
+		46EC8AA31C9895CC001405CE /* fig0640.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0640.c; path = pep9pad/figures/fig0640.c; sourceTree = "<group>"; };
+		46EC8AA41C9895CC001405CE /* fig0640.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0640.pep; path = pep9pad/figures/fig0640.pep; sourceTree = "<group>"; };
+		46EC8AA51C9895CC001405CE /* fig0642.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0642.c; path = pep9pad/figures/fig0642.c; sourceTree = "<group>"; };
+		46EC8AA61C9895CC001405CE /* fig0642.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0642.pep; path = pep9pad/figures/fig0642.pep; sourceTree = "<group>"; };
+		46EC8AA71C9895CC001405CE /* fig0644.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0644.c; path = pep9pad/figures/fig0644.c; sourceTree = "<group>"; };
+		46EC8AA81C9895CC001405CE /* fig0644.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0644.pep; path = pep9pad/figures/fig0644.pep; sourceTree = "<group>"; };
+		46EC8AA91C9895CC001405CE /* fig0646.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0646.c; path = pep9pad/figures/fig0646.c; sourceTree = "<group>"; };
+		46EC8AAA1C9895CC001405CE /* fig0646.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0646.pep; path = pep9pad/figures/fig0646.pep; sourceTree = "<group>"; };
+		46EC8AAB1C9895CC001405CE /* fig0648.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0648.c; path = pep9pad/figures/fig0648.c; sourceTree = "<group>"; };
+		46EC8AAC1C9895CC001405CE /* fig0648.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0648.pep; path = pep9pad/figures/fig0648.pep; sourceTree = "<group>"; };
+		46EC8AAD1C9895CC001405CE /* pep9os.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = pep9os.pep; path = pep9pad/figures/pep9os.pep; sourceTree = "<group>"; };
+		46EC8AAE1C9895CC001405CE /* prob0826.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0826.pep; path = pep9pad/figures/prob0826.pep; sourceTree = "<group>"; };
+		46EC8AAF1C9895CC001405CE /* prob0827.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0827.pep; path = pep9pad/figures/prob0827.pep; sourceTree = "<group>"; };
+		46EC8AB01C9895CC001405CE /* prob0828.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0828.pep; path = pep9pad/figures/prob0828.pep; sourceTree = "<group>"; };
+		46EC8AB11C9895CC001405CE /* prob0829.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0829.pep; path = pep9pad/figures/prob0829.pep; sourceTree = "<group>"; };
+		46EC8AB21C9895CC001405CE /* prob0830.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0830.pep; path = pep9pad/figures/prob0830.pep; sourceTree = "<group>"; };
+		46EC8AB31C9895CC001405CE /* prob0831.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0831.pep; path = pep9pad/figures/prob0831.pep; sourceTree = "<group>"; };
+		46EC8AB41C9895CC001405CE /* prob0832.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0832.pep; path = pep9pad/figures/prob0832.pep; sourceTree = "<group>"; };
+		46EC8B091C98AA6E001405CE /* DoubleTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTextViewController.swift; sourceTree = "<group>"; };
 		46F46D321C8F49340092EF04 /* Enu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enu.swift; sourceTree = "<group>"; };
 		46F46D341C8F661D0092EF04 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
@@ -149,14 +320,50 @@
 			name = "Help Documentation";
 			sourceTree = "<group>";
 		};
+		46A304DF1C992AAE00CDCD1A /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				46CE259E1C98D6C20006021D /* DocumentationViewController.swift */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		46A304E21C992BC600CDCD1A /* DoubleText */ = {
+			isa = PBXGroup;
+			children = (
+				46EC8B091C98AA6E001405CE /* DoubleTextViewController.swift */,
+			);
+			name = DoubleText;
+			sourceTree = "<group>";
+		};
+		46A304E31C992BE100CDCD1A /* Help Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */,
+				461875951C90089F0095B818 /* HelpDocumentation.swift */,
+				46EC8B061C9895DF001405CE /* Examples */,
+				465C76241C90DBF30029311F /* Help Documentation */,
+			);
+			name = "Help Resources";
+			sourceTree = "<group>";
+		};
+		46A304E41C992D5500CDCD1A /* PepTextView */ = {
+			isa = PBXGroup;
+			children = (
+				463A66301C97CE0E004C35B2 /* PepTextView.swift */,
+			);
+			name = PepTextView;
+			sourceTree = "<group>";
+		};
 		46B58BD31C8FD872006E46B4 /* Help */ = {
 			isa = PBXGroup;
 			children = (
 				46F46D361C8F70070092EF04 /* Help.storyboard */,
 				46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */,
-				46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */,
 				46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */,
-				461875951C90089F0095B818 /* HelpDocumentation.swift */,
+				46A304DF1C992AAE00CDCD1A /* Documentation */,
+				46A304E21C992BC600CDCD1A /* DoubleText */,
+				46A304E31C992BE100CDCD1A /* Help Resources */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -188,6 +395,97 @@
 			name = Launch;
 			sourceTree = "<group>";
 		};
+		46EC8B061C9895DF001405CE /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				46EC8A631C9895CC001405CE /* exer0804.pep */,
+				46EC8A641C9895CC001405CE /* fig0433.pepb */,
+				46EC8A651C9895CC001405CE /* fig0433.peph */,
+				46EC8A661C9895CC001405CE /* fig0433.pepo */,
+				46EC8A671C9895CC001405CE /* fig0435.pepb */,
+				46EC8A681C9895CC001405CE /* fig0435.peph */,
+				46EC8A691C9895CC001405CE /* fig0435.pepo */,
+				46EC8A6A1C9895CC001405CE /* fig0436.pepb */,
+				46EC8A6B1C9895CC001405CE /* fig0436.peph */,
+				46EC8A6C1C9895CC001405CE /* fig0436.pepo */,
+				46EC8A6D1C9895CC001405CE /* fig0437.pepb */,
+				46EC8A6E1C9895CC001405CE /* fig0437.peph */,
+				46EC8A6F1C9895CC001405CE /* fig0437.pepo */,
+				46EC8A701C9895CC001405CE /* fig0503.pep */,
+				46EC8A711C9895CC001405CE /* fig0506.pep */,
+				46EC8A721C9895CC001405CE /* fig0507.pep */,
+				46EC8A731C9895CC001405CE /* fig0510.pep */,
+				46EC8A741C9895CC001405CE /* fig0511.pep */,
+				46EC8A751C9895CC001405CE /* fig0512.pep */,
+				46EC8A761C9895CC001405CE /* fig0513.pep */,
+				46EC8A771C9895CC001405CE /* fig0514a.pep */,
+				46EC8A781C9895CC001405CE /* fig0514b.pep */,
+				46EC8A791C9895CC001405CE /* fig0515.pep */,
+				46EC8A7A1C9895CC001405CE /* fig0516.pep */,
+				46EC8A7B1C9895CC001405CE /* fig0519.c */,
+				46EC8A7C1C9895CC001405CE /* fig0519.pep */,
+				46EC8A7D1C9895CC001405CE /* fig0522.c */,
+				46EC8A7E1C9895CC001405CE /* fig0522.pep */,
+				46EC8A7F1C9895CC001405CE /* fig0527.c */,
+				46EC8A801C9895CC001405CE /* fig0527.pep */,
+				46EC8A811C9895CC001405CE /* fig0601.pep */,
+				46EC8A821C9895CC001405CE /* fig0604.c */,
+				46EC8A831C9895CC001405CE /* fig0604.pep */,
+				46EC8A841C9895CC001405CE /* fig0606.c */,
+				46EC8A851C9895CC001405CE /* fig0606.pep */,
+				46EC8A861C9895CC001405CE /* fig0608.c */,
+				46EC8A871C9895CC001405CE /* fig0608.pep */,
+				46EC8A881C9895CC001405CE /* fig0610.c */,
+				46EC8A891C9895CC001405CE /* fig0610.pep */,
+				46EC8A8A1C9895CC001405CE /* fig0612.c */,
+				46EC8A8B1C9895CC001405CE /* fig0612.pep */,
+				46EC8A8C1C9895CC001405CE /* fig0614.c */,
+				46EC8A8D1C9895CC001405CE /* fig0614.pep */,
+				46EC8A8E1C9895CC001405CE /* fig0616.pep */,
+				46EC8A8F1C9895CC001405CE /* fig0618.c */,
+				46EC8A901C9895CC001405CE /* fig0618.pep */,
+				46EC8A911C9895CC001405CE /* fig0621.c */,
+				46EC8A921C9895CC001405CE /* fig0621.pep */,
+				46EC8A931C9895CC001405CE /* fig0623.c */,
+				46EC8A941C9895CC001405CE /* fig0623.pep */,
+				46EC8A951C9895CC001405CE /* fig0625.c */,
+				46EC8A961C9895CC001405CE /* fig0625.pep */,
+				46EC8A971C9895CC001405CE /* fig0627.c */,
+				46EC8A981C9895CC001405CE /* fig0627.pep */,
+				46EC8A991C9895CC001405CE /* fig0629.c */,
+				46EC8A9A1C9895CC001405CE /* fig0629.pep */,
+				46EC8A9B1C9895CC001405CE /* fig0632.c */,
+				46EC8A9C1C9895CC001405CE /* fig0632.pep */,
+				46EC8A9D1C9895CC001405CE /* fig0634.c */,
+				46EC8A9E1C9895CC001405CE /* fig0634.pep */,
+				46EC8A9F1C9895CC001405CE /* fig0636.c */,
+				46EC8AA01C9895CC001405CE /* fig0636.pep */,
+				46EC8AA11C9895CC001405CE /* fig0638.c */,
+				46EC8AA21C9895CC001405CE /* fig0638.pep */,
+				46EC8AA31C9895CC001405CE /* fig0640.c */,
+				46EC8AA41C9895CC001405CE /* fig0640.pep */,
+				46EC8AA51C9895CC001405CE /* fig0642.c */,
+				46EC8AA61C9895CC001405CE /* fig0642.pep */,
+				46EC8AA71C9895CC001405CE /* fig0644.c */,
+				46EC8AA81C9895CC001405CE /* fig0644.pep */,
+				46EC8AA91C9895CC001405CE /* fig0646.c */,
+				46EC8AAA1C9895CC001405CE /* fig0646.pep */,
+				46EC8AAB1C9895CC001405CE /* fig0648.c */,
+				46EC8AAC1C9895CC001405CE /* fig0648.pep */,
+				46EC8AAD1C9895CC001405CE /* pep9os.pep */,
+				46EC8AAE1C9895CC001405CE /* prob0826.pep */,
+				46EC8AAF1C9895CC001405CE /* prob0827.pep */,
+				46EC8AB01C9895CC001405CE /* prob0828.pep */,
+				46EC8AB11C9895CC001405CE /* prob0829.pep */,
+				46EC8AB21C9895CC001405CE /* prob0830.pep */,
+				46EC8AB31C9895CC001405CE /* prob0831.pep */,
+				46EC8AB41C9895CC001405CE /* prob0832.pep */,
+				46EC8A5F1C989229001405CE /* fig0512.pep */,
+			);
+			name = Examples;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
@@ -214,14 +512,14 @@
 				D2B0615B1C7E62040088CEBE /* MasterViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* CPUViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
-				463A66321C97CE59004C35B2 /* PepTextViewController.storyboard */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
+				467D71FB1CBEEF3B0090101F /* Asm.swift */,
 				46F46D321C8F49340092EF04 /* Enu.swift */,
-				463A66301C97CE0E004C35B2 /* PepTextViewController.swift */,
+				46A304E41C992D5500CDCD1A /* PepTextView */,
+				46EC8A611C9892F6001405CE /* PepFileType.swift */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
-				465C76241C90DBF30029311F /* Help Documentation */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
 			);
 			path = pep9pad;
@@ -349,6 +647,88 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */,
+				46EC8AB61C9895CC001405CE /* fig0433.pepb in Resources */,
+				46EC8AB71C9895CC001405CE /* fig0433.peph in Resources */,
+				46EC8AB81C9895CC001405CE /* fig0433.pepo in Resources */,
+				46EC8AB91C9895CC001405CE /* fig0435.pepb in Resources */,
+				46EC8ABA1C9895CC001405CE /* fig0435.peph in Resources */,
+				46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */,
+				46EC8ABC1C9895CC001405CE /* fig0436.pepb in Resources */,
+				46EC8ABD1C9895CC001405CE /* fig0436.peph in Resources */,
+				46EC8ABE1C9895CC001405CE /* fig0436.pepo in Resources */,
+				46EC8ABF1C9895CC001405CE /* fig0437.pepb in Resources */,
+				46EC8AC01C9895CC001405CE /* fig0437.peph in Resources */,
+				46EC8AC11C9895CC001405CE /* fig0437.pepo in Resources */,
+				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
+				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
+				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
+				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
+				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
+				46EC8A601C989229001405CE /* fig0512.pep in Resources */,
+				46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */,
+				46EC8AC81C9895CC001405CE /* fig0514a.pep in Resources */,
+				46EC8AC91C9895CC001405CE /* fig0514b.pep in Resources */,
+				46EC8ACA1C9895CC001405CE /* fig0515.pep in Resources */,
+				46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */,
+				46EC8ACC1C9895CC001405CE /* fig0519.c in Resources */,
+				46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */,
+				46EC8ACE1C9895CC001405CE /* fig0522.c in Resources */,
+				46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */,
+				46EC8AD01C9895CC001405CE /* fig0527.c in Resources */,
+				46EC8AD11C9895CC001405CE /* fig0527.pep in Resources */,
+				46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */,
+				46EC8AD31C9895CC001405CE /* fig0604.c in Resources */,
+				46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */,
+				46EC8AD51C9895CC001405CE /* fig0606.c in Resources */,
+				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
+				46EC8AD71C9895CC001405CE /* fig0608.c in Resources */,
+				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
+				46EC8AD91C9895CC001405CE /* fig0610.c in Resources */,
+				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
+				46EC8ADB1C9895CC001405CE /* fig0612.c in Resources */,
+				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
+				46EC8ADD1C9895CC001405CE /* fig0614.c in Resources */,
+				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
+				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
+				46EC8AE01C9895CC001405CE /* fig0618.c in Resources */,
+				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
+				46EC8AE21C9895CC001405CE /* fig0621.c in Resources */,
+				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
+				46EC8AE41C9895CC001405CE /* fig0623.c in Resources */,
+				46EC8AE51C9895CC001405CE /* fig0623.pep in Resources */,
+				46EC8AE61C9895CC001405CE /* fig0625.c in Resources */,
+				46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */,
+				46EC8AE81C9895CD001405CE /* fig0627.c in Resources */,
+				46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */,
+				46EC8AEA1C9895CD001405CE /* fig0629.c in Resources */,
+				46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */,
+				46EC8AEC1C9895CD001405CE /* fig0632.c in Resources */,
+				46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */,
+				46EC8AEE1C9895CD001405CE /* fig0634.c in Resources */,
+				46EC8AEF1C9895CD001405CE /* fig0634.pep in Resources */,
+				46EC8AF01C9895CD001405CE /* fig0636.c in Resources */,
+				46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */,
+				46EC8AF21C9895CD001405CE /* fig0638.c in Resources */,
+				46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */,
+				46EC8AF41C9895CD001405CE /* fig0640.c in Resources */,
+				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
+				46EC8AF61C9895CD001405CE /* fig0642.c in Resources */,
+				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
+				46EC8AF81C9895CD001405CE /* fig0644.c in Resources */,
+				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
+				46EC8AFA1C9895CD001405CE /* fig0646.c in Resources */,
+				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
+				46EC8AFC1C9895CD001405CE /* fig0648.c in Resources */,
+				46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */,
+				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
+				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
+				46EC8B001C9895CD001405CE /* prob0827.pep in Resources */,
+				46EC8B011C9895CD001405CE /* prob0828.pep in Resources */,
+				46EC8B021C9895CD001405CE /* prob0829.pep in Resources */,
+				46EC8B031C9895CD001405CE /* prob0830.pep in Resources */,
+				46EC8B041C9895CD001405CE /* prob0831.pep in Resources */,
+				46EC8B051C9895CD001405CE /* prob0832.pep in Resources */,
 				461875AB1C900D740095B818 /* writingprograms.html in Resources */,
 				461875A71C900D740095B818 /* images in Resources */,
 				461875A61C900D740095B818 /* figures in Resources */,
@@ -362,7 +742,6 @@
 				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
-				463A66331C97CE59004C35B2 /* PepTextViewController.storyboard in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
 				461875A51C900D740095B818 /* examples.html in Resources */,
@@ -395,13 +774,17 @@
 				46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
+				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
+				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
+				46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
-				463A66311C97CE0E004C35B2 /* PepTextViewController.swift in Sources */,
+				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
+				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

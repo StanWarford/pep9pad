@@ -22,101 +22,99 @@ class Argument {
 }
 
 
-/// Concrete subclasses of Argument.
-//
-//
-//class CharArgument: Argument {
-//    internal var charValue: String = ""
-//    
-//    init(char: String) {
-//        charValue = char
-//    }
-//    
+// MARK: - Concrete subclasses of Argument.
+class CharArgument: Argument {
+    internal var charValue: String = ""
+    
+    init(char: String) {
+        charValue = char
+    }
+    
 //    override func getArgumentValue() -> Int {
 //        return charStringToInt(charValue)
 //    }
-//    
-//    override func getArgumentString() -> String {
-//        return charValue
-//    }
-//}
-//
-//
-//
-//class DecArgument: Argument {
-//    internal var decValue: Int = -1
-//    
-//    init(dec: Int) {
-//        decValue = dec
-//    }
-//    
-//    override func getArgumentValue() -> Int {
-//        return decValue
-//    }
-//    
-//    override func getArgumentString() -> String {
-//        if decValue >= 32768 {
-//            return "\(decValue - 65536)"
-//        }
-//        return "\(decValue)"
-//    }
-//}
-//
-//
-//
-//class UnsignedDecArgument: Argument {
-//    internal var decValue: Int = -1
-//    init(dec: Int) {
-//        decValue = dec
-//    }
-//    
-//    override func getArgumentValue() -> Int {
-//        return decValue
-//    }
-//    
-//    override func getArgumentString() -> String {
-//        return "\(decValue)"
-//    }
-//}
-//
-//
-//
-//class HexArgument: Argument {
-//    internal var hexValue: Int = -1
-//    init(hex: Int) {
-//        hexValue = hex
-//    }
-//    
-//    
-//    override func getArgumentValue() -> Int {
-//        return hexValue
-//    }
-//    
-//    override func getArgumentString() -> String {
-//        //return "0x" + QString("%1").arg(hexValue, 4, 16, QLatin1Char('0')).toUpper();
-//        return "TODO"
-//}
-//
-//    
-//    
-//class StringArgument: Argument {
-//    internal var stringValue: String = ""
-//    init(str: String) {
-//        stringValue = str
-//    }
-//    
-//    override func getArgumentValue() -> Int {
-//        //return Asm::string2ArgumentToInt(stringValue);
-//        return -1
-//    }
-//    
-//    override func getArgumentString() -> String {
-//        return stringValue
-//    }
-//}
-//    
-//    
-//    
+    
+    override func getArgumentString() -> String {
+        return charValue
+    }
+}
+
+
+
+class DecArgument: Argument {
+    internal var decValue: Int = -1
+    
+    init(dec: Int) {
+        decValue = dec
+    }
+    
+    override func getArgumentValue() -> Int {
+        return decValue
+    }
+    
+    override func getArgumentString() -> String {
+        if decValue >= 32768 {
+            return "\(decValue - 65536)"
+        }
+        return "\(decValue)"
+    }
+}
+
+
+
+class UnsignedDecArgument: Argument {
+    internal var decValue: Int = -1
+    init(dec: Int) {
+        decValue = dec
+    }
+    
+    override func getArgumentValue() -> Int {
+        return decValue
+    }
+    
+    override func getArgumentString() -> String {
+        return "\(decValue)"
+    }
+}
+
+
+
+class HexArgument: Argument {
+    internal var hexValue: Int = -1
+    init(hex: Int) {
+        hexValue = hex
+    }
+    
+    
+    override func getArgumentValue() -> Int {
+        return hexValue
+    }
+    
+    override func getArgumentString() -> String {
+        //return "0x" + QString("%1").arg(hexValue, 4, 16, QLatin1Char('0')).toUpper();
+        return "TODO"
+}
+
+    
+    
+class StringArgument: Argument {
+    internal var stringValue: String = ""
+    init(str: String) {
+        stringValue = str
+    }
+    
+    override func getArgumentValue() -> Int {
+        //return Asm::string2ArgumentToInt(stringValue);
+        return -1
+    }
+    
+    override func getArgumentString() -> String {
+        return stringValue
+    }
+}
+    
+    
+    
 //class SymbolRefArgument: Argument {
 //    internal var symbolRefValue: String = ""
 //    init(symbolRef: String) {
@@ -139,4 +137,4 @@ class Argument {
 //        return symbolRefValue
 //    }
 //}
-
+}

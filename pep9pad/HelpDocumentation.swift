@@ -21,11 +21,8 @@ enum Documentation : String {
         WritingPrograms: "Writing Programs",
         MachineLanguage: "Machine Language",
         AssemblyLanguage: "Assembly Language",
-        
         DebuggingPrograms: "Debugging Programs",
         WritingTrapHandlers: "Writing Trap Handlers",
         Reference: "Pep/9 Reference"
-        //Problems,
-        //Examples,
     ]
 }

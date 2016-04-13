@@ -45,6 +45,8 @@ class HelpMasterViewController: UITableViewController {
             v.textLabel?.text = "Error"
         }
         
+        v.selectionStyle = .Blue
+        
         return v
     }
     
@@ -57,8 +59,7 @@ class HelpMasterViewController: UITableViewController {
         case 0:
             helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[indexPath.row])
         case 1:
-            //TODO: Implement
-            print("TODO: Implement selection")
+            helpDetail.loadExample((tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)!)
         default:
             print("Error")
         }
@@ -84,7 +85,6 @@ class HelpMasterViewController: UITableViewController {
         default:
             return ""
         }
-
     }
     
     
