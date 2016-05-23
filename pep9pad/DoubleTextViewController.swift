@@ -10,12 +10,12 @@ import UIKit
 
 class DoubleTextViewController: UIViewController {
     
-    @IBOutlet weak var leftTextView: PepTextView!
-    @IBOutlet weak var rightTextView: PepTextView!
+    @IBOutlet weak var topTextView: PepTextView!
+    @IBOutlet weak var bottomTextView: PepTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        leftTextView.setupTextView()
-        rightTextView.setupTextView()
+        topTextView.setupTextView(topTextView.bounds)
+        bottomTextView.setupTextView(bottomTextView.bounds)
     }
 }

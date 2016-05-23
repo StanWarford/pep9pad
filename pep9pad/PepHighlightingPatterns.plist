@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>operator</key>
+	<string>\bADD(A|SP|X)\b|\bAND(A|X)\b|\bASL(A|X)\b|\bASR(A|X)\b|\bBR\b|\bBR(C|EQ|GE|GT|LE|LT|NE|V)\b|\bCALL\b|\bCPB(A|X)\b|\bCPW(A|X)\b|\bDEC(I|O)\b|\bHEXO\b|\bLDB(A|X)\b|\bLDW(A|X)\b|\bMOV(FLGA|AFLG|SPA)\b|\bNEG(A|X)\b|\bNOP\b|\bNOP(0|1)\b|\bNOT(A|X)\b|\bOR(A|X)\b|\bRET\b|\bRETTR\b|\bROL(A|X)\b|\bROR(A|X)\b|\bSTB(A|X)\b|\bSTOP\b|\bSTRO\b|\bSTW(A|X)\b|\bSUB(A|X|SP)\b</string>
+	<key>dot</key>
+	<string>[\\.]\bEQUATE\b|[\\.]\bASCII\b|[\\.]\bBLOCK\b|[\\.]\bBURN\b|[\\.]\bBYTE\b|[\\.]\bEND\b|[\\.]\bALIGN\b|[\\.]\bWORD\b|[\\.]\bADDRSS\b</string>
+	<key>symbol</key>
+	<string>[A-Za-z0-9_]+(?=:)</string>
+	<key>singleLineComment</key>
+	<string>;.*</string>
+	<key>multiLineComment</key>
+	<string></string>
+	<key>warning</key>
+	<string>;WARNING:[\\s].*$</string>
+	<key>errorStart</key>
+	<string>;ERROR:[\\s]</string>
+	<key>errorEnd</key>
+	<string>$</string>
+	<key>singleQuote</key>
+	<string>((\&apos;)(?![\&apos;])(([^\&apos;|\\\\]){1}|((\\\\)([\&apos;|b|f|n|r|t|v|\&quot;|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))(\&apos;))</string>
+	<key>doubleQuote</key>
+	<string>((\&quot;)((([^\&quot;|\\\\])|((\\\\)([\&apos;|b|f|n|r|t|v|\&quot;|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))*)(\&quot;))</string>
+</dict>
+</plist>

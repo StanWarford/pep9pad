@@ -6,5 +6,6 @@
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 
-let InconsolataBold = "Inconsolata-Bold"
-let InconsolataRegular = "Inconsolata-Regular"
+let CourierBold = "Courier-Bold"
+let Courier = "Courier"
+let CourierItalic = "Courier-Oblique"

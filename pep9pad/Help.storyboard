@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dYo-E1-5MT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dYo-E1-5MT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Help Detail View Controller-->
@@ -40,51 +41,71 @@
                         <viewControllerLayoutGuide type="bottom" id="Ick-Ug-fyu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WTw-yi-b44">
-                        <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IKd-yD-AN3" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="357" y="64" width="337" height="704"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-pj-tKY" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="301" id="7OA-KI-kH1"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7OA-KI-kH1"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IKd-yD-AN3" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="336" width="600" height="264"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="337" id="lsD-ZN-81d"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="lsD-ZN-81d"/>
                                     </mask>
                                 </variation>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-pj-tKY" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="349" height="704"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gTj-pj-tKY" firstAttribute="top" secondItem="WTw-yi-b44" secondAttribute="top" constant="64" id="Q2J-v7-nKO"/>
-                            <constraint firstItem="gTj-pj-tKY" firstAttribute="bottom" secondItem="Ick-Ug-fyu" secondAttribute="top" id="QxI-Dc-62E"/>
-                            <constraint firstItem="IKd-yD-AN3" firstAttribute="bottom" secondItem="Ick-Ug-fyu" secondAttribute="top" id="RKq-bu-TI7"/>
-                            <constraint firstItem="gTj-pj-tKY" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leading" id="TvV-rD-1bv"/>
-                            <constraint firstAttribute="trailing" secondItem="IKd-yD-AN3" secondAttribute="trailing" id="XwE-w9-0Sj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gTj-pj-tKY" secondAttribute="trailing" constant="-20" id="04C-ob-auE"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="leading" secondItem="gTj-pj-tKY" secondAttribute="leading" id="1MY-Fn-RSg"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="bottom" secondItem="Ick-Ug-fyu" secondAttribute="top" id="7Mq-Di-w0Z"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leading" id="9u9-2C-rT2"/>
+                            <constraint firstAttribute="trailing" secondItem="IKd-yD-AN3" secondAttribute="trailing" id="K5q-yw-nI1"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="trailing" secondItem="gTj-pj-tKY" secondAttribute="trailing" id="QBW-Js-enx"/>
+                            <constraint firstItem="gTj-pj-tKY" firstAttribute="top" secondItem="utr-zP-eeO" secondAttribute="bottom" id="Ylw-iB-WYg"/>
                             <constraint firstItem="gTj-pj-tKY" firstAttribute="width" secondItem="IKd-yD-AN3" secondAttribute="width" constant="12" id="bf2-HC-OXy"/>
-                            <constraint firstItem="gTj-pj-tKY" firstAttribute="top" secondItem="IKd-yD-AN3" secondAttribute="top" id="iRR-JR-6OF"/>
-                            <constraint firstItem="IKd-yD-AN3" firstAttribute="leading" secondItem="gTj-pj-tKY" secondAttribute="trailing" constant="8" symbolic="YES" id="qTq-Ar-WzZ"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="height" secondItem="gTj-pj-tKY" secondAttribute="height" id="feR-ca-tzb"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leadingMargin" constant="-20" id="mA7-v5-iDj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IKd-yD-AN3" secondAttribute="trailing" constant="-20" id="oJd-t0-kXf"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="width" secondItem="gTj-pj-tKY" secondAttribute="width" id="oca-c3-XGv"/>
+                            <constraint firstItem="gTj-pj-tKY" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leadingMargin" constant="-20" id="vTh-rY-ubP"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="top" secondItem="gTj-pj-tKY" secondAttribute="bottom" constant="8" symbolic="YES" id="w3B-QP-wcy"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bf2-HC-OXy"/>
+                                <exclude reference="oca-c3-XGv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-2/3"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="leftTextView" destination="gTj-pj-tKY" id="64p-f6-FQ6"/>
-                        <outlet property="rightTextView" destination="IKd-yD-AN3" id="xsZ-iZ-ENe"/>
+                        <outlet property="bottomTextView" destination="IKd-yD-AN3" id="OWC-L0-t53"/>
+                        <outlet property="topTextView" destination="gTj-pj-tKY" id="Rnf-c0-sbz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Jc-8O-PWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
