@@ -1,5 +1,15 @@
-* Group the Help master table into Problems, Exercises
+===== HELP TABLE =====
 * Create a UITableViewCell subclass for the Help table w/ description label -- copy over the descriptions of files from Pep9 into these.
+* Fix "" bug
+* C++ highlighter
+* Fix ";File:" bug (precedence)
+* Persistent scroll bar
+* Errant files
+* Scroll fix
+* Disable editing
+
+===== CPU TABLE =====
+* Fix CPU overlaps
 
 
 
