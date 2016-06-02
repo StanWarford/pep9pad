@@ -1,0 +1,19 @@
+* Group the Help master table into Problems, Exercises
+* Create a UITableViewCell subclass for the Help table w/ description label -- copy over the descriptions of files from Pep9 into these.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -41,6 +41,8 @@ class HelpMasterViewController: UITableViewController {
             v.textLabel!.text = Array(Documentation.allValues.values)[indexPath.row]
         case 1:
             v.textLabel!.text = Examples.allValues[indexPath.row].rawValue
+        case 2:
+            v.textLabel!.text = Examples.allValues[indexPath.row + 40].rawValue
         default:
             v.textLabel?.text = "Error"
         }
@@ -51,7 +53,7 @@ class HelpMasterViewController: UITableViewController {
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -59,6 +61,8 @@ class HelpMasterViewController: UITableViewController {
         case 0:
             helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[indexPath.row])
         case 1:
+            helpDetail.loadExample((tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)!)
+        case 2:
             helpDetail.loadExample((tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)!)
         default:
             print("Error")
@@ -70,7 +74,9 @@ class HelpMasterViewController: UITableViewController {
         case 0:
             return Documentation.allValues.count
         case 1:
-            return Examples.allValues.count
+            return Examples.allValues.count - 8
+        case 2:
+            return 8
         default:
             return 0
         }
@@ -81,7 +87,9 @@ class HelpMasterViewController: UITableViewController {
         case 0:
             return "Documentation"
         case 1:
-            return "Examples"
+            return "Figures"
+        case 2:
+            return "Problems & Examples"
         default:
             return ""
         }
