@@ -18,7 +18,7 @@ class CPUViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: Outlets and actions
+    // MARK: - Interface Builder
     
     @IBOutlet weak var nBitField: UITextField!
     @IBOutlet weak var zBitField: UITextField!
@@ -47,8 +47,17 @@ class CPUViewController: UITableViewController {
     
     @IBOutlet weak var traceTrapsSwitch: UISwitch!
     
-    @IBOutlet weak var stepBtn: UIButton!
-    @IBOutlet weak var resumeBtn: UIButton!
-    
- 
+    @IBOutlet weak var stepBtn: UIButton! {
+        didSet {
+            // On launch, step btn is disabled
+            self.stepBtn.enabled = false
+        }
+    }
+    @IBOutlet weak var resumeBtn: UIButton! {
+        didSet {
+            // On launch, resume btn is disabled
+            self.resumeBtn.enabled = false
+        }
+    }
+
 }
