@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    internal var detail: UIViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let detailnc = (self.splitViewController?.viewControllers[1])! as! UINavigationController
+        self.detail = detailnc.viewControllers[0] as UIViewController
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +24,11 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var cpuContainerView: UIView!
+    
+    @IBAction func homeButtonPressed(sender: UIBarButtonItem) {
+        detail.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }
 

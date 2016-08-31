@@ -119,9 +119,11 @@
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
 		46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */; };
 		46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */; };
+		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
+		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
 		D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* MasterViewController.swift */; };
-		D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Main.storyboard */; };
+		D2B0615F1C7E62040088CEBE /* ASM.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* ASM.storyboard */; };
 		D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */; };
 		D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B061631C7E62040088CEBE /* Assets.xcassets */; };
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
@@ -260,10 +262,12 @@
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterViewController.swift; sourceTree = "<group>"; };
 		46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
+		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = pep9pad/Home.storyboard; sourceTree = "<group>"; };
+		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pep9pad/AppDelegate.swift; sourceTree = "<group>"; };
 		D2B0615B1C7E62040088CEBE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ASM.storyboard; sourceTree = "<group>"; };
 		D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pep9pad.xcdatamodel; sourceTree = "<group>"; };
 		D2B061631C7E62040088CEBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pep9pad/Assets.xcassets; sourceTree = "<group>"; };
 		D2B061661C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -499,6 +503,7 @@
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
+				D2A9BCC81D77680E00C69724 /* Home.storyboard */,
 				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061631C7E62040088CEBE /* Assets.xcassets */,
 				D2B061581C7E62040088CEBE /* pep9pad */,
@@ -523,7 +528,7 @@
 			children = (
 				D2B0615B1C7E62040088CEBE /* MasterViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* CPUViewController.swift */,
-				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
+				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
 				467D71FB1CBEEF3B0090101F /* Asm.swift */,
 				46F46D321C8F49340092EF04 /* Enu.swift */,
@@ -533,6 +538,7 @@
 				46C608D31C8EADC500CC161A /* Core Data */,
 				463A662D1C97CD5F004C35B2 /* Fonts */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
+				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
 			);
 			path = pep9pad;
 			sourceTree = "<group>";
@@ -696,8 +702,10 @@
 				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
 				46EC8AD71C9895CC001405CE /* fig0608.c in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
+				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
 				46EC8AD91C9895CC001405CE /* fig0610.c in Resources */,
 				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
+				D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */,
 				46EC8ADB1C9895CC001405CE /* fig0612.c in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
 				46EC8ADD1C9895CC001405CE /* fig0614.c in Resources */,
@@ -752,7 +760,7 @@
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
 				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
-				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
+				D2B0615F1C7E62040088CEBE /* ASM.storyboard in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
@@ -836,12 +844,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2B0615D1C7E62040088CEBE /* Main.storyboard */ = {
+		D2B0615D1C7E62040088CEBE /* ASM.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D2B0615E1C7E62040088CEBE /* Base */,
 			);
-			name = Main.storyboard;
+			name = ASM.storyboard;
 			sourceTree = "<group>";
 		};
 		D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */ = {
