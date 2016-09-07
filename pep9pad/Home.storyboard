@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y1Q-lh-EiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y1Q-lh-EiT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -33,22 +33,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-0X-kXr">
-                                <rect key="frame" x="121" y="280" width="140" height="30"/>
-                                <state key="normal" title="Assembler/simulator"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-0X-kXr">
+                                <rect key="frame" x="129" y="216" width="146" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="146" id="sq8-6O-Exh"/>
+                                </constraints>
+                                <state key="normal" title="Assembler/simulator" image="P9"/>
                                 <connections>
                                     <segue destination="4pl-yb-9U8" kind="show" id="BD7-jC-Dsr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-Mv-0MT">
-                                <rect key="frame" x="352" y="280" width="98" height="30"/>
-                                <state key="normal" title="CPU simulator"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-Mv-0MT">
+                                <rect key="frame" x="343" y="218" width="145" height="142"/>
+                                <state key="normal" title="CPU simulator" image="P9CPU"/>
                                 <connections>
                                     <segue destination="atL-Lc-X3C" kind="show" id="JNk-e8-xpY"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bc6-0X-kXr" firstAttribute="top" secondItem="hZb-Jp-FP2" secondAttribute="bottom" constant="196" id="4K4-1Z-rw4"/>
+                            <constraint firstItem="bc6-0X-kXr" firstAttribute="centerY" secondItem="c5n-fh-eVU" secondAttribute="centerY" id="Cyp-mz-AVz"/>
+                            <constraint firstItem="z1p-Mv-0MT" firstAttribute="centerY" secondItem="c5n-fh-eVU" secondAttribute="centerY" id="Ens-Yu-TMW"/>
+                            <constraint firstItem="z1p-Mv-0MT" firstAttribute="leading" secondItem="bc6-0X-kXr" secondAttribute="trailing" constant="68" id="IP4-8e-zOy"/>
+                            <constraint firstItem="bc6-0X-kXr" firstAttribute="leading" secondItem="c5n-fh-eVU" secondAttribute="leading" constant="129" id="nd2-3O-bQy"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaK-fK-qbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,4 +66,8 @@
             <point key="canvasLocation" x="307" y="401"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="P9" width="150" height="150"/>
+        <image name="P9CPU" width="512" height="512"/>
+    </resources>
 </document>
