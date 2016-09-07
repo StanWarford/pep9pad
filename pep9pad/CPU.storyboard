@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8MR-lD-wdI">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="DKj-43-hih">
+            <objects>
+                <navigationController id="Brd-0H-ER3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b12-jd-Olr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="H8P-5l-Sdd" kind="relationship" relationship="rootViewController" id="0e6-PT-jfk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkE-he-Tk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858" y="-315"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="Sho-IO-PcS">
+            <objects>
+                <viewController id="H8P-5l-Sdd" customClass="CPUDetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fl6-18-gOj"/>
+                        <viewControllerLayoutGuide type="bottom" id="JJI-nJ-Oxh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vmG-m9-50S">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kEW-wl-1l9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HXd-BD-Ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="-315"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yms-yW-iO2">
+            <objects>
+                <navigationController id="ypb-Dv-AdQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Auy-Kk-9NB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nmb-1W-Fcm" kind="relationship" relationship="rootViewController" id="3gi-IL-BPu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zs9-aX-Zrg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858" y="-1032"/>
+        </scene>
+        <!--Master View Controller-->
+        <scene sceneID="MYh-m1-ahr">
+            <objects>
+                <viewController id="nmb-1W-Fcm" customClass="CPUMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qMb-oE-xCe"/>
+                        <viewControllerLayoutGuide type="bottom" id="uib-fY-8oU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GGs-4p-mhO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qmU-cO-SYj">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="9RR-2k-HcU">
+                            <connections>
+                                <action selector="homeButtonPressed:" destination="nmb-1W-Fcm" id="tCN-ex-Bk4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nk1-K4-Ibb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-54" y="-1051"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="dGk-H4-qpd">
+            <objects>
+                <splitViewController id="8MR-lD-wdI" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="ypb-Dv-AdQ" kind="relationship" relationship="masterViewController" id="TSD-xK-4fr"/>
+                        <segue destination="Brd-0H-ER3" kind="relationship" relationship="detailViewController" id="pTK-wg-AtF"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waC-VJ-UNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1636" y="-668"/>
+        </scene>
+    </scenes>
+</document>

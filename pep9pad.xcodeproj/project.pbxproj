@@ -28,7 +28,8 @@
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
 		467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Asm.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
-		46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CPUViewController.swift */; };
+		46C608D11C8EAC1E00CC161A /* ASM-CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */; };
+		46C7EEE41D80BDD300F74B6E /* ASM-CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
 		46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8A611C9892F6001405CE /* PepFileType.swift */; };
@@ -119,14 +120,18 @@
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
 		46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */; };
 		46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */; };
+		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
+		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
-		D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* MasterViewController.swift */; };
-		D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Main.storyboard */; };
+		D2B0615C1C7E62040088CEBE /* ASMMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* ASMMasterViewController.swift */; };
+		D2B0615F1C7E62040088CEBE /* ASM.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* ASM.storyboard */; };
 		D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */; };
-		D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B061631C7E62040088CEBE /* Assets.xcassets */; };
+		D2B061641C7E62040088CEBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B061631C7E62040088CEBE /* Images.xcassets */; };
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
+		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
+		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,7 +173,8 @@
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		467D71FB1CBEEF3B0090101F /* Asm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asm.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpExamples.swift; sourceTree = "<group>"; };
-		46C608D01C8EAC1E00CC161A /* CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
+		46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASM-CPUViewController.swift"; sourceTree = "<group>"; };
+		46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "ASM-CPU.storyboard"; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
 		46EC8A611C9892F6001405CE /* PepFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepFileType.swift; sourceTree = "<group>"; };
@@ -260,12 +266,14 @@
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterViewController.swift; sourceTree = "<group>"; };
 		46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
+		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = pep9pad/AppDelegate.swift; sourceTree = "<group>"; };
-		D2B0615B1C7E62040088CEBE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2B0615B1C7E62040088CEBE /* ASMMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMMasterViewController.swift; sourceTree = "<group>"; };
+		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ASM.storyboard; sourceTree = "<group>"; };
 		D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pep9pad.xcdatamodel; sourceTree = "<group>"; };
-		D2B061631C7E62040088CEBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = pep9pad/Assets.xcassets; sourceTree = "<group>"; };
+		D2B061631C7E62040088CEBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D2B061661C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2B061681C7E62040088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B0616D1C7E62050088CEBE /* pep9padTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +282,8 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
+		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,9 +410,57 @@
 		46C608D41C8EADD700CC161A /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
 			);
 			name = Launch;
+			sourceTree = "<group>";
+		};
+		46C7EEE11D80BD7400F74B6E /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				46F46D341C8F661D0092EF04 /* Argument.swift */,
+				467D71FB1CBEEF3B0090101F /* Asm.swift */,
+				46F46D321C8F49340092EF04 /* Enu.swift */,
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		46C7EEE61D80BED300F74B6E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D2A9BCC81D77680E00C69724 /* Home.storyboard */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		46C7EEE71D80BF1100F74B6E /* ASM */ = {
+			isa = PBXGroup;
+			children = (
+				D2B0615B1C7E62040088CEBE /* ASMMasterViewController.swift */,
+				46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */,
+				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
+				46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */,
+			);
+			name = ASM;
+			sourceTree = "<group>";
+		};
+		46C7EEE81D80BF1F00F74B6E /* CPU */ = {
+			isa = PBXGroup;
+			children = (
+				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
+				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
+				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
+			);
+			name = CPU;
+			sourceTree = "<group>";
+		};
+		46C7EEE91D80BF6800F74B6E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061631C7E62040088CEBE /* Images.xcassets */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		46EC8B061C9895DF001405CE /* Examples */ = {
@@ -499,8 +557,6 @@
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
-				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
-				D2B061631C7E62040088CEBE /* Assets.xcassets */,
 				D2B061581C7E62040088CEBE /* pep9pad */,
 				D2B061701C7E62050088CEBE /* pep9padTests */,
 				D2B0617B1C7E62050088CEBE /* pep9padUITests */,
@@ -521,16 +577,15 @@
 		D2B061581C7E62040088CEBE /* pep9pad */ = {
 			isa = PBXGroup;
 			children = (
-				D2B0615B1C7E62040088CEBE /* MasterViewController.swift */,
-				46C608D01C8EAC1E00CC161A /* CPUViewController.swift */,
-				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
-				46F46D341C8F661D0092EF04 /* Argument.swift */,
-				467D71FB1CBEEF3B0090101F /* Asm.swift */,
-				46F46D321C8F49340092EF04 /* Enu.swift */,
+				46C7EEE61D80BED300F74B6E /* Home */,
+				46C7EEE71D80BF1100F74B6E /* ASM */,
+				46C7EEE81D80BF1F00F74B6E /* CPU */,
+				46C7EEE11D80BD7400F74B6E /* Parse */,
 				46A304E41C992D5500CDCD1A /* PepTextView */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
+				46C7EEE91D80BF6800F74B6E /* Images */,
 				463A662D1C97CD5F004C35B2 /* Fonts */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
 			);
@@ -696,8 +751,10 @@
 				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
 				46EC8AD71C9895CC001405CE /* fig0608.c in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
+				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
 				46EC8AD91C9895CC001405CE /* fig0610.c in Resources */,
 				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
+				D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */,
 				46EC8ADB1C9895CC001405CE /* fig0612.c in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
 				46EC8ADD1C9895CC001405CE /* fig0614.c in Resources */,
@@ -724,6 +781,7 @@
 				46EC8AF01C9895CD001405CE /* fig0636.c in Resources */,
 				46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */,
 				46EC8AF21C9895CD001405CE /* fig0638.c in Resources */,
+				46C7EEE41D80BDD300F74B6E /* ASM-CPU.storyboard in Resources */,
 				46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */,
 				46EC8AF41C9895CD001405CE /* fig0640.c in Resources */,
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
@@ -751,8 +809,8 @@
 				461875AA1C900D740095B818 /* problems.html in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
-				D2B061641C7E62040088CEBE /* Assets.xcassets in Resources */,
-				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
+				D2B061641C7E62040088CEBE /* Images.xcassets in Resources */,
+				D2B0615F1C7E62040088CEBE /* ASM.storyboard in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
@@ -784,12 +842,13 @@
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enu.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
-				46C608D11C8EAC1E00CC161A /* CPUViewController.swift in Sources */,
-				D2B0615C1C7E62040088CEBE /* MasterViewController.swift in Sources */,
+				46C608D11C8EAC1E00CC161A /* ASM-CPUViewController.swift in Sources */,
+				D2B0615C1C7E62040088CEBE /* ASMMasterViewController.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
+				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
@@ -798,6 +857,7 @@
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
 				46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
+				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
@@ -836,12 +896,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2B0615D1C7E62040088CEBE /* Main.storyboard */ = {
+		D2B0615D1C7E62040088CEBE /* ASM.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D2B0615E1C7E62040088CEBE /* Base */,
 			);
-			name = Main.storyboard;
+			name = ASM.storyboard;
 			sourceTree = "<group>";
 		};
 		D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */ = {
