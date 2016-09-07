@@ -8,16 +8,19 @@
 
 import UIKit
 
-class CPUViewController: UITableViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+class CPUViewController: UIViewController {
     
+    
+    // MARK: - Initializer
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        
+//        NSBundle.mainBundle().loadNibNamed("CPUView", owner: self, options: nil)[0] as! UIView
+//        self.addSubview(view)
+//        view.frame = self.bounds
+//    }
+
     // MARK: - Interface Builder
     
     @IBOutlet weak var nBitField: UITextField!
@@ -37,7 +40,8 @@ class CPUViewController: UITableViewController {
     @IBOutlet weak var programCounterField1: UITextField!
     @IBOutlet weak var programCounterField2: UITextField!
     
-    @IBOutlet weak var instructionSpecField: UITextField!
+    @IBOutlet weak var instructionSpecField1: UITextField!
+    @IBOutlet weak var instructionSpecField2: UITextField!
     
     @IBOutlet weak var operandSpecField1: UITextField!
     @IBOutlet weak var operandSpecField2: UITextField!
@@ -45,19 +49,19 @@ class CPUViewController: UITableViewController {
     @IBOutlet weak var operandField1: UITextField!
     @IBOutlet weak var operandField2: UITextField!
     
-    @IBOutlet weak var traceTrapsSwitch: UISwitch!
-    
-    @IBOutlet weak var stepBtn: UIButton! {
-        didSet {
-            // On launch, step btn is disabled
-            self.stepBtn.enabled = false
-        }
-    }
-    @IBOutlet weak var resumeBtn: UIButton! {
-        didSet {
-            // On launch, resume btn is disabled
-            self.resumeBtn.enabled = false
-        }
-    }
+//    @IBOutlet weak var traceTrapsSwitch: UISwitch!
+//    
+//    @IBOutlet weak var stepBtn: UIButton! {
+//        didSet {
+//            // On launch, step btn is disabled
+//            self.stepBtn.enabled = false
+//        }
+//    }
+//    @IBOutlet weak var resumeBtn: UIButton! {
+//        didSet {
+//            // On launch, resume btn is disabled
+//            self.resumeBtn.enabled = false
+//        }
+//    }
 
 }

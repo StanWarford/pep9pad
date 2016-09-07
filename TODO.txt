@@ -9,7 +9,6 @@
 * Disable editing
 
 ===== CPU TABLE =====
-* Fix CPU overlaps
 
 
 
