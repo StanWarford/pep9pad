@@ -10,68 +10,68 @@
 
 /// Instruction mnemonics
 enum EMnemonic {
-    case ADDA, ADDX, ADDSP, ANDA, ANDX, ASLA, ASLX, ASRA, ASRX
-    case BR, BRC, BREQ, BRGE, BRGT, BRLE, BRLT, BRNE, BRV
-    case CALL, CPBA, CPBX, CPWA, CPWX
-    case DECI, DECO
-    case HEXO
-    case LDBA, LDBX, LDWA, LDWX
-    case MOVAFLG, MOVFLGA, MOVSPA
-    case NEGA, NEGX, NOP, NOP0, NOP1, NOTA, NOTX
-    case ORA, ORX
-    case RET, RETTR, ROLA, ROLX, RORA, RORX
-    case STBA, STBX, STWA, STWX, STOP, STRO, SUBA, SUBX, SUBSP
+    case adda, addx, addsp, anda, andx, asla, aslx, asra, asrx
+    case br, brc, breq, brge, brgt, brle, brlt, brne, brv
+    case call, cpba, cpbx, cpwa, cpwx
+    case deci, deco
+    case hexo
+    case ldba, ldbx, ldwa, ldwx
+    case movaflg, movflga, movspa
+    case nega, negx, nop, nop0, nop1, nota, notx
+    case ora, orx
+    case ret, rettr, rola, rolx, rora, rorx
+    case stba, stbx, stwa, stwx, stop, stro, suba, subx, subsp
 }
 
 
 /// Addressing modes for instructions
 enum EAddrMode: Int {
-    case NONE = 0
-    case I = 1
-    case D = 2
-    case N = 4
-    case S = 8
-    case SF = 16
-    case X = 32
-    case SX = 64
-    case SFX = 128
-    case ALL = 255
+    case none = 0
+    case i = 1
+    case d = 2
+    case n = 4
+    case s = 8
+    case sf = 16
+    case x = 32
+    case sx = 64
+    case sfx = 128
+    case all = 255
 }
 
 
 /// Format for symbols
 enum ESymbolFormat {
-    case F_NONE
-    case F_1C
-    case F_1D
-    case F_2D
-    case F_1H
-    case F_2H
+    case f_NONE
+    case f_1C
+    case f_1D
+    case f_2D
+    case f_1H
+    case f_2H
 }
 
 // States of execution
 enum EExecState {
-    case EStart
-    case ERun, ERunAwaitIO
-    case EDebugAwaitIO, EDebugAwaitClick, EDebugRunToBP, EDebugSingleStep
+    case eStart
+    case eRun, eRunAwaitIO
+    case eDebugAwaitIO, eDebugAwaitClick, eDebugRunToBP, eDebugSingleStep
 }
 
 /// Waiting states
 enum EWaiting {
-    case ERunWaiting
-    case EDebugSSWaiting
-    case EDebugResumeWaiting
+    case eRunWaiting
+    case eDebugSSWaiting
+    case eDebugResumeWaiting
 }
 
 
 // TODO: Update these if necesssary
 enum EPane {
-    case ESource
-    case EObject
-    case EListing
-    case EListingTrace
-    case EMemoryTrace
-    case EBatchIO
-    case ETerminal
+    case eSource
+    case eObject
+    case eListing
+    case eListingTrace
+    case eMemoryTrace
+    case eBatchIO
+    case eTerminal
 }
 

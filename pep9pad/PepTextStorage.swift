@@ -26,16 +26,16 @@ class PepTextStorage: BaseTextStorage {
 //      
         // Loading `regularExpressions` from `PepHighlightingPatterns.plist` if needed.
         if regularExpressions.count == 0 {
-            self.setupHighlightPatterns(NSBundle.mainBundle().pathForResource("PepHighlightingPatterns", ofType: "plist"))
+            self.setupHighlightPatterns(Bundle.main.path(forResource: "PepHighlightingPatterns", ofType: "plist"))
         }
         if text != "" {
             print("Text found to be legal, proceeding with regex.")
             for regex in regularExpressions {
-                let patternName = patterns.allKeysForObject(regex.pattern)[0] as! String
+                let patternName = patterns.allKeys(for: regex.pattern)[0] as! String
                 var arrayOfResults: [NSTextCheckingResult] = []
                 
                 do {
-                    let results = regex.matchesInString(String(text), options: [], range: NSMakeRange(0, text.length))
+                    let results = regex.matches(in: String(text), options: [], range: NSMakeRange(0, text.length))
                     for str in results {
                         arrayOfResults.append(str)
                     }
@@ -57,7 +57,7 @@ class PepTextStorage: BaseTextStorage {
         super.processEditing()
     }
     
-    internal func setupHighlightPatterns(path: String!) {
+    internal func setupHighlightPatterns(_ path: String!) {
         self.patterns = NSDictionary(contentsOfFile: path)
         for pat in patterns {
             do {
@@ -69,7 +69,7 @@ class PepTextStorage: BaseTextStorage {
         }
     }
     
-    internal func highlightSyntaxPattern(nameOfPattern: String, foundInstances: [NSTextCheckingResult]) {
+    internal func highlightSyntaxPattern(_ nameOfPattern: String, foundInstances: [NSTextCheckingResult]) {
         let attributes: [String:AnyObject]
         
         switch nameOfPattern {
@@ -116,7 +116,7 @@ class PepTextStorage: BaseTextStorage {
                 NSBackgroundColorAttributeName:redColor
             ]
         default:
-            attributes = [NSForegroundColorAttributeName:UIColor.orangeColor()]
+            attributes = [NSForegroundColorAttributeName:UIColor.orange]
         }
         
         for instance in foundInstances {

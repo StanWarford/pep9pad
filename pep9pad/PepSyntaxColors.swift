@@ -8,9 +8,9 @@
 
 import UIKit
 
-let purpleColor = UIColor.purpleColor()
+let purpleColor = UIColor.purple
 let greenColor = UIColor(red: 0.33, green: 1.0, blue: 0.22, alpha: 1).darker(0.3)
-let blueColor = UIColor.blueColor()
-let whiteColor = UIColor.whiteColor()
-let redColor = UIColor.redColor()
+let blueColor = UIColor.blue
+let whiteColor = UIColor.white
+let redColor = UIColor.red
 

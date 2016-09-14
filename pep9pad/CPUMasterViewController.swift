@@ -17,9 +17,9 @@ class CPUMasterViewController: UIViewController {
         self.detail = (detailnc.viewControllers[0] as UIViewController) as! CPUDetailViewController
     }
     
-    @IBAction func homeButtonPressed(sender: UIBarButtonItem) {
-        detail.dismissViewControllerAnimated(true, completion: nil)
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
+        detail.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

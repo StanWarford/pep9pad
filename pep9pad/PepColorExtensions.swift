@@ -21,15 +21,15 @@ import UIKit
 
 extension PXColor {
     
-    func lighter(amount : CGFloat = 0.25) -> PXColor {
+    func lighter(_ amount : CGFloat = 0.25) -> PXColor {
         return hueColorWithBrightnessAmount(1 + amount)
     }
     
-    func darker(amount : CGFloat = 0.25) -> PXColor {
+    func darker(_ amount : CGFloat = 0.25) -> PXColor {
         return hueColorWithBrightnessAmount(1 - amount)
     }
     
-    private func hueColorWithBrightnessAmount(amount: CGFloat) -> PXColor {
+    fileprivate func hueColorWithBrightnessAmount(_ amount: CGFloat) -> PXColor {
         var hue         : CGFloat = 0
         var saturation  : CGFloat = 0
         var brightness  : CGFloat = 0

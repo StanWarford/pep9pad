@@ -20,22 +20,22 @@ class HelpDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBarHeight = self.navigationController?.navigationBar.bounds.height
-        let fullRect = CGRectMake(view.bounds.origin.x, view.bounds.origin.y + 20 + navBarHeight!, view.bounds.width-320, view.bounds.height - 20 - navBarHeight!)
+        let fullRect = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 20 + navBarHeight!, width: view.bounds.width-320, height: view.bounds.height - 20 - navBarHeight!)
         
         // instantiate the detail view controllers
-        documentationVC = storyboard?.instantiateViewControllerWithIdentifier("DocumentationViewController") as! DocumentationViewController
-        doubleVC = storyboard?.instantiateViewControllerWithIdentifier("DoubleTextViewController") as! DoubleTextViewController
+        documentationVC = storyboard?.instantiateViewController(withIdentifier: "DocumentationViewController") as! DocumentationViewController
+        doubleVC = storyboard?.instantiateViewController(withIdentifier: "DoubleTextViewController") as! DoubleTextViewController
         // add the view controllers as childViewControllers
         self.addChildViewController(documentationVC)
         self.addChildViewController(doubleVC)
-        documentationVC.didMoveToParentViewController(self)
-        doubleVC.didMoveToParentViewController(self)
+        documentationVC.didMove(toParentViewController: self)
+        doubleVC.didMove(toParentViewController: self)
         documentationVC.view.bounds = self.view.bounds
         doubleVC.view.bounds = self.view.bounds
         view.addSubview(documentationVC.view)
         view.addSubview(doubleVC.view)
         
-        doubleVC.view.hidden = true
+        doubleVC.view.isHidden = true
         
         loadDocumentation(.AssemblyLanguage)
     }
@@ -46,19 +46,19 @@ class HelpDetailViewController: UIViewController {
     }
     
     
-    internal func loadDocumentation(doc: Documentation) {
-        documentationVC.view.hidden = false
-        doubleVC.view.hidden = true
-        let url = NSBundle.mainBundle().URLForResource(doc.rawValue, withExtension:"html")
-        let request = NSURLRequest(URL: url!)
+    internal func loadDocumentation(_ doc: Documentation) {
+        documentationVC.view.isHidden = false
+        doubleVC.view.isHidden = true
+        let url = Bundle.main.url(forResource: doc.rawValue, withExtension:"html")
+        let request = URLRequest(url: url!)
         documentationVC.doc.loadRequest(request)
-        copyToSourceBtn.enabled = false
+        copyToSourceBtn.isEnabled = false
     }
     
-    internal func loadExample(named: String) {
-        documentationVC.view.hidden = true
-        doubleVC.view.hidden = false
-        copyToSourceBtn.enabled = true
+    internal func loadExample(_ named: String) {
+        documentationVC.view.isHidden = true
+        doubleVC.view.isHidden = false
+        copyToSourceBtn.isEnabled = true
 
         switch named {
         case "Figure 4.33":

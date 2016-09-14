@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="y1Q-lh-EiT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="y1Q-lh-EiT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--ASM-->
@@ -33,11 +34,11 @@
                         <viewControllerLayoutGuide type="bottom" id="vEQ-OW-oDx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c5n-fh-eVU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-0X-kXr">
-                                <rect key="frame" x="129" y="216" width="146" height="146"/>
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-0X-kXr">
+                                <frame key="frameInset" minX="129" minY="216" width="146" height="146"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="146" id="o29-TK-VBw"/>
                                 </constraints>
@@ -46,15 +47,15 @@
                                     <segue destination="4pl-yb-9U8" kind="show" id="BD7-jC-Dsr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-Mv-0MT">
-                                <rect key="frame" x="343" y="218" width="145" height="142"/>
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1p-Mv-0MT">
+                                <frame key="frameInset" minX="343" minY="218" width="145" height="142"/>
                                 <state key="normal" title="CPU simulator" image="P9CPU"/>
                                 <connections>
                                     <segue destination="atL-Lc-X3C" kind="show" id="JNk-e8-xpY"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vEQ-OW-oDx" firstAttribute="top" secondItem="bc6-0X-kXr" secondAttribute="bottom" constant="238" id="P0j-98-UBa"/>
                             <constraint firstItem="bc6-0X-kXr" firstAttribute="leading" secondItem="c5n-fh-eVU" secondAttribute="leading" constant="129" id="ZuM-fY-Lpd"/>
@@ -76,7 +77,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="P9" width="512" height="512"/>
-        <image name="P9CPU" width="512" height="512"/>
+        <image name="P9" width="256" height="256"/>
+        <image name="P9CPU" width="256" height="256"/>
     </resources>
 </document>

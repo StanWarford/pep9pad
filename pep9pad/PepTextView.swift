@@ -20,8 +20,8 @@ class PepTextView: UIView, UITextViewDelegate {
         super.init(coder: aDecoder)
     }
     
-    func setupTextView(frame: CGRect) {
-        let rect = CGRectMake(frame.origin.x, frame.origin.y, 0.70*(superview?.bounds.width)!, superview!.bounds.height/2)
+    func setupTextView(_ frame: CGRect) {
+        let rect = CGRect(x: frame.origin.x, y: frame.origin.y, width: 0.70*(superview?.bounds.width)!, height: superview!.bounds.height/2)
         self.textStorage = PepTextStorage()
         self.layoutManager = NSLayoutManager()
         self.textStorage.addLayoutManager(layoutManager)
@@ -38,18 +38,18 @@ class PepTextView: UIView, UITextViewDelegate {
     
 
 // MARK: - Text-Handling Functions
-    internal func loadText(text: String) {
+    internal func loadText(_ text: String) {
         self.textView.text = text
     }
     
-    func loadExample(fileName: String, ofType: PepFileType) {
-        guard let path = NSBundle.mainBundle().pathForResource(fileName, ofType: ofType.rawValue) else {
+    func loadExample(_ fileName: String, ofType: PepFileType) {
+        guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
             print("Could not load file named \(fileName).\(ofType.rawValue)")
             return
         }
         
         do {
-            let content = try String(contentsOfFile:path, encoding: NSUTF8StringEncoding)
+            let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
             print("Loaded file named \(fileName).\(ofType.rawValue)")
             self.textView.text.removeAll()
             self.textView.insertText(content)
@@ -63,7 +63,7 @@ class PepTextView: UIView, UITextViewDelegate {
         self.textView.text.removeAll()
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         //TODO: Implement
         return true
     }

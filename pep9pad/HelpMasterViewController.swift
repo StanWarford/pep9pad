@@ -21,55 +21,55 @@ class HelpMasterViewController: UITableViewController {
     }
 
     // MARK: - IBOutlets
-    @IBAction func closeBtnPressed(sender: UIBarButtonItem) {
-        helpDetail.dismissViewControllerAnimated(true, completion: nil)
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeBtnPressed(_ sender: UIBarButtonItem) {
+        helpDetail.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Overriding UITableViewController
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var v: UITableViewCell
-        if let aPreexistingCell = tableView.dequeueReusableCellWithIdentifier("helpID") {
+        if let aPreexistingCell = tableView.dequeueReusableCell(withIdentifier: "helpID") {
             v = aPreexistingCell
         } else {
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "helpID")
-            v = tableView.dequeueReusableCellWithIdentifier("helpID")!
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "helpID")
+            v = tableView.dequeueReusableCell(withIdentifier: "helpID")!
         }
         
-        switch indexPath.section {
+        switch (indexPath as NSIndexPath).section {
         case 0:
-            v.textLabel!.text = Array(Documentation.allValues.values)[indexPath.row]
+            v.textLabel!.text = Array(Documentation.allValues.values)[(indexPath as NSIndexPath).row]
         case 1:
-            v.textLabel!.text = Examples.allValues[indexPath.row].rawValue
+            v.textLabel!.text = Examples.allValues[(indexPath as NSIndexPath).row].rawValue
         case 2:
-            v.textLabel!.text = Examples.allValues[indexPath.row + 40].rawValue
+            v.textLabel!.text = Examples.allValues[(indexPath as NSIndexPath).row + 40].rawValue
         default:
             v.textLabel?.text = "Error"
         }
         
-        v.selectionStyle = .Blue
+        v.selectionStyle = .blue
         
         return v
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch indexPath.section {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (indexPath as NSIndexPath).section {
         case 0:
-            helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[indexPath.row])
+            helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[(indexPath as NSIndexPath).row])
         case 1:
-            helpDetail.loadExample((tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)!)
+            helpDetail.loadExample((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
         case 2:
-            helpDetail.loadExample((tableView.cellForRowAtIndexPath(indexPath)?.textLabel!.text)!)
+            helpDetail.loadExample((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
         default:
             print("Error")
         }
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return Documentation.allValues.count
@@ -82,7 +82,7 @@ class HelpMasterViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
             return "Documentation"

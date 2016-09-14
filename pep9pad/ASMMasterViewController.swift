@@ -25,9 +25,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cpuContainerView: UIView!
     
-    @IBAction func homeButtonPressed(sender: UIBarButtonItem) {
-        detail.dismissViewControllerAnimated(true, completion: nil)
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {
+        detail.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
 }
