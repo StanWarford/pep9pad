@@ -85,27 +85,34 @@ class HelpDetailViewController: UIViewController {
         case "Figure 5.10":
             doubleVC.topTextView.loadExample("fig0510", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.11":
             doubleVC.topTextView.loadExample("fig0511", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.12":
             doubleVC.topTextView.loadExample("fig0512", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.13":
             doubleVC.topTextView.loadExample("fig0513", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.14a":
             doubleVC.topTextView.loadExample("fig0514a", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.14b":
             doubleVC.topTextView.loadExample("fig0514b", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.15":
             doubleVC.topTextView.loadExample("fig0515", ofType: .pep)
             doubleVC.bottomTextView.loadExample("fig0512", ofType: .pep)
         case "Figure 5.16":
             doubleVC.topTextView.loadExample("fig0516", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 5.19":
             doubleVC.topTextView.loadExample("fig0519", ofType: .pep)
             doubleVC.bottomTextView.loadExample("fig0519", ofType: .c)
@@ -118,6 +125,7 @@ class HelpDetailViewController: UIViewController {
         case "Figure 6.01":
             doubleVC.topTextView.loadExample("fig0601", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 6.04":
             doubleVC.topTextView.loadExample("fig0604", ofType: .pep)
             doubleVC.bottomTextView.loadExample("fig0604", ofType: .c)
@@ -139,6 +147,7 @@ class HelpDetailViewController: UIViewController {
         case "Figure 6.16":
             doubleVC.topTextView.loadExample("fig0616", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Figure 6.18":
             doubleVC.topTextView.loadExample("fig0618", ofType: .pep)
             doubleVC.bottomTextView.loadExample("fig0618", ofType: .c)
@@ -187,27 +196,35 @@ class HelpDetailViewController: UIViewController {
         case "Exercise 8.04":
             doubleVC.topTextView.loadExample("exer0804", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.26":
             doubleVC.topTextView.loadExample("prob0826", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.27":
             doubleVC.topTextView.loadExample("prob0827", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.28":
             doubleVC.topTextView.loadExample("prob0828", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.29":
             doubleVC.topTextView.loadExample("prob0829", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.30":
             doubleVC.topTextView.loadExample("prob0830", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.31":
             doubleVC.topTextView.loadExample("prob0831", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         case "Problem 8.32":
             doubleVC.topTextView.loadExample("prob0832", ofType: .pep)
             doubleVC.bottomTextView.removeAllText()
+            doubleVC.bottomTextView.minimize()
         default:
             doubleVC.topTextView.removeAllText()
             doubleVC.bottomTextView.removeAllText()

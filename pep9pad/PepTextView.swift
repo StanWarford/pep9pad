@@ -63,6 +63,12 @@ class PepTextView: UIView, UITextViewDelegate {
         self.textView.text.removeAll()
     }
     
+    func minimize() {
+        UIView.animateWithDuration(0.25) {
+            self.frame = CGRectZero
+        }
+    }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         //TODO: Implement
         return true
