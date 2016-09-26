@@ -10,7 +10,9 @@
 
 ===== CPU TABLE =====
 
-
+TASK INVENTORY
+Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
+[M] Create an AboutViewController by subclassing UITableVie
 
 
 
