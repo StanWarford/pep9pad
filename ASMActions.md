@@ -12,21 +12,13 @@ All these `save` actions can be grouped into one "Save" button (UIBarButtonItem)
 - Save Object
 - Save Listing
 
-The equivalent of a `print` action on mobile devices might be some export actions.  Email export (with attachments) is straightforward to implement.  Good first step.     
+The equivalent of a `print` action on mobile devices will be a send email action.  Email export (with text file attachments) is straightforward to implement.    
 
-- Print Source
-- Print Object
-- Print Listing
+- Email Source
+- Email Object
+- Email Listing
 
 #### Edit Menu ####
-
-Undo, Redo, Cut, Copy, and Paste are provided by the OS.
-
-- *Undo*
-- *Redo*
-- Cut
-- Copy
-- Paste
 
 We can find a place for these.
 
@@ -77,5 +69,13 @@ This whole section is done!
 - Writing Trap Handlers
 - Pep/9 Reference
 - Examples
+
+Undo, Redo, Cut, Copy, and Paste are provided by the OS. No custom interface elements for these operations.
+
+- *Undo*
+- *Redo*
+- Cut
+- Copy
+- Paste
 
 
