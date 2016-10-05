@@ -18,7 +18,7 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nmP-H5-j8U">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lBX-vL-Rhj">
                                 <frame key="frameInset" minX="139" minY="121" width="86" height="19"/>

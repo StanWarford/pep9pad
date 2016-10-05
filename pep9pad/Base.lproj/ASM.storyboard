@@ -3,23 +3,24 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="NdW-6f-GQW">
             <objects>
-                <viewController id="Tao-vo-3cn" sceneMemberID="viewController">
+                <viewController id="Tao-vo-3cn" customClass="ASMDetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AEE-UC-JLO"/>
                         <viewControllerLayoutGuide type="bottom" id="MsR-Mc-qaf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ewd-NJ-am6">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xqz-rt-3dm" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <frame key="frameInset" minY="64" width="600" height="536"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xqz-rt-3dm" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -34,17 +35,40 @@
                             <constraint firstAttribute="trailing" secondItem="xqz-rt-3dm" secondAttribute="trailing" id="y9E-db-kHu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="O3W-Me-ByB"/>
+                    <navigationItem key="navigationItem" id="O3W-Me-ByB">
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="play" id="L5u-eq-60l">
+                                <connections>
+                                    <action selector="buildBtnPressed:" destination="Tao-vo-3cn" id="hlC-hl-gcS"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Debug" id="D1a-an-a4U">
+                                <connections>
+                                    <action selector="debugBtnPressed:" destination="Tao-vo-3cn" id="v47-OA-pTh"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Bnb-PN-EQi">
+                            <connections>
+                                <action selector="exportBtnPressed:" destination="Tao-vo-3cn" id="T4N-Hj-bgM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="buildBtn" destination="L5u-eq-60l" id="fIm-AT-Ueb"/>
+                        <outlet property="debugBtn" destination="D1a-an-a4U" id="5EX-KE-pOM"/>
+                        <outlet property="exportBtn" destination="Bnb-PN-EQi" id="9VV-dG-PiF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1U-E9-kVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="516"/>
+            <point key="canvasLocation" x="1427.9296875" y="515.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hV-XJ-AWt">
             <objects>
                 <navigationController id="YNt-35-Q3B" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8rS-q0-u9z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8rS-q0-u9z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -62,34 +86,28 @@
                 <viewControllerPlaceholder storyboardName="Help" id="AX2-aB-8Bv" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNc-Ej-G43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1651" y="-806"/>
+            <point key="canvasLocation" x="1740" y="-788"/>
         </scene>
-        <!--View Controller-->
+        <!--Master View Controller-->
         <scene sceneID="7Cl-4g-nCB">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jNR-wW-WrY" customClass="ViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jNR-wW-WrY" customClass="ASMMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aGM-Ff-1k4"/>
                         <viewControllerLayoutGuide type="bottom" id="Nce-H4-hmt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KKs-4b-e8l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="top" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2df-w3-OcL">
-                                <frame key="frameInset" minY="466" width="320" height="302"/>
+                            <containerView opaque="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="2df-w3-OcL">
                                 <color key="backgroundColor" red="0.79226005077362061" green="0.7181098461151123" blue="0.48854580521583557" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="YM0-kR-aCt"/>
-                                    <constraint firstAttribute="height" constant="337" id="xJk-BT-VpI"/>
+                                    <constraint firstAttribute="height" constant="302" id="cQw-DM-tTJ"/>
+                                    <constraint firstAttribute="width" secondItem="2df-w3-OcL" secondAttribute="height" multiplier="64:65" constant="22.646153846153823" id="lEZ-Io-0MD"/>
+                                    <constraint firstAttribute="width" constant="320" id="tzg-eF-C91"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="YM0-kR-aCt"/>
-                                        <exclude reference="xJk-BT-VpI"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <segue destination="vOm-to-yAy" kind="embed" id="5te-Qt-zfk"/>
                                 </connections>
@@ -97,10 +115,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2df-w3-OcL" firstAttribute="leading" secondItem="KKs-4b-e8l" secondAttribute="leading" id="1Nk-5f-ag0"/>
-                            <constraint firstItem="2df-w3-OcL" firstAttribute="bottom" secondItem="Nce-H4-hmt" secondAttribute="top" id="CgA-Z0-lOq"/>
-                            <constraint firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="dPy-wA-Orw"/>
-                            <constraint firstItem="2df-w3-OcL" firstAttribute="top" secondItem="aGM-Ff-1k4" secondAttribute="bottom" constant="402" id="ldx-FA-rzb"/>
+                            <constraint firstItem="2df-w3-OcL" firstAttribute="bottom" secondItem="Nce-H4-hmt" secondAttribute="top" id="bkn-8T-uup"/>
+                            <constraint firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="fNG-hD-NUN"/>
+                            <constraint firstItem="2df-w3-OcL" firstAttribute="leading" secondItem="KKs-4b-e8l" secondAttribute="leading" id="nCS-fQ-Rvi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vTW-P4-Gly">
@@ -121,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="402-W2-edU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1345" y="-308"/>
+            <point key="canvasLocation" x="1344.53125" y="-308.7890625"/>
         </scene>
         <!--ASM-CPU-->
         <scene sceneID="V3A-2L-zFa">
@@ -129,7 +146,7 @@
                 <viewControllerPlaceholder storyboardName="ASM-CPU" id="vOm-to-yAy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qug-wF-wQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1667" y="-107"/>
+            <point key="canvasLocation" x="1749" y="-8"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="vDn-u6-D1s">
@@ -148,7 +165,7 @@
         <scene sceneID="2p8-Ej-FmW">
             <objects>
                 <navigationController id="iJ6-lN-Cra" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mS4-oz-IIt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mS4-oz-IIt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

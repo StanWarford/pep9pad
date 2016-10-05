@@ -29,6 +29,8 @@
 		467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Asm.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* ASM-CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */; };
+		46C76A541DA494130071C340 /* FontAwesome in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A531DA494130071C340 /* FontAwesome */; };
+		46C76A561DA496510071C340 /* ASMDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A551DA496510071C340 /* ASMDetailViewController.swift */; };
 		46C7EEE41D80BDD300F74B6E /* ASM-CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
@@ -174,6 +176,8 @@
 		467D71FB1CBEEF3B0090101F /* Asm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asm.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASM-CPUViewController.swift"; sourceTree = "<group>"; };
+		46C76A531DA494130071C340 /* FontAwesome */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAwesome; sourceTree = "<group>"; };
+		46C76A551DA496510071C340 /* ASMDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMDetailViewController.swift; sourceTree = "<group>"; };
 		46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "ASM-CPU.storyboard"; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
@@ -394,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				46EC8A611C9892F6001405CE /* PepFileType.swift */,
+				46C76A531DA494130071C340 /* FontAwesome */,
 				D2B061681C7E62040088CEBE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -438,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				D2B0615B1C7E62040088CEBE /* ASMMasterViewController.swift */,
+				46C76A551DA496510071C340 /* ASMDetailViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */,
@@ -746,6 +752,7 @@
 				46EC8ACE1C9895CC001405CE /* fig0522.c in Resources */,
 				46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */,
 				46EC8AD01C9895CC001405CE /* fig0527.c in Resources */,
+				46C76A541DA494130071C340 /* FontAwesome in Resources */,
 				46EC8AD11C9895CC001405CE /* fig0527.pep in Resources */,
 				46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */,
 				46EC8AD31C9895CC001405CE /* fig0604.c in Resources */,
@@ -855,6 +862,7 @@
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
+				46C76A561DA496510071C340 /* ASMDetailViewController.swift in Sources */,
 				466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */,
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
