@@ -22,45 +22,62 @@ class ASMDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+  //MARK: IBOutlets and Actions
     
-    
-    @IBOutlet var buildBtn: UIBarButtonItem!
+    @IBOutlet weak var runBtn: UIBarButtonItem!
     @IBOutlet var debugBtn: UIBarButtonItem!
+    @IBOutlet var buildBtn: UIBarButtonItem!
     @IBOutlet var exportBtn: UIBarButtonItem!
     
-    @IBAction func buildBtnPressed(_ sender: UIBarButtonItem) {
-        //TODO: Implement
+    @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
-        //TODO: Implement
-
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
+            //TODO: Implement debugSourceAction
+        }
+        alertController.addAction(debugSourceAction)
+        let debugObjectAction = UIAlertAction(title: "Start Debugging Object", style: .default) { (action) in
+            //TODO: Implement debugObjectAction
+        }
+        alertController.addAction(debugObjectAction)
+        let debugLoaderAction = UIAlertAction(title: "Start Debugging Loader", style: .default) { (action) in
+            //TODO: Implement debugLoaderAction
+        }
+        alertController.addAction(debugLoaderAction)
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func buildBtnPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let assembleSourceAction = UIAlertAction(title: "Assemble Source", style: .default) { (action) in
+            //TODO: Implement assembleSourceAction
+        }
+        alertController.addAction(assembleSourceAction)
+        
+        let loadObjectAction = UIAlertAction(title: "Load Object", style: .default) { (action) in
+            //TODO: Implement loadObjectAction
+        }
+        alertController.addAction(loadObjectAction)
+        
+        let executeAction = UIAlertAction(title: "Execute", style: .default) { (action) in
+            //TODO: Implement executeAction
+        }
+        alertController.addAction(executeAction)
+        
+        let runObjectAction = UIAlertAction(title: "Run Object", style: .default) { (action) in
+            //TODO: Implement runObjectAction
+        }
+        alertController.addAction(runObjectAction)
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func exportBtnPressed(_ sender: UIBarButtonItem) {
         //TODO: Implement
-/*
-        let alertController = UIAlertController(title: "Export", message: "This graph can be exported to a .pdf (e-mail attachment) or .jpg (to your device's camera roll).", preferredStyle: .ActionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            // ...
-        }
-        alertController.addAction(cancelAction)
-        
-        let pdfAction = UIAlertAction(title: "PDF", style: .Default) { (action) in
-            // ...
-            self.shareCenter.exportGraphToPDF()
-        }
-        alertController.addAction(pdfAction)
-        
-        let imageAction = UIAlertAction(title: "Image", style: .Default) { (action) in
-            print(action)
-            self.shareCenter.exportGraphToImg()
-        }
-        alertController.addAction(imageAction)
-        alertController.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
-        self.presentViewController(alertController, animated: true, completion: nil)
- */
-
     }
-
 }
