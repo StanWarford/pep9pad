@@ -17,7 +17,18 @@
                     <view key="view" contentMode="scaleToFill" id="SWG-xN-7IX">
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQ1-1S-nFL" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JQ1-1S-nFL" firstAttribute="top" secondItem="V1k-w4-ujX" secondAttribute="bottom" id="4ft-gy-dwJ"/>
+                            <constraint firstItem="JQ1-1S-nFL" firstAttribute="leading" secondItem="SWG-xN-7IX" secondAttribute="leading" id="8jL-DP-h6u"/>
+                            <constraint firstItem="JQ1-1S-nFL" firstAttribute="bottom" secondItem="xfg-8p-7Uj" secondAttribute="top" id="NO5-4q-WXM"/>
+                            <constraint firstAttribute="trailing" secondItem="JQ1-1S-nFL" secondAttribute="trailing" id="SWS-4k-gfk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5z2-fk-dFM">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="8xE-4d-wRH" userLabel="Edit">
@@ -26,10 +37,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="JQ1-1S-nFL" id="nCJ-Ib-uhs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsM-ZX-cCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2352" y="-1488"/>
+            <point key="canvasLocation" x="2351.953125" y="-1488.28125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ana-ah-5BF">

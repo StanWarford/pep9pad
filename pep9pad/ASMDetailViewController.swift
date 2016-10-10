@@ -78,6 +78,74 @@ class ASMDetailViewController: UIViewController {
     }
     
     @IBAction func exportBtnPressed(_ sender: UIBarButtonItem) {
-        //TODO: Implement
+        
+        // I'm not sure these 'export' actions should be presented here.  What if a user would like to export, say, the source and object in the same e-mail?  Perhaps this button should expose only two options: `Export` and `Open`.  The `Export` option would then bring up a radio-button list with the three export-able options.
+        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let openAction = UIAlertAction(title: "Open", style: .default) { (action) in
+            //TODO: Implement openAction
+            let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
+            self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
+        }
+        alertController.addAction(openAction)
+        
+        let exportSourceAction = UIAlertAction(title: "Export Source", style: .default) { (action) in
+            //TODO: Implement exportSourceAction
+        }
+        alertController.addAction(exportSourceAction)
+        
+        let exportObjectAction = UIAlertAction(title: "Export Object", style: .default) { (action) in
+            //TODO: Implement exportObjectAction
+        }
+        alertController.addAction(exportObjectAction)
+        
+        let exportListingAction = UIAlertAction(title: "Export Listing", style: .default) { (action) in
+            //TODO: Implement exportListingAction
+        }
+        alertController.addAction(exportListingAction)
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let formatFromListingAction = UIAlertAction(title: "Format From Listing", style: .default) { (action) in
+            //TODO: Implement formatFromListingAction
+        }
+        alertController.addAction(formatFromListingAction)
+        
+        let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
+            //TODO: Implement removeErrorMsgsAction
+        }
+        alertController.addAction(removeErrorMsgsAction)
+        
+        let clearMemAction = UIAlertAction(title: "Clear Memory", style: .default) { (action) in
+            //TODO: Implement clearMemAction
+        }
+        alertController.addAction(clearMemAction)
+        
+        let redefineMnemonicsAction = UIAlertAction(title: "Redefine Mnemonics", style: .default) { (action) in
+            //TODO: Implement redefineMnemonicsAction
+        }
+        alertController.addAction(redefineMnemonicsAction)
+        
+        let installNewOSAction = UIAlertAction(title: "Install New OS", style: .default) { (action) in
+            //TODO: Implement installNewOSAction
+        }
+        alertController.addAction(installNewOSAction)
+        
+        let reinstallDefaultOSAction = UIAlertAction(title: "Reinstall Default OS", style: .default) { (action) in
+            //TODO: Implement reinstallDefaultOSAction
+        }
+        alertController.addAction(reinstallDefaultOSAction)
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
+
+    }
+    
 }

@@ -22,7 +22,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xqz-rt-3dm" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -42,22 +42,29 @@
                                     <action selector="runBtnPressed:" destination="Tao-vo-3cn" id="q43-EN-Wcy"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Debug" id="D1a-an-a4U">
+                            <barButtonItem title="🐛" id="D1a-an-a4U">
                                 <connections>
                                     <action selector="debugBtnPressed:" destination="Tao-vo-3cn" id="v47-OA-pTh"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Build" id="L5u-eq-60l">
+                            <barButtonItem title="🔨" id="L5u-eq-60l">
                                 <connections>
                                     <action selector="buildBtnPressed:" destination="Tao-vo-3cn" id="hlC-hl-gcS"/>
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Bnb-PN-EQi">
-                            <connections>
-                                <action selector="exportBtnPressed:" destination="Tao-vo-3cn" id="T4N-Hj-bgM"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="Bnb-PN-EQi">
+                                <connections>
+                                    <action selector="exportBtnPressed:" destination="Tao-vo-3cn" id="T4N-Hj-bgM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="⚙" id="dqa-FB-HLI">
+                                <connections>
+                                    <action selector="settingsBtnPressed:" destination="Tao-vo-3cn" id="Vql-Q2-Ekq"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="buildBtn" destination="L5u-eq-60l" id="fIm-AT-Ueb"/>
@@ -92,7 +99,7 @@
                 <viewControllerPlaceholder storyboardName="Help" id="AX2-aB-8Bv" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VNc-Ej-G43" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740" y="-788"/>
+            <point key="canvasLocation" x="1730" y="-619"/>
         </scene>
         <!--Master View Controller-->
         <scene sceneID="7Cl-4g-nCB">
@@ -152,15 +159,7 @@
                 <viewControllerPlaceholder storyboardName="ASM-CPU" id="vOm-to-yAy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qug-wF-wQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749" y="-8"/>
-        </scene>
-        <!--FileSystem-->
-        <scene sceneID="7S3-a3-QFQ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="FileSystem" id="63R-8S-Moz" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5mX-nf-tO0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1815" y="360"/>
+            <point key="canvasLocation" x="1739" y="-13"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="vDn-u6-D1s">

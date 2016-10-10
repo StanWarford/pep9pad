@@ -16,9 +16,15 @@ class FSDetailViewController: UIViewController {
     
     internal func loadFile(_ named: String) {
         //TODO: Implement file loading from CoreData
+        textView.loadText(named)
     }
+    
+    // MARK: - IBOutlets and IBActions
     
     @IBAction func editBtnPressed(_ sender: UIBarButtonItem) {
     }
+    
+    @IBOutlet weak var textView: PepTextView!
+    
     
 }

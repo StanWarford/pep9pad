@@ -6,7 +6,7 @@ Note that all items in *italics* are also featured on the toolbar.
 - *New*
 - *Open*
 
-All these `save` actions can be grouped into one "Save" button (UIBarButtonItem).
+All these `save` actions should happen automatically.  
 
 - *Save Source*
 - Save Object
@@ -20,10 +20,7 @@ The equivalent of a `print` action on mobile devices will be a send email action
 
 #### Edit Menu ####
 
-We can find a place for these.
-
-- Format From Listing
-- Remove Error Messages
+I've placed these alongside the actions in `System Menu`. 
 
 #### Build Menu ####
 
@@ -59,6 +56,8 @@ We can find a place for these.
 - Redefine Mnemonics...
 - Assembler/Install New OS
 - Reinstall Default OS
+- Format From Listing
+- Remove Error Messages
 
 #### Help Menu ####
 
