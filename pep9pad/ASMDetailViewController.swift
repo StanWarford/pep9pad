@@ -15,6 +15,8 @@ class ASMDetailViewController: UIViewController {
         super.viewDidLoad()
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! ASMMasterViewController
+        textView.setupTextView(view.frame)
+        textView.loadExample("fig0632", ofType: .pep)
     }
     
     override func didReceiveMemoryWarning() {
@@ -24,12 +26,17 @@ class ASMDetailViewController: UIViewController {
     
   //MARK: IBOutlets and Actions
     
-    @IBOutlet weak var runBtn: UIBarButtonItem!
+    
+    
+    @IBOutlet var textView: PepTextView!
+    
+    @IBOutlet var runBtn: UIBarButtonItem!
     @IBOutlet var debugBtn: UIBarButtonItem!
     @IBOutlet var buildBtn: UIBarButtonItem!
     @IBOutlet var exportBtn: UIBarButtonItem!
     
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
+        //TODO: Implement
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {

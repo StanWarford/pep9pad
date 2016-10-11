@@ -21,7 +21,7 @@ class PepTextView: UIView, UITextViewDelegate {
     }
     
     func setupTextView(_ frame: CGRect) {
-        let rect = CGRect(x: frame.origin.x, y: frame.origin.y, width: 0.70*(superview?.bounds.width)!, height: superview!.bounds.height/2)
+        let rect = CGRect(x: frame.origin.x, y: frame.origin.y, width: 0.70*(superview?.bounds.width)!, height: superview!.bounds.height)
         self.textStorage = PepTextStorage()
         self.layoutManager = NSLayoutManager()
         self.textStorage.addLayoutManager(layoutManager)
@@ -50,7 +50,7 @@ class PepTextView: UIView, UITextViewDelegate {
         
         do {
             let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-            print("Loaded file named \(fileName).\(ofType.rawValue)")
+            print("Loaded file named \(fileName).\(ofType.rawValue)")i
             self.textView.text.removeAll()
             self.textView.insertText(content)
         } catch _ as NSError {
