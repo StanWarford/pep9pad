@@ -21,17 +21,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xqz-rt-3dm" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <frame key="frameInset" minX="-4" minY="64" width="702.5" height="704"/>
+                                <frame key="frameInset" minX="-4" minY="64" width="699" height="704"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb4-MY-bAN">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Source Code" id="xrE-Qi-SAq"/>
+                                    <tabBarItem title="Object Code" id="70d-J3-uRR"/>
+                                    <tabBarItem title="Listing" id="HBc-qD-ePi"/>
+                                    <tabBarItem title="Trace" id="eWf-yz-J7H"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Gb4-MY-bAN" firstAttribute="bottom" secondItem="MsR-Mc-qaf" secondAttribute="top" id="9P4-5J-Bsx"/>
                             <constraint firstItem="xqz-rt-3dm" firstAttribute="leading" secondItem="ewd-NJ-am6" secondAttribute="leading" id="BX6-Vx-Vhz"/>
+                            <constraint firstItem="Gb4-MY-bAN" firstAttribute="leading" secondItem="ewd-NJ-am6" secondAttribute="leading" id="ZgN-Bv-ur3"/>
                             <constraint firstItem="xqz-rt-3dm" firstAttribute="bottom" secondItem="MsR-Mc-qaf" secondAttribute="top" id="pCL-Hy-f8r"/>
+                            <constraint firstAttribute="trailing" secondItem="Gb4-MY-bAN" secondAttribute="trailing" id="tuX-Pa-9Tb"/>
                             <constraint firstItem="xqz-rt-3dm" firstAttribute="top" secondItem="AEE-UC-JLO" secondAttribute="bottom" id="wjA-0z-DYt"/>
                             <constraint firstAttribute="trailing" secondItem="xqz-rt-3dm" secondAttribute="trailing" id="y9E-db-kHu"/>
                         </constraints>

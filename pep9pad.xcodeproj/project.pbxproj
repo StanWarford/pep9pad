@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
 		4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */; };
 		461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461875951C90089F0095B818 /* HelpDocumentation.swift */; };
@@ -34,6 +35,7 @@
 		46C76A581DA70B930071C340 /* FSMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A571DA70B930071C340 /* FSMasterViewController.swift */; };
 		46C76A5A1DA70BE20071C340 /* FSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A591DA70BE20071C340 /* FSDetailViewController.swift */; };
 		46C76A5D1DA711690071C340 /* FileSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A5C1DA711690071C340 /* FileSystem.storyboard */; };
+		46C76A611DAD86BE0071C340 /* ASM-IOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A601DAD86BD0071C340 /* ASM-IOView.swift */; };
 		46C7EEE41D80BDD300F74B6E /* ASM-CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
@@ -157,6 +159,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
 		4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepColorExtensions.swift; sourceTree = "<group>"; };
 		461875951C90089F0095B818 /* HelpDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDocumentation.swift; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 		46C76A571DA70B930071C340 /* FSMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSMasterViewController.swift; sourceTree = "<group>"; };
 		46C76A591DA70BE20071C340 /* FSDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSDetailViewController.swift; sourceTree = "<group>"; };
 		46C76A5C1DA711690071C340 /* FileSystem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FileSystem.storyboard; sourceTree = "<group>"; };
+		46C76A601DAD86BD0071C340 /* ASM-IOView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASM-IOView.swift"; sourceTree = "<group>"; };
 		46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "ASM-CPU.storyboard"; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterViewController.swift; sourceTree = "<group>"; };
 		46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
+		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,6 +307,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +467,7 @@
 				D2B0615B1C7E62040088CEBE /* ASMMasterViewController.swift */,
 				46C76A551DA496510071C340 /* ASMDetailViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */,
+				46C76A601DAD86BD0071C340 /* ASM-IOView.swift */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
@@ -579,6 +587,14 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		7D9CBCFD9023D4D7F6B0EADD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
@@ -586,6 +602,8 @@
 				D2B061701C7E62050088CEBE /* pep9padTests */,
 				D2B0617B1C7E62050088CEBE /* pep9padUITests */,
 				D2B061571C7E62040088CEBE /* Products */,
+				ECF677558098784033F5EF20 /* Pods */,
+				7D9CBCFD9023D4D7F6B0EADD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -633,6 +651,15 @@
 			path = pep9padUITests;
 			sourceTree = "<group>";
 		};
+		ECF677558098784033F5EF20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */,
+				119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -640,9 +667,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D2B061811C7E62050088CEBE /* Build configuration list for PBXNativeTarget "pep9pad" */;
 			buildPhases = (
+				7BF054DBAAB18BD8A5D76502 /* [CP] Check Pods Manifest.lock */,
 				D2B061521C7E62040088CEBE /* Sources */,
 				D2B061531C7E62040088CEBE /* Frameworks */,
 				D2B061541C7E62040088CEBE /* Resources */,
+				6FD656C30E136863DE4CD2E6 /* [CP] Embed Pods Frameworks */,
+				9B9C97785DD2A83E5446DD11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -862,6 +892,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6FD656C30E136863DE4CD2E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BF054DBAAB18BD8A5D76502 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9B9C97785DD2A83E5446DD11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D2B061521C7E62040088CEBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -889,6 +967,7 @@
 				46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
+				46C76A611DAD86BE0071C340 /* ASM-IOView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
@@ -1031,6 +1110,7 @@
 		};
 		D2B061821C7E62050088CEBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = pep9pad/Info.plist;
@@ -1043,6 +1123,7 @@
 		};
 		D2B061831C7E62050088CEBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = pep9pad/Info.plist;

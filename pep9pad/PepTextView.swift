@@ -50,7 +50,7 @@ class PepTextView: UIView, UITextViewDelegate {
         
         do {
             let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-            print("Loaded file named \(fileName).\(ofType.rawValue)")i
+            print("Loaded file named \(fileName).\(ofType.rawValue)")
             self.textView.text.removeAll()
             self.textView.insertText(content)
         } catch _ as NSError {

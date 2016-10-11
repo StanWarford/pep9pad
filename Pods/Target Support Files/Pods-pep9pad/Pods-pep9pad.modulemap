@@ -1,0 +1,6 @@
+framework module Pods_pep9pad {
+  umbrella header "Pods-pep9pad-umbrella.h"
+
+  export *
+  module * { export * }
+}
