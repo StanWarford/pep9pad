@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xfg-8p-7Uj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SWG-xN-7IX">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQ1-1S-nFL" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
@@ -49,7 +49,7 @@
         <scene sceneID="Ana-ah-5BF">
             <objects>
                 <navigationController id="cI9-tN-FWR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vcz-TB-tUp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vcz-TB-tUp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -61,37 +61,37 @@
             </objects>
             <point key="canvasLocation" x="1645" y="-1488"/>
         </scene>
-        <!--Saved Files-->
+        <!--Saved Projects-->
         <scene sceneID="eDU-Jc-ela">
             <objects>
                 <tableViewController id="oiM-Qh-UnJ" customClass="FSMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="3ic-im-93y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CWx-mf-ycy">
-                                <rect key="frame" x="0.0" y="120" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CWx-mf-ycy" id="2AT-oN-YqI">
-                                    <frame key="frameInset" width="320" height="43"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZJo-zc-Tt8">
-                                <rect key="frame" x="0.0" y="164" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJo-zc-Tt8" id="8Iz-2e-tSX">
-                                    <frame key="frameInset" width="320" height="43"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="QuU-Id-HSl">
-                                <rect key="frame" x="0.0" y="208" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="208" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QuU-Id-HSl" id="FNk-tQ-huY">
-                                    <frame key="frameInset" width="320" height="43"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -102,7 +102,7 @@
                             <outlet property="delegate" destination="oiM-Qh-UnJ" id="TqC-do-T1f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Saved Files" id="hQt-ih-iHc">
+                    <navigationItem key="navigationItem" title="Saved Projects" id="hQt-ih-iHc">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Fci-mo-GwN">
                             <connections>
                                 <action selector="closeBtnPressed:" destination="oiM-Qh-UnJ" id="Svx-71-wR0"/>
@@ -118,7 +118,7 @@
         <scene sceneID="NN0-zv-4MK">
             <objects>
                 <navigationController id="uQK-Sb-ICc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pIO-OT-yRY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pIO-OT-yRY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

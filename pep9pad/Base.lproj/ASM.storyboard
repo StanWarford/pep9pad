@@ -66,9 +66,9 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem title="✏️" id="Bnb-PN-EQi">
+                            <barButtonItem systemItem="action" id="Bnb-PN-EQi">
                                 <connections>
-                                    <action selector="exportBtnPressed:" destination="Tao-vo-3cn" id="T4N-Hj-bgM"/>
+                                    <action selector="actionBtnPressed:" destination="Tao-vo-3cn" id="Ox4-OM-cDo"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="⚙" id="dqa-FB-HLI">
@@ -76,12 +76,14 @@
                                     <action selector="settingsBtnPressed:" destination="Tao-vo-3cn" id="Vql-Q2-Ekq"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="calc" id="XKL-SO-DOM"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionBtn" destination="Bnb-PN-EQi" id="xrl-b4-cQZ"/>
                         <outlet property="buildBtn" destination="L5u-eq-60l" id="fIm-AT-Ueb"/>
+                        <outlet property="calcBtn" destination="XKL-SO-DOM" id="zHu-DO-Ayd"/>
                         <outlet property="debugBtn" destination="D1a-an-a4U" id="5EX-KE-pOM"/>
-                        <outlet property="exportBtn" destination="Bnb-PN-EQi" id="9VV-dG-PiF"/>
                         <outlet property="runBtn" destination="dH8-c9-Qp9" id="IEf-B4-Bbl"/>
                         <outlet property="settingsBtn" destination="dqa-FB-HLI" id="gRi-Ly-qts"/>
                         <outlet property="textView" destination="xqz-rt-3dm" id="3vM-o6-CBD"/>
@@ -144,7 +146,7 @@
                                     <navigationItem id="bt1-aN-xS0">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="elu-ut-GND">
-                                            <rect key="frame" x="94" y="7" width="133" height="30"/>
+                                            <rect key="frame" x="93.5" y="7" width="133" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Batch"/>
