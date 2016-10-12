@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class ASMDetailViewController: UIViewController {
     internal var master: ASMMasterViewController!
@@ -24,16 +25,39 @@ class ASMDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  //MARK: IBOutlets and Actions
-    
-    
+  //MARK: - IBOutlets
     
     @IBOutlet var textView: PepTextView!
     
+    /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
+    func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
+        let attrs = [NSFontAttributeName: UIFont.fontAwesomeOfSize(ofSize)] as Dictionary!
+        btn.setTitleTextAttributes(attrs, for: .normal)
+        btn.title = String.fontAwesomeIconWithName(nameOfIcon)
+    }
+    
+    
     @IBOutlet var runBtn: UIBarButtonItem!
-    @IBOutlet var debugBtn: UIBarButtonItem!
+    @IBOutlet var debugBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Bug, ofSize: 20)
+        }
+    }
     @IBOutlet var buildBtn: UIBarButtonItem!
-    @IBOutlet var exportBtn: UIBarButtonItem!
+    @IBOutlet var settingsBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .Cog, ofSize: 20)
+        }
+    }
+    @IBOutlet var exportBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.exportBtn, nameOfIcon: .Edit, ofSize: 20)
+        }
+    }
+    
+    
+    
+    //MARK: - IBActions
     
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
         //TODO: Implement
