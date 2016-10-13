@@ -9,15 +9,22 @@
 import UIKit
 import FontAwesome_swift
 
-class ASMDetailViewController: UIViewController {
+
+class ASMDetailViewController: UIViewController, UITabBarDelegate {
     internal var master: ASMMasterViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // get ref to master and save to local `master` property
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! ASMMasterViewController
-        textView.setupTextView(view.frame)
-        textView.loadExample("fig0632", ofType: .pep)
+        
+
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,9 +32,35 @@ class ASMDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  //MARK: - IBOutlets
     
-    @IBOutlet var textView: PepTextView!
+    // MARK: - Conformance to UITabBarDelegate
+    
+    func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
+        let defaultSize = CGSize(width: 30, height: 30)
+        for idx in 0..<tabBarItems.count {
+            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(.Code, textColor: .black, size: defaultSize)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "embedTagBar":
+                // the storyboard is hooking up the ASMTabBar
+                print("Embedding the tab bar")
+                let tbc = segue.destination as! UITabBarController
+                customizeTabBarImages((tbc.tabBar.items)! as [UITabBarItem])
+
+            default:
+                break
+                
+            }
+        }
+    }
+    
+    
+    
+    // MARK: - IBOutlets
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
