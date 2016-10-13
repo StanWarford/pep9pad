@@ -9,15 +9,22 @@
 import UIKit
 import FontAwesome_swift
 
-class ASMDetailViewController: UIViewController {
+
+class ASMDetailViewController: UIViewController, UITabBarDelegate {
     internal var master: ASMMasterViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // get ref to master and save to local `master` property
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! ASMMasterViewController
-        textView.setupTextView(view.frame)
-        textView.loadExample("fig0632", ofType: .pep)
+        
+
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,9 +32,35 @@ class ASMDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  //MARK: - IBOutlets
     
-    @IBOutlet var textView: PepTextView!
+    // MARK: - Conformance to UITabBarDelegate
+    
+    func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
+        let defaultSize = CGSize(width: 30, height: 30)
+        for idx in 0..<tabBarItems.count {
+            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(.Code, textColor: .black, size: defaultSize)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            switch id {
+            case "embedTagBar":
+                // the storyboard is hooking up the ASMTabBar
+                print("Embedding the tab bar")
+                let tbc = segue.destination as! UITabBarController
+                customizeTabBarImages((tbc.tabBar.items)! as [UITabBarItem])
+
+            default:
+                break
+                
+            }
+        }
+    }
+    
+    
+    
+    // MARK: - IBOutlets
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
@@ -44,17 +77,17 @@ class ASMDetailViewController: UIViewController {
         }
     }
     @IBOutlet var buildBtn: UIBarButtonItem!
+    @IBOutlet var calcBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .Calculator, ofSize: 20)
+        }
+    }
     @IBOutlet var settingsBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .Cog, ofSize: 20)
         }
     }
-    @IBOutlet var exportBtn: UIBarButtonItem! {
-        didSet {
-            setButtonIcon(forBarBtnItem: self.exportBtn, nameOfIcon: .Edit, ofSize: 20)
-        }
-    }
-    
+    @IBOutlet var actionBtn: UIBarButtonItem!
     
     
     //MARK: - IBActions
@@ -108,33 +141,26 @@ class ASMDetailViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func exportBtnPressed(_ sender: UIBarButtonItem) {
-        
-        // I'm not sure these 'export' actions should be presented here.  What if a user would like to export, say, the source and object in the same e-mail?  Perhaps this button should expose only two options: `Export` and `Open`.  The `Export` option would then bring up a radio-button list with the three export-able options.
+    @IBAction func actionBtnPressed(_ sender: UIBarButtonItem) {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let openAction = UIAlertAction(title: "Open", style: .default) { (action) in
+        let openAction = UIAlertAction(title: "Open Project", style: .default) { (action) in
             //TODO: Implement openAction
             let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
             self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
         }
         alertController.addAction(openAction)
         
-        let exportSourceAction = UIAlertAction(title: "Export Source", style: .default) { (action) in
+        let saveAction = UIAlertAction(title: "Save Project", style: .default) { (action) in
             //TODO: Implement exportSourceAction
         }
-        alertController.addAction(exportSourceAction)
+        alertController.addAction(saveAction)
         
-        let exportObjectAction = UIAlertAction(title: "Export Object", style: .default) { (action) in
+        let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
             //TODO: Implement exportObjectAction
         }
-        alertController.addAction(exportObjectAction)
-        
-        let exportListingAction = UIAlertAction(title: "Export Listing", style: .default) { (action) in
-            //TODO: Implement exportListingAction
-        }
-        alertController.addAction(exportListingAction)
+        alertController.addAction(shareAction)
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)

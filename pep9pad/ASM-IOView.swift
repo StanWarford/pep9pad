@@ -18,8 +18,12 @@ enum ASMIOViewMode {
     case terminal
 }
 
-/// A `UIView` which
+
+
+
+/// A `UIView` which handles batch and terminal input / output.
 class ASMIOView: UIView, UITextViewDelegate {
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -29,7 +33,7 @@ class ASMIOView: UIView, UITextViewDelegate {
     /// Represents the current mode of this view. Default value is `.batch`
     /// * The `batch` mode corresponds to two text input panels, an input and output
     /// * The `terminal` mode corresponds to a single text input/output panel
-    internal var currentMode: ASMIOViewMode = .batch
+    var currentMode: ASMIOViewMode = .batch
     
     
     

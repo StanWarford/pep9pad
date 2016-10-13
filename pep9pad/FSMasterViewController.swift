@@ -74,7 +74,7 @@ class FSMasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Your Files"
+            return "Your Projects"
         default:
             return ""
         }

@@ -20,32 +20,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xqz-rt-3dm" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb4-MY-bAN">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem systemItem="downloads" id="xrE-Qi-SAq"/>
-                                    <tabBarItem systemItem="favorites" id="70d-J3-uRR"/>
-                                    <tabBarItem systemItem="mostViewed" id="eWf-yz-J7H"/>
-                                    <tabBarItem systemItem="mostRecent" id="HBc-qD-ePi"/>
-                                </items>
-                            </tabBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
+                                <frame key="frameInset" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="kVQ-1y-bjq" kind="embed" identifier="embedTagBar" id="YdT-uh-r17"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Gb4-MY-bAN" firstAttribute="bottom" secondItem="MsR-Mc-qaf" secondAttribute="top" id="9P4-5J-Bsx"/>
-                            <constraint firstItem="xqz-rt-3dm" firstAttribute="bottom" secondItem="Gb4-MY-bAN" secondAttribute="top" id="H4C-dU-ivE"/>
-                            <constraint firstItem="Gb4-MY-bAN" firstAttribute="leading" secondItem="ewd-NJ-am6" secondAttribute="leading" id="ZgN-Bv-ur3"/>
-                            <constraint firstItem="xqz-rt-3dm" firstAttribute="leading" secondItem="Gb4-MY-bAN" secondAttribute="leading" id="hpG-e5-no0"/>
-                            <constraint firstItem="xqz-rt-3dm" firstAttribute="top" secondItem="ewd-NJ-am6" secondAttribute="top" id="nFR-Vt-Sry"/>
-                            <constraint firstAttribute="trailing" secondItem="Gb4-MY-bAN" secondAttribute="trailing" id="tuX-Pa-9Tb"/>
-                            <constraint firstItem="xqz-rt-3dm" firstAttribute="trailing" secondItem="Gb4-MY-bAN" secondAttribute="trailing" id="voL-mS-WoP"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O3W-Me-ByB">
                         <leftBarButtonItems>
@@ -66,9 +49,9 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem title="✏️" id="Bnb-PN-EQi">
+                            <barButtonItem systemItem="action" id="Bnb-PN-EQi">
                                 <connections>
-                                    <action selector="exportBtnPressed:" destination="Tao-vo-3cn" id="T4N-Hj-bgM"/>
+                                    <action selector="actionBtnPressed:" destination="Tao-vo-3cn" id="Ox4-OM-cDo"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="⚙" id="dqa-FB-HLI">
@@ -76,15 +59,16 @@
                                     <action selector="settingsBtnPressed:" destination="Tao-vo-3cn" id="Vql-Q2-Ekq"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="calc" id="XKL-SO-DOM"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="actionBtn" destination="Bnb-PN-EQi" id="xrl-b4-cQZ"/>
                         <outlet property="buildBtn" destination="L5u-eq-60l" id="fIm-AT-Ueb"/>
+                        <outlet property="calcBtn" destination="XKL-SO-DOM" id="zHu-DO-Ayd"/>
                         <outlet property="debugBtn" destination="D1a-an-a4U" id="5EX-KE-pOM"/>
-                        <outlet property="exportBtn" destination="Bnb-PN-EQi" id="9VV-dG-PiF"/>
                         <outlet property="runBtn" destination="dH8-c9-Qp9" id="IEf-B4-Bbl"/>
                         <outlet property="settingsBtn" destination="dqa-FB-HLI" id="gRi-Ly-qts"/>
-                        <outlet property="textView" destination="xqz-rt-3dm" id="3vM-o6-CBD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1U-E9-kVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -212,6 +196,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qug-wF-wQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1739" y="-13"/>
+        </scene>
+        <!--ASMTabBar-->
+        <scene sceneID="SxM-sF-5c7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ASMTabBar" id="kVQ-1y-bjq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="djq-i3-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1886" y="516"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="vDn-u6-D1s">
