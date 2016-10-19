@@ -16,7 +16,7 @@ class ASMSourceCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
-        textView.loadExample("fig0632", ofType: .pep)
+        textView.loadExample("myFirstProgram", ofType: .pep)
     }
     
     

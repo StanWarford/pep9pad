@@ -38,7 +38,7 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
         // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
-        let icons: [FontAwesome] = [.FileText, .Code, .List, .Database, .Stethoscope]
+        let icons: [FontAwesome] = [.FileText, .Code, .List, .Reorder, .Stethoscope]
         let defaultSize = CGSize(width: 30, height: 30)
         for idx in 0..<tabBarItems.count {
             tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
@@ -148,21 +148,30 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
         
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
+        let newAction = UIAlertAction(title: "New Project", style: .default) { (action) in
+            //TODO: Implement newAction
+        }
+        newAction.isEnabled = (fsState != .Blank)
+        alertController.addAction(newAction)
+
         let openAction = UIAlertAction(title: "Open Project", style: .default) { (action) in
             //TODO: Implement openAction
             let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
             self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
         }
+        openAction.isEnabled = true
         alertController.addAction(openAction)
         
         let saveAction = UIAlertAction(title: "Save Project", style: .default) { (action) in
             //TODO: Implement exportSourceAction
         }
+        saveAction.isEnabled = (fsState == .UnsavedUnnamed) || (fsState == .UnsavedNamed)
         alertController.addAction(saveAction)
         
         let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
             //TODO: Implement exportObjectAction
         }
+        shareAction.isEnabled = (fsState != .Blank)
         alertController.addAction(shareAction)
         
         alertController.popoverPresentationController?.barButtonItem = sender

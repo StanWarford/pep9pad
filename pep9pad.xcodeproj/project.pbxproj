@@ -139,6 +139,11 @@
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
+		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
+		D2CC5E4E1DB807990033CFF4 /* myFirstProgram.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */; };
+		D2CC5E511DB811220033CFF4 /* SourceTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E501DB811220033CFF4 /* SourceTextModel.swift */; };
+		D2CC5E531DB8113C0033CFF4 /* ObjectTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E521DB8113C0033CFF4 /* ObjectTextModel.swift */; };
+		D2CC5E551DB811570033CFF4 /* ListingTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E541DB811570033CFF4 /* ListingTextModel.swift */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
 		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -302,6 +307,11 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
+		D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pep; sourceTree = "<group>"; };
+		D2CC5E501DB811220033CFF4 /* SourceTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceTextModel.swift; sourceTree = "<group>"; };
+		D2CC5E521DB8113C0033CFF4 /* ObjectTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectTextModel.swift; sourceTree = "<group>"; };
+		D2CC5E541DB811570033CFF4 /* ListingTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTextModel.swift; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
 		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -443,6 +453,8 @@
 				46C76A571DA70B930071C340 /* FSMasterViewController.swift */,
 				46C76A5C1DA711690071C340 /* FileSystem.storyboard */,
 				46C76A591DA70BE20071C340 /* FSDetailViewController.swift */,
+				D2CC5E4B1DB800220033CFF4 /* FSState.swift */,
+				D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */,
 			);
 			name = FileSystem;
 			sourceTree = "<group>";
@@ -482,6 +494,7 @@
 				46C76A631DAF112A0071C340 /* ASMSourceCodeViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */,
 				46C76A601DAD86BD0071C340 /* ASM-IOView.swift */,
+				D2CC5E4F1DB810E70033CFF4 /* TextModels */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
 				46C76A651DAF173D0071C340 /* ASMTabBar.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */,
@@ -665,6 +678,16 @@
 			path = pep9padUITests;
 			sourceTree = "<group>";
 		};
+		D2CC5E4F1DB810E70033CFF4 /* TextModels */ = {
+			isa = PBXGroup;
+			children = (
+				D2CC5E501DB811220033CFF4 /* SourceTextModel.swift */,
+				D2CC5E521DB8113C0033CFF4 /* ObjectTextModel.swift */,
+				D2CC5E541DB811570033CFF4 /* ListingTextModel.swift */,
+			);
+			name = TextModels;
+			sourceTree = "<group>";
+		};
 		ECF677558098784033F5EF20 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,6 +826,7 @@
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
+				D2CC5E4E1DB807990033CFF4 /* myFirstProgram.pep in Resources */,
 				46EC8A601C989229001405CE /* fig0512.pep in Resources */,
 				46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */,
 				46EC8AC81C9895CC001405CE /* fig0514a.pep in Resources */,
@@ -962,6 +986,8 @@
 			files = (
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enu.swift in Sources */,
+				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
+				D2CC5E531DB8113C0033CFF4 /* ObjectTextModel.swift in Sources */,
 				46C76A641DAF112A0071C340 /* ASMSourceCodeViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterViewController.swift in Sources */,
@@ -983,10 +1009,12 @@
 				46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
+				D2CC5E511DB811220033CFF4 /* SourceTextModel.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* ASM-IOView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
+				D2CC5E551DB811570033CFF4 /* ListingTextModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
