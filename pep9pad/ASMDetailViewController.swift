@@ -9,7 +9,8 @@
 import UIKit
 import FontAwesome_swift
 
-
+/// A top-level controller that contains a `UITabBar` and serves as its delegate.
+/// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
 class ASMDetailViewController: UIViewController, UITabBarDelegate {
     internal var master: ASMMasterViewController!
     
