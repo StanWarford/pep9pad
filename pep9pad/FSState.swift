@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+/// All possible states of the ASM FileSystem.  For the FSM, see the `Documentation` folder.
 enum FSState {
 case Blank
 case UnsavedUnnamed
@@ -14,4 +16,5 @@ case UnsavedNamed
 case SavedNamed
 }
 
+/// Globally-accessible state of the ASM FileSystem.
 var fsState: FSState = .SavedNamed

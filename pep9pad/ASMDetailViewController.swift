@@ -150,26 +150,25 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
         
         let newAction = UIAlertAction(title: "New Project", style: .default) { (action) in
             //TODO: Implement newAction
+            self.newProject()
         }
         newAction.isEnabled = (fsState != .Blank)
         alertController.addAction(newAction)
 
         let openAction = UIAlertAction(title: "Open Project", style: .default) { (action) in
-            //TODO: Implement openAction
-            let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
-            self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
+            self.openProject()
         }
         openAction.isEnabled = true
         alertController.addAction(openAction)
         
         let saveAction = UIAlertAction(title: "Save Project", style: .default) { (action) in
-            //TODO: Implement exportSourceAction
+            self.saveProject()
         }
         saveAction.isEnabled = (fsState == .UnsavedUnnamed) || (fsState == .UnsavedNamed)
         alertController.addAction(saveAction)
         
         let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
-            //TODO: Implement exportObjectAction
+            self.shareProject()
         }
         shareAction.isEnabled = (fsState != .Blank)
         alertController.addAction(shareAction)
@@ -216,5 +215,62 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
         self.present(alertController, animated: true, completion: nil)
 
     }
+    
+    
+    
+    
+    // MARK: - Methods
+    func newProject() {
+        if (fsState == .UnsavedNamed) {
+            // project has not been saved recently
+
+            let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to this project?", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                // Handle save
+            }
+            alertController.addAction(yesAction)
+            
+            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
+                // Handle other thing
+            }
+            alertController.addAction(noAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // Don't do anything
+            }
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        
+        
+        } else if (fsState == .UnsavedUnnamed) {
+            // project has never been saved
+            // TODO: Show user: "Would you like to save this project?" (Yes,No,Cancel)
+            // TODO: --> if YES, "Please input a name" (Cancel,OK)
+        
+        } else {
+            // project is already saved
+            sourceTextModel.clear()
+            objectTextModel.clear()
+            listingTextModel.clear()
+            // TODO: Update all viewcontrollers to reflect this change
+        }
+    }
+    
+    func openProject() {
+        let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
+        self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
+    }
+    
+    func saveProject() {
+        
+    }
+    
+    func shareProject() {
+        
+    }
+    
+    
     
 }

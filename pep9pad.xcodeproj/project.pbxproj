@@ -38,6 +38,7 @@
 		46C76A611DAD86BE0071C340 /* ASM-IOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A601DAD86BD0071C340 /* ASM-IOView.swift */; };
 		46C76A641DAF112A0071C340 /* ASMSourceCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A631DAF112A0071C340 /* ASMSourceCodeViewController.swift */; };
 		46C76A661DAF173D0071C340 /* ASMTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A651DAF173D0071C340 /* ASMTabBar.storyboard */; };
+		46C76A681DB856A50071C340 /* ASMObjectCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A671DB856A50071C340 /* ASMObjectCodeViewController.swift */; };
 		46C7EEE41D80BDD300F74B6E /* ASM-CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
@@ -197,6 +198,7 @@
 		46C76A601DAD86BD0071C340 /* ASM-IOView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASM-IOView.swift"; sourceTree = "<group>"; };
 		46C76A631DAF112A0071C340 /* ASMSourceCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMSourceCodeViewController.swift; sourceTree = "<group>"; };
 		46C76A651DAF173D0071C340 /* ASMTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ASMTabBar.storyboard; sourceTree = "<group>"; };
+		46C76A671DB856A50071C340 /* ASMObjectCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMObjectCodeViewController.swift; sourceTree = "<group>"; };
 		46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "ASM-CPU.storyboard"; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
@@ -492,13 +494,14 @@
 				D2B0615B1C7E62040088CEBE /* ASMMasterViewController.swift */,
 				46C76A551DA496510071C340 /* ASMDetailViewController.swift */,
 				46C76A631DAF112A0071C340 /* ASMSourceCodeViewController.swift */,
+				46C76A671DB856A50071C340 /* ASMObjectCodeViewController.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM-CPUViewController.swift */,
 				46C76A601DAD86BD0071C340 /* ASM-IOView.swift */,
-				D2CC5E4F1DB810E70033CFF4 /* TextModels */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
 				46C76A651DAF173D0071C340 /* ASMTabBar.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* ASM-CPU.storyboard */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
+				D2CC5E4F1DB810E70033CFF4 /* TextModels */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46C7EEE11D80BD7400F74B6E /* Parse */,
 			);
@@ -994,6 +997,7 @@
 				46C608D11C8EAC1E00CC161A /* ASM-CPUViewController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* ASMMasterViewController.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
+				46C76A681DB856A50071C340 /* ASMObjectCodeViewController.swift in Sources */,
 				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,

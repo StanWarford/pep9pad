@@ -9,6 +9,14 @@
 import Foundation
 
 class SourceTextModel {
+    
     var text: String = ""
     
+    func clear() {
+        text = ""
+    }
 }
+
+/// This global variable is initialized on launch.  
+/// Its `text` attribute is initialized to the empty string.
+var sourceTextModel = SourceTextModel()
