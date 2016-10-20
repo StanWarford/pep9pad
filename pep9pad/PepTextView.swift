@@ -65,7 +65,8 @@ class PepTextView: UIView, UITextViewDelegate {
     
     func minimize() {
         UIView.animate(withDuration: 0.25) {
-            self.frame = CGRect.zero
+            // TODO: Implement
+            //self.frame = CGRect.zero
         }
     }
     
@@ -73,6 +74,7 @@ class PepTextView: UIView, UITextViewDelegate {
         //TODO: Implement
         return true
     }
+    
     
     
     

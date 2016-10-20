@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -11,7 +11,7 @@
         <!--Detail View Controller-->
         <scene sceneID="NdW-6f-GQW">
             <objects>
-                <viewController id="Tao-vo-3cn" customClass="ASMDetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tao-vo-3cn" customClass="ASM_DetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AEE-UC-JLO"/>
                         <viewControllerLayoutGuide type="bottom" id="MsR-Mc-qaf"/>
@@ -102,7 +102,7 @@
         <!--Master View Controller-->
         <scene sceneID="7Cl-4g-nCB">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jNR-wW-WrY" customClass="ASMMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jNR-wW-WrY" customClass="ASM_MasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aGM-Ff-1k4"/>
                         <viewControllerLayoutGuide type="bottom" id="Nce-H4-hmt"/>
@@ -123,50 +123,61 @@
                                     <segue destination="vOm-to-yAy" kind="embed" id="5te-Qt-zfk"/>
                                 </connections>
                             </containerView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFb-ov-r4O">
-                                <items>
-                                    <navigationItem id="bt1-aN-xS0">
-                                        <nil key="title"/>
-                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="elu-ut-GND">
-                                            <rect key="frame" x="93.5" y="7" width="133" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Batch"/>
-                                                <segment title="Terminal"/>
-                                            </segments>
-                                        </segmentedControl>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Placeholder Output" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lrl-Uo-pdF">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Placeholder Input" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wVo-OB-FPy">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KhB-bi-CMx" customClass="ASM_IOView" customModule="pep9pad" customModuleProvider="target">
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLK-st-9Ne">
+                                        <items>
+                                            <navigationItem id="wjB-An-SEz">
+                                                <nil key="title"/>
+                                                <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="dwX-sD-peW">
+                                                    <rect key="frame" x="94" y="7" width="133" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <segments>
+                                                        <segment title="Batch"/>
+                                                        <segment title="Terminal"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Placeholder Input" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iO5-g4-Wkq">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="163" id="yFF-DP-Xi5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Placeholder Output" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0AR-Gd-JSF">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="163" id="heJ-HM-LFP"/>
+                                    <constraint firstItem="0AR-Gd-JSF" firstAttribute="trailing" secondItem="iO5-g4-Wkq" secondAttribute="trailing" id="05J-Wg-Lpa"/>
+                                    <constraint firstAttribute="bottom" secondItem="0AR-Gd-JSF" secondAttribute="bottom" constant="27" id="2fq-4N-cas"/>
+                                    <constraint firstAttribute="trailing" secondItem="eLK-st-9Ne" secondAttribute="trailing" id="4Of-wv-Hx6"/>
+                                    <constraint firstItem="0AR-Gd-JSF" firstAttribute="top" secondItem="iO5-g4-Wkq" secondAttribute="bottom" constant="3" id="GeS-Dg-yHZ"/>
+                                    <constraint firstItem="eLK-st-9Ne" firstAttribute="leading" secondItem="iO5-g4-Wkq" secondAttribute="leading" id="QgL-LQ-mtt"/>
+                                    <constraint firstItem="eLK-st-9Ne" firstAttribute="bottom" secondItem="iO5-g4-Wkq" secondAttribute="top" id="gAJ-CN-HEH"/>
+                                    <constraint firstItem="eLK-st-9Ne" firstAttribute="trailing" secondItem="iO5-g4-Wkq" secondAttribute="trailing" id="grW-pQ-nrb"/>
+                                    <constraint firstItem="eLK-st-9Ne" firstAttribute="leading" secondItem="KhB-bi-CMx" secondAttribute="leading" id="k7J-TT-O7p"/>
+                                    <constraint firstItem="0AR-Gd-JSF" firstAttribute="leading" secondItem="iO5-g4-Wkq" secondAttribute="leading" id="m8Y-WO-IW5"/>
+                                    <constraint firstItem="eLK-st-9Ne" firstAttribute="top" secondItem="KhB-bi-CMx" secondAttribute="top" id="znQ-E4-lzE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wVo-OB-FPy" firstAttribute="top" secondItem="KKs-4b-e8l" secondAttribute="top" constant="114" id="BLj-5Z-qwZ"/>
-                            <constraint firstItem="Lrl-Uo-pdF" firstAttribute="top" secondItem="wVo-OB-FPy" secondAttribute="bottom" constant="4" id="KGn-Vb-IlR"/>
-                            <constraint firstItem="2df-w3-OcL" firstAttribute="top" secondItem="Lrl-Uo-pdF" secondAttribute="bottom" id="OtI-Nk-IXK"/>
-                            <constraint firstItem="wVo-OB-FPy" firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="POo-Es-2NF"/>
-                            <constraint firstItem="wVo-OB-FPy" firstAttribute="leading" secondItem="xFb-ov-r4O" secondAttribute="leading" id="QMg-KL-EZn"/>
-                            <constraint firstItem="wVo-OB-FPy" firstAttribute="top" secondItem="xFb-ov-r4O" secondAttribute="bottom" constant="6" id="TUu-xf-Ssa"/>
+                            <constraint firstItem="KhB-bi-CMx" firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="ANH-ac-eI3"/>
+                            <constraint firstItem="Nce-H4-hmt" firstAttribute="top" secondItem="KhB-bi-CMx" secondAttribute="bottom" constant="282" id="MjZ-Rs-O9e"/>
                             <constraint firstItem="2df-w3-OcL" firstAttribute="bottom" secondItem="Nce-H4-hmt" secondAttribute="top" id="bkn-8T-uup"/>
-                            <constraint firstItem="wVo-OB-FPy" firstAttribute="trailing" secondItem="xFb-ov-r4O" secondAttribute="trailing" id="dwc-Jh-oLG"/>
-                            <constraint firstItem="Lrl-Uo-pdF" firstAttribute="leading" secondItem="wVo-OB-FPy" secondAttribute="leading" id="eXt-IA-TB4"/>
-                            <constraint firstItem="Lrl-Uo-pdF" firstAttribute="trailing" secondItem="wVo-OB-FPy" secondAttribute="trailing" id="fHU-1q-sgq"/>
                             <constraint firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="fNG-hD-NUN"/>
                             <constraint firstItem="2df-w3-OcL" firstAttribute="leading" secondItem="KKs-4b-e8l" secondAttribute="leading" id="nCS-fQ-Rvi"/>
-                            <constraint firstItem="wVo-OB-FPy" firstAttribute="leading" secondItem="2df-w3-OcL" secondAttribute="leading" id="tW8-fA-TDx"/>
+                            <constraint firstItem="KhB-bi-CMx" firstAttribute="top" secondItem="aGM-Ff-1k4" secondAttribute="bottom" id="s2k-8V-egb"/>
+                            <constraint firstItem="KhB-bi-CMx" firstAttribute="leading" secondItem="2df-w3-OcL" secondAttribute="leading" id="sek-nI-cra"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vTW-P4-Gly">
@@ -189,18 +200,18 @@
             </objects>
             <point key="canvasLocation" x="1344.140625" y="-309.375"/>
         </scene>
-        <!--ASM-CPU-->
+        <!--ASM_CPU-->
         <scene sceneID="V3A-2L-zFa">
             <objects>
-                <viewControllerPlaceholder storyboardName="ASM-CPU" id="vOm-to-yAy" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ASM_CPU" id="vOm-to-yAy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qug-wF-wQ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1739" y="-13"/>
         </scene>
-        <!--ASMTabBar-->
+        <!--ASM_TabBar-->
         <scene sceneID="SxM-sF-5c7">
             <objects>
-                <viewControllerPlaceholder storyboardName="ASMTabBar" id="kVQ-1y-bjq" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="ASM_TabBar" id="kVQ-1y-bjq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djq-i3-azc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1886" y="516"/>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASMSourceCodeViewController: UIViewController {
+class ASM_SourceViewController: UIViewController {
     
     /// The primary view in this UIViewController.
     @IBOutlet var textView: PepTextView!

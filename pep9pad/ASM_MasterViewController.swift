@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ASMMasterViewController: UIViewController {
+class ASM_MasterViewController: UIViewController {
     
-    internal var detail: ASMDetailViewController!
+    internal var detail: ASM_DetailViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let detailnc = (self.splitViewController?.viewControllers[1])! as! UINavigationController
-        self.detail = detailnc.viewControllers[0] as! ASMDetailViewController
+        self.detail = detailnc.viewControllers[0] as! ASM_DetailViewController
     }
 
     override func didReceiveMemoryWarning() {

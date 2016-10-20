@@ -13,7 +13,7 @@ import UIKit
 /// Represents the two possible modes of an `ASMIOView` object.
 /// * The `batch` mode corresponds to two text input panels, an input and output
 /// * The `terminal` mode corresponds to a single text input/output panel
-enum ASMIOViewMode {
+enum IOViewMode {
     case batch
     case terminal
 }
@@ -22,7 +22,7 @@ enum ASMIOViewMode {
 
 
 /// A `UIView` which handles batch and terminal input / output.
-class ASMIOView: UIView, UITextViewDelegate {
+class ASM_IOView: UIView, UITextViewDelegate {
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,13 +33,13 @@ class ASMIOView: UIView, UITextViewDelegate {
     /// Represents the current mode of this view. Default value is `.batch`
     /// * The `batch` mode corresponds to two text input panels, an input and output
     /// * The `terminal` mode corresponds to a single text input/output panel
-    var currentMode: ASMIOViewMode = .batch
+    var currentMode: IOViewMode = .batch
     
     
     
     /// Changes the view to represent `requestedMode` and adjusts `currentMode` to match.
     /// Does nothing if `requestedMode == currentMode`.
-    func setIOMode(to requestedMode: ASMIOViewMode) {
+    func setIOMode(to requestedMode: IOViewMode) {
         if currentMode == requestedMode {
             // caller is requesting a change that is not needed.
             return
@@ -55,6 +55,13 @@ class ASMIOView: UIView, UITextViewDelegate {
             }
         }
     }
+    
+    
+    
+    
+    // MARK: - Interface Builder
+    
+
     
     
 }

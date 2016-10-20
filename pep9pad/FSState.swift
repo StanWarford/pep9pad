@@ -17,4 +17,5 @@ case SavedNamed
 }
 
 /// Globally-accessible state of the ASM FileSystem.
+/// Defaults to .SavedNamed on launch.
 var fsState: FSState = .SavedNamed

@@ -9,7 +9,7 @@
         <!--Trace-->
         <scene sceneID="UrJ-CW-AaS">
             <objects>
-                <viewController id="VhE-hQ-XUb" sceneMemberID="viewController">
+                <viewController id="VhE-hQ-XUb" customClass="ASM_TraceViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h33-un-hWy"/>
                         <viewControllerLayoutGuide type="bottom" id="oqv-wh-otk"/>
@@ -17,19 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="aHV-4b-bBN">
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-Yz-JgW">
+                                <frame key="frameInset" minY="314" width="703" height="405"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="Fut-k7-M80"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBb-5v-zNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="612"/>
+            <point key="canvasLocation" x="-270.1171875" y="611.71875"/>
         </scene>
         <!--Memory-->
         <scene sceneID="1Hl-9X-hYa">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GVP-oi-8xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="8lC-WY-L4p" sceneMemberID="viewController">
+                <viewController id="8lC-WY-L4p" customClass="ASM_MemoryViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jYj-kB-a3e"/>
                         <viewControllerLayoutGuide type="bottom" id="I3V-GU-rNG"/>
@@ -37,17 +42,32 @@
                     <view key="view" contentMode="scaleToFill" id="nMm-13-rtU">
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BhF-b6-KJD">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BhF-b6-KJD" secondAttribute="trailing" id="DJr-vs-Hep"/>
+                            <constraint firstItem="BhF-b6-KJD" firstAttribute="top" secondItem="nMm-13-rtU" secondAttribute="top" id="DMm-R9-tOf"/>
+                            <constraint firstItem="BhF-b6-KJD" firstAttribute="leading" secondItem="nMm-13-rtU" secondAttribute="leading" id="OI8-1V-sBg"/>
+                            <constraint firstItem="BhF-b6-KJD" firstAttribute="bottom" secondItem="I3V-GU-rNG" secondAttribute="top" id="b6s-Z8-QRO"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Memory" id="i1a-Sc-SCB"/>
+                    <connections>
+                        <outlet property="table" destination="BhF-b6-KJD" id="FAF-pj-8E5"/>
+                    </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVP-oi-8xg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="-27"/>
+            <point key="canvasLocation" x="-270.1171875" y="-27.34375"/>
         </scene>
         <!--Object Code-->
         <scene sceneID="iNk-O6-UYd">
             <objects>
-                <viewController id="6Pf-zN-x70" sceneMemberID="viewController">
+                <viewController id="6Pf-zN-x70" customClass="ASM_ObjectViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ad8-Ub-Mw2"/>
                         <viewControllerLayoutGuide type="bottom" id="l2u-vy-78S"/>
@@ -66,7 +86,7 @@
         <!--Source Code-->
         <scene sceneID="4eV-aW-X05">
             <objects>
-                <viewController id="29u-EI-7Xx" customClass="ASMSourceCodeViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="29u-EI-7Xx" customClass="ASM_SourceViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oDF-aL-Qam"/>
                         <viewControllerLayoutGuide type="bottom" id="IoH-UQ-5lF"/>
@@ -94,13 +114,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trW-mH-2Ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270.1171875" y="-1978.125"/>
+            <point key="canvasLocation" x="-271" y="-1981"/>
         </scene>
         <!--Listing-->
         <scene sceneID="9E4-aW-aRM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="I46-w8-xwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="nD3-Mn-eYP" sceneMemberID="viewController">
+                <viewController id="nD3-Mn-eYP" customClass="ASM_ListingViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="03D-kp-Zp2"/>
                         <viewControllerLayoutGuide type="bottom" id="FIn-qU-MXS"/>
@@ -112,6 +131,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Listing" id="E5H-ve-86D"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I46-w8-xwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-270" y="-681"/>
         </scene>
@@ -139,4 +159,7 @@
             <point key="canvasLocation" x="-1521" y="612"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MemTrace" width="376" height="205"/>
+    </resources>
 </document>

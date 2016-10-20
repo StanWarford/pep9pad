@@ -11,14 +11,14 @@ import FontAwesome_swift
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
-class ASMDetailViewController: UIViewController, UITabBarDelegate {
-    internal var master: ASMMasterViewController!
+class ASM_DetailViewController: UIViewController, UITabBarDelegate {
+    internal var master: ASM_MasterViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // get ref to master and save to local `master` property
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
-        self.master = masternc.viewControllers[0] as! ASMMasterViewController
+        self.master = masternc.viewControllers[0] as! ASM_MasterViewController
         
 
     }
@@ -60,7 +60,6 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
             }
         }
     }
-    
     
     
     // MARK: - IBOutlets
@@ -221,18 +220,24 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
     
     // MARK: - Methods
     func newProject() {
-        if (fsState == .UnsavedNamed) {
+        switch fsState {
+        case .UnsavedNamed:
             // project has not been saved recently
 
-            let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to this project?", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to the current project?", preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-                // Handle save
+                // TODO: Handle save
+                // TODO: Handle new project creation
+                print("saving changes and creating a new project")
+                fsState = .Blank
             }
             alertController.addAction(yesAction)
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
-                // Handle other thing
+                // TODO: Handle new project creation
+                print("discarding changes and creating a new project")
+                fsState = .Blank
             }
             alertController.addAction(noAction)
             
@@ -242,29 +247,167 @@ class ASMDetailViewController: UIViewController, UITabBarDelegate {
             alertController.addAction(cancelAction)
             
             self.present(alertController, animated: true)
-        
-        
-        } else if (fsState == .UnsavedUnnamed) {
+            
+        case .UnsavedUnnamed:
             // project has never been saved
-            // TODO: Show user: "Would you like to save this project?" (Yes,No,Cancel)
-            // TODO: --> if YES, "Please input a name" (Cancel,OK)
-        
-        } else {
+            
+            let alertController = UIAlertController(title: "Save first?", message: "This project has never been saved.  Would you like to save it now?", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                
+                // user needs to name the project
+                let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+                alertController.addTextField(configurationHandler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // user would like to cancel this project creation
+                }
+                alertController.addAction(cancelAction)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // TODO: Save the current project under the given name
+                    // TODO: Handle creation of new project
+                    print("saving current project with the given name and creating a new project")
+                    fsState = .Blank
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+            
+            alertController.addAction(yesAction)
+            
+            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
+                // user wants to throw this unsaved project away and start anew
+                // TODO: Handle new project creation
+                print("destroying current project and creating a new project")
+                fsState = .Blank
+            }
+            alertController.addAction(noAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // user wants to cancel, so don't do anything
+            }
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true)
+            
+        case .SavedNamed:
             // project is already saved
-            sourceTextModel.clear()
-            objectTextModel.clear()
-            listingTextModel.clear()
-            // TODO: Update all viewcontrollers to reflect this change
+            // TODO: Handle new project creation
+            print("creating new project")
+        case .Blank:
+            // greyed-out buttons should've prevented you from getting here
+            assert(false, "FSM for FS was not implemented correctly in code.")
         }
     }
     
     func openProject() {
+        switch fsState {
+        case .UnsavedNamed:
+            // project has not been saved recently
+            let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to the current project?", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                // TODO: Handle save
+                // TODO: Handle open project
+                print("saving changes and opening a preexisting project")
+                fsState = .SavedNamed
+            }
+            alertController.addAction(yesAction)
+            
+            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
+                // TODO: Handle open project
+                print("discarding changes and opening a preexisting project")
+                fsState = .SavedNamed
+            }
+            alertController.addAction(noAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // Don't do anything
+            }
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true)
+        case .UnsavedUnnamed:
+            // project has never been saved
+            let alertController = UIAlertController(title: "Save first?", message: "This project has never been saved.  Would you like to save it now?", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                
+                // user needs to name the project
+                let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+                alertController.addTextField(configurationHandler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // user would like to cancel this project creation
+                }
+                alertController.addAction(cancelAction)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // TODO: Save the current project under the given name
+                    // TODO: Handle open project
+                    print("saving current project with the given name and opening a preexisting project")
+                    fsState = .SavedNamed
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+            
+            alertController.addAction(yesAction)
+            
+            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
+                // user wants to throw this unsaved project away and open a preexisting project
+                // TODO: Handle open project
+                print("destroying this project and opening a preexisting project")
+                fsState = .SavedNamed
+            }
+            alertController.addAction(noAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // user wants to cancel, so don't do anything
+            }
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true)
+
+        case .SavedNamed, .Blank:
+            // these go together, as in both instances there is nothing (more) to save
+            // TODO: Handle open project
+            print("opening a preexisting project")
+            break
+        }
+        
         let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
         self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
     }
     
     func saveProject() {
-        
+        switch fsState {
+        case .UnsavedNamed:
+            // project has not been saved recently
+            // Rather than present an alertController here, I say we just update the fs.  
+            // Having an "are you sure?" message seems redundant for something as innocuous as a save.
+            print("updating fs with latest version of project")
+            // TODO: Handle save
+            fsState = .SavedNamed
+
+        case .UnsavedUnnamed:
+            // project has never been saved
+            // Similar to above, I don't think we need an "are you sure?" message for saving the current project as a new project.
+            
+            let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+            
+            alertController.addTextField(configurationHandler: nil)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // user would like to cancel this project creation
+            }
+            alertController.addAction(cancelAction)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                // TODO: Save the current project under the given name
+                print("saving current project with the given name")
+                fsState = .SavedNamed
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+            
+        case .SavedNamed, .Blank:
+            // greyed-out buttons should've prevented you from getting here
+            assert(false, "FSM for FS was not implemented correctly in code.")
+        }
     }
     
     func shareProject() {
