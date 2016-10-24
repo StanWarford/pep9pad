@@ -15,6 +15,22 @@ class ASM_MemoryViewController: UIViewController {
     }
     
     @IBOutlet var table: UITableView!
+    @IBOutlet var toolbar: UIToolbar!
+    @IBOutlet var textField: UIBarButtonItem!
+    @IBOutlet var spBtn: UIBarButtonItem!
+    @IBOutlet var pcBtn: UIBarButtonItem!
+    
+    
+    @IBAction func spBtnPressed(_ sender: UIBarButtonItem) {
+        // TODO: Scroll `table` to sp
+    }
+    
+    
+    @IBAction func pcBtnPressed(_ sender: UIBarButtonItem) {
+        // TODO: Scroll `table` to pc
+
+    }
+    
     
     
 }
