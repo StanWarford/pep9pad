@@ -3,7 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,18 +17,22 @@
                         <viewControllerLayoutGuide type="bottom" id="MsR-Mc-qaf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ewd-NJ-am6">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
-                                <frame key="frameInset" minX="-1" height="767" maxX="1" maxY="1"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
                                 <connections>
                                     <segue destination="kVQ-1y-bjq" kind="embed" identifier="embedTagBar" id="YdT-uh-r17"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="NWz-sU-B9L" secondAttribute="trailing" constant="-19" id="4g5-Mx-g6V"/>
+                            <constraint firstItem="MsR-Mc-qaf" firstAttribute="top" secondItem="NWz-sU-B9L" secondAttribute="bottom" constant="1" id="4nI-so-Qjn"/>
+                            <constraint firstItem="NWz-sU-B9L" firstAttribute="top" secondItem="AEE-UC-JLO" secondAttribute="bottom" constant="-64" id="C5D-aP-0cx"/>
+                            <constraint firstItem="NWz-sU-B9L" firstAttribute="leading" secondItem="ewd-NJ-am6" secondAttribute="leadingMargin" constant="-21" id="ciD-8B-8O1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O3W-Me-ByB">
                         <leftBarButtonItems>
@@ -73,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1U-E9-kVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427.9296875" y="515.625"/>
+            <point key="canvasLocation" x="1427.5256222547582" y="515.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7hV-XJ-AWt">
@@ -116,7 +120,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Nce-H4-hmt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KKs-4b-e8l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="2df-w3-OcL">
@@ -124,7 +128,6 @@
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="302" id="cQw-DM-tTJ"/>
-                                    <constraint firstAttribute="width" secondItem="2df-w3-OcL" secondAttribute="height" multiplier="64:65" constant="22.646153846153823" id="lEZ-Io-0MD"/>
                                     <constraint firstAttribute="width" constant="320" id="tzg-eF-C91"/>
                                 </constraints>
                                 <connections>
@@ -139,12 +142,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qtp-dj-sln" firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="EUk-8B-bWW"/>
-                            <constraint firstItem="qtp-dj-sln" firstAttribute="leading" secondItem="2df-w3-OcL" secondAttribute="leading" id="GPU-Sy-IEd"/>
-                            <constraint firstItem="Nce-H4-hmt" firstAttribute="top" secondItem="qtp-dj-sln" secondAttribute="bottom" constant="301" id="PEZ-zz-Q06"/>
+                            <constraint firstItem="2df-w3-OcL" firstAttribute="top" secondItem="qtp-dj-sln" secondAttribute="bottom" constant="-1" id="4mT-vX-5o8"/>
+                            <constraint firstItem="qtp-dj-sln" firstAttribute="leading" secondItem="2df-w3-OcL" secondAttribute="leading" id="Apx-yA-5fe"/>
+                            <constraint firstItem="qtp-dj-sln" firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="KVV-Eo-b6P"/>
                             <constraint firstItem="2df-w3-OcL" firstAttribute="bottom" secondItem="Nce-H4-hmt" secondAttribute="top" id="bkn-8T-uup"/>
+                            <constraint firstItem="qtp-dj-sln" firstAttribute="top" secondItem="aGM-Ff-1k4" secondAttribute="bottom" id="dv7-2v-Ejg"/>
                             <constraint firstAttribute="trailing" secondItem="2df-w3-OcL" secondAttribute="trailing" id="fNG-hD-NUN"/>
-                            <constraint firstItem="qtp-dj-sln" firstAttribute="top" secondItem="aGM-Ff-1k4" secondAttribute="bottom" id="gIe-Ko-5bK"/>
                             <constraint firstItem="2df-w3-OcL" firstAttribute="leading" secondItem="KKs-4b-e8l" secondAttribute="leading" id="nCS-fQ-Rvi"/>
                         </constraints>
                     </view>

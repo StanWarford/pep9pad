@@ -43,9 +43,6 @@
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Placeholder Output" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XqW-7b-T7l">
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="189" id="a8j-tD-E80"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -60,6 +57,7 @@
                             <constraint firstItem="TT5-5H-X15" firstAttribute="trailing" secondItem="wGR-DU-W9D" secondAttribute="trailing" id="VOo-6w-MQ2"/>
                             <constraint firstItem="TT5-5H-X15" firstAttribute="trailing" secondItem="XqW-7b-T7l" secondAttribute="trailing" id="YXb-L9-Tfu"/>
                             <constraint firstItem="XqW-7b-T7l" firstAttribute="top" secondItem="TT5-5H-X15" secondAttribute="bottom" id="agd-ge-gnt"/>
+                            <constraint firstItem="TT5-5H-X15" firstAttribute="height" secondItem="XqW-7b-T7l" secondAttribute="height" id="kbH-wR-x7A"/>
                             <constraint firstItem="TT5-5H-X15" firstAttribute="leading" secondItem="czk-Cz-yO5" secondAttribute="leading" id="mN8-Kz-xxG"/>
                             <constraint firstItem="XqW-7b-T7l" firstAttribute="bottom" secondItem="Rz8-rO-LHg" secondAttribute="top" id="w0L-MS-g9R"/>
                         </constraints>
