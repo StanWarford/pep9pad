@@ -10,33 +10,32 @@ import UIKit
 
 class HelpDetailViewController: UIViewController {
 
+    
+    internal var master: HelpMasterViewController!
     internal var documentationVC: DocumentationViewController!
-    internal var doubleVC: DoubleTextViewController!
-    
-    internal var fullRect: CGRect!
-    
-    @IBOutlet weak var copyToSourceBtn: UIBarButtonItem!
+    internal var exampleVC: ExampleViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let navBarHeight = self.navigationController?.navigationBar.bounds.height
-        let fullRect = CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y + 20 + navBarHeight!, width: view.bounds.width-320, height: view.bounds.height - 20 - navBarHeight!)
         
         // instantiate the detail view controllers
         documentationVC = storyboard?.instantiateViewController(withIdentifier: "DocumentationViewController") as! DocumentationViewController
-        doubleVC = storyboard?.instantiateViewController(withIdentifier: "DoubleTextViewController") as! DoubleTextViewController
+        exampleVC = storyboard?.instantiateViewController(withIdentifier: "ExampleViewController") as! ExampleViewController
+        
         // add the view controllers as childViewControllers
         self.addChildViewController(documentationVC)
-        self.addChildViewController(doubleVC)
+        self.addChildViewController(exampleVC)
         documentationVC.didMove(toParentViewController: self)
-        doubleVC.didMove(toParentViewController: self)
+        exampleVC.didMove(toParentViewController: self)
+        
+        // set the views up and add them
         documentationVC.view.bounds = self.view.bounds
-        doubleVC.view.bounds = self.view.bounds
+        exampleVC.view.bounds = self.view.bounds
         view.addSubview(documentationVC.view)
-        view.addSubview(doubleVC.view)
-        
-        doubleVC.view.isHidden = true
-        
+        view.addSubview(exampleVC.view)
+        exampleVC.view.isHidden = true
+    
+        // load default detail view
         loadDocumentation(.AssemblyLanguage)
     }
 
@@ -45,10 +44,27 @@ class HelpDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setup(master: HelpMasterViewController) {
+        self.master = master
+    }
+    
+    
+    // MARK: - Interface
+    
+    @IBOutlet weak var copyToSourceBtn: UIBarButtonItem!
+    
+    @IBAction func copyToSourceBtnPressed(_ sender: UIBarButtonItem) {
+        // if pressed, load the current source into the project
+        master.loadExample(self.exampleVC.currentExampleText, ofType: self.exampleVC.currentExampleType, io: self.exampleVC.currentExampleIO, usesTerminal: self.exampleVC.currentExampleRequiresTerminal)
+
+    }
+
+    
+    // MARK: - Methods
     
     internal func loadDocumentation(_ doc: Documentation) {
         documentationVC.view.isHidden = false
-        doubleVC.view.isHidden = true
+        exampleVC.view.isHidden = true
         let url = Bundle.main.url(forResource: doc.rawValue, withExtension:"html")
         let request = URLRequest(url: url!)
         documentationVC.doc.loadRequest(request)
@@ -57,179 +73,272 @@ class HelpDetailViewController: UIViewController {
     
     internal func loadExample(_ named: String) {
         documentationVC.view.isHidden = true
-        doubleVC.view.isHidden = false
+        exampleVC.view.isHidden = false
         copyToSourceBtn.isEnabled = true
 
         switch named {
         case "Figure 4.33":
-            doubleVC.topTextView.loadExample("fig0433", ofType: .pepb)
-            doubleVC.bottomTextView.loadExample("fig0433", ofType: .peph)
+            exampleVC.loadExample("fig0433", field: .Top, ofType: .peph)
+            exampleVC.loadExample("fig0433", field: .Bottom, ofType: .pepb)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 4.35":
-            doubleVC.topTextView.loadExample("fig0435", ofType: .pepb)
-            doubleVC.bottomTextView.loadExample("fig0435", ofType: .peph)
+            exampleVC.loadExample("fig0435", field: .Top, ofType: .peph)
+            exampleVC.loadExample("fig0435", field: .Bottom, ofType: .pepb)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("up")
         case "Figure 4.36":
-            doubleVC.topTextView.loadExample("fig0436", ofType: .pepb)
-            doubleVC.bottomTextView.loadExample("fig0436", ofType: .peph)
+            exampleVC.loadExample("fig0436", field: .Top, ofType: .peph)
+            exampleVC.loadExample("fig0436", field: .Bottom, ofType: .pepb)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 4.37":
-            doubleVC.topTextView.loadExample("fig0437", ofType: .pepb)
-            doubleVC.bottomTextView.loadExample("fig0437", ofType: .peph)
+            exampleVC.loadExample("fig0437", field: .Top, ofType: .peph)
+            exampleVC.loadExample("fig0437", field: .Bottom, ofType: .pepb)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 5.03":
-            doubleVC.topTextView.loadExample("fig0503", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0433", ofType: .peph)
+            exampleVC.loadExample("fig0503", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0433", field: .Bottom, ofType: .peph)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 5.06":
-            doubleVC.topTextView.loadExample("fig0506", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0435", ofType: .peph)
+            exampleVC.loadExample("fig0506", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0435", field: .Bottom, ofType: .peph)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("up")
         case "Figure 5.07":
-            doubleVC.topTextView.loadExample("fig0507", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0436", ofType: .peph)
+            exampleVC.loadExample("fig0507", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0436", field: .Bottom, ofType: .peph)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 5.10":
-            doubleVC.topTextView.loadExample("fig0510", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0510", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()            
+            exampleVC.setExampleIO("")
         case "Figure 5.11":
-            doubleVC.topTextView.loadExample("fig0511", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0511", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("-479")
         case "Figure 5.12":
-            doubleVC.topTextView.loadExample("fig0512", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0512", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("-479")
         case "Figure 5.13":
-            doubleVC.topTextView.loadExample("fig0513", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0513", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Figure 5.14a":
-            doubleVC.topTextView.loadExample("fig0514a", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0514a", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Figure 5.14b":
-            doubleVC.topTextView.loadExample("fig0514b", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0514b", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Figure 5.15":
-            doubleVC.topTextView.loadExample("fig0515", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0512", ofType: .pep)
+            exampleVC.loadExample("fig0515", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0512", field: .Bottom, ofType: .pep)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("-479")
         case "Figure 5.16":
-            doubleVC.topTextView.loadExample("fig0516", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0516", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Figure 5.19":
-            doubleVC.topTextView.loadExample("fig0519", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0519", ofType: .c)
+            exampleVC.loadExample("fig0519", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0519", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 5.22":
-            doubleVC.topTextView.loadExample("fig0522", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0522", ofType: .c)
+            exampleVC.loadExample("fig0522", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0522", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("M 419")
         case "Figure 5.27":
-            doubleVC.topTextView.loadExample("fig0527", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0527", ofType: .c)
+            exampleVC.loadExample("fig0527", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0527", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("68 84")
         case "Figure 6.01":
-            doubleVC.topTextView.loadExample("fig0601", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0601", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Figure 6.04":
-            doubleVC.topTextView.loadExample("fig0604", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0604", ofType: .c)
+            exampleVC.loadExample("fig0604", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0604", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("68 84")
         case "Figure 6.06":
-            doubleVC.topTextView.loadExample("fig0606", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0606", ofType: .c)
+            exampleVC.loadExample("fig0606", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0606", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("-25")
         case "Figure 6.08":
-            doubleVC.topTextView.loadExample("fig0608", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0608", ofType: .c)
+            exampleVC.loadExample("fig0608", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0608", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("75")
         case "Figure 6.10":
-            doubleVC.topTextView.loadExample("fig0610", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0610", ofType: .c)
+            exampleVC.loadExample("fig0610", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0610", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("Hello, world!*")
         case "Figure 6.12":
-            doubleVC.topTextView.loadExample("fig0612", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0612", ofType: .c)
+            exampleVC.loadExample("fig0612", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0612", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 6.14":
-            doubleVC.topTextView.loadExample("fig0614", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0614", ofType: .c)
+            exampleVC.loadExample("fig0614", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0614", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 6.16":
-            doubleVC.topTextView.loadExample("fig0616", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("fig0616", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("3 -15 25")
         case "Figure 6.18":
-            doubleVC.topTextView.loadExample("fig0618", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0618", ofType: .c)
+            exampleVC.loadExample("fig0618", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0618", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 6.21":
-            doubleVC.topTextView.loadExample("fig0621", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0621", ofType: .c)
+            exampleVC.loadExample("fig0621", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0621", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("12  3 13 17 34 27 23 25 29 16 10 0 2")
         case "Figure 6.23":
-            doubleVC.topTextView.loadExample("fig0623", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0623", ofType: .c)
+            exampleVC.loadExample("fig0623", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0623", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("12  3 13 17 34 27 23 25 29 16 10 0 2")
         case "Figure 6.25":
-            doubleVC.topTextView.loadExample("fig0625", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0625", ofType: .c)
+            exampleVC.loadExample("fig0625", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0625", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 6.27":  // Interactive input
-            doubleVC.topTextView.loadExample("fig0627", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0627", ofType: .c)
+            exampleVC.loadExample("fig0627", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0627", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleTerminalIO("")
         case "Figure 6.29":   // Interactive input
-            doubleVC.topTextView.loadExample("fig0629", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0629", ofType: .c)
+            exampleVC.loadExample("fig0629", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0629", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleTerminalIO("")
         case "Figure 6.32":
-            doubleVC.topTextView.loadExample("fig0632", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0632", ofType: .c)
+            exampleVC.loadExample("fig0632", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0632", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("25")
         case "Figure 6.34":
-            doubleVC.topTextView.loadExample("fig0634", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0634", ofType: .c)
+            exampleVC.loadExample("fig0634", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0634", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("60 70 80 90")
         case "Figure 6.36":
-            doubleVC.topTextView.loadExample("fig0636", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0636", ofType: .c)
+            exampleVC.loadExample("fig0636", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0636", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("2 26 -3 9")
         case "Figure 6.38":
-            doubleVC.topTextView.loadExample("fig0638", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0638", ofType: .c)
+            exampleVC.loadExample("fig0638", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0638", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("5  40 50 60 70 80")
         case "Figure 6.40":  // Interactive input
-            doubleVC.topTextView.loadExample("fig0640", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0640", ofType: .c)
+            exampleVC.loadExample("fig0640", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0640", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleTerminalIO("")
         case "Figure 6.42":
-            doubleVC.topTextView.loadExample("fig0642", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0642", ofType: .c)
+            exampleVC.loadExample("fig0642", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0642", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 6.44":
-            doubleVC.topTextView.loadExample("fig0644", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0644", ofType: .c)
+            exampleVC.loadExample("fig0644", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0644", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         case "Figure 6.46":
-            doubleVC.topTextView.loadExample("fig0646", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0646", ofType: .c)
+            exampleVC.loadExample("fig0646", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0646", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("bj 32 m")
         case "Figure 6.48":
-            doubleVC.topTextView.loadExample("fig0648", ofType: .pep)
-            doubleVC.bottomTextView.loadExample("fig0648", ofType: .c)
+            exampleVC.loadExample("fig0648", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig0648", field: .Bottom, ofType: .c)
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("10 20 30 40 -9999")
         case "Exercise 8.04":
-            doubleVC.topTextView.loadExample("exer0804", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("exer0804", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("37")
         case "Problem 8.26":
-            doubleVC.topTextView.loadExample("prob0826", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0826", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("7")
         case "Problem 8.27":
-            doubleVC.topTextView.loadExample("prob0827", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0827", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("7 3")
         case "Problem 8.28":
-            doubleVC.topTextView.loadExample("prob0828", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0828", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("5 9")
         case "Problem 8.29":
-            doubleVC.topTextView.loadExample("prob0829", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0829", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Problem 8.30":
-            doubleVC.topTextView.loadExample("prob0830", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0830", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         case "Problem 8.31":
-            doubleVC.topTextView.loadExample("prob0831", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0831", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("12 7")
         case "Problem 8.32":
-            doubleVC.topTextView.loadExample("prob0832", ofType: .pep)
-            doubleVC.bottomTextView.removeAllText()
-            doubleVC.bottomTextView.minimize()
+            exampleVC.loadExample("prob0832", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("32773 6")
+        case "Pep/9 Operating System":
+            exampleVC.loadExample("pep9os", field: .Top, ofType: .pep)
+            exampleVC.setNumTextViews(to: 1)
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setExampleIO("")
         default:
-            doubleVC.topTextView.removeAllText()
-            doubleVC.bottomTextView.removeAllText()
+            exampleVC.topTextView.removeAllText()
+            exampleVC.bottomTextView.removeAllText()
+            exampleVC.setNumTextViews(to: 2)
+            exampleVC.setExampleIO("")
         }
     }
+    
+    
+    
+    
+    
     
     
     

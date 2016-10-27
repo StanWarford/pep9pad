@@ -12,6 +12,13 @@ class ASM_ObjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.setupTextView(textView.frame)
+
     }
+    
+    
+    // MARK: - Interface
+    /// The primary view in this UIViewController.
+    @IBOutlet var textView: PepTextView!
     
 }

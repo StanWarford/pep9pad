@@ -111,9 +111,23 @@
                     <view key="view" contentMode="scaleToFill" id="53m-DP-KgF">
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rfF-gd-7K9" firstAttribute="leading" secondItem="53m-DP-KgF" secondAttribute="leading" id="2k1-1k-Y1X"/>
+                            <constraint firstAttribute="trailing" secondItem="rfF-gd-7K9" secondAttribute="trailing" id="5Ap-qE-Xhq"/>
+                            <constraint firstItem="rfF-gd-7K9" firstAttribute="top" secondItem="53m-DP-KgF" secondAttribute="top" id="7nE-pn-pDU"/>
+                            <constraint firstItem="rfF-gd-7K9" firstAttribute="bottom" secondItem="l2u-vy-78S" secondAttribute="top" id="lho-mN-VJS"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Object Code" id="MW5-Em-4Dc"/>
+                    <connections>
+                        <outlet property="textView" destination="rfF-gd-7K9" id="nmD-g8-Xlf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31i-V7-GBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

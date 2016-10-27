@@ -28,6 +28,7 @@
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
 		467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Asm.swift */; };
+		468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BC12D1DC27220000AE01A /* UIConstants.swift */; };
 		4694F3D11DBABC0300F0E822 /* ASM_IO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* ASM_IO.storyboard */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* ASM_CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* ASM_CPUViewController.swift */; };
@@ -128,7 +129,7 @@
 		46EC8B031C9895CD001405CE /* prob0830.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB21C9895CC001405CE /* prob0830.pep */; };
 		46EC8B041C9895CD001405CE /* prob0831.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB31C9895CC001405CE /* prob0831.pep */; };
 		46EC8B051C9895CD001405CE /* prob0832.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB41C9895CC001405CE /* prob0832.pep */; };
-		46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8B091C98AA6E001405CE /* DoubleTextViewController.swift */; };
+		46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8B091C98AA6E001405CE /* ExampleViewController.swift */; };
 		46F46D331C8F49340092EF04 /* Enu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enu.swift */; };
 		46F46D351C8F661D0092EF04 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D341C8F661D0092EF04 /* Argument.swift */; };
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
@@ -192,6 +193,7 @@
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		467D71FB1CBEEF3B0090101F /* Asm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asm.swift; sourceTree = "<group>"; };
+		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		4694F3D01DBABC0300F0E822 /* ASM_IO.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ASM_IO.storyboard; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* ASM_CPUViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_CPUViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +295,7 @@
 		46EC8AB21C9895CC001405CE /* prob0830.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0830.pep; path = pep9pad/figures/prob0830.pep; sourceTree = "<group>"; };
 		46EC8AB31C9895CC001405CE /* prob0831.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0831.pep; path = pep9pad/figures/prob0831.pep; sourceTree = "<group>"; };
 		46EC8AB41C9895CC001405CE /* prob0832.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0832.pep; path = pep9pad/figures/prob0832.pep; sourceTree = "<group>"; };
-		46EC8B091C98AA6E001405CE /* DoubleTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTextViewController.swift; sourceTree = "<group>"; };
+		46EC8B091C98AA6E001405CE /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		46F46D321C8F49340092EF04 /* Enu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enu.swift; sourceTree = "<group>"; };
 		46F46D341C8F661D0092EF04 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
@@ -378,6 +380,14 @@
 			name = "Help Documentation";
 			sourceTree = "<group>";
 		};
+		468BC12C1DC271EA000AE01A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				468BC12D1DC27220000AE01A /* UIConstants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		46A304DF1C992AAE00CDCD1A /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,7 +399,7 @@
 		46A304E21C992BC600CDCD1A /* DoubleText */ = {
 			isa = PBXGroup;
 			children = (
-				46EC8B091C98AA6E001405CE /* DoubleTextViewController.swift */,
+				46EC8B091C98AA6E001405CE /* ExampleViewController.swift */,
 			);
 			name = DoubleText;
 			sourceTree = "<group>";
@@ -433,7 +443,6 @@
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				46EC8A611C9892F6001405CE /* PepFileType.swift */,
 				46C76A531DA494130071C340 /* FontAwesome */,
 				D2B061681C7E62040088CEBE /* Info.plist */,
 			);
@@ -460,6 +469,7 @@
 		46C76A5B1DA70BEA0071C340 /* FileSystem */ = {
 			isa = PBXGroup;
 			children = (
+				46EC8A611C9892F6001405CE /* PepFileType.swift */,
 				46C76A5C1DA711690071C340 /* FileSystem.storyboard */,
 				46C76A571DA70B930071C340 /* FSMasterViewController.swift */,
 				46C76A591DA70BE20071C340 /* FSDetailViewController.swift */,
@@ -512,7 +522,6 @@
 				4694F3D01DBABC0300F0E822 /* ASM_IO.storyboard */,
 				46C76A651DAF173D0071C340 /* ASM_TabBar.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */,
-				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				D2CC5E4F1DB810E70033CFF4 /* TextModels */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46C7EEE11D80BD7400F74B6E /* Parse */,
@@ -664,6 +673,7 @@
 			children = (
 				46C7EEE61D80BED300F74B6E /* Home */,
 				46C7EEE71D80BF1100F74B6E /* ASM */,
+				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				46C7EEE81D80BF1F00F74B6E /* CPU */,
 				46A304E41C992D5500CDCD1A /* PepTextView */,
 				46C608D41C8EADD700CC161A /* Launch */,
@@ -671,6 +681,7 @@
 				46C7EEE91D80BF6800F74B6E /* Images */,
 				463A662D1C97CD5F004C35B2 /* Fonts */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
+				468BC12C1DC271EA000AE01A /* Utilities */,
 			);
 			path = pep9pad;
 			sourceTree = "<group>";
@@ -1011,6 +1022,7 @@
 				D2B0615C1C7E62040088CEBE /* ASM_MasterViewController.swift in Sources */,
 				46C76A6C1DB959480071C340 /* ASM_MemoryViewController.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
+				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				46C76A681DB856A50071C340 /* ASM_ObjectViewController.swift in Sources */,
 				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
@@ -1024,7 +1036,7 @@
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
 				46C76A5A1DA70BE20071C340 /* FSDetailViewController.swift in Sources */,
-				46EC8B0A1C98AA6E001405CE /* DoubleTextViewController.swift in Sources */,
+				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ASM_ListingViewController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,

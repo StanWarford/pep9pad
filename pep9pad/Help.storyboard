@@ -21,7 +21,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="dXZ-pX-AEM">
-                        <barButtonItem key="rightBarButtonItem" title="Copy to Source" id="24Q-7Q-vkn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Copy to Source" id="24Q-7Q-vkn">
+                            <connections>
+                                <action selector="copyToSourceBtnPressed:" destination="y3A-aP-ABZ" id="YBv-tF-7bA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="copyToSourceBtn" destination="24Q-7Q-vkn" id="lS0-8G-cSC"/>
@@ -31,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="2331" y="-1488"/>
         </scene>
-        <!--Double Text View Controller-->
+        <!--Example View Controller-->
         <scene sceneID="wEB-Go-RPg">
             <objects>
-                <viewController storyboardIdentifier="DoubleTextViewController" id="iGV-1O-II8" customClass="DoubleTextViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExampleViewController" id="iGV-1O-II8" customClass="ExampleViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="utr-zP-eeO"/>
                         <viewControllerLayoutGuide type="bottom" id="Ick-Ug-fyu"/>
@@ -45,7 +49,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-pj-tKY" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
                                 <frame key="frameInset" minY="64" width="600" height="264"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="301" id="7OA-KI-kH1"/>
                                 </constraints>
@@ -60,7 +64,7 @@
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IKd-yD-AN3" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
                                 <frame key="frameInset" minY="336" width="600" height="264"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="337" id="lsD-ZN-81d"/>
                                 </constraints>
@@ -147,7 +151,7 @@
         <scene sceneID="vYV-m7-D1P">
             <objects>
                 <navigationController id="YHe-ui-oWJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="q94-dh-Dp0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q94-dh-Dp0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -216,7 +220,7 @@
         <scene sceneID="6d2-na-2TL">
             <objects>
                 <navigationController id="MxM-80-FfK" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lhM-kn-dW5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhM-kn-dW5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

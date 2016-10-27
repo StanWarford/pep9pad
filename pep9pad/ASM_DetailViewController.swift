@@ -12,7 +12,10 @@ import FontAwesome_swift
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
 class ASM_DetailViewController: UIViewController, UITabBarDelegate {
+    
     internal var master: ASM_MasterViewController!
+    internal var source: ASM_SourceViewController!
+    internal var tabController: UITabBarController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,8 +54,8 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             case "embedTagBar":
                 // the storyboard is hooking up the ASMTabBar
                 print("Embedding the tab bar")
-                let tbc = segue.destination as! UITabBarController
-                customizeTabBarImages((tbc.tabBar.items)! as [UITabBarItem])
+                tabController = segue.destination as! UITabBarController
+                customizeTabBarImages((tabController.tabBar.items)! as [UITabBarItem])
 
             default:
                 break
@@ -413,6 +416,29 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     func shareProject() {
         
     }
+    
+    
+    
+    func load(_ text: String, ofType: PepFileType) {
+        // TODO: Figure out whether the user has unsaved work and ask accordingly
+        switch ofType {
+        case .pep:
+            // load into SourceViewController
+            tabController.selectedIndex = 0
+            (tabController.selectedViewController as? ASM_SourceViewController)?.textView.loadText(text)
+            
+            
+        case .pepo, .peph:
+            // load into ObjectViewController
+            tabController.selectedIndex = 1
+            (tabController.selectedViewController as? ASM_ObjectViewController)?.textView.loadText(text)
+
+        default:
+            break
+        }
+    }
+    
+    
     
     
     

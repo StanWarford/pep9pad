@@ -1,5 +1,5 @@
 //
-//  CPUViewController.swift
+//  ASM_CPUViewController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 3/7/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CPUViewController: UIViewController {
+class ASM_CPUViewController: UIViewController {
 
     // MARK: - Interface Builder
     

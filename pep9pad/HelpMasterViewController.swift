@@ -12,16 +12,37 @@ class HelpMasterViewController: UITableViewController {
 
     // MARK: - Internal Variables
     internal var helpDetail: HelpDetailViewController!
+    internal var asmMasterVC: ASM_MasterViewController!
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
         helpDetail = navController.viewControllers[0] as! HelpDetailViewController
+        helpDetail.setup(master: self)
     }
+    
+    func setup(mvc: ASM_MasterViewController) {
+        self.asmMasterVC = mvc
+    }
+    
+    
+    
+    func loadExample(_ text: String, ofType: PepFileType, io: String!, usesTerminal: Bool) {
+        self.asmMasterVC.loadExample(text, ofType: ofType, io: io, usesTerminal: usesTerminal)
+        self.close()
+    }
+    
+    
+    
+    
 
     // MARK: - IBOutlets
     @IBAction func closeBtnPressed(_ sender: UIBarButtonItem) {
+        self.close()
+    }
+    
+    func close() {
         helpDetail.dismiss(animated: true, completion: nil)
         self.dismiss(animated: true, completion: nil)
     }
@@ -43,6 +64,8 @@ class HelpMasterViewController: UITableViewController {
             v.textLabel!.text = Examples.allValues[(indexPath as NSIndexPath).row].rawValue
         case 2:
             v.textLabel!.text = Examples.allValues[(indexPath as NSIndexPath).row + 40].rawValue
+        case 3:
+            v.textLabel!.text = "Pep/9 Operating System"
         default:
             v.textLabel?.text = "Error"
         }
@@ -53,7 +76,7 @@ class HelpMasterViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,6 +87,8 @@ class HelpMasterViewController: UITableViewController {
             helpDetail.loadExample((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
         case 2:
             helpDetail.loadExample((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
+        case 3:
+            helpDetail.loadExample("Pep/9 Operating System")
         default:
             print("Error")
         }
@@ -77,6 +102,8 @@ class HelpMasterViewController: UITableViewController {
             return Examples.allValues.count - 8
         case 2:
             return 8
+        case 3:
+            return 1
         default:
             return 0
         }
@@ -90,6 +117,8 @@ class HelpMasterViewController: UITableViewController {
             return "Figures"
         case 2:
             return "Problems & Examples"
+        case 3:
+            return "Operating System"
         default:
             return ""
         }
