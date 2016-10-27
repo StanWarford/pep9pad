@@ -15,15 +15,18 @@
                         <viewControllerLayoutGuide type="bottom" id="oqv-wh-otk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aHV-4b-bBN">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-Yz-JgW">
-                                <frame key="frameInset" minY="314" width="703" height="405"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-Yz-JgW"/>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iuy-Yz-JgW" firstAttribute="top" secondItem="h33-un-hWy" secondAttribute="bottom" constant="250" id="08Z-dN-v3W"/>
+                            <constraint firstAttribute="trailing" secondItem="iuy-Yz-JgW" secondAttribute="trailing" id="K02-pV-mUY"/>
+                            <constraint firstItem="iuy-Yz-JgW" firstAttribute="bottom" secondItem="oqv-wh-otk" secondAttribute="top" id="fyH-ML-fpo"/>
+                            <constraint firstItem="iuy-Yz-JgW" firstAttribute="leading" secondItem="aHV-4b-bBN" secondAttribute="leading" id="waG-vu-7Ks"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="Fut-k7-M80"/>
                 </viewController>
@@ -40,11 +43,10 @@
                         <viewControllerLayoutGuide type="bottom" id="I3V-GU-rNG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nMm-13-rtU">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31x-qh-CWO">
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem enabled="NO" title="Scroll to..." id="zlU-I4-gRe">
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,6 +72,7 @@
                                             <action selector="pcBtnPressed:" destination="8lC-WY-L4p" id="szd-RV-Wgr"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YU9-WB-reI"/>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BhF-b6-KJD">
@@ -109,7 +112,7 @@
                         <viewControllerLayoutGuide type="bottom" id="l2u-vy-78S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="53m-DP-KgF">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
@@ -131,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31i-V7-GBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="-1325"/>
+            <point key="canvasLocation" x="-270.13177159590043" y="-1325.390625"/>
         </scene>
         <!--Source Code-->
         <scene sceneID="4eV-aW-X05">
@@ -142,7 +145,7 @@
                         <viewControllerLayoutGuide type="bottom" id="IoH-UQ-5lF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sGn-GJ-53d">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6p-0Sp" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
@@ -151,10 +154,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="D5w-6p-0Sp" firstAttribute="bottom" secondItem="IoH-UQ-5lF" secondAttribute="top" id="U7X-Mx-hv6"/>
-                            <constraint firstItem="D5w-6p-0Sp" firstAttribute="top" secondItem="sGn-GJ-53d" secondAttribute="top" id="kc8-0r-WBw"/>
-                            <constraint firstItem="D5w-6p-0Sp" firstAttribute="leading" secondItem="sGn-GJ-53d" secondAttribute="leading" id="kgk-hk-TgZ"/>
-                            <constraint firstAttribute="trailing" secondItem="D5w-6p-0Sp" secondAttribute="trailing" id="rQf-uv-zHW"/>
+                            <constraint firstAttribute="trailing" secondItem="D5w-6p-0Sp" secondAttribute="trailing" id="36d-3Z-53v"/>
+                            <constraint firstItem="D5w-6p-0Sp" firstAttribute="leading" secondItem="sGn-GJ-53d" secondAttribute="leading" id="Les-kW-2mG"/>
+                            <constraint firstItem="D5w-6p-0Sp" firstAttribute="bottom" secondItem="IoH-UQ-5lF" secondAttribute="top" id="cSy-Sj-QJd"/>
+                            <constraint firstItem="D5w-6p-0Sp" firstAttribute="top" secondItem="sGn-GJ-53d" secondAttribute="top" id="rIN-pr-wJD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Source Code" id="3sw-Bm-gkh"/>
@@ -164,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="trW-mH-2Ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-271" y="-1981"/>
+            <point key="canvasLocation" x="-271.01024890190337" y="-1981.0546874999998"/>
         </scene>
         <!--Listing-->
         <scene sceneID="9E4-aW-aRM">
@@ -175,7 +178,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FIn-qU-MXS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wHl-ag-cqC">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

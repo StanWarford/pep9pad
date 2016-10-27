@@ -28,8 +28,13 @@ class PepTextView: UIView, UITextViewDelegate {
         self.textContainer = NSTextContainer()
         self.layoutManager.addTextContainer(textContainer)
         self.textView = UITextView(frame: rect, textContainer: textContainer)
-        textView.showsVerticalScrollIndicator = true
+        textView.autocorrectionType = .no
+        textView.isScrollEnabled = false
         self.addSubview(textView)
+        textView.showsVerticalScrollIndicator = true
+        textView.isScrollEnabled = true
+
+
         
 //        self.font = UIFont(name: Courier, size: 16)
 //        self.directionalLockEnabled = true
