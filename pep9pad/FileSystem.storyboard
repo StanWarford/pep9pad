@@ -31,9 +31,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5z2-fk-dFM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="8xE-4d-wRH" userLabel="Edit">
+                        <barButtonItem key="rightBarButtonItem" title="Open" id="8xE-4d-wRH" userLabel="Edit">
                             <connections>
-                                <action selector="editBtnPressed:" destination="lVV-nD-w78" id="cjK-Y6-raA"/>
+                                <action selector="openBtnPressed:" destination="lVV-nD-w78" id="rTn-8n-8rx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

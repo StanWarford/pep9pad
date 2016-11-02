@@ -384,9 +384,12 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             // project has not been saved recently
             // Rather than present an alertController here, I say we just update the fs.  
             // Having an "are you sure?" message seems redundant for something as innocuous as a save.
-            print("updating fs with latest version of project")
-            // TODO: Handle save
-            fsState = .SavedNamed
+            if updateFileInFS(named: editorModel.name, ofType: editorModel.type, source: editorModel.source) {
+                fsState = .SavedNamed
+                print("updated fs with latest version of project")
+            } else {
+                print("could not update fs with latest version of project")
+            }
 
         case .UnsavedUnnamed:
             // project has never been saved

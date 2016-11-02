@@ -79,4 +79,29 @@ class FSMasterViewController: UITableViewController {
             return ""
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Allow swipe-to-delete functionality
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        // Desired behavior shows a red Delete button after swipe
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if removeFileFromFS(named: names[indexPath.row]) {
+                // deletion was successful, now update the table
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+                // reload `names` array
+                names = loadFileNamesFromFS()
+            }
+        }
+    }
+
+    
+    
 }

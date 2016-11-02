@@ -138,6 +138,7 @@
 		46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2681DC7D6E9002880FE /* FSEntity.swift */; };
 		46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* FSGlobals.swift */; };
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
+		46F5F26F1DCA626B002880FE /* ASM_EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
@@ -307,6 +308,7 @@
 		46F5F2681DC7D6E9002880FE /* FSEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSEntity.swift; sourceTree = "<group>"; };
 		46F5F26A1DC7D90F002880FE /* FSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSGlobals.swift; sourceTree = "<group>"; };
 		46F5F26C1DCA528B002880FE /* GCDUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtilities.swift; sourceTree = "<group>"; };
+		46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_EditorModel.swift; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 			children = (
 				D2B0615B1C7E62040088CEBE /* ASM_MasterViewController.swift */,
 				46C76A551DA496510071C340 /* ASM_DetailViewController.swift */,
+				46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */,
 				46C76A631DAF112A0071C340 /* ASM_SourceViewController.swift */,
 				46C76A671DB856A50071C340 /* ASM_ObjectViewController.swift */,
 				46C76A691DB9593A0071C340 /* ASM_ListingViewController.swift */,
@@ -1023,6 +1026,7 @@
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enu.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
+				46F5F26F1DCA626B002880FE /* ASM_EditorModel.swift in Sources */,
 				D2CC5E531DB8113C0033CFF4 /* ObjectTextModel.swift in Sources */,
 				46C76A641DAF112A0071C340 /* ASM_SourceViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,

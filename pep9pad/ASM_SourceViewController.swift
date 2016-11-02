@@ -10,27 +10,36 @@ import UIKit
 
 class ASM_SourceViewController: UIViewController {
     
-    /// The primary view in this UIViewController.
-    @IBOutlet var textView: PepTextView!
+    let defaultFileName: String = "My First Program"
+
     
+    // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
-        textView.loadExample("myFirstProgram", ofType: .pep)
+        self.loadDefaultFile()
     }
     
+    // MARK: - Interface Builder
     
-    
-    // MARK: - IBOutlets
-    
-    
-    //@IBOutlet var textView: PepTextView!
+    /// The primary view in this UIViewController.
+    @IBOutlet var textView: PepTextView!
     
     
     // MARK: - Methods
+    
     func assemble() -> Bool {
         // PLACEHOLDER
         return true
+    }
+    
+    func loadDefaultFile() {
+        if let file = loadFileFromFS(named: defaultFileName) {
+            textView.loadText(file.source)
+            let _ = editorModel.loadExistingFile(named: defaultFileName)
+
+        }
+        
     }
     
 

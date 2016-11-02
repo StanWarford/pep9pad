@@ -34,25 +34,23 @@ func setupFS() {
     let appDel: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
-    var idx = 0
     for defaultFile in DefaultFiles {
         let ent = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
         let newFile = FSEntity(entity: ent!, insertInto: context)
         newFile.name = defaultFile.name
         newFile.type = defaultFile.type
         newFile.source = defaultFile.source
-        idx += 1
         do {
             try context.save()
         } catch {
-            print("Unknown Error")
+            print("Error: could not save default files.")
         }
     }
 }
 
 func getStringFromDefaultFile(fileName: String, ofType: PepFileType) -> String {
     guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
-        print("Could not load file named \(fileName).\(ofType.rawValue)")
+        print("Path error: could not find file named \(fileName).\(ofType.rawValue)")
         return ""
     }
 
@@ -62,7 +60,7 @@ func getStringFromDefaultFile(fileName: String, ofType: PepFileType) -> String {
        return content
         
     } catch _ as NSError {
-        print("Could not load file named \(fileName).\(ofType.rawValue)")
+        print("Open error: could not open file named \(fileName).\(ofType.rawValue)")
         return ""
     }
 }
@@ -181,6 +179,65 @@ func loadFileFromFS(named n: String) -> FSEntity? {
     
     return nil
 
+}
+
+
+func removeFileFromFS(named n: String) -> Bool {
+    
+    let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDel.managedObjectContext
+    
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    fetchRequest.includesPropertyValues = false
+    
+    do {
+        
+        if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
+            for result in results {
+                let res = result as! FSEntity
+                if res.name == n {
+                    context.delete(result)
+                    try context.save()
+                    return true
+                }
+            }
+        }
+    } catch {
+        print("Error in deleting file from FS.")
+    }
+    
+    return false
+    
+}
+
+
+func updateFileInFS(named n: String, ofType t: PepFileType, source src: String) -> Bool {
+    let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDel.managedObjectContext
+    
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    fetchRequest.includesPropertyValues = false
+    
+    do {
+        
+        if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
+            for result in results {
+                let res = result as! FSEntity
+                if res.name == n {
+                    res.source = src
+                    try context.save()
+                    return true
+                }
+            }
+        }
+    } catch {
+        print("Error in deleting file from FS.")
+    }
+    
+    return false
+    
 }
 
 
