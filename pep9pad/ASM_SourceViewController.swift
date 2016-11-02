@@ -26,6 +26,13 @@ class ASM_SourceViewController: UIViewController {
     
     //@IBOutlet var textView: PepTextView!
     
+    
+    // MARK: - Methods
+    func assemble() -> Bool {
+        // PLACEHOLDER
+        return true
+    }
+    
 
     
 }

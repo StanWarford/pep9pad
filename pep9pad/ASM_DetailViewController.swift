@@ -14,7 +14,7 @@ import FontAwesome_swift
 class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     internal var master: ASM_MasterViewController!
-    internal var source: ASM_SourceViewController!
+    internal var sourceVC: ASM_SourceViewController!
     internal var tabController: UITabBarController!
     
     override func viewDidLoad() {
@@ -123,7 +123,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     @IBAction func buildBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let assembleSourceAction = UIAlertAction(title: "Assemble Source", style: .default) { (action) in
-            //TODO: Implement assembleSourceAction
+            self.assembleSource()
         }
         alertController.addAction(assembleSourceAction)
         
@@ -222,6 +222,8 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     
     // MARK: - Methods
+    
+    
     func newProject() {
         switch fsState {
         case .UnsavedNamed:
@@ -438,6 +440,46 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         }
     }
     
+    
+    /// A top-level function that is called whenever the user taps the 'Assemble Source' button.  This function is responsible for calling the `assemble()` method in the `sourceVC`.  If this call is successful it calls methods in all relevant viewcontrollers.
+    func assembleSource() -> Bool {
+        
+        // PLACEHOLDER
+        return true
+
+//        burnCount = 0
+//        if sourceVC.assemble() {
+//            // check for .BURN
+//            if burnCount > 0 {
+//                let error = ";ERROR: .BURN not allowed in program unless installing OS."
+//                sourceVC.appendMessageAt(0, error)
+//                listingVC.clear()
+//                objectVC.clear()
+//                traceVC.clear()
+//                // TODO: make source code tab visible
+//                return false
+//            }
+//            
+//            // no .BURN, proceed with assemble
+//            objectVC.setObjectCode(sourceVC.getObjectCode())
+//            listingVC.setListing(sourceVC.getListing())
+//            traceVC.setListing(sourceVC.getListingForTrace())
+//            traceVC.setMemoryTrace()
+//            listingVC.showListing()
+//            
+//            // TODO: update current object and listing files
+//            // TODO: format from listing
+//            return true
+//            
+//        } else {
+//            listingVC.clear()
+//            objectVC.clear()
+//            traceVC.clear()
+//            // TODO: make source code tab visible
+//            return false
+//        
+//        }
+    }
     
     
     

@@ -11,12 +11,14 @@ import UIKit
 class FSMasterViewController: UITableViewController {
     // MARK: - Internal Variables
     internal var detail: FSDetailViewController!
+    internal var names: [String] = []
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
         detail = navController.viewControllers[0] as! FSDetailViewController
+        names = loadFileNamesFromFS()
     }
     
     // MARK: - IBOutlets
@@ -37,7 +39,7 @@ class FSMasterViewController: UITableViewController {
         
         switch (indexPath as NSIndexPath).section {
         case 0:
-            v.textLabel!.text = "Example \(indexPath.row)"
+            v.textLabel!.text = names[indexPath.row]
         default:
             v.textLabel?.text = "Error"
         }
@@ -48,14 +50,13 @@ class FSMasterViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath as NSIndexPath).section {
         case 0:
-            print("To be implemented.")
-            //detail.loadFile((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
+            detail.loadFile(names[indexPath.row])
         default:
             print("Error")
         }
@@ -64,8 +65,7 @@ class FSMasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 10
-            //return number of files
+            return names.count
         default:
             return 0
         }

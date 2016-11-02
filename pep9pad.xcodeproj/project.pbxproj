@@ -135,6 +135,9 @@
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
 		46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */; };
 		46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */; };
+		46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2681DC7D6E9002880FE /* FSEntity.swift */; };
+		46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* FSGlobals.swift */; };
+		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
@@ -301,6 +304,9 @@
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterViewController.swift; sourceTree = "<group>"; };
 		46F46D3A1C8F70650092EF04 /* HelpDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailViewController.swift; sourceTree = "<group>"; };
+		46F5F2681DC7D6E9002880FE /* FSEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSEntity.swift; sourceTree = "<group>"; };
+		46F5F26A1DC7D90F002880FE /* FSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSGlobals.swift; sourceTree = "<group>"; };
+		46F5F26C1DCA528B002880FE /* GCDUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtilities.swift; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -384,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				468BC12D1DC27220000AE01A /* UIConstants.swift */,
+				46F5F26C1DCA528B002880FE /* GCDUtilities.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -453,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
+				46F5F2681DC7D6E9002880FE /* FSEntity.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -471,6 +479,7 @@
 			children = (
 				46EC8A611C9892F6001405CE /* PepFileType.swift */,
 				46C76A5C1DA711690071C340 /* FileSystem.storyboard */,
+				46F5F26A1DC7D90F002880FE /* FSGlobals.swift */,
 				46C76A571DA70B930071C340 /* FSMasterViewController.swift */,
 				46C76A591DA70BE20071C340 /* FSDetailViewController.swift */,
 				D2CC5E4B1DB800220033CFF4 /* FSState.swift */,
@@ -1022,6 +1031,7 @@
 				D2B0615C1C7E62040088CEBE /* ASM_MasterViewController.swift in Sources */,
 				46C76A6C1DB959480071C340 /* ASM_MemoryViewController.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
+				46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				46C76A681DB856A50071C340 /* ASM_ObjectViewController.swift in Sources */,
 				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
@@ -1029,6 +1039,8 @@
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
+				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
+				46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				46C76A561DA496510071C340 /* ASM_DetailViewController.swift in Sources */,

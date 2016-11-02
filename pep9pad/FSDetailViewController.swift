@@ -12,11 +12,13 @@ class FSDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.setupTextView(textView.frame)
     }
     
     internal func loadFile(_ named: String) {
-        //TODO: Implement file loading from CoreData
-        textView.loadText(named)
+        if let file = loadFileFromFS(named: named) {
+            textView.loadText(file.source)
+        }
     }
     
     // MARK: - IBOutlets and IBActions
