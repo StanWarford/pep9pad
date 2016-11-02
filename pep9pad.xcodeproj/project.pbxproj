@@ -139,6 +139,8 @@
 		46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* FSGlobals.swift */; };
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
 		46F5F26F1DCA626B002880FE /* ASM_EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */; };
+		D26113A61DCA7B2F00DE8923 /* myFirstProgram.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */; };
+		D26113A81DCA7B5400DE8923 /* myFirstProgram.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
@@ -311,6 +313,8 @@
 		46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_EditorModel.swift; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pepo; sourceTree = "<group>"; };
+		D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pepl; sourceTree = "<group>"; };
 		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -486,6 +490,8 @@
 				46C76A591DA70BE20071C340 /* FSDetailViewController.swift */,
 				D2CC5E4B1DB800220033CFF4 /* FSState.swift */,
 				D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */,
+				D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */,
+				D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */,
 			);
 			name = FileSystem;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26113A61DCA7B2F00DE8923 /* myFirstProgram.pepo in Resources */,
 				46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */,
 				46EC8AB61C9895CC001405CE /* fig0433.pepb in Resources */,
 				46EC8AB71C9895CC001405CE /* fig0433.peph in Resources */,
@@ -864,6 +871,7 @@
 				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
+				D26113A81DCA7B5400DE8923 /* myFirstProgram.pepl in Resources */,
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
 				D2CC5E4E1DB807990033CFF4 /* myFirstProgram.pep in Resources */,
 				46EC8A601C989229001405CE /* fig0512.pep in Resources */,

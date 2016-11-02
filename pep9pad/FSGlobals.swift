@@ -12,7 +12,7 @@ import CoreData
 
 
 let FSEntityName = "FSEntity"
-typealias FSFileType = (name:String, type:String, source:String)
+typealias FSFileType = (name:String, source:String, object:String, listing:String)
 
 
 
@@ -22,7 +22,10 @@ typealias FSFileType = (name:String, type:String, source:String)
 let NumDefaultFiles: Int = 1
 
 var DefaultFiles: Array<FSFileType> = [
-    (name:"My First Program", type: PepFileType.pep.rawValue, source: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pep))
+    (name:"My First Program",
+     source: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pep),
+     object: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pepo),
+     listing: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pepl))
 ]
 
 
@@ -38,8 +41,9 @@ func setupFS() {
         let ent = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
         let newFile = FSEntity(entity: ent!, insertInto: context)
         newFile.name = defaultFile.name
-        newFile.type = defaultFile.type
         newFile.source = defaultFile.source
+        newFile.object = defaultFile.object
+        newFile.listing = defaultFile.listing
         do {
             try context.save()
         } catch {

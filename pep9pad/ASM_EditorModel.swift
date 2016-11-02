@@ -8,34 +8,37 @@
 
 import UIKit
 
-/// Singleton instance, used to express the currently-edited project.
+/// Global, used to access the currently-edited project.
 var editorModel = EditorModel()
 
 class EditorModel {
     
     var name: String! = nil
-    var type: PepFileType = .pep
     var source: String = ""
+    var object: String = ""
+    var listing: String = ""
     
-    func newFile() {
+    func newProject() {
         name = ""
-        type = .pep
         source = ""
+        object = ""
+        listing = ""
     }
 
     
-    func loadExistingFile(named n: String) -> Bool {
+    func loadExistingProject(named n: String) -> Bool {
         if let file: FSEntity = loadFileFromFS(named: n) {
-            self.name = file.name
-            self.type = PepFileType(rawValue: file.type)!
-            self.source = file.source
+            name = file.name
+            source = file.source
+            object = file.object
+            listing = file.listing
             return true
         }
         return false
     }
     
     
-    func loadDefaultFile() {
+    func loadDefaultProject() {
         // don't bother loading from coredata
         // just load that hello world program
         guard let path = Bundle.main.path(forResource: "myFirstProgram", ofType: "pep") else {
@@ -44,11 +47,10 @@ class EditorModel {
         }
         
         do {
-            let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
+            let content = try String(contentsOfFile:path, encoding: String.Encoding.ascii)
             print("Loaded file named myFirstProgram.pep")
-            self.name = "My First Program"
-            self.type = .pep
-            self.source = content
+            name = "My First Program"
+            source = content
         } catch _ as NSError {
             print("Could not load file named myFirstProgram.pep")
             return

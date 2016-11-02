@@ -13,8 +13,7 @@ class FSEntity: NSManagedObject {
     // This class is used as the default storage object for P9P's source files.
 
     @NSManaged var source: String
+    @NSManaged var object: String
+    @NSManaged var listing: String
     @NSManaged var name: String
-    @NSManaged var type: String
 }
-
-
