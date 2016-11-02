@@ -34,10 +34,16 @@ class ASM_SourceViewController: UIViewController {
     }
     
     func loadDefaultFile() {
+        // try loading the hello world program from filesystem
         if let file = loadFileFromFS(named: defaultFileName) {
             textView.loadText(file.source)
             let _ = editorModel.loadExistingFile(named: defaultFileName)
 
+        } else {
+            // user deleted that file from filesystem
+            // load it a different way
+            textView.loadExample("myFirstProgram", ofType: .pep)
+            editorModel.loadDefaultFile()
         }
         
     }

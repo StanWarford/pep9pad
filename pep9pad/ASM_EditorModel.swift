@@ -6,7 +6,7 @@
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// Singleton instance, used to express the currently-edited project.
 var editorModel = EditorModel()
@@ -32,6 +32,28 @@ class EditorModel {
             return true
         }
         return false
+    }
+    
+    
+    func loadDefaultFile() {
+        // don't bother loading from coredata
+        // just load that hello world program
+        guard let path = Bundle.main.path(forResource: "myFirstProgram", ofType: "pep") else {
+            print("Could not load file named myFirstProgram.pep")
+            return
+        }
+        
+        do {
+            let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
+            print("Loaded file named myFirstProgram.pep")
+            self.name = "My First Program"
+            self.type = .pep
+            self.source = content
+        } catch _ as NSError {
+            print("Could not load file named myFirstProgram.pep")
+            return
+        }
+
     }
     
     

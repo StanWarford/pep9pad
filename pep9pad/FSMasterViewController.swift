@@ -93,11 +93,13 @@ class FSMasterViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if removeFileFromFS(named: names[indexPath.row]) {
-                // deletion was successful, now update the table
+                // deletion was successful
+                // now we must reload `names` array
+                names = loadFileNamesFromFS()
+                // after reloading the array, we update the table
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
-                // reload `names` array
-                names = loadFileNamesFromFS()
+                detail.clear()
             }
         }
     }

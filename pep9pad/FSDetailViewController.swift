@@ -29,18 +29,29 @@ class FSDetailViewController: UIViewController {
         if let file: FSEntity = loadFileFromFS(named: named) {
             textView.loadText(file.source)
             nameOfDisplayedFile = named
+        } else {
+            nameOfDisplayedFile = nil
         }
+    }
+    
+    internal func clear() {
+        textView.loadText("")
+        nameOfDisplayedFile = nil
     }
     
     // MARK: - IBOutlets and IBActions
     
     @IBAction func openBtnPressed(_ sender: UIBarButtonItem) {
-        if editorModel.loadExistingFile(named: nameOfDisplayedFile) {
-            // file load was successful, so dismiss this set of viewcontrollers
-            self.dismiss(animated: true, completion: nil)
-            master.dismiss(animated: true, completion: nil)
+        if let _ = nameOfDisplayedFile {
+            if editorModel.loadExistingFile(named: nameOfDisplayedFile) {
+                // file load was successful, so dismiss this set of viewcontrollers
+                self.dismiss(animated: true, completion: nil)
+                master.dismiss(animated: true, completion: nil)
+            } else {
+                print("File load unsuccessful")
+            }
         } else {
-            print("File load unsuccessful")
+            print("Cannot load file with no name.")
         }
     }
     
