@@ -8,22 +8,23 @@
 
 import UIKit
 
-class ASM_SourceViewController: UIViewController {
+class ASM_SourceViewController: UIViewController, ASM_EditorProtocol {
     
-    let defaultFileName: String = "My First Program"
-
+    // MARK: - ViewController Lifecycle
     
-    // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
-        self.loadDefaultFile()
+        updateFromModel()
     }
+    
+    
     
     // MARK: - Interface Builder
     
     /// The primary view in this UIViewController.
     @IBOutlet var textView: PepTextView!
+    
     
     
     // MARK: - Methods
@@ -33,20 +34,12 @@ class ASM_SourceViewController: UIViewController {
         return true
     }
     
-    func loadDefaultFile() {
-        // try loading the hello world program from filesystem
-        if let file = loadFileFromFS(named: defaultFileName) {
-            textView.loadText(file.source)
-            let _ = editorModel.loadExistingFile(named: defaultFileName)
-
-        } else {
-            // user deleted that file from filesystem
-            // load it a different way
-            textView.loadExample("myFirstProgram", ofType: .pep)
-            editorModel.loadDefaultFile()
-        }
-        
+    /// Updates the contents of the `textView` with `editorModel.source`.
+    func updateFromModel() {
+        textView.setText(editorModel.source)
     }
+    
+    
     
 
     

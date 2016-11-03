@@ -17,15 +17,16 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     internal var sourceVC: ASM_SourceViewController!
     internal var tabController: UITabBarController!
     
+    
+    
+    // MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // get ref to master and save to local `master` property
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! ASM_MasterViewController
-        
-
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +36,8 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
     // MARK: - Conformance to UITabBarDelegate
@@ -65,7 +68,12 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     }
     
     
+    
+    
     // MARK: - IBOutlets
+    
+    
+    
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
@@ -154,7 +162,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             //TODO: Implement newAction
             self.newProject()
         }
-        newAction.isEnabled = (fsState != .Blank)
+        newAction.isEnabled = (editorModel.fsState != .Blank)
         alertController.addAction(newAction)
 
         let openAction = UIAlertAction(title: "Open Project", style: .default) { (action) in
@@ -166,13 +174,13 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         let saveAction = UIAlertAction(title: "Save Project", style: .default) { (action) in
             self.saveProject()
         }
-        saveAction.isEnabled = (fsState == .UnsavedUnnamed) || (fsState == .UnsavedNamed)
+        saveAction.isEnabled = (editorModel.fsState == .UnsavedUnnamed) || (editorModel.fsState == .UnsavedNamed)
         alertController.addAction(saveAction)
         
         let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
             self.shareProject()
         }
-        shareAction.isEnabled = (fsState != .Blank)
+        shareAction.isEnabled = (editorModel.fsState != .Blank)
         alertController.addAction(shareAction)
         
         alertController.popoverPresentationController?.barButtonItem = sender
@@ -225,7 +233,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     
     func newProject() {
-        switch fsState {
+        switch editorModel.fsState {
         case .UnsavedNamed:
             // project has not been saved recently
 
@@ -235,14 +243,14 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 // TODO: Handle save
                 // TODO: Handle new project creation
                 print("saving changes and creating a new project")
-                fsState = .Blank
+                editorModel.fsState = .Blank
             }
             alertController.addAction(yesAction)
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 // TODO: Handle new project creation
                 print("discarding changes and creating a new project")
-                fsState = .Blank
+                editorModel.fsState = .Blank
             }
             alertController.addAction(noAction)
             
@@ -271,7 +279,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                     // TODO: Save the current project under the given name
                     // TODO: Handle creation of new project
                     print("saving current project with the given name and creating a new project")
-                    fsState = .Blank
+                    editorModel.fsState = .Blank
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true)
@@ -283,7 +291,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 // user wants to throw this unsaved project away and start anew
                 // TODO: Handle new project creation
                 print("destroying current project and creating a new project")
-                fsState = .Blank
+                editorModel.fsState = .Blank
             }
             alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -303,7 +311,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     }
     
     func openProject() {
-        switch fsState {
+        switch editorModel.fsState {
         case .UnsavedNamed:
             // project has not been saved recently
             let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to the current project?", preferredStyle: .alert)
@@ -312,14 +320,14 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 // TODO: Handle save
                 // TODO: Handle open project
                 print("saving changes and opening a preexisting project")
-                fsState = .SavedNamed
+                editorModel.fsState = .SavedNamed
             }
             alertController.addAction(yesAction)
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 // TODO: Handle open project
                 print("discarding changes and opening a preexisting project")
-                fsState = .SavedNamed
+                editorModel.fsState = .SavedNamed
             }
             alertController.addAction(noAction)
             
@@ -346,7 +354,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                     // TODO: Save the current project under the given name
                     // TODO: Handle open project
                     print("saving current project with the given name and opening a preexisting project")
-                    fsState = .SavedNamed
+                    editorModel.fsState = .SavedNamed
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true)
@@ -358,7 +366,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 // user wants to throw this unsaved project away and open a preexisting project
                 // TODO: Handle open project
                 print("destroying this project and opening a preexisting project")
-                fsState = .SavedNamed
+                editorModel.fsState = .SavedNamed
             }
             alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -379,13 +387,13 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     }
     
     func saveProject() {
-        switch fsState {
+        switch editorModel.fsState {
         case .UnsavedNamed:
             // project has not been saved recently
             // Rather than present an alertController here, I say we just update the fs.  
             // Having an "are you sure?" message seems redundant for something as innocuous as a save.
-            if updateFileInFS(named: editorModel.name, ofType: editorModel.type, source: editorModel.source) {
-                fsState = .SavedNamed
+            if updateProjectInFS(named: editorModel.name, source: editorModel.source, object: editorModel.object, listing: editorModel.listing) {
+                editorModel.fsState = .SavedNamed
                 print("updated fs with latest version of project")
             } else {
                 print("could not update fs with latest version of project")
@@ -407,7 +415,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 // TODO: Save the current project under the given name
                 print("saving current project with the given name")
-                fsState = .SavedNamed
+                editorModel.fsState = .SavedNamed
             }
             alertController.addAction(okAction)
             self.present(alertController, animated: true)
@@ -430,13 +438,13 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         case .pep:
             // load into SourceViewController
             tabController.selectedIndex = 0
-            (tabController.selectedViewController as? ASM_SourceViewController)?.textView.loadText(text)
+            (tabController.selectedViewController as? ASM_SourceViewController)?.textView.setText(text)
             
             
         case .pepo, .peph:
             // load into ObjectViewController
             tabController.selectedIndex = 1
-            (tabController.selectedViewController as? ASM_ObjectViewController)?.textView.loadText(text)
+            (tabController.selectedViewController as? ASM_ObjectViewController)?.textView.setText(text)
 
         default:
             break

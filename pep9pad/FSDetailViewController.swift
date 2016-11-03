@@ -26,8 +26,8 @@ class FSDetailViewController: UIViewController {
     // MARK: - Methods
     
     internal func loadFile(_ named: String) {
-        if let file: FSEntity = loadFileFromFS(named: named) {
-            textView.loadText(file.source)
+        if let file: FSEntity = loadProjectFromFS(named: named) {
+            textView.setText(file.source)
             nameOfDisplayedFile = named
         } else {
             nameOfDisplayedFile = nil
@@ -35,7 +35,7 @@ class FSDetailViewController: UIViewController {
     }
     
     internal func clear() {
-        textView.loadText("")
+        textView.setText("")
         nameOfDisplayedFile = nil
     }
     
@@ -43,7 +43,7 @@ class FSDetailViewController: UIViewController {
     
     @IBAction func openBtnPressed(_ sender: UIBarButtonItem) {
         if let _ = nameOfDisplayedFile {
-            if editorModel.loadExistingFile(named: nameOfDisplayedFile) {
+            if editorModel.loadExistingProject(named: nameOfDisplayedFile) {
                 // file load was successful, so dismiss this set of viewcontrollers
                 self.dismiss(animated: true, completion: nil)
                 master.dismiss(animated: true, completion: nil)

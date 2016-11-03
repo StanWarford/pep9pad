@@ -12,20 +12,20 @@ import CoreData
 
 
 let FSEntityName = "FSEntity"
-typealias FSFileType = (name:String, source:String, object:String, listing:String)
+typealias FSEntityType = (name:String, source:String, object:String, listing:String)
 
 
 
 
 // MARK: - Defaults
 
-let NumDefaultFiles: Int = 1
+let NumDefaultProjects: Int = 1
 
-var DefaultFiles: Array<FSFileType> = [
+var DefaultProjects: Array<FSEntityType> = [
     (name:"My First Program",
-     source: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pep),
-     object: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pepo),
-     listing: getStringFromDefaultFile(fileName: "myFirstProgram", ofType: PepFileType.pepl))
+     source: getStringFromDefaultProject(fileName: "myFirstProgram", ofType: PepFileType.pep),
+     object: getStringFromDefaultProject(fileName: "myFirstProgram", ofType: PepFileType.pepo),
+     listing: getStringFromDefaultProject(fileName: "myFirstProgram", ofType: PepFileType.pepl))
 ]
 
 
@@ -37,13 +37,13 @@ func setupFS() {
     let appDel: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
-    for defaultFile in DefaultFiles {
+    for proj in DefaultProjects {
         let ent = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
         let newFile = FSEntity(entity: ent!, insertInto: context)
-        newFile.name = defaultFile.name
-        newFile.source = defaultFile.source
-        newFile.object = defaultFile.object
-        newFile.listing = defaultFile.listing
+        newFile.name = proj.name
+        newFile.source = proj.source
+        newFile.object = proj.object
+        newFile.listing = proj.listing
         do {
             try context.save()
         } catch {
@@ -52,7 +52,7 @@ func setupFS() {
     }
 }
 
-func getStringFromDefaultFile(fileName: String, ofType: PepFileType) -> String {
+func getStringFromDefaultProject(fileName: String, ofType: PepFileType) -> String {
     guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
         print("Path error: could not find file named \(fileName).\(ofType.rawValue)")
         return ""
@@ -130,7 +130,7 @@ func getStringFromDefaultFile(fileName: String, ofType: PepFileType) -> String {
 
 
 
-func loadFileNamesFromFS() -> [String] {
+func loadProjectNamesFromFS() -> [String] {
     
     var names: [String] = []
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -158,7 +158,7 @@ func loadFileNamesFromFS() -> [String] {
 }
 
 
-func loadFileFromFS(named n: String) -> FSEntity? {
+func loadProjectFromFS(named n: String) -> FSEntity? {
     
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
@@ -186,7 +186,7 @@ func loadFileFromFS(named n: String) -> FSEntity? {
 }
 
 
-func removeFileFromFS(named n: String) -> Bool {
+func removeProjectFromFS(named n: String) -> Bool {
     
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
@@ -216,7 +216,7 @@ func removeFileFromFS(named n: String) -> Bool {
 }
 
 
-func updateFileInFS(named n: String, ofType t: PepFileType, source src: String) -> Bool {
+func updateProjectInFS(named n: String, source: String, object: String, listing: String) -> Bool {
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
@@ -230,7 +230,9 @@ func updateFileInFS(named n: String, ofType t: PepFileType, source src: String) 
             for result in results {
                 let res = result as! FSEntity
                 if res.name == n {
-                    res.source = src
+                    res.source = source
+                    res.object = object
+                    res.listing = listing
                     try context.save()
                     return true
                 }

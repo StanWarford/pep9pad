@@ -18,7 +18,7 @@ class FSMasterViewController: UITableViewController {
         super.viewDidLoad()
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
         detail = navController.viewControllers[0] as! FSDetailViewController
-        names = loadFileNamesFromFS()
+        names = loadProjectNamesFromFS()
     }
     
     // MARK: - IBOutlets
@@ -92,10 +92,10 @@ class FSMasterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if removeFileFromFS(named: names[indexPath.row]) {
+            if removeProjectFromFS(named: names[indexPath.row]) {
                 // deletion was successful
                 // now we must reload `names` array
-                names = loadFileNamesFromFS()
+                names = loadProjectNamesFromFS()
                 // after reloading the array, we update the table
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()

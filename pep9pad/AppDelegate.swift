@@ -24,16 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        
-//        else {
-//            GlobalUserInitiatedQueue.async {
-//                loadDefaultFilesFromFS()
-//            }
-//        }
+        editorModel.loadDefaultProject()
         
         return true
     }
     
+    /// A property stored in `NSUserDefaults` which is set to `true` upon installation of the app.
+    /// The first launch of the app permanently sets this value to `false`.
     var isFirstLaunch: Bool {
         get {
             if (UserDefaults.standard.object(forKey: "firstLaunchDate") == nil) {

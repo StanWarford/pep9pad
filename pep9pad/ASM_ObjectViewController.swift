@@ -8,17 +8,23 @@
 
 import UIKit
 
-class ASM_ObjectViewController: UIViewController {
+class ASM_ObjectViewController: UIViewController, ASM_EditorProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
+        updateFromModel()
 
     }
-    
     
     // MARK: - Interface
     /// The primary view in this UIViewController.
     @IBOutlet var textView: PepTextView!
+    
+    
+    /// Updates the contents of the `textView` with `editorModel.source`.
+    func updateFromModel() {
+        textView.setText(editorModel.object)
+    }
     
 }

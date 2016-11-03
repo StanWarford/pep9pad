@@ -43,8 +43,8 @@ class PepTextView: UIView, UITextViewDelegate {
     
 
 // MARK: - Text-Handling Functions
-    internal func loadText(_ text: String) {
-        self.textView.text = text
+    internal func setText(_ to: String) {
+        self.textView.text = to
     }
     
     func loadExample(_ fileName: String, ofType: PepFileType) {
