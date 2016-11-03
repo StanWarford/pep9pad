@@ -13,6 +13,7 @@ class ASM_ListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
+        textView.setEditable(false)
         updateFromModel()
     }
     

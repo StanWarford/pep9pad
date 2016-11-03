@@ -28,7 +28,6 @@ class ASM_MemoryViewController: UIViewController {
     
     @IBAction func pcBtnPressed(_ sender: UIBarButtonItem) {
         // TODO: Scroll `table` to pc
-
     }
     
     

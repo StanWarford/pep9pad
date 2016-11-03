@@ -41,9 +41,9 @@ class PepTextStorage: BaseTextStorage {
                     }
                     print("Check for \(patternName) produced \(arrayOfResults.count) results with text len == \(text.length).")
                 } catch let error as NSError {
-                    print("invalid regex: \(error.localizedDescription)")
+                    print("Invalid regex: \(error.localizedDescription)")
                 } catch {
-                    print("Another error")
+                    print("Unknown regex error in PepTextStorage.")
                 }
 
                 if arrayOfResults.count > 0 {
@@ -51,7 +51,7 @@ class PepTextStorage: BaseTextStorage {
                 }
             }
         } else {
-            print("Text found to be EMPTY, skipping regex!")
+            print("Text found to be empty, skipping regex.")
         }
 
         super.processEditing()
@@ -64,7 +64,7 @@ class PepTextStorage: BaseTextStorage {
                 //print("Inputting: \(pat.key) : \(pat.value)")
                 regularExpressions.append(try NSRegularExpression(pattern: pat.value as! String, options: []))
             } catch {
-                print("Error")
+                print("Not all syntax highlight patterns were set.")
             }
         }
     }

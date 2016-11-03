@@ -34,13 +34,15 @@ class PepTextView: UIView, UITextViewDelegate {
         self.addSubview(textView)
         textView.showsVerticalScrollIndicator = true
         textView.isScrollEnabled = true
-
-
-        
 //        self.font = UIFont(name: Courier, size: 16)
 //        self.directionalLockEnabled = true
 //        self.textAlignment = .Left
     }
+    
+    func setEditable(_ to: Bool) {
+        textView.isEditable = to
+    }
+    
     
 
     // MARK: - Text-Handling Functions

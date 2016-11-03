@@ -9,21 +9,25 @@
 import UIKit
 import FontAwesome_swift
 
+/// A typealias consisting of all elements in the ASM Tab Bar.
+typealias ASM_TabBarVCs = (source: ASM_SourceViewController?, object: ASM_ObjectViewController?, listing: ASM_ListingViewController?, memory: ASM_MemoryViewController?, trace: ASM_TraceViewController?)
+
+
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
 class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     internal var master: ASM_MasterViewController!
-    internal var sourceVC: ASM_SourceViewController!
     internal var tabController: UITabBarController!
-    
+    // must initialize this, otherwise we get a runtime error
+    internal var tabVCs: ASM_TabBarVCs = (nil, nil, nil, nil, nil)
     
     
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // get ref to master and save to local `master` property
+        // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! ASM_MasterViewController
     }
@@ -31,6 +35,11 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+            }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,6 +68,22 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 print("Embedding the tab bar")
                 tabController = segue.destination as! UITabBarController
                 customizeTabBarImages((tabController.tabBar.items)! as [UITabBarItem])
+                
+                // initialize all the tabController's viewControllers by looping through the viewControllers...
+                if tabController.viewControllers != nil {
+                    for idx in tabController.viewControllers! {
+                        // and accessing the `view` of each
+                        let _ = idx.view
+                        print("accessed view num \(idx)")
+                    }
+                }
+                
+                // now we can assign all the elements of tabVCs
+                tabVCs.source = tabController.viewControllers?[0] as? ASM_SourceViewController
+                tabVCs.object = tabController.viewControllers?[1] as? ASM_ObjectViewController
+                tabVCs.listing = tabController.viewControllers?[2] as? ASM_ListingViewController
+                tabVCs.memory = tabController.viewControllers?[3] as? ASM_MemoryViewController
+                tabVCs.trace = tabController.viewControllers?[4] as? ASM_TraceViewController
 
             default:
                 break
@@ -430,25 +455,29 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         
     }
     
-    
-    
-    func load(_ text: String, ofType: PepFileType) {
+    func exampleWasLoaded(ofType: PepFileType) {
         // TODO: Figure out whether the user has unsaved work and ask accordingly
         switch ofType {
         case .pep:
             // load into SourceViewController
             tabController.selectedIndex = 0
-            (tabController.selectedViewController as? ASM_SourceViewController)?.textView.setText(text)
-            
             
         case .pepo, .peph:
             // load into ObjectViewController
             tabController.selectedIndex = 1
-            (tabController.selectedViewController as? ASM_ObjectViewController)?.textView.setText(text)
 
         default:
             break
         }
+        
+        updateAllEditorsFromModel()
+    }
+    
+    
+    func updateAllEditorsFromModel() {
+        tabVCs.source?.updateFromModel()
+        tabVCs.object?.updateFromModel()
+        tabVCs.listing?.updateFromModel()
     }
     
     

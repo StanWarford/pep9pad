@@ -38,8 +38,6 @@ class ExampleViewController: UIViewController {
     
     // MARK: - Methods
     
-    
-    
     func loadExample(_ fileName: String, field: ExampleVCTextField, ofType: PepFileType) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
             print("Could not load file named \(fileName).\(ofType.rawValue)")
@@ -66,7 +64,6 @@ class ExampleViewController: UIViewController {
             return
         }
     }
-
     
     
     

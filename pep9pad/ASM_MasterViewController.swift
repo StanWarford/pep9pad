@@ -50,8 +50,10 @@ class ASM_MasterViewController: UIViewController {
         }
     }
     
+    /// Loads an example from the Help system into the appropriate view in `detail`.
     func loadExample(_ text: String, ofType: PepFileType, io: String!, usesTerminal: Bool) {
-        detail.load(text, ofType: ofType)
+        editorModel.loadExample(text: text, ofType: ofType)
+        detail.exampleWasLoaded(ofType: ofType)
         self.io.setIOMode(to: usesTerminal ? .terminal : .batch)
         self.io.topTextView.text = io
         

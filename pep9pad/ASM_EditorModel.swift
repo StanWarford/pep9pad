@@ -79,6 +79,25 @@ class ASM_EditorModel {
 
     }
     
+    func loadExample(text: String, ofType: PepFileType) {
+        // TODO: Figure out whether the user has unsaved work and ask accordingly
+        switch ofType {
+        case .pep:
+            source = text
+            object = ""
+            listing = ""
+            
+        case .pepo, .peph:
+            source = ""
+            object = text
+            listing = ""
+            
+        default:
+            break
+        }
+
+    }
+    
     
     
     
