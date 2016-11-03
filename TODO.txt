@@ -4,25 +4,6 @@
 * Scroll fix
 
 
-
-
-* Filesystem: Put in one file called `myFirstFile` have it be the source code for Hello World which is fig. 5.19.  
-* IOView -- output shouldn't be editable
-
-Filesystem:
-
-* Add an export barbuttonitem to the 
-* Need to have a new?
-* Save Project --> save all three (.pep, .pepo, .pepl) regardless of their state
-    - Name the project
-    - 
-* Open Project --> check for 
-* The two axes:
-    - named vs. unnamed
-    - saved vs. unsaved
-
-* Two booleans: isNamed and isSaved
-
 Trace view:
 
 * have 5 or 7 or 3 lines w/ currently executing line in the middle and highlighted

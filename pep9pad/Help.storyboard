@@ -16,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="STg-sO-rrW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yzo-cv-cPE">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -44,11 +44,10 @@
                         <viewControllerLayoutGuide type="bottom" id="Ick-Ug-fyu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WTw-yi-b44">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-pj-tKY" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <frame key="frameInset" minY="64" width="600" height="264"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTj-pj-tKY" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="301" id="7OA-KI-kH1"/>
@@ -62,8 +61,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IKd-yD-AN3" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <frame key="frameInset" minY="336" width="600" height="264"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IKd-yD-AN3" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="337" id="lsD-ZN-81d"/>
@@ -81,11 +79,9 @@
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="gTj-pj-tKY" secondAttribute="trailing" constant="-20" id="04C-ob-auE"/>
-                            <constraint firstItem="IKd-yD-AN3" firstAttribute="leading" secondItem="gTj-pj-tKY" secondAttribute="leading" id="1MY-Fn-RSg"/>
                             <constraint firstItem="IKd-yD-AN3" firstAttribute="bottom" secondItem="Ick-Ug-fyu" secondAttribute="top" id="7Mq-Di-w0Z"/>
                             <constraint firstItem="IKd-yD-AN3" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leading" id="9u9-2C-rT2"/>
                             <constraint firstAttribute="trailing" secondItem="IKd-yD-AN3" secondAttribute="trailing" id="K5q-yw-nI1"/>
-                            <constraint firstItem="IKd-yD-AN3" firstAttribute="trailing" secondItem="gTj-pj-tKY" secondAttribute="trailing" id="QBW-Js-enx"/>
                             <constraint firstItem="gTj-pj-tKY" firstAttribute="top" secondItem="utr-zP-eeO" secondAttribute="bottom" id="Ylw-iB-WYg"/>
                             <constraint firstItem="gTj-pj-tKY" firstAttribute="width" secondItem="IKd-yD-AN3" secondAttribute="width" constant="12" id="bf2-HC-OXy"/>
                             <constraint firstItem="IKd-yD-AN3" firstAttribute="height" secondItem="gTj-pj-tKY" secondAttribute="height" id="feR-ca-tzb"/>
@@ -93,7 +89,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="IKd-yD-AN3" secondAttribute="trailing" constant="-20" id="oJd-t0-kXf"/>
                             <constraint firstItem="IKd-yD-AN3" firstAttribute="width" secondItem="gTj-pj-tKY" secondAttribute="width" id="oca-c3-XGv"/>
                             <constraint firstItem="gTj-pj-tKY" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leadingMargin" constant="-20" id="vTh-rY-ubP"/>
-                            <constraint firstItem="IKd-yD-AN3" firstAttribute="top" secondItem="gTj-pj-tKY" secondAttribute="bottom" constant="8" symbolic="YES" id="w3B-QP-wcy"/>
+                            <constraint firstItem="IKd-yD-AN3" firstAttribute="top" secondItem="gTj-pj-tKY" secondAttribute="bottom" constant="3" id="w3B-QP-wcy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -112,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Jc-8O-PWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2323" y="589"/>
+            <point key="canvasLocation" x="2322.65625" y="588.28125"/>
         </scene>
         <!--Documentation View Controller-->
         <scene sceneID="L3t-9J-Yho">
@@ -123,7 +119,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Dq0-AC-xl6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fRp-pW-wZ7">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLR-cN-Ycd">
@@ -168,7 +164,7 @@
             <objects>
                 <tableViewController id="6Ap-hx-byD" customClass="HelpMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="WSa-Sl-3OV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

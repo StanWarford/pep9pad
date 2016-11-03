@@ -10,4 +10,7 @@ import Foundation
 
 protocol ASM_EditorProtocol {
     func updateFromModel()
+    var textView: PepTextView! {
+        get set
+    }
 }

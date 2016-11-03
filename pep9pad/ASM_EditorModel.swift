@@ -57,6 +57,7 @@ class ASM_EditorModel {
     
     /// Loads the default project, aka `myFirstProgram`, directly from source files.
     /// In other words, **this function does not use coredata.**
+    /// Called by 
     func loadDefaultProject() {
         // don't bother loading from coredata
         // just load that hello world program

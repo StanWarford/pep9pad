@@ -12,14 +12,16 @@ class ASM_ListingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        textView.setupTextView(textView.frame)
+        updateFromModel()
     }
     
+    /// The primary view in this UIViewController.
+    @IBOutlet var textView: PepTextView!
     
+    /// Updates the contents of the `textView` with `editorModel.source`.
+    func updateFromModel() {
+        textView.setText(editorModel.listing)
+    }
     
-//    /// Updates the contents of the `textView` with `editorModel.source`.
-//    func updateFromModel() {
-//        textView.setText(editorModel.source)
-//    }
-//    
 }

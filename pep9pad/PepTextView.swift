@@ -15,13 +15,14 @@ class PepTextView: UIView, UITextViewDelegate {
     internal var textView: UITextView!
     
     
-// MARK: - Initializers and Set-up Functions
+    // MARK: - Initializers and Set-up Functions
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     func setupTextView(_ frame: CGRect) {
-        let rect = CGRect(x: frame.origin.x, y: frame.origin.y, width: 0.70*(superview?.bounds.width)!, height: superview!.bounds.height)
+        let rect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height)
         self.textStorage = PepTextStorage()
         self.layoutManager = NSLayoutManager()
         self.textStorage.addLayoutManager(layoutManager)
@@ -42,7 +43,8 @@ class PepTextView: UIView, UITextViewDelegate {
     }
     
 
-// MARK: - Text-Handling Functions
+    // MARK: - Text-Handling Functions
+    
     internal func setText(_ to: String) {
         self.textView.text = to
     }

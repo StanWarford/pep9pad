@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oqv-wh-otk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aHV-4b-bBN">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-Yz-JgW"/>
@@ -43,7 +43,7 @@
                         <viewControllerLayoutGuide type="bottom" id="I3V-GU-rNG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nMm-13-rtU">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31x-qh-CWO">
@@ -53,7 +53,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="en6-9Q-oQi">
                                         <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Ngv-Ys-2jr">
-                                            <rect key="frame" x="107" y="7" width="227" height="30"/>
+                                            <rect key="frame" x="69" y="7" width="227" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -112,7 +112,7 @@
                         <viewControllerLayoutGuide type="bottom" id="l2u-vy-78S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="53m-DP-KgF">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
@@ -145,7 +145,7 @@
                         <viewControllerLayoutGuide type="bottom" id="IoH-UQ-5lF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sGn-GJ-53d">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6p-0Sp" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
@@ -178,11 +178,25 @@
                         <viewControllerLayoutGuide type="bottom" id="FIn-qU-MXS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wHl-ag-cqC">
-                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGL-kS-c5j" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lGL-kS-c5j" secondAttribute="trailing" id="4dt-hD-VXM"/>
+                            <constraint firstItem="lGL-kS-c5j" firstAttribute="top" secondItem="wHl-ag-cqC" secondAttribute="top" id="IjH-K8-Fj5"/>
+                            <constraint firstItem="lGL-kS-c5j" firstAttribute="bottom" secondItem="FIn-qU-MXS" secondAttribute="top" id="dKg-nW-88R"/>
+                            <constraint firstItem="lGL-kS-c5j" firstAttribute="leading" secondItem="wHl-ag-cqC" secondAttribute="leading" id="lKp-VT-2Tq"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Listing" id="E5H-ve-86D"/>
+                    <connections>
+                        <outlet property="textView" destination="lGL-kS-c5j" id="Bem-Ze-98p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I46-w8-xwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
