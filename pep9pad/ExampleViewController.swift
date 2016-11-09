@@ -53,7 +53,11 @@ class ExampleViewController: UIViewController {
                 self.topTextView.textView.text.removeAll()
                 self.topTextView.textView.insertText(content)
                 self.currentExampleText = content
-                self.currentExampleType = ofType
+                if ofType == .pepb || ofType == .peph {
+                    self.currentExampleType = .pepo
+                } else {
+                    self.currentExampleType = ofType
+                }
             case .Bottom:
                 self.bottomTextView.textView.text.removeAll()
                 self.bottomTextView.textView.insertText(content)
