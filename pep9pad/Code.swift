@@ -11,10 +11,10 @@ import Foundation
 /// The abstract code class.
 class Code {
     
-    private var memAddress: Int = 0
-    private var sourceCodeLine: Int = 0
-    private var symbolDef: String = ""
-    private var comment: String = ""
+    internal var memAddress: Int = 0
+    internal var sourceCodeLine: Int = 0
+    internal var symbolDef: String = ""
+    internal var comment: String = ""
     
     func appendObjectCode(objectCode: [Int]) {}
     func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {}

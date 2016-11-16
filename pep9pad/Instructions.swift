@@ -9,35 +9,37 @@
 import Foundation
 
 class UnaryInstruction: Code {
-    private var mnemonic: EMnemonic
-    
+    private var mnemonic: EMnemonic!
+    override init(){}
     override func appendObjectCode(objectCode: [Int]) {
         
     }
     
     override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
-        <#code#>
+        // Place holder
     }
 }
 
 class NonUnaryInstruction: Code {
-    private var mnemonic: EMnemonic
-    private var addressingMode: EAddrMode
-    private var argument: Argument
-    
+    private var mnemonic: EMnemonic!
+    private var addressingMode: EAddrMode!
+    private var argument: Argument!
+    override init() {}
     override func appendObjectCode(objectCode: [Int]) {
-        <#code#>
+        // Place holder
     }
     
     override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
-        <#code#>
+        // Place holder
     }
     
     override func processFormatTraceTags(sourceLine: Int, errorString: String) -> Bool {
-        <#code#>
+        // Place holder
+        return true
     }
     
     override func processSymbolTraceTags(sourceLine: Int, errorString: String) -> Bool {
-        <#code#>
+        // Place holder
+        return true
     }
 }
