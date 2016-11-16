@@ -63,11 +63,67 @@ class ASM_SourceViewController: UIViewController, ASM_EditorProtocol {
     }
     
     // Pre: self.sourceCode is populated with code from a complete correct Pep/9 source program.
-    // Post: self.assemlberListing is populated with the assembler listing.
+    // Post: self.assemblerListing is populated with the assembler listing.
     // Post: self.listingTrace is populated with the object code.
     // Post: self.hasCheckBox is populated with the checkBox list that specifies whether a trace line can have a break point.
-    // Post: assemblerListingList is returned.
+    // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
+        // PLACEHOLDER
+        return [""]
+    }
+    
+    // Pre: self.listingTrace is populated.
+    // Post: self.listingTrace is returned.
+    func getListingTrace() -> [String] {
+        // PLACEHOLDER
+        return [""]
+    }
+    
+    // Pre: self.hasCheckBox is populated.
+    // Post: self.hasCheckBox is returned.
+    func getHasCheckBox() -> [Bool] {
+        // PLACEHOLDER
+        return [true]
+    }
+    
+    // Pre: self.sourceCode is populated with code from a complete correct Pep/9 source program.
+    // Post: The memAddress field of each code object is incremented by addressDelta.
+    func adjustSourceCode(addressDelta: Int) {
+        
+    }
+    
+    // Pre: self.objectCode is populated with code from a complete correct Pep/9 OS source program.
+    // Post: self.objectCode is loaded into OS rom of pep.mem
+    func installOS() {
+        
+    }
+    
+    // Post: the pep/9 operating system is installed into memory, and true is returned
+    // If assembly fails, false is returned
+    // This function should only be called on program startup once
+    func installDefaultOS() -> Bool {
+        // PLACEHOLDER
+        return true
+    }
+    
+    // Post: Searces for the string ";ERROR: " on each line and removes the end of the line.
+    // Post: Searces for the string ";WARNING: " on each line and removes the end of the line.
+    func removeErrorMessages() {
+        
+    }
+    
+    // Post: Appends message to the end of line lineNumber in color color.
+    func appendMessageInSourceCodeAt(lineNumber: Int, message: String) {
+        
+    }
+    
+    // Post: Sets text in source code pane to `toString`.
+    func setSourceCode(toString: String) {
+        
+    }
+    
+    // Post: Clears the textView.
+    func clear() {
         
     }
 
