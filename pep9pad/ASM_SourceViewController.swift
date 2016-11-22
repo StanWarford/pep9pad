@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor {
+class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor, PepTextViewDelegate {
     
     
     // MARK: - Properties
@@ -23,8 +23,8 @@ class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.frame)
-        updateFromProjectModel()
+        textView.setupTextView(textView.frame, delegate: self)
+        pullFromProjectModel()
     }
     
     
@@ -47,11 +47,6 @@ class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor {
     func assemble() -> Bool {
         // PLACEHOLDER
         return true
-    }
-    
-    /// Updates the contents of the `textView` with `projectModel.source`.
-    func updateFromProjectModel() {
-        textView.setText(projectModel.source)
     }
     
     // Pre: self.sourceCode is populated with code from a complete correct Pep/9 source program.
@@ -111,7 +106,7 @@ class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor {
         
     }
     
-    // Post: Appends message to the end of line lineNumber in color color.
+    // Post: Appends message to the end of line lineNumber in a reserved color.
     func appendMessageInSourceCodeAt(lineNumber: Int, message: String) {
         
     }
@@ -125,9 +120,25 @@ class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor {
     func clear() {
         
     }
-
     
     
+    // MARK: - Conformance to ASM_ProjectModelEditor
+    
+    /// Updates the contents of the `textView` with `projectModel.source`.
+    func pullFromProjectModel() {
+        textView.setText(projectModel.source)
+    }
+    
+    /// Updates `projectModel.source` with the contents of `textView`.
+    func pushToProjectModel() {
+        projectModel.receiveChanges(pushedFrom: self, text: textView.getText())
+    }
+    
+    
+    // MARK: - Conformance to PepTextViewDelegate
+    func textViewDidChange() {
+        pushToProjectModel()
+    }
     
     
 

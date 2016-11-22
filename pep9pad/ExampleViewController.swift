@@ -50,8 +50,8 @@ class ExampleViewController: UIViewController {
             
             switch field {
             case .Top:
-                self.topTextView.textView.text.removeAll()
-                self.topTextView.textView.insertText(content)
+                self.topTextView.removeAllText()
+                self.topTextView.setText(content)
                 self.currentExampleText = content
                 if ofType == .pepb || ofType == .peph {
                     self.currentExampleType = .pepo
@@ -59,8 +59,8 @@ class ExampleViewController: UIViewController {
                     self.currentExampleType = ofType
                 }
             case .Bottom:
-                self.bottomTextView.textView.text.removeAll()
-                self.bottomTextView.textView.insertText(content)
+                self.bottomTextView.removeAllText()
+                self.bottomTextView.setText(content)
             }
 
         } catch _ as NSError {

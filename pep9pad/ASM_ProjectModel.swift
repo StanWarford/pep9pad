@@ -112,6 +112,56 @@ class ASM_ProjectModel {
     }
     
     
+    func saveProjectInFS() {
+        if updateProjectInFS(named: name, source: source, object: object, listing: listing) {
+            fsState = .SavedNamed
+        }
+    }
+    
+    func saveProjectAsNewProjectInFS(withName: String) {
+        if saveNewProjectInFS(named: name, source: source, object: object, listing: listing) {
+            fsState = .SavedNamed
+        }
+    }
+    
+    
+    /// Called by classes that conform to `ASM_ProjectModelEditor` (i.e. the source, object, and listing vcs)
+    /// whenever an editor detects the user has edited its `textField`'s contents.
+    /// This function sets `fsState` accordingly.
+    func receiveChanges(pushedFrom editor: ASM_ProjectModelEditor, text: String) {
+        if editor is ASM_SourceViewController {
+            source = text
+            changeStateToUnsaved()
+        } else if editor is ASM_ObjectViewController {
+            object = text
+            changeStateToUnsaved()
+        } else if editor is ASM_ListingViewController {
+            // I can't think of a reason why this would ever be called.
+            assert(false)
+        } else {
+            // unrecognized call
+            assert(false)
+        }
+    }
+    
+    /// Called by `self.receiveChanges()` whenever a change has been detected in source or object code. 
+    /// Marks the current project as .UnsavedNamed or .UnsavedUnnamed, depending on the current value of `fsState`.
+    func changeStateToUnsaved() {
+        switch fsState {
+        case .SavedNamed:
+            fsState = .UnsavedNamed
+        case .Blank:
+            fsState = .UnsavedUnnamed
+        case .UnsavedNamed, .UnsavedUnnamed:
+            // no change needed
+            break
+        }
+    }
+    
+    
+    
+    
+    
     
     
 }

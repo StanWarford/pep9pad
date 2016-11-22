@@ -8,23 +8,46 @@
 
 import UIKit
 
-class ASM_ObjectViewController: UIViewController, ASM_ProjectModelEditor {
+class ASM_ObjectViewController: UIViewController, ASM_ProjectModelEditor, PepTextViewDelegate {
+    
+    
+    // MARK: - View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.frame)
-        updateFromProjectModel()
+        textView.setupTextView(textView.frame, delegate: self)
+        pullFromProjectModel()
 
     }
     
-    // MARK: - Interface
+    // MARK: - IBOutlets and Actions
     /// The primary view in this UIViewController.
     @IBOutlet var textView: PepTextView!
     
     
-    /// Updates the contents of the `textView` with `projectModel.source`.
-    func updateFromProjectModel() {
+    
+    
+    
+    // MARK: - Conformance to ASM_ProjectModelEditor
+    
+    /// Updates the contents of the `textView` with `projectModel.object`.
+    func pullFromProjectModel() {
         textView.setText(projectModel.object)
     }
+    
+    /// Updates `projectModel.object` with the contents of `textView`.
+    func pushToProjectModel() {
+        projectModel.receiveChanges(pushedFrom: self, text: textView.getText())
+    }
+    
+    
+    
+    
+    // MARK: - Conformance to PepTextViewDelegate
+    
+    func textViewDidChange() {
+        pushToProjectModel()
+    }
+    
     
 }

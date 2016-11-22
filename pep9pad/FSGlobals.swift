@@ -239,11 +239,40 @@ func updateProjectInFS(named n: String, source: String, object: String, listing:
             }
         }
     } catch {
-        print("Error in deleting file from FS.")
+        print("Error in updating project.")
     }
     
     return false
     
+}
+
+
+func saveNewProjectInFS(named n: String, source: String, object: String, listing: String) -> Bool {
+    let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    let context: NSManagedObjectContext = appDel.managedObjectContext
+    
+    let ent = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    let newFile = FSEntity(entity: ent!, insertInto: context)
+    newFile.name = n
+    newFile.source = source
+    newFile.object = object
+    newFile.listing = listing
+    
+    do {
+        try context.save()
+        return true
+    } catch {
+        print("Error: could not save default files.")
+    }
+    
+    return false
+}
+
+func validNameForFS(name: String) -> Bool {
+    if name.characters.count >= 3 && !loadProjectNamesFromFS().contains(name) {
+        return true
+    }
+    return false
 }
 
 

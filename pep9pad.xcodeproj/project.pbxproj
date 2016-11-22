@@ -21,6 +21,7 @@
 		461875AA1C900D740095B818 /* problems.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A11C900D740095B818 /* problems.html */; };
 		461875AB1C900D740095B818 /* writingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A21C900D740095B818 /* writingprograms.html */; };
 		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
+		4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextView.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
@@ -194,6 +195,7 @@
 		461875A11C900D740095B818 /* problems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = problems.html; sourceTree = "<group>"; };
 		461875A21C900D740095B818 /* writingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingprograms.html; sourceTree = "<group>"; };
 		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
+		4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextViewDelegate.swift; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* PepTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextView.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				463A66301C97CE0E004C35B2 /* PepTextView.swift */,
+				4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */,
 				466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */,
 				4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */,
 				4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */,
@@ -532,8 +535,7 @@
 			children = (
 				D2B0615B1C7E62040088CEBE /* ASM_MasterViewController.swift */,
 				46C76A551DA496510071C340 /* ASM_DetailViewController.swift */,
-				46F5F26E1DCA626B002880FE /* ASM_ProjectModel.swift */,
-				46F5F2701DCBB35F002880FE /* ASM_ProjectModelEditor.swift */,
+				46F82CBA1DE4E6BF001FC1FF /* ProjectModel */,
 				46C76A631DAF112A0071C340 /* ASM_SourceViewController.swift */,
 				46E246B01DE0E24200611A18 /* Code */,
 				46C76A671DB856A50071C340 /* ASM_ObjectViewController.swift */,
@@ -671,6 +673,15 @@
 			);
 			name = Examples;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		46F82CBA1DE4E6BF001FC1FF /* ProjectModel */ = {
+			isa = PBXGroup;
+			children = (
+				46F5F26E1DCA626B002880FE /* ASM_ProjectModel.swift */,
+				46F5F2701DCBB35F002880FE /* ASM_ProjectModelEditor.swift */,
+			);
+			name = ProjectModel;
 			sourceTree = "<group>";
 		};
 		7D9CBCFD9023D4D7F6B0EADD /* Frameworks */ = {
@@ -1056,6 +1067,7 @@
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
+				4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
 				46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */,

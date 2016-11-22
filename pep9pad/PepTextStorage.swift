@@ -29,7 +29,8 @@ class PepTextStorage: BaseTextStorage {
             self.setupHighlightPatterns(Bundle.main.path(forResource: "PepHighlightingPatterns", ofType: "plist"))
         }
         if text != "" {
-            print("Text found to be legal, proceeding with regex.")
+            // useful for debugging syntax highlighting
+            // print("Text found to be legal, proceeding with regex.")
             for regex in regularExpressions {
                 let patternName = patterns.allKeys(for: regex.pattern)[0] as! String
                 var arrayOfResults: [NSTextCheckingResult] = []
@@ -39,11 +40,14 @@ class PepTextStorage: BaseTextStorage {
                     for str in results {
                         arrayOfResults.append(str)
                     }
-                    print("Check for \(patternName) produced \(arrayOfResults.count) results with text len == \(text.length).")
+                    // useful for debugging syntax highlighting
+                    // print("Check for \(patternName) produced \(arrayOfResults.count) results with text len == \(text.length).")
                 } catch let error as NSError {
-                    print("Invalid regex: \(error.localizedDescription)")
+                    // useful for debugging syntax highlighting
+                    // print("Invalid regex: \(error.localizedDescription)")
                 } catch {
-                    print("Unknown regex error in PepTextStorage.")
+                    // useful for debugging syntax highlighting
+                    // print("Unknown regex error in PepTextStorage.")
                 }
 
                 if arrayOfResults.count > 0 {
@@ -51,7 +55,8 @@ class PepTextStorage: BaseTextStorage {
                 }
             }
         } else {
-            print("Text found to be empty, skipping regex.")
+            // useful for debugging syntax highlighting
+            // print("Text found to be empty, skipping regex.")
         }
 
         super.processEditing()
@@ -64,7 +69,8 @@ class PepTextStorage: BaseTextStorage {
                 //print("Inputting: \(pat.key) : \(pat.value)")
                 regularExpressions.append(try NSRegularExpression(pattern: pat.value as! String, options: []))
             } catch {
-                print("Not all syntax highlight patterns were set.")
+                // useful for debugging syntax highlighting
+                // print("Not all syntax highlight patterns were set.")
             }
         }
     }

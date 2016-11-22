@@ -13,7 +13,7 @@ class PepTextView: UIView, UITextViewDelegate {
     internal var layoutManager: NSLayoutManager!
     internal var textContainer: NSTextContainer!
     internal var textView: UITextView!
-    
+    internal var delegate: PepTextViewDelegate!
     
     // MARK: - Initializers and Set-up Functions
     
@@ -34,9 +34,15 @@ class PepTextView: UIView, UITextViewDelegate {
         self.addSubview(textView)
         textView.showsVerticalScrollIndicator = true
         textView.isScrollEnabled = true
+        textView.delegate = self
 //        self.font = UIFont(name: Courier, size: 16)
 //        self.directionalLockEnabled = true
 //        self.textAlignment = .Left
+    }
+    
+    func setupTextView(_ frame: CGRect, delegate: PepTextViewDelegate) {
+        self.delegate = delegate
+        setupTextView(frame)
     }
     
     func setEditable(_ to: Bool) {
@@ -50,6 +56,17 @@ class PepTextView: UIView, UITextViewDelegate {
     internal func setText(_ to: String) {
         self.textView.text = to
     }
+    
+    
+    func removeAllText() {
+        textView.text.removeAll()
+    }
+    
+    
+    func getText() -> String {
+        return textView.text
+    }
+    
     
     func loadExample(_ fileName: String, ofType: PepFileType) {
         guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
@@ -68,15 +85,16 @@ class PepTextView: UIView, UITextViewDelegate {
         }
     }
     
-    func removeAllText() {
-        self.textView.text.removeAll()
-    }
-    
 
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        //TODO: Implement
-        return true
+    // MARK: - Conformance to UITextViewDelegate
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if delegate != nil {
+            delegate.textViewDidChange()
+        }
     }
+
+    
     
     
     
