@@ -48,6 +48,8 @@
 		46C76A6E1DB959680071C340 /* ASM_TraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */; };
 		46C7EEE41D80BDD300F74B6E /* ASM_CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
+		46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246AE1DE0E1C300611A18 /* Dots.swift */; };
+		46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246B11DE0E32A00611A18 /* NonExecutables.swift */; };
 		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
 		46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8A611C9892F6001405CE /* PepFileType.swift */; };
 		46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A631C9895CC001405CE /* exer0804.pep */; };
@@ -140,8 +142,8 @@
 		46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2681DC7D6E9002880FE /* FSEntity.swift */; };
 		46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* FSGlobals.swift */; };
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
-		46F5F26F1DCA626B002880FE /* ASM_EditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */; };
-		46F5F2711DCBB35F002880FE /* ASM_EditorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ASM_EditorProtocol.swift */; };
+		46F5F26F1DCA626B002880FE /* ASM_ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ASM_ProjectModel.swift */; };
+		46F5F2711DCBB35F002880FE /* ASM_ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ASM_ProjectModelEditor.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProgram.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProgram.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
@@ -219,6 +221,8 @@
 		46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_TraceViewController.swift; sourceTree = "<group>"; };
 		46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ASM_CPU.storyboard; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
+		46E246AE1DE0E1C300611A18 /* Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dots.swift; sourceTree = "<group>"; };
+		46E246B11DE0E32A00611A18 /* NonExecutables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonExecutables.swift; sourceTree = "<group>"; };
 		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
 		46EC8A611C9892F6001405CE /* PepFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepFileType.swift; sourceTree = "<group>"; };
 		46EC8A631C9895CC001405CE /* exer0804.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = exer0804.pep; path = pep9pad/figures/exer0804.pep; sourceTree = "<group>"; };
@@ -312,8 +316,8 @@
 		46F5F2681DC7D6E9002880FE /* FSEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSEntity.swift; sourceTree = "<group>"; };
 		46F5F26A1DC7D90F002880FE /* FSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSGlobals.swift; sourceTree = "<group>"; };
 		46F5F26C1DCA528B002880FE /* GCDUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtilities.swift; sourceTree = "<group>"; };
-		46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_EditorModel.swift; sourceTree = "<group>"; };
-		46F5F2701DCBB35F002880FE /* ASM_EditorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_EditorProtocol.swift; sourceTree = "<group>"; };
+		46F5F26E1DCA626B002880FE /* ASM_ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_ProjectModel.swift; sourceTree = "<group>"; };
+		46F5F2701DCBB35F002880FE /* ASM_ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_ProjectModelEditor.swift; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pepo; sourceTree = "<group>"; };
@@ -528,11 +532,10 @@
 			children = (
 				D2B0615B1C7E62040088CEBE /* ASM_MasterViewController.swift */,
 				46C76A551DA496510071C340 /* ASM_DetailViewController.swift */,
-				46F5F26E1DCA626B002880FE /* ASM_EditorModel.swift */,
-				46F5F2701DCBB35F002880FE /* ASM_EditorProtocol.swift */,
+				46F5F26E1DCA626B002880FE /* ASM_ProjectModel.swift */,
+				46F5F2701DCBB35F002880FE /* ASM_ProjectModelEditor.swift */,
 				46C76A631DAF112A0071C340 /* ASM_SourceViewController.swift */,
-				468A95D31DDCECF400916BE7 /* Code.swift */,
-				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
+				46E246B01DE0E24200611A18 /* Code */,
 				46C76A671DB856A50071C340 /* ASM_ObjectViewController.swift */,
 				46C76A6B1DB959480071C340 /* ASM_MemoryViewController.swift */,
 				46C76A691DB9593A0071C340 /* ASM_ListingViewController.swift */,
@@ -565,6 +568,17 @@
 				D2B061631C7E62040088CEBE /* Images.xcassets */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		46E246B01DE0E24200611A18 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				468A95D31DDCECF400916BE7 /* Code.swift */,
+				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
+				46E246AE1DE0E1C300611A18 /* Dots.swift */,
+				46E246B11DE0E32A00611A18 /* NonExecutables.swift */,
+			);
+			name = Code;
 			sourceTree = "<group>";
 		};
 		46EC8B061C9895DF001405CE /* Examples */ = {
@@ -1026,7 +1040,7 @@
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enu.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
-				46F5F26F1DCA626B002880FE /* ASM_EditorModel.swift in Sources */,
+				46F5F26F1DCA626B002880FE /* ASM_ProjectModel.swift in Sources */,
 				46C76A641DAF112A0071C340 /* ASM_SourceViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterViewController.swift in Sources */,
@@ -1048,6 +1062,7 @@
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
+				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* ASM_DetailViewController.swift in Sources */,
 				466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */,
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
@@ -1059,9 +1074,10 @@
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* ASM_IOViewController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* ASM_TraceViewController.swift in Sources */,
-				46F5F2711DCBB35F002880FE /* ASM_EditorProtocol.swift in Sources */,
+				46F5F2711DCBB35F002880FE /* ASM_ProjectModelEditor.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
+				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

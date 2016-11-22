@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// The abstract code class.
+/// Abstract class.  Each instance of this class represents one line of parsed assembly code.
 class Code {
     
     internal var memAddress: Int = 0
@@ -17,13 +17,17 @@ class Code {
     internal var comment: String = ""
     
     func appendObjectCode(objectCode: [Int]) {}
+    
     func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {}
+    
     func adjustMemAddress(addressDelta: Int) {
         memAddress += addressDelta
     }
+    
     func processFormatTraceTags(sourceLine: Int, errorString: String) -> Bool {
         return true
     }
+    
     func processSymbolTraceTags(sourceLine: Int, errorString: String) -> Bool {
         return true
     }

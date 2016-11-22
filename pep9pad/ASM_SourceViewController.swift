@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ASM_SourceViewController: UIViewController, ASM_EditorProtocol {
-    
+class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor {
     
     
     // MARK: - Properties
@@ -25,7 +24,7 @@ class ASM_SourceViewController: UIViewController, ASM_EditorProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
-        updateFromModel()
+        updateFromProjectModel()
     }
     
     
@@ -50,9 +49,9 @@ class ASM_SourceViewController: UIViewController, ASM_EditorProtocol {
         return true
     }
     
-    /// Updates the contents of the `textView` with `editorModel.source`.
-    func updateFromModel() {
-        textView.setText(editorModel.source)
+    /// Updates the contents of the `textView` with `projectModel.source`.
+    func updateFromProjectModel() {
+        textView.setText(projectModel.source)
     }
     
     // Pre: self.sourceCode is populated with code from a complete correct Pep/9 source program.

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        editorModel.loadDefaultProject()
+        projectModel.loadDefaultProject()
         
         return true
     }

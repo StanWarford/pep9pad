@@ -1,5 +1,5 @@
 //
-//  ASM_EditorProtocol.swift
+//  ASM_ProjectModelEditor.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 11/3/16.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol ASM_EditorProtocol {
-    func updateFromModel()
+protocol ASM_ProjectModelEditor {
+    func updateFromProjectModel()
     var textView: PepTextView! {
         get set
     }

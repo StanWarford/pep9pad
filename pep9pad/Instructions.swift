@@ -16,7 +16,7 @@ class UnaryInstruction: Code {
     }
     
     override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
-        // Place holder
+        // Placeholder
     }
 }
 
@@ -26,20 +26,20 @@ class NonUnaryInstruction: Code {
     private var argument: Argument!
     override init() {}
     override func appendObjectCode(objectCode: [Int]) {
-        // Place holder
+        // Placeholder
     }
     
     override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
-        // Place holder
+        // Placeholder
     }
     
     override func processFormatTraceTags(sourceLine: Int, errorString: String) -> Bool {
-        // Place holder
+        // Placeholder
         return true
     }
     
     override func processSymbolTraceTags(sourceLine: Int, errorString: String) -> Bool {
-        // Place holder
+        // Placeholder
         return true
     }
 }

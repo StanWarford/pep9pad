@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ASM_MasterViewController.swift
 //  pep9pad
 //
 //  Created by Stan Warford on 2/24/16.
@@ -52,11 +52,10 @@ class ASM_MasterViewController: UIViewController {
     
     /// Loads an example from the Help system into the appropriate view in `detail`.
     func loadExample(_ text: String, ofType: PepFileType, io: String!, usesTerminal: Bool) {
-        editorModel.loadExample(text: text, ofType: ofType)
+        projectModel.loadExample(text: text, ofType: ofType)
         detail.exampleWasLoaded(ofType: ofType)
         self.io.setIOMode(to: usesTerminal ? .terminal : .batch)
         self.io.topTextView.text = io
-        
     }
 
     

@@ -8,21 +8,21 @@
 
 import UIKit
 
-class ASM_ListingViewController: UIViewController {
+class ASM_ListingViewController: UIViewController, ASM_ProjectModelEditor {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
         textView.setEditable(false)
-        updateFromModel()
+        updateFromProjectModel()
     }
     
     /// The primary view in this UIViewController.
     @IBOutlet var textView: PepTextView!
     
-    /// Updates the contents of the `textView` with `editorModel.source`.
-    func updateFromModel() {
-        textView.setText(editorModel.listing)
+    /// Updates the contents of the `textView` with `projectModel.listing`.
+    func updateFromProjectModel() {
+        textView.setText(projectModel.listing)
     }
     
 }

@@ -20,7 +20,6 @@ class ASM_MemoryViewController: UIViewController {
     @IBOutlet var spBtn: UIBarButtonItem!
     @IBOutlet var pcBtn: UIBarButtonItem!
     
-    
     @IBAction func spBtnPressed(_ sender: UIBarButtonItem) {
         // TODO: Scroll `table` to sp
     }

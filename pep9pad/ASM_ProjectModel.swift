@@ -1,5 +1,5 @@
 //
-//  ASM_EditorModel.swift
+//  ASM_ProjectModel.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 11/2/16.
@@ -8,15 +8,18 @@
 
 import UIKit
 
-/// Global, used to access the currently-edited project.
-var editorModel = ASM_EditorModel()
+/// Global, used to access the currently-edited project and interact with the fs.
+var projectModel = ASM_ProjectModel()
 
-class ASM_EditorModel {
+class ASM_ProjectModel {
     
     
     // MARK: - Attributes
+    
     /// The state of this project in the filesystem.  Defaults to .SavedNamed on launch.
+    /// See Docs/
     var fsState: FSState = .SavedNamed
+    
     /// The name of the current project.  Default is empty string.
     var name: String = ""
     /// The assembly source of the current project.  Default is empty string.
@@ -26,13 +29,24 @@ class ASM_EditorModel {
     /// The assembler listing of the current project. Default is empty string.
     var listing: String = ""
     
+    /// Parsed source code, an array of Code objects.
+    var sourceCode: [Code] = []
+    /// Parsed object code, an array of integers corresponding to
+    var objectCode: [Int] = []
+    /// The listing generated from the most recent assembler call.
+    var assemblerListing: [String] = []
+    
+    // I think these belog in trace model.
+    var listingTrace: [String] = []
+    var hasCheckBox: [Bool] = []
+    
+    
     
     // MARK: - Methods
     
-    /// Creates a blank project in the global `editorModel`.
-    /// **Changes the
+    /// Clears all data from `projectModel` and sets its state to `.Blank`.
     /// Does not create a new project in the filesystem.
-    func newProject() {
+    func newBlankProject() {
         fsState = .Blank
         name = ""
         source = ""
@@ -56,8 +70,7 @@ class ASM_EditorModel {
     }
     
     /// Loads the default project, aka `myFirstProgram`, directly from source files.
-    /// In other words, **this function does not use coredata.**
-    /// Called by 
+    /// In other words, **this function does not use CoreData.**
     func loadDefaultProject() {
         // don't bother loading from coredata
         // just load that hello world program

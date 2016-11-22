@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ASM_ObjectViewController: UIViewController, ASM_EditorProtocol {
+class ASM_ObjectViewController: UIViewController, ASM_ProjectModelEditor {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.setupTextView(textView.frame)
-        updateFromModel()
+        updateFromProjectModel()
 
     }
     
@@ -22,9 +22,9 @@ class ASM_ObjectViewController: UIViewController, ASM_EditorProtocol {
     @IBOutlet var textView: PepTextView!
     
     
-    /// Updates the contents of the `textView` with `editorModel.source`.
-    func updateFromModel() {
-        textView.setText(editorModel.object)
+    /// Updates the contents of the `textView` with `projectModel.source`.
+    func updateFromProjectModel() {
+        textView.setText(projectModel.object)
     }
     
 }

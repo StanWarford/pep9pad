@@ -43,7 +43,7 @@ class FSDetailViewController: UIViewController {
     
     @IBAction func openBtnPressed(_ sender: UIBarButtonItem) {
         if let _ = nameOfDisplayedFile {
-            if editorModel.loadExistingProject(named: nameOfDisplayedFile) {
+            if projectModel.loadExistingProject(named: nameOfDisplayedFile) {
                 // file load was successful, so dismiss this set of viewcontrollers
                 self.dismiss(animated: true, completion: nil)
                 master.dismiss(animated: true, completion: nil)
