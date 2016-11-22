@@ -71,7 +71,7 @@ class ExampleViewController: UIViewController {
     
     
     
-    /// Changes the view to show one or two textViews.
+    /// Changes the view to show one or two textViews and scrolls the textViews back to the top.
     func setNumTextViews(to n: Int = 2) {
         if (n > 2 || n < 1) {
             // illegal number of textViews requested
@@ -88,6 +88,9 @@ class ExampleViewController: UIViewController {
                     self.topTextView.frame = newRectForTop
                     self.bottomTextView.frame = newRectForBottom
                 }
+                // scroll the textViews back to top
+                topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+                bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
                 
                 
             case 2:
@@ -100,8 +103,11 @@ class ExampleViewController: UIViewController {
                 UIView.animate(withDuration: 0.25) {
                     self.topTextView.frame = newRectForTop
                     self.bottomTextView.frame = newRectForBottom
-                
                 }
+                // scroll the textViews back to top
+                topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+                bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+
             default:
                 // should not get here
                 break
