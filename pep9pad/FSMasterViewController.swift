@@ -11,6 +11,7 @@ import UIKit
 class FSMasterViewController: UITableViewController {
     // MARK: - Internal Variables
     internal var detail: FSDetailViewController!
+    internal var asmDetail: ASM_DetailViewController!
     internal var names: [String] = []
     
     // MARK: - View Controller Lifecycle
@@ -19,6 +20,10 @@ class FSMasterViewController: UITableViewController {
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
         detail = navController.viewControllers[0] as! FSDetailViewController
         names = loadProjectNamesFromFS()
+    }
+    
+    func setup(asmDetailVC: ASM_DetailViewController) {
+        asmDetail = asmDetailVC
     }
     
     // MARK: - IBOutlets

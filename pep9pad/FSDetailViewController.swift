@@ -42,9 +42,9 @@ class FSDetailViewController: UIViewController {
     // MARK: - IBOutlets and IBActions
     
     @IBAction func openBtnPressed(_ sender: UIBarButtonItem) {
-        if let _ = nameOfDisplayedFile {
-            if projectModel.loadExistingProject(named: nameOfDisplayedFile) {
-                // TODO: fix loading so that ASM_Detail knows when to refresh
+        if let n = nameOfDisplayedFile {
+            if projectModel.loadExistingProject(named: n) {
+                master.asmDetail.updateEditorsFromProjectModel()
                 // file load was successful
                 // dismiss this set of viewcontrollers
                 self.dismiss(animated: true, completion: nil)

@@ -419,8 +419,14 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             break
         }
         
-        let fsStoryboard = UIStoryboard.init(name: "FileSystem", bundle: Bundle.main)
-        self.present(fsStoryboard.instantiateInitialViewController()!, animated: true, completion: nil)
+        let vc = UIStoryboard(name: "FileSystem", bundle: Bundle.main).instantiateInitialViewController()
+        self.present(vc!, animated: true) {
+            if let spvc = vc as! UISplitViewController? {
+                let nav = spvc.viewControllers[0] as! UINavigationController
+                let fs = nav.viewControllers[0] as! FSMasterViewController
+                fs.setup(asmDetailVC: self)
+            }
+        }
     }
     
     func saveProjectBtnPressed() {
