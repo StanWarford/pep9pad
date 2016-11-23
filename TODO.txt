@@ -1,14 +1,3 @@
-===== HELP TABLE =====
-* C++ highlighter
-* Persistent scroll bar
-* Scroll fix
-
-
-Trace view:
-
-* have 5 or 7 or 3 lines w/ currently executing line in the middle and highlighted
-* 1/3 of the screen or so dedicated to the listing trace, the bottom 2/3 would be memory trace
-
 TASK INVENTORY
 Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
 
@@ -20,12 +9,17 @@ Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
 
 [E] Pretty up the Menu.storyboard background.
 
-[E] Add object and listing fields to fsdetailvc.
+[E] Add object and listing fields to FSDetailVC.
+
+[M] Fix display bug in help system.
+
+[M] Add separator to help split views.
 
 [V] Write StackTraceViewController.
 
 [E] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.
 
+[M] Copy over descriptions from /Reference/Help/helpdialog.cpp and add them to the cells’ detailTextLabels.
 
 
 
