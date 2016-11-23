@@ -354,17 +354,17 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to the current project?", preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-                // save changes and open
+                // save changes and present fs
                 print("saving changes and opening a preexisting project")
                 projectModel.saveProjectInFS()
-                self.updateEditorsFromProjectModel()
+                //self.updateEditorsFromProjectModel()
             }
             alertController.addAction(yesAction)
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
-                // discard changes and open
+                // discard changes and present fs
                 print("discarding changes and opening a preexisting project")
-                self.updateEditorsFromProjectModel()
+                //self.updateEditorsFromProjectModel()
             }
             alertController.addAction(noAction)
             
@@ -435,28 +435,44 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             // project has never been saved
             // Similar to above, I don't think we need an "are you sure?" message for saving the current project as a new project.
             
-            let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Save first?", message: "This project has never been saved.  Would you like to save it now?", preferredStyle: .alert)
             
-            alertController.addTextField(configurationHandler: nil)
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                
+                // user needs to name the project
+                let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+                alertController.addTextField(configurationHandler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // user would like to cancel this project creation
+                }
+                alertController.addAction(cancelAction)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    print("saving current project with the given name and opening a preexisting project")
+                    let name = (alertController.textFields?.first?.text)!
+                    if validNameForFS(name: name) {
+                        projectModel.saveProjectAsNewProjectInFS(withName: name)
+                        self.updateEditorsFromProjectModel()
+                    } else {
+                        print("invalid (non-unique or too short) name for project, giving up save")
+                    }
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
             
+            alertController.addAction(yesAction)
+            
+            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
+                print("destroying this project and opening a preexisting project")
+            }
+            alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                // user would like to cancel this project creation
+                // user wants to cancel, so don't do anything
             }
             alertController.addAction(cancelAction)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                // TODO: Save the current project under the given name
-                let name = (alertController.textFields?.first?.text)!
-                if validNameForFS(name: name) {
-                    projectModel.saveProjectAsNewProjectInFS(withName: name)
-                    self.updateEditorsFromProjectModel()
-                    print("saving current project with the given name")
-                } else {
-                    print("invalid (non-unique or too short) name for project, giving up save")
-                }
-            }
-            alertController.addAction(okAction)
             self.present(alertController, animated: true)
+            
+
             
         case .SavedNamed, .Blank:
             // greyed-out buttons should've prevented you from getting here
@@ -468,22 +484,88 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         
     }
     
+    /// Try to load the given example.  Depending on `self.fsState`, this function may present the user with options (e.g. if the user has never saved the current project) before loading the given example.  If the user chooses to cancel this save operation, the function returns false.
+    func attemptToLoadExample(text: String, ofType: PepFileType) -> Bool {
+        var shouldLoad: Bool = true
+        switch projectModel.fsState {
+        case .UnsavedNamed:
+            // project has not been saved recently
+            // rather than present an alertController here, I say we just update the fs automatically
+            projectModel.saveProjectInFS()
+        case .UnsavedUnnamed:
+            // project has never been saved
+            
+            let alertController = UIAlertController(title: "Save first?", message: "This project has never been saved.  Would you like to save it now?", preferredStyle: .alert)
+            
+            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+                
+                // user needs to name the project
+                let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+                alertController.addTextField(configurationHandler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // user would like to cancel this project creation
+                    // may be incorrect to set shouldLoad to false
+                    // TODO: figure out the behavior of the second-order `Cancel` option.
+                    shouldLoad = false
+                }
+                alertController.addAction(cancelAction)
+                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    print("saving current project with the given name and loading the given example")
+                    let name = (alertController.textFields?.first?.text)!
+                    if validNameForFS(name: name) {
+                        projectModel.saveProjectAsNewProjectInFS(withName: name)
+                    } else {
+                        print("invalid (non-unique or too short) name for project, giving up save")
+                    }
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true)
+            }
+            
+            alertController.addAction(yesAction)
+            
+            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
+                print("destroying this project and loading the given example")
+            }
+            alertController.addAction(noAction)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // user wants to cancel the example load
+                shouldLoad = false
+            }
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true)
+            
+
+            
+        case .SavedNamed, .Blank:
+            // nothing more to do, proceed with loading example
+            break
+        }
+
+        if shouldLoad {
+            projectModel.loadExample(text: text, ofType: ofType)
+            updateEditorsFromProjectModel()
+            exampleWasLoaded(ofType: ofType)
+        }
+        
+        return shouldLoad
+    }
+    
+    /// Switches the tabController to the appropriate index.
     func exampleWasLoaded(ofType: PepFileType) {
-        // TODO: Figure out whether the user has unsaved work and ask accordingly
+
         switch ofType {
         case .pep:
-            // load into SourceViewController
+            // switch to SourceViewController
             tabController.selectedIndex = 0
             
         case .pepo, .peph:
-            // load into ObjectViewController
+            // switch to ObjectViewController
             tabController.selectedIndex = 1
 
         default:
             break
         }
-        
-        updateEditorsFromProjectModel()
     }
     
     

@@ -60,7 +60,10 @@ class HelpDetailViewController: UIViewController {
     @IBAction func copyToBtnPressed(_ sender: UIBarButtonItem) {
         // if pressed, load the current object or source into the project
         
-        master.loadExample(self.exampleVC.currentExampleText, ofType: self.exampleVC.currentExampleType, io: self.exampleVC.currentExampleIO, usesTerminal: self.exampleVC.currentExampleRequiresTerminal)
+        master.loadExample(self.exampleVC.currentExampleText,
+                           ofType: self.exampleVC.currentExampleType,
+                           io: self.exampleVC.currentExampleIO,
+                           usesTerminal: self.exampleVC.currentExampleRequiresTerminal)
 
     }
 

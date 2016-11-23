@@ -99,11 +99,12 @@ class ASM_ProjectModel {
             source = text
             object = ""
             listing = ""
-            
+            fsState = .UnsavedUnnamed
         case .pepo, .peph:
             source = ""
             object = text
             listing = ""
+            fsState = .UnsavedUnnamed
             
         default:
             break
