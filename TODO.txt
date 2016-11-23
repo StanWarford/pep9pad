@@ -20,6 +20,8 @@ Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
 
 [E] Pretty up the Menu.storyboard background.
 
+[E] Add object and listing fields to fsdetailvc.
+
 [V] Write StackTraceViewController.
 
 [E] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.

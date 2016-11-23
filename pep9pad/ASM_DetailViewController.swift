@@ -300,18 +300,15 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 }
                 alertController.addAction(cancelAction)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    // TODO: Save the current project under the given name
-                    // TODO: Handle creation of new project
-                    print("saving current project with the given name and creating a new project")
                     let name = (alertController.textFields?.first?.text)!
                     if validNameForFS(name: name) {
                         projectModel.saveProjectAsNewProjectInFS(withName: name)
                         projectModel.newBlankProject()
                         self.updateEditorsFromProjectModel()
+                        print("saving current project with the given name and creating a new project")
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
                     }
-
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true)
@@ -357,17 +354,17 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to the current project?", preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-                // TODO: Handle save
-                // TODO: Handle open project
+                // save changes and open
                 print("saving changes and opening a preexisting project")
-                projectModel.fsState = .SavedNamed
+                projectModel.saveProjectInFS()
+                self.updateEditorsFromProjectModel()
             }
             alertController.addAction(yesAction)
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
-                // TODO: Handle open project
+                // discard changes and open
                 print("discarding changes and opening a preexisting project")
-                projectModel.fsState = .SavedNamed
+                self.updateEditorsFromProjectModel()
             }
             alertController.addAction(noAction)
             
@@ -391,13 +388,10 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 }
                 alertController.addAction(cancelAction)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    // TODO: Save the current project under the given name
-                    // TODO: Handle open project
                     print("saving current project with the given name and opening a preexisting project")
                     let name = (alertController.textFields?.first?.text)!
                     if validNameForFS(name: name) {
                         projectModel.saveProjectAsNewProjectInFS(withName: name)
-                        projectModel.newBlankProject()
                         self.updateEditorsFromProjectModel()
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
@@ -410,10 +404,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             alertController.addAction(yesAction)
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
-                // user wants to throw this unsaved project away and open a preexisting project
-                // TODO: Handle open project
                 print("destroying this project and opening a preexisting project")
-                projectModel.fsState = .SavedNamed
             }
             alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -424,7 +415,6 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
 
         case .SavedNamed, .Blank:
             // these go together, as in both instances there is nothing (more) to save
-            // TODO: Handle open project
             print("opening a preexisting project")
             break
         }
@@ -456,12 +446,11 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 // TODO: Save the current project under the given name
-                print("saving current project with the given name")
                 let name = (alertController.textFields?.first?.text)!
                 if validNameForFS(name: name) {
                     projectModel.saveProjectAsNewProjectInFS(withName: name)
-                    projectModel.newBlankProject()
                     self.updateEditorsFromProjectModel()
+                    print("saving current project with the given name")
                 } else {
                     print("invalid (non-unique or too short) name for project, giving up save")
                 }

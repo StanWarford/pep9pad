@@ -119,6 +119,7 @@ class ASM_ProjectModel {
     }
     
     func saveProjectAsNewProjectInFS(withName: String) {
+        name = withName
         if saveNewProjectInFS(named: name, source: source, object: object, listing: listing) {
             fsState = .SavedNamed
         }
