@@ -108,7 +108,11 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     }
     
     
-    @IBOutlet var runBtn: UIBarButtonItem!
+    @IBOutlet var runBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .Play, ofSize: 20)
+        }
+    }
     @IBOutlet var debugBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Bug, ofSize: 20)
