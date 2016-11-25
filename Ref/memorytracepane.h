@@ -30,6 +30,11 @@
 #include "enu.h"
 #include "stackframefsm.h"
 
+
+
+// Note: see cellSize(Enu::ESymbolFormat symbolFormat) declaration in Sim.h.  That function is used exclusively in these classes, and should be implemented here in the iOS version. 
+
+
 namespace Ui {
     class MemoryTracePane;
 }

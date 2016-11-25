@@ -29,6 +29,7 @@
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
 		467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Asm.swift */; };
+		468124181DE81B27003D807A /* Simulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468124171DE81B27003D807A /* Simulator.swift */; };
 		468A95D41DDCECF400916BE7 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D31DDCECF400916BE7 /* Code.swift */; };
 		468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D51DDCEF2600916BE7 /* Instructions.swift */; };
 		468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BC12D1DC27220000AE01A /* UIConstants.swift */; };
@@ -203,6 +204,7 @@
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		467D71FB1CBEEF3B0090101F /* Asm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asm.swift; sourceTree = "<group>"; };
+		468124171DE81B27003D807A /* Simulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Simulator.swift; sourceTree = "<group>"; };
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -372,14 +374,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		463A662D1C97CD5F004C35B2 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				463A662E1C97CD6C004C35B2 /* Fonts.swift */,
-			);
-			name = Fonts;
-			sourceTree = "<group>";
-		};
 		465C76241C90DBF30029311F /* Help Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +457,7 @@
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				463A662E1C97CD6C004C35B2 /* Fonts.swift */,
 				46C76A531DA494130071C340 /* FontAwesome */,
 				D2B061681C7E62040088CEBE /* Info.plist */,
 			);
@@ -542,6 +537,7 @@
 				46C76A6B1DB959480071C340 /* ASM_MemoryViewController.swift */,
 				46C76A691DB9593A0071C340 /* ASM_ListingViewController.swift */,
 				46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */,
+				468124171DE81B27003D807A /* Simulator.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM_CPUViewController.swift */,
 				46C76A601DAD86BD0071C340 /* ASM_IOViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
@@ -724,9 +720,8 @@
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
-				463A662D1C97CD5F004C35B2 /* Fonts */,
-				46C608D21C8EADBB00CC161A /* Supporting Files */,
 				468BC12C1DC271EA000AE01A /* Utilities */,
+				46C608D21C8EADBB00CC161A /* Supporting Files */,
 			);
 			path = pep9pad;
 			sourceTree = "<group>";
@@ -1061,6 +1056,7 @@
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
+				468124181DE81B27003D807A /* Simulator.swift in Sources */,
 				46C76A681DB856A50071C340 /* ASM_ObjectViewController.swift in Sources */,
 				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,

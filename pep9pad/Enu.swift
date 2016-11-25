@@ -26,16 +26,16 @@ enum EMnemonic {
 
 /// Addressing modes for instructions
 enum EAddrMode: Int {
-    case none = 0
-    case i = 1
-    case d = 2
-    case n = 4
-    case s = 8
-    case sf = 16
-    case x = 32
-    case sx = 64
-    case sfx = 128
-    case all = 255
+    case None = 0
+    case I = 1
+    case D = 2
+    case N = 4
+    case S = 8
+    case SF = 16
+    case X = 32
+    case SX = 64
+    case SFX = 128
+    case All = 255
 }
 
 
@@ -49,12 +49,12 @@ enum ESymbolFormat {
     case f_2H
 }
 
-// States of execution
-enum EExecState {
-    case eStart
-    case eRun, eRunAwaitIO
-    case eDebugAwaitIO, eDebugAwaitClick, eDebugRunToBP, eDebugSingleStep
-}
+/// States of execution.  This is unused in Pep9.
+//enum EExecState {
+//    case eStart
+//    case eRun, eRunAwaitIO
+//    case eDebugAwaitIO, eDebugAwaitClick, eDebugRunToBP, eDebugSingleStep
+//}
 
 /// Waiting states
 enum EWaiting {
