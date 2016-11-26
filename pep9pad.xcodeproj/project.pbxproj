@@ -21,6 +21,7 @@
 		461875AA1C900D740095B818 /* problems.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A11C900D740095B818 /* problems.html */; };
 		461875AB1C900D740095B818 /* writingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A21C900D740095B818 /* writingprograms.html */; };
 		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
+		46202E261DE95EBB00F8B70B /* Pep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46202E251DE95EBB00F8B70B /* Pep.swift */; };
 		4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextView.swift */; };
@@ -196,6 +197,7 @@
 		461875A11C900D740095B818 /* problems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = problems.html; sourceTree = "<group>"; };
 		461875A21C900D740095B818 /* writingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingprograms.html; sourceTree = "<group>"; };
 		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
+		46202E251DE95EBB00F8B70B /* Pep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep.swift; sourceTree = "<group>"; };
 		4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextViewDelegate.swift; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* PepTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextView.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 				46C76A691DB9593A0071C340 /* ASM_ListingViewController.swift */,
 				46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */,
 				468124171DE81B27003D807A /* Simulator.swift */,
+				46202E251DE95EBB00F8B70B /* Pep.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM_CPUViewController.swift */,
 				46C76A601DAD86BD0071C340 /* ASM_IOViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
@@ -1073,6 +1076,7 @@
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* ASM_DetailViewController.swift in Sources */,
 				466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */,
+				46202E261DE95EBB00F8B70B /* Pep.swift in Sources */,
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */,
 				46C76A5A1DA70BE20071C340 /* FSDetailViewController.swift in Sources */,

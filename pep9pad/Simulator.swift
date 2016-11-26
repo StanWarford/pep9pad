@@ -104,8 +104,13 @@ class Simulator {
         return result
     }
     
-    func loadMem(objectCodeList: [Int]) {
-        // TODO
+    func loadMem(_ objectCode: [Int]) {
+        var objectCode = objectCode
+        var i = 0
+        while objectCode.count > 0 {
+            Mem[i] = objectCode.removeFirst()
+            i += 1
+        }
     }
     
     

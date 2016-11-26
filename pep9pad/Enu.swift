@@ -10,17 +10,17 @@
 
 /// Instruction mnemonics
 enum EMnemonic {
-    case adda, addx, addsp, anda, andx, asla, aslx, asra, asrx
-    case br, brc, breq, brge, brgt, brle, brlt, brne, brv
-    case call, cpba, cpbx, cpwa, cpwx
-    case deci, deco
-    case hexo
-    case ldba, ldbx, ldwa, ldwx
-    case movaflg, movflga, movspa
-    case nega, negx, nop, nop0, nop1, nota, notx
-    case ora, orx
-    case ret, rettr, rola, rolx, rora, rorx
-    case stba, stbx, stwa, stwx, stop, stro, suba, subx, subsp
+    case ADDA, ADDX, ADDSP, ANDA, ANDX, ASLA, ASLX, ASRA, ASRX
+    case BR, BRC, BREQ, BRGE, BRGT, BRLE, BRLT, BRNE, BRV
+    case CALL, CPBA, CPBX, CPWA, CPWX
+    case DECI, DECO
+    case HEXO
+    case LDBA, LDBX, LDWA, LDWX
+    case MOVAFLG, MOVFLGA, MOVSPA
+    case NEGA, NEGX, NOP, NOP0, NOP1, NOTA, NOTX
+    case ORA, ORX
+    case RET, RETTR, ROLA, ROLX, RORA, RORX
+    case STBA, STBX, STWA, STWX, STOP, STRO, SUBA, SUBX, SUBSP
 }
 
 
@@ -37,7 +37,6 @@ enum EAddrMode: Int {
     case SFX = 128
     case All = 255
 }
-
 
 /// Format for symbols
 enum ESymbolFormat {
