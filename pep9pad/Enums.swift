@@ -40,12 +40,12 @@ enum EAddrMode: Int {
 
 /// Format for symbols
 enum ESymbolFormat {
-    case f_NONE
-    case f_1C
-    case f_1D
-    case f_2D
-    case f_1H
-    case f_2H
+    case F_NONE
+    case F_1C
+    case F_1D
+    case F_2D
+    case F_1H
+    case F_2H
 }
 
 /// States of execution.  This is unused in Pep9.

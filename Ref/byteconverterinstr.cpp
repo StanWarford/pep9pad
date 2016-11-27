@@ -22,6 +22,7 @@ void ByteConverterInstr::setValue(int data)
 {
     ui->label->setText(" " + Pep::enumToMnemonMap.value(Pep::decodeMnemonic[data])
                        + Pep::addrModeToCommaSpace(Pep::decodeAddrMode[data]));
+    // NOTE: in Pep9Pad, addrModeToCommaSpace is `Pep.commaSpaceStringForAddrMode()`
 }
 
 void ByteConverterInstr::changeEvent(QEvent *e)

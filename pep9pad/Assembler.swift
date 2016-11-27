@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Assembler.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 4/13/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Asm: NSObject {
+class Assembler: NSObject {
     /// Lexical tokens
     enum ELexicalToken {
         case lt_ADDRESSING_MODE

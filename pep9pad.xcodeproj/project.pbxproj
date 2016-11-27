@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
+		460BD9F11DEA536F00BE58B9 /* IntAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F01DEA536F00BE58B9 /* IntAliases.swift */; };
+		460BD9F31DEA5F8500BE58B9 /* ASM_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* ASM_Model.swift */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
 		4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */; };
 		461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461875951C90089F0095B818 /* HelpDocumentation.swift */; };
@@ -29,7 +31,7 @@
 		4656E1201CE9352B0091AF6E /* CppHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CppHighlightingPatterns.plist */; };
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
-		467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Asm.swift */; };
+		467D71FC1CBEEF3B0090101F /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467D71FB1CBEEF3B0090101F /* Assembler.swift */; };
 		468124181DE81B27003D807A /* Simulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468124171DE81B27003D807A /* Simulator.swift */; };
 		468A95D41DDCECF400916BE7 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D31DDCECF400916BE7 /* Code.swift */; };
 		468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D51DDCEF2600916BE7 /* Instructions.swift */; };
@@ -137,7 +139,7 @@
 		46EC8B041C9895CD001405CE /* prob0831.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB31C9895CC001405CE /* prob0831.pep */; };
 		46EC8B051C9895CD001405CE /* prob0832.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AB41C9895CC001405CE /* prob0832.pep */; };
 		46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8B091C98AA6E001405CE /* ExampleViewController.swift */; };
-		46F46D331C8F49340092EF04 /* Enu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enu.swift */; };
+		46F46D331C8F49340092EF04 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D321C8F49340092EF04 /* Enums.swift */; };
 		46F46D351C8F661D0092EF04 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D341C8F661D0092EF04 /* Argument.swift */; };
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
 		46F46D391C8F70520092EF04 /* HelpMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */; };
@@ -184,6 +186,8 @@
 
 /* Begin PBXFileReference section */
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
+		460BD9F01DEA536F00BE58B9 /* IntAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntAliases.swift; sourceTree = "<group>"; };
+		460BD9F21DEA5F8500BE58B9 /* ASM_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_Model.swift; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
 		4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepColorExtensions.swift; sourceTree = "<group>"; };
 		461875951C90089F0095B818 /* HelpDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDocumentation.swift; sourceTree = "<group>"; };
@@ -205,7 +209,7 @@
 		4656E11F1CE9352B0091AF6E /* CppHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CppHighlightingPatterns.plist; sourceTree = "<group>"; };
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
-		467D71FB1CBEEF3B0090101F /* Asm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asm.swift; sourceTree = "<group>"; };
+		467D71FB1CBEEF3B0090101F /* Assembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		468124171DE81B27003D807A /* Simulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Simulator.swift; sourceTree = "<group>"; };
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
@@ -314,7 +318,7 @@
 		46EC8AB31C9895CC001405CE /* prob0831.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0831.pep; path = pep9pad/figures/prob0831.pep; sourceTree = "<group>"; };
 		46EC8AB41C9895CC001405CE /* prob0832.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0832.pep; path = pep9pad/figures/prob0832.pep; sourceTree = "<group>"; };
 		46EC8B091C98AA6E001405CE /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
-		46F46D321C8F49340092EF04 /* Enu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enu.swift; sourceTree = "<group>"; };
+		46F46D321C8F49340092EF04 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		46F46D341C8F661D0092EF04 /* Argument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		46F46D381C8F70520092EF04 /* HelpMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterViewController.swift; sourceTree = "<group>"; };
@@ -509,14 +513,17 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
-		46C7EEE11D80BD7400F74B6E /* Parse */ = {
+		46C7EEE11D80BD7400F74B6E /* System */ = {
 			isa = PBXGroup;
 			children = (
+				46202E251DE95EBB00F8B70B /* Pep.swift */,
+				460BD9F01DEA536F00BE58B9 /* IntAliases.swift */,
+				468124171DE81B27003D807A /* Simulator.swift */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
-				467D71FB1CBEEF3B0090101F /* Asm.swift */,
-				46F46D321C8F49340092EF04 /* Enu.swift */,
+				467D71FB1CBEEF3B0090101F /* Assembler.swift */,
+				46F46D321C8F49340092EF04 /* Enums.swift */,
 			);
-			name = Parse;
+			name = System;
 			sourceTree = "<group>";
 		};
 		46C7EEE61D80BED300F74B6E /* Home */ = {
@@ -532,15 +539,13 @@
 			children = (
 				D2B0615B1C7E62040088CEBE /* ASM_MasterViewController.swift */,
 				46C76A551DA496510071C340 /* ASM_DetailViewController.swift */,
+				460BD9F21DEA5F8500BE58B9 /* ASM_Model.swift */,
 				46F82CBA1DE4E6BF001FC1FF /* ProjectModel */,
 				46C76A631DAF112A0071C340 /* ASM_SourceViewController.swift */,
-				46E246B01DE0E24200611A18 /* Code */,
 				46C76A671DB856A50071C340 /* ASM_ObjectViewController.swift */,
 				46C76A6B1DB959480071C340 /* ASM_MemoryViewController.swift */,
 				46C76A691DB9593A0071C340 /* ASM_ListingViewController.swift */,
 				46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */,
-				468124171DE81B27003D807A /* Simulator.swift */,
-				46202E251DE95EBB00F8B70B /* Pep.swift */,
 				46C608D01C8EAC1E00CC161A /* ASM_CPUViewController.swift */,
 				46C76A601DAD86BD0071C340 /* ASM_IOViewController.swift */,
 				D2B0615D1C7E62040088CEBE /* ASM.storyboard */,
@@ -548,7 +553,8 @@
 				46C76A651DAF173D0071C340 /* ASM_TabBar.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */,
 				46B58BD31C8FD872006E46B4 /* Help */,
-				46C7EEE11D80BD7400F74B6E /* Parse */,
+				46E246B01DE0E24200611A18 /* Code */,
+				46C7EEE11D80BD7400F74B6E /* System */,
 			);
 			name = ASM;
 			sourceTree = "<group>";
@@ -1046,8 +1052,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460BD9F31DEA5F8500BE58B9 /* ASM_Model.swift in Sources */,
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
-				46F46D331C8F49340092EF04 /* Enu.swift in Sources */,
+				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ASM_ProjectModel.swift in Sources */,
 				46C76A641DAF112A0071C340 /* ASM_SourceViewController.swift in Sources */,
@@ -1061,7 +1068,7 @@
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* Simulator.swift in Sources */,
 				46C76A681DB856A50071C340 /* ASM_ObjectViewController.swift in Sources */,
-				467D71FC1CBEEF3B0090101F /* Asm.swift in Sources */,
+				467D71FC1CBEEF3B0090101F /* Assembler.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailViewController.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
@@ -1072,6 +1079,7 @@
 				46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
+				460BD9F11DEA536F00BE58B9 /* IntAliases.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* ASM_DetailViewController.swift in Sources */,

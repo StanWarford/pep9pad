@@ -134,6 +134,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     //MARK: - IBActions
     
+    // Corresponds to the "play button".
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
         //TODO: Implement
     }
@@ -445,43 +446,25 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
             // project has never been saved
             // Similar to above, I don't think we need an "are you sure?" message for saving the current project as a new project.
             
-            let alertController = UIAlertController(title: "Save first?", message: "This project has never been saved.  Would you like to save it now?", preferredStyle: .alert)
-            
-            let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-                
-                // user needs to name the project
-                let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
-                alertController.addTextField(configurationHandler: nil)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                    // user would like to cancel this project creation
-                }
-                alertController.addAction(cancelAction)
-                let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    print("saving current project with the given name and opening a preexisting project")
-                    let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveProjectAsNewProjectInFS(withName: name)
-                        self.updateEditorsFromProjectModel()
-                    } else {
-                        print("invalid (non-unique or too short) name for project, giving up save")
-                    }
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true)
-            }
-            
-            alertController.addAction(yesAction)
-            
-            let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
-                print("destroying this project and opening a preexisting project")
-            }
-            alertController.addAction(noAction)
+            // user needs to name the project
+            let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+            alertController.addTextField(configurationHandler: nil)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                // user wants to cancel, so don't do anything
+                // user would like to cancel this project creation
             }
             alertController.addAction(cancelAction)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                print("saving current project with the given name and opening a preexisting project")
+                let name = (alertController.textFields?.first?.text)!
+                if validNameForFS(name: name) {
+                    projectModel.saveProjectAsNewProjectInFS(withName: name)
+                    self.updateEditorsFromProjectModel()
+                } else {
+                    print("invalid (non-unique or too short) name for project, giving up save")
+                }
+            }
+            alertController.addAction(okAction)
             self.present(alertController, animated: true)
-            
 
             
         case .SavedNamed, .Blank:
@@ -586,14 +569,19 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     }
     
     
-    /// A top-level function that is called whenever the user taps the 'Assemble Source' button.  This function is responsible for calling the `assemble()` method in the `sourceVC`.  If this call is successful it calls methods in all relevant viewcontrollers.
+    /// Called whenever the user taps the 'Assemble Source' button.  This function...
+    
+    /// * assembles the source code by calling `model.assemble()`
+    ///   * the model parses the asmb and populates the `model.object` and `model.listing` fields
+    ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
+    /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
         
         // PLACEHOLDER
         return true
 
 //        burnCount = 0
-//        if sourceVC.assemble() {
+//        if model.assemble() {
 //            // check for .BURN
 //            if burnCount > 0 {
 //                let error = ";ERROR: .BURN not allowed in program unless installing OS."
@@ -606,9 +594,9 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
 //            }
 //            
 //            // no .BURN, proceed with assemble
-//            objectVC.setObjectCode(sourceVC.getObjectCode())
-//            listingVC.setListing(sourceVC.getListing())
-//            traceVC.setListing(sourceVC.getListingForTrace())
+//            objectVC.setObjectCode(model.getObjectCode())
+//            listingVC.setListing(model.getListing())
+//            traceVC.setListing(model.getListingForTrace())
 //            traceVC.setMemoryTrace()
 //            listingVC.showListing()
 //            
@@ -625,6 +613,23 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
 //        
 //        }
     }
+    
+    
+    
+    /// Called whenever the user taps the 'Load Object' button.  This function...
+    
+    /// * loads model.object into memory, if it exists
+    /// * refreshes the memory dump
+    
+    func loadObject() -> Bool {
+        // TODO
+        return true
+    }
+    
+    
+    
+    
+    
     
     
     

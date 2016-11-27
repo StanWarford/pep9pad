@@ -30,14 +30,14 @@ class ASM_ObjectViewController: UIViewController, ASM_ProjectModelEditor, PepTex
     
     // MARK: - Conformance to ASM_ProjectModelEditor
     
-    /// Updates the contents of the `textView` with `projectModel.object`.
+    /// Updates the contents of the `textView` with `projectModel.objectStr`.
     func pullFromProjectModel() {
-        textView.setText(projectModel.object)
+        textView.setText(projectModel.objectStr)
     }
     
-    /// Updates `projectModel.object` with the contents of `textView`.
+    /// Updates `projectModel.objectStr` with the contents of `textView`.
     func pushToProjectModel() {
-        projectModel.receiveChanges(pushedFrom: self, text: textView.getText())
+        projectModel.receiveChanges(from: self, text: textView.getText())
     }
     
     

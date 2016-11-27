@@ -20,14 +20,14 @@ class ASM_ListingViewController: UIViewController, ASM_ProjectModelEditor {
     /// The primary view in this UIViewController.
     @IBOutlet var textView: PepTextView!
     
-    /// Updates the contents of the `textView` with `projectModel.listing`.
+    /// Updates the contents of the `textView` with `projectModel.listingStr`.
     func pullFromProjectModel() {
-        textView.setText(projectModel.listing)
+        textView.setText(projectModel.listingStr)
     }
     
-    /// Updates `projectModel.listing` with the contents of `textView`.
+    /// Updates `projectModel.listingStr` with the contents of `textView`.
     func pushToProjectModel() {
-        projectModel.receiveChanges(pushedFrom: self, text: textView.getText())
+        projectModel.receiveChanges(from: self, text: textView.getText())
     }
     
 }

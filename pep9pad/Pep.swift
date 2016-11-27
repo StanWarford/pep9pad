@@ -8,6 +8,8 @@
 
 import Foundation
 
+var pep = Pep()
+
 class Pep {
     // Default redefine mnemonics
     let defaultUnaryMnemonic0: String = "NOP0"

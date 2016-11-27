@@ -206,7 +206,7 @@ class Simulator {
     // MARK: Methods for Writing to Memory
     
     /// Pre: 0 <= value < 256
-    /// Post: Value is stored in Mem[memAddr]
+    /// Post: Value is stored in Mem[addr]
     func writeByte(_ addr: Int, _ value: Int) {
         // TODO  
     }
@@ -263,6 +263,25 @@ class Simulator {
             writeWord(add(add(stackPointer, operandSpecifier), indexRegister), value)
         case .SFX:
             writeWord(add(readWord(add(stackPointer, operandSpecifier)), indexRegister), value)
+        }
+    }
+    
+    func cellSize(symbolFormat: ESymbolFormat) -> Int {
+        switch symbolFormat {
+        case .F_1C:
+            return 1
+        case .F_1D:
+            return 1
+        case .F_2D:
+            return 2
+        case .F_1H:
+            return 1
+        case .F_2H:
+            return 2
+        default:
+            // Should not occur
+            assert(false)
+            return 0
         }
     }
     

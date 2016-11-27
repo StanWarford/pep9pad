@@ -17,28 +17,24 @@ class ASM_ProjectModel {
     // MARK: - Attributes
     
     /// The state of this project in the filesystem.  Defaults to .SavedNamed on launch.
-    /// See Docs/
+    /// See pep9pad/Documentation for a state diagram of the filesystem.
     var fsState: FSState = .SavedNamed
     
+    
+    /// Note: this class treats the source, object, and listing as plain Strings.
+
     /// The name of the current project.  Default is empty string.
     var name: String = ""
     /// The assembly source of the current project.  Default is empty string.
-    var source: String = ""
+    var sourceStr: String = ""
     /// The object code of the current project. Default is empty string.
-    var object: String = ""
+    var objectStr: String = ""
     /// The assembler listing of the current project. Default is empty string.
-    var listing: String = ""
+    var listingStr: String = ""
     
-    /// Parsed source code, an array of Code objects.
-    var sourceCode: [Code] = []
-    /// Parsed object code, an array of integers corresponding to
-    var objectCode: [Int] = []
-    /// The listing generated from the most recent assembler call.
-    var assemblerListing: [String] = []
-    
-    // I think these belog in trace model.
-    var listingTrace: [String] = []
-    var hasCheckBox: [Bool] = []
+//    // I think these belog in trace model.
+//    var listingTrace: [String] = []
+//    var hasCheckBox: [Bool] = []
     
     
     
@@ -49,9 +45,9 @@ class ASM_ProjectModel {
     func newBlankProject() {
         fsState = .Blank
         name = ""
-        source = ""
-        object = ""
-        listing = ""
+        sourceStr = ""
+        objectStr = ""
+        listingStr = ""
     }
 
     /// Loads an existing project's `name`, `source`, `object`, and `listing`
@@ -61,9 +57,9 @@ class ASM_ProjectModel {
         if let file: FSEntity = loadProjectFromFS(named: n) {
             fsState = .SavedNamed
             name = file.name
-            source = file.source
-            object = file.object
-            listing = file.listing
+            sourceStr = file.source
+            objectStr = file.object
+            listingStr = file.listing
             return true
         }
         return false
@@ -81,9 +77,9 @@ class ASM_ProjectModel {
         do {
             print("Loaded file named myFirstProgram.pep")
             name = "My First Program"
-            source = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
-            object = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii)
-            listing = try String(contentsOfFile:pathToListing!, encoding: String.Encoding.ascii)
+            sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
+            objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii)
+            listingStr = try String(contentsOfFile:pathToListing!, encoding: String.Encoding.ascii)
 
         } catch _ as NSError {
             print("Could not load file named myFirstProgram.pep")
@@ -96,14 +92,14 @@ class ASM_ProjectModel {
         // TODO: Figure out whether the user has unsaved work and ask accordingly
         switch ofType {
         case .pep:
-            source = text
-            object = ""
-            listing = ""
+            sourceStr = text
+            objectStr = ""
+            listingStr = ""
             fsState = .UnsavedUnnamed
         case .pepo, .peph:
-            source = ""
-            object = text
-            listing = ""
+            sourceStr = ""
+            objectStr = text
+            listingStr = ""
             fsState = .UnsavedUnnamed
             
         default:
@@ -114,14 +110,14 @@ class ASM_ProjectModel {
     
     
     func saveProjectInFS() {
-        if updateProjectInFS(named: name, source: source, object: object, listing: listing) {
+        if updateProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
         }
     }
     
     func saveProjectAsNewProjectInFS(withName: String) {
         name = withName
-        if saveNewProjectInFS(named: name, source: source, object: object, listing: listing) {
+        if saveNewProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
         }
     }
@@ -130,12 +126,12 @@ class ASM_ProjectModel {
     /// Called by classes that conform to `ASM_ProjectModelEditor` (i.e. the source, object, and listing vcs)
     /// whenever an editor detects the user has edited its `textField`'s contents.
     /// This function sets `fsState` accordingly.
-    func receiveChanges(pushedFrom editor: ASM_ProjectModelEditor, text: String) {
+    func receiveChanges(from editor: ASM_ProjectModelEditor, text: String) {
         if editor is ASM_SourceViewController {
-            source = text
+            sourceStr = text
             changeStateToUnsaved()
         } else if editor is ASM_ObjectViewController {
-            object = text
+            objectStr = text
             changeStateToUnsaved()
         } else if editor is ASM_ListingViewController {
             // I can't think of a reason why this would ever be called.
