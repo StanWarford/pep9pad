@@ -24,10 +24,10 @@ I've placed these alongside the actions in `System Menu`.
 
 #### Build Menu ####
 
-- Assemble -- parse assembly code and populate the object and listing.
-- Load -- load the contents of object into mem.
-- Execute -- run the program
-- Run Source -- assemble, then load, then execute.
+- Assemble
+- Load
+- Execute
+- Run Source
 - Run Object
 - Start Debugging Source
 - Start Debugging Object

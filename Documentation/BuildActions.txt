@@ -1,7 +1,19 @@
 // #  Build Actions
-// This doc attempts to consolidate all actions performed when a particular button is pressed.
+// This doc attempts to consolidate all actions performed when a particular button is pressed. 
 
-// ## When the `Assemble` Button is Pressed...
+/*
+Excluding debugging, the three main build actions are...
+      1. Assemble Source (parse asmb code and generate object code / listing)
+      2. Load Object (convert object code (hex) into dec ints and place into memory)
+      3. Execute (start the simulator at the top of memory)
+
+The remaining Build actions are composites of the above three:
+    * Run Source (assemble, load, execute)
+    * Run Object (load and execute)
+*/
+
+
+// =========================== When the `Assemble` Button (aka Hammer Button) is Pressed... ===========================
 
 // In mainwindow.cpp:
 
@@ -15,7 +27,7 @@ bool MainWindow::assemble() {
     Pep::burnCount = 0;
     if (sourceCodePane->assemble()) {
         if (Pep::burnCount > 0) {
-            // checking for burn count here instead of in the assembler, probably so the sourceCodePane.assemble() can be used for assembling operating systems, too.
+            // checking for burn count here instead of in the assembler, probably so the sourceCodePane.assemble() can be used for assembling operating systems, too?
             QString errorString = ";ERROR: .BURN not allowed in program unless installing OS.";
             sourceCodePane->appendMessageInSourceCodePaneAt(0, errorString);
             assemblerListingPane->clearAssemblerListing();
@@ -32,7 +44,7 @@ bool MainWindow::assemble() {
         memoryTracePane->setMemoryTrace();
         listingTracePane->showAssemblerListing();
         
-        // then some file setting things that are irrelevant for our purposes
+        // I removed some file setting things that are irrelevant for our purposes
         
         // enable format from listing and debugging
         ui->actionEdit_Format_From_Listing->setEnabled(true);
@@ -172,20 +184,278 @@ bool SourceCodePane::assemble() {
 }
 
 
-Thoughts about the assemble routine:
-* What is Pep?  
-* Asm appears to be the parser/assembler
-* The sourcecodepane does way more than the ASM_SourceViewController should.
-    
-Alternative: 
+
+/* 
+_____ Notes on the assemble routine _______
+
+* What is Pep?
+* Asm is the assembler
+* The sourcecodepane does more than the ASM_SourceViewController should
+Alternative Structure:
+
+* A sourceVC, objectVC and listingVC, each of which has a ref to the ProjectModel (see next bullet)
+
 * One model for the source, object, and listing as PLAIN TEXT, provides interaction with fs (save, load, fsState, etc.)
     * Closest model to the user
     * The source, object, and listing VCs push/pull updates to/from this model
-    * We could call this the ProjectModel
+    * We could call this the ProjectModel, TextModel, etc.
     * Could move fs interaction to another model, but that might be overkill
+    * Stores the contents of the 3 textFields in a centralized location
+
 * One model for the source, object, and listing as ARRAYS of Code, Int, and String objects, respectively.
     * This handles the assembler side of things
     * combine SourceCodePane::assemble() and Asm::assemble()
+    * possible names: AssemblerModel, AsmModel, Assembler, Asm, etc.
+    * when an assemble is triggered in ASM_DetailVC, this function grabs the latest source text from 
+        the ProjectModel and assembles it, returns true or false -- the VC then recieves the boolean and responds accordingly
+*/
+
+
+
+
+
+// ============================== When the `Load` Button is Pressed =================================
+
+// In mainwindow.cpp...
+void MainWindow::on_actionBuild_Load_triggered() {
+    if (load()) {
+        ui->statusbar->showMessage("Load succeeded", 4000);
+    }
+    else {
+        ui->statusbar->showMessage("Load failed", 4000);
+    }
+}
+
+bool MainWindow::load() {
+    QList<int> objectCodeList;
+    if (objectCodePane->getObjectCode(objectCodeList)) {
+        Sim::loadMem(objectCodeList);
+        memoryDumpPane->refreshMemoryLines(0, objectCodeList.size());
+        return true;
+    }
+    return false;
+}
+
+
+// In objectcodepane.h...
+bool getObjectCode(QList<int> &objectCodeList);
+// Pre: The object code pane contains object code
+// Post: If the object code is syntactically correct, true is returned, and
+// &objectCodeList contains the object code, one byte per integer.
+// Otherwise, false is returned.
+
+
+// In objectcodepane.cpp...
+bool ObjectCodePane::getObjectCode(QList<int> &objectCodeList)  {
+    QString objectString = ui->textEdit->toPlainText();
+    while (objectString.length() > 0) {
+        // check for object sentinel (zz)
+        // interesting that the check here is just for the last two characters being <anything>z
+        if (objectString.at(1) == QChar('z')) {
+            return true;
+        }
+        // check for non-existent program or return false if the above check fails with 2 chars remaining
+        if (objectString.length() < 3) {
+            return false;
+        }
+        QString s = objectString.left(2); // Get the two-char hex number
+        // does the line below mean that the object code AAB001ACzz doesn't work, even if AA B0 01 AC zz does?
+        // just tried it, and it doesn't work.  
+        // Why do it this way?  Couldn't we replace all instances of " " with an empty string?
+        objectString.remove(0, 3); // Removes the number and trailing whitespace
+        
+        // convert the two-character string from base 16 to a single base-10 Int, and append objectCodeList
+        bool ok;
+        objectCodeList.append(s.toInt(&ok, 16));
+        if (!ok) {
+            return false;
+        }
+    }
+    // if you get here, the object code is syntactically incorrect
+    return false;
+}
+
+
+// In sim.cpp...
+void Sim::loadMem(QList<int> objectCodeList) {
+    // straightforward
+    for (int i = 0; objectCodeList.length() > 0; i++) {
+        Mem[i] = objectCodeList.takeAt(0);
+    }
+}
+
+
+
+
+// ============================== When the `Execute` Button is Pressed =================================
+// In mainwindow.cpp...
+void MainWindow::on_actionBuild_Execute_triggered() {
+    cpuPane->clearCpu();
+    Sim::stackPointer = Sim::readWord(Pep::dotBurnArgument - 11);
+    // 11 is the vector offset from the last byte of the OS for the User stack pointer
+    
+    // pc back to 0
+    Sim::programCounter = 0x0000;
+    setDebugState(true);
+    Sim::trapped = false;
+    cpuPane->runClicked();
+    sourceCodePane->setReadOnly(true);
+    objectCodePane->setReadOnly(true);
+    
+    // set the i/o mode depending on the segmented controller's current idx
+    if (ui->pepInputOutputTab->currentIndex() == 0) {
+        ui->pepInputOutputTab->setTabEnabled(1, false);
+        outputPane->clearOutput();
+        QString s = inputPane->toPlainText();
+        if (!s.endsWith("\n")) {
+            s.append("\n");
+        }
+        Sim::inputBuffer = s;
+        cpuPane->runWithBatch();
+    }
+    else {
+        ui->pepInputOutputTab->setTabEnabled(0, false);
+        Sim::inputBuffer.clear();
+        terminalPane->clearTerminal();
+        cpuPane->runWithTerminal();
+    }
+    // Other things may go here.
+}
+
+
+
+// In cpupane.h...
+void setDebugState(bool b);
+// Post: if b is true, checkboxes are set to disabled, and vice versa
+
+void runClicked();
+// Post: All of the debug checkboxes are unclicked
+
+void runWithBatch();
+// Runs the simulator through with batch input
+
+void runWithTerminal();
+// Runs the simulator through with terminal i/o
+
+
+
+// In cpupane.cpp...
+void CpuPane::runWithBatch() {
+    isCurrentlySimulating = true;
+    interruptExecutionFlag = false;
+    QString errorString;
+    while (true) {
+        qApp->processEvents(); // To make sure that the event filter gets to handle keypresses during the run
+        if (Sim::vonNeumannStep(errorString)) {
+            emit vonNeumannStepped();
+            if (Sim::outputBuffer.length() == 1) {
+                emit appendOutput(Sim::outputBuffer);
+                Sim::outputBuffer = "";
+            }
+        }
+        else {
+            QMessageBox::warning(0, "Pep/9", errorString);
+            updateCpu();
+            emit executionComplete();
+            isCurrentlySimulating = false;
+            return;
+        }
+        if (Pep::decodeMnemonic[Sim::instructionSpecifier] == Enu::STOP) {
+            updateCpu();
+            emit executionComplete();
+            isCurrentlySimulating = false;
+            return;
+        }
+        if (interruptExecutionFlag) {
+            updateCpu();
+            isCurrentlySimulating = false;
+            return;
+        }
+    }
+}
+
+
+
+void CpuPane::runWithTerminal() {
+    isCurrentlySimulating = true;
+    waiting = Enu::ERunWaiting;
+    interruptExecutionFlag = false;
+    QString errorString;
+    while (true) {
+        qApp->processEvents(); // To make sure that the event filter gets to handle keypresses during the run
+        if (Sim::inputBuffer.isEmpty() && willAccessCharIn())
+        {
+            // we are waiting for input
+            updateCpu();
+            emit waitingForInput();
+            isCurrentlySimulating = false;
+            return;
+        }
+        else {
+            if (Sim::vonNeumannStep(errorString)) {
+                emit vonNeumannStepped();
+                if (Sim::outputBuffer.length() == 1) {
+                    emit appendOutput(Sim::outputBuffer);
+                    Sim::outputBuffer = "";
+                }
+            }
+            else {
+                QMessageBox::warning(0, "Pep/9", errorString);
+                updateCpu();
+                emit executionComplete();
+                isCurrentlySimulating = false;
+                return;
+            }
+            if (Pep::decodeMnemonic[Sim::instructionSpecifier] == Enu::STOP) {
+                updateCpu();
+                emit executionComplete();
+                isCurrentlySimulating = false;
+                return;
+            }
+            if (interruptExecutionFlag) {
+                updateCpu();
+                emit updateSimulationView();
+                isCurrentlySimulating = false;
+                return;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+// =============================== Taking a look at the composite actions ==============================
+
+
+
+// ____When the `Run Source` Button (aka Play Button) is Pressed____
+/* A composite action consisting of assemble(), load(), and execute() */
+void MainWindow::on_actionBuild_Run_Source_triggered() {
+    if (assemble() && load()) {
+        on_actionBuild_Execute_triggered();
+    }
+}
+
+
+
+
+// ____When the `Run Object` Button is Pressed____
+/* A composite action consisting of load() and execute() */
+void MainWindow::on_actionBuild_Run_Object_triggered() {
+    if (load()) {
+        ui->statusbar->showMessage("Load succeeded", 4000);
+        on_actionBuild_Execute_triggered();
+    }
+    else {
+        ui->statusbar->showMessage("Load failed", 4000);
+    }
+}
+
+
 
 
 
