@@ -13,7 +13,7 @@ The remaining Build actions are composites of the above three:
 */
 
 
-// =========================== When the `Assemble` Button (aka Hammer Button) is Pressed... ===========================
+// =========================== When the `Assemble` Button (aka Hammer Button) is Pressed ===========================
 
 // In mainwindow.cpp:
 
@@ -27,7 +27,8 @@ bool MainWindow::assemble() {
     Pep::burnCount = 0;
     if (sourceCodePane->assemble()) {
         if (Pep::burnCount > 0) {
-            // checking for burn count here instead of in the assembler, probably so the sourceCodePane.assemble() can be used for assembling operating systems, too?
+            // checking for burn count here instead of in the assembler, 
+	        // probably so the sourceCodePane.assemble() can be ambiguous to .burn statements
             QString errorString = ";ERROR: .BURN not allowed in program unless installing OS.";
             sourceCodePane->appendMessageInSourceCodePaneAt(0, errorString);
             assemblerListingPane->clearAssemblerListing();
@@ -191,6 +192,8 @@ _____ Notes on the assemble routine _______
 * What is Pep?
 * Asm is the assembler
 * The sourcecodepane does more than the ASM_SourceViewController should
+
+
 Alternative Structure:
 
 * A sourceVC, objectVC and listingVC, each of which has a ref to the ProjectModel (see next bullet)

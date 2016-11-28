@@ -20,6 +20,9 @@ class HelpMasterViewController: UITableViewController {
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
         helpDetail = navController.viewControllers[0] as! HelpDetailViewController
         helpDetail.setup(master: self)
+        // TODO: set selected index
+        //let indexPath = IndexPath(row: 2, section: 0)
+        //tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
     }
     
     func setup(mvc: ASM_MasterViewController) {
@@ -49,23 +52,32 @@ class HelpMasterViewController: UITableViewController {
 
     // MARK: - Overriding UITableViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // TODO: Set selection style for cells
+        
         var v: UITableViewCell
         if let aPreexistingCell = tableView.dequeueReusableCell(withIdentifier: "helpID") {
             v = aPreexistingCell
         } else {
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "helpID")
-            v = tableView.dequeueReusableCell(withIdentifier: "helpID")!
+            v = UITableViewCell(style: .subtitle, reuseIdentifier: "helpID")
         }
+        
+        v.detailTextLabel?.lineBreakMode = .byWordWrapping
+        v.detailTextLabel?.numberOfLines = 4
         
         switch (indexPath as NSIndexPath).section {
         case 0:
             v.textLabel!.text = Array(Documentation.allValues.values)[(indexPath as NSIndexPath).row]
+            v.detailTextLabel!.text = ""
         case 1:
-            v.textLabel!.text = Examples.allValues[(indexPath as NSIndexPath).row].rawValue
+            v.textLabel!.text = Examples.allValues[indexPath.row].rawValue
+            v.detailTextLabel!.text = ExampleDescriptions.allValues[indexPath.row].rawValue
         case 2:
-            v.textLabel!.text = Examples.allValues[(indexPath as NSIndexPath).row + 40].rawValue
+            v.textLabel!.text = Examples.allValues[indexPath.row + 40].rawValue
+            v.detailTextLabel!.text = ExampleDescriptions.allValues[indexPath.row + 40].rawValue
         case 3:
             v.textLabel!.text = "Pep/9 Operating System"
+            v.detailTextLabel!.text = ""
         default:
             v.textLabel?.text = "Error"
         }
@@ -125,6 +137,13 @@ class HelpMasterViewController: UITableViewController {
     }
     
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+//    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
     
     
 }
