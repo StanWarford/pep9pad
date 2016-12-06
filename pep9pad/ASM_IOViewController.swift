@@ -111,6 +111,7 @@ class ASM_IOViewController: UIViewController, UITextViewDelegate {
             setIOMode(to: .terminal)
         default:
             setIOMode(to: .batch)
+            
         }
     }
     

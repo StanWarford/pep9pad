@@ -169,6 +169,7 @@
                                 <frame key="frameInset" minX="139" minY="211" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="Z60-Tb-13b"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="w7v-gA-hRL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
@@ -500,24 +501,24 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="302"/>
                     <connections>
-                        <outlet property="accumulatorField1" destination="M3L-T7-8sa" id="nLb-SP-jru"/>
-                        <outlet property="accumulatorField2" destination="3wn-pu-tA3" id="mFJ-9C-DDf"/>
-                        <outlet property="cBitField" destination="m6A-Bv-kNV" id="D9z-5U-s0i"/>
-                        <outlet property="indexRegisterField1" destination="lBX-vL-Rhj" id="2ng-tg-EWx"/>
-                        <outlet property="indexRegisterField2" destination="gHx-50-X9K" id="1mM-Pr-39n"/>
-                        <outlet property="instructionSpecField1" destination="y8F-lX-JJi" id="xVp-zB-IUa"/>
-                        <outlet property="instructionSpecField2" destination="gJk-hb-z6a" id="Dkt-OD-qvu"/>
-                        <outlet property="nBitField" destination="vJh-R7-8eg" id="l4V-AL-5Hu"/>
-                        <outlet property="operandField1" destination="Vne-FL-1Bj" id="uT2-8Q-ZWF"/>
-                        <outlet property="operandField2" destination="dZh-PR-TCD" id="epc-Yx-NeZ"/>
-                        <outlet property="operandSpecField1" destination="xfm-Jm-Jg6" id="aZW-Ay-7c6"/>
-                        <outlet property="operandSpecField2" destination="TtU-m0-FdO" id="XbY-Mm-gJp"/>
-                        <outlet property="programCounterField1" destination="eFq-7j-c0E" id="6Un-XB-wUq"/>
-                        <outlet property="programCounterField2" destination="TEQ-kk-1WU" id="Jka-KY-awd"/>
-                        <outlet property="stackPointerField1" destination="NbS-Nc-dcQ" id="gJm-en-B1c"/>
-                        <outlet property="stackPointerField2" destination="JRd-mD-saU" id="vrd-ID-DcN"/>
-                        <outlet property="vBitField" destination="yRb-2y-6WS" id="49a-3D-ApU"/>
-                        <outlet property="zBitField" destination="RZc-aw-f0F" id="LyQ-UG-7J5"/>
+                        <outlet property="accDec" destination="3wn-pu-tA3" id="Seb-Rs-TFo"/>
+                        <outlet property="accHex" destination="M3L-T7-8sa" id="Hfa-kt-6On"/>
+                        <outlet property="cBit" destination="m6A-Bv-kNV" id="cfc-an-Bgf"/>
+                        <outlet property="instrSpecBin" destination="y8F-lX-JJi" id="PAk-pr-qWC"/>
+                        <outlet property="instrSpecMnemon" destination="gJk-hb-z6a" id="4gy-1a-1bf"/>
+                        <outlet property="nBit" destination="vJh-R7-8eg" id="9nl-jI-cUN"/>
+                        <outlet property="oprndDec" destination="dZh-PR-TCD" id="p8h-Qu-nVt"/>
+                        <outlet property="oprndHex" destination="Vne-FL-1Bj" id="Bm3-aE-e9P"/>
+                        <outlet property="oprndSpecDec" destination="TtU-m0-FdO" id="9IY-6k-Pb8"/>
+                        <outlet property="oprndSpecHex" destination="xfm-Jm-Jg6" id="6lI-ca-I7d"/>
+                        <outlet property="pcDec" destination="TEQ-kk-1WU" id="gAO-TD-R4H"/>
+                        <outlet property="pcHex" destination="eFq-7j-c0E" id="Fs3-HO-vd5"/>
+                        <outlet property="spDec" destination="JRd-mD-saU" id="9iJ-oy-jqJ"/>
+                        <outlet property="spHex" destination="NbS-Nc-dcQ" id="7N9-Ju-AwA"/>
+                        <outlet property="vBit" destination="yRb-2y-6WS" id="5dh-Ei-itn"/>
+                        <outlet property="xDec" destination="gHx-50-X9K" id="fZU-6W-Ckg"/>
+                        <outlet property="xHex" destination="lBX-vL-Rhj" id="1rd-cy-ird"/>
+                        <outlet property="zBit" destination="RZc-aw-f0F" id="1BI-UM-wW8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aha-2c-y7S" userLabel="First Responder" sceneMemberID="firstResponder"/>

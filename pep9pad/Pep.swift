@@ -8,9 +8,9 @@
 
 import Foundation
 
-var pep = Pep()
+var Pep = PepMaps()
 
-class Pep {
+class PepMaps {
     // Default redefine mnemonics
     let defaultUnaryMnemonic0: String = "NOP0"
     let defaultUnaryMnemonic1: String = "NOP1"

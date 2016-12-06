@@ -52,6 +52,7 @@
 		46C76A6C1DB959480071C340 /* ASM_MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6B1DB959480071C340 /* ASM_MemoryViewController.swift */; };
 		46C76A6E1DB959680071C340 /* ASM_TraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */; };
 		46C7EEE41D80BDD300F74B6E /* ASM_CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */; };
+		46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C80BDB1DF0D0830096D4E0 /* Extensions.swift */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246AE1DE0E1C300611A18 /* Dots.swift */; };
 		46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246B11DE0E32A00611A18 /* NonExecutables.swift */; };
@@ -230,6 +231,7 @@
 		46C76A6B1DB959480071C340 /* ASM_MemoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_MemoryViewController.swift; sourceTree = "<group>"; };
 		46C76A6D1DB959680071C340 /* ASM_TraceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASM_TraceViewController.swift; sourceTree = "<group>"; };
 		46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ASM_CPU.storyboard; sourceTree = "<group>"; };
+		46C80BDB1DF0D0830096D4E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46E246AE1DE0E1C300611A18 /* Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dots.swift; sourceTree = "<group>"; };
 		46E246B11DE0E32A00611A18 /* NonExecutables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonExecutables.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			children = (
 				468BC12D1DC27220000AE01A /* UIConstants.swift */,
 				46F5F26C1DCA528B002880FE /* GCDUtilities.swift */,
+				46C80BDB1DF0D0830096D4E0 /* Extensions.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 				46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
+				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
 				460BD9F11DEA536F00BE58B9 /* IntAliases.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,

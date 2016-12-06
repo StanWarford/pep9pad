@@ -189,8 +189,6 @@ bool SourceCodePane::assemble() {
 /* 
 _____ Notes on the assemble routine _______
 
-* What is Pep?
-* Asm is the assembler
 * The sourcecodepane does more than the ASM_SourceViewController should
 
 
@@ -210,7 +208,7 @@ Alternative Structure:
     * combine SourceCodePane::assemble() and Asm::assemble()
     * possible names: AssemblerModel, AsmModel, Assembler, Asm, etc.
     * when an assemble is triggered in ASM_DetailVC, this function grabs the latest source text from 
-        the ProjectModel and assembles it, returns true or false -- the VC then recieves the boolean and responds accordingly
+        the ProjectModel and assembles it, returns true or false -- the VC then receives the boolean and responds accordingly
 */
 
 
@@ -280,8 +278,8 @@ bool ObjectCodePane::getObjectCode(QList<int> &objectCodeList)  {
 
 
 // In sim.cpp...
+// this is the "fast loader" that loads mem w/o using the Pep9 OS's loader
 void Sim::loadMem(QList<int> objectCodeList) {
-    // straightforward
     for (int i = 0; objectCodeList.length() > 0; i++) {
         Mem[i] = objectCodeList.takeAt(0);
     }
@@ -291,6 +289,7 @@ void Sim::loadMem(QList<int> objectCodeList) {
 
 
 // ============================== When the `Execute` Button is Pressed =================================
+// Summary: the Execution action is carried out the MainWindow 
 // In mainwindow.cpp...
 void MainWindow::on_actionBuild_Execute_triggered() {
     cpuPane->clearCpu();
@@ -322,7 +321,6 @@ void MainWindow::on_actionBuild_Execute_triggered() {
         terminalPane->clearTerminal();
         cpuPane->runWithTerminal();
     }
-    // Other things may go here.
 }
 
 
@@ -457,6 +455,17 @@ void MainWindow::on_actionBuild_Run_Object_triggered() {
         ui->statusbar->showMessage("Load failed", 4000);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
