@@ -1,5 +1,5 @@
 //
-//  ASM_TraceViewController.swift
+//  TraceController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 10/20/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASM_TraceViewController: UIViewController {
+class TraceController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

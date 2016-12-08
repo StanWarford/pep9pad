@@ -1,5 +1,5 @@
 //
-//  ASM_ProjectModel.swift
+//  ProjectModel.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 11/2/16.
@@ -9,9 +9,9 @@
 import UIKit
 
 /// Global, used to access the currently-edited project and interact with the fs.
-var projectModel = ASM_ProjectModel()
+var projectModel = ProjectModel()
 
-class ASM_ProjectModel {
+class ProjectModel {
     
     
     // MARK: - Attributes
@@ -123,17 +123,17 @@ class ASM_ProjectModel {
     }
     
     
-    /// Called by classes that conform to `ASM_ProjectModelEditor` (i.e. the source, object, and listing vcs)
+    /// Called by classes that conform to `ProjectModelEditor` (i.e. the source, object, and listing vcs)
     /// whenever an editor detects the user has edited its `textField`'s contents.
     /// This function sets `fsState` accordingly.
-    func receiveChanges(from editor: ASM_ProjectModelEditor, text: String) {
-        if editor is ASM_SourceViewController {
+    func receiveChanges(from editor: ProjectModelEditor, text: String) {
+        if editor is SourceController {
             sourceStr = text
             changeStateToUnsaved()
-        } else if editor is ASM_ObjectViewController {
+        } else if editor is ObjectController {
             objectStr = text
             changeStateToUnsaved()
-        } else if editor is ASM_ListingViewController {
+        } else if editor is ListingController {
             // I can't think of a reason why this would ever be called.
             assert(false)
         } else {

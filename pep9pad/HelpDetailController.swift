@@ -1,5 +1,5 @@
 //
-//  HelpDetailViewController.swift
+//  HelpDetailController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 3/8/16.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HelpDetailViewController: UIViewController {
+class HelpDetailController: UIViewController {
 
     
-    internal var master: HelpMasterViewController!
+    internal var master: HelpMasterController!
     internal var documentationVC: DocumentationViewController!
     internal var exampleVC: ExampleViewController!
     
@@ -48,7 +48,7 @@ class HelpDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setup(master: HelpMasterViewController) {
+    func setup(master: HelpMasterController) {
         self.master = master
     }
     

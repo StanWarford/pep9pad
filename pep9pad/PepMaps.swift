@@ -1,5 +1,5 @@
 //
-//  Pep.swift
+//  PepMaps.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 11/25/16.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-var Pep = PepMaps()
+var maps = PepMaps()
 
 class PepMaps {
     // Default redefine mnemonics

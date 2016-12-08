@@ -10,14 +10,14 @@ import UIKit
 import FontAwesome_swift
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
-typealias ASM_TabBarVCs = (source: ASM_SourceViewController?, object: ASM_ObjectViewController?, listing: ASM_ListingViewController?, memory: ASM_MemoryViewController?, trace: ASM_TraceViewController?)
+typealias ASM_TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, memory: MemoryController?, trace: TraceController?)
 
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
-class ASM_DetailViewController: UIViewController, UITabBarDelegate {
+class MainDetailController: UIViewController, UITabBarDelegate {
     
-    internal var master: ASM_MasterViewController!
+    internal var master: MainMasterController!
     internal var tabController: UITabBarController!
     // must initialize this, otherwise we get a runtime error
     internal var tabVCs: ASM_TabBarVCs = (nil, nil, nil, nil, nil)
@@ -29,7 +29,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         super.viewDidLoad()
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
-        self.master = masternc.viewControllers[0] as! ASM_MasterViewController
+        self.master = masternc.viewControllers[0] as! MainMasterController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,11 +79,11 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
                 }
                 
                 // now we can assign all the elements of tabVCs
-                tabVCs.source = tabController.viewControllers?[0] as? ASM_SourceViewController
-                tabVCs.object = tabController.viewControllers?[1] as? ASM_ObjectViewController
-                tabVCs.listing = tabController.viewControllers?[2] as? ASM_ListingViewController
-                tabVCs.memory = tabController.viewControllers?[3] as? ASM_MemoryViewController
-                tabVCs.trace = tabController.viewControllers?[4] as? ASM_TraceViewController
+                tabVCs.source = tabController.viewControllers?[0] as? SourceController
+                tabVCs.object = tabController.viewControllers?[1] as? ObjectController
+                tabVCs.listing = tabController.viewControllers?[2] as? ListingController
+                tabVCs.memory = tabController.viewControllers?[3] as? MemoryController
+                tabVCs.trace = tabController.viewControllers?[4] as? TraceController
 
             default:
                 break
@@ -428,7 +428,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {
                 let nav = spvc.viewControllers[0] as! UINavigationController
-                let fs = nav.viewControllers[0] as! FSMasterViewController
+                let fs = nav.viewControllers[0] as! FSMasterController
                 fs.setup(asmDetailVC: self)
             }
         }
@@ -571,8 +571,8 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     /// Called whenever the user taps the 'Assemble Source' button.  This function...
     
-    /// * assembles the source code by calling `model.assemble()`
-    ///   * the model parses the asmb and populates the `model.object` and `model.listing` fields
+    /// * assembles the source code by calling `assembler.assemble()`
+    ///   * the model parses the asmb and populates the `assembler.object` and `assembler.listing` fields
     ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
@@ -581,7 +581,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
         return true
 
 //        burnCount = 0
-//        if model.assemble() {
+//        if assembler.assemble() {
 //            // check for .BURN
 //            if burnCount > 0 {
 //                let error = ";ERROR: .BURN not allowed in program unless installing OS."
@@ -594,9 +594,9 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
 //            }
 //            
 //            // no .BURN, proceed with assemble
-//            objectVC.setObjectCode(model.getObjectCode())
-//            listingVC.setListing(model.getListing())
-//            traceVC.setListing(model.getListingForTrace())
+//            objectVC.setObjectCode(assembler.getObjectCode())
+//            listingVC.setListing(assembler.getListing())
+//            traceVC.setListing(assembler.getListingForTrace())
 //            traceVC.setMemoryTrace()
 //            listingVC.showListing()
 //            
@@ -618,7 +618,7 @@ class ASM_DetailViewController: UIViewController, UITabBarDelegate {
     
     /// Called whenever the user taps the 'Load Object' button.  This function...
     
-    /// * loads model.object into memory, if it exists
+    /// * loads assembler.object into memory, if it exists
     /// * refreshes the memory dump
     
     func loadObject() -> Bool {

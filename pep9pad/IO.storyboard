@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Imu-td-LPt">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Imu-td-LPt">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Controller-->
         <scene sceneID="A68-Vo-xo3">
             <objects>
-                <viewController id="Imu-td-LPt" customClass="ASM_IOViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Imu-td-LPt" customClass="IOController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U3P-G0-zQZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rz8-rO-LHg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="czk-Cz-yO5" customClass="ASM_IOView" customModule="pep9pad" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="czk-Cz-yO5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -23,7 +23,7 @@
                                     <navigationItem id="NVS-ac-IwL">
                                         <nil key="title"/>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="byz-tx-1Y8">
-                                            <rect key="frame" x="93.5" y="7" width="133" height="30"/>
+                                            <rect key="frame" x="94" y="7" width="133" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
                                                 <segment title="Batch"/>

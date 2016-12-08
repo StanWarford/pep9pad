@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--Detail Controller-->
         <scene sceneID="KeR-EE-E0f">
             <objects>
-                <viewController id="lVV-nD-w78" customClass="FSDetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lVV-nD-w78" customClass="FSDetailController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V1k-w4-ujX"/>
                         <viewControllerLayoutGuide type="bottom" id="xfg-8p-7Uj"/>
@@ -49,7 +49,7 @@
         <scene sceneID="Ana-ah-5BF">
             <objects>
                 <navigationController id="cI9-tN-FWR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vcz-TB-tUp">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vcz-TB-tUp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -64,7 +64,7 @@
         <!--Saved Projects-->
         <scene sceneID="eDU-Jc-ela">
             <objects>
-                <tableViewController id="oiM-Qh-UnJ" customClass="FSMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="oiM-Qh-UnJ" customClass="FSMasterController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="3ic-im-93y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,13 +112,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZO4-I2-Uw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2331" y="-748"/>
+            <point key="canvasLocation" x="2310" y="-747"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NN0-zv-4MK">
             <objects>
                 <navigationController id="uQK-Sb-ICc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pIO-OT-yRY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pIO-OT-yRY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

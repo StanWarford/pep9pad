@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASM_ObjectViewController: UIViewController, ASM_ProjectModelEditor, PepTextViewDelegate {
+class ObjectController: UIViewController, ProjectModelEditor, PepTextViewDelegate {
     
     
     // MARK: - View Controller Lifecycle
@@ -28,7 +28,7 @@ class ASM_ObjectViewController: UIViewController, ASM_ProjectModelEditor, PepTex
     
     
     
-    // MARK: - Conformance to ASM_ProjectModelEditor
+    // MARK: - Conformance to ProjectModelEditor
     
     /// Updates the contents of the `textView` with `projectModel.objectStr`.
     func pullFromProjectModel() {

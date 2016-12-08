@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cpu Controller-->
         <scene sceneID="nla-kl-TjG">
             <objects>
-                <viewController id="fcR-6a-t7k" customClass="ASM_CPUViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fcR-6a-t7k" customClass="CpuController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2PQ-SH-log"/>
                         <viewControllerLayoutGuide type="bottom" id="7Oh-Ad-F1e"/>
