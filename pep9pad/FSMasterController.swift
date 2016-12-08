@@ -1,5 +1,5 @@
 //
-//  FSMasterViewController.swift
+//  FSMasterController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 10/6/16.
@@ -8,21 +8,21 @@
 
 import UIKit
 
-class FSMasterViewController: UITableViewController {
+class FSMasterController: UITableViewController {
     // MARK: - Internal Variables
-    internal var detail: FSDetailViewController!
-    internal var asmDetail: ASM_DetailViewController!
+    internal var detail: FSDetailController!
+    internal var asmDetail: MainDetailController!
     internal var names: [String] = []
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
-        detail = navController.viewControllers[0] as! FSDetailViewController
+        detail = navController.viewControllers[0] as! FSDetailController
         names = loadProjectNamesFromFS()
     }
     
-    func setup(asmDetailVC: ASM_DetailViewController) {
+    func setup(asmDetailVC: MainDetailController) {
         asmDetail = asmDetailVC
     }
     

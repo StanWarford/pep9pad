@@ -1,5 +1,5 @@
 //
-//  FSDetailViewController.swift
+//  FSDetailController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 10/6/16.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class FSDetailViewController: UIViewController {
+class FSDetailController: UIViewController {
     
     var nameOfDisplayedFile: String!
-    var master: FSMasterViewController!
+    var master: FSMasterController!
 
     // MARK: - VC Lifecycle
     
@@ -20,7 +20,7 @@ class FSDetailViewController: UIViewController {
         textView.setupTextView(textView.frame)
         // get ref to master and save to local `master` property
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
-        self.master = masternc.viewControllers[0] as! FSMasterViewController
+        self.master = masternc.viewControllers[0] as! FSMasterController
     }
     
     // MARK: - Methods

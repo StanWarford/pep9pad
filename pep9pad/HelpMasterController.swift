@@ -1,5 +1,5 @@
 //
-//  HelpMasterViewController.swift
+//  HelpMasterController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 3/8/16.
@@ -8,24 +8,24 @@
 
 import UIKit
 
-class HelpMasterViewController: UITableViewController {
+class HelpMasterController: UITableViewController {
 
     // MARK: - Internal Variables
-    internal var helpDetail: HelpDetailViewController!
-    internal var asmMasterVC: ASM_MasterViewController!
+    internal var helpDetail: HelpDetailController!
+    internal var asmMasterVC: MainMasterController!
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
-        helpDetail = navController.viewControllers[0] as! HelpDetailViewController
+        helpDetail = navController.viewControllers[0] as! HelpDetailController
         helpDetail.setup(master: self)
         // TODO: set selected index
         //let indexPath = IndexPath(row: 2, section: 0)
         //tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
     }
     
-    func setup(mvc: ASM_MasterViewController) {
+    func setup(mvc: MainMasterController) {
         self.asmMasterVC = mvc
     }
     

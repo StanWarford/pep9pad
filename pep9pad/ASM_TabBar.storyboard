@@ -9,7 +9,7 @@
         <!--Trace-->
         <scene sceneID="UrJ-CW-AaS">
             <objects>
-                <viewController id="VhE-hQ-XUb" customClass="ASM_TraceViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VhE-hQ-XUb" customClass="TraceController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h33-un-hWy"/>
                         <viewControllerLayoutGuide type="bottom" id="oqv-wh-otk"/>
@@ -37,7 +37,7 @@
         <!--Memory-->
         <scene sceneID="1Hl-9X-hYa">
             <objects>
-                <viewController id="8lC-WY-L4p" customClass="ASM_MemoryViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8lC-WY-L4p" customClass="MemoryController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jYj-kB-a3e"/>
                         <viewControllerLayoutGuide type="bottom" id="I3V-GU-rNG"/>
@@ -106,7 +106,7 @@
         <!--Object Code-->
         <scene sceneID="iNk-O6-UYd">
             <objects>
-                <viewController id="6Pf-zN-x70" customClass="ASM_ObjectViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Pf-zN-x70" customClass="ObjectController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ad8-Ub-Mw2"/>
                         <viewControllerLayoutGuide type="bottom" id="l2u-vy-78S"/>
@@ -139,7 +139,7 @@
         <!--Source Code-->
         <scene sceneID="4eV-aW-X05">
             <objects>
-                <viewController id="29u-EI-7Xx" customClass="ASM_SourceViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="29u-EI-7Xx" customClass="SourceController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oDF-aL-Qam"/>
                         <viewControllerLayoutGuide type="bottom" id="IoH-UQ-5lF"/>
@@ -172,7 +172,7 @@
         <!--Listing-->
         <scene sceneID="9E4-aW-aRM">
             <objects>
-                <viewController id="nD3-Mn-eYP" customClass="ASM_ListingViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nD3-Mn-eYP" customClass="ListingController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="03D-kp-Zp2"/>
                         <viewControllerLayoutGuide type="bottom" id="FIn-qU-MXS"/>

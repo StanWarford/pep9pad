@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ASM-->
+        <!--Main-->
         <scene sceneID="UqV-Cp-ceh">
             <objects>
-                <viewControllerPlaceholder storyboardName="ASM" id="4pl-yb-9U8" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="4pl-yb-9U8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tOw-WU-gQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="760" y="179"/>
@@ -34,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vEQ-OW-oDx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="c5n-fh-eVU">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-0X-kXr">

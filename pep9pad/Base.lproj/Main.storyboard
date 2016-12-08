@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!--Main Detail Controller-->
         <scene sceneID="NdW-6f-GQW">
             <objects>
-                <viewController id="Tao-vo-3cn" customClass="ASM_DetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Tao-vo-3cn" customClass="MainDetailController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AEE-UC-JLO"/>
                         <viewControllerLayoutGuide type="bottom" id="MsR-Mc-qaf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ewd-NJ-am6">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
@@ -83,7 +83,7 @@
         <scene sceneID="7hV-XJ-AWt">
             <objects>
                 <navigationController id="YNt-35-Q3B" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8rS-q0-u9z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8rS-q0-u9z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -95,24 +95,24 @@
             </objects>
             <point key="canvasLocation" x="692" y="-308"/>
         </scene>
-        <!--ASM_IO-->
+        <!--IO-->
         <scene sceneID="F3f-fn-sOo">
             <objects>
-                <viewControllerPlaceholder storyboardName="ASM_IO" id="zH1-fh-5om" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IO" id="zH1-fh-5om" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3x-AK-agx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1081" y="103"/>
         </scene>
-        <!--Master View Controller-->
+        <!--Main Master Controller-->
         <scene sceneID="7Cl-4g-nCB">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jNR-wW-WrY" customClass="ASM_MasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="jNR-wW-WrY" customClass="MainMasterController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aGM-Ff-1k4"/>
                         <viewControllerLayoutGuide type="bottom" id="Nce-H4-hmt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KKs-4b-e8l">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="2df-w3-OcL">
@@ -193,7 +193,7 @@
         <scene sceneID="2p8-Ej-FmW">
             <objects>
                 <navigationController id="iJ6-lN-Cra" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mS4-oz-IIt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mS4-oz-IIt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

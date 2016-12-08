@@ -63,6 +63,28 @@ enum EWaiting {
 }
 
 
+enum CPURegisters {
+    case nBit
+    case zBit
+    case vBit
+    case cBit
+    case accumulator
+    case indexRegister
+    case stackPointer
+    case programCounter
+    case instructionSpecifier
+    case operandSpecifier
+    case operand
+}
+
+enum PrettyCPUFormats {
+    case bin
+    case hex
+    case mnemon
+    case dec
+}
+
+
 // TODO: Update these if necesssary
 enum EPane {
     case eSource

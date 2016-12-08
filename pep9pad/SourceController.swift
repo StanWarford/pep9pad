@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor, PepTextViewDelegate {
+class SourceController: UIViewController, ProjectModelEditor, PepTextViewDelegate {
     
     
     // MARK: - Properties
@@ -60,7 +60,7 @@ class ASM_SourceViewController: UIViewController, ASM_ProjectModelEditor, PepTex
     }
     
     
-    // MARK: - Conformance to ASM_ProjectModelEditor
+    // MARK: - Conformance to ProjectModelEditor
     
     /// Updates the contents of the `textView` with `projectModel.sourceStr`.
     func pullFromProjectModel() {

@@ -1,4 +1,4 @@
-//  Simulator.swift
+//  MachineModel.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 11/24/16.
@@ -6,15 +6,16 @@
 //
 
 
-var Sim = Simulator()
+var machine = MachineModel()
 
 /// The simulated machine.
-class Simulator {
+class MachineModel {
     
     
     // MARK: - Properties
-    
+    /// Main memory, pre-allocated
     var Mem: [Int] = [Int](repeating: 0, count: 65536)
+    // MARK: CPU
     var nBit, zBit, vBit, cBit: Bool
     var accumulator: Int
     var indexRegister: Int
@@ -23,7 +24,8 @@ class Simulator {
     var instructionSpecifier: Int
     var operandSpecifier: Int
     var operand: Int
-    var operandDisplayFieldWidth: Int
+    // I think this is an artifact of Pep/9
+    // var operandDisplayFieldWidth: Int
     
     var inputBuffer: String
     var outputBuffer: String
@@ -50,7 +52,8 @@ class Simulator {
         instructionSpecifier = 0
         operandSpecifier = 0
         operand = 0
-        operandDisplayFieldWidth = 0
+        // I think this is an artifact of Pep/9
+        // operandDisplayFieldWidth = 0
         
         inputBuffer = ""
         outputBuffer = ""
@@ -291,6 +294,47 @@ class Simulator {
     }
     
     
+    
+    // I wrote this function to make the CpuController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.  
+    func prettyVersion(_ register: CPURegisters, format: PrettyCPUFormats) -> String {
+        var value = 0
+        
+        // get the value of the field
+        switch register {
+        case .nBit, .zBit, .vBit, .cBit:
+            return ""
+        case .accumulator:
+            value = accumulator
+        case .indexRegister:
+            value = indexRegister
+        case .stackPointer:
+            value = stackPointer
+        case .programCounter:
+            value = programCounter
+        case .instructionSpecifier:
+            value = instructionSpecifier
+        case .operandSpecifier:
+            value = operandSpecifier
+        case .operand:
+            value = operand
+        }
+        
+        // format
+        switch format {
+        case .bin:
+            return value.toBin8()
+        case .hex:
+            return "0x\(value.toHex4())"
+        case .dec:
+            return "\(toSignedDecimal(value))"
+        case .mnemon:
+            return " " + maps.enumToMnemonMap[maps.decodeMnemonic[instructionSpecifier]]! + maps.commaSpaceStringForAddrMode(addressMode: maps.decodeAddrMode[instructionSpecifier])
+            
+            
+        }
+        
+        
+    }
     
     
 }

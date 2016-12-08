@@ -22,7 +22,7 @@ enum IOViewMode {
 
 
 /// A `UIViewController` which handles batch and terminal input / output.
-class ASM_IOViewController: UIViewController, UITextViewDelegate {
+class IOController: UIViewController, UITextViewDelegate {
     
     
     

@@ -1,5 +1,5 @@
 //
-//  ASM_CPUViewController.swift
+//  CpuController.swift
 //  pep9pad
 //
 //  Created by Josh Haug on 3/7/16.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ASM_CPUViewController: UIViewController {
+// I know that 'CPUController' would be the correct capitalization but I think 'CpuController' is more readable. 
+
+class CpuController: UIViewController {
 
     // MARK: - Interface Builder
     
@@ -60,18 +62,27 @@ class ASM_CPUViewController: UIViewController {
     // MARK: - Methods
     
     func update() {
-        let addrMode = Pep.decodeAddrMode[Sim.instructionSpecifier]
+        let addrMode = maps.decodeAddrMode[machine.instructionSpecifier]
         
-        nBit.text = Sim.nBit.toIntString()
-        zBit.text = Sim.zBit.toIntString()
-        vBit.text = Sim.vBit.toIntString()
-        cBit.text = Sim.cBit.toIntString()
+        nBit.text = machine.nBit.toIntString()
+        zBit.text = machine.zBit.toIntString()
+        vBit.text = machine.vBit.toIntString()
+        cBit.text = machine.cBit.toIntString()
 
-        accHex.text = "0x\(Sim.accumulator.toHex4())"
-        accDec.text = "\(Sim.toSignedDecimal(Sim.accumulator))"
+        accHex.text = "0x\(machine.accumulator.toHex4())"
+        accDec.text = "\(machine.toSignedDecimal(machine.accumulator))"
         
-        xHex.text = "0x\(Sim.indexRegister.toHex4())"
-        xDec.text = "\(Sim.toSignedDecimal(Sim.indexRegister))"
+        xHex.text = "0x\(machine.indexRegister.toHex4())"
+        xDec.text = "\(machine.toSignedDecimal(machine.indexRegister))"
+        
+        spHex.text = "0x\(machine.stackPointer.toHex4())"
+        spDec.text = "\(machine.toSignedDecimal(machine.stackPointer))"
+        
+        pcHex.text = "0x\(machine.programCounter.toHex4())"
+        pcDec.text = "\(machine.toSignedDecimal(machine.programCounter))"
+        
+        instrSpecBin.text = machine.instructionSpecifier.toBin8()
+        //instrSpecMnemon.text = " " + maps.enumToMnemonMap[maps.decodeMnemonic[machine.instructionSpecifier]]+
     }
 
 //
