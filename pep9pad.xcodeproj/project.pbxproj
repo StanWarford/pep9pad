@@ -26,6 +26,8 @@
 		4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextView.swift */; };
+		4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */; };
+		4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16F1DFE1DFF00D072F0 /* StackState.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
 		4656E1201CE9352B0091AF6E /* CppHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CppHighlightingPatterns.plist */; };
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
@@ -203,6 +205,8 @@
 		4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextViewDelegate.swift; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* PepTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextView.swift; sourceTree = "<group>"; };
+		4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameFSM.swift; sourceTree = "<group>"; };
+		4642A16F1DFE1DFF00D072F0 /* StackState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackState.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
 		4656E11F1CE9352B0091AF6E /* CppHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CppHighlightingPatterns.plist; sourceTree = "<group>"; };
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
@@ -544,6 +548,8 @@
 				46C76A691DB9593A0071C340 /* ListingController.swift */,
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
+				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
+				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 				46C76A601DAD86BD0071C340 /* IOController.swift */,
 				4694F3D01DBABC0300F0E822 /* IO.storyboard */,
 				46C76A651DAF173D0071C340 /* ASM_TabBar.storyboard */,
@@ -1075,6 +1081,8 @@
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
+				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
+				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */,

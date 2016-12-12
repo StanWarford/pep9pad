@@ -2,7 +2,6 @@
 //  pep9padTests.swift
 //  pep9padTests
 //
-//  Created by Stan Warford on 2/24/16.
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 

@@ -2,7 +2,6 @@
 //  NonExecutables.swift
 //  pep9pad
 //
-//  Created by Josh Haug on 11/19/16.
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 

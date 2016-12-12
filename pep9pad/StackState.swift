@@ -1,5 +1,5 @@
 //
-//  PepTextViewDelegate.swift
+//  StackState.swift
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
@@ -7,6 +7,8 @@
 
 import Foundation
 
-protocol PepTextViewDelegate {
-    func textViewDidChange()
+enum StackState {
+    case start
+    case subSP
+    case call
 }

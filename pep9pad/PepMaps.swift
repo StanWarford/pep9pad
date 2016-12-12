@@ -2,7 +2,6 @@
 //  PepMaps.swift
 //  pep9pad
 //
-//  Created by Josh Haug on 11/25/16.
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 
