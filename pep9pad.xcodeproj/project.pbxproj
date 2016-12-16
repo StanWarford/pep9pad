@@ -36,7 +36,7 @@
 		468A95D41DDCECF400916BE7 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D31DDCECF400916BE7 /* Code.swift */; };
 		468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D51DDCEF2600916BE7 /* Instructions.swift */; };
 		468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BC12D1DC27220000AE01A /* UIConstants.swift */; };
-		4694F3D11DBABC0300F0E822 /* IO.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* IO.storyboard */; };
+		4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* IOMem.storyboard */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
 		46C76A541DA494130071C340 /* FontAwesome in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A531DA494130071C340 /* FontAwesome */; };
@@ -46,12 +46,12 @@
 		46C76A5D1DA711690071C340 /* FileSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A5C1DA711690071C340 /* FileSystem.storyboard */; };
 		46C76A611DAD86BE0071C340 /* IOController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A601DAD86BD0071C340 /* IOController.swift */; };
 		46C76A641DAF112A0071C340 /* SourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A631DAF112A0071C340 /* SourceController.swift */; };
-		46C76A661DAF173D0071C340 /* ASM_TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A651DAF173D0071C340 /* ASM_TabBar.storyboard */; };
+		46C76A661DAF173D0071C340 /* Pep9TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */; };
 		46C76A681DB856A50071C340 /* ObjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A671DB856A50071C340 /* ObjectController.swift */; };
 		46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A691DB9593A0071C340 /* ListingController.swift */; };
 		46C76A6C1DB959480071C340 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6B1DB959480071C340 /* MemoryController.swift */; };
 		46C76A6E1DB959680071C340 /* TraceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6D1DB959680071C340 /* TraceController.swift */; };
-		46C7EEE41D80BDD300F74B6E /* ASM_CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */; };
+		46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */; };
 		46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C80BDB1DF0D0830096D4E0 /* Extensions.swift */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246AE1DE0E1C300611A18 /* Dots.swift */; };
@@ -162,6 +162,7 @@
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
+		D2B82DE41E035B8700F960FE /* Memory.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B82DE31E035B8700F960FE /* Memory.xib */; };
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
 		D2CC5E4E1DB807990033CFF4 /* myFirstProgram.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
@@ -215,7 +216,7 @@
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		4694F3D01DBABC0300F0E822 /* IO.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IO.storyboard; sourceTree = "<group>"; };
+		4694F3D01DBABC0300F0E822 /* IOMem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOMem.storyboard; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
 		46C76A531DA494130071C340 /* FontAwesome */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAwesome; sourceTree = "<group>"; };
@@ -225,12 +226,12 @@
 		46C76A5C1DA711690071C340 /* FileSystem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FileSystem.storyboard; sourceTree = "<group>"; };
 		46C76A601DAD86BD0071C340 /* IOController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOController.swift; sourceTree = "<group>"; };
 		46C76A631DAF112A0071C340 /* SourceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceController.swift; sourceTree = "<group>"; };
-		46C76A651DAF173D0071C340 /* ASM_TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ASM_TabBar.storyboard; sourceTree = "<group>"; };
+		46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pep9TabBar.storyboard; sourceTree = "<group>"; };
 		46C76A671DB856A50071C340 /* ObjectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectController.swift; sourceTree = "<group>"; };
 		46C76A691DB9593A0071C340 /* ListingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingController.swift; sourceTree = "<group>"; };
 		46C76A6B1DB959480071C340 /* MemoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
 		46C76A6D1DB959680071C340 /* TraceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceController.swift; sourceTree = "<group>"; };
-		46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ASM_CPU.storyboard; sourceTree = "<group>"; };
+		46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pep9Processor.storyboard; sourceTree = "<group>"; };
 		46C80BDB1DF0D0830096D4E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46E246AE1DE0E1C300611A18 /* Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dots.swift; sourceTree = "<group>"; };
@@ -350,6 +351,7 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B82DE31E035B8700F960FE /* Memory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Memory.xib; sourceTree = "<group>"; };
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
 		D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pep; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
@@ -534,7 +536,7 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		46C7EEE71D80BF1100F74B6E /* ASM */ = {
+		46C7EEE71D80BF1100F74B6E /* Pep9 */ = {
 			isa = PBXGroup;
 			children = (
 				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
@@ -551,24 +553,25 @@
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 				46C76A601DAD86BD0071C340 /* IOController.swift */,
-				4694F3D01DBABC0300F0E822 /* IO.storyboard */,
-				46C76A651DAF173D0071C340 /* ASM_TabBar.storyboard */,
-				46C7EEE21D80BDD300F74B6E /* ASM_CPU.storyboard */,
+				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
+				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
+				D2B82DE31E035B8700F960FE /* Memory.xib */,
+				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46E246B01DE0E24200611A18 /* Code */,
 				46C7EEE11D80BD7400F74B6E /* System */,
 			);
-			name = ASM;
+			name = Pep9;
 			sourceTree = "<group>";
 		};
-		46C7EEE81D80BF1F00F74B6E /* CPU */ = {
+		46C7EEE81D80BF1F00F74B6E /* Pep9CPU */ = {
 			isa = PBXGroup;
 			children = (
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
 				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
 				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
 			);
-			name = CPU;
+			name = Pep9CPU;
 			sourceTree = "<group>";
 		};
 		46C7EEE91D80BF6800F74B6E /* Images */ = {
@@ -733,10 +736,10 @@
 			isa = PBXGroup;
 			children = (
 				46C7EEE61D80BED300F74B6E /* Home */,
-				46C7EEE71D80BF1100F74B6E /* ASM */,
+				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46A304E41C992D5500CDCD1A /* PepTextView */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
-				46C7EEE81D80BF1F00F74B6E /* CPU */,
+				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C608D31C8EADC500CC161A /* Core Data */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
@@ -893,10 +896,10 @@
 				46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */,
 				46EC8ABC1C9895CC001405CE /* fig0436.pepb in Resources */,
 				46EC8ABD1C9895CC001405CE /* fig0436.peph in Resources */,
-				46C76A661DAF173D0071C340 /* ASM_TabBar.storyboard in Resources */,
+				46C76A661DAF173D0071C340 /* Pep9TabBar.storyboard in Resources */,
 				46EC8ABE1C9895CC001405CE /* fig0436.pepo in Resources */,
 				46EC8ABF1C9895CC001405CE /* fig0437.pepb in Resources */,
-				4694F3D11DBABC0300F0E822 /* IO.storyboard in Resources */,
+				4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */,
 				46EC8AC01C9895CC001405CE /* fig0437.peph in Resources */,
 				46EC8AC11C9895CC001405CE /* fig0437.pepo in Resources */,
 				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
@@ -922,6 +925,7 @@
 				46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */,
 				46EC8AD31C9895CC001405CE /* fig0604.c in Resources */,
 				46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */,
+				D2B82DE41E035B8700F960FE /* Memory.xib in Resources */,
 				46EC8AD51C9895CC001405CE /* fig0606.c in Resources */,
 				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
 				46EC8AD71C9895CC001405CE /* fig0608.c in Resources */,
@@ -957,7 +961,7 @@
 				46EC8AF01C9895CD001405CE /* fig0636.c in Resources */,
 				46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */,
 				46EC8AF21C9895CD001405CE /* fig0638.c in Resources */,
-				46C7EEE41D80BDD300F74B6E /* ASM_CPU.storyboard in Resources */,
+				46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */,
 				46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */,
 				46EC8AF41C9895CD001405CE /* fig0640.c in Resources */,
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,

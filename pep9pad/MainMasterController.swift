@@ -11,7 +11,7 @@ class MainMasterController: UIViewController {
     
     internal var detail: MainDetailController!
     internal var cpu: CpuController!
-    internal var io: IOController!
+    internal var io: IOMemController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class MainMasterController: UIViewController {
         if segue.identifier == "cpuEmbedSegue" {
             self.cpu = segue.destination as? CpuController
         } else if segue.identifier == "ioEmbedSegue" {
-            self.io = segue.destination as? IOController
+            self.io = segue.destination as? IOMemController
         }
     }
 
@@ -53,8 +53,8 @@ class MainMasterController: UIViewController {
     func loadExample(_ text: String, ofType: PepFileType, io: String!, usesTerminal: Bool) {
         // if the load is successful, set the io properties
         if detail.attemptToLoadExample(text: text, ofType: ofType) {
-            self.io.setIOMode(to: usesTerminal ? .terminal : .batch)
-            self.io.topTextView.text = io
+            self.io.setMode(to: usesTerminal ? .terminalIO : .batchIO)
+            self.io.setInput(io)
         }
     }
 

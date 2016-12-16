@@ -9,7 +9,7 @@ import UIKit
 import FontAwesome_swift
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
-typealias ASM_TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, memory: MemoryController?, trace: TraceController?)
+typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
 
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
@@ -19,7 +19,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
     internal var master: MainMasterController!
     internal var tabController: UITabBarController!
     // must initialize this, otherwise we get a runtime error
-    internal var tabVCs: ASM_TabBarVCs = (nil, nil, nil, nil, nil)
+    internal var tabVCs: Pep9TabBarVCs = (nil, nil, nil, nil)
     
     
     // MARK: - ViewController Lifecycle
@@ -81,8 +81,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
                 tabVCs.source = tabController.viewControllers?[0] as? SourceController
                 tabVCs.object = tabController.viewControllers?[1] as? ObjectController
                 tabVCs.listing = tabController.viewControllers?[2] as? ListingController
-                tabVCs.memory = tabController.viewControllers?[3] as? MemoryController
-                tabVCs.trace = tabController.viewControllers?[4] as? TraceController
+                tabVCs.trace = tabController.viewControllers?[3] as? TraceController
 
             default:
                 break
