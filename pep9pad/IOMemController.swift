@@ -34,18 +34,24 @@ class IOMemController: UIViewController, UITextViewDelegate {
     var currentMode: IOMemMode = .batchIO
     
     /// The duration (in seconds) of the animated transition between io modes.
-    var animationDuration: Double = 0.25
+    var animationDuration: Double = 0.18
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        memoryView = MemoryView(frame: CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y+44, width: view.frame.width, height: view.frame.height-44))
+        //memoryView.frame =
+        memoryView.isHidden = true
+        view.addSubview(memoryView)
+        
+        terminalTextView = UITextView()
+        terminalTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44)
+        terminalTextView.isHidden = true
+        view.addSubview(terminalTextView)
+        
+        view.clipsToBounds = true
     }
     
     override func viewWillLayoutSubviews() {
-        memoryController = (storyboard?.instantiateViewController(withIdentifier: "MemControllerID"))! as! MemoryController
-        memoryView = memoryController.view
-        view.addSubview(memoryView)
-        terminalTextView = UITextView()
-        view.addSubview(terminalTextView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,19 +84,23 @@ class IOMemController: UIViewController, UITextViewDelegate {
                 segmentedControl.selectedSegmentIndex = segIdxForBatchIO
                 currentMode = .batchIO
                 
-                // grow bottomTextView to take up half of view, and shrink topTextView to take up other half
-                let viewHeight = view.frame.height
-                let viewWidth = view.frame.width
-                let heightOfEach = (viewHeight-44)/2
-                let newRectForInput = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: heightOfEach)
-                let newRectForOutput = CGRect(x: view.frame.origin.x, y: viewHeight/2+22, width: viewWidth, height: heightOfEach)
-                let newRectForTerminal = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
-                let newRectForMem = newRectForTerminal
-                UIView.animate(withDuration: 0.25) {
-                    self.batchInputTextView.frame = newRectForInput
-                    self.batchOutputTextView.frame = newRectForOutput
-                    self.terminalTextView.frame = newRectForTerminal
-                    self.memoryView.frame = newRectForMem
+//                // grow bottomTextView to take up half of view, and shrink topTextView to take up other half
+//                let viewHeight = view.frame.height
+//                let viewWidth = view.frame.width
+//                let heightOfEach = (viewHeight-44)/2
+//                let newRectForInput = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: heightOfEach)
+//                let newRectForOutput = CGRect(x: view.frame.origin.x, y: viewHeight/2+22, width: viewWidth, height: heightOfEach)
+//                let newRectForTerminal = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
+//                let newRectForMem = newRectForTerminal
+                UIView.animate(withDuration: animationDuration) {
+//                    self.batchInputTextView.frame = newRectForInput
+//                    self.batchOutputTextView.frame = newRectForOutput
+//                    self.terminalTextView.frame = newRectForTerminal
+//                    self.memoryView.frame = newRectForMem
+                    self.batchInputTextView.isHidden = false
+                    self.batchOutputTextView.isHidden = false
+                    self.terminalTextView.isHidden = true
+                    self.memoryView.isHidden = true
                 }
 
                 
@@ -100,36 +110,44 @@ class IOMemController: UIViewController, UITextViewDelegate {
                 segmentedControl.selectedSegmentIndex = segIdxForTerminalIO
                 currentMode = .terminalIO
                 
-                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
-                let viewHeight = view.frame.height
-                let viewWidth = view.frame.width
-                let newRectForInput = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
-                let newRectForOutput = newRectForInput
-                let newRectForTerminal = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: viewHeight-44)
-                let newRectForMem = newRectForInput
-                UIView.animate(withDuration: 0.25) {
-                    self.batchInputTextView.frame = newRectForInput
-                    self.batchOutputTextView.frame = newRectForOutput
-                    self.terminalTextView.frame = newRectForTerminal
-                    self.memoryView.frame = newRectForMem
+//                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
+//                let viewHeight = view.frame.height
+//                let viewWidth = view.frame.width
+//                let newRectForInput = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
+//                let newRectForOutput = newRectForInput
+//                let newRectForTerminal = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: viewHeight-44)
+//                let newRectForMem = newRectForInput
+                UIView.animate(withDuration: animationDuration) {
+//                    self.batchInputTextView.frame = newRectForInput
+//                    self.batchOutputTextView.frame = newRectForOutput
+//                    self.terminalTextView.frame = newRectForTerminal
+//                    self.memoryView.frame = newRectForMem
+                    self.batchInputTextView.isHidden = true
+                    self.batchOutputTextView.isHidden = true
+                    self.terminalTextView.isHidden = false
+                    self.memoryView.isHidden = true
                 }
             case .memory:
                 // switch to memory mode
                 // set `segmentedControl`'s `selectedSegmentIndex` just in case `setMode` is called from outside
                 segmentedControl.selectedSegmentIndex = segIdxForMemory
                 currentMode = .memory
-                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
-                let viewHeight = view.frame.height
-                let viewWidth = view.frame.width
-                let newRectForInput = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
-                let newRectForOutput = newRectForInput
-                let newRectForTerminal = newRectForInput
-                let newRectForMem = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: viewHeight-44)
-                UIView.animate(withDuration: 0.25) {
-                    self.batchInputTextView.frame = newRectForInput
-                    self.batchOutputTextView.frame = newRectForOutput
-                    self.terminalTextView.frame = newRectForTerminal
-                    self.memoryView.frame = newRectForMem
+//                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
+//                let viewHeight = view.frame.height
+//                let viewWidth = view.frame.width
+//                let newRectForInput = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
+//                let newRectForOutput = newRectForInput
+//                let newRectForTerminal = newRectForInput
+//                let newRectForMem = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: viewHeight-44)
+                UIView.animate(withDuration: animationDuration) {
+//                    self.batchInputTextView.frame = newRectForInput
+//                    self.batchOutputTextView.frame = newRectForOutput
+//                    self.terminalTextView.frame = newRectForTerminal
+//                    self.memoryView.frame = newRectForMem
+                    self.batchInputTextView.isHidden = true
+                    self.batchOutputTextView.isHidden = true
+                    self.terminalTextView.isHidden = true
+                    self.memoryView.isHidden = false
                 }
             }
         }
@@ -143,8 +161,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
     @IBOutlet var batchInputTextView: UITextView!
     @IBOutlet var batchOutputTextView: UITextView!
     var terminalTextView: UITextView!
-    var memoryView: UIView!
-    var memoryController: MemoryController!
+    var memoryView: MemoryView!
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     

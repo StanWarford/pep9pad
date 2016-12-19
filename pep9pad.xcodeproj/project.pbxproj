@@ -49,7 +49,7 @@
 		46C76A661DAF173D0071C340 /* Pep9TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */; };
 		46C76A681DB856A50071C340 /* ObjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A671DB856A50071C340 /* ObjectController.swift */; };
 		46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A691DB9593A0071C340 /* ListingController.swift */; };
-		46C76A6C1DB959480071C340 /* MemoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6B1DB959480071C340 /* MemoryController.swift */; };
+		46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6B1DB959480071C340 /* MemoryView.swift */; };
 		46C76A6E1DB959680071C340 /* TraceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A6D1DB959680071C340 /* TraceController.swift */; };
 		46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */; };
 		46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C80BDB1DF0D0830096D4E0 /* Extensions.swift */; };
@@ -229,7 +229,7 @@
 		46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pep9TabBar.storyboard; sourceTree = "<group>"; };
 		46C76A671DB856A50071C340 /* ObjectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectController.swift; sourceTree = "<group>"; };
 		46C76A691DB9593A0071C340 /* ListingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingController.swift; sourceTree = "<group>"; };
-		46C76A6B1DB959480071C340 /* MemoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryController.swift; sourceTree = "<group>"; };
+		46C76A6B1DB959480071C340 /* MemoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
 		46C76A6D1DB959680071C340 /* TraceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceController.swift; sourceTree = "<group>"; };
 		46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pep9Processor.storyboard; sourceTree = "<group>"; };
 		46C80BDB1DF0D0830096D4E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -391,6 +391,16 @@
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
 			name = StackTrace;
+			sourceTree = "<group>";
+		};
+		46278CC71E076BBC009D6371 /* IOMem */ = {
+			isa = PBXGroup;
+			children = (
+				46C76A6B1DB959480071C340 /* MemoryView.swift */,
+				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
+				D2B82DE31E035B8700F960FE /* Memory.xib */,
+			);
+			name = IOMem;
 			sourceTree = "<group>";
 		};
 		465C76241C90DBF30029311F /* Help Documentation */ = {
@@ -557,15 +567,13 @@
 				46F82CBA1DE4E6BF001FC1FF /* ProjectModel */,
 				46C76A631DAF112A0071C340 /* SourceController.swift */,
 				46C76A671DB856A50071C340 /* ObjectController.swift */,
-				46C76A6B1DB959480071C340 /* MemoryController.swift */,
+				46278CC71E076BBC009D6371 /* IOMem */,
 				46C76A691DB9593A0071C340 /* ListingController.swift */,
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
 				46278CC61E075834009D6371 /* StackTrace */,
-				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
 				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
-				D2B82DE31E035B8700F960FE /* Memory.xib */,
 				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46E246B01DE0E24200611A18 /* Code */,
@@ -1077,7 +1085,7 @@
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* MainMasterController.swift in Sources */,
-				46C76A6C1DB959480071C340 /* MemoryController.swift in Sources */,
+				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
