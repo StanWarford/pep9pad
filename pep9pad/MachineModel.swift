@@ -23,8 +23,6 @@ class MachineModel {
     var instructionSpecifier: Int
     var operandSpecifier: Int
     var operand: Int
-    // I think this is an artifact of Pep/9
-    // var operandDisplayFieldWidth: Int
     
     var inputBuffer: String
     var outputBuffer: String
@@ -51,7 +49,7 @@ class MachineModel {
         instructionSpecifier = 0
         operandSpecifier = 0
         operand = 0
-        // I think this is an artifact of Pep/9
+        // I think this left over from Pep/9 QT app
         // operandDisplayFieldWidth = 0
         
         inputBuffer = ""

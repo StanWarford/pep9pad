@@ -27,7 +27,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
     
     
     
-    /// Represents the current mode of this view. Default value is `.batch`
+    /// Represents the current mode of this view. Default value is `.batchIO`
     /// * The `batchIO` mode corresponds to two text input panels, an input and output
     /// * The `terminalIO` mode corresponds to a single text input/output panel
     /// * The `memory` mode corresponds to a single main memory panel

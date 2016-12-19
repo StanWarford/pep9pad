@@ -60,6 +60,7 @@ class CpuController: UIViewController {
     
     // MARK: - Methods
     
+    /// Pulls data from the registers in `machine`, decodes that data with `maps`, and inserts that data into the approprate `UITextField`.
     func update() {
         let addrMode = maps.decodeAddrMode[machine.instructionSpecifier]
         
@@ -81,38 +82,20 @@ class CpuController: UIViewController {
         pcDec.text = "\(machine.toSignedDecimal(machine.programCounter))"
         
         instrSpecBin.text = machine.instructionSpecifier.toBin8()
-        //instrSpecMnemon.text = " " + maps.enumToMnemonMap[maps.decodeMnemonic[machine.instructionSpecifier]]+
+        instrSpecMnemon.text = " " + maps.enumToMnemonMap[maps.decodeMnemonic[machine.instructionSpecifier]]! + maps.commaSpaceStringForAddrMode(addressMode: addrMode)
+        
+        if maps.decodeAddrMode[machine.instructionSpecifier] == .None {
+            oprndSpecDec.text = ""
+            oprndSpecHex.text = ""
+            oprndDec.text = ""
+            oprndHex.text = ""
+        } else {
+            oprndSpecHex.text = "0x\(machine.operandSpecifier.toHex4())"
+            oprndSpecDec.text = "\(machine.toSignedDecimal(machine.operandSpecifier))"
+            oprndHex.text = "0x\(machine.operand.toHex4())"
+            oprndSpecDec.text = "\(machine.toSignedDecimal(machine.operand))"
+        }
     }
 
-//
-//        ui->accHexLabel->setText(QString("0x") + QString("%1").arg(Sim::accumulator, 4, 16, QLatin1Char('0')).toUpper());
-//        ui->accDecLabel->setText(QString("%1").arg(Sim::toSignedDecimal(Sim::accumulator)));
-//        
-//        ui->xHexLabel->setText(QString("0x") + QString("%1").arg(Sim::indexRegister, 4, 16, QLatin1Char('0')).toUpper());
-//        ui->xDecLabel->setText(QString("%1").arg(Sim::toSignedDecimal(Sim::indexRegister)));
-//        
-//        ui->spHexLabel->setText(QString("0x") + QString("%1").arg(Sim::stackPointer, 4, 16, QLatin1Char('0')).toUpper());
-//        ui->spDecLabel->setText(QString("%1").arg(Sim::stackPointer));
-//        
-//        ui->pcHexLabel->setText(QString("0x") + QString("%1").arg(Sim::programCounter, 4, 16, QLatin1Char('0')).toUpper());
-//        ui->pcDecLabel->setText(QString("%1").arg(Sim::programCounter));
-//        
-//        ui->instrSpecBinLabel->setText(QString("%1").arg(Sim::instructionSpecifier, 8, 2, QLatin1Char('0')).toUpper());
-//        ui->instrSpecMnemonLabel->setText(" " + Pep::enumToMnemonMap.value(Pep::decodeMnemonic[Sim::instructionSpecifier])
-//        + Pep::addrModeToCommaSpace(addrMode));
-//        
-//        if (Pep::decodeAddrMode.value(Sim::instructionSpecifier) == Enu::NONE) {
-//            ui->oprndSpecHexLabel->setText("");
-//            ui->oprndSpecDecLabel->setText("");
-//            ui->oprndHexLabel->setText("");
-//            ui->oprndDecLabel->setText("");
-//        }
-//        else {
-//            ui->oprndSpecHexLabel->setText(QString("0x") + QString("%1").arg(Sim::operandSpecifier, 4, 16, QLatin1Char('0')).toUpper());
-//            ui->oprndSpecDecLabel->setText(QString("%1").arg(Sim::toSignedDecimal(Sim::operandSpecifier)));
-//            ui->oprndHexLabel->setText(QString("0x") + QString("%1").arg(Sim::operand, Sim::operandDisplayFieldWidth, 16, QLatin1Char('0')).toUpper());
-//            ui->oprndDecLabel->setText(QString("%1").arg(Sim::toSignedDecimal(Sim::operand)));
-//        }
-//    }
 
 }
