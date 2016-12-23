@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ap-BW-TDc">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Ap-BW-TDc">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,26 +15,36 @@
                         <viewControllerLayoutGuide type="bottom" id="oqv-wh-otk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aHV-4b-bBN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="iuy-Yz-JgW">
-                                <rect key="frame" x="0.0" y="314" width="375" height="304"/>
-                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-R9-PI7">
+                                <connections>
+                                    <segue destination="gvB-0F-Oxp" kind="embed" id="W9I-Sj-eXH"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iuy-Yz-JgW" firstAttribute="top" secondItem="h33-un-hWy" secondAttribute="bottom" constant="250" id="08Z-dN-v3W"/>
-                            <constraint firstAttribute="trailing" secondItem="iuy-Yz-JgW" secondAttribute="trailing" id="K02-pV-mUY"/>
-                            <constraint firstItem="iuy-Yz-JgW" firstAttribute="bottom" secondItem="oqv-wh-otk" secondAttribute="top" id="fyH-ML-fpo"/>
-                            <constraint firstItem="iuy-Yz-JgW" firstAttribute="leading" secondItem="aHV-4b-bBN" secondAttribute="leading" id="waG-vu-7Ks"/>
+                            <constraint firstItem="DeY-R9-PI7" firstAttribute="top" secondItem="h33-un-hWy" secondAttribute="bottom" id="JBn-L1-dn5"/>
+                            <constraint firstItem="DeY-R9-PI7" firstAttribute="bottom" secondItem="oqv-wh-otk" secondAttribute="top" id="MRr-OI-2Bp"/>
+                            <constraint firstAttribute="trailing" secondItem="DeY-R9-PI7" secondAttribute="trailing" id="RPd-HH-wIo"/>
+                            <constraint firstItem="DeY-R9-PI7" firstAttribute="leading" secondItem="aHV-4b-bBN" secondAttribute="leading" id="a71-FA-TQU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="Fut-k7-M80"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iBb-5v-zNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-247" y="173"/>
+            <point key="canvasLocation" x="-247.26562499999997" y="172.65625"/>
+        </scene>
+        <!--Trace-->
+        <scene sceneID="nkq-MP-d5A">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Trace" id="gvB-0F-Oxp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7E-Gn-Huo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168" y="173"/>
         </scene>
         <!--Object Code-->
         <scene sceneID="iNk-O6-UYd">
@@ -48,11 +55,10 @@
                         <viewControllerLayoutGuide type="bottom" id="l2u-vy-78S"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="53m-DP-KgF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -82,11 +88,10 @@
                         <viewControllerLayoutGuide type="bottom" id="IoH-UQ-5lF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sGn-GJ-53d">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6p-0Sp" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -116,11 +121,10 @@
                         <viewControllerLayoutGuide type="bottom" id="FIn-qU-MXS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wHl-ag-cqC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGL-kS-c5j" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -164,7 +168,4 @@
             <point key="canvasLocation" x="-2270" y="-785"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="MemTrace" width="376" height="205"/>
-    </resources>
 </document>

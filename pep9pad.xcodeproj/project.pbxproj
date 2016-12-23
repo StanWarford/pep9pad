@@ -37,6 +37,8 @@
 		468A95D41DDCECF400916BE7 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D31DDCECF400916BE7 /* Code.swift */; };
 		468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D51DDCEF2600916BE7 /* Instructions.swift */; };
 		468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BC12D1DC27220000AE01A /* UIConstants.swift */; };
+		468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468FB3111E0CB50D001F154A /* TraceTableController.swift */; };
+		468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468FB3131E0CF0EB001F154A /* Trace.storyboard */; };
 		4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* IOMem.storyboard */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
@@ -218,6 +220,8 @@
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		468FB3111E0CB50D001F154A /* TraceTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceTableController.swift; sourceTree = "<group>"; };
+		468FB3131E0CF0EB001F154A /* Trace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trace.storyboard; sourceTree = "<group>"; };
 		4694F3D01DBABC0300F0E822 /* IOMem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOMem.storyboard; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
@@ -386,14 +390,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		46278CC61E075834009D6371 /* StackTrace */ = {
+		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
+				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				46278CC81E076CFA009D6371 /* StackController.swift */,
+				468FB3111E0CB50D001F154A /* TraceTableController.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
-			name = StackTrace;
+			name = Trace;
 			sourceTree = "<group>";
 		};
 		46278CC71E076BBC009D6371 /* IOMem */ = {
@@ -574,7 +580,7 @@
 				46C76A691DB9593A0071C340 /* ListingController.swift */,
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
-				46278CC61E075834009D6371 /* StackTrace */,
+				46278CC61E075834009D6371 /* Trace */,
 				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
 				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
@@ -953,6 +959,7 @@
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE01C9895CC001405CE /* fig0618.c in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
+				468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */,
 				46EC8AE21C9895CC001405CE /* fig0621.c in Resources */,
 				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
 				46EC8AE41C9895CC001405CE /* fig0623.c in Resources */,
@@ -1100,6 +1107,7 @@
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
+				468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
