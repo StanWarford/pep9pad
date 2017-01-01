@@ -23,7 +23,15 @@ class StackController: UIViewController {
 
 
     // MARK: Attributes
-    // See memorytracepane and memorycellgraphicsitem in ../Ref, the logic will be the same but there is quite a bit of Qt complexity that will need to be ported over.  Makes sense to use bezier curves for rendering, particularly because they'll look good no matter the screen res.  Could programmatically generate the bezier curves using an automated tool like PaintCode.  
+    
+    /* NOTE -- See memorytracepane and memorycellgraphicsitem in ../Ref, 
+    the logic will be the same but there is quite a bit of Qt complexity 
+    that will need to be ported over.  Makes sense to use bezier curves 
+    for rendering, particularly because they'll look good no matter the 
+    screen res.  Could programmatically generate the bezier curves using 
+    an automated tool like PaintCode.  
+    */
+    
 
 
     // MARK: - Methods

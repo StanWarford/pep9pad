@@ -127,6 +127,9 @@ class MainDetailController: UIViewController, UITabBarDelegate {
             setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .Cog, ofSize: 20)
         }
     }
+    
+    @IBOutlet var fontBtn: UIBarButtonItem!
+    
     @IBOutlet var actionBtn: UIBarButtonItem!
     
     
@@ -213,6 +216,43 @@ class MainDetailController: UIViewController, UITabBarDelegate {
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let firstAction = UIAlertAction(title: "", style: .default) { (action) in
+            
+        }
+        alertController.addAction(firstAction)
+        
+        
+        let darkModeAction = UIAlertAction(title: "Turn dark mode \((!appSettings.darkModeOn).toEnglish())", style: .default) { (action) in
+            appSettings.toggleDarkMode()
+            
+            
+        }
+        alertController.addAction(darkModeAction)
+        
+        
+        var fontSizeSliderController = UIViewController()
+        // The be
+        var sliderFrame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
+        
+        var slider = UISlider(frame: sliderFrame)
+        
+        slider.minimumValue = 0.0
+        slider.maximumValue = 1.0
+        slider.value = appSettings.fontSize
+        
+        fontSizeSliderController.view.addSubview(slider)
+        
+        alertController.view.addSubview(fontSizeSliderController.view)
+        
+        
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
+
     }
     
     @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {

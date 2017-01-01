@@ -11,6 +11,10 @@ extension Bool {
     func toIntString() -> String {
         return self == true ? "1" : "0"
     }
+    
+    func toEnglish() -> String {
+        return self == true ? "on" : "off"
+    }
 }
 
 extension Int {

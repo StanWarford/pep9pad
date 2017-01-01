@@ -41,6 +41,7 @@
 		468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468FB3131E0CF0EB001F154A /* Trace.storyboard */; };
 		4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* IOMem.storyboard */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
+		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
 		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
 		46C76A541DA494130071C340 /* FontAwesome in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A531DA494130071C340 /* FontAwesome */; };
 		46C76A561DA496510071C340 /* MainDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A551DA496510071C340 /* MainDetailController.swift */; };
@@ -224,6 +225,7 @@
 		468FB3131E0CF0EB001F154A /* Trace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trace.storyboard; sourceTree = "<group>"; };
 		4694F3D01DBABC0300F0E822 /* IOMem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOMem.storyboard; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
+		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
 		46C76A531DA494130071C340 /* FontAwesome */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAwesome; sourceTree = "<group>"; };
 		46C76A551DA496510071C340 /* MainDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainDetailController.swift; sourceTree = "<group>"; };
@@ -493,6 +495,14 @@
 			name = Help;
 			sourceTree = "<group>";
 		};
+		46BC04341E18A2ED006ED01F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				46BC04321E18A2DE006ED01F /* AppSettings.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +768,7 @@
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46C608D41C8EADD700CC161A /* Launch */,
+				46BC04341E18A2ED006ED01F /* Settings */,
 				46C608D31C8EADC500CC161A /* Core Data */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
 				468BC12C1DC271EA000AE01A /* Utilities */,
@@ -1135,6 +1146,7 @@
 				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
+				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
