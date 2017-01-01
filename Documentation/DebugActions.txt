@@ -1,0 +1,139 @@
+// in mainwindow.cpp _________________________________________________________________
+
+void MainWindow::on_actionBuild_Start_Debugging_Source_triggered()
+{
+    // note that this short-circuits if listing pane is empty
+    if (!assemblerListingPane->isEmpty() && load()) {
+        ui->statusbar->showMessage("Load succeeded", 4000);
+        
+        Sim::stackPointer = Sim::readWord(Pep::dotBurnArgument - 11);
+        // 11 is the vector offset from the last byte of the OS for the User stack pointer
+        Sim::programCounter = 0x0000;
+
+        setDebugState(true); // see def of this function later in this file
+        Sim::trapped = false;
+
+        if (ui->pepInputOutputTab->currentIndex() == 0) {
+            ui->pepInputOutputTab->setTabEnabled(1, false);
+            outputPane->clearOutput();
+            QString s = inputPane->toPlainText();
+            if (!s.endsWith("\n")) {
+                s.append("\n");
+            }
+            Sim::inputBuffer = s;
+        }
+        else {
+            ui->pepInputOutputTab->setTabEnabled(0, false);
+            Sim::inputBuffer.clear();
+            terminalPane->clearTerminal();
+        }
+
+        ui->pepCodeTraceTab->setCurrentIndex(1); // Make listing trace pane visible
+
+        cpuPane->updateCpu();
+        listingTracePane->setDebuggingState(true); // see def of this function later in this file
+        // enable the "single step" and "resume" buttons
+        cpuPane->setButtonsEnabled(true); 
+
+        if (!memoryDumpPane->isHidden()) {
+            memoryDumpPane->highlightMemory(true);
+        }
+        if (!memoryTracePane->isHidden()) {
+            memoryTracePane->setMemoryTrace();
+        }
+    }
+    else {
+        if (assemblerListingPane->isEmpty()) {
+            ui->statusbar->showMessage("No assembler listing, cannot debug source", 4000);
+        }
+        else {
+            ui->statusbar->showMessage("Load failed", 4000);
+        }
+    }
+}
+
+
+bool MainWindow::load()
+{
+    QList<int> objectCodeList;
+    if (objectCodePane->getObjectCode(objectCodeList)) {
+        Sim::loadMem(objectCodeList);
+        memoryDumpPane->refreshMemoryLines(0, objectCodeList.size());
+        return true;
+    }
+    return false;
+}
+
+
+void MainWindow::setDebugState(bool b)
+{
+    ui->actionFile_New->setDisabled(b);
+    ui->actionFile_Open->setDisabled(b);
+    ui->actionEdit_Format_From_Listing->setDisabled(b);
+    ui->actionEdit_Remove_Error_Messages->setDisabled(b);
+    ui->actionBuild_Assemble->setDisabled(b);
+    ui->actionBuild_Load->setDisabled(b);
+    ui->actionBuild_Execute->setDisabled(b);
+    ui->actionBuild_Run_Source->setDisabled(b);
+    ui->actionBuild_Start_Debugging_Source->setDisabled(b);
+    ui->actionBuild_Run_Object->setDisabled(b);
+    ui->actionBuild_Start_Debugging_Object->setDisabled(b);
+    ui->actionBuild_Start_Debugging_Loader->setDisabled(b);
+    ui->actionBuild_Stop_Debugging->setDisabled(!b);
+    ui->actionBuild_Interrupt_Execution->setDisabled(!b);
+    ui->actionSystem_Clear_Memory->setDisabled(b);
+    ui->actionSystem_Redefine_Mnemonics->setDisabled(b);
+    ui->actionSystem_Assemble_Install_New_OS->setDisabled(b);
+    ui->actionSystem_Reinstall_Default_OS->setDisabled(b);
+    inputPane->setReadOnly(b);
+    cpuPane->setDebugState(b);
+    sourceCodePane->setReadOnly(b);
+    objectCodePane->setReadOnly(b);
+    helpDialog->setCopyButtonDisabled(b);
+    if (b) {
+        Pep::memAddrssToAssemblerListing = &Pep::memAddrssToAssemblerListingProg;
+        Pep::listingRowChecked = &Pep::listingRowCheckedProg;
+    }
+    else {
+        ui->pepInputOutputTab->setTabEnabled(1, true);
+        ui->pepInputOutputTab->setTabEnabled(0, true);
+    }
+}
+
+
+
+
+
+
+// in listingtracepane.cpp __________________________________________________________
+void ListingTracePane::setDebuggingState(bool b)
+{
+    QTableWidget *tableWidget;
+    if (Sim::trapped) {
+        tableWidget = ui->listingPepOsTraceTableWidget;
+        ui->listingPepOsTraceTableWidget->show();
+        ui->listingTraceTableWidget->hide();
+    }
+    else {
+        tableWidget = ui->listingTraceTableWidget;
+        ui->listingPepOsTraceTableWidget->hide();
+        ui->listingTraceTableWidget->show();
+    }
+
+    for (int i = 0; i < tableWidget->rowCount(); i++) {
+        tableWidget->item(i, 1)->setBackgroundColor(Qt::white);
+        tableWidget->item(i, 1)->setTextColor(Qt::black);
+    }
+    highlightedItemList.clear();
+    
+    if (b && Pep::memAddrssToAssemblerListing->contains(Sim::programCounter)) {
+        QTableWidgetItem *highlightedItem = tableWidget->item(Pep::memAddrssToAssemblerListing->value(Sim::programCounter), 1);
+        highlightedItem->setBackgroundColor(QColor(56, 117, 215));
+        highlightedItem->setTextColor(Qt::white);
+        highlightedItemList.append(highlightedItem);
+
+        tableWidget->scrollToItem(highlightedItem);
+    }
+    tableWidget->horizontalScrollBar()->setValue(tableWidget->horizontalScrollBar()->minimum());
+//    resizeDocWidth();
+}
