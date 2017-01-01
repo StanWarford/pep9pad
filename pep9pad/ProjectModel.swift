@@ -114,7 +114,7 @@ class ProjectModel {
         }
     }
     
-    func saveProjectAsNewProjectInFS(withName: String) {
+    func saveAsNewProjectInFS(withName: String) {
         name = withName
         if saveNewProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed

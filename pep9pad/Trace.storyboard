@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-257" y="-50"/>
         </scene>
-        <!--View Controller-->
+        <!--Trace Table Controller-->
         <scene sceneID="q9P-aV-a0z">
             <objects>
-                <viewController id="SRI-pi-RQd" sceneMemberID="viewController">
+                <viewController id="SRI-pi-RQd" customClass="TraceTableController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G8z-Jv-5Ba"/>
                         <viewControllerLayoutGuide type="bottom" id="blu-29-Asq"/>

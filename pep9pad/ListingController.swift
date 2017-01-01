@@ -25,6 +25,7 @@ class ListingController: UIViewController, ProjectModelEditor {
     }
     
     /// Updates `projectModel.listingStr` with the contents of `textView`.
+    /// **NOTE: This function should never be called.  The user does not have permission to edit the listing.**
     func pushToProjectModel() {
         projectModel.receiveChanges(from: self, text: textView.getText())
     }

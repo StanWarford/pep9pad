@@ -7,8 +7,47 @@
 //
 
 import UIKit
+
+
+
 class TraceTableController: UITableViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    
+    // Conformance to UITableViewDataSource (subclass of UITableViewController)
+    
+    
+    let idForCell = "traceTableCellID"
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell: UITableViewCell
+        let index = indexPath.row
+        
+        // create or dequeue a cell
+        if let temp = tableView.dequeueReusableCell(withIdentifier: idForCell) {
+            cell = temp
+        } else {
+            cell = UITableViewCell(style: .default, reuseIdentifier: idForCell)
+        }
+        
+        // then fill it with the appropriate content
+        if index < assembler.listing.count {
+            cell.textLabel?.text = assembler.listing[index]
+        } else {
+            cell.textLabel?.text = "ERROR: Index \(index) out of bounds."
+        }
+        
+        return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return assembler.listing.count
+        }
+        return 0
     }
 }

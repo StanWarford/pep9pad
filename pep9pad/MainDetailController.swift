@@ -345,7 +345,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     let name = (alertController.textFields?.first?.text)!
                     if validNameForFS(name: name) {
-                        projectModel.saveProjectAsNewProjectInFS(withName: name)
+                        projectModel.saveAsNewProjectInFS(withName: name)
                         projectModel.newBlankProject()
                         self.updateEditorsFromProjectModel()
                         print("saving current project with the given name and creating a new project")
@@ -434,7 +434,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
                     print("saving current project with the given name and opening a preexisting project")
                     let name = (alertController.textFields?.first?.text)!
                     if validNameForFS(name: name) {
-                        projectModel.saveProjectAsNewProjectInFS(withName: name)
+                        projectModel.saveAsNewProjectInFS(withName: name)
                         self.updateEditorsFromProjectModel()
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
@@ -495,7 +495,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
                 print("saving current project with the given name and opening a preexisting project")
                 let name = (alertController.textFields?.first?.text)!
                 if validNameForFS(name: name) {
-                    projectModel.saveProjectAsNewProjectInFS(withName: name)
+                    projectModel.saveAsNewProjectInFS(withName: name)
                     self.updateEditorsFromProjectModel()
                 } else {
                     print("invalid (non-unique or too short) name for project, giving up save")
@@ -544,7 +544,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
                     print("saving current project with the given name and loading the given example")
                     let name = (alertController.textFields?.first?.text)!
                     if validNameForFS(name: name) {
-                        projectModel.saveProjectAsNewProjectInFS(withName: name)
+                        projectModel.saveAsNewProjectInFS(withName: name)
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
                     }
