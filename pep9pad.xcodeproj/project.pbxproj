@@ -407,6 +407,7 @@
 		46278CC71E076BBC009D6371 /* IOMem */ = {
 			isa = PBXGroup;
 			children = (
+				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
 				46C76A6B1DB959480071C340 /* MemoryView.swift */,
 				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 				D2B82DE31E035B8700F960FE /* Memory.xib */,
@@ -591,7 +592,6 @@
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
 				46278CC61E075834009D6371 /* Trace */,
-				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
 				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
 				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
 				46B58BD31C8FD872006E46B4 /* Help */,

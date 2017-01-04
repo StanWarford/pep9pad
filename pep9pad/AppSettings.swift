@@ -6,7 +6,7 @@
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// Shared instance of the app's settings. 
 var appSettings = AppSettings()
@@ -20,9 +20,7 @@ class AppSettings {
     // MARK: - Attributes
     
     var darkModeOn: Bool = false
-    // 0.0 is default size, 1.0 is biggest possible size
-    var fontSize: Float = 0.0
-    
+    var font: UIFont = UIFont(name: "Courier", size: 12.0)!
     // MARK: - Methods
     
     func toggleDarkMode() {

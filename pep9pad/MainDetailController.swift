@@ -220,7 +220,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let firstAction = UIAlertAction(title: "", style: .default) { (action) in
+        let firstAction = UIAlertAction(title: "\n\n\n\n\n\n", style: .default) { (action) in
             
         }
         alertController.addAction(firstAction)
@@ -242,7 +242,6 @@ class MainDetailController: UIViewController, UITabBarDelegate {
         
         slider.minimumValue = 0.0
         slider.maximumValue = 1.0
-        slider.value = appSettings.fontSize
         
         fontSizeSliderController.view.addSubview(slider)
         
