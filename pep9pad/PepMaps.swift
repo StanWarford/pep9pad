@@ -148,7 +148,7 @@ class PepMaps {
     var equateSymbols: [String] = []
     
     // Map from instruction memory address to assembler listing line
-    // These poInters are set to the addresses of the program or OS maps
+    // These pointers are set to the addresses of the program or OS maps
     // depending on whether the program or OS is being assembled
     var memAddrssToAssemblerListing: [Int:Int] = [:]
     var listingRowChecked: [Int:Bool] = [:]

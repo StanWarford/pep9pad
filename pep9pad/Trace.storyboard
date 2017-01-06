@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,18 +18,18 @@
                         <viewControllerLayoutGuide type="bottom" id="Yr9-A3-BXw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3ys-X8-Ru2">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bue-Sl-zg8">
-                                <frame key="frameInset" height="191" maxY="513"/>
+                                <rect key="frame" x="0.0" y="-37" width="375" height="191"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="SRI-pi-RQd" kind="embed" id="ENb-Dd-k7r"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cT3-8r-TMA">
-                                <frame key="frameInset" height="464" maxY="49"/>
+                                <rect key="frame" x="0.0" y="154" width="375" height="464"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="rLZ-kr-Eur" kind="embed" id="64A-R2-CgT"/>
@@ -45,16 +48,16 @@
             </objects>
             <point key="canvasLocation" x="-257" y="-50"/>
         </scene>
-        <!--Trace Table Controller-->
+        <!--View Controller-->
         <scene sceneID="q9P-aV-a0z">
             <objects>
-                <viewController id="SRI-pi-RQd" customClass="TraceTableController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SRI-pi-RQd" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G8z-Jv-5Ba"/>
                         <viewControllerLayoutGuide type="bottom" id="blu-29-Asq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GcY-Zp-8JX">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="191"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -72,7 +75,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lK0-kv-pWK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hah-ao-oFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="464"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="464"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
