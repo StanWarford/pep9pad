@@ -1,4 +1,4 @@
-TASK INVENTORY
+--- TODO items ---
 Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
 
 [M] Create an AboutViewController by subclassing UITableView(Controller) and UITableViewCell.  The first tableViewCell should include a brief summary of the app, the version number, and the app icon.  The remaining cells should list all the developers of the app.  
@@ -17,11 +17,11 @@ Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
 
 [V] Write StackTraceViewController.
 
-[E] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.
+[M] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.
 
 [M] Copy over descriptions from /Reference/Help/helpdialog.cpp and add them to the cells’ detailTextLabels.
 
-
+---- Completed ----
 
 
 

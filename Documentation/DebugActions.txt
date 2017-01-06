@@ -136,4 +136,4 @@ void ListingTracePane::setDebuggingState(bool b)
     }
     tableWidget->horizontalScrollBar()->setValue(tableWidget->horizontalScrollBar()->minimum());
 //    resizeDocWidth();
-}
+}f

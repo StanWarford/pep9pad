@@ -60,6 +60,7 @@
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
 		46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246AE1DE0E1C300611A18 /* Dots.swift */; };
 		46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246B11DE0E32A00611A18 /* NonExecutables.swift */; };
+		46E611E91E1DC6C800CCB165 /* ByteCalculatorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E611E81E1DC6C800CCB165 /* ByteCalculatorController.swift */; };
 		46EC8A601C989229001405CE /* fig0512.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A5F1C989229001405CE /* fig0512.pep */; };
 		46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46EC8A611C9892F6001405CE /* PepFileType.swift */; };
 		46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A631C9895CC001405CE /* exer0804.pep */; };
@@ -244,6 +245,7 @@
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
 		46E246AE1DE0E1C300611A18 /* Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dots.swift; sourceTree = "<group>"; };
 		46E246B11DE0E32A00611A18 /* NonExecutables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonExecutables.swift; sourceTree = "<group>"; };
+		46E611E81E1DC6C800CCB165 /* ByteCalculatorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteCalculatorController.swift; sourceTree = "<group>"; };
 		46EC8A5F1C989229001405CE /* fig0512.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0512.pep; path = pep9pad/figures/fig0512.pep; sourceTree = "<group>"; };
 		46EC8A611C9892F6001405CE /* PepFileType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepFileType.swift; sourceTree = "<group>"; };
 		46EC8A631C9895CC001405CE /* exer0804.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = exer0804.pep; path = pep9pad/figures/exer0804.pep; sourceTree = "<group>"; };
@@ -583,11 +585,12 @@
 				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
 				468124171DE81B27003D807A /* MachineModel.swift */,
 				46F5F26E1DCA626B002880FE /* ProjectModel.swift */,
+				46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */,
 				46F82CBA1DE4E6BF001FC1FF /* ProjectModel */,
 				46C76A631DAF112A0071C340 /* SourceController.swift */,
 				46C76A671DB856A50071C340 /* ObjectController.swift */,
-				46278CC71E076BBC009D6371 /* IOMem */,
 				46C76A691DB9593A0071C340 /* ListingController.swift */,
+				46278CC71E076BBC009D6371 /* IOMem */,
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
 				46278CC61E075834009D6371 /* Trace */,
@@ -725,7 +728,6 @@
 		46F82CBA1DE4E6BF001FC1FF /* ProjectModel */ = {
 			isa = PBXGroup;
 			children = (
-				46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */,
 			);
 			name = ProjectModel;
 			sourceTree = "<group>";
@@ -765,6 +767,7 @@
 				46C7EEE61D80BED300F74B6E /* Home */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46A304E41C992D5500CDCD1A /* PepTextView */,
+				46E611E81E1DC6C800CCB165 /* ByteCalculatorController.swift */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46C608D41C8EADD700CC161A /* Launch */,
@@ -1113,6 +1116,7 @@
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
+				46E611E91E1DC6C800CCB165 /* ByteCalculatorController.swift in Sources */,
 				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,

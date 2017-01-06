@@ -10,14 +10,6 @@ import UIKit
 class SourceController: UIViewController, ProjectModelEditor, PepTextViewDelegate {
     
     
-    // MARK: - Properties
-    var sourceCode: [Code] = []
-    var objectCode: [Int] = []
-    var assemblerListing: [String] = []
-    var listingTrace: [String] = []
-    var hasCheckBox: [Bool] = []
-    
-    
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {

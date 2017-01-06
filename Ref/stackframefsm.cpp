@@ -67,6 +67,7 @@ int StackFrameFSM::makeTransition(int numCellsToAdd)
         }
         break;
     case(ECall):
+    // note that this implementation assumes that the user won't use more than one subsp 
         if (mnemon == Enu::SUBSP) { // function with 1 or more locals and 0 or more parameters
             stackState = EStart;
             return (numCellsFromSubSP + numCellsFromCall + numCellsToAdd);
