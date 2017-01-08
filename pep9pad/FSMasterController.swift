@@ -10,7 +10,7 @@ import UIKit
 class FSMasterController: UITableViewController {
     // MARK: - Internal Variables
     internal var detail: FSDetailController!
-    internal var asmDetail: MainDetailController!
+    internal var asmDetail: Pep9DetailController!
     internal var names: [String] = []
     
     // MARK: - View Controller Lifecycle
@@ -21,7 +21,7 @@ class FSMasterController: UITableViewController {
         names = loadProjectNamesFromFS()
     }
     
-    func setup(asmDetailVC: MainDetailController) {
+    func setup(asmDetailVC: Pep9DetailController) {
         asmDetail = asmDetailVC
     }
     

@@ -1,5 +1,5 @@
 //
-//  ASMDetailViewController.swift
+//  Pep9DetailController.swift
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
@@ -14,9 +14,9 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
-class MainDetailController: UIViewController, UITabBarDelegate {
+class Pep9DetailController: UIViewController, UITabBarDelegate {
     
-    internal var master: MainMasterController!
+    internal var master: Pep9MasterController!
     internal var tabController: UITabBarController!
     // must initialize this, otherwise we get a runtime error
     internal var tabVCs: Pep9TabBarVCs = (nil, nil, nil, nil)
@@ -28,7 +28,7 @@ class MainDetailController: UIViewController, UITabBarDelegate {
         super.viewDidLoad()
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
-        self.master = masternc.viewControllers[0] as! MainMasterController
+        self.master = masternc.viewControllers[0] as! Pep9MasterController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,7 +141,16 @@ class MainDetailController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: .actionSheet)
+        
+        let tempController = UIViewController()
+        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
+        let trapsSwitch = UISwitch(frame: CGRect(x:0, y:0, width:25.0, height:25.0))
+        let trapsLabel = UILabel(frame: CGRect(x:25, y:0, width:175.0, height:25.0))
+        trapsLabel.text = "Trace Traps"
+        tempController.view.addSubview(trapsSwitch)
+        alertController.view.addSubview(tempController.view)
+        
         let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
             //TODO: Implement debugSourceAction
         }
@@ -154,6 +163,8 @@ class MainDetailController: UIViewController, UITabBarDelegate {
             //TODO: Implement debugLoaderAction
         }
         alertController.addAction(debugLoaderAction)
+        
+
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
@@ -218,41 +229,71 @@ class MainDetailController: UIViewController, UITabBarDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    
+    
+    
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let firstAction = UIAlertAction(title: "\n\n\n\n\n\n", style: .default) { (action) in
-            
+        let firstAction = UIAlertAction(title: "", style: .default) { (action) in
         }
         alertController.addAction(firstAction)
         
         
+        
+        let tempController = UIViewController()
+        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
+        let stepperFrame = CGRect(x:0, y:0, width:250.0, height:25.0)
+        let stepper = UIStepper(frame: stepperFrame)
+        
+        tempController.view.addSubview(stepper)
+        alertController.view.addSubview(tempController.view)
+        
+        
         let darkModeAction = UIAlertAction(title: "Turn dark mode \((!appSettings.darkModeOn).toEnglish())", style: .default) { (action) in
             appSettings.toggleDarkMode()
-            
-            
         }
         alertController.addAction(darkModeAction)
-        
-        
-        var fontSizeSliderController = UIViewController()
-        // The be
-        var sliderFrame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
-        
-        var slider = UISlider(frame: sliderFrame)
-        
-        slider.minimumValue = 0.0
-        slider.maximumValue = 1.0
-        
-        fontSizeSliderController.view.addSubview(slider)
-        
-        alertController.view.addSubview(fontSizeSliderController.view)
-        
         
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
 
     }
+    
+    
+    let byteCalc = ByteCalc()
+
+    
+    @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Byte Calculator", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField() { decimalField in
+            self.byteCalc.decimalField = decimalField
+        }
+        
+        alertController.addTextField() { hexField in
+            self.byteCalc.hexField = hexField
+        }
+        
+        alertController.addTextField() { binaryField in
+            self.byteCalc.binaryField = binaryField
+        }
+        
+        alertController.addTextField() { asciiField in
+            self.byteCalc.asciiField = asciiField
+        }
+        
+        alertController.addTextField() { opcodeField in
+            self.byteCalc.opcodeField = opcodeField
+        }
+        
+        
+        alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+
+    }
+    
     
     @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

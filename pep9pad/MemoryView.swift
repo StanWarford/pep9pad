@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoryView: UIView {
+class MemoryView: UIView { // , UITableViewDataSource {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -45,6 +45,19 @@ class MemoryView: UIView {
         print("PC button pressed")
         // TODO: Scroll `table` to pc
     }
+    
+//    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        //0090 | 00 00 00 00 00 00 00 00 |........
+//    }
+//    
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return section == 1 ?
+//    }
     
     
     

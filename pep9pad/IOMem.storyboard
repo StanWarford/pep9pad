@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Imu-td-LPt">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Imu-td-LPt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Mem Controller-->
         <scene sceneID="A68-Vo-xo3">
             <objects>
-                <viewController id="Imu-td-LPt" customClass="IOMemController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Imu-td-LPt" customClass="IOMemController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U3P-G0-zQZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Rz8-rO-LHg"/>
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="403"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wGR-DU-W9D">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGR-DU-W9D">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="NVS-ac-IwL">
@@ -44,7 +44,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wGR-DU-W9D" secondAttribute="trailing" id="0Qd-hI-3z2"/>
                             <constraint firstItem="wGR-DU-W9D" firstAttribute="top" secondItem="czk-Cz-yO5" secondAttribute="top" id="Cm1-e4-tMM"/>
+                            <constraint firstItem="wGR-DU-W9D" firstAttribute="leading" secondItem="czk-Cz-yO5" secondAttribute="leading" id="OW8-sY-pfN"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -55,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bhk-hf-3Er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-349" y="-55"/>
+            <point key="canvasLocation" x="-382" y="-253"/>
         </scene>
     </scenes>
 </document>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,12 +24,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lCH-Vl-BDi">
+                    <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="623" id="bH3-Nt-6EZ"/>
                     </constraints>
                 </tableView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQh-Zx-EGA">
+                <toolbar opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQh-Zx-EGA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="sQu-Le-54o"/>
+                    </constraints>
                     <items>
                         <barButtonItem enabled="NO" title="Scroll to..." id="z34-Yx-TaB">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,6 +71,7 @@
                 <constraint firstItem="lCH-Vl-BDi" firstAttribute="leading" secondItem="9b7-E0-Dlb" secondAttribute="leading" id="Bcd-jJ-a5H"/>
                 <constraint firstAttribute="trailing" secondItem="lCH-Vl-BDi" secondAttribute="trailing" id="Mbo-qj-QBN"/>
                 <constraint firstItem="lCH-Vl-BDi" firstAttribute="trailing" secondItem="mQh-Zx-EGA" secondAttribute="trailing" id="Ugz-Ef-EWh"/>
+                <constraint firstItem="mQh-Zx-EGA" firstAttribute="top" secondItem="9b7-E0-Dlb" secondAttribute="top" id="mVZ-6P-y7y"/>
                 <constraint firstItem="lCH-Vl-BDi" firstAttribute="leading" secondItem="mQh-Zx-EGA" secondAttribute="leading" id="wGV-Ne-Rcd"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

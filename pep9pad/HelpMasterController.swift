@@ -11,7 +11,7 @@ class HelpMasterController: UITableViewController {
 
     // MARK: - Internal Variables
     internal var helpDetail: HelpDetailController!
-    internal var asmMasterVC: MainMasterController!
+    internal var asmMasterVC: Pep9MasterController!
     
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class HelpMasterController: UITableViewController {
         //tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
     }
     
-    func setup(mvc: MainMasterController) {
+    func setup(mvc: Pep9MasterController) {
         self.asmMasterVC = mvc
     }
     

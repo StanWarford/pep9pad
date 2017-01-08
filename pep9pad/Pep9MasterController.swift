@@ -1,5 +1,5 @@
 //
-//  MainMasterController.swift
+//  Pep9MasterController.swift
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class MainMasterController: UIViewController {
+class Pep9MasterController: UIViewController {
     
-    internal var detail: MainDetailController!
+    internal var detail: Pep9DetailController!
     internal var cpu: CpuController!
     internal var io: IOMemController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let detailnc = (self.splitViewController?.viewControllers[1])! as! UINavigationController
-        self.detail = detailnc.viewControllers[0] as! MainDetailController
+        self.detail = detailnc.viewControllers[0] as! Pep9DetailController
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -39,12 +39,12 @@ class IOMemController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         batchInputTextView = UITextView()
-        batchInputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: (view.frame.height-44)/2)
+        batchInputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: (view.frame.height-44)/3)
         batchInputTextView.text = "Batch Input placeholder"
         view.addSubview(batchInputTextView)
 
         batchOutputTextView = UITextView()
-        batchOutputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+22+view.frame.height/2, width: view.frame.width, height: (view.frame.height-44/2))
+        batchOutputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+22+(view.frame.height/3), width: view.frame.width, height: (view.frame.height-44)/3)
         batchOutputTextView.text = "Batch Output placeholder"
         view.addSubview(batchOutputTextView)
 
@@ -54,7 +54,8 @@ class IOMemController: UIViewController, UITextViewDelegate {
         terminalTextView.text = "Terminal I/O placeholder"
         view.addSubview(terminalTextView)
 
-        memoryView = MemoryView(frame: CGRect(x: view.bounds.origin.x, y: view.bounds.origin.y+44, width: view.frame.width, height: view.frame.height-44))
+        memoryView = MemoryView(frame: CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44))
+        
         //memoryView.frame =
         memoryView.isHidden = true
         view.addSubview(memoryView)
