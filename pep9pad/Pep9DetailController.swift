@@ -261,37 +261,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
-    let byteCalc = ByteCalc()
-
-    
     @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Byte Calculator", message: nil, preferredStyle: .alert)
-        
-        alertController.addTextField() { decimalField in
-            self.byteCalc.decimalField = decimalField
-        }
-        
-        alertController.addTextField() { hexField in
-            self.byteCalc.hexField = hexField
-        }
-        
-        alertController.addTextField() { binaryField in
-            self.byteCalc.binaryField = binaryField
-        }
-        
-        alertController.addTextField() { asciiField in
-            self.byteCalc.asciiField = asciiField
-        }
-        
-        alertController.addTextField() { assemblyField in
-            self.byteCalc.assemblyField = assemblyField
-        }
-        
-        
-        alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-
     }
     
     

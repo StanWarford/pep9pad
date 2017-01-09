@@ -34,7 +34,6 @@
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
 		468124181DE81B27003D807A /* MachineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468124171DE81B27003D807A /* MachineModel.swift */; };
-		4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */; };
 		468A95D41DDCECF400916BE7 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D31DDCECF400916BE7 /* Code.swift */; };
 		468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D51DDCEF2600916BE7 /* Instructions.swift */; };
 		468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468BC12D1DC27220000AE01A /* UIConstants.swift */; };
@@ -219,7 +218,6 @@
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		468124171DE81B27003D807A /* MachineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineModel.swift; sourceTree = "<group>"; };
-		4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteCalc.swift; sourceTree = "<group>"; };
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -767,7 +765,6 @@
 				46C7EEE61D80BED300F74B6E /* Home */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46A304E41C992D5500CDCD1A /* PepTextView */,
-				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46C608D41C8EADD700CC161A /* Launch */,
@@ -1122,7 +1119,6 @@
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
-				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
 				468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */,
