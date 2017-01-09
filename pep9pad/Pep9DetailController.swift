@@ -283,8 +283,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.byteCalc.asciiField = asciiField
         }
         
-        alertController.addTextField() { opcodeField in
-            self.byteCalc.opcodeField = opcodeField
+        alertController.addTextField() { assemblyField in
+            self.byteCalc.assemblyField = assemblyField
         }
         
         

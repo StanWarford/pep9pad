@@ -17,7 +17,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             decimalField.delegate = self
             decimalField.tag = 0
-            decimalField.addConstraintLabel(text: "decimal")
+            decimalField.addLabel(text: "decimal")
         }
     }
     
@@ -25,7 +25,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             hexField.delegate = self
             hexField.tag = 1
-            hexField.addConstraintLabel(text: "hex")
+            hexField.addLabel(text: "hex")
         }
     }
     
@@ -33,7 +33,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             binaryField.delegate = self
             binaryField.tag = 2
-            binaryField.addConstraintLabel(text: "binary")
+            binaryField.addLabel(text: "binary")
         }
     }
 
@@ -41,15 +41,15 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             asciiField.delegate = self
             asciiField.tag = 3
-            asciiField.addConstraintLabel(text: "ascii")
+            asciiField.addLabel(text: "ascii")
         }
     }
 
-    var opcodeField: UITextField! {
+    var assemblyField: UITextField! {
         didSet {
-            opcodeField.delegate = self
-            opcodeField.tag = 4
-            opcodeField.addConstraintLabel(text: "assembly")
+            assemblyField.delegate = self
+            assemblyField.tag = 4
+            assemblyField.addLabel(text: "assembly")
         }
     }
     
@@ -60,37 +60,55 @@ class ByteCalc: NSObject, UITextFieldDelegate {
     let hex = 1
     let bin = 2
     let ascii = 3
-    let opcode = 4
-
+    let assembly = 4
     
     
-    
-    func convertFrom(_ textField: UITextField) {
+    func convertAndPopulate(_ textField: UITextField) {
         // Note: by conditionally unwrapping into a UInt8 we ensure that the value is between 0 and 255.
         
         switch textField.tag {
         case dec:
             if let d = UInt8(textField.text!) {
+                clearAnyErrors()
                 hexField.text = d.toHex2()
                 binaryField.text = d.toBin8()
                 asciiField.text = d.toASCII()
                 // TODO: opcode
+            } else if let _ = Int(textField.text!) {
+                // can still be converted to an integer, but is out of bounds
+                errorInConverting(textField, .outOfBounds)
             }
             
         case hex:
             if let d = UInt8(textField.text!, radix: 16) {
+                clearAnyErrors()
                 decimalField.text = String(d)
                 binaryField.text = d.toBin8()
                 asciiField.text = d.toASCII()
                 // TODO: opcode
             }
-            
+
         case bin:
             if let d = UInt8(textField.text!, radix: 2) {
+                clearAnyErrors()
                 decimalField.text = String(d)
                 hexField.text = d.toHex2()
                 asciiField.text = d.toASCII()
                 // TODO: opcode
+            } else if (textField.text?.characters.count)! > 8 {
+                errorInConverting(textField, .outOfBounds)
+            } else {
+                errorInConverting(textField, .badInput)
+            }
+
+        case ascii:
+            let firstChar = textField.text!.characters.first
+            if let val = firstChar?.asciiValue {
+                clearAnyErrors()
+                let d = UInt8(val)
+                decimalField.text = String(d)
+                hexField.text = d.toHex2()
+                binaryField.text = d.toBin8()
             }
             
         default:
@@ -98,37 +116,76 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         }
     }
     
+    var errorToClearIn: Int!
+    
+    enum ConversionError: String {
+        case outOfBounds = "out of bounds"
+        case badInput = "bad input"
+        case other = "error"
+    }
+    
+    func errorInConverting(_ textField: UITextField, _ type: ConversionError) {
+        
+        let errorMessage = type.rawValue
+        
+        errorToClearIn = textField.tag
+        
+        switch textField.tag {
+        case dec: decimalField.addErrorLabel(text: "decimal - \(errorMessage)")
+        case bin: binaryField.addErrorLabel(text: "binary - \(errorMessage)")
+        case hex: hexField.addErrorLabel(text: "hex - \(errorMessage)")
+        case ascii: asciiField.addErrorLabel(text: "ascii - \(errorMessage)")
+        default: break
+        // user can't edit assemblyField, so won't get an error
+        }
+    }
+    
+    
+    func clearAnyErrors() {
+        if errorToClearIn == nil {
+            return
+        }
+        
+        switch errorToClearIn {
+        case dec: decimalField.addLabel(text: "decimal")
+        case bin: binaryField.addLabel(text: "binary")
+        case hex: hexField.addLabel(text: "hex")
+        case ascii: asciiField.addLabel(text: "ascii")
+        default: break
+        }
+        
+        errorToClearIn = nil
+    }
+    
     
     // MARK: - Fulfilling Obligations as UITextFieldDelegate
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        // editing opcodeField is not allowed
-        return textField != opcodeField
+        // editing assemblyField is not allowed
+        return textField != assemblyField
     }
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // Change the characters manually, do the necessary conversions, and then return false.
         // Ideally we'd do conversions in `textField(:didChangeCharactersIn:)` but that doesn't exist.
-        // So I'll mimics that behavior instead.
+        // So I'll mimic that behavior instead.
         
-        textField.curs
+        let cursor = textField.selectedTextRange?.start
         
         // Rather than convert `range` from an `NSRange` to a `Range<String.Index>`, just make the text an NSString.
-        var text = textField.text! as NSString
-        textField.text = text.replacingCharacters(in: range, with: string)
-        convertFrom(textField)
+        var oldText = textField.text! as NSString
+        var diff = range.length - string.characters.count
+        textField.text = oldText.replacingCharacters(in: range, with: string)
+        convertAndPopulate(textField)
+        //textField.text = oldText as String
+        // restore cursor position
         return false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-//        switch textField.tag {
-//        case dec:
-//            // must be between 0 and 255
-//            
-//        }
         
-        print(textField.text)
+        //print(textField.text)
     }
     
     

@@ -66,15 +66,55 @@ extension UInt8 {
 }
 
 extension UITextField {
-    // A convenience function for the constraint input fields
-    func addConstraintLabel(text: String) {
+    // A convenience function for input fields
+    func addLabel(text: String) {
         let aLabel = UILabel()
         aLabel.text = text
         aLabel.font = UIFont(name: "Helvetica-Light", size: 14.0)
+        aLabel.textColor = UIColor.black
         aLabel.sizeToFit()
         self.leftView = aLabel
         self.leftViewMode = UITextFieldViewMode.always
         self.textAlignment = .right
     }
     
+    func addErrorLabel(text: String) {
+        let aLabel = UILabel()
+        aLabel.text = text
+        aLabel.font = UIFont(name: "Helvetica-Light", size: 14.0)
+        aLabel.textColor = UIColor.red
+        aLabel.sizeToFit()
+        self.leftView = aLabel
+        self.leftViewMode = UITextFieldViewMode.always
+        self.textAlignment = .right
+    }
+
 }
+
+
+extension String {
+    var asciiArray: [UInt32] {
+        return unicodeScalars.filter{$0.isASCII}.map{$0.value}
+    }
+}
+extension Character {
+    var asciiValue: UInt32? {
+        return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
