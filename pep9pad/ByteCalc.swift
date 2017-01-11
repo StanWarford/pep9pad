@@ -49,7 +49,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             assemblyField.delegate = self
             assemblyField.tag = 4
-            assemblyField.addLabel(text: "assembly")
+            assemblyField.addLabel(text: "instruction")
         }
     }
     

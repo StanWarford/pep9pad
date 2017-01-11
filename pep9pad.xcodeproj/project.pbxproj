@@ -401,6 +401,9 @@
 		461279431E260E9A00212829 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
+				46F46D341C8F661D0092EF04 /* Argument.swift */,
+				46F46D321C8F49340092EF04 /* Enums.swift */,
 				46E246B01DE0E24200611A18 /* Assembler */,
 				461279481E26116100212829 /* Machine */,
 				461279491E26116900212829 /* Project */,
@@ -580,13 +583,13 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
-		46C608D31C8EADC500CC161A /* Core Data */ = {
+		46C608D31C8EADC500CC161A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
 				46F5F2681DC7D6E9002880FE /* FSEntity.swift */,
 			);
-			name = "Core Data";
+			name = CoreData;
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
@@ -625,17 +628,6 @@
 				D2B0617B1C7E62050088CEBE /* pep9padUITests */,
 			);
 			name = Tests;
-			sourceTree = "<group>";
-		};
-		46C7EEE11D80BD7400F74B6E /* System */ = {
-			isa = PBXGroup;
-			children = (
-				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
-				46F46D341C8F661D0092EF04 /* Argument.swift */,
-				46F46D321C8F49340092EF04 /* Enums.swift */,
-			);
-			name = System;
-			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C7EEE71D80BF1100F74B6E /* Pep9 */ = {
@@ -781,13 +773,12 @@
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46B58BD31C8FD872006E46B4 /* Help */,
-				46C7EEE11D80BD7400F74B6E /* System */,
 				46A304E41C992D5500CDCD1A /* CodeEditor */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				461279441E260EAA00212829 /* FontMenu */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46BC04341E18A2ED006ED01F /* Settings */,
-				46C608D31C8EADC500CC161A /* Core Data */,
+				46C608D31C8EADC500CC161A /* CoreData */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
 				468BC12C1DC271EA000AE01A /* Utilities */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
