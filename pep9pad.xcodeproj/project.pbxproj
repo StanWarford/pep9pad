@@ -166,6 +166,7 @@
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
+		D2B6B54F1E26E13800B8778C /* ByteCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B6B54E1E26E13800B8778C /* ByteCalc.swift */; };
 		D2B82DE41E035B8700F960FE /* Memory.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B82DE31E035B8700F960FE /* Memory.xib */; };
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
 		D2CC5E4E1DB807990033CFF4 /* myFirstProgram.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */; };
@@ -359,6 +360,7 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B6B54E1E26E13800B8778C /* ByteCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteCalc.swift; sourceTree = "<group>"; };
 		D2B82DE31E035B8700F960FE /* Memory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Memory.xib; sourceTree = "<group>"; };
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
 		D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pep; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46E246B01DE0E24200611A18 /* Code */,
 				46C7EEE11D80BD7400F74B6E /* System */,
+				D2B6B54E1E26E13800B8778C /* ByteCalc.swift */,
 			);
 			name = Pep9;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
+				D2B6B54F1E26E13800B8778C /* ByteCalc.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
