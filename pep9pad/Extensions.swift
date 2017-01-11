@@ -88,8 +88,17 @@ extension UITextField {
         self.leftViewMode = UITextFieldViewMode.always
         self.textAlignment = .right
     }
+    
+    
+    func getCursorPosition(from: UITextPosition) -> Int? {
+        if let selectedRange = self.selectedTextRange {
+            return self.offset(from: from, to: selectedRange.start)
+        }
+        return nil
+    }
 
 }
+
 
 
 extension String {

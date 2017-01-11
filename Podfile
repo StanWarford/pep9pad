@@ -17,5 +17,7 @@ target "pep9pad" do
 	## utility for tab views
 	## license: MIT
 	pod 'MSSTabbedPageViewController'
+
+	# pod ’AMPopTip'
 end
 
