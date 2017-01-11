@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SourceController: UIViewController, ProjectModelEditor, PepTextViewDelegate {
+class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
     
     // MARK: - ViewController Lifecycle
@@ -23,7 +23,7 @@ class SourceController: UIViewController, ProjectModelEditor, PepTextViewDelegat
     // MARK: - Interface Builder
     
     /// The primary view in this UIViewController.
-    @IBOutlet var textView: PepTextView!
+    @IBOutlet var textView: CodeView!
     
     
     
@@ -64,7 +64,7 @@ class SourceController: UIViewController, ProjectModelEditor, PepTextViewDelegat
     }
     
     
-    // MARK: - Conformance to PepTextViewDelegate
+    // MARK: - Conformance to CodeViewDelegate
     func textViewDidChange() {
         pushToProjectModel()
     }

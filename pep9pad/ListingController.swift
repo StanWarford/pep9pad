@@ -17,7 +17,7 @@ class ListingController: UIViewController, ProjectModelEditor {
     }
     
     /// The primary view in this UIViewController.
-    @IBOutlet var textView: PepTextView!
+    @IBOutlet var textView: CodeView!
     
     /// Updates the contents of the `textView` with `projectModel.listingStr`.
     func pullFromProjectModel() {

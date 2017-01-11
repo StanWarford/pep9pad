@@ -12,7 +12,7 @@ protocol ProjectModelEditor {
     func pullFromProjectModel()
     /// Push any changes from this editor's `textView` into the global `projectModel`.
     func pushToProjectModel()
-    var textView: PepTextView! {
+    var textView: CodeView! {
         get set
     }
 }

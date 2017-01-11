@@ -56,7 +56,7 @@ class FSDetailController: UIViewController {
         }
     }
     
-    @IBOutlet weak var textView: PepTextView!
+    @IBOutlet weak var textView: CodeView!
     
     
 }

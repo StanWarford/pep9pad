@@ -31,8 +31,8 @@ class ExampleViewController: UIViewController {
     
     // MARK: - Interface
     
-    @IBOutlet weak var topTextView: PepTextView!
-    @IBOutlet weak var bottomTextView: PepTextView!
+    @IBOutlet weak var topTextView: CodeView!
+    @IBOutlet weak var bottomTextView: CodeView!
     
     
     // MARK: - Methods

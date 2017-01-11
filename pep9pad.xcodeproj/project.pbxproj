@@ -26,9 +26,9 @@
 		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
 		46202E261DE95EBB00F8B70B /* PepMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46202E251DE95EBB00F8B70B /* PepMaps.swift */; };
 		46278CC91E076CFA009D6371 /* StackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46278CC81E076CFA009D6371 /* StackController.swift */; };
-		4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */; };
+		4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
-		463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* PepTextView.swift */; };
+		463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* CodeView.swift */; };
 		4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */; };
 		4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16F1DFE1DFF00D072F0 /* StackState.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
@@ -163,7 +163,7 @@
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
 		D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */; };
-		D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Main.storyboard */; };
+		D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B0615D1C7E62040088CEBE /* Pep9Main.storyboard */; };
 		D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */; };
 		D2B061641C7E62040088CEBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B061631C7E62040088CEBE /* Images.xcassets */; };
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
@@ -213,9 +213,9 @@
 		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
 		46202E251DE95EBB00F8B70B /* PepMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepMaps.swift; sourceTree = "<group>"; };
 		46278CC81E076CFA009D6371 /* StackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackController.swift; sourceTree = "<group>"; };
-		4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextViewDelegate.swift; sourceTree = "<group>"; };
+		4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewDelegate.swift; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		463A66301C97CE0E004C35B2 /* PepTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextView.swift; sourceTree = "<group>"; };
+		463A66301C97CE0E004C35B2 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameFSM.swift; sourceTree = "<group>"; };
 		4642A16F1DFE1DFF00D072F0 /* StackState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackState.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pep9MasterController.swift; sourceTree = "<group>"; };
-		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2B0615E1C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Pep9Main.storyboard; sourceTree = "<group>"; };
 		D2B061611C7E62040088CEBE /* pep9pad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = pep9pad.xcdatamodel; sourceTree = "<group>"; };
 		D2B061631C7E62040088CEBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D2B061661C7E62040088CEBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -398,6 +398,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		461279431E260E9A00212829 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				46E246B01DE0E24200611A18 /* Assembler */,
+				461279481E26116100212829 /* Machine */,
+				461279491E26116900212829 /* Project */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		461279441E260EAA00212829 /* FontMenu */ = {
+			isa = PBXGroup;
+			children = (
+				460FBEA71E24A4DD008AD603 /* FontMenu.xib */,
+				460FBEA91E24A513008AD603 /* FontMenuView.swift */,
+			);
+			name = FontMenu;
+			path = pep9pad;
+			sourceTree = "<group>";
+		};
+		461279461E26104A00212829 /* MasterController */ = {
+			isa = PBXGroup;
+			children = (
+				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
+				D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */,
+				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
+				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
+				46C76A6B1DB959480071C340 /* MemoryView.swift */,
+				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
+				D2B82DE31E035B8700F960FE /* Memory.xib */,
+			);
+			name = MasterController;
+			sourceTree = "<group>";
+		};
+		461279471E26106E00212829 /* DetailController */ = {
+			isa = PBXGroup;
+			children = (
+				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
+				46C76A551DA496510071C340 /* Pep9DetailController.swift */,
+				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
+				46C76A631DAF112A0071C340 /* SourceController.swift */,
+				46C76A671DB856A50071C340 /* ObjectController.swift */,
+				46C76A691DB9593A0071C340 /* ListingController.swift */,
+				46C76A6D1DB959680071C340 /* TraceController.swift */,
+			);
+			name = DetailController;
+			sourceTree = "<group>";
+		};
+		461279481E26116100212829 /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				468124171DE81B27003D807A /* MachineModel.swift */,
+			);
+			name = Machine;
+			sourceTree = "<group>";
+		};
+		461279491E26116900212829 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				46F5F26E1DCA626B002880FE /* ProjectModel.swift */,
+				46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */,
+			);
+			name = Project;
+			sourceTree = "<group>";
+		};
 		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,17 +473,6 @@
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
 			name = Trace;
-			sourceTree = "<group>";
-		};
-		46278CC71E076BBC009D6371 /* IOMem */ = {
-			isa = PBXGroup;
-			children = (
-				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
-				46C76A6B1DB959480071C340 /* MemoryView.swift */,
-				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
-				D2B82DE31E035B8700F960FE /* Memory.xib */,
-			);
-			name = IOMem;
 			sourceTree = "<group>";
 		};
 		465C76241C90DBF30029311F /* Help Documentation */ = {
@@ -447,6 +501,7 @@
 				46C80BDB1DF0D0830096D4E0 /* Extensions.swift */,
 			);
 			name = Utilities;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46A304DF1C992AAE00CDCD1A /* Documentation */ = {
@@ -474,11 +529,11 @@
 			name = "Help Resources";
 			sourceTree = "<group>";
 		};
-		46A304E41C992D5500CDCD1A /* PepTextView */ = {
+		46A304E41C992D5500CDCD1A /* CodeEditor */ = {
 			isa = PBXGroup;
 			children = (
-				463A66301C97CE0E004C35B2 /* PepTextView.swift */,
-				4636AE3F1DE505C100182C7B /* PepTextViewDelegate.swift */,
+				463A66301C97CE0E004C35B2 /* CodeView.swift */,
+				4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */,
 				466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */,
 				4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */,
 				4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */,
@@ -486,7 +541,8 @@
 				4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */,
 				4656E11F1CE9352B0091AF6E /* CppHighlightingPatterns.plist */,
 			);
-			name = PepTextView;
+			name = CodeEditor;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46B58BD31C8FD872006E46B4 /* Help */ = {
@@ -500,6 +556,7 @@
 				46A304E31C992BE100CDCD1A /* Help Resources */,
 			);
 			name = Help;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46BC04341E18A2ED006ED01F /* Settings */ = {
@@ -508,16 +565,19 @@
 				46BC04321E18A2DE006ED01F /* AppSettings.swift */,
 			);
 			name = Settings;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C608D21C8EADBB00CC161A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D2B061681C7E62040088CEBE /* Info.plist */,
+				B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */,
 				463A662E1C97CD6C004C35B2 /* Fonts.swift */,
 				46C76A531DA494130071C340 /* FontAwesome */,
-				D2B061681C7E62040088CEBE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C608D31C8EADC500CC161A /* Core Data */ = {
@@ -527,15 +587,18 @@
 				46F5F2681DC7D6E9002880FE /* FSEntity.swift */,
 			);
 			name = "Core Data";
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C608D41C8EADD700CC161A /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				D2A9BCC81D77680E00C69724 /* Home.storyboard */,
 				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
 			);
 			name = Launch;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C76A5B1DA70BEA0071C340 /* FileSystem */ = {
@@ -552,6 +615,7 @@
 				D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */,
 			);
 			name = FileSystem;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C76A621DAF10410071C340 /* Tests */ = {
@@ -571,44 +635,20 @@
 				46F46D321C8F49340092EF04 /* Enums.swift */,
 			);
 			name = System;
-			sourceTree = "<group>";
-		};
-		46C7EEE61D80BED300F74B6E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				D2A9BCC81D77680E00C69724 /* Home.storyboard */,
-			);
-			name = Home;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C7EEE71D80BF1100F74B6E /* Pep9 */ = {
 			isa = PBXGroup;
 			children = (
-				D2B0615D1C7E62040088CEBE /* Main.storyboard */,
-				D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */,
-				46C76A551DA496510071C340 /* Pep9DetailController.swift */,
-				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
-				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
-				468124171DE81B27003D807A /* MachineModel.swift */,
-				46F5F26E1DCA626B002880FE /* ProjectModel.swift */,
-				460FBEA71E24A4DD008AD603 /* FontMenu.xib */,
-				460FBEA91E24A513008AD603 /* FontMenuView.swift */,
-				46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */,
-				46F82CBA1DE4E6BF001FC1FF /* ProjectModel */,
-				46C76A631DAF112A0071C340 /* SourceController.swift */,
-				46C76A671DB856A50071C340 /* ObjectController.swift */,
-				46C76A691DB9593A0071C340 /* ListingController.swift */,
-				46C76A6D1DB959680071C340 /* TraceController.swift */,
-				46278CC71E076BBC009D6371 /* IOMem */,
-				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
+				D2B0615D1C7E62040088CEBE /* Pep9Main.storyboard */,
+				461279461E26104A00212829 /* MasterController */,
+				461279471E26106E00212829 /* DetailController */,
+				461279431E260E9A00212829 /* Models */,
 				46278CC61E075834009D6371 /* Trace */,
-				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
-				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
-				46B58BD31C8FD872006E46B4 /* Help */,
-				46E246B01DE0E24200611A18 /* Code */,
-				46C7EEE11D80BD7400F74B6E /* System */,
 			);
 			name = Pep9;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C7EEE81D80BF1F00F74B6E /* Pep9CPU */ = {
@@ -619,6 +659,7 @@
 				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
 			);
 			name = Pep9CPU;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		46C7EEE91D80BF6800F74B6E /* Images */ = {
@@ -627,17 +668,19 @@
 				D2B061631C7E62040088CEBE /* Images.xcassets */,
 			);
 			name = Images;
+			path = pep9pad;
 			sourceTree = "<group>";
 		};
-		46E246B01DE0E24200611A18 /* Code */ = {
+		46E246B01DE0E24200611A18 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
+				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
 				468A95D31DDCECF400916BE7 /* Code.swift */,
 				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
 				46E246AE1DE0E1C300611A18 /* Dots.swift */,
 				46E246B11DE0E32A00611A18 /* NonExecutables.swift */,
 			);
-			name = Code;
+			name = Assembler;
 			sourceTree = "<group>";
 		};
 		46EC8B061C9895DF001405CE /* Examples */ = {
@@ -732,29 +775,25 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		46F82CBA1DE4E6BF001FC1FF /* ProjectModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ProjectModel;
-			sourceTree = "<group>";
-		};
-		7D9CBCFD9023D4D7F6B0EADD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
-				D2B061581C7E62040088CEBE /* pep9pad */,
+				46C608D41C8EADD700CC161A /* Launch */,
+				46C7EEE71D80BF1100F74B6E /* Pep9 */,
+				46B58BD31C8FD872006E46B4 /* Help */,
+				46C7EEE11D80BD7400F74B6E /* System */,
+				46A304E41C992D5500CDCD1A /* CodeEditor */,
+				46C76A5B1DA70BEA0071C340 /* FileSystem */,
+				461279441E260EAA00212829 /* FontMenu */,
+				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
+				46BC04341E18A2ED006ED01F /* Settings */,
+				46C608D31C8EADC500CC161A /* Core Data */,
+				46C7EEE91D80BF6800F74B6E /* Images */,
+				468BC12C1DC271EA000AE01A /* Utilities */,
+				46C608D21C8EADBB00CC161A /* Supporting Files */,
 				46C76A621DAF10410071C340 /* Tests */,
 				D2B061571C7E62040088CEBE /* Products */,
 				ECF677558098784033F5EF20 /* Pods */,
-				7D9CBCFD9023D4D7F6B0EADD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -766,24 +805,6 @@
 				D2B061781C7E62050088CEBE /* pep9padUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		D2B061581C7E62040088CEBE /* pep9pad */ = {
-			isa = PBXGroup;
-			children = (
-				46C7EEE61D80BED300F74B6E /* Home */,
-				46C7EEE71D80BF1100F74B6E /* Pep9 */,
-				46A304E41C992D5500CDCD1A /* PepTextView */,
-				46C76A5B1DA70BEA0071C340 /* FileSystem */,
-				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
-				46C608D41C8EADD700CC161A /* Launch */,
-				46BC04341E18A2ED006ED01F /* Settings */,
-				46C608D31C8EADC500CC161A /* Core Data */,
-				46C7EEE91D80BF6800F74B6E /* Images */,
-				468BC12C1DC271EA000AE01A /* Utilities */,
-				46C608D21C8EADBB00CC161A /* Supporting Files */,
-			);
-			path = pep9pad;
 			sourceTree = "<group>";
 		};
 		D2B061701C7E62050088CEBE /* pep9padTests */ = {
@@ -1029,7 +1050,7 @@
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
 				D2B061641C7E62040088CEBE /* Images.xcassets in Resources */,
-				D2B0615F1C7E62040088CEBE /* Main.storyboard in Resources */,
+				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
 				460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
@@ -1132,7 +1153,7 @@
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
 				468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
-				4636AE401DE505C100182C7B /* PepTextViewDelegate.swift in Sources */,
+				4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
 				46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */,
@@ -1156,7 +1177,7 @@
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
-				463A66311C97CE0E004C35B2 /* PepTextView.swift in Sources */,
+				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
@@ -1195,12 +1216,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D2B0615D1C7E62040088CEBE /* Main.storyboard */ = {
+		D2B0615D1C7E62040088CEBE /* Pep9Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D2B0615E1C7E62040088CEBE /* Base */,
 			);
-			name = Main.storyboard;
+			name = Pep9Main.storyboard;
 			sourceTree = "<group>";
 		};
 		D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */ = {

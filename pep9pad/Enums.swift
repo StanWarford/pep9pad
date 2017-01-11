@@ -76,22 +76,10 @@ enum CPURegisters {
     case operand
 }
 
-enum PrettyCPUFormats {
+enum CPUFormats {
     case bin
     case hex
     case mnemon
     case dec
-}
-
-
-// TODO: Update these if necesssary
-enum EPane {
-    case eSource
-    case eObject
-    case eListing
-    case eListingTrace
-    case eMemoryTrace
-    case eBatchIO
-    case eTerminal
 }
 

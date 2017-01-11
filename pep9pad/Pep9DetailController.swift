@@ -17,7 +17,7 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     internal var master: Pep9MasterController!
-    internal var tabController: UITabBarController!
+    internal var tabBar: UITabBarController!
     // must initialize this, otherwise we get a runtime error
     internal var tabVCs: Pep9TabBarVCs = (nil, nil, nil, nil)
     
@@ -65,12 +65,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             case "embedTagBar":
                 // the storyboard is hooking up the ASMTabBar
                 // print("Embedding the tab bar")
-                tabController = segue.destination as! UITabBarController
-                customizeTabBarImages((tabController.tabBar.items)! as [UITabBarItem])
+                tabBar = segue.destination as! UITabBarController
+                customizeTabBarImages((tabBar.tabBar.items)! as [UITabBarItem])
                 
-                // initialize all the tabController's viewControllers by looping through the viewControllers...
-                if tabController.viewControllers != nil {
-                    for idx in tabController.viewControllers! {
+                // initialize all the tabBar's viewControllers by looping through the viewControllers...
+                if tabBar.viewControllers != nil {
+                    for idx in tabBar.viewControllers! {
                         // and accessing the `view` of each
                         let _ = idx.view
                         // print("accessed view num \(idx)")
@@ -78,10 +78,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 }
                 
                 // now we can assign all the elements of tabVCs
-                tabVCs.source = tabController.viewControllers?[0] as? SourceController
-                tabVCs.object = tabController.viewControllers?[1] as? ObjectController
-                tabVCs.listing = tabController.viewControllers?[2] as? ListingController
-                tabVCs.trace = tabController.viewControllers?[3] as? TraceController
+                tabVCs.source = tabBar.viewControllers?[0] as? SourceController
+                tabVCs.object = tabBar.viewControllers?[1] as? ObjectController
+                tabVCs.listing = tabBar.viewControllers?[2] as? ListingController
+                tabVCs.trace = tabBar.viewControllers?[3] as? TraceController
 
             default:
                 break
@@ -622,17 +622,17 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         return shouldLoad
     }
     
-    /// Switches the tabController to the appropriate index.
+    /// Switches the tabBar to the appropriate index.
     func exampleWasLoaded(ofType: PepFileType) {
 
         switch ofType {
         case .pep:
             // switch to SourceViewController
-            tabController.selectedIndex = 0
+            tabBar.selectedIndex = 0
             
         case .pepo, .peph:
             // switch to ObjectViewController
-            tabController.selectedIndex = 1
+            tabBar.selectedIndex = 1
 
         default:
             break

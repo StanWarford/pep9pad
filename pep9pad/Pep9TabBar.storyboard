@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-R9-PI7">
-                                <rect key="frame" x="0.0" y="64" width="703" height="655"/>
+                                <rect key="frame" x="0.0" y="64" width="702.5" height="655"/>
                                 <connections>
                                     <segue destination="gvB-0F-Oxp" kind="embed" id="W9I-Sj-eXH"/>
                                 </connections>
@@ -62,8 +62,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="719"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="702.5" height="719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -96,7 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6p-0Sp" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5w-6p-0Sp" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -130,7 +130,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGL-kS-c5j" customClass="PepTextView" customModule="pep9pad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGL-kS-c5j" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>

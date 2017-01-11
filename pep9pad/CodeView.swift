@@ -1,18 +1,18 @@
 //
-//  PepTextView.swift
+//  CodeView.swift
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 
 import UIKit
 
-class PepTextView: UIView, UITextViewDelegate {
+class CodeView: UIView, UITextViewDelegate {
     
     internal var textStorage: PepTextStorage!
     internal var layoutManager: NSLayoutManager!
     internal var textContainer: NSTextContainer!
     internal var textView: UITextView!
-    internal var delegate: PepTextViewDelegate!
+    internal var delegate: CodeViewDelegate!
     
     // MARK: - Initializers and Set-up Functions
     
@@ -39,7 +39,7 @@ class PepTextView: UIView, UITextViewDelegate {
 //        self.textAlignment = .Left
     }
     
-    func setupTextView(_ frame: CGRect, delegate: PepTextViewDelegate) {
+    func setupTextView(_ frame: CGRect, delegate: CodeViewDelegate) {
         self.delegate = delegate
         setupTextView(frame)
     }
