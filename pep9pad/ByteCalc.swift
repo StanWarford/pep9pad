@@ -83,7 +83,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 hexField.text = d.toHex2()
                 binaryField.text = d.toBin8()
                 asciiField.text = d.toASCII()
-                // TODO: opcode
+                assemblyField.text = maps.getInstruction(Int(d))
             } else if let _ = Int(textToConvert) {
                 // can still be converted to an integer, but is out of bounds
                 errorInConverting(textField, .outOfBounds)
@@ -95,7 +95,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 decimalField.text = String(d)
                 binaryField.text = d.toBin8()
                 asciiField.text = d.toASCII()
-                // TODO: opcode
+                assemblyField.text = maps.getInstruction(Int(d))
             } else if textToConvert.characters.count > 2 {
                 errorInConverting(textField, .badInput)
             }
@@ -106,7 +106,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 decimalField.text = String(d)
                 hexField.text = d.toHex2()
                 asciiField.text = d.toASCII()
-                // TODO: opcode
+                assemblyField.text = maps.getInstruction(Int(d))
             } else if (textField.text?.characters.count)! > 8 {
                 errorInConverting(textField, .outOfBounds)
             } else {
@@ -121,6 +121,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 decimalField.text = String(d)
                 hexField.text = d.toHex2()
                 binaryField.text = d.toBin8()
+                assemblyField.text = maps.getInstruction(Int(d))
             }
             
         default:

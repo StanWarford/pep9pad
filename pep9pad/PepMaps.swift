@@ -420,6 +420,12 @@ class PepMaps {
     }
     
     func initDecoderTables() {
+        
+        for _ in 0..<256 {
+            decodeMnemonic.append(.NOP)
+            decodeAddrMode.append(.None)
+        }
+        
         decodeMnemonic[0] = .STOP; decodeAddrMode[0] = .None;
         decodeMnemonic[1] = .RET; decodeAddrMode[1] = .None;
         decodeMnemonic[2] = .RETTR; decodeAddrMode[2] = .None;
@@ -709,4 +715,12 @@ class PepMaps {
         decodeMnemonic[255] = .STBX; decodeAddrMode[255] = .SFX;
     }
 
+    
+    func getInstruction(_ someInt: Int) -> String {
+        if someInt > 255 || someInt < 0 {
+            return "ERROR"
+        }
+        return "\(enumToMnemonMap[decodeMnemonic[someInt]]!)\(commaSpaceStringForAddrMode(addressMode: decodeAddrMode[someInt]))"
+    }
+    
 }
