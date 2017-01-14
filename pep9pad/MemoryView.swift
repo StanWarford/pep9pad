@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
+class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
     
     
@@ -24,15 +24,12 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     func initializeSubviews() {
         // below doesn't work as returned class name is normally in project module scope
-        /*let viewName = NSStringFromClass(self.classForCoder)*/
+        // let viewName = NSStringFromClass(self.classForCoder)
+        
         let view: UIView = Bundle.main.loadNibNamed("Memory", owner: self, options: nil)![0] as! UIView
         self.addSubview(view)
         view.frame = self.bounds
         refresh()
-        for i in 0..<100 {
-            machine.Mem[i]=i
-        }
-        refresh(fromByte: 0, toByte: 100)
     }
 
 
@@ -67,13 +64,11 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
             memoryDump.append(line)
             
         }
-        
-        
     }
 
 
     
-    /// Refreshes the memory in a given range.  
+    /// Refreshes the memory in a given range.
     func refresh(fromByte: Int, toByte: Int) {
         let fromLine = fromByte / 8
         let toLine = toByte / 8
@@ -119,7 +114,19 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
     }
 
 
-
+    func scrollToByte(byte: Int) {
+        let row: Int
+        if byte % 8 == 0 {
+            row = byte / 8
+        } else {
+            row = max(Int(byte/8), 1)
+        }
+        table.scrollToRow(at: IndexPath(row: row, section: 0), at: .none, animated: true)
+        
+    }
+    
+    
+    
 
     // MARK: - IBOutlets and Actions 
     
@@ -130,7 +137,11 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     @IBOutlet var toolbar: UIToolbar!
-    @IBOutlet var textField: UIBarButtonItem!
+    @IBOutlet var searchField: UITextField! {
+        didSet {
+            self.searchField.delegate = self
+        }
+    }
     @IBOutlet var spBtn: UIBarButtonItem!
     @IBOutlet var pcBtn: UIBarButtonItem!
     
@@ -144,6 +155,8 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
         print("PC button pressed")
         // TODO: Scroll `table` to pc
     }
+    
+    
     
     
     
@@ -162,7 +175,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellID)
         }
         
-        cell?.textLabel?.text = memoryDump[indexPath.row]
+        cell?.textLabel?.attributedText = NSAttributedString(string: memoryDump[indexPath.row])
         cell?.textLabel?.font = UIFont(name: "Courier", size: 11.0)!
         return cell!
     }
@@ -174,6 +187,30 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 20
     }
+    
+    
+    
+    
+    
+    // MARK: - Conformance to UITextFieldDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text! as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string) as String
+        
+        if let intVal = Int(newText, radix: 16) {
+            if intVal > 65536 {
+                scrollToByte(byte: 65536)
+            } else if intVal < 0 {
+                scrollToByte(byte: 0)
+            } else {
+                scrollToByte(byte: intVal)
+            }
+        }
+
+        return true
+    }
+    
     
     
     
