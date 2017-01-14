@@ -14,6 +14,7 @@ class MachineModel {
     // MARK: - Properties
     /// Main memory, pre-allocated
     var Mem: [Int] = [Int](repeating: 0, count: 65536)
+    
     // MARK: CPU
     var nBit, zBit, vBit, cBit: Bool
     var accumulator: Int

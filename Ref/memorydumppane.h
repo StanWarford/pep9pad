@@ -36,7 +36,8 @@ class MemoryDumpPane : public QWidget {
 public:
     explicit MemoryDumpPane(QWidget *parent = 0);
     virtual ~MemoryDumpPane();
-
+    
+    // This is called `refresh()` in the Swift version.
     void refreshMemory();
     // Post: the entire memory pane is refreshed
 

@@ -157,7 +157,6 @@
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
-		86E887A41E26EE0F004B6720 /* FrankWasHere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E887A31E26EE0F004B6720 /* FrankWasHere.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProgram.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProgram.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
@@ -347,7 +346,6 @@
 		46F5F26E1DCA626B002880FE /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
-		86E887A31E26EE0F004B6720 /* FrankWasHere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrankWasHere.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pepl; sourceTree = "<group>"; };
@@ -772,7 +770,6 @@
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
-				86E887A31E26EE0F004B6720 /* FrankWasHere.swift */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46B58BD31C8FD872006E46B4 /* Help */,
@@ -1165,7 +1162,6 @@
 				46C76A5A1DA70BE20071C340 /* FSDetailController.swift in Sources */,
 				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
-				86E887A41E26EE0F004B6720 /* FrankWasHere.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
