@@ -13,7 +13,7 @@ class MachineModel {
     
     // MARK: - Properties
     /// Main memory, pre-allocated
-    var Mem: [Int] = [Int](repeating: 0, count: 65536)
+    var mem: [Int] = [Int](repeating: 0, count: 65536)
     
     // MARK: CPU
     var nBit, zBit, vBit, cBit: Bool
@@ -50,8 +50,6 @@ class MachineModel {
         instructionSpecifier = 0
         operandSpecifier = 0
         operand = 0
-        // I think this left over from Pep/9 QT app
-        // operandDisplayFieldWidth = 0
         
         inputBuffer = ""
         outputBuffer = ""
@@ -109,7 +107,7 @@ class MachineModel {
         var objectCode = objectCode
         var i = 0
         while objectCode.count > 0 {
-            Mem[i] = objectCode.removeFirst()
+            mem[i] = objectCode.removeFirst()
             i += 1
         }
     }
@@ -120,11 +118,11 @@ class MachineModel {
     // MARK: Methods for Reading from Memory
     
     func readByte(_ addr: Int) -> Int {
-        return Mem[addr & 0xffff]
+        return mem[addr & 0xffff]
     }
     
     func readWord(_ addr: Int) -> Int {
-        return 256 * Mem[addr & 0xffff] + Mem[(addr + 1) & 0xffff]
+        return 256 * mem[addr & 0xffff] + mem[(addr + 1) & 0xffff]
     }
     
     // Pre: addrMode cannot be immediate.
@@ -207,14 +205,14 @@ class MachineModel {
     // MARK: Methods for Writing to Memory
     
     /// Pre: 0 <= value < 256
-    /// Post: Value is stored in Mem[addr]
+    /// Post: Value is stored in mem[addr]
     func writeByte(_ addr: Int, _ value: Int) {
         // TODO  
     }
     
     /// Pre: 0 <= value < 65536
-    /// Post: The high-end byte of value is stored in Mem[memAddr]
-    /// and the low-end byte of value is stored in Mem[memAddr + 1]
+    /// Post: The high-end byte of value is stored in mem[memAddr]
+    /// and the low-end byte of value is stored in mem[memAddr + 1]
     func writeWord(_ addr: Int, _ value: Int) {
         // TODO
     }

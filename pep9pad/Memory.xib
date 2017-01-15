@@ -12,9 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MemoryView" customModule="pep9pad" customModuleProvider="target">
             <connections>
                 <outlet property="pcBtn" destination="OET-gI-OCe" id="IM8-qu-qPx"/>
+                <outlet property="searchField" destination="bq9-ul-ZtL" id="GM4-BW-hRK"/>
                 <outlet property="spBtn" destination="oOe-hs-eUr" id="YZe-uL-mgl"/>
                 <outlet property="table" destination="lCH-Vl-BDi" id="75y-Xh-gt2"/>
-                <outlet property="textField" destination="Yct-4h-wnh" id="mHo-mT-mfW"/>
                 <outlet property="toolbar" destination="mQh-Zx-EGA" id="cVS-ND-zSn"/>
             </connections>
         </placeholder>
@@ -36,26 +36,23 @@
                         <constraint firstAttribute="height" constant="44" id="sQu-Le-54o"/>
                     </constraints>
                     <items>
-                        <barButtonItem enabled="NO" title="Scroll to..." id="z34-Yx-TaB">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                         <barButtonItem style="plain" id="Yct-4h-wnh">
-                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="bq9-ul-ZtL">
-                                <rect key="frame" x="103" y="7" width="172" height="30"/>
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Scroll to..." textAlignment="natural" minimumFontSize="17" id="bq9-ul-ZtL">
+                                <rect key="frame" x="16" y="7" width="172" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="p50-Nh-KPI"/>
-                        <barButtonItem title="SP" id="oOe-hs-eUr">
+                        <barButtonItem title="SP" width="48" id="oOe-hs-eUr">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="spBtnPressed:" destination="-1" id="JIO-xd-Rcd"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="D2z-PV-eS1"/>
-                        <barButtonItem title="PC" id="OET-gI-OCe">
+                        <barButtonItem title="PC" width="31" id="OET-gI-OCe">
+                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="pcBtnPressed:" destination="-1" id="1HI-Qx-woa"/>
                             </connections>

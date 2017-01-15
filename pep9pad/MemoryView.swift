@@ -50,13 +50,13 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             line.append("\(byte.toHex4()) | ")
             
             for bit in 0..<8 {
-                line.append("\(machine.Mem[byte+bit].toHex2()) ")
+                line.append("\(machine.mem[byte+bit].toHex2()) ")
             }
             
             line.append("| ")
             
             for bit in 0..<8 {
-                let val = machine.Mem[byte+bit]
+                let val = machine.mem[byte+bit]
                 ch = val < 33 ? "." : val.toASCII()
                 line.append(ch)
             }
@@ -83,13 +83,13 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             line.append("\(byteNum.toHex4()) | ")
             
             for j in 0..<8 {
-                line.append("\(machine.Mem[byteNum+j].toHex2()) ")
+                line.append("\(machine.mem[byteNum+j].toHex2()) ")
             }
             
             line.append("| ")
             
             for j in 0..<8 {
-                let val = machine.Mem[byteNum+j]
+                let val = machine.mem[byteNum+j]
                 ch = val < 33 ? "." : val.toASCII()
                 line.append(ch)
             }
@@ -114,7 +114,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     }
 
 
-    func scrollToByte(byte: Int) {
+    func scrollToByte(_ byte: Int) {
         let row: Int
         if byte % 8 == 0 {
             row = byte / 8
@@ -146,14 +146,12 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     @IBOutlet var pcBtn: UIBarButtonItem!
     
     @IBAction func spBtnPressed(_ sender: UIBarButtonItem) {
-        print("SP button pressed")
-        // TODO: Scroll `table` to sp
+        scrollToByte(machine.stackPointer)
     }
     
     
     @IBAction func pcBtnPressed(_ sender: UIBarButtonItem) {
-        print("PC button pressed")
-        // TODO: Scroll `table` to pc
+        scrollToByte(machine.programCounter)
     }
     
     
@@ -185,7 +183,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 20
+        return 15
     }
     
     
@@ -200,11 +198,11 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         
         if let intVal = Int(newText, radix: 16) {
             if intVal > 65536 {
-                scrollToByte(byte: 65536)
+                scrollToByte(65535)
             } else if intVal < 0 {
-                scrollToByte(byte: 0)
+                scrollToByte(0)
             } else {
-                scrollToByte(byte: intVal)
+                scrollToByte(intVal)
             }
         }
 
