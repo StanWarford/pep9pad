@@ -26,6 +26,29 @@
 		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
 		46202E261DE95EBB00F8B70B /* PepMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46202E251DE95EBB00F8B70B /* PepMaps.swift */; };
 		46278CC91E076CFA009D6371 /* StackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46278CC81E076CFA009D6371 /* StackController.swift */; };
+		462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7471E2B2A3B00BBABCD /* fig0519.txt */; };
+		462BA75F1E2B2A3B00BBABCD /* fig0522.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7481E2B2A3B00BBABCD /* fig0522.txt */; };
+		462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7491E2B2A3B00BBABCD /* fig0527.txt */; };
+		462BA7611E2B2A3B00BBABCD /* fig0606.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA74A1E2B2A3B00BBABCD /* fig0606.txt */; };
+		462BA7621E2B2A3B00BBABCD /* fig0608.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA74B1E2B2A3B00BBABCD /* fig0608.txt */; };
+		462BA7631E2B2A3B00BBABCD /* fig0610.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA74C1E2B2A3B00BBABCD /* fig0610.txt */; };
+		462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA74D1E2B2A3B00BBABCD /* fig0612.txt */; };
+		462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA74E1E2B2A3B00BBABCD /* fig0614.txt */; };
+		462BA7661E2B2A3B00BBABCD /* fig0618.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA74F1E2B2A3B00BBABCD /* fig0618.txt */; };
+		462BA7671E2B2A3B00BBABCD /* fig0621.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7501E2B2A3B00BBABCD /* fig0621.txt */; };
+		462BA7681E2B2A3B00BBABCD /* fig0623.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7511E2B2A3B00BBABCD /* fig0623.txt */; };
+		462BA7691E2B2A3B00BBABCD /* fig0625.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7521E2B2A3B00BBABCD /* fig0625.txt */; };
+		462BA76A1E2B2A3B00BBABCD /* fig0627.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7531E2B2A3B00BBABCD /* fig0627.txt */; };
+		462BA76B1E2B2A3B00BBABCD /* fig0629.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7541E2B2A3B00BBABCD /* fig0629.txt */; };
+		462BA76C1E2B2A3B00BBABCD /* fig0632.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7551E2B2A3B00BBABCD /* fig0632.txt */; };
+		462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7561E2B2A3B00BBABCD /* fig0634.txt */; };
+		462BA76E1E2B2A3B00BBABCD /* fig0636.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7571E2B2A3B00BBABCD /* fig0636.txt */; };
+		462BA76F1E2B2A3B00BBABCD /* fig0638.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7581E2B2A3B00BBABCD /* fig0638.txt */; };
+		462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7591E2B2A3B00BBABCD /* fig0640.txt */; };
+		462BA7711E2B2A3B00BBABCD /* fig0642.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75A1E2B2A3B00BBABCD /* fig0642.txt */; };
+		462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75B1E2B2A3B00BBABCD /* fig0644.txt */; };
+		462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75C1E2B2A3B00BBABCD /* fig0646.txt */; };
+		462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75D1E2B2A3B00BBABCD /* fig0648.txt */; };
 		4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* CodeView.swift */; };
@@ -88,55 +111,32 @@
 		46EC8AC91C9895CC001405CE /* fig0514b.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A781C9895CC001405CE /* fig0514b.pep */; };
 		46EC8ACA1C9895CC001405CE /* fig0515.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A791C9895CC001405CE /* fig0515.pep */; };
 		46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7A1C9895CC001405CE /* fig0516.pep */; };
-		46EC8ACC1C9895CC001405CE /* fig0519.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7B1C9895CC001405CE /* fig0519.c */; };
 		46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7C1C9895CC001405CE /* fig0519.pep */; };
-		46EC8ACE1C9895CC001405CE /* fig0522.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7D1C9895CC001405CE /* fig0522.c */; };
 		46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7E1C9895CC001405CE /* fig0522.pep */; };
-		46EC8AD01C9895CC001405CE /* fig0527.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A7F1C9895CC001405CE /* fig0527.c */; };
 		46EC8AD11C9895CC001405CE /* fig0527.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A801C9895CC001405CE /* fig0527.pep */; };
 		46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A811C9895CC001405CE /* fig0601.pep */; };
-		46EC8AD31C9895CC001405CE /* fig0604.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A821C9895CC001405CE /* fig0604.c */; };
+		46EC8AD31C9895CC001405CE /* fig0604.txt in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A821C9895CC001405CE /* fig0604.txt */; };
 		46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A831C9895CC001405CE /* fig0604.pep */; };
-		46EC8AD51C9895CC001405CE /* fig0606.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A841C9895CC001405CE /* fig0606.c */; };
 		46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A851C9895CC001405CE /* fig0606.pep */; };
-		46EC8AD71C9895CC001405CE /* fig0608.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A861C9895CC001405CE /* fig0608.c */; };
 		46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A871C9895CC001405CE /* fig0608.pep */; };
-		46EC8AD91C9895CC001405CE /* fig0610.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A881C9895CC001405CE /* fig0610.c */; };
 		46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A891C9895CC001405CE /* fig0610.pep */; };
-		46EC8ADB1C9895CC001405CE /* fig0612.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8A1C9895CC001405CE /* fig0612.c */; };
 		46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8B1C9895CC001405CE /* fig0612.pep */; };
-		46EC8ADD1C9895CC001405CE /* fig0614.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8C1C9895CC001405CE /* fig0614.c */; };
 		46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8D1C9895CC001405CE /* fig0614.pep */; };
 		46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8E1C9895CC001405CE /* fig0616.pep */; };
-		46EC8AE01C9895CC001405CE /* fig0618.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A8F1C9895CC001405CE /* fig0618.c */; };
 		46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A901C9895CC001405CE /* fig0618.pep */; };
-		46EC8AE21C9895CC001405CE /* fig0621.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A911C9895CC001405CE /* fig0621.c */; };
 		46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A921C9895CC001405CE /* fig0621.pep */; };
-		46EC8AE41C9895CC001405CE /* fig0623.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A931C9895CC001405CE /* fig0623.c */; };
 		46EC8AE51C9895CC001405CE /* fig0623.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A941C9895CC001405CE /* fig0623.pep */; };
-		46EC8AE61C9895CC001405CE /* fig0625.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A951C9895CC001405CE /* fig0625.c */; };
 		46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A961C9895CC001405CE /* fig0625.pep */; };
-		46EC8AE81C9895CD001405CE /* fig0627.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A971C9895CC001405CE /* fig0627.c */; };
 		46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A981C9895CC001405CE /* fig0627.pep */; };
-		46EC8AEA1C9895CD001405CE /* fig0629.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A991C9895CC001405CE /* fig0629.c */; };
 		46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9A1C9895CC001405CE /* fig0629.pep */; };
-		46EC8AEC1C9895CD001405CE /* fig0632.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9B1C9895CC001405CE /* fig0632.c */; };
 		46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9C1C9895CC001405CE /* fig0632.pep */; };
-		46EC8AEE1C9895CD001405CE /* fig0634.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9D1C9895CC001405CE /* fig0634.c */; };
 		46EC8AEF1C9895CD001405CE /* fig0634.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9E1C9895CC001405CE /* fig0634.pep */; };
-		46EC8AF01C9895CD001405CE /* fig0636.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8A9F1C9895CC001405CE /* fig0636.c */; };
 		46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA01C9895CC001405CE /* fig0636.pep */; };
-		46EC8AF21C9895CD001405CE /* fig0638.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA11C9895CC001405CE /* fig0638.c */; };
 		46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA21C9895CC001405CE /* fig0638.pep */; };
-		46EC8AF41C9895CD001405CE /* fig0640.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA31C9895CC001405CE /* fig0640.c */; };
 		46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA41C9895CC001405CE /* fig0640.pep */; };
-		46EC8AF61C9895CD001405CE /* fig0642.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA51C9895CC001405CE /* fig0642.c */; };
 		46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA61C9895CC001405CE /* fig0642.pep */; };
-		46EC8AF81C9895CD001405CE /* fig0644.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA71C9895CC001405CE /* fig0644.c */; };
 		46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA81C9895CC001405CE /* fig0644.pep */; };
-		46EC8AFA1C9895CD001405CE /* fig0646.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AA91C9895CC001405CE /* fig0646.c */; };
 		46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAA1C9895CC001405CE /* fig0646.pep */; };
-		46EC8AFC1C9895CD001405CE /* fig0648.c in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAB1C9895CC001405CE /* fig0648.c */; };
 		46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAC1C9895CC001405CE /* fig0648.pep */; };
 		46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAD1C9895CC001405CE /* pep9os.pep */; };
 		46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */ = {isa = PBXBuildFile; fileRef = 46EC8AAE1C9895CC001405CE /* prob0826.pep */; };
@@ -213,6 +213,29 @@
 		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
 		46202E251DE95EBB00F8B70B /* PepMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepMaps.swift; sourceTree = "<group>"; };
 		46278CC81E076CFA009D6371 /* StackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackController.swift; sourceTree = "<group>"; };
+		462BA7471E2B2A3B00BBABCD /* fig0519.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0519.txt; path = pep9pad/figures/fig0519.txt; sourceTree = "<group>"; };
+		462BA7481E2B2A3B00BBABCD /* fig0522.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0522.txt; path = pep9pad/figures/fig0522.txt; sourceTree = "<group>"; };
+		462BA7491E2B2A3B00BBABCD /* fig0527.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0527.txt; path = pep9pad/figures/fig0527.txt; sourceTree = "<group>"; };
+		462BA74A1E2B2A3B00BBABCD /* fig0606.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0606.txt; path = pep9pad/figures/fig0606.txt; sourceTree = "<group>"; };
+		462BA74B1E2B2A3B00BBABCD /* fig0608.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0608.txt; path = pep9pad/figures/fig0608.txt; sourceTree = "<group>"; };
+		462BA74C1E2B2A3B00BBABCD /* fig0610.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0610.txt; path = pep9pad/figures/fig0610.txt; sourceTree = "<group>"; };
+		462BA74D1E2B2A3B00BBABCD /* fig0612.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0612.txt; path = pep9pad/figures/fig0612.txt; sourceTree = "<group>"; };
+		462BA74E1E2B2A3B00BBABCD /* fig0614.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0614.txt; path = pep9pad/figures/fig0614.txt; sourceTree = "<group>"; };
+		462BA74F1E2B2A3B00BBABCD /* fig0618.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0618.txt; path = pep9pad/figures/fig0618.txt; sourceTree = "<group>"; };
+		462BA7501E2B2A3B00BBABCD /* fig0621.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0621.txt; path = pep9pad/figures/fig0621.txt; sourceTree = "<group>"; };
+		462BA7511E2B2A3B00BBABCD /* fig0623.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0623.txt; path = pep9pad/figures/fig0623.txt; sourceTree = "<group>"; };
+		462BA7521E2B2A3B00BBABCD /* fig0625.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0625.txt; path = pep9pad/figures/fig0625.txt; sourceTree = "<group>"; };
+		462BA7531E2B2A3B00BBABCD /* fig0627.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0627.txt; path = pep9pad/figures/fig0627.txt; sourceTree = "<group>"; };
+		462BA7541E2B2A3B00BBABCD /* fig0629.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0629.txt; path = pep9pad/figures/fig0629.txt; sourceTree = "<group>"; };
+		462BA7551E2B2A3B00BBABCD /* fig0632.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0632.txt; path = pep9pad/figures/fig0632.txt; sourceTree = "<group>"; };
+		462BA7561E2B2A3B00BBABCD /* fig0634.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0634.txt; path = pep9pad/figures/fig0634.txt; sourceTree = "<group>"; };
+		462BA7571E2B2A3B00BBABCD /* fig0636.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0636.txt; path = pep9pad/figures/fig0636.txt; sourceTree = "<group>"; };
+		462BA7581E2B2A3B00BBABCD /* fig0638.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0638.txt; path = pep9pad/figures/fig0638.txt; sourceTree = "<group>"; };
+		462BA7591E2B2A3B00BBABCD /* fig0640.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0640.txt; path = pep9pad/figures/fig0640.txt; sourceTree = "<group>"; };
+		462BA75A1E2B2A3B00BBABCD /* fig0642.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0642.txt; path = pep9pad/figures/fig0642.txt; sourceTree = "<group>"; };
+		462BA75B1E2B2A3B00BBABCD /* fig0644.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0644.txt; path = pep9pad/figures/fig0644.txt; sourceTree = "<group>"; };
+		462BA75C1E2B2A3B00BBABCD /* fig0646.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0646.txt; path = pep9pad/figures/fig0646.txt; sourceTree = "<group>"; };
+		462BA75D1E2B2A3B00BBABCD /* fig0648.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0648.txt; path = pep9pad/figures/fig0648.txt; sourceTree = "<group>"; };
 		4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewDelegate.swift; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
@@ -276,55 +299,32 @@
 		46EC8A781C9895CC001405CE /* fig0514b.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0514b.pep; path = pep9pad/figures/fig0514b.pep; sourceTree = "<group>"; };
 		46EC8A791C9895CC001405CE /* fig0515.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0515.pep; path = pep9pad/figures/fig0515.pep; sourceTree = "<group>"; };
 		46EC8A7A1C9895CC001405CE /* fig0516.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0516.pep; path = pep9pad/figures/fig0516.pep; sourceTree = "<group>"; };
-		46EC8A7B1C9895CC001405CE /* fig0519.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0519.c; path = pep9pad/figures/fig0519.c; sourceTree = "<group>"; };
 		46EC8A7C1C9895CC001405CE /* fig0519.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0519.pep; path = pep9pad/figures/fig0519.pep; sourceTree = "<group>"; };
-		46EC8A7D1C9895CC001405CE /* fig0522.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0522.c; path = pep9pad/figures/fig0522.c; sourceTree = "<group>"; };
 		46EC8A7E1C9895CC001405CE /* fig0522.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0522.pep; path = pep9pad/figures/fig0522.pep; sourceTree = "<group>"; };
-		46EC8A7F1C9895CC001405CE /* fig0527.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0527.c; path = pep9pad/figures/fig0527.c; sourceTree = "<group>"; };
 		46EC8A801C9895CC001405CE /* fig0527.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0527.pep; path = pep9pad/figures/fig0527.pep; sourceTree = "<group>"; };
 		46EC8A811C9895CC001405CE /* fig0601.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0601.pep; path = pep9pad/figures/fig0601.pep; sourceTree = "<group>"; };
-		46EC8A821C9895CC001405CE /* fig0604.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0604.c; path = pep9pad/figures/fig0604.c; sourceTree = "<group>"; };
+		46EC8A821C9895CC001405CE /* fig0604.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0604.txt; path = pep9pad/figures/fig0604.txt; sourceTree = "<group>"; };
 		46EC8A831C9895CC001405CE /* fig0604.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0604.pep; path = pep9pad/figures/fig0604.pep; sourceTree = "<group>"; };
-		46EC8A841C9895CC001405CE /* fig0606.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0606.c; path = pep9pad/figures/fig0606.c; sourceTree = "<group>"; };
 		46EC8A851C9895CC001405CE /* fig0606.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0606.pep; path = pep9pad/figures/fig0606.pep; sourceTree = "<group>"; };
-		46EC8A861C9895CC001405CE /* fig0608.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0608.c; path = pep9pad/figures/fig0608.c; sourceTree = "<group>"; };
 		46EC8A871C9895CC001405CE /* fig0608.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0608.pep; path = pep9pad/figures/fig0608.pep; sourceTree = "<group>"; };
-		46EC8A881C9895CC001405CE /* fig0610.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0610.c; path = pep9pad/figures/fig0610.c; sourceTree = "<group>"; };
 		46EC8A891C9895CC001405CE /* fig0610.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0610.pep; path = pep9pad/figures/fig0610.pep; sourceTree = "<group>"; };
-		46EC8A8A1C9895CC001405CE /* fig0612.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0612.c; path = pep9pad/figures/fig0612.c; sourceTree = "<group>"; };
 		46EC8A8B1C9895CC001405CE /* fig0612.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0612.pep; path = pep9pad/figures/fig0612.pep; sourceTree = "<group>"; };
-		46EC8A8C1C9895CC001405CE /* fig0614.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0614.c; path = pep9pad/figures/fig0614.c; sourceTree = "<group>"; };
 		46EC8A8D1C9895CC001405CE /* fig0614.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0614.pep; path = pep9pad/figures/fig0614.pep; sourceTree = "<group>"; };
 		46EC8A8E1C9895CC001405CE /* fig0616.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0616.pep; path = pep9pad/figures/fig0616.pep; sourceTree = "<group>"; };
-		46EC8A8F1C9895CC001405CE /* fig0618.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0618.c; path = pep9pad/figures/fig0618.c; sourceTree = "<group>"; };
 		46EC8A901C9895CC001405CE /* fig0618.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0618.pep; path = pep9pad/figures/fig0618.pep; sourceTree = "<group>"; };
-		46EC8A911C9895CC001405CE /* fig0621.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0621.c; path = pep9pad/figures/fig0621.c; sourceTree = "<group>"; };
 		46EC8A921C9895CC001405CE /* fig0621.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0621.pep; path = pep9pad/figures/fig0621.pep; sourceTree = "<group>"; };
-		46EC8A931C9895CC001405CE /* fig0623.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0623.c; path = pep9pad/figures/fig0623.c; sourceTree = "<group>"; };
 		46EC8A941C9895CC001405CE /* fig0623.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0623.pep; path = pep9pad/figures/fig0623.pep; sourceTree = "<group>"; };
-		46EC8A951C9895CC001405CE /* fig0625.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0625.c; path = pep9pad/figures/fig0625.c; sourceTree = "<group>"; };
 		46EC8A961C9895CC001405CE /* fig0625.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0625.pep; path = pep9pad/figures/fig0625.pep; sourceTree = "<group>"; };
-		46EC8A971C9895CC001405CE /* fig0627.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0627.c; path = pep9pad/figures/fig0627.c; sourceTree = "<group>"; };
 		46EC8A981C9895CC001405CE /* fig0627.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0627.pep; path = pep9pad/figures/fig0627.pep; sourceTree = "<group>"; };
-		46EC8A991C9895CC001405CE /* fig0629.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0629.c; path = pep9pad/figures/fig0629.c; sourceTree = "<group>"; };
 		46EC8A9A1C9895CC001405CE /* fig0629.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0629.pep; path = pep9pad/figures/fig0629.pep; sourceTree = "<group>"; };
-		46EC8A9B1C9895CC001405CE /* fig0632.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0632.c; path = pep9pad/figures/fig0632.c; sourceTree = "<group>"; };
 		46EC8A9C1C9895CC001405CE /* fig0632.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0632.pep; path = pep9pad/figures/fig0632.pep; sourceTree = "<group>"; };
-		46EC8A9D1C9895CC001405CE /* fig0634.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0634.c; path = pep9pad/figures/fig0634.c; sourceTree = "<group>"; };
 		46EC8A9E1C9895CC001405CE /* fig0634.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0634.pep; path = pep9pad/figures/fig0634.pep; sourceTree = "<group>"; };
-		46EC8A9F1C9895CC001405CE /* fig0636.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0636.c; path = pep9pad/figures/fig0636.c; sourceTree = "<group>"; };
 		46EC8AA01C9895CC001405CE /* fig0636.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0636.pep; path = pep9pad/figures/fig0636.pep; sourceTree = "<group>"; };
-		46EC8AA11C9895CC001405CE /* fig0638.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0638.c; path = pep9pad/figures/fig0638.c; sourceTree = "<group>"; };
 		46EC8AA21C9895CC001405CE /* fig0638.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0638.pep; path = pep9pad/figures/fig0638.pep; sourceTree = "<group>"; };
-		46EC8AA31C9895CC001405CE /* fig0640.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0640.c; path = pep9pad/figures/fig0640.c; sourceTree = "<group>"; };
 		46EC8AA41C9895CC001405CE /* fig0640.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0640.pep; path = pep9pad/figures/fig0640.pep; sourceTree = "<group>"; };
-		46EC8AA51C9895CC001405CE /* fig0642.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0642.c; path = pep9pad/figures/fig0642.c; sourceTree = "<group>"; };
 		46EC8AA61C9895CC001405CE /* fig0642.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0642.pep; path = pep9pad/figures/fig0642.pep; sourceTree = "<group>"; };
-		46EC8AA71C9895CC001405CE /* fig0644.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0644.c; path = pep9pad/figures/fig0644.c; sourceTree = "<group>"; };
 		46EC8AA81C9895CC001405CE /* fig0644.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0644.pep; path = pep9pad/figures/fig0644.pep; sourceTree = "<group>"; };
-		46EC8AA91C9895CC001405CE /* fig0646.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0646.c; path = pep9pad/figures/fig0646.c; sourceTree = "<group>"; };
 		46EC8AAA1C9895CC001405CE /* fig0646.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0646.pep; path = pep9pad/figures/fig0646.pep; sourceTree = "<group>"; };
-		46EC8AAB1C9895CC001405CE /* fig0648.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = fig0648.c; path = pep9pad/figures/fig0648.c; sourceTree = "<group>"; };
 		46EC8AAC1C9895CC001405CE /* fig0648.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = fig0648.pep; path = pep9pad/figures/fig0648.pep; sourceTree = "<group>"; };
 		46EC8AAD1C9895CC001405CE /* pep9os.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = pep9os.pep; path = pep9pad/figures/pep9os.pep; sourceTree = "<group>"; };
 		46EC8AAE1C9895CC001405CE /* prob0826.pep */ = {isa = PBXFileReference; lastKnownFileType = text; name = prob0826.pep; path = pep9pad/figures/prob0826.pep; sourceTree = "<group>"; };
@@ -703,55 +703,55 @@
 				46EC8A781C9895CC001405CE /* fig0514b.pep */,
 				46EC8A791C9895CC001405CE /* fig0515.pep */,
 				46EC8A7A1C9895CC001405CE /* fig0516.pep */,
-				46EC8A7B1C9895CC001405CE /* fig0519.c */,
 				46EC8A7C1C9895CC001405CE /* fig0519.pep */,
-				46EC8A7D1C9895CC001405CE /* fig0522.c */,
 				46EC8A7E1C9895CC001405CE /* fig0522.pep */,
-				46EC8A7F1C9895CC001405CE /* fig0527.c */,
 				46EC8A801C9895CC001405CE /* fig0527.pep */,
 				46EC8A811C9895CC001405CE /* fig0601.pep */,
-				46EC8A821C9895CC001405CE /* fig0604.c */,
+				46EC8A821C9895CC001405CE /* fig0604.txt */,
 				46EC8A831C9895CC001405CE /* fig0604.pep */,
-				46EC8A841C9895CC001405CE /* fig0606.c */,
 				46EC8A851C9895CC001405CE /* fig0606.pep */,
-				46EC8A861C9895CC001405CE /* fig0608.c */,
 				46EC8A871C9895CC001405CE /* fig0608.pep */,
-				46EC8A881C9895CC001405CE /* fig0610.c */,
 				46EC8A891C9895CC001405CE /* fig0610.pep */,
-				46EC8A8A1C9895CC001405CE /* fig0612.c */,
 				46EC8A8B1C9895CC001405CE /* fig0612.pep */,
-				46EC8A8C1C9895CC001405CE /* fig0614.c */,
 				46EC8A8D1C9895CC001405CE /* fig0614.pep */,
 				46EC8A8E1C9895CC001405CE /* fig0616.pep */,
-				46EC8A8F1C9895CC001405CE /* fig0618.c */,
 				46EC8A901C9895CC001405CE /* fig0618.pep */,
-				46EC8A911C9895CC001405CE /* fig0621.c */,
 				46EC8A921C9895CC001405CE /* fig0621.pep */,
-				46EC8A931C9895CC001405CE /* fig0623.c */,
 				46EC8A941C9895CC001405CE /* fig0623.pep */,
-				46EC8A951C9895CC001405CE /* fig0625.c */,
+				462BA7471E2B2A3B00BBABCD /* fig0519.txt */,
+				462BA7481E2B2A3B00BBABCD /* fig0522.txt */,
+				462BA7491E2B2A3B00BBABCD /* fig0527.txt */,
+				462BA74A1E2B2A3B00BBABCD /* fig0606.txt */,
+				462BA74B1E2B2A3B00BBABCD /* fig0608.txt */,
+				462BA74C1E2B2A3B00BBABCD /* fig0610.txt */,
+				462BA74D1E2B2A3B00BBABCD /* fig0612.txt */,
+				462BA74E1E2B2A3B00BBABCD /* fig0614.txt */,
+				462BA74F1E2B2A3B00BBABCD /* fig0618.txt */,
+				462BA7501E2B2A3B00BBABCD /* fig0621.txt */,
+				462BA7511E2B2A3B00BBABCD /* fig0623.txt */,
+				462BA7521E2B2A3B00BBABCD /* fig0625.txt */,
+				462BA7531E2B2A3B00BBABCD /* fig0627.txt */,
+				462BA7541E2B2A3B00BBABCD /* fig0629.txt */,
+				462BA7551E2B2A3B00BBABCD /* fig0632.txt */,
+				462BA7561E2B2A3B00BBABCD /* fig0634.txt */,
+				462BA7571E2B2A3B00BBABCD /* fig0636.txt */,
+				462BA7581E2B2A3B00BBABCD /* fig0638.txt */,
+				462BA7591E2B2A3B00BBABCD /* fig0640.txt */,
+				462BA75A1E2B2A3B00BBABCD /* fig0642.txt */,
+				462BA75B1E2B2A3B00BBABCD /* fig0644.txt */,
+				462BA75C1E2B2A3B00BBABCD /* fig0646.txt */,
+				462BA75D1E2B2A3B00BBABCD /* fig0648.txt */,
 				46EC8A961C9895CC001405CE /* fig0625.pep */,
-				46EC8A971C9895CC001405CE /* fig0627.c */,
 				46EC8A981C9895CC001405CE /* fig0627.pep */,
-				46EC8A991C9895CC001405CE /* fig0629.c */,
 				46EC8A9A1C9895CC001405CE /* fig0629.pep */,
-				46EC8A9B1C9895CC001405CE /* fig0632.c */,
 				46EC8A9C1C9895CC001405CE /* fig0632.pep */,
-				46EC8A9D1C9895CC001405CE /* fig0634.c */,
 				46EC8A9E1C9895CC001405CE /* fig0634.pep */,
-				46EC8A9F1C9895CC001405CE /* fig0636.c */,
 				46EC8AA01C9895CC001405CE /* fig0636.pep */,
-				46EC8AA11C9895CC001405CE /* fig0638.c */,
 				46EC8AA21C9895CC001405CE /* fig0638.pep */,
-				46EC8AA31C9895CC001405CE /* fig0640.c */,
 				46EC8AA41C9895CC001405CE /* fig0640.pep */,
-				46EC8AA51C9895CC001405CE /* fig0642.c */,
 				46EC8AA61C9895CC001405CE /* fig0642.pep */,
-				46EC8AA71C9895CC001405CE /* fig0644.c */,
 				46EC8AA81C9895CC001405CE /* fig0644.pep */,
-				46EC8AA91C9895CC001405CE /* fig0646.c */,
 				46EC8AAA1C9895CC001405CE /* fig0646.pep */,
-				46EC8AAB1C9895CC001405CE /* fig0648.c */,
 				46EC8AAC1C9895CC001405CE /* fig0648.pep */,
 				46EC8AAD1C9895CC001405CE /* pep9os.pep */,
 				46EC8AAE1C9895CC001405CE /* prob0826.pep */,
@@ -944,18 +944,24 @@
 				46EC8AB91C9895CC001405CE /* fig0435.pepb in Resources */,
 				46EC8ABA1C9895CC001405CE /* fig0435.peph in Resources */,
 				46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */,
+				462BA7631E2B2A3B00BBABCD /* fig0610.txt in Resources */,
 				46EC8ABC1C9895CC001405CE /* fig0436.pepb in Resources */,
 				46EC8ABD1C9895CC001405CE /* fig0436.peph in Resources */,
 				46C76A661DAF173D0071C340 /* Pep9TabBar.storyboard in Resources */,
 				46EC8ABE1C9895CC001405CE /* fig0436.pepo in Resources */,
+				462BA7621E2B2A3B00BBABCD /* fig0608.txt in Resources */,
 				46EC8ABF1C9895CC001405CE /* fig0437.pepb in Resources */,
 				4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */,
 				46EC8AC01C9895CC001405CE /* fig0437.peph in Resources */,
 				46EC8AC11C9895CC001405CE /* fig0437.pepo in Resources */,
 				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
 				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
+				462BA76A1E2B2A3B00BBABCD /* fig0627.txt in Resources */,
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
+				462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */,
+				462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */,
+				462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */,
 				D26113A81DCA7B5400DE8923 /* myFirstProgram.pepl in Resources */,
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
 				D2CC5E4E1DB807990033CFF4 /* myFirstProgram.pep in Resources */,
@@ -965,64 +971,51 @@
 				46EC8AC91C9895CC001405CE /* fig0514b.pep in Resources */,
 				46EC8ACA1C9895CC001405CE /* fig0515.pep in Resources */,
 				46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */,
-				46EC8ACC1C9895CC001405CE /* fig0519.c in Resources */,
 				46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */,
-				46EC8ACE1C9895CC001405CE /* fig0522.c in Resources */,
 				46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */,
-				46EC8AD01C9895CC001405CE /* fig0527.c in Resources */,
 				46C76A541DA494130071C340 /* FontAwesome in Resources */,
 				46EC8AD11C9895CC001405CE /* fig0527.pep in Resources */,
 				46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */,
-				46EC8AD31C9895CC001405CE /* fig0604.c in Resources */,
+				46EC8AD31C9895CC001405CE /* fig0604.txt in Resources */,
 				46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */,
 				D2B82DE41E035B8700F960FE /* Memory.xib in Resources */,
-				46EC8AD51C9895CC001405CE /* fig0606.c in Resources */,
 				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
-				46EC8AD71C9895CC001405CE /* fig0608.c in Resources */,
+				462BA7671E2B2A3B00BBABCD /* fig0621.txt in Resources */,
+				462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
 				46C76A5D1DA711690071C340 /* FileSystem.storyboard in Resources */,
+				462BA7681E2B2A3B00BBABCD /* fig0623.txt in Resources */,
 				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
-				46EC8AD91C9895CC001405CE /* fig0610.c in Resources */,
+				462BA75F1E2B2A3B00BBABCD /* fig0522.txt in Resources */,
 				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
 				D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */,
-				46EC8ADB1C9895CC001405CE /* fig0612.c in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
-				46EC8ADD1C9895CC001405CE /* fig0614.c in Resources */,
 				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
-				46EC8AE01C9895CC001405CE /* fig0618.c in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
 				468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */,
-				46EC8AE21C9895CC001405CE /* fig0621.c in Resources */,
 				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
-				46EC8AE41C9895CC001405CE /* fig0623.c in Resources */,
+				462BA7661E2B2A3B00BBABCD /* fig0618.txt in Resources */,
 				4656E1201CE9352B0091AF6E /* CppHighlightingPatterns.plist in Resources */,
 				46EC8AE51C9895CC001405CE /* fig0623.pep in Resources */,
-				46EC8AE61C9895CC001405CE /* fig0625.c in Resources */,
+				462BA76B1E2B2A3B00BBABCD /* fig0629.txt in Resources */,
 				46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */,
-				46EC8AE81C9895CD001405CE /* fig0627.c in Resources */,
+				462BA7711E2B2A3B00BBABCD /* fig0642.txt in Resources */,
+				462BA76C1E2B2A3B00BBABCD /* fig0632.txt in Resources */,
 				46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */,
-				46EC8AEA1C9895CD001405CE /* fig0629.c in Resources */,
 				46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */,
-				46EC8AEC1C9895CD001405CE /* fig0632.c in Resources */,
 				46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */,
 				4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */,
-				46EC8AEE1C9895CD001405CE /* fig0634.c in Resources */,
 				46EC8AEF1C9895CD001405CE /* fig0634.pep in Resources */,
-				46EC8AF01C9895CD001405CE /* fig0636.c in Resources */,
 				46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */,
-				46EC8AF21C9895CD001405CE /* fig0638.c in Resources */,
 				46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */,
 				46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */,
-				46EC8AF41C9895CD001405CE /* fig0640.c in Resources */,
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
-				46EC8AF61C9895CD001405CE /* fig0642.c in Resources */,
+				462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */,
+				462BA76E1E2B2A3B00BBABCD /* fig0636.txt in Resources */,
 				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
-				46EC8AF81C9895CD001405CE /* fig0644.c in Resources */,
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
-				46EC8AFA1C9895CD001405CE /* fig0646.c in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
-				46EC8AFC1C9895CD001405CE /* fig0648.c in Resources */,
 				46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */,
 				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
 				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
@@ -1031,17 +1024,24 @@
 				46EC8B021C9895CD001405CE /* prob0829.pep in Resources */,
 				46EC8B031C9895CD001405CE /* prob0830.pep in Resources */,
 				46EC8B041C9895CD001405CE /* prob0831.pep in Resources */,
+				462BA7691E2B2A3B00BBABCD /* fig0625.txt in Resources */,
+				462BA7611E2B2A3B00BBABCD /* fig0606.txt in Resources */,
+				462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */,
 				46EC8B051C9895CD001405CE /* prob0832.pep in Resources */,
 				461875AB1C900D740095B818 /* writingprograms.html in Resources */,
+				462BA76F1E2B2A3B00BBABCD /* fig0638.txt in Resources */,
 				461875A71C900D740095B818 /* images in Resources */,
 				461875A61C900D740095B818 /* figures in Resources */,
 				461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */,
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
 				461875AA1C900D740095B818 /* problems.html in Resources */,
+				462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */,
+				462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
 				D2B061641C7E62040088CEBE /* Images.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
+				462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
 				460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,

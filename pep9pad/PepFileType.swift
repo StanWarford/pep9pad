@@ -13,5 +13,5 @@ enum PepFileType: String {
     case pepl   = "pepl"
     case pepb   = "pepb"
     case peph   = "peph"
-    case c      = "c"
+    case c      = "txt"
 }

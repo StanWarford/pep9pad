@@ -61,6 +61,9 @@ class ExampleViewController: UIViewController {
                 self.bottomTextView.removeAllText()
                 self.bottomTextView.setText(content)
             }
+            
+            topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+            bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
 
         } catch _ as NSError {
             print("Could not load file named \(fileName).\(ofType.rawValue)")
@@ -82,10 +85,10 @@ class ExampleViewController: UIViewController {
                 let viewHeight = view.frame.height
                 let viewWidth = view.frame.width
                 let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: viewHeight-navAndStatBarHeight)
-                let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
+                //let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
                 UIView.animate(withDuration: 0.25) {
                     self.topTextView.frame = newRectForTop
-                    self.bottomTextView.frame = newRectForBottom
+                    self.bottomTextView.isHidden = true
                 }
                 // scroll the textViews back to top
                 topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
@@ -102,6 +105,7 @@ class ExampleViewController: UIViewController {
                 UIView.animate(withDuration: 0.25) {
                     self.topTextView.frame = newRectForTop
                     self.bottomTextView.frame = newRectForBottom
+                    self.bottomTextView.isHidden = false
                 }
                 // scroll the textViews back to top
                 topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
