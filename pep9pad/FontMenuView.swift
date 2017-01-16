@@ -41,9 +41,16 @@ class FontMenuView: UIView {
     @IBAction func fontSizeStepperChanged(_ sender: UIStepper) {
     }
     
-    @IBOutlet weak var brightnessSlider: UISlider!
+    @IBOutlet weak var brightnessSlider: UISlider! {
+        didSet {
+            brightnessSlider.maximumValue = 1.0
+            brightnessSlider.minimumValue = 0.0
+            brightnessSlider.value = Float(UIScreen.main.brightness)
+        }
+    }
     
     @IBAction func brightnessSliderValueChanged(_ sender: UISlider) {
+        UIScreen.main.brightness = CGFloat(sender.value)
     }
     
     

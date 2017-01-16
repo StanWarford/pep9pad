@@ -7,58 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02E630747A0F076F06E1E029B0CCC734 /* Pods-pep9pad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9603700F11CF0E8AEF744A269C5A8 /* Pods-pep9pad-dummy.m */; };
-		0A9614E831282C3FB0F442A5DBB5734D /* MSSCustomHeightNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C9A525C7C6444196AAC41E97376805B2 /* MSSCustomHeightNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		12D1D54665B1EDC301F4E9A900C42DC3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E30192639BBD09FB429F87E37C0554D /* Enum.swift */; };
+		0A9614E831282C3FB0F442A5DBB5734D /* MSSCustomHeightNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EB958DD75ACD3D2E4545C7AEC65FD2B /* MSSCustomHeightNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12D1D54665B1EDC301F4E9A900C42DC3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D9F2B486C0995658D437EE0BA8D76B5 /* Enum.swift */; };
+		168FF3DA8C8DD1160D4B748C1A6F0058 /* AMPopTip+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE25ABF9EA8ECF69AF849E644FF4123 /* AMPopTip+Draw.m */; };
 		18265A2DF1210AE176A7EB58FA9259B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		1E4F4E739AD0C22AB0077D50142D5131 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0B888F20CBF7CB1037EF0239D37D73 /* MSSTabBarView.m */; };
-		27967FFAE1AD1B478141BDE32EF090CF /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E834433144C594F09E713026EABF26 /* FontAwesomeView.swift */; };
-		2961140128B9B65F814FAFF1B14482DE /* MSSTabBarView+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = B1168DBBD70228F29D8AA824DB1947B6 /* MSSTabBarView+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A7C9B5717B530FE9DAE7D3761D03862 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C938B4B1A78AF542648754CE86EEC6 /* UIView+MSSAutoLayout.m */; };
+		1E4F4E739AD0C22AB0077D50142D5131 /* MSSTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 943C9619168B0C1A35831B7CCB7FDC48 /* MSSTabBarView.m */; };
+		27967FFAE1AD1B478141BDE32EF090CF /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8D1CC1085FDBAAF9B3C9D87E56B3F /* FontAwesomeView.swift */; };
+		2961140128B9B65F814FAFF1B14482DE /* MSSTabBarView+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FF420DB6C9597268012EA3AFC7361572 /* MSSTabBarView+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A7C9B5717B530FE9DAE7D3761D03862 /* UIView+MSSAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C9F78762E6DFB74C49938DECBE8E0 /* UIView+MSSAutoLayout.m */; };
 		2B59A682DFEBA9841737A0FADFB0D67F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C23E16390F6F5920E271EBFB6A30A8 /* UIKit.framework */; };
-		3DDE96C1DBE8B94559B5F57A31D4C791 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F650D6887E5B8E9727FD6C61D1CF6FF /* FontAwesome.swift */; };
-		40DF2DB2BA7B123A0CF7F0E22B6B802D /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D0C32B93FF597C6E5B89FFFA9B6470 /* MSSTabBarCollectionViewCell.m */; };
-		4E70CD7D9BB8EF8AA0D0BD0C6F30F276 /* MSSTabBarCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 643D2414A4972A0EBBE3DA96AF322452 /* MSSTabBarCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31BD0C9241E08549B6864F0026EDF5DE /* AMPopTip.h in Headers */ = {isa = PBXBuildFile; fileRef = 7449F4FD5D591AACB9888563B4FDA73A /* AMPopTip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		33EE7806A0AD0C0AFD362E1AD550EA6A /* AMPopTip+Draw.h in Headers */ = {isa = PBXBuildFile; fileRef = 2722C63C7A1D8F2840A563C509F7E65F /* AMPopTip+Draw.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DDE96C1DBE8B94559B5F57A31D4C791 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293BF6D270530CA19FAC227026ED61C2 /* FontAwesome.swift */; };
+		3F9369B0E219E307FD1FC012DCAFCC8A /* AMPopTip+Entrance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F67D581E054F60DD636BF3D68CEFD3E /* AMPopTip+Entrance.m */; };
+		40DF2DB2BA7B123A0CF7F0E22B6B802D /* MSSTabBarCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F27FA552869BC5633CCA379B7E02B981 /* MSSTabBarCollectionViewCell.m */; };
+		496B1D01A01EBD17EF26D89E21B7D7B1 /* Pods-pep9pad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E44D4E12E477A0D94C93C28404C664FB /* Pods-pep9pad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E70CD7D9BB8EF8AA0D0BD0C6F30F276 /* MSSTabBarCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E2C0C43DD9596D96CB2BEAE70DF9B10E /* MSSTabBarCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F59A7098B88C46360390D24179B6FCB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282E317D90744761F406E685BC46589A /* CoreText.framework */; };
-		4FFA6651790C1B6890BC8AF9BCE67AD4 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9C51FD846EE8B9AD3AB611A0DAB9DAE6 /* FontAwesome.otf */; };
-		5401F87AF333D3B96C43CAC06BD3AF3B /* MSSTabBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 86315417C0BEC4292C8F29000E1BF2F4 /* MSSTabBarAppearance.m */; };
+		4FFA6651790C1B6890BC8AF9BCE67AD4 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = C902C0C6518B7B34FEA1758E6A19958C /* FontAwesome.otf */; };
+		5401F87AF333D3B96C43CAC06BD3AF3B /* MSSTabBarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = A3946464EC3019482D7A5EC41B64A98E /* MSSTabBarAppearance.m */; };
+		594FC51BE92E0D6E9A912BC24AA01642 /* AMPopTip+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 75D555D3F514A0E5C0471E71501322B0 /* AMPopTip+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BD9EE1700516255C898F82C14AAD4A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		621BECA4016EC5DCA250BD141DF1A8F9 /* MSSTabbedPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26462872C8437A7FFD37953113E237CB /* MSSTabbedPageViewController-dummy.m */; };
-		6599A54D94C202F238BC307C6E1D4341 /* MSSTabBarCollectionViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FE85F52A6D60919ADF20C19428C37BED /* MSSTabBarCollectionViewCell+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		69CDDEC2ACD91D0893FB3019A467905C /* MSSTabbedPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E36646E2EAA03C886FF853EEB2C87B /* MSSTabbedPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6AB25044C07D540A72122FEDFCFBCBE5 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B40FD2F1AF4E1D7882AFD671E6FA0512 /* MSSCustomHeightNavigationBar.m */; };
-		775248CE4409F230339EF33F8D62D580 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8BE0ACC4E79E5DAFFA79EDE2FD0687 /* UIViewController+MSSUtilities.m */; };
-		8452C0F5D088AF655A5893683D7CD4C1 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44FA591D29A9566D23E873319E262C5 /* MSSTabBarCollectionViewCell.xib */; };
-		8D6A49B9302E530B7F3DCB2B3D00295D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		8F9714495A88288A14B73B864EAE3338 /* Pods-pep9pad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E44D4E12E477A0D94C93C28404C664FB /* Pods-pep9pad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		977893CD9D5483CEDEC34CC89B83CAA7 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 91115051FAF63927442124971AB748EB /* FontAwesome.swift.bundle */; };
-		9BA89E90D08F82EC682B2BC6622669E0 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 069F9D1FA65F166EF7D2E3D0AF1B5A61 /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CB0200AD29E2357385A7797E8ADDCA4 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E81E8C38F03A6A3AB4494D73C2014E78 /* MSSTabbedPageViewController.m */; };
-		A22A8E758713B04E6587A70E27B83CAD /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBB8F435ADD41E67814E579FDE9F5D /* MSSTabNavigationBar.m */; };
-		AA9C5DFEC791A6ABFEFF8B88B403AE30 /* MSSPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 29822C66105ABA19AE02A444652C1494 /* MSSPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0912518A15E16391F78390AB5578C34 /* MSSTabSizingStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 292D8EF53F85B986A9D05ADBDB4486D5 /* MSSTabSizingStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA6AB0010613FB0D7350739A4CC08DF0 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7931BA7BEDD3E68E1CF6042AB60BF910 /* MSSPageViewController.m */; };
-		BAFD1E8F95F812DFCED4FE3579EB0F94 /* UIView+MSSAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A99C94EFF3B0285B4AD27F42AEC21FFF /* UIView+MSSAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB61B113AC771733526CAE175D66E1D4 /* MSSTabbedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D141B5AD749E3D8D13ECD9655C56A9F /* MSSTabbedPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE726CEF2D0E3A7F76B097C56BAA7490 /* UIViewController+MSSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DE1954AB4B6D8C235107EA650DF109F /* UIViewController+MSSUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1E31BD73BFED68849678738B8592CF9 /* MSSTabNavigationBar+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 827E2207DC2EFADC905F89B2AC371FD6 /* MSSTabNavigationBar+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5BAB5C9D20EABF4C8A320DD5E996107 /* MSSTabNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2235755C64F5769B2C952A1E7355FE1E /* MSSTabNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF0F718C9F8E2818B98012CDDA4C6805 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8EB515C58EE778DD1E21F7DB07163A /* FontAwesome.swift-dummy.m */; };
-		E7A8CF0C6E0A0E774F1DCC69E3E8C17A /* MSSTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C5B0FD866B8396392D407E28FF67E4 /* MSSTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EDAD2E64A5D458E4B019D172E15AE93A /* MSSTabBarAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = B990828166B8B1D64F0EC31CB15BA566 /* MSSTabBarAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8EB30241828929EE2FD63E49F0638A7 /* MSSPageViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 1025A95243BBE874A9666EEB75D05B9F /* MSSPageViewController+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F9D35E4DA99BC5398E546C3AC7509FA9 /* MSSTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 55DB4C2C18A2602C278C7CF8E49DA2AE /* MSSTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5FEE0A02C001742DFFBAF052985A194E /* AMPopTip+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4EE9DFDCF335FE2537825258F131DD /* AMPopTip+Animation.m */; };
+		621BECA4016EC5DCA250BD141DF1A8F9 /* MSSTabbedPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98197D69B44B76CF1D6FFE9016299FCF /* MSSTabbedPageViewController-dummy.m */; };
+		6599A54D94C202F238BC307C6E1D4341 /* MSSTabBarCollectionViewCell+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 2896EEFCF810785B20C22AD6B8731933 /* MSSTabBarCollectionViewCell+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		69CDDEC2ACD91D0893FB3019A467905C /* MSSTabbedPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6339258FB79E61BBCB87A16F94EE2888 /* MSSTabbedPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6AB25044C07D540A72122FEDFCFBCBE5 /* MSSCustomHeightNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C96B3BC5F5115877F69A75453656D888 /* MSSCustomHeightNavigationBar.m */; };
+		74D1F1D4C6A6F12E15FC6562A824E9E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
+		775248CE4409F230339EF33F8D62D580 /* UIViewController+MSSUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2DC871546935485D7B0A83D96DCB67 /* UIViewController+MSSUtilities.m */; };
+		7EF915FA08181452D59D4469A92D3EC4 /* AMPopTip+Exit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5E02561EF42FE80C2BF1C5C70B0E1 /* AMPopTip+Exit.m */; };
+		8452C0F5D088AF655A5893683D7CD4C1 /* MSSTabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77A5630C5A31ED00F50182FB96B1456B /* MSSTabBarCollectionViewCell.xib */; };
+		85E6D00D0715E22B12E82A35A1B3BBA6 /* AMPopTip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 631CE57416B720A1118D6B33F6E35DBA /* AMPopTip-dummy.m */; };
+		977893CD9D5483CEDEC34CC89B83CAA7 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38411FFFCC0C45555DA0A94374A7633A /* FontAwesome.swift.bundle */; };
+		9BA89E90D08F82EC682B2BC6622669E0 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A79A3E097702CB6644D3AB89AF30B1AC /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CB0200AD29E2357385A7797E8ADDCA4 /* MSSTabbedPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C17BC03CE2E1D54AA9B56D18DFF2CA9 /* MSSTabbedPageViewController.m */; };
+		A22A8E758713B04E6587A70E27B83CAD /* MSSTabNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0330B5A53F917BAF9B62917B1CFA4C73 /* MSSTabNavigationBar.m */; };
+		AA9C5DFEC791A6ABFEFF8B88B403AE30 /* MSSPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D70FB802ED701F227E9BE57C9A3D9A6 /* MSSPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0912518A15E16391F78390AB5578C34 /* MSSTabSizingStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 30C8F967100EDD45723ACD2FA38ECEB2 /* MSSTabSizingStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0E524E526AEB46867FC321D7D452587 /* AMPopTip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 193FB538AFA11FA8A167F30804ABA8D6 /* AMPopTip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B13516B7215A84105045C3A87968B312 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
+		BA6AB0010613FB0D7350739A4CC08DF0 /* MSSPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84597A8DE8A891D1B6FEE261EE8681BB /* MSSPageViewController.m */; };
+		BAFD1E8F95F812DFCED4FE3579EB0F94 /* UIView+MSSAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A5C6FCF648041A2E86FD5DDCC274E65A /* UIView+MSSAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB61B113AC771733526CAE175D66E1D4 /* MSSTabbedPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D00CF2CA855BBF85A61DDCE79A59E5B /* MSSTabbedPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE726CEF2D0E3A7F76B097C56BAA7490 /* UIViewController+MSSUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB15FD3752524765CCEC7DAC7475D9F /* UIViewController+MSSUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C15D0A6A16A67413F4514081A8544090 /* Pods-pep9pad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9603700F11CF0E8AEF744A269C5A8 /* Pods-pep9pad-dummy.m */; };
+		C1E31BD73BFED68849678738B8592CF9 /* MSSTabNavigationBar+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 91956795992B70A984E7382D6E303A8A /* MSSTabNavigationBar+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5BAB5C9D20EABF4C8A320DD5E996107 /* MSSTabNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 1604B45C884BD5EA9240636E030612E2 /* MSSTabNavigationBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CAD6335F8822646861904FF84F742A81 /* AMPopTipDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BF5E0629FF53002CEEA2D8FCFC5F18A /* AMPopTipDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF0F718C9F8E2818B98012CDDA4C6805 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C811C796EF291C2905070004B31DDB1 /* FontAwesome.swift-dummy.m */; };
+		D084AE5876843A226CC40DA8EDFD9E24 /* AMPopTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C534E15BCEAEB0B4A94096D984204B /* AMPopTip.m */; };
+		E7A8CF0C6E0A0E774F1DCC69E3E8C17A /* MSSTabStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = CEB286F0CCC04DF1BFC0DEC42FB40B17 /* MSSTabStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDAD2E64A5D458E4B019D172E15AE93A /* MSSTabBarAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = BE8061F7B74FCEEC20255EA5CC6E612F /* MSSTabBarAppearance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1C6E9895A6463F866EA04C2DCB5E3D3 /* AMPopTip+Entrance.h in Headers */ = {isa = PBXBuildFile; fileRef = DA27AF097FF37E7EA06C77FA87EFDC3C /* AMPopTip+Entrance.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F830964FB4E54EA277AB5ED99920F5AA /* AMPopTip+Exit.h in Headers */ = {isa = PBXBuildFile; fileRef = 26CA2C7ABF4137C71C90AA6A755BB09C /* AMPopTip+Exit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8EB30241828929EE2FD63E49F0638A7 /* MSSPageViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A19C6551171AD45D5F3194161983DF1C /* MSSPageViewController+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9D35E4DA99BC5398E546C3AC7509FA9 /* MSSTabBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = B59DE79CD400BCC4264A4C888ACAC3DC /* MSSTabBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FD758D0B389944BC5D6C421115DE7FBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C23E16390F6F5920E271EBFB6A30A8 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0DC5047B0C79635A2A6C1EA262BF86C9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1FE2578FF0805299395CF2A0206BB671;
-			remoteInfo = FontAwesome.swift;
-		};
 		192DAE8239CEDF28426AC10F45C42C62 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -66,84 +73,124 @@
 			remoteGlobalIDString = EF4F067C2D0E135B80299B089E168BDA;
 			remoteInfo = "FontAwesome.swift-FontAwesome.swift";
 		};
-		F496BC4C8F3817B870D4B8A1A1C5AEF5 /* PBXContainerItemProxy */ = {
+		812D84D1AE1614E7984CBE346558F70F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 586E40C0BEBAB01A075A5E60359FA09D;
+			remoteInfo = AMPopTip;
+		};
+		A820248069CA69AA0C4ACE040C026A0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 595A6B2F8F17401C1FE0D3C057AAF13F;
 			remoteInfo = MSSTabbedPageViewController;
 		};
+		E9766F05F47E044201F519AFA1CF898F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1FE2578FF0805299395CF2A0206BB671;
+			remoteInfo = FontAwesome.swift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		069F9D1FA65F166EF7D2E3D0AF1B5A61 /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
-		0C23E87261E064BED02DC4498277A3E5 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
-		0DCBB8F435ADD41E67814E579FDE9F5D /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabNavigationBar.m; path = Source/Components/MSSTabBarView/MSSTabNavigationBar/MSSTabNavigationBar.m; sourceTree = "<group>"; };
-		1025A95243BBE874A9666EEB75D05B9F /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSPageViewController+Private.h"; path = "Source/Components/MSSPageViewController/MSSPageViewController+Private.h"; sourceTree = "<group>"; };
-		17E834433144C594F09E713026EABF26 /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
-		1AF87843DFB0EF5182B37A79D155231B /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
-		1DE1954AB4B6D8C235107EA650DF109F /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MSSUtilities.h"; path = "Source/Utilities/UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
+		0330B5A53F917BAF9B62917B1CFA4C73 /* MSSTabNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabNavigationBar.m; path = Source/Components/MSSTabBarView/MSSTabNavigationBar/MSSTabNavigationBar.m; sourceTree = "<group>"; };
+		0E6B7AF834E45305C4B92CD516D7DB2E /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAwesome_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13C8EF286F0BCBB0C6C0F3648BF3F750 /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
+		1604B45C884BD5EA9240636E030612E2 /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabNavigationBar.h; path = Source/Components/MSSTabBarView/MSSTabNavigationBar/MSSTabNavigationBar.h; sourceTree = "<group>"; };
+		193FB538AFA11FA8A167F30804ABA8D6 /* AMPopTip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMPopTip-umbrella.h"; sourceTree = "<group>"; };
+		1C811C796EF291C2905070004B31DDB1 /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
+		1F7109E2821DEA93FC8E154C8992CEEA /* MSSTabbedPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-prefix.pch"; sourceTree = "<group>"; };
 		1FD9603700F11CF0E8AEF744A269C5A8 /* Pods-pep9pad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pep9pad-dummy.m"; sourceTree = "<group>"; };
-		2235755C64F5769B2C952A1E7355FE1E /* MSSTabNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabNavigationBar.h; path = Source/Components/MSSTabBarView/MSSTabNavigationBar/MSSTabNavigationBar.h; sourceTree = "<group>"; };
-		26462872C8437A7FFD37953113E237CB /* MSSTabbedPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSSTabbedPageViewController-dummy.m"; sourceTree = "<group>"; };
+		20AFD16A3C547DD85439757F0FDBC409 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		253CB17F4A1723209A2B65E287FC7891 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26CA2C7ABF4137C71C90AA6A755BB09C /* AMPopTip+Exit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Exit.h"; path = "Source/AMPopTip+Exit.h"; sourceTree = "<group>"; };
+		2722C63C7A1D8F2840A563C509F7E65F /* AMPopTip+Draw.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Draw.h"; path = "Source/AMPopTip+Draw.h"; sourceTree = "<group>"; };
 		27C23E16390F6F5920E271EBFB6A30A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		282E317D90744761F406E685BC46589A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		292D8EF53F85B986A9D05ADBDB4486D5 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabSizingStyle.h; path = Source/Components/MSSTabBarView/MSSTabSizingStyle.h; sourceTree = "<group>"; };
-		29822C66105ABA19AE02A444652C1494 /* MSSPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSPageViewController.h; path = Source/Components/MSSPageViewController/MSSPageViewController.h; sourceTree = "<group>"; };
-		324702884399B3CCCF658D1FA3F6A4C4 /* MSSTabbedPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-prefix.pch"; sourceTree = "<group>"; };
+		2896EEFCF810785B20C22AD6B8731933 /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSTabBarCollectionViewCell+Private.h"; path = "Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
+		293BF6D270530CA19FAC227026ED61C2 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
+		2F67D581E054F60DD636BF3D68CEFD3E /* AMPopTip+Entrance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Entrance.m"; path = "Source/AMPopTip+Entrance.m"; sourceTree = "<group>"; };
+		30C8F967100EDD45723ACD2FA38ECEB2 /* MSSTabSizingStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabSizingStyle.h; path = Source/Components/MSSTabBarView/MSSTabSizingStyle.h; sourceTree = "<group>"; };
+		33C3302575B59678E1E9702823A2CD43 /* AMPopTip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AMPopTip.modulemap; sourceTree = "<group>"; };
 		3457929DFA04E7A190938DC2F259D195 /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
-		39C938B4B1A78AF542648754CE86EEC6 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MSSAutoLayout.m"; path = "Source/Utilities/UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		38411FFFCC0C45555DA0A94374A7633A /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontAwesome.swift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C17BC03CE2E1D54AA9B56D18DFF2CA9 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabbedPageViewController.m; path = Source/MSSTabbedPageViewController.m; sourceTree = "<group>"; };
+		3CB15FD3752524765CCEC7DAC7475D9F /* UIViewController+MSSUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+MSSUtilities.h"; path = "Source/Utilities/UIViewController+MSSUtilities.h"; sourceTree = "<group>"; };
 		4408C9457DD5FCB7232B711361D1EA9D /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
-		49D0C32B93FF597C6E5B89FFFA9B6470 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabBarCollectionViewCell.m; path = Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		4E2DC871546935485D7B0A83D96DCB67 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MSSUtilities.m"; path = "Source/Utilities/UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
 		4FF90C3725858F53021E4643F8E0C958 /* Pods-pep9pad-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pep9pad-acknowledgements.markdown"; sourceTree = "<group>"; };
-		50CAF8EF411B1E8CBEF76EC8B46745E1 /* MSSTabbedPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSSTabbedPageViewController.modulemap; sourceTree = "<group>"; };
-		55DB4C2C18A2602C278C7CF8E49DA2AE /* MSSTabBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabBarView.h; path = Source/Components/MSSTabBarView/MSSTabBarView.h; sourceTree = "<group>"; };
-		5B8A147F5693E483ECBA5365BB9201B7 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
-		5D141B5AD749E3D8D13ECD9655C56A9F /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabbedPageViewController.h; path = Source/MSSTabbedPageViewController.h; sourceTree = "<group>"; };
-		5F650D6887E5B8E9727FD6C61D1CF6FF /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
-		643D2414A4972A0EBBE3DA96AF322452 /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabBarCollectionViewCell.h; path = Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
-		734AE9D467A4794BB071A22CBCCDD00E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7931BA7BEDD3E68E1CF6042AB60BF910 /* MSSPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSPageViewController.m; path = Source/Components/MSSPageViewController/MSSPageViewController.m; sourceTree = "<group>"; };
+		5BF5E0629FF53002CEEA2D8FCFC5F18A /* AMPopTipDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMPopTipDefaults.h; path = Source/AMPopTipDefaults.h; sourceTree = "<group>"; };
+		631CE57416B720A1118D6B33F6E35DBA /* AMPopTip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AMPopTip-dummy.m"; sourceTree = "<group>"; };
+		6339258FB79E61BBCB87A16F94EE2888 /* MSSTabbedPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-umbrella.h"; sourceTree = "<group>"; };
+		669C9F78762E6DFB74C49938DECBE8E0 /* UIView+MSSAutoLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MSSAutoLayout.m"; path = "Source/Utilities/UIView+MSSAutoLayout.m"; sourceTree = "<group>"; };
+		6D00CF2CA855BBF85A61DDCE79A59E5B /* MSSTabbedPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabbedPageViewController.h; path = Source/MSSTabbedPageViewController.h; sourceTree = "<group>"; };
+		6D9F2B486C0995658D437EE0BA8D76B5 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
+		7449F4FD5D591AACB9888563B4FDA73A /* AMPopTip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMPopTip.h; path = Source/AMPopTip.h; sourceTree = "<group>"; };
+		75D555D3F514A0E5C0471E71501322B0 /* AMPopTip+Animation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Animation.h"; path = "Source/AMPopTip+Animation.h"; sourceTree = "<group>"; };
+		7693A1D2D3D72D8D6AFED6FEA3D75253 /* AMPopTip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMPopTip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77A5630C5A31ED00F50182FB96B1456B /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MSSTabBarCollectionViewCell.xib; path = Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
 		79AF1FD3B08503A87859AFB78ECCFE1C /* Pods-pep9pad-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pep9pad-frameworks.sh"; sourceTree = "<group>"; };
-		7F8BE0ACC4E79E5DAFFA79EDE2FD0687 /* UIViewController+MSSUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+MSSUtilities.m"; path = "Source/Utilities/UIViewController+MSSUtilities.m"; sourceTree = "<group>"; };
-		7FB3963F8C8FDE74EFB1AED6780BAA66 /* MSSTabbedPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSSTabbedPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		827E2207DC2EFADC905F89B2AC371FD6 /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSTabNavigationBar+Private.h"; path = "Source/Components/MSSTabBarView/MSSTabNavigationBar/MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
-		8297C6EEC8026E949E33EF702B733777 /* MSSTabbedPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSSTabbedPageViewController.xcconfig; sourceTree = "<group>"; };
-		82E36646E2EAA03C886FF853EEB2C87B /* MSSTabbedPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MSSTabbedPageViewController-umbrella.h"; sourceTree = "<group>"; };
-		83045FC6D05C8FC2ABEFC746F8697547 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAwesome_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		86315417C0BEC4292C8F29000E1BF2F4 /* MSSTabBarAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabBarAppearance.m; path = Source/Components/MSSTabBarView/MSSTabBarAppearance.m; sourceTree = "<group>"; };
+		7C5F2D28AF1F27835446FA1CEE70C027 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C95AD59CC14A6AEA347B958BF8CBF4D /* MSSTabbedPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MSSTabbedPageViewController.modulemap; sourceTree = "<group>"; };
+		7CD5E02561EF42FE80C2BF1C5C70B0E1 /* AMPopTip+Exit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Exit.m"; path = "Source/AMPopTip+Exit.m"; sourceTree = "<group>"; };
+		7EB958DD75ACD3D2E4545C7AEC65FD2B /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSCustomHeightNavigationBar.h; path = Source/Utilities/MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
+		84597A8DE8A891D1B6FEE261EE8681BB /* MSSPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSPageViewController.m; path = Source/Components/MSSPageViewController/MSSPageViewController.m; sourceTree = "<group>"; };
+		84C534E15BCEAEB0B4A94096D984204B /* AMPopTip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AMPopTip.m; path = Source/AMPopTip.m; sourceTree = "<group>"; };
+		858F1546BDFCF02C9C86957704231F88 /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
 		89C598E6C31BE25C06E1B5F7C73A8CC8 /* Pods-pep9pad-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pep9pad-resources.sh"; sourceTree = "<group>"; };
 		8CCB3C672DAF58C3D3983606A8C12709 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE7265F647B852161AB7EA1D7BA6096 /* Pods-pep9pad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-pep9pad.modulemap"; sourceTree = "<group>"; };
-		91115051FAF63927442124971AB748EB /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontAwesome.swift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		92C5B0FD866B8396392D407E28FF67E4 /* MSSTabStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabStyle.h; path = Source/Components/MSSTabBarView/MSSTabStyle.h; sourceTree = "<group>"; };
+		91956795992B70A984E7382D6E303A8A /* MSSTabNavigationBar+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSTabNavigationBar+Private.h"; path = "Source/Components/MSSTabBarView/MSSTabNavigationBar/MSSTabNavigationBar+Private.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		943C9619168B0C1A35831B7CCB7FDC48 /* MSSTabBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabBarView.m; path = Source/Components/MSSTabBarView/MSSTabBarView.m; sourceTree = "<group>"; };
 		97F62B17930BF1CD2C57E2327EDAB104 /* Pods-pep9pad-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pep9pad-acknowledgements.plist"; sourceTree = "<group>"; };
-		9C51FD846EE8B9AD3AB611A0DAB9DAE6 /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
-		9E30192639BBD09FB429F87E37C0554D /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
-		A99C94EFF3B0285B4AD27F42AEC21FFF /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MSSAutoLayout.h"; path = "Source/Utilities/UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
-		B1168DBBD70228F29D8AA824DB1947B6 /* MSSTabBarView+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSTabBarView+Private.h"; path = "Source/Components/MSSTabBarView/MSSTabBarView+Private.h"; sourceTree = "<group>"; };
+		98197D69B44B76CF1D6FFE9016299FCF /* MSSTabbedPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MSSTabbedPageViewController-dummy.m"; sourceTree = "<group>"; };
+		9D70FB802ED701F227E9BE57C9A3D9A6 /* MSSPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSPageViewController.h; path = Source/Components/MSSPageViewController/MSSPageViewController.h; sourceTree = "<group>"; };
+		A19C6551171AD45D5F3194161983DF1C /* MSSPageViewController+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSPageViewController+Private.h"; path = "Source/Components/MSSPageViewController/MSSPageViewController+Private.h"; sourceTree = "<group>"; };
+		A3946464EC3019482D7A5EC41B64A98E /* MSSTabBarAppearance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabBarAppearance.m; path = Source/Components/MSSTabBarView/MSSTabBarAppearance.m; sourceTree = "<group>"; };
+		A396024FDF89521AC8AE7702A632C48D /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
+		A5C6FCF648041A2E86FD5DDCC274E65A /* UIView+MSSAutoLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MSSAutoLayout.h"; path = "Source/Utilities/UIView+MSSAutoLayout.h"; sourceTree = "<group>"; };
+		A79A3E097702CB6644D3AB89AF30B1AC /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
+		A7B8D1CC1085FDBAAF9B3C9D87E56B3F /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
+		A87C7CDDB8E9A83B874FBD0183EF45B1 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
+		A8B8B900926E14B06A1A3C0CFE371639 /* AMPopTip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMPopTip-prefix.pch"; sourceTree = "<group>"; };
+		AAE25ABF9EA8ECF69AF849E644FF4123 /* AMPopTip+Draw.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Draw.m"; path = "Source/AMPopTip+Draw.m"; sourceTree = "<group>"; };
 		B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B40FD2F1AF4E1D7882AFD671E6FA0512 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSCustomHeightNavigationBar.m; path = Source/Utilities/MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
-		B44FA591D29A9566D23E873319E262C5 /* MSSTabBarCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MSSTabBarCollectionViewCell.xib; path = Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell.xib; sourceTree = "<group>"; };
-		B990828166B8B1D64F0EC31CB15BA566 /* MSSTabBarAppearance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabBarAppearance.h; path = Source/Components/MSSTabBarView/MSSTabBarAppearance.h; sourceTree = "<group>"; };
-		C9A525C7C6444196AAC41E97376805B2 /* MSSCustomHeightNavigationBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSCustomHeightNavigationBar.h; path = Source/Utilities/MSSCustomHeightNavigationBar.h; sourceTree = "<group>"; };
-		D84BEA170297F88875F0031B9A446AC5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DC0B888F20CBF7CB1037EF0239D37D73 /* MSSTabBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabBarView.m; path = Source/Components/MSSTabBarView/MSSTabBarView.m; sourceTree = "<group>"; };
+		B59DE79CD400BCC4264A4C888ACAC3DC /* MSSTabBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabBarView.h; path = Source/Components/MSSTabBarView/MSSTabBarView.h; sourceTree = "<group>"; };
+		BE8061F7B74FCEEC20255EA5CC6E612F /* MSSTabBarAppearance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabBarAppearance.h; path = Source/Components/MSSTabBarView/MSSTabBarAppearance.h; sourceTree = "<group>"; };
+		C5D9F1BDC67FDF7398C80819D7B0E411 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C902C0C6518B7B34FEA1758E6A19958C /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
+		C96B3BC5F5115877F69A75453656D888 /* MSSCustomHeightNavigationBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSCustomHeightNavigationBar.m; path = Source/Utilities/MSSCustomHeightNavigationBar.m; sourceTree = "<group>"; };
+		CB4EE9DFDCF335FE2537825258F131DD /* AMPopTip+Animation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Animation.m"; path = "Source/AMPopTip+Animation.m"; sourceTree = "<group>"; };
+		CEB286F0CCC04DF1BFC0DEC42FB40B17 /* MSSTabStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabStyle.h; path = Source/Components/MSSTabBarView/MSSTabStyle.h; sourceTree = "<group>"; };
+		D3E1DC45A0A30DD189225625FEA4202B /* MSSTabbedPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSSTabbedPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA27AF097FF37E7EA06C77FA87EFDC3C /* AMPopTip+Entrance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Entrance.h"; path = "Source/AMPopTip+Entrance.h"; sourceTree = "<group>"; };
+		DAEF06C11922282A6EC6CEFD3B90B26E /* AMPopTip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AMPopTip.xcconfig; sourceTree = "<group>"; };
+		E2C0C43DD9596D96CB2BEAE70DF9B10E /* MSSTabBarCollectionViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSSTabBarCollectionViewCell.h; path = Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell.h; sourceTree = "<group>"; };
 		E44D4E12E477A0D94C93C28404C664FB /* Pods-pep9pad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pep9pad-umbrella.h"; sourceTree = "<group>"; };
-		E81E8C38F03A6A3AB4494D73C2014E78 /* MSSTabbedPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabbedPageViewController.m; path = Source/MSSTabbedPageViewController.m; sourceTree = "<group>"; };
-		F365D8E35F49936CD3BD61E3BEE980A7 /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
-		FA0F6E73D7AC6216430E3E10BB8C4D9E /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE85F52A6D60919ADF20C19428C37BED /* MSSTabBarCollectionViewCell+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSTabBarCollectionViewCell+Private.h"; path = "Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell+Private.h"; sourceTree = "<group>"; };
-		FF8EB515C58EE778DD1E21F7DB07163A /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
+		F27FA552869BC5633CCA379B7E02B981 /* MSSTabBarCollectionViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSSTabBarCollectionViewCell.m; path = Source/Components/MSSTabBarView/MSSTabBarCollectionViewCell.m; sourceTree = "<group>"; };
+		F53988FA2F29C6A99F42A8AE8B890251 /* MSSTabbedPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MSSTabbedPageViewController.xcconfig; sourceTree = "<group>"; };
+		FF420DB6C9597268012EA3AFC7361572 /* MSSTabBarView+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSSTabBarView+Private.h"; path = "Source/Components/MSSTabBarView/MSSTabBarView+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		11A6C0BC85C4E29C590DDC7CE8D41CA3 /* Frameworks */ = {
+		0A85F7291A690C887E3989987E861DEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D6A49B9302E530B7F3DCB2B3D00295D /* Foundation.framework in Frameworks */,
+				74D1F1D4C6A6F12E15FC6562A824E9E8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EB212DCFB6709ADF2E740F6BC5F046E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B13516B7215A84105045C3A87968B312 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,23 +223,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E08F948A9C2F795641D290D890F6EC5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				91115051FAF63927442124971AB748EB /* FontAwesome.swift.bundle */,
-				83045FC6D05C8FC2ABEFC746F8697547 /* FontAwesome_swift.framework */,
-				7FB3963F8C8FDE74EFB1AED6780BAA66 /* MSSTabbedPageViewController.framework */,
-				FA0F6E73D7AC6216430E3E10BB8C4D9E /* Pods_pep9pad.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				3587588751A8A6B53D9C05B2DC18428D /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		209A42950968B4DEA4DCD8B44B014FA3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				13C8EF286F0BCBB0C6C0F3648BF3F750 /* FontAwesome.swift.modulemap */,
+				A87C7CDDB8E9A83B874FBD0183EF45B1 /* FontAwesome.swift.xcconfig */,
+				1C811C796EF291C2905070004B31DDB1 /* FontAwesome.swift-dummy.m */,
+				858F1546BDFCF02C9C86957704231F88 /* FontAwesome.swift-prefix.pch */,
+				A79A3E097702CB6644D3AB89AF30B1AC /* FontAwesome.swift-umbrella.h */,
+				20AFD16A3C547DD85439757F0FDBC409 /* Info.plist */,
+				A396024FDF89521AC8AE7702A632C48D /* ResourceBundle-FontAwesome.swift-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesome.swift";
+			sourceTree = "<group>";
+		};
+		2F8EBC0E7F7D4F572EE758D7A3F0B1B0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C902C0C6518B7B34FEA1758E6A19958C /* FontAwesome.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		3587588751A8A6B53D9C05B2DC18428D /* iOS */ = {
@@ -205,20 +264,47 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		3A7A506A47081C0B23FFD4CD8EAE2588 /* Resources */ = {
+		37C6A14E861E8ACDF35FC59A3945FD56 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9C51FD846EE8B9AD3AB611A0DAB9DAE6 /* FontAwesome.otf */,
+				715B61709C3007784A12539E63D1FA76 /* AMPopTip */,
+				79DFA25A899EDD866CE3DE4BE0616864 /* FontAwesome.swift */,
+				E89AD6AECFD5A8586250EFD444BBDBC4 /* MSSTabbedPageViewController */,
 			);
-			name = Resources;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		6BA938B7AEE4332D123ACAE3D96E291D /* Resources */ = {
+		47D34F9E231D0062D8216A39A05639B3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B44FA591D29A9566D23E873319E262C5 /* MSSTabBarCollectionViewCell.xib */,
+				33C3302575B59678E1E9702823A2CD43 /* AMPopTip.modulemap */,
+				DAEF06C11922282A6EC6CEFD3B90B26E /* AMPopTip.xcconfig */,
+				631CE57416B720A1118D6B33F6E35DBA /* AMPopTip-dummy.m */,
+				A8B8B900926E14B06A1A3C0CFE371639 /* AMPopTip-prefix.pch */,
+				193FB538AFA11FA8A167F30804ABA8D6 /* AMPopTip-umbrella.h */,
+				C5D9F1BDC67FDF7398C80819D7B0E411 /* Info.plist */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/AMPopTip";
+			sourceTree = "<group>";
+		};
+		715B61709C3007784A12539E63D1FA76 /* AMPopTip */ = {
+			isa = PBXGroup;
+			children = (
+				7449F4FD5D591AACB9888563B4FDA73A /* AMPopTip.h */,
+				84C534E15BCEAEB0B4A94096D984204B /* AMPopTip.m */,
+				75D555D3F514A0E5C0471E71501322B0 /* AMPopTip+Animation.h */,
+				CB4EE9DFDCF335FE2537825258F131DD /* AMPopTip+Animation.m */,
+				2722C63C7A1D8F2840A563C509F7E65F /* AMPopTip+Draw.h */,
+				AAE25ABF9EA8ECF69AF849E644FF4123 /* AMPopTip+Draw.m */,
+				DA27AF097FF37E7EA06C77FA87EFDC3C /* AMPopTip+Entrance.h */,
+				2F67D581E054F60DD636BF3D68CEFD3E /* AMPopTip+Entrance.m */,
+				26CA2C7ABF4137C71C90AA6A755BB09C /* AMPopTip+Exit.h */,
+				7CD5E02561EF42FE80C2BF1C5C70B0E1 /* AMPopTip+Exit.m */,
+				5BF5E0629FF53002CEEA2D8FCFC5F18A /* AMPopTipDefaults.h */,
+				47D34F9E231D0062D8216A39A05639B3 /* Support Files */,
+			);
+			path = AMPopTip;
 			sourceTree = "<group>";
 		};
 		73235CFDA5EABBA9C64C9AC3D4C154AF /* Targets Support Files */ = {
@@ -229,18 +315,28 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		79019D429E27A75913ADD2B450A17A1B /* Support Files */ = {
+		767CAE07E9E9C925931BAF406984700D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				734AE9D467A4794BB071A22CBCCDD00E /* Info.plist */,
-				50CAF8EF411B1E8CBEF76EC8B46745E1 /* MSSTabbedPageViewController.modulemap */,
-				8297C6EEC8026E949E33EF702B733777 /* MSSTabbedPageViewController.xcconfig */,
-				26462872C8437A7FFD37953113E237CB /* MSSTabbedPageViewController-dummy.m */,
-				324702884399B3CCCF658D1FA3F6A4C4 /* MSSTabbedPageViewController-prefix.pch */,
-				82E36646E2EAA03C886FF853EEB2C87B /* MSSTabbedPageViewController-umbrella.h */,
+				7693A1D2D3D72D8D6AFED6FEA3D75253 /* AMPopTip.framework */,
+				38411FFFCC0C45555DA0A94374A7633A /* FontAwesome.swift.bundle */,
+				0E6B7AF834E45305C4B92CD516D7DB2E /* FontAwesome_swift.framework */,
+				D3E1DC45A0A30DD189225625FEA4202B /* MSSTabbedPageViewController.framework */,
+				7C5F2D28AF1F27835446FA1CEE70C027 /* Pods_pep9pad.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/MSSTabbedPageViewController";
+			name = Products;
+			sourceTree = "<group>";
+		};
+		79DFA25A899EDD866CE3DE4BE0616864 /* FontAwesome.swift */ = {
+			isa = PBXGroup;
+			children = (
+				6D9F2B486C0995658D437EE0BA8D76B5 /* Enum.swift */,
+				293BF6D270530CA19FAC227026ED61C2 /* FontAwesome.swift */,
+				A7B8D1CC1085FDBAAF9B3C9D87E56B3F /* FontAwesomeView.swift */,
+				2F8EBC0E7F7D4F572EE758D7A3F0B1B0 /* Resources */,
+				209A42950968B4DEA4DCD8B44B014FA3 /* Support Files */,
+			);
+			path = FontAwesome.swift;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -248,8 +344,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				AF4559FCCCDE32E2EB9EE8403BCB82BB /* Pods */,
-				0E08F948A9C2F795641D290D890F6EC5 /* Products */,
+				37C6A14E861E8ACDF35FC59A3945FD56 /* Pods */,
+				767CAE07E9E9C925931BAF406984700D /* Products */,
 				73235CFDA5EABBA9C64C9AC3D4C154AF /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -272,73 +368,59 @@
 			path = "Target Support Files/Pods-pep9pad";
 			sourceTree = "<group>";
 		};
-		9B009FA88D2D67F59B70679DB28ADE7D /* Support Files */ = {
+		85B871EEFFE68DE64F9200D0A9C88D13 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1AF87843DFB0EF5182B37A79D155231B /* FontAwesome.swift.modulemap */,
-				0C23E87261E064BED02DC4498277A3E5 /* FontAwesome.swift.xcconfig */,
-				FF8EB515C58EE778DD1E21F7DB07163A /* FontAwesome.swift-dummy.m */,
-				F365D8E35F49936CD3BD61E3BEE980A7 /* FontAwesome.swift-prefix.pch */,
-				069F9D1FA65F166EF7D2E3D0AF1B5A61 /* FontAwesome.swift-umbrella.h */,
-				D84BEA170297F88875F0031B9A446AC5 /* Info.plist */,
-				5B8A147F5693E483ECBA5365BB9201B7 /* ResourceBundle-FontAwesome.swift-Info.plist */,
+				253CB17F4A1723209A2B65E287FC7891 /* Info.plist */,
+				7C95AD59CC14A6AEA347B958BF8CBF4D /* MSSTabbedPageViewController.modulemap */,
+				F53988FA2F29C6A99F42A8AE8B890251 /* MSSTabbedPageViewController.xcconfig */,
+				98197D69B44B76CF1D6FFE9016299FCF /* MSSTabbedPageViewController-dummy.m */,
+				1F7109E2821DEA93FC8E154C8992CEEA /* MSSTabbedPageViewController-prefix.pch */,
+				6339258FB79E61BBCB87A16F94EE2888 /* MSSTabbedPageViewController-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/FontAwesome.swift";
+			path = "../Target Support Files/MSSTabbedPageViewController";
 			sourceTree = "<group>";
 		};
-		AF4559FCCCDE32E2EB9EE8403BCB82BB /* Pods */ = {
+		E7B814C9E9E1FBF331F4A663C4A6064A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EE189E6000C4766A26D5073B4BF225D9 /* FontAwesome.swift */,
-				B919C0A5B84601DED878925988D7EBC9 /* MSSTabbedPageViewController */,
+				77A5630C5A31ED00F50182FB96B1456B /* MSSTabBarCollectionViewCell.xib */,
 			);
-			name = Pods;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		B919C0A5B84601DED878925988D7EBC9 /* MSSTabbedPageViewController */ = {
+		E89AD6AECFD5A8586250EFD444BBDBC4 /* MSSTabbedPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				C9A525C7C6444196AAC41E97376805B2 /* MSSCustomHeightNavigationBar.h */,
-				B40FD2F1AF4E1D7882AFD671E6FA0512 /* MSSCustomHeightNavigationBar.m */,
-				29822C66105ABA19AE02A444652C1494 /* MSSPageViewController.h */,
-				7931BA7BEDD3E68E1CF6042AB60BF910 /* MSSPageViewController.m */,
-				1025A95243BBE874A9666EEB75D05B9F /* MSSPageViewController+Private.h */,
-				B990828166B8B1D64F0EC31CB15BA566 /* MSSTabBarAppearance.h */,
-				86315417C0BEC4292C8F29000E1BF2F4 /* MSSTabBarAppearance.m */,
-				643D2414A4972A0EBBE3DA96AF322452 /* MSSTabBarCollectionViewCell.h */,
-				49D0C32B93FF597C6E5B89FFFA9B6470 /* MSSTabBarCollectionViewCell.m */,
-				FE85F52A6D60919ADF20C19428C37BED /* MSSTabBarCollectionViewCell+Private.h */,
-				55DB4C2C18A2602C278C7CF8E49DA2AE /* MSSTabBarView.h */,
-				DC0B888F20CBF7CB1037EF0239D37D73 /* MSSTabBarView.m */,
-				B1168DBBD70228F29D8AA824DB1947B6 /* MSSTabBarView+Private.h */,
-				5D141B5AD749E3D8D13ECD9655C56A9F /* MSSTabbedPageViewController.h */,
-				E81E8C38F03A6A3AB4494D73C2014E78 /* MSSTabbedPageViewController.m */,
-				2235755C64F5769B2C952A1E7355FE1E /* MSSTabNavigationBar.h */,
-				0DCBB8F435ADD41E67814E579FDE9F5D /* MSSTabNavigationBar.m */,
-				827E2207DC2EFADC905F89B2AC371FD6 /* MSSTabNavigationBar+Private.h */,
-				292D8EF53F85B986A9D05ADBDB4486D5 /* MSSTabSizingStyle.h */,
-				92C5B0FD866B8396392D407E28FF67E4 /* MSSTabStyle.h */,
-				A99C94EFF3B0285B4AD27F42AEC21FFF /* UIView+MSSAutoLayout.h */,
-				39C938B4B1A78AF542648754CE86EEC6 /* UIView+MSSAutoLayout.m */,
-				1DE1954AB4B6D8C235107EA650DF109F /* UIViewController+MSSUtilities.h */,
-				7F8BE0ACC4E79E5DAFFA79EDE2FD0687 /* UIViewController+MSSUtilities.m */,
-				6BA938B7AEE4332D123ACAE3D96E291D /* Resources */,
-				79019D429E27A75913ADD2B450A17A1B /* Support Files */,
+				7EB958DD75ACD3D2E4545C7AEC65FD2B /* MSSCustomHeightNavigationBar.h */,
+				C96B3BC5F5115877F69A75453656D888 /* MSSCustomHeightNavigationBar.m */,
+				9D70FB802ED701F227E9BE57C9A3D9A6 /* MSSPageViewController.h */,
+				84597A8DE8A891D1B6FEE261EE8681BB /* MSSPageViewController.m */,
+				A19C6551171AD45D5F3194161983DF1C /* MSSPageViewController+Private.h */,
+				BE8061F7B74FCEEC20255EA5CC6E612F /* MSSTabBarAppearance.h */,
+				A3946464EC3019482D7A5EC41B64A98E /* MSSTabBarAppearance.m */,
+				E2C0C43DD9596D96CB2BEAE70DF9B10E /* MSSTabBarCollectionViewCell.h */,
+				F27FA552869BC5633CCA379B7E02B981 /* MSSTabBarCollectionViewCell.m */,
+				2896EEFCF810785B20C22AD6B8731933 /* MSSTabBarCollectionViewCell+Private.h */,
+				B59DE79CD400BCC4264A4C888ACAC3DC /* MSSTabBarView.h */,
+				943C9619168B0C1A35831B7CCB7FDC48 /* MSSTabBarView.m */,
+				FF420DB6C9597268012EA3AFC7361572 /* MSSTabBarView+Private.h */,
+				6D00CF2CA855BBF85A61DDCE79A59E5B /* MSSTabbedPageViewController.h */,
+				3C17BC03CE2E1D54AA9B56D18DFF2CA9 /* MSSTabbedPageViewController.m */,
+				1604B45C884BD5EA9240636E030612E2 /* MSSTabNavigationBar.h */,
+				0330B5A53F917BAF9B62917B1CFA4C73 /* MSSTabNavigationBar.m */,
+				91956795992B70A984E7382D6E303A8A /* MSSTabNavigationBar+Private.h */,
+				30C8F967100EDD45723ACD2FA38ECEB2 /* MSSTabSizingStyle.h */,
+				CEB286F0CCC04DF1BFC0DEC42FB40B17 /* MSSTabStyle.h */,
+				A5C6FCF648041A2E86FD5DDCC274E65A /* UIView+MSSAutoLayout.h */,
+				669C9F78762E6DFB74C49938DECBE8E0 /* UIView+MSSAutoLayout.m */,
+				3CB15FD3752524765CCEC7DAC7475D9F /* UIViewController+MSSUtilities.h */,
+				4E2DC871546935485D7B0A83D96DCB67 /* UIViewController+MSSUtilities.m */,
+				E7B814C9E9E1FBF331F4A663C4A6064A /* Resources */,
+				85B871EEFFE68DE64F9200D0A9C88D13 /* Support Files */,
 			);
 			path = MSSTabbedPageViewController;
-			sourceTree = "<group>";
-		};
-		EE189E6000C4766A26D5073B4BF225D9 /* FontAwesome.swift */ = {
-			isa = PBXGroup;
-			children = (
-				9E30192639BBD09FB429F87E37C0554D /* Enum.swift */,
-				5F650D6887E5B8E9727FD6C61D1CF6FF /* FontAwesome.swift */,
-				17E834433144C594F09E713026EABF26 /* FontAwesomeView.swift */,
-				3A7A506A47081C0B23FFD4CD8EAE2588 /* Resources */,
-				9B009FA88D2D67F59B70679DB28ADE7D /* Support Files */,
-			);
-			path = FontAwesome.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +431,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BA89E90D08F82EC682B2BC6622669E0 /* FontAwesome.swift-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2570272F0CD9031AA27693CFD5DE2331 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				496B1D01A01EBD17EF26D89E21B7D7B1 /* Pods-pep9pad-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,17 +465,43 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAC6B05045ED99D1B645FB489B591F19 /* Headers */ = {
+		F16A1E4FACFBA78961D97165C020BF4F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F9714495A88288A14B73B864EAE3338 /* Pods-pep9pad-umbrella.h in Headers */,
+				594FC51BE92E0D6E9A912BC24AA01642 /* AMPopTip+Animation.h in Headers */,
+				33EE7806A0AD0C0AFD362E1AD550EA6A /* AMPopTip+Draw.h in Headers */,
+				F1C6E9895A6463F866EA04C2DCB5E3D3 /* AMPopTip+Entrance.h in Headers */,
+				F830964FB4E54EA277AB5ED99920F5AA /* AMPopTip+Exit.h in Headers */,
+				B0E524E526AEB46867FC321D7D452587 /* AMPopTip-umbrella.h in Headers */,
+				31BD0C9241E08549B6864F0026EDF5DE /* AMPopTip.h in Headers */,
+				CAD6335F8822646861904FF84F742A81 /* AMPopTipDefaults.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		163A46550684001CA7147AC8FC766105 /* Pods-pep9pad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 497CDF83396715BC3883E2813ABE42CE /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */;
+			buildPhases = (
+				92AB23A39B1462A9B9622734BF455351 /* Sources */,
+				1EB212DCFB6709ADF2E740F6BC5F046E /* Frameworks */,
+				2570272F0CD9031AA27693CFD5DE2331 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				862F0B9E792EF709FC10E1C02880C70B /* PBXTargetDependency */,
+				AA7868BEC36025C00B4331E7F954BD38 /* PBXTargetDependency */,
+				A07AD0AF79DBCFDBF8BDD800074F3CAE /* PBXTargetDependency */,
+			);
+			name = "Pods-pep9pad";
+			productName = "Pods-pep9pad";
+			productReference = 7C5F2D28AF1F27835446FA1CEE70C027 /* Pods_pep9pad.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		1FE2578FF0805299395CF2A0206BB671 /* FontAwesome.swift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F38BD62EC04F59923F9724EE5CEF993B /* Build configuration list for PBXNativeTarget "FontAwesome.swift" */;
@@ -402,7 +518,24 @@
 			);
 			name = FontAwesome.swift;
 			productName = FontAwesome.swift;
-			productReference = 83045FC6D05C8FC2ABEFC746F8697547 /* FontAwesome_swift.framework */;
+			productReference = 0E6B7AF834E45305C4B92CD516D7DB2E /* FontAwesome_swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		586E40C0BEBAB01A075A5E60359FA09D /* AMPopTip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1684A00001C501B45A4F7685ACA48634 /* Build configuration list for PBXNativeTarget "AMPopTip" */;
+			buildPhases = (
+				B5B4FAC6B10660B82FEB7231127D8786 /* Sources */,
+				0A85F7291A690C887E3989987E861DEA /* Frameworks */,
+				F16A1E4FACFBA78961D97165C020BF4F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AMPopTip;
+			productName = AMPopTip;
+			productReference = 7693A1D2D3D72D8D6AFED6FEA3D75253 /* AMPopTip.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		595A6B2F8F17401C1FE0D3C057AAF13F /* MSSTabbedPageViewController */ = {
@@ -420,26 +553,7 @@
 			);
 			name = MSSTabbedPageViewController;
 			productName = MSSTabbedPageViewController;
-			productReference = 7FB3963F8C8FDE74EFB1AED6780BAA66 /* MSSTabbedPageViewController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		68B858F4E8C0611BFB17BD3D07012610 /* Pods-pep9pad */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FF72A8CADC7375BC868896CA2BFD6EED /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */;
-			buildPhases = (
-				4359089966128B09922042D0804DD7FF /* Sources */,
-				11A6C0BC85C4E29C590DDC7CE8D41CA3 /* Frameworks */,
-				FAC6B05045ED99D1B645FB489B591F19 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75AA2BD10948DF2EECB7D5BA3EBB8F64 /* PBXTargetDependency */,
-				5A82424CB21C852D465C304AB1A3A92F /* PBXTargetDependency */,
-			);
-			name = "Pods-pep9pad";
-			productName = "Pods-pep9pad";
-			productReference = FA0F6E73D7AC6216430E3E10BB8C4D9E /* Pods_pep9pad.framework */;
+			productReference = D3E1DC45A0A30DD189225625FEA4202B /* MSSTabbedPageViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EF4F067C2D0E135B80299B089E168BDA /* FontAwesome.swift-FontAwesome.swift */ = {
@@ -456,7 +570,7 @@
 			);
 			name = "FontAwesome.swift-FontAwesome.swift";
 			productName = "FontAwesome.swift-FontAwesome.swift";
-			productReference = 91115051FAF63927442124971AB748EB /* FontAwesome.swift.bundle */;
+			productReference = 38411FFFCC0C45555DA0A94374A7633A /* FontAwesome.swift.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -476,14 +590,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 0E08F948A9C2F795641D290D890F6EC5 /* Products */;
+			productRefGroup = 767CAE07E9E9C925931BAF406984700D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				586E40C0BEBAB01A075A5E60359FA09D /* AMPopTip */,
 				1FE2578FF0805299395CF2A0206BB671 /* FontAwesome.swift */,
 				EF4F067C2D0E135B80299B089E168BDA /* FontAwesome.swift-FontAwesome.swift */,
 				595A6B2F8F17401C1FE0D3C057AAF13F /* MSSTabbedPageViewController */,
-				68B858F4E8C0611BFB17BD3D07012610 /* Pods-pep9pad */,
+				163A46550684001CA7147AC8FC766105 /* Pods-pep9pad */,
 			);
 		};
 /* End PBXProject section */
@@ -527,18 +642,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4359089966128B09922042D0804DD7FF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				02E630747A0F076F06E1E029B0CCC734 /* Pods-pep9pad-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		619EA0F427AF8584A7B03876241916DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AB23A39B1462A9B9622734BF455351 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15D0A6A16A67413F4514081A8544090 /* Pods-pep9pad-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +674,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5B4FAC6B10660B82FEB7231127D8786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FEE0A02C001742DFFBAF052985A194E /* AMPopTip+Animation.m in Sources */,
+				168FF3DA8C8DD1160D4B748C1A6F0058 /* AMPopTip+Draw.m in Sources */,
+				3F9369B0E219E307FD1FC012DCAFCC8A /* AMPopTip+Entrance.m in Sources */,
+				7EF915FA08181452D59D4469A92D3EC4 /* AMPopTip+Exit.m in Sources */,
+				85E6D00D0715E22B12E82A35A1B3BBA6 /* AMPopTip-dummy.m in Sources */,
+				D084AE5876843A226CC40DA8EDFD9E24 /* AMPopTip.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -568,17 +696,23 @@
 			target = EF4F067C2D0E135B80299B089E168BDA /* FontAwesome.swift-FontAwesome.swift */;
 			targetProxy = 192DAE8239CEDF28426AC10F45C42C62 /* PBXContainerItemProxy */;
 		};
-		5A82424CB21C852D465C304AB1A3A92F /* PBXTargetDependency */ = {
+		862F0B9E792EF709FC10E1C02880C70B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AMPopTip;
+			target = 586E40C0BEBAB01A075A5E60359FA09D /* AMPopTip */;
+			targetProxy = 812D84D1AE1614E7984CBE346558F70F /* PBXContainerItemProxy */;
+		};
+		A07AD0AF79DBCFDBF8BDD800074F3CAE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MSSTabbedPageViewController;
 			target = 595A6B2F8F17401C1FE0D3C057AAF13F /* MSSTabbedPageViewController */;
-			targetProxy = F496BC4C8F3817B870D4B8A1A1C5AEF5 /* PBXContainerItemProxy */;
+			targetProxy = A820248069CA69AA0C4ACE040C026A0D /* PBXContainerItemProxy */;
 		};
-		75AA2BD10948DF2EECB7D5BA3EBB8F64 /* PBXTargetDependency */ = {
+		AA7868BEC36025C00B4331E7F954BD38 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FontAwesome.swift;
 			target = 1FE2578FF0805299395CF2A0206BB671 /* FontAwesome.swift */;
-			targetProxy = 0DC5047B0C79635A2A6C1EA262BF86C9 /* PBXContainerItemProxy */;
+			targetProxy = E9766F05F47E044201F519AFA1CF898F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -629,7 +763,7 @@
 		};
 		0A377CDE9B27653F98E0692049B8DE19 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C23E87261E064BED02DC4498277A3E5 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = A87C7CDDB8E9A83B874FBD0183EF45B1 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -646,7 +780,7 @@
 		};
 		0A8AE63EED12CFA62B27E6D79318EE22 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8297C6EEC8026E949E33EF702B733777 /* MSSTabbedPageViewController.xcconfig */;
+			baseConfigurationReference = F53988FA2F29C6A99F42A8AE8B890251 /* MSSTabbedPageViewController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -678,7 +812,7 @@
 		};
 		408DB3413398B29EE089C0212414F9F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C23E87261E064BED02DC4498277A3E5 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = A87C7CDDB8E9A83B874FBD0183EF45B1 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -750,7 +884,7 @@
 		};
 		64147827621B355A1E4C20FC21082C86 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C23E87261E064BED02DC4498277A3E5 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = A87C7CDDB8E9A83B874FBD0183EF45B1 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -781,7 +915,7 @@
 			};
 			name = Debug;
 		};
-		70A7A80120FDE633BDAF46249435B8FD /* Debug */ = {
+		92BE48387A1E87B4D0B4156FBDBA9F6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3457929DFA04E7A190938DC2F259D195 /* Pods-pep9pad.debug.xcconfig */;
 			buildSettings = {
@@ -817,7 +951,120 @@
 			};
 			name = Debug;
 		};
-		95208833EFCDA3FCAC0A61B0D99A66C3 /* Release */ = {
+		A5CDEF4896424916421E96580C2BC61F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A87C7CDDB8E9A83B874FBD0183EF45B1 /* FontAwesome.swift.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/ResourceBundle-FontAwesome.swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = FontAwesome.swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		B002CAB47D4ACC8955ECD25025017788 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAEF06C11922282A6EC6CEFD3B90B26E /* AMPopTip.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AMPopTip/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = AMPopTip;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E5F4B249FEC1D37B37C3FDF7291CFEDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F53988FA2F29C6A99F42A8AE8B890251 /* MSSTabbedPageViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MSSTabbedPageViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MSSTabbedPageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E88BB306536FB3D966B70096EC9A503F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAEF06C11922282A6EC6CEFD3B90B26E /* AMPopTip.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AMPopTip/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = AMPopTip;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F2327CAC283A46B6B9566963D0F54A00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4408C9457DD5FCB7232B711361D1EA9D /* Pods-pep9pad.release.xcconfig */;
 			buildSettings = {
@@ -852,63 +1099,32 @@
 			};
 			name = Release;
 		};
-		A5CDEF4896424916421E96580C2BC61F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C23E87261E064BED02DC4498277A3E5 /* FontAwesome.swift.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/ResourceBundle-FontAwesome.swift-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = FontAwesome.swift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		E5F4B249FEC1D37B37C3FDF7291CFEDF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8297C6EEC8026E949E33EF702B733777 /* MSSTabbedPageViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MSSTabbedPageViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MSSTabbedPageViewController/MSSTabbedPageViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = MSSTabbedPageViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1684A00001C501B45A4F7685ACA48634 /* Build configuration list for PBXNativeTarget "AMPopTip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E88BB306536FB3D966B70096EC9A503F /* Debug */,
+				B002CAB47D4ACC8955ECD25025017788 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
 				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		497CDF83396715BC3883E2813ABE42CE /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92BE48387A1E87B4D0B4156FBDBA9F6B /* Debug */,
+				F2327CAC283A46B6B9566963D0F54A00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -936,15 +1152,6 @@
 			buildConfigurations = (
 				64147827621B355A1E4C20FC21082C86 /* Debug */,
 				408DB3413398B29EE089C0212414F9F3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FF72A8CADC7375BC868896CA2BFD6EED /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				70A7A80120FDE633BDAF46249435B8FD /* Debug */,
-				95208833EFCDA3FCAC0A61B0D99A66C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

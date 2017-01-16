@@ -18,6 +18,6 @@ target "pep9pad" do
 	## license: MIT
 	pod 'MSSTabbedPageViewController'
 
-	# pod ’AMPopTip'
+	pod ’AMPopTip'
 end
 

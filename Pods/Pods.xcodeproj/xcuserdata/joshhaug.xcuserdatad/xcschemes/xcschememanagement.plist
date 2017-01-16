@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AMPopTip.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,17 +32,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>163A46550684001CA7147AC8FC766105</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1FE2578FF0805299395CF2A0206BB671</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>595A6B2F8F17401C1FE0D3C057AAF13F</key>
+		<key>586E40C0BEBAB01A075A5E60359FA09D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68B858F4E8C0611BFB17BD3D07012610</key>
+		<key>595A6B2F8F17401C1FE0D3C057AAF13F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

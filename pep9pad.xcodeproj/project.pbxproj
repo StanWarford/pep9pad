@@ -157,6 +157,7 @@
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
+		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProgram.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProgram.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
@@ -345,6 +346,7 @@
 		46F5F26C1DCA528B002880FE /* GCDUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtilities.swift; sourceTree = "<group>"; };
 		46F5F26E1DCA626B002880FE /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
+		4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProgram.pepo; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */,
+				7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +401,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3371AE7D00D837517B0CC44C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		461279431E260E9A00212829 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,7 +543,7 @@
 			name = "Help Resources";
 			sourceTree = "<group>";
 		};
-		46A304E41C992D5500CDCD1A /* CodeEditor */ = {
+		46A304E41C992D5500CDCD1A /* CodeView */ = {
 			isa = PBXGroup;
 			children = (
 				463A66301C97CE0E004C35B2 /* CodeView.swift */,
@@ -544,7 +555,7 @@
 				4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */,
 				4656E11F1CE9352B0091AF6E /* CppHighlightingPatterns.plist */,
 			);
-			name = CodeEditor;
+			name = CodeView;
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
@@ -773,7 +784,7 @@
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46B58BD31C8FD872006E46B4 /* Help */,
-				46A304E41C992D5500CDCD1A /* CodeEditor */,
+				46A304E41C992D5500CDCD1A /* CodeView */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
 				461279441E260EAA00212829 /* FontMenu */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
@@ -785,6 +796,7 @@
 				46C76A621DAF10410071C340 /* Tests */,
 				D2B061571C7E62040088CEBE /* Products */,
 				ECF677558098784033F5EF20 /* Pods */,
+				3371AE7D00D837517B0CC44C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

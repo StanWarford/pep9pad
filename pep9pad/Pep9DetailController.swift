@@ -233,30 +233,47 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let firstAction = UIAlertAction(title: "", style: .default) { (action) in
-        }
-        alertController.addAction(firstAction)
+//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//        let firstAction = UIAlertAction(title: "", style: .default) { (action) in
+//        }
+//        alertController.addAction(firstAction)
+//        
+//        
+//        
+//        let tempController = UIViewController()
+//        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
+//        let stepperFrame = CGRect(x:0, y:0, width:250.0, height:25.0)
+//        let stepper = UIStepper(frame: stepperFrame)
+//        
+//        tempController.view.addSubview(stepper)
+//        alertController.view.addSubview(tempController.view)
+//        
+//        
+//        let darkModeAction = UIAlertAction(title: "Turn dark mode \((!appSettings.darkModeOn).toEnglish())", style: .default) { (action) in
+//            appSettings.toggleDarkMode()
+//        }
+//        alertController.addAction(darkModeAction)
+//        
+//        
+
         
         
         
-        let tempController = UIViewController()
-        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
-        let stepperFrame = CGRect(x:0, y:0, width:250.0, height:25.0)
-        let stepper = UIStepper(frame: stepperFrame)
+        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
+        let margin:CGFloat = 8.0
+        let rect = CGRect(x:margin, y:margin, width:alertController.view.bounds.size.width - margin * 4.0, height:300.0)
+        let customViewForAlert = FontMenuView(frame: rect)
+        alertController.view.addSubview(customViewForAlert)
         
-        tempController.view.addSubview(stepper)
-        alertController.view.addSubview(tempController.view)
+        let somethingAction = UIAlertAction(title: "act 1", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
+        let cancelAction = UIAlertAction(title: "act 2", style: .cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
         
-        
-        let darkModeAction = UIAlertAction(title: "Turn dark mode \((!appSettings.darkModeOn).toEnglish())", style: .default) { (action) in
-            appSettings.toggleDarkMode()
-        }
-        alertController.addAction(darkModeAction)
-        
+        alertController.addAction(cancelAction)
+        alertController.addAction(somethingAction)
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
+        
 
     }
     
