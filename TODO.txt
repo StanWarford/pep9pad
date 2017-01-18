@@ -3,8 +3,6 @@
 ---- Assembler Model ----
 
 ---- Machine Model ----
-[  ] 
-
 
 ---- User Interface ----
 [  ] Add object and listing fields to FileSystemDetailController.  Have it separate into three vertical components. 
@@ -14,9 +12,13 @@
 [  ] Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
 [  ] Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
 [  ] Make the Email UIAlertView (see Documentation/Email)
-[  ] Fix I/O font and add separator
-
-
+[  ] Fix I/O font (refrence appSettings.font) and add separator, also fix placement
+[  ] Add persistence to the settings using NSUserDefaults
+[  ] Figure out what to do with Help descriptions
+[  ] Make UITextFields in Help system non-editable
+[  ] Memory view needs to have scroll bar
+[  ] Remove all autocomplete stuff in any text
+[  ] Replace references to colors with references to appSettings.colors
 
 
 
