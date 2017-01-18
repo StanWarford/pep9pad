@@ -40,11 +40,6 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
         
     }
     
-    // Post: Sets text in source code pane to `str`.
-    func setSourceCode(to str: String) {
-        
-    }
-    
     // Post: Clears the textView.
     func clear() {
         
