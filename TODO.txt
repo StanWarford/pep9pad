@@ -1,27 +1,25 @@
 --- TODO items ---
-Ranking system: [E]asy, [M]edium, [H]ard, [V]ery hard.
 
-[M] Create an AboutViewController by subclassing UITableView(Controller) and UITableViewCell.  The first tableViewCell should include a brief summary of the app, the version number, and the app icon.  The remaining cells should list all the developers of the app.  
+---- Assembler Model ----
 
-[H] Create the byte converter by subclassing the UIAlertController class.  It should have five UITextField objects, corresponding to decimal, hex, binary, ASCII, and Asm.  Add in some UILabel objects somewhere (perhaps in the textfields) to clue the user in on which is which.  Each text field should only accept input that makes sense; i.e. decimal field should accept numbers only, 0-255.  A change in one text field should populate the other textFields accordingly.  Check Pep9 repo for the byteconverter___.cpp files, these should have some useful regexps.
+---- Machine Model ----
+[  ] 
 
-[E] Create a UITableViewCell subclass for the Help table.  Include a description label -- copy over the descriptions of files from Pep9 into these.  
 
-[E] Pretty up the Menu.storyboard background.
+---- User Interface ----
+[  ] Add object and listing fields to FileSystemDetailController.  Have it separate into three vertical components. 
+[  ] Add separator to help split views.
+[  ] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.
+[  ] Capitalize the labels in ByteCalc.
+[  ] Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
+[  ] Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
+[  ] Make the Email UIAlertView (see Documentation/Email)
+[  ] Fix I/O font and add separator
 
-[E] Add object and listing fields to FSDetailVC.
 
-[M] Fix display bug in help system.
 
-[M] Add separator to help split views.
 
-[V] Write StackTraceViewController.
 
-[M] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.
-
-[M] Copy over descriptions from /Reference/Help/helpdialog.cpp and add them to the cells’ detailTextLabels.
-
----- Completed ----
 
 
 

@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>MSSTabbedPageViewController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-pep9pad.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,11 +27,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>163A46550684001CA7147AC8FC766105</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>1FE2578FF0805299395CF2A0206BB671</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>595A6B2F8F17401C1FE0D3C057AAF13F</key>
+		<key>EF4F067C2D0E135B80299B089E168BDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF4F067C2D0E135B80299B089E168BDA</key>
+		<key>EF676E81BB00BAB5E6E0F35C71CDD72D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

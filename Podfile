@@ -14,10 +14,7 @@ target "pep9pad" do
 	## license for FontAwesome.otf: SIL Open Font License
 	pod 'FontAwesome.swift', :git=>'https://github.com/thii/FontAwesome.swift.git'
 
-	## utility for tab views
 	## license: MIT
-	pod 'MSSTabbedPageViewController'
-
 	pod ’AMPopTip'
 end
 
