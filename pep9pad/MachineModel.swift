@@ -32,6 +32,10 @@ class MachineModel {
     var trapped: Bool
     var tracingTraps: Bool
     
+    
+    /// .BURN and the ROM State
+    var romStartAddress: Int
+    
     /// State for keeping track of what actions are possible for user and machine.  Unused in Pep9.
     //var executionState: EExecState
     
@@ -57,6 +61,8 @@ class MachineModel {
         modifiedBytes = Set()
         trapped = false
         tracingTraps = false
+        
+        romStartAddress = 0
         
     }
     
@@ -206,15 +212,24 @@ class MachineModel {
     
     /// Pre: 0 <= value < 256
     /// Post: Value is stored in mem[addr]
-    func writeByte(_ addr: Int, _ value: Int) {
+    func writeByte(memAddr: Int, value: Int) {
         // TODO  
+        if (memAddr < romStartAddress) {
+        mem[memAddr & 0xffff] = value
+        modifiedBytes.insert(memAddr & 0xffff)
     }
     
     /// Pre: 0 <= value < 65536
     /// Post: The high-end byte of value is stored in mem[memAddr]
     /// and the low-end byte of value is stored in mem[memAddr + 1]
-    func writeWord(_ addr: Int, _ value: Int) {
+    func writeWord(memAddr: Int, value: Int) {
         // TODO
+        if (memAddr < romStartAddress) {
+            mem[memAddr & 0xffff] = value / 256
+            mem[(memAddr + 1) & 0xffff] = value % 256
+            modifiedBytes.insert(memAddr & 0xffff)
+            modifiedBytes.insert((memAddr + 1) & 0xffff)
+        }
     }
     
     func writeByteOprnd(addrMode: EAddrMode, value: Int) {
@@ -225,19 +240,19 @@ class MachineModel {
             // illegal
             break
         case .D:
-            writeByte(operandSpecifier, value)
+            writeByte(memAddr: operandSpecifier, value: value)
         case .N:
-            writeByte(readWord(operandSpecifier), value)
+            writeByte(memAddr: readWord(operandSpecifier), value: value)
         case .S:
-            writeByte(add(stackPointer, operandSpecifier), value)
+            writeByte(memAddr: add(stackPointer, operandSpecifier), value: value)
         case .SF:
-            writeByte(readWord(add(stackPointer, operandSpecifier)), value)
+            writeByte(memAddr: readWord(add(stackPointer, operandSpecifier)), value: value)
         case .X:
-            writeByte(add(operandSpecifier, indexRegister), value)
+            writeByte(memAddr: add(operandSpecifier, indexRegister), value: value)
         case .SX:
-            writeByte(add(add(stackPointer, operandSpecifier), indexRegister), value)
+            writeByte(memAddr: add(add(stackPointer, operandSpecifier), indexRegister), value: value)
         case .SFX:
-            writeByte(add(readWord(add(stackPointer, operandSpecifier)), indexRegister), value)
+            writeByte(memAddr: add(readWord(add(stackPointer, operandSpecifier)), indexRegister), value: value)
         }
     }
     
@@ -249,19 +264,19 @@ class MachineModel {
             // illegal
             break
         case .D:
-            writeWord(operandSpecifier, value)
+            writeWord(memAddr: operandSpecifier, value: value)
         case .N:
-            writeWord(readWord(operandSpecifier), value)
+            writeWord(memAddr: readWord(operandSpecifier), value: value)
         case .S:
-            writeWord(add(stackPointer, operandSpecifier), value)
+            writeWord(memAddr: add(stackPointer, operandSpecifier), value: value)
         case .SF:
-            writeWord(readWord(add(stackPointer, operandSpecifier)), value)
+            writeWord(memAddr: readWord(add(stackPointer, operandSpecifier)), value: value)
         case .X:
-            writeWord(add(operandSpecifier, indexRegister), value)
+            writeWord(memAddr: add(operandSpecifier, indexRegister), value: value)
         case .SX:
-            writeWord(add(add(stackPointer, operandSpecifier), indexRegister), value)
+            writeWord(memAddr: add(add(stackPointer, operandSpecifier), indexRegister), value: value)
         case .SFX:
-            writeWord(add(readWord(add(stackPointer, operandSpecifier)), indexRegister), value)
+            writeWord(memAddr: add(readWord(add(stackPointer, operandSpecifier)), indexRegister), value: value)
         }
     }
     
@@ -333,4 +348,5 @@ class MachineModel {
     }
     
     
+}
 }
