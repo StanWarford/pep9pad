@@ -14,7 +14,7 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.frame, delegate: self)
+        textView.setupTextView(textView.frame, delegate: self, highlightAs: .pep)
         pullFromProjectModel()
     }
     
@@ -64,7 +64,5 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
         pushToProjectModel()
     }
     
-    
-
     
 }

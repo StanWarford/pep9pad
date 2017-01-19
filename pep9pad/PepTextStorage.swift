@@ -11,6 +11,7 @@ class PepTextStorage: BaseTextStorage {
     
     internal var patterns: NSDictionary!
     internal var regularExpressions: [NSRegularExpression] = []
+    internal var highlightAs: HighlightableLanguage! = .other
     
     override func processEditing() {
         let text = string as NSString
@@ -23,10 +24,17 @@ class PepTextStorage: BaseTextStorage {
 //        text.enumerateSubstringsInRange(NSRange(location: 0, length: length), options: .ByWords) { [weak self] string, range, _, _ in
 //            guard let string = string else { return }
 //      
-        // Loading `regularExpressions` from `PepHighlightingPatterns.plist` if needed.
-        if regularExpressions.count == 0 {
-            self.setupHighlightPatterns(Bundle.main.path(forResource: "PepHighlightingPatterns", ofType: "plist"))
+        
+        if highlightAs == .other {
+            super.processEditing()
+            return
         }
+        
+        // Loading `regularExpressions` from `Pep/CppHighlightingPatterns.plist` if needed.
+        if regularExpressions.count == 0 {
+            self.setupHighlightPatterns(Bundle.main.path(forResource: "\(highlightAs.rawValue)HighlightingPatterns", ofType: "plist"))
+        }
+        // Now find matches
         if text != "" {
             // useful for debugging syntax highlighting
             // print("Text found to be legal, proceeding with regex.")
@@ -74,6 +82,13 @@ class PepTextStorage: BaseTextStorage {
         }
     }
     
+    func highlightAs(_ lang: HighlightableLanguage) {
+        if lang != highlightAs {
+            highlightAs = lang
+            regularExpressions.removeAll()
+        }
+    }
+    
     internal func highlightSyntaxPattern(_ nameOfPattern: String, foundInstances: [NSTextCheckingResult]) {
         let attributes: [String:AnyObject]
         
@@ -84,13 +99,13 @@ class PepTextStorage: BaseTextStorage {
                 NSForegroundColorAttributeName:blueColor,
                 NSFontAttributeName:UIFont(name: CourierBold, size: 18)!
             ]
-        case "dot":
+        case "dot", "keyword":
             // Dot commands are blue, italicized, and capitalized.
             attributes = [
                 NSForegroundColorAttributeName:blueColor,
                 NSFontAttributeName:UIFont(name: CourierItalic, size: 18)!
             ]
-        case "singleLineComment":
+        case "singleLineComment", "comment", "documentation_comment":
             // Comments are green.
             // TODO: Fix this green to match the green in Pep/9.
             attributes = [
@@ -103,7 +118,7 @@ class PepTextStorage: BaseTextStorage {
                 NSFontAttributeName:UIFont(name: CourierBold, size: 18)!
 
             ]
-        case "singleQuote", "doubleQuote" :
+        case "singleQuote", "doubleQuote", "string" :
             // Text in quotes is red.
             attributes = [
                 NSForegroundColorAttributeName:redColor

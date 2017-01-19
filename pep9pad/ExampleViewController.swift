@@ -45,23 +45,25 @@ class ExampleViewController: UIViewController {
         
         do {
             let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-            print("Loaded file named \(fileName).\(ofType.rawValue)")
+            //print("Loaded file named \(fileName).\(ofType.rawValue)")
+            let tempCodeView: CodeView
             
             switch field {
             case .Top:
-                self.topTextView.removeAllText()
-                self.topTextView.setText(content)
-                self.currentExampleText = content
-                if ofType == .pepb || ofType == .peph {
-                    self.currentExampleType = .pepo
-                } else {
-                    self.currentExampleType = ofType
-                }
+                // the 'current example' is always the one on top
+                tempCodeView = topTextView
+                currentExampleText = content
+                currentExampleType = exampleType(ofType)
             case .Bottom:
-                self.bottomTextView.removeAllText()
-                self.bottomTextView.setText(content)
+                tempCodeView = bottomTextView
             }
             
+            tempCodeView.setHighlight(ofType)
+            tempCodeView.removeAllText()
+            tempCodeView.setText(content)
+        
+            
+            // scroll to top in both textViews
             topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
             bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
 
@@ -129,7 +131,18 @@ class ExampleViewController: UIViewController {
         self.currentExampleRequiresTerminal = true
         
     }
-
+    
+    func exampleType(_ type: PepFileType) -> PepFileType {
+        // little bit of complexity here, so I put it in a function
+        // .pepb and .peph are treated as .pepo
+        switch type {
+        case .pepb, .peph, .pepo:
+            return .pepo
+        default:
+            return type
+        }
+    }
+    
 
 
 

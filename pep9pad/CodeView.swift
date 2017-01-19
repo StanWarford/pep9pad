@@ -20,14 +20,16 @@ class CodeView: UIView, UITextViewDelegate {
         super.init(coder: aDecoder)
     }
     
-    func setupTextView(_ frame: CGRect) {
+    func setupTextView(_ frame: CGRect, delegate: CodeViewDelegate! = nil, highlightAs: HighlightableLanguage = .other) {
+        self.delegate = delegate
         let rect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: frame.height)
-        self.textStorage = PepTextStorage()
-        self.layoutManager = NSLayoutManager()
-        self.textStorage.addLayoutManager(layoutManager)
-        self.textContainer = NSTextContainer()
-        self.layoutManager.addTextContainer(textContainer)
-        self.textView = UITextView(frame: rect, textContainer: textContainer)
+        textStorage = PepTextStorage()
+        textStorage.highlightAs(highlightAs)
+        layoutManager = NSLayoutManager()
+        textStorage.addLayoutManager(layoutManager)
+        textContainer = NSTextContainer()
+        layoutManager.addTextContainer(textContainer)
+        textView = UITextView(frame: rect, textContainer: textContainer)
         textView.autocorrectionType = .no
         textView.isScrollEnabled = false
         self.addSubview(textView)
@@ -39,15 +41,25 @@ class CodeView: UIView, UITextViewDelegate {
 //        self.textAlignment = .Left
     }
     
-    func setupTextView(_ frame: CGRect, delegate: CodeViewDelegate) {
-        self.delegate = delegate
-        setupTextView(frame)
-    }
     
     func setEditable(_ to: Bool) {
         textView.isEditable = to
     }
     
+    func setHighlight(_ lang: HighlightableLanguage) {
+        textStorage.highlightAs(lang)
+    }
+    
+    func setHighlight(_ forType: PepFileType) {
+        switch forType {
+        case .pep, .pepl, .pepo, .pepb, .peph:
+            textStorage.highlightAs(.pep)
+        case .c:
+            textStorage.highlightAs(.c)
+        default:
+            textStorage.highlightAs(.other)
+        }
+    }
     
 
     // MARK: - Text-Handling Functions
