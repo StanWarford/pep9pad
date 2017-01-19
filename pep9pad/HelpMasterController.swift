@@ -13,6 +13,7 @@ class HelpMasterController: UITableViewController {
     internal var helpDetail: HelpDetailController!
     internal var asmMasterVC: Pep9MasterController!
     
+    
     // MARK: - View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,11 +70,11 @@ class HelpMasterController: UITableViewController {
             v.textLabel!.text = Array(Documentation.allValues.values)[(indexPath as NSIndexPath).row]
             v.detailTextLabel!.text = ""
         case 1:
-            v.textLabel!.text = Examples.allValues[indexPath.row].rawValue
-            v.detailTextLabel!.text = ExampleDescriptions.allValues[indexPath.row].rawValue
+            v.textLabel!.text = Figures.allValues[indexPath.row].rawValue
+            v.detailTextLabel!.text = FigureDescriptions.allValues[indexPath.row].rawValue
         case 2:
-            v.textLabel!.text = Examples.allValues[indexPath.row + 40].rawValue
-            v.detailTextLabel!.text = ExampleDescriptions.allValues[indexPath.row + 40].rawValue
+            v.textLabel!.text = Problems.allValues[indexPath.row].rawValue
+            v.detailTextLabel!.text = ProblemDescriptions.allValues[indexPath.row].rawValue
         case 3:
             v.textLabel!.text = "Pep/9 Operating System"
             v.detailTextLabel!.text = ""
@@ -95,9 +96,9 @@ class HelpMasterController: UITableViewController {
         case 0:
             helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[(indexPath as NSIndexPath).row])
         case 1:
-            helpDetail.loadExample((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
+            helpDetail.loadExample(Figures.allValues[indexPath.row].rawValue)
         case 2:
-            helpDetail.loadExample((tableView.cellForRow(at: indexPath)?.textLabel!.text)!)
+            helpDetail.loadExample(Problems.allValues[indexPath.row].rawValue)
         case 3:
             helpDetail.loadExample("Pep/9 Operating System")
         default:
@@ -110,9 +111,9 @@ class HelpMasterController: UITableViewController {
         case 0:
             return Documentation.allValues.count
         case 1:
-            return Examples.allValues.count - 8
+            return Figures.allValues.count
         case 2:
-            return 8
+            return Problems.allValues.count
         case 3:
             return 1
         default:

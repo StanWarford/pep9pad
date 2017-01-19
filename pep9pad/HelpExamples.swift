@@ -6,7 +6,7 @@
 
 import Foundation
 
-enum Examples: String {
+enum Figures: String {
     
     case FIG433  = "Figure 4.33"
     case FIG435  = "Figure 4.35"
@@ -50,15 +50,6 @@ enum Examples: String {
     case FIG646  = "Figure 6.46"
     case FIG648  = "Figure 6.48"
     
-    case EXER804 = "Exercise 8.04"
-    case PROB826 = "Problem 8.26"
-    case PROB827 = "Problem 8.27"
-    case PROB828 = "Problem 8.28"
-    case PROB829 = "Problem 8.29"
-    case PROB830 = "Problem 8.30"
-    case PROB831 = "Problem 8.31"
-    case PROB832 = "Problem 8.32"
-    
     static let allValues = [
         FIG433,
         FIG435,
@@ -100,7 +91,25 @@ enum Examples: String {
         FIG642,
         FIG644,
         FIG646,
-        FIG648,
+        FIG648
+    ]
+
+}
+
+
+
+enum Problems: String {
+    
+    case EXER804 = "Exercise 8.04"
+    case PROB826 = "Problem 8.26"
+    case PROB827 = "Problem 8.27"
+    case PROB828 = "Problem 8.28"
+    case PROB829 = "Problem 8.29"
+    case PROB830 = "Problem 8.30"
+    case PROB831 = "Problem 8.31"
+    case PROB832 = "Problem 8.32"
+
+    static let allValues = [
         EXER804,
         PROB826,
         PROB827,
@@ -110,11 +119,33 @@ enum Examples: String {
         PROB831,
         PROB832
     ]
+
 }
 
+enum ProblemDescriptions: String {
+    case EXER804 = "An excercise for the <code>DECI</code> trap."
+    case PROB826 = "A test driver for the <code>ASL2</code> instruction."
+    case PROB827 = "A test driver for the <code>ASLMANY</code> instruction."
+    case PROB828 = "A test driver for the <code>MULA</code> instruction."
+    case PROB829 = "A test driver for the <code>STWADI</code> instruction."
+    case PROB830 = "A test driver for the <code>BOOLO</code> instruction."
+    case PROB831 = "A test driver for the <code>STKADD</code> instruction."
+    case PROB832 = "A test driver for the <code>XORA</code> instruction."
+    
+    static let allValues = [
+        EXER804,
+        PROB826,
+        PROB827,
+        PROB828,
+        PROB829,
+        PROB830,
+        PROB831,
+        PROB832
+    ]
 
+}
 
-enum ExampleDescriptions: String {
+enum FigureDescriptions: String {
     case FIG433  = "A machine language program to output the characters <code>Hi</code>."
     case FIG435  = "A machine language program to input two characters and output them in reverse order."
     case FIG436  = "A machine language program to add 5 and 3 and output the single-character result."
@@ -156,14 +187,6 @@ enum ExampleDescriptions: String {
     case FIG644  = "Translation of local pointers."
     case FIG646  = "Translation of a structure."
     case FIG648  = "Translation of a linked list."
-    case EXER804 = "An excercise for the <code>DECI</code> trap."
-    case PROB826 = "A test driver for the <code>ASL2</code> instruction."
-    case PROB827 = "A test driver for the <code>ASLMANY</code> instruction."
-    case PROB828 = "A test driver for the <code>MULA</code> instruction."
-    case PROB829 = "A test driver for the <code>STWADI</code> instruction."
-    case PROB830 = "A test driver for the <code>BOOLO</code> instruction."
-    case PROB831 = "A test driver for the <code>STKADD</code> instruction."
-    case PROB832 = "A test driver for the <code>XORA</code> instruction."
     
     static let allValues = [
         FIG433,
@@ -206,17 +229,12 @@ enum ExampleDescriptions: String {
         FIG642,
         FIG644,
         FIG646,
-        FIG648,
-        EXER804,
-        PROB826,
-        PROB827,
-        PROB828,
-        PROB829,
-        PROB830,
-        PROB831,
-        PROB832
+        FIG648
     ]
 
 }
+
+
+
 
 
