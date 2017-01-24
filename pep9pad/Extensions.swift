@@ -66,29 +66,17 @@ extension UInt8 {
 }
 
 extension UITextField {
-    // A convenience function for input fields
-    func addLabel(text: String) {
+    // A convenience function for input fields.
+    func addLabel(text: String, color: UIColor = .black) {
         let aLabel = UILabel()
         aLabel.text = text
         aLabel.font = UIFont(name: "Helvetica-Light", size: 14.0)
-        aLabel.textColor = UIColor.black
+        aLabel.textColor = color
         aLabel.sizeToFit()
         self.leftView = aLabel
         self.leftViewMode = UITextFieldViewMode.always
         self.textAlignment = .right
     }
-    
-    func addErrorLabel(text: String) {
-        let aLabel = UILabel()
-        aLabel.text = text
-        aLabel.font = UIFont(name: "Helvetica-Light", size: 14.0)
-        aLabel.textColor = UIColor.red
-        aLabel.sizeToFit()
-        self.leftView = aLabel
-        self.leftViewMode = UITextFieldViewMode.always
-        self.textAlignment = .right
-    }
-    
     
     func getCursorPosition(from: UITextPosition) -> Int? {
         if let selectedRange = self.selectedTextRange {

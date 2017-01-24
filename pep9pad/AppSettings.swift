@@ -1,8 +1,6 @@
 //
 //  AppSettings.swift
 //  pep9pad
-//
-//  Created by Josh Haug on 12/31/16.
 //  Copyright © 2016 Pepperdine University. All rights reserved.
 //
 
@@ -21,9 +19,21 @@ class AppSettings {
     
     var darkModeOn: Bool = false
     var font: UIFont = UIFont(name: "Courier", size: 12.0)!
+    
     // MARK: - Methods
     
     func toggleDarkMode() {
         darkModeOn = !darkModeOn
+    }
+    
+    /// Rather than giving `appSettings` a lot of attributes for, 
+    /// say, `textColor` or `backgroundColor` or whatever, I figure we
+    /// should just handle this info with a method.
+    func getColorFor(_ thing: ColoredObject) -> UIColor {
+        switch thing {
+        case .background: return darkModeOn ? .black : .white
+        case .text: return darkModeOn ? .white : .black
+        case .errorText: return .red
+        }
     }
 }

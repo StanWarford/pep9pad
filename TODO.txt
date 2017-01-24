@@ -18,7 +18,6 @@
 [  ] Make UITextFields in Help system non-editable
 [  ] Memory view needs to have scroll bar
 [  ] Remove all autocomplete stuff in any text
-[  ] Replace references to colors with references to appSettings.colors
 
 
 

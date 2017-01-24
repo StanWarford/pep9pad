@@ -141,14 +141,14 @@ class ByteCalc: NSObject, UITextFieldDelegate {
     func errorInConverting(_ textField: UITextField, _ type: ConversionError) {
         
         let errorMessage = type.rawValue
-        
         errorToClear = textField.tag
+        let errorColor = appSettings.getColorFor(.errorText)
         
         switch textField.tag {
-        case dec: decimalField.addErrorLabel(text: "decimal - \(errorMessage)")
-        case bin: binaryField.addErrorLabel(text: "binary - \(errorMessage)")
-        case hex: hexField.addErrorLabel(text: "hex - \(errorMessage)")
-        case ascii: asciiField.addErrorLabel(text: "ascii - \(errorMessage)")
+        case dec: decimalField.addLabel(text: "decimal - \(errorMessage)", color: errorColor)
+        case bin: binaryField.addLabel(text: "binary - \(errorMessage)", color: errorColor)
+        case hex: hexField.addLabel(text: "hex - \(errorMessage)", color: errorColor)
+        case ascii: asciiField.addLabel(text: "ascii - \(errorMessage)", color: errorColor)
         default: break
         // user can't edit assemblyField, so won't get an error
         }
