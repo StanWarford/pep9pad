@@ -87,6 +87,10 @@ class ByteCalc: NSObject, UITextFieldDelegate {
             } else if let _ = Int(textToConvert) {
                 // can still be converted to an integer, but is out of bounds
                 errorInConverting(textField, .outOfBounds)
+            } else {
+                // bad input, probably
+                errorInConverting(textField, .badInput)
+                
             }
             
         case hex:
@@ -96,7 +100,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 binaryField.text = d.toBin8()
                 asciiField.text = d.toASCII()
                 assemblyField.text = maps.getInstruction(Int(d))
-            } else if textToConvert.characters.count > 2 {
+            } else {
                 errorInConverting(textField, .badInput)
             }
 
@@ -122,6 +126,8 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 hexField.text = d.toHex2()
                 binaryField.text = d.toBin8()
                 assemblyField.text = maps.getInstruction(Int(d))
+            } else {
+                errorInConverting(textField, .badInput)
             }
             
         default:
@@ -134,7 +140,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
     enum ConversionError: String {
         case outOfBounds = "out of bounds"
         case badInput = "bad input"
-        case other = "error"
+        // case other = "error" // not needed
     }
     
     
