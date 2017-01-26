@@ -40,9 +40,6 @@ Graphics...
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                                                  
-                                                  
-
-
 
 
               ______  _______ _______ _     _     _______ __   _ ______          
@@ -62,9 +59,9 @@ Machine/Simulator...
 * Write vonNeumannStep(:), translate from the matching function in Sim.cpp
 
 Assembler...
-* Write installDefaultOS()
-* Write installOS()
-* Write adjustSourceCode(:)
+* Write installDefaultOS(), translate from the matching function in Asm.cpp
+* Write installOS(), translate from the matching function in Asm.cpp
+* Write adjustSourceCode(:), translate from the matching function in Asm.cpp
 * etc.
 
 
