@@ -1,23 +1,66 @@
---- TODO items ---
+________________________________________________________________________________________
+________________________________________________________________________________________
 
----- Assembler Model ----
+                    ______         ____           __    _      __               
+                   /_  __/___     / __ \____     / /   (_)____/ /_              
+                    / / / __ \   / / / / __ \   / /   / / ___/ __/              
+                   / / / /_/ /  / /_/ / /_/ /  / /___/ (__  ) /_                
+                  /_/  \____/  /_____/\____/  /_____/_/____/\__/                
+                                                                                
+                                                                                
+________________________________________________________________________________________
+________________________________________________________________________________________
 
----- Machine Model ----
 
----- User Interface ----
-[  ] Add object and listing fields to FileSystemDetailController.  Have it separate into three vertical components. 
-[  ] Add separator to help split views.
-[  ] Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug.
-[  ] Capitalize the labels in ByteCalc.
-[  ] Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
-[  ] Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
-[  ] Make the Email UIAlertView (see Documentation/Email)
-[  ] Fix I/O font (refrence appSettings.font) and add separator, also fix placement
-[  ] Add persistence to the settings using NSUserDefaults
-[  ] Figure out what to do with Help descriptions
-[  ] Make UITextFields in Help system non-editable
-[  ] Memory view needs to have scroll bar
-[  ] Remove all autocomplete stuff in any text
+
+
+                                                                                 
+           _______  ______  _____  __   _ _______     _______ __   _ ______      
+           |______ |_____/ |     | | \  |    |    ___ |______ | \  | |     \     
+           |       |    \_ |_____| |  \_|    |        |______ |  \_| |_____/     
+                                                                                 
+                                                                                 
+
+Storyboard Challenges...
+* Add object and listing fields to FileSystemDetailController, separate into three vertical components. 
+* Add separator to help code views (leave some space in between 'em and make the background dark).
+* Finish FontMenu.xib, figure out how to load it from AMPopTip 
+* General issue with sizing in IOMem (extending underneath P9Processor?)
+* Memory view needs to have scroll bar
+* Remove all autocomplete stuff in any textfield
+* Fix I/O font (refrence appSettings.font) and add separator, also fix placement
+* Capitalize the labels in ByteCalc.
+* Make UITextFields in Help system non-editable
+
+
+Graphics...
+* App icon, any ideas?
+* Launch screen, any ideas?
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                                                 
+                                                  
+
+
+
+
+              ______  _______ _______ _     _     _______ __   _ ______          
+              |_____] |_____| |       |____/  ___ |______ | \  | |     \         
+              |_____] |     | |_____  |    \_     |______ |  \_| |_____/         
+                                                                                 
+                                                                                 
+
+Coding Challenges...
+* Make the Email UIAlertView (see Documentation/Email and search www.bing.com for "MFMailCompose")
+* Add persistence to the settings using NSUserDefaults
+* Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug. (RegExp is being weird, this might mean we're missing an escape character somewhere)
+* Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
+* Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
+
+
+Misc...
+* Figure out what to do with Help's <code></code> stuff... do we toss it? Do we change the font?
+
 
 
 
