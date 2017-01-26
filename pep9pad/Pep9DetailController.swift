@@ -7,14 +7,16 @@
 
 import UIKit
 import FontAwesome_swift
+import MessageUI
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
 typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
 
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
-/// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
-class Pep9DetailController: UIViewController, UITabBarDelegate {
+/// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
+
+class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeViewControllerDelegate {
     
     internal var master: Pep9MasterController!
     internal var tabBar: UITabBarController!
@@ -43,6 +45,29 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //MARK: Mail Composition
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["test@gmail.com"])
+        mailComposerVC.setSubject("Subject of you mail")
+        mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     
@@ -220,7 +245,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(saveAction)
         
         let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
-            self.shareProjectBtnPressed()
+            self.shareProjectBtnPressed(sender: self.actionBtn)
         }
         shareAction.isEnabled = (projectModel.fsState != .Blank)
         alertController.addAction(shareAction)
@@ -568,8 +593,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
-    func shareProjectBtnPressed() {
-        
+    func shareProjectBtnPressed(sender: AnyObject) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
     
     /// Try to load the given example.  Depending on `self.fsState`, this function may present the user with options (e.g. if the user has never saved the current project) before loading the given example.  If the user chooses to cancel this save operation, the function returns false.
