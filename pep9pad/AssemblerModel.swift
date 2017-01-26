@@ -148,10 +148,10 @@ class AssemblerModel {
     
     // Pre: self.hasCheckBox is populated.
     // Post: self.hasCheckBox is returned.
-    func getHasCheckBox() -> [Bool] {
-        // PLACEHOLDER
-        return [true]
-    }
+    // func getHasCheckBox() -> [Bool] {}
+    
+    // Instead of the above getHasCheckBox, we will be using trace tags to enable/disable lines of code
+    // More on this can be found in 
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.

@@ -1,5 +1,0 @@
-// #  Sim Actions
-// This doc attempts to consolidate all actions performed when simulating in Pep9. 
-
-/*
-

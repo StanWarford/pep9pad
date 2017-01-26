@@ -134,9 +134,7 @@ class MachineModel {
     // Pre: addrMode cannot be immediate.
     func addrOfByteOprnd(addrMode: EAddrMode) -> Int {
         switch addrMode {
-        case .None, .All:
-            break
-        case .I:
+        case .None, .All, .I:
             break
         case .D:
             return operandSpecifier
@@ -213,17 +211,16 @@ class MachineModel {
     /// Pre: 0 <= value < 256
     /// Post: Value is stored in mem[addr]
     func writeByte(memAddr: Int, value: Int) {
-        // TODO  
         if (memAddr < romStartAddress) {
-        mem[memAddr & 0xffff] = value
-        modifiedBytes.insert(memAddr & 0xffff)
+            mem[memAddr & 0xffff] = value
+            modifiedBytes.insert(memAddr & 0xffff)
+        }
     }
     
     /// Pre: 0 <= value < 65536
     /// Post: The high-end byte of value is stored in mem[memAddr]
     /// and the low-end byte of value is stored in mem[memAddr + 1]
     func writeWord(memAddr: Int, value: Int) {
-        // TODO
         if (memAddr < romStartAddress) {
             mem[memAddr & 0xffff] = value / 256
             mem[(memAddr + 1) & 0xffff] = value % 256
@@ -348,5 +345,4 @@ class MachineModel {
     }
     
     
-}
 }

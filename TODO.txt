@@ -31,6 +31,7 @@ Storyboard Challenges...
 * Fix I/O font (refrence appSettings.font) and add separator, also fix placement
 * Capitalize the labels in ByteCalc.
 * Make UITextFields in Help system non-editable
+* Action preservation for ”are you sure you don’t want to save changes?" alert
 
 
 Graphics...
@@ -56,6 +57,15 @@ Coding Challenges...
 * Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug. (RegExp is being weird, this might mean we're missing an escape character somewhere)
 * Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
 * Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
+
+Machine/Simulator...
+* Write vonNeumannStep(:), translate from the matching function in Sim.cpp
+
+Assembler...
+* Write installDefaultOS()
+* Write installOS()
+* Write adjustSourceCode(:)
+* etc.
 
 
 Misc...
