@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,7 +14,7 @@
         <scene sceneID="DKj-43-hih">
             <objects>
                 <navigationController id="Brd-0H-ER3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b12-jd-Olr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="b12-jd-Olr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -49,9 +50,23 @@
                             <constraint firstItem="XPH-YH-0Gq" firstAttribute="leading" secondItem="vmG-m9-50S" secondAttribute="leading" id="izD-j1-hpi"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="3ai-yD-WEV"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="kEW-wl-1l9">
-                        <barButtonItem key="rightBarButtonItem" title="Bus" id="nwr-pZ-qxT"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="▶️" id="AYM-GG-w3G"/>
+                            <barButtonItem title="🐛" id="mii-Hf-U0y"/>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="shC-2O-NRf"/>
+                            <barButtonItem title="⚙" id="AE2-Ug-R6S"/>
+                            <barButtonItem title="calc" id="KV5-4F-g8V"/>
+                            <barButtonItem title="Aa" id="q9p-vn-jrz"/>
+                            <barButtonItem title="Bus" id="nwr-pZ-qxT"/>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXd-BD-Ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
