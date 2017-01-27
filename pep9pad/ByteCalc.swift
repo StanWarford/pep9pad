@@ -17,7 +17,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             decimalField.delegate = self
             decimalField.tag = 0
-            decimalField.addLabel(text: "decimal")
+            decimalField.addLabel(text: "Decimal")
         }
     }
     
@@ -25,7 +25,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             hexField.delegate = self
             hexField.tag = 1
-            hexField.addLabel(text: "hex")
+            hexField.addLabel(text: "Hex")
         }
     }
     
@@ -33,7 +33,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             binaryField.delegate = self
             binaryField.tag = 2
-            binaryField.addLabel(text: "binary")
+            binaryField.addLabel(text: "Binary")
         }
     }
 
@@ -41,7 +41,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             asciiField.delegate = self
             asciiField.tag = 3
-            asciiField.addLabel(text: "ascii")
+            asciiField.addLabel(text: "Ascii")
         }
     }
 
@@ -49,7 +49,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             assemblyField.delegate = self
             assemblyField.tag = 4
-            assemblyField.addLabel(text: "instruction")
+            assemblyField.addLabel(text: "Instruction")
         }
     }
     
@@ -138,8 +138,8 @@ class ByteCalc: NSObject, UITextFieldDelegate {
     var errorToClear: Int!
     
     enum ConversionError: String {
-        case outOfBounds = "out of bounds"
-        case badInput = "bad input"
+        case outOfBounds = "Out of Bounds"
+        case badInput = "Bad Input"
         // case other = "error" // not needed
     }
     
@@ -151,10 +151,10 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         let errorColor = appSettings.getColorFor(.errorText)
         
         switch textField.tag {
-        case dec: decimalField.addLabel(text: "decimal - \(errorMessage)", color: errorColor)
-        case bin: binaryField.addLabel(text: "binary - \(errorMessage)", color: errorColor)
-        case hex: hexField.addLabel(text: "hex - \(errorMessage)", color: errorColor)
-        case ascii: asciiField.addLabel(text: "ascii - \(errorMessage)", color: errorColor)
+        case dec: decimalField.addLabel(text: "Decimal - \(errorMessage)", color: errorColor)
+        case bin: binaryField.addLabel(text: "Binary - \(errorMessage)", color: errorColor)
+        case hex: hexField.addLabel(text: "Hex - \(errorMessage)", color: errorColor)
+        case ascii: asciiField.addLabel(text: "Ascii - \(errorMessage)", color: errorColor)
         default: break
         // user can't edit assemblyField, so won't get an error
         }
@@ -167,10 +167,10 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         }
         
         switch errorToClear {
-        case dec: decimalField.addLabel(text: "decimal")
-        case bin: binaryField.addLabel(text: "binary")
-        case hex: hexField.addLabel(text: "hex")
-        case ascii: asciiField.addLabel(text: "ascii")
+        case dec: decimalField.addLabel(text: "Decimal")
+        case bin: binaryField.addLabel(text: "Binary")
+        case hex: hexField.addLabel(text: "Hex")
+        case ascii: asciiField.addLabel(text: "Ascii")
         default: break
         }
         
