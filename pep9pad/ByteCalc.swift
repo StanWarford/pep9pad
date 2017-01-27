@@ -25,7 +25,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         didSet {
             hexField.delegate = self
             hexField.tag = 1
-            hexField.addLabel(text: "Hex")
+            hexField.addLabel(text: "Hex 0x")
         }
     }
     
@@ -67,6 +67,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         // Note: by conditionally unwrapping into a UInt8 we ensure that the value is between 0 and 255.
         
         if textToConvert.isEmpty {
+            clearAnyErrors()
             decimalField.text = ""
             hexField.text = ""
             binaryField.text = ""
@@ -153,7 +154,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         switch textField.tag {
         case dec: decimalField.addLabel(text: "Decimal - \(errorMessage)", color: errorColor)
         case bin: binaryField.addLabel(text: "Binary - \(errorMessage)", color: errorColor)
-        case hex: hexField.addLabel(text: "Hex - \(errorMessage)", color: errorColor)
+        case hex: hexField.addLabel(text: "Hex - \(errorMessage) 0x", color: errorColor)
         case ascii: asciiField.addLabel(text: "Ascii - \(errorMessage)", color: errorColor)
         default: break
         // user can't edit assemblyField, so won't get an error
@@ -169,7 +170,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         switch errorToClear {
         case dec: decimalField.addLabel(text: "Decimal")
         case bin: binaryField.addLabel(text: "Binary")
-        case hex: hexField.addLabel(text: "Hex")
+        case hex: hexField.addLabel(text: "Hex 0x")
         case ascii: asciiField.addLabel(text: "Ascii")
         default: break
         }
