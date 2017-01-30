@@ -59,7 +59,7 @@
                             <barButtonItem title="🐛" id="mii-Hf-U0y"/>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" id="shC-2O-NRf"/>
+                            <barButtonItem systemItem="action" id="shC-2O-NRf"/>
                             <barButtonItem title="⚙" id="AE2-Ug-R6S"/>
                             <barButtonItem title="calc" id="KV5-4F-g8V"/>
                             <barButtonItem title="Aa" id="q9p-vn-jrz"/>
@@ -67,6 +67,15 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionBtn" destination="shC-2O-NRf" id="LnX-4v-zaR"/>
+                        <outlet property="busBtn" destination="nwr-pZ-qxT" id="kLG-pi-NOh"/>
+                        <outlet property="calcBtn" destination="KV5-4F-g8V" id="z7m-fD-5Aj"/>
+                        <outlet property="debugBtn" destination="mii-Hf-U0y" id="R9j-4s-yN4"/>
+                        <outlet property="fontBtn" destination="q9p-vn-jrz" id="2sP-5s-E4Y"/>
+                        <outlet property="runBtn" destination="AYM-GG-w3G" id="8nB-I3-RYl"/>
+                        <outlet property="settingsBtn" destination="AE2-Ug-R6S" id="TDU-8L-vVY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXd-BD-Ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
