@@ -314,11 +314,11 @@ class MachineModel {
             programCounter = add(programCounter, 2) // might need to use other add function
         }
         // MARK: Execute TODO
-//        if (!maps.isUnaryMap[mnemonic]! && !maps.isTrapMap[mnemonic]! && (!maps.addrModesMap.values(mnemonic) && addrMode)) {
-//            // errorString is immutable which is an easy fix but not sure how we want to structure this
-////            errorString = "Invalid Addressing Mode."
-//            return false
-//        }
+        if (!maps.isUnaryMap[mnemonic]! && !maps.isTrapMap[mnemonic]! && !(((maps.addrModesMap.values(mnemonic) & addrMode.rawValue) as? Int).toBool())) {
+            // errorString is immutable which is an easy fix but not sure how we want to structure this
+            print (errorString) // MARK: Return Tuple
+            return false
+        }
         
         
         switch (maps.decodeMnemonic[instructionSpecifier]) {
@@ -488,8 +488,8 @@ class MachineModel {
             programCounter = readWord(maps.dotBurnArgument - 1)
             indexRegister = 0 // compensating for bug in PEP9 OS=
             return true
-//        case .LDBA:       NEED TO DO THIS CASE
-//        case .LDBX:       NEED TO DO THIS CASE
+//        case .LDBA:      MARK: NEED TO DO THIS CASE
+//        case .LDBX:      MARK: NEED TO DO THIS CASE
         case .LDWA:
             operand = readWordOprnd(addrMode: addrMode)
             accumulator = operand & 0xffff
@@ -591,8 +591,8 @@ class MachineModel {
             indexRegister |= cBit ? 0x8000 : 0
             cBit = bTemp
             return true
-//        case .STBA:       NEED TO DO THIS CASE
-//        case .STBX:       NEED TO DO THIS CASE
+//        case .STBA:     MARK: NEED TO DO THIS CASE
+//        case .STBX:     MARK: NEED TO DO THIS CASE
         case .STWA:
             writeWordOprnd(addrMode: addrMode, value: accumulator)
             operand = readWordOprnd(addrMode: addrMode)

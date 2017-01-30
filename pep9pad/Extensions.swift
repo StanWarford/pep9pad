@@ -38,6 +38,10 @@ extension Int {
     func toASCII() -> String {
         return String(UnicodeScalar(self)!)
     }
+    
+    func toBool() -> Bool {
+        return self == 1 ? true : false
+    }
 }
 
 
