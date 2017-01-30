@@ -130,6 +130,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
 
     // MARK: - IBOutlets and Actions 
     
+    
     @IBOutlet var table: UITableView! {
         didSet {
             self.table.dataSource = self
