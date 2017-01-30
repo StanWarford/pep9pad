@@ -51,8 +51,9 @@ Coding Challenges...
 * Make the Email UIAlertView (see Documentation/Email and search www.bing.com for "MFMailCompose")
 * Add persistence to the settings using NSUserDefaults
 * Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug. (RegExp is being weird, this might mean we're missing an escape character somewhere)
+
 * Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
-* Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
+
 
 Machine/Simulator...
 * Write vonNeumannStep(:), translate from the matching function in Sim.cpp
