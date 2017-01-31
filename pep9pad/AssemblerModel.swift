@@ -157,7 +157,7 @@ class AssemblerModel {
     // Post: The memAddress field of each code object is incremented by addressDelta.
     func adjustSourceCode(addressDelta: Int) {
         for i in 0...source.count {
-            source[i]->adjustMemAddress(addressDelta)
+            source[i].adjustMemAddress(addressDelta: addressDelta)
         }
     }
     
