@@ -297,7 +297,7 @@ class MachineModel {
     }
     
     func vonNeumannStep(errorString: String) -> Bool {
-        modifiedBytes.removeAll(); // Assuming this is the correct implementation could be wrong
+        modifiedBytes.removeAll() // Assuming this is the correct implementation could be wrong
         var mnemonic: EMnemonic
         var addrMode: EAddrMode
         var temp: Int
@@ -314,7 +314,12 @@ class MachineModel {
             programCounter = add(programCounter, 2) // might need to use other add function
         }
         // MARK: Execute TODO
-        if (!maps.isUnaryMap[mnemonic]! && !maps.isTrapMap[mnemonic]! && !(((maps.addrModesMap.values(mnemonic) & addrMode.rawValue) as? Int).toBool())) {
+        
+        let isUnary = maps.isUnaryMap[mnemonic]!
+        let isTrap = maps.isTrapMap[mnemonic]!
+        let hasCorrectAddrMode = (maps.addrModesMap[mnemonic]! & addrMode.rawValue).toBool()
+        
+        if (!isUnary && !isTrap && !hasCorrectAddrMode) {
             // errorString is immutable which is an easy fix but not sure how we want to structure this
             print (errorString) // MARK: Return Tuple
             return false
