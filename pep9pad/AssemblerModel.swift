@@ -156,7 +156,9 @@ class AssemblerModel {
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.
     func adjustSourceCode(addressDelta: Int) {
-        
+        for i in 0...source.count {
+            source[i]->adjustMemAddress(addressDelta)
+        }
     }
     
     // Pre: self.object is populated with code from a complete correct Pep/9 OS source program.
