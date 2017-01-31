@@ -162,7 +162,14 @@ class AssemblerModel {
     // Pre: self.object is populated with code from a complete correct Pep/9 OS source program.
     // Post: self.object is loaded into OS rom of pep.mem
     func installOS() {
-        
+        for i in 0...65536 {
+            machine.mem[i] = 0
+        }
+        let j: Int = maps.romStartAddress
+        let z: Int = j + 1
+        for i in 0...getObjectCode().count {        // MARK: might need to change this
+            machine.mem[z] = getObjectCode()[i]     // MARK: might need to change this
+        }
     }
     
     // Post: the pep/9 operating system is installed into memory, and true is returned
