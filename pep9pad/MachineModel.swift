@@ -25,7 +25,7 @@ class MachineModel {
     var operandSpecifier: Int
     var operand: Int
     
-    var inputBuffer: String
+    var inputBuffer: [String]     // Made this an array for testing
     var outputBuffer: String
     
     var modifiedBytes: Set<Int>
@@ -55,7 +55,7 @@ class MachineModel {
         operandSpecifier = 0
         operand = 0
         
-        inputBuffer = ""
+        inputBuffer = [""]
         outputBuffer = ""
         
         modifiedBytes = Set()
@@ -313,14 +313,12 @@ class MachineModel {
             operandSpecifier = readWord(programCounter)
             programCounter = add(programCounter, 2) // might need to use other add function
         }
-        // MARK: Execute TODO
         
         let isUnary = maps.isUnaryMap[mnemonic]!
         let isTrap = maps.isTrapMap[mnemonic]!
         let hasCorrectAddrMode = (maps.addrModesMap[mnemonic]! & addrMode.rawValue).toBool()
         
         if (!isUnary && !isTrap && !hasCorrectAddrMode) {
-            // errorString is immutable which is an easy fix but not sure how we want to structure this
             print (errorString) // MARK: Return Tuple
             return false
         }
@@ -493,8 +491,50 @@ class MachineModel {
             programCounter = readWord(maps.dotBurnArgument - 1)
             indexRegister = 0 // compensating for bug in PEP9 OS=
             return true
-//        case .LDBA:      MARK: NEED TO DO THIS CASE
-//        case .LDBX:      MARK: NEED TO DO THIS CASE
+        // MARK: CASE SUBJECT TO CHANGE
+        case .LDBA:
+            if (addrMode != EAddrMode.I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
+                // Memory-mapped input
+                if inputBuffer != [""] {
+                    var ch: [String] = [inputBuffer[0]]
+                    inputBuffer.remove(at: 1)
+                    operand = ch[0].hashValue
+                    operand += operand < 0 ? 256 : 0
+                } else {
+                    // Attempt to read past end of input
+                    // Only happens with batch input
+                    operand = 0
+                }
+            } else {
+                operand = readByteOprnd(addrMode: addrMode)
+            }
+            accumulator = accumulator & 0xff0
+            accumulator |= operand & 255
+            nBit = false
+            zBit = operand == 0
+            return true
+        // MARK: CASE SUBJECT TO CHANGE
+        case .LDBX:
+            if (addrMode != EAddrMode.I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
+                // Memory-mapped input
+                if (inputBuffer != [""]) {
+                    var ch: [String] = [inputBuffer[0]]
+                    inputBuffer.remove(at: 1)
+                    operand = ch[0].hashValue
+                    operand += operand < 0 ? 256 : 0
+                } else {
+                    // Attempt to read past end of input 
+                    // Only happens with batch input
+                    operand = 0
+                }
+            } else {
+                operand = readByteOprnd(addrMode: addrMode)
+            }
+            indexRegister = indexRegister & 0xff00
+            indexRegister |= operand & 255
+            nBit = false
+            zBit = operand == 0
+            return true
         case .LDWA:
             operand = readWordOprnd(addrMode: addrMode)
             accumulator = operand & 0xffff
@@ -596,8 +636,26 @@ class MachineModel {
             indexRegister |= cBit ? 0x8000 : 0
             cBit = bTemp
             return true
-//        case .STBA:     MARK: NEED TO DO THIS CASE
-//        case .STBX:     MARK: NEED TO DO THIS CASE
+        // MARK: CASE SUBJECT TO CHANGE
+        case .STBA:
+            operand = accumulator & 0x00ff
+            if (addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 5] + mem[maps.dotBurnArgument - 4]) {
+                // Memory-mapped output
+                outputBuffer = operand.toBin8()
+            } else {
+                writeByteOprnd(addrMode: addrMode, value: operand)
+            }
+            return true
+        // MARK: CASE SUBJECT TO CHANGE
+        case .STBX:
+            operand = indexRegister & 0x00ff
+            if (addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 5] + mem[maps.dotBurnArgument - 4]) {
+                // Memory-mapped output
+                outputBuffer = operand.toBin8()
+            } else {
+                writeByteOprnd(addrMode: addrMode, value: operand)
+            }
+            return true
         case .STWA:
             writeWordOprnd(addrMode: addrMode, value: accumulator)
             operand = readWordOprnd(addrMode: addrMode)
