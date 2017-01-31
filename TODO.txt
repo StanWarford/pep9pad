@@ -29,7 +29,6 @@ Storyboard Challenges...
 * Remove all autocomplete stuff in any textfield
 * Fix I/O font (refrence appSettings.font) and add separator, also fix placement
 * Capitalize the labels in ByteCalc.
-* Make UITextFields in Help system non-editable
 * Action preservation for ”are you sure you don’t want to save changes?" alert
 
 
