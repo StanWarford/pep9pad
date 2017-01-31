@@ -62,11 +62,11 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     }
     
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
-        sendMailErrorAlert.show()
+        let mailAlert = UIAlertController(title: "sendMailErrorAlert", message: "Could not send mail.", preferredStyle: .alert)
+        self.present(mailAlert, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: Error!) {
         controller.dismiss(animated: true, completion: nil)
     }
     
