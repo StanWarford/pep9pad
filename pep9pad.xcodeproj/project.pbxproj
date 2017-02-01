@@ -67,6 +67,9 @@
 		468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468FB3111E0CB50D001F154A /* TraceTableController.swift */; };
 		468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468FB3131E0CF0EB001F154A /* Trace.storyboard */; };
 		4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* IOMem.storyboard */; };
+		4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB291E417F74007E50BD /* CPUProjectModel.swift */; };
+		4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */; };
+		4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB2D1E428F85007E50BD /* CPUProject.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
 		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
@@ -154,8 +157,8 @@
 		46F46D371C8F70070092EF04 /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46F46D361C8F70070092EF04 /* Help.storyboard */; };
 		46F46D391C8F70520092EF04 /* HelpMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterController.swift */; };
 		46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D3A1C8F70650092EF04 /* HelpDetailController.swift */; };
-		46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2681DC7D6E9002880FE /* FSEntity.swift */; };
-		46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* FSGlobals.swift */; };
+		46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2681DC7D6E9002880FE /* P9Project.swift */; };
+		46F5F26B1DC7D90F002880FE /* P9FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* P9FSGlobals.swift */; };
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
@@ -257,6 +260,9 @@
 		468FB3111E0CB50D001F154A /* TraceTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceTableController.swift; sourceTree = "<group>"; };
 		468FB3131E0CF0EB001F154A /* Trace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trace.storyboard; sourceTree = "<group>"; };
 		4694F3D01DBABC0300F0E822 /* IOMem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOMem.storyboard; sourceTree = "<group>"; };
+		4695EB291E417F74007E50BD /* CPUProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProjectModel.swift; sourceTree = "<group>"; };
+		4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPUTabBar.storyboard; sourceTree = "<group>"; };
+		4695EB2D1E428F85007E50BD /* CPUProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProject.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
@@ -345,8 +351,8 @@
 		46F46D361C8F70070092EF04 /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		46F46D381C8F70520092EF04 /* HelpMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterController.swift; sourceTree = "<group>"; };
 		46F46D3A1C8F70650092EF04 /* HelpDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailController.swift; sourceTree = "<group>"; };
-		46F5F2681DC7D6E9002880FE /* FSEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSEntity.swift; sourceTree = "<group>"; };
-		46F5F26A1DC7D90F002880FE /* FSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSGlobals.swift; sourceTree = "<group>"; };
+		46F5F2681DC7D6E9002880FE /* P9Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P9Project.swift; sourceTree = "<group>"; };
+		46F5F26A1DC7D90F002880FE /* P9FSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P9FSGlobals.swift; sourceTree = "<group>"; };
 		46F5F26C1DCA528B002880FE /* GCDUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtilities.swift; sourceTree = "<group>"; };
 		46F5F26E1DCA626B002880FE /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
@@ -522,6 +528,28 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
+		4695EB2F1E4291F4007E50BD /* P9FileSystem */ = {
+			isa = PBXGroup;
+			children = (
+				4695EB301E429225007E50BD /* DefaultProject */,
+				46C76A5C1DA711690071C340 /* FileSystem.storyboard */,
+				46F5F26A1DC7D90F002880FE /* P9FSGlobals.swift */,
+				46C76A571DA70B930071C340 /* FSMasterController.swift */,
+				46C76A591DA70BE20071C340 /* FSDetailController.swift */,
+			);
+			name = P9FileSystem;
+			sourceTree = "<group>";
+		};
+		4695EB301E429225007E50BD /* DefaultProject */ = {
+			isa = PBXGroup;
+			children = (
+				D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */,
+				D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */,
+				D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */,
+			);
+			name = DefaultProject;
+			sourceTree = "<group>";
+		};
 		46A304DF1C992AAE00CDCD1A /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,7 +632,8 @@
 			isa = PBXGroup;
 			children = (
 				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
-				46F5F2681DC7D6E9002880FE /* FSEntity.swift */,
+				46F5F2681DC7D6E9002880FE /* P9Project.swift */,
+				4695EB2D1E428F85007E50BD /* CPUProject.swift */,
 			);
 			name = CoreData;
 			path = pep9pad;
@@ -625,14 +654,8 @@
 			isa = PBXGroup;
 			children = (
 				46EC8A611C9892F6001405CE /* PepFileType.swift */,
-				46C76A5C1DA711690071C340 /* FileSystem.storyboard */,
-				46F5F26A1DC7D90F002880FE /* FSGlobals.swift */,
-				46C76A571DA70B930071C340 /* FSMasterController.swift */,
-				46C76A591DA70BE20071C340 /* FSDetailController.swift */,
 				D2CC5E4B1DB800220033CFF4 /* FSState.swift */,
-				D2CC5E4D1DB807990033CFF4 /* myFirstProgram.pep */,
-				D26113A51DCA7B2F00DE8923 /* myFirstProgram.pepo */,
-				D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */,
+				4695EB2F1E4291F4007E50BD /* P9FileSystem */,
 			);
 			name = FileSystem;
 			path = pep9pad;
@@ -664,8 +687,10 @@
 			isa = PBXGroup;
 			children = (
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
+				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
 				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
 				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
+				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
 			);
 			name = Pep9CPU;
 			path = pep9pad;
@@ -1001,6 +1026,7 @@
 				462BA7671E2B2A3B00BBABCD /* fig0621.txt in Resources */,
 				462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
+				4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */,
 				46C76A5D1DA711690071C340 /* FileSystem.storyboard in Resources */,
 				462BA7681E2B2A3B00BBABCD /* fig0623.txt in Resources */,
 				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
@@ -1141,6 +1167,7 @@
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
+				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
@@ -1151,7 +1178,7 @@
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
-				46F5F26B1DC7D90F002880FE /* FSGlobals.swift in Sources */,
+				46F5F26B1DC7D90F002880FE /* P9FSGlobals.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
@@ -1161,12 +1188,13 @@
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
+				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
 				468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
-				46F5F2691DC7D6E9002880FE /* FSEntity.swift in Sources */,
+				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
 				460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */,

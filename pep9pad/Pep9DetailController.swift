@@ -365,7 +365,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 print("saving changes and creating a new project")
-                projectModel.saveProjectInFS()
+                projectModel.saveProject()
                 projectModel.newBlankProject()
                 self.updateEditorsFromProjectModel()
             }
@@ -401,8 +401,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 alertController.addAction(cancelAction)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveAsNewProjectInFS(withName: name)
+                    if validNameForP9Project(name: name) {
+                        projectModel.saveAsNewProject(withName: name)
                         projectModel.newBlankProject()
                         self.updateEditorsFromProjectModel()
                         print("saving current project with the given name and creating a new project")
@@ -456,8 +456,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 // save changes and present fs
                 print("saving changes and opening a preexisting project")
-                projectModel.saveProjectInFS()
+                projectModel.saveProject()
                 //self.updateEditorsFromProjectModel()
+                self.presentFileSystem()
             }
             alertController.addAction(yesAction)
             
@@ -465,6 +466,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 // discard changes and present fs
                 print("discarding changes and opening a preexisting project")
                 //self.updateEditorsFromProjectModel()
+                self.presentFileSystem()
             }
             alertController.addAction(noAction)
             
@@ -472,7 +474,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 // Don't do anything
             }
             alertController.addAction(cancelAction)
-            
             self.present(alertController, animated: true)
         case .UnsavedUnnamed:
             // project has never been saved
@@ -490,8 +491,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     print("saving current project with the given name and opening a preexisting project")
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveAsNewProjectInFS(withName: name)
+                    if validNameForP9Project(name: name) {
+                        projectModel.saveAsNewProject(withName: name)
                         self.updateEditorsFromProjectModel()
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
@@ -519,6 +520,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             break
         }
         
+    }
+    
+    
+    func presentFileSystem() {
         let vc = UIStoryboard(name: "FileSystem", bundle: Bundle.main).instantiateInitialViewController()
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {
@@ -535,7 +540,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             // project has not been saved recently
             // Rather than present an alertController here, I say we just update the fs.  
             // Having an "are you sure?" message seems redundant for something as innocuous as a save.
-            projectModel.saveProjectInFS()
+            projectModel.saveProject()
 
         case .UnsavedUnnamed:
             // project has never been saved
@@ -551,8 +556,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 print("saving current project with the given name and opening a preexisting project")
                 let name = (alertController.textFields?.first?.text)!
-                if validNameForFS(name: name) {
-                    projectModel.saveAsNewProjectInFS(withName: name)
+                if validNameForP9Project(name: name) {
+                    projectModel.saveAsNewProject(withName: name)
                     self.updateEditorsFromProjectModel()
                 } else {
                     print("invalid (non-unique or too short) name for project, giving up save")
@@ -579,7 +584,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .UnsavedNamed:
             // project has not been saved recently
             // rather than present an alertController here, I say we just update the fs automatically
-            projectModel.saveProjectInFS()
+            projectModel.saveProject()
         case .UnsavedUnnamed:
             // project has never been saved
             
@@ -600,8 +605,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     print("saving current project with the given name and loading the given example")
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveAsNewProjectInFS(withName: name)
+                    if validNameForP9Project(name: name) {
+                        projectModel.saveAsNewProject(withName: name)
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
                     }

@@ -1,5 +1,4 @@
 //
-//  FSGlobals.swift
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
@@ -10,8 +9,8 @@ import CoreData
 
 
 
-let FSEntityName = "FSEntity"
-typealias FSEntityType = (name:String, source:String, object:String, listing:String)
+let P9ProjectName = "P9Project"
+typealias P9ProjectType = (name:String, source:String, object:String, listing:String)
 
 
 
@@ -20,25 +19,25 @@ typealias FSEntityType = (name:String, source:String, object:String, listing:Str
 
 let NumDefaultProjects: Int = 1
 
-var DefaultProjects: Array<FSEntityType> = [
+var DefaultProjects: Array<P9ProjectType> = [
     (name:"My First Program",
-     source: getStringFromDefaultProject(fileName: "myFirstProgram", ofType: PepFileType.pep),
-     object: getStringFromDefaultProject(fileName: "myFirstProgram", ofType: PepFileType.pepo),
-     listing: getStringFromDefaultProject(fileName: "myFirstProgram", ofType: PepFileType.pepl))
+     source: getStringFromDefaultP9Project(fileName: "myFirstProgram", ofType: PepFileType.pep),
+     object: getStringFromDefaultP9Project(fileName: "myFirstProgram", ofType: PepFileType.pepo),
+     listing: getStringFromDefaultP9Project(fileName: "myFirstProgram", ofType: PepFileType.pepl))
 ]
 
 
 /// Only called from AppDelegate, and only called when `isFirstLaunch` is true.
 /// i.e. happens only once, on the first launch following an installation.
 /// Adds all elements of `DefaultFiles` to the CoreDatabase
-func setupFS() {
+func setupP9FS() {
     
     let appDel: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
     for proj in DefaultProjects {
-        let ent = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
-        let newFile = FSEntity(entity: ent!, insertInto: context)
+        let ent = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
+        let newFile = P9Project(entity: ent!, insertInto: context)
         newFile.name = proj.name
         newFile.source = proj.source
         newFile.object = proj.object
@@ -51,7 +50,7 @@ func setupFS() {
     }
 }
 
-func getStringFromDefaultProject(fileName: String, ofType: PepFileType) -> String {
+func getStringFromDefaultP9Project(fileName: String, ofType: PepFileType) -> String {
     guard let path = Bundle.main.path(forResource: fileName, ofType: ofType.rawValue) else {
         print("Path error: could not find file named \(fileName).\(ofType.rawValue)")
         return ""
@@ -79,7 +78,7 @@ func getStringFromDefaultProject(fileName: String, ofType: PepFileType) -> Strin
 //    let context: NSManagedObjectContext = appDel.managedObjectContext
 //    
 //    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-//    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+//    fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
 //    fetchRequest.includesPropertyValues = false
 //    
 //    do {
@@ -87,7 +86,7 @@ func getStringFromDefaultProject(fileName: String, ofType: PepFileType) -> Strin
 //        if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
 //            for result in results {
 //                // cast it first:
-//                let res = result as! FSEntity
+//                let res = result as! P9Project
 //                
 //                let tempName: String = res.name
 //                let tempType: String = res.type
@@ -110,7 +109,7 @@ func getStringFromDefaultProject(fileName: String, ofType: PepFileType) -> Strin
 //    let context: NSManagedObjectContext = appDel.managedObjectContext!
 //    
 //    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-//    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+//    fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
 //    fetchRequest.includesPropertyValues = false
 //    do {
 //        if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
@@ -129,14 +128,14 @@ func getStringFromDefaultProject(fileName: String, ofType: PepFileType) -> Strin
 
 
 
-func loadProjectNamesFromFS() -> [String] {
+func loadP9ProjectNamesFromFS() -> [String] {
     
     var names: [String] = []
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
 
     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
     fetchRequest.includesPropertyValues = false
 
     do {
@@ -144,7 +143,7 @@ func loadProjectNamesFromFS() -> [String] {
         if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
             for result in results {
                 // cast it first:
-                let res = result as! FSEntity
+                let res = result as! P9Project
                 names.append(res.name)
             }
         }
@@ -157,20 +156,20 @@ func loadProjectNamesFromFS() -> [String] {
 }
 
 
-func loadProjectFromFS(named n: String) -> FSEntity? {
+func loadP9ProjectFromFS(named n: String) -> P9Project? {
     
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
     fetchRequest.includesPropertyValues = false
     
     do {
         
         if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
             for result in results {
-                let res = result as! FSEntity
+                let res = result as! P9Project
                 if res.name == n {
                     return res
                 }
@@ -185,20 +184,20 @@ func loadProjectFromFS(named n: String) -> FSEntity? {
 }
 
 
-func removeProjectFromFS(named n: String) -> Bool {
+func removeP9ProjectFromFS(named n: String) -> Bool {
     
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
     fetchRequest.includesPropertyValues = false
     
     do {
         
         if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
             for result in results {
-                let res = result as! FSEntity
+                let res = result as! P9Project
                 if res.name == n {
                     context.delete(result)
                     try context.save()
@@ -215,19 +214,19 @@ func removeProjectFromFS(named n: String) -> Bool {
 }
 
 
-func updateProjectInFS(named n: String, source: String, object: String, listing: String) -> Bool {
+func updateP9ProjectInFS(named n: String, source: String, object: String, listing: String) -> Bool {
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
     let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-    fetchRequest.entity = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
+    fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
     fetchRequest.includesPropertyValues = false
     
     do {
         
         if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
             for result in results {
-                let res = result as! FSEntity
+                let res = result as! P9Project
                 if res.name == n {
                     res.source = source
                     res.object = object
@@ -246,12 +245,12 @@ func updateProjectInFS(named n: String, source: String, object: String, listing:
 }
 
 
-func saveNewProjectInFS(named n: String, source: String, object: String, listing: String) -> Bool {
+func saveNewP9ProjectInFS(named n: String, source: String, object: String, listing: String) -> Bool {
     let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context: NSManagedObjectContext = appDel.managedObjectContext
     
-    let ent = NSEntityDescription.entity(forEntityName: FSEntityName, in: context)
-    let newFile = FSEntity(entity: ent!, insertInto: context)
+    let ent = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
+    let newFile = P9Project(entity: ent!, insertInto: context)
     newFile.name = n
     newFile.source = source
     newFile.object = object
@@ -267,8 +266,8 @@ func saveNewProjectInFS(named n: String, source: String, object: String, listing
     return false
 }
 
-func validNameForFS(name: String) -> Bool {
-    if name.characters.count >= 3 && !loadProjectNamesFromFS().contains(name) {
+func validNameForP9Project(name: String) -> Bool {
+    if name.characters.count >= 3 && !loadP9ProjectNamesFromFS().contains(name) {
         return true
     }
     return false
