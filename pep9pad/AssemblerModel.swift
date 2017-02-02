@@ -122,6 +122,104 @@ class AssemblerModel {
 //
 //    }
     
+    func getToken(QString &sourceline, ELexicalToken &token, QString &tokenString) -> [Bool]
+    {
+        //TODO getToken
+//        sourceLine = sourceLine.trimmed()
+//        if (sourceLine.length() == 0) {
+//            token = LT_EMPTY
+//            tokenString = ""
+//            return true
+//        }
+//        QChar firstChar = sourceLine[0]
+//        rxAddrMode.setCaseSensitivity(CaseInsensitive)
+//        if (firstChar == ',') {
+//            if (rxAddrMode.indexIn(sourceLine) == -1) {
+//                tokenString = ";ERROR: Malformed addressing mode."
+//                return false
+//            }
+//            token = LT_ADDRESSING_MODE
+//            tokenString = rxAddrMode.capturedTexts()[0]
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        if (firstChar == '\'') {
+//            if (rxCharConst.indexIn(sourceLine) == -1) {
+//                tokenString = ";ERROR: Malformed character constant."
+//                return false
+//            }
+//            token = LT_CHAR_CONSTANT
+//            tokenString = rxCharConstant.capturedTexts()[0]
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        if (firstChar == ';') {
+//            if (rxComment.indexIn(sourceLine) == -1) {
+//                //This error should not occur, as any characters are allowed in a comment.
+//                tokenString = ";ERROR: Malformed comment"
+//                return false
+//            }
+//            token = LT_COMMENT
+//            tokenString = rxComment.capturedTexts()[0]
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        if (startsWithHexPrefix(sourceline)) {
+//            if (rxHexConst.indexIn(sourceLine) == -1) {
+//                tokenString = ";ERROR: Malformed hex constant."
+//                return false
+//            }
+//            token = LT_HEX_CONSTANT
+//            tokenString = rxHexConst.capturedTexts()[0]
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        if ((firstChar.isDigit() || firstChar == '+' || firstChar == '-')) {
+//            if (rxDecConst.indexIn(sourceLine) == -1) {
+//                tokenString = ";ERROR: Malformed decimal constant."
+//                return false
+//            }
+//            token = LT_DEC_CONSTANT
+//            tokenString = rxDecConst.capturedTexts()[0]
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        if (firstChar == '.') {
+//            if (rxDotCommand.indexIn(sourceLine) == -1) {
+//                tokenString = ";ERROR: Malformed dot command."
+//                return false
+//            }
+//            token = LT_DOT_COMMAND
+//            tokenString = rxDotCommand.capturedTexts()[0]
+//            sourceLine.remove+(0, tokenString.length())
+//            return true
+//        }
+//        if (firstChar.isLetter() || firstChar == '_') {
+//            if (rxIdentifier.indexIn(sourceLine) == -1) {
+//                // this should not occur, as one-character identifiers are valid
+//                tokenString = ";ERROR: Malformed identifier."
+//                return false
+//            }
+//            tokenString = rxIdentifier.capturedTexts()[0]
+//            token = tokenString.endswith(':') ? LT_SYMBOL_DEF : LT_IDENTIFIER
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        if (firstChar == '\"') {
+//            if (rxStringConst.indexIn(sourceLine) == -1) {
+//                tokenString = ";ERROR: Malformed string constant."
+//                return false
+//            }
+//            token = LT_STRING_CONSTANT
+//            tokenString = rxStringConst.capturedTexts()[0]
+//            sourceLine.remove(0, tokenString.length())
+//            return true
+//        }
+//        tokenString = ";ERROR: Syntax error."
+//        return false
+        ///ENDTODO getToken
+    }
+    
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
     func getObjectCode() -> [Int] {
