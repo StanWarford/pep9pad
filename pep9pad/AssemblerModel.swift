@@ -20,6 +20,14 @@ class AssemblerModel {
     var object: [Int] = []
     /// The listing generated from the most recent assembler call.
     var listing: [String] = []
+    ///
+    var referencedSymbols: [String] = []
+    ///
+    var referencedSymbolsLineNums: [Int] = []
+    
+    func processSourceLine(_ sourceLine: String, _ code: Code, _ errorString: String) -> Bool {
+        //PLACEHOLDER
+    }
     
     
     
@@ -30,98 +38,98 @@ class AssemblerModel {
     // Post: pep.symbolTable is populated with values not adjusted for .BURN.
     // Post: pep.byteCount is the byte count for the object code not adjusted for .BURN.
     // Post: pep.burnCount is the number of .BURN instructions encountered in the source program.
-//    func assemble() -> Bool {
-//        pep.burnCount = 0
-//        
-//        var sourceLine: String
-//        var errorString: String
-//        var sourceCodeList: [String]
-//        var code: Code
-//        var lineNum: Int = 0
-//        var dotEndDetected: Bool = false
-//        
-//        //removeErrorMessages();
-//        //Asm.listOfReferencedSymbols.removeAll()
-//        //Asm::listOfReferencedSymbolLineNums.removeAll()
-//        pep.memAddrssToAssemblerListing.removeAll()
-//        pep.symbolTable.removeAll()
-//        pep.adjustSymbolValueForBurn.removeAll()
-//        pep.symbolFormat.removeAll()
-//        pep.symbolFormatMultiplier.removeAll();
-//        pep.symbolTraceList.removeAll() // Does this clear the lists within the map?
-//        pep.globalStructSymbols.removeAll()
-//        pep.blockSymbols.removeAll()
-//        pep.equateSymbols.removeAll()
-//        source.removeAll()
-//        
-//        sourceCodeList = projectModel.sourceStr.components(separatedBy: "\n")
-//        pep.byteCount = 0
-//        pep.burnCount = 0
-//        
-//        while (lineNum < sourceCodeList.count && !dotEndDetected) {
-//            sourceLine = sourceCodeList[lineNum]
-//            if (!Asm::processSourceLine(sourceLine, lineNum, code, errorString, dotEndDetected)) {
-//                source[lineNum].comment.append(errorString)
-//                return false
-//            }
-//            source.append(code)
-//            lineNum += 1
-//        }
-//        
-//        // check for existence of .END
-//        if (!dotEndDetected) {
-//            errorString = ";ERROR: Missing .END sentinel."
-//            source[0].comment.append(errorString)
-//            return false
-//        }
-//        
-//        // check size of program
-//        if (pep.byteCount > 65535) {
-//            errorString = ";ERROR: Object code size too large to fit into memory."
-//            source[0].comment.append(errorString)
-//            return false
-//        }
-//        
-//        // check for unused symbols
-//        for (int i = 0; i < Asm::listOfReferencedSymbols.length(); i++) {
-//            if (!pep.symbolTable.contains(Asm::listOfReferencedSymbols[i])
-//                && !(Asm::listOfReferencedSymbols[i] == "charIn")
-//                && !(Asm::listOfReferencedSymbols[i] == "charOut")) {
-//                errorString = ";ERROR: Symbol " + Asm::listOfReferencedSymbols[i] + " is used but not defined.";
-//                appendMessageInSourceCodePaneAt(Asm::listOfReferencedSymbolLineNums[i], errorString);
-//                return false;
-//            }
-//        }
-//        
-//        
-//        pep.traceTagWarning = false
-//        for (int i = 0; i < codeList.size(); i++) {
-//            if (!codeList[i]->processFormatTraceTags(lineNum, errorString)) {
-//                appendMessageInSourceCodePaneAt(lineNum, errorString);
-//                pep.traceTagWarning = true;
-//            }
-//        }
-//        
-//        
-//        if (!pep.traceTagWarning && !(pep.blockSymbols.isEmpty() && pep.equateSymbols.isEmpty())) {
-//            for (int i = 0; i < codeList.size(); i++) {
-//                if (!codeList[i]->processSymbolTraceTags(lineNum, errorString)) {
-//                    appendMessageInSourceCodePaneAt(lineNum, errorString);
-//                    pep.traceTagWarning = true;
-//                }
-//            }
-//        }
-//        
-//        
-////            traceVC.setMemoryTrace()
-////            listingVC.showListing()
-//
-//        return true
-//
-//        }
-//
-//    }
-    
+    func assemble() -> Bool {
+        pep.burnCount = 0
+        
+        var sourceLine: String
+        var errorString: String
+        var sourceCodeList: [String]
+        var code: Code
+        var lineNum: Int = 0
+        var dotEndDetected: Bool = false
+        
+        //removeErrorMessages();
+        //Asm.listOfReferencedSymbols.removeAll()
+        //Asm::listOfReferencedSymbolLineNums.removeAll()
+        pep.memAddrssToAssemblerListing.removeAll()
+        pep.symbolTable.removeAll()
+        pep.adjustSymbolValueForBurn.removeAll()
+        pep.symbolFormat.removeAll()
+        pep.symbolFormatMultiplier.removeAll();
+        pep.symbolTraceList.removeAll() // Does this clear the lists within the map?
+        pep.globalStructSymbols.removeAll()
+        pep.blockSymbols.removeAll()
+        pep.equateSymbols.removeAll()
+        source.removeAll()
+        
+        sourceCodeList = projectModel.sourceStr.components(separatedBy: "\n")
+        pep.byteCount = 0
+        pep.burnCount = 0
+        
+        while (lineNum < sourceCodeList.count && !dotEndDetected) {
+            sourceLine = sourceCodeList[lineNum]
+            if (!Asm::processSourceLine(sourceLine, lineNum, code, errorString, dotEndDetected)) {
+                source[lineNum].comment.append(errorString)
+                return false
+            }
+            source.append(code)
+            lineNum += 1
+        }
+        
+        // check for existence of .END
+        if (!dotEndDetected) {
+            errorString = ";ERROR: Missing .END sentinel."
+            source[0].comment.append(errorString)
+            return false
+        }
+        
+        // check size of program
+        if (pep.byteCount > 65535) {
+            errorString = ";ERROR: Object code size too large to fit into memory."
+            source[0].comment.append(errorString)
+            return false
+        }
+        
+        // check for unused symbols
+        for (int i = 0; i < Asm::listOfReferencedSymbols.length(); i++) {
+            if (!pep.symbolTable.contains(Asm::listOfReferencedSymbols[i])
+                && !(Asm::listOfReferencedSymbols[i] == "charIn")
+                && !(Asm::listOfReferencedSymbols[i] == "charOut")) {
+                errorString = ";ERROR: Symbol " + Asm::listOfReferencedSymbols[i] + " is used but not defined.";
+                appendMessageInSourceCodePaneAt(Asm::listOfReferencedSymbolLineNums[i], errorString);
+                return false;
+            }
+        }
+        
+        
+        pep.traceTagWarning = false
+        for (int i = 0; i < codeList.size(); i++) {
+            if (!codeList[i]->processFormatTraceTags(lineNum, errorString)) {
+                appendMessageInSourceCodePaneAt(lineNum, errorString);
+                pep.traceTagWarning = true;
+            }
+        }
+        
+        
+        if (!pep.traceTagWarning && !(pep.blockSymbols.isEmpty() && pep.equateSymbols.isEmpty())) {
+            for (int i = 0; i < codeList.size(); i++) {
+                if (!codeList[i]->processSymbolTraceTags(lineNum, errorString)) {
+                    appendMessageInSourceCodePaneAt(lineNum, errorString);
+                    pep.traceTagWarning = true;
+                }
+            }
+        }
+        
+        
+//            traceVC.setMemoryTrace()
+//            listingVC.showListing()
+
+        return true
+
+        }
+
+    }
+
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
     func getObjectCode() -> [Int] {
@@ -155,7 +163,7 @@ class AssemblerModel {
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.
-    func adjustSourceCode(addressDelta: Int) {
+    func adjustSourceCode(_ addressDelta: Int) {
         
     }
     
@@ -169,7 +177,70 @@ class AssemblerModel {
     // If assembly fails, false is returned
     // This function should only be called on program startup once
     func installDefaultOS() -> Bool {
-        // PLACEHOLDER
+        var sourceLine: String
+        var errorString: String
+        var sourceCodeList: [String]
+        var code: Code
+        var lineNum = 0
+        var dotEndDetected = false
+        
+        assembler.referencedSymbols = []
+        maps.memAddrssToAssemblerListing = [:]
+        maps.symbolTable = [:]
+        maps.adjustSymbolValueForBurn = [:]
+        while (assembler.source.count != 0) {
+            assembler.source.remove(at: 0)
+        }
+        var sourceCode: String = ""
+        let pathToSource = Bundle.main.path(forResource: "pep9os", ofType: "pep")
+        do {
+            print("Loaded file named pep9os.pep")
+            sourceCode = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
+        } catch _ as NSError {
+            print("Could not load file named pep9os.pep")
+            return false
+        }
+        sourceCodeList = sourceCode.components(separatedBy: "\n")
+        maps.byteCount = 0
+        maps.burnCount = 0
+        while (lineNum < sourceCodeList.count && !dotEndDetected) {
+            sourceLine = sourceCodeList[lineNum]
+            if !assembler.processSourceLine(sourceLine, code, errorString) {
+                return false
+            }
+            assembler.source.append(code)
+            lineNum = lineNum + 1
+        }
+        if !dotEndDetected {
+            return false
+        }
+        if maps.byteCount > 65535 {
+            return false
+        }
+        for i in 0..<assembler.referencedSymbols.count {
+            if !Array(maps.symbolTable.keys).contains(assembler.referencedSymbols[i]) {
+                return false
+            }
+        }
+        if maps.burnCount != 1 {
+            return false
+        }
+        
+        //Adjust for .BURN
+        
+        var addressDelta: Int = maps.dotBurnArgument - maps.burnCount + 1
+        var symbolTableSize: Int = maps.symbolTable.count
+        for (kind, numbers) in maps.symbolTable {
+            var valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
+            if valueAtCurrentKey {
+                maps.symbolTable[kind] = maps.symbolTable[kind]! + addressDelta
+            }
+        }
+        adjustSourceCode(addressDelta)
+        maps.romStartAddress = maps.romStartAddress + addressDelta
+        getObjectCode()
+        installOS()
+        
         return true
     }
     
