@@ -97,7 +97,24 @@ extension String {
     var asciiArray: [UInt32] {
         return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
+    
+    func toInt() -> Int? {
+        return Int(self)
+    }
 }
+
+
+
+extension Dictionary where Key:Any {
+    func arrayOfKeys() -> [Any] {
+        return Array(self.keys)
+    }
+    func arrayOfValues() -> [Any] {
+        return Array(self.values)
+    }
+}
+
+
 extension Character {
     var asciiValue: UInt32? {
         return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
