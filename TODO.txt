@@ -28,7 +28,6 @@ Storyboard Challenges...
 * General issue with sizing in IOMem (extending underneath P9Processor?)
 * Remove all autocomplete stuff in any textfield
 * Fix I/O font (refrence appSettings.font) and add separator, also fix placement
-* Capitalize the labels in ByteCalc.
 * Action preservation for ”are you sure you don’t want to save changes?" alert
 
 
