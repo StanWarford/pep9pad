@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if isFirstLaunch {
             GlobalUserInitiatedQueue.async {
-                setupP9FS()
+                p9FileSystem.setup()
             }
         }
         

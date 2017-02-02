@@ -401,7 +401,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 alertController.addAction(cancelAction)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForP9Project(name: name) {
+                    if p9FileSystem.validNameForProject(name: name) {
                         projectModel.saveAsNewProject(withName: name)
                         projectModel.newBlankProject()
                         self.updateEditorsFromProjectModel()
@@ -491,11 +491,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     print("saving current project with the given name and opening a preexisting project")
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForP9Project(name: name) {
+                    if p9FileSystem.validNameForProject(name: name) {
                         projectModel.saveAsNewProject(withName: name)
                         self.updateEditorsFromProjectModel()
+                        self.presentFileSystem()
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
+                        self.presentFileSystem()
                     }
                 }
                 alertController.addAction(okAction)
@@ -506,6 +508,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 print("destroying this project and opening a preexisting project")
+                self.presentFileSystem()
+
             }
             alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -517,7 +521,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .SavedNamed, .Blank:
             // these go together, as in both instances there is nothing (more) to save
             print("opening a preexisting project")
-            break
+            self.presentFileSystem()
         }
         
     }
@@ -556,7 +560,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 print("saving current project with the given name and opening a preexisting project")
                 let name = (alertController.textFields?.first?.text)!
-                if validNameForP9Project(name: name) {
+                if p9FileSystem.validNameForProject(name: name) {
                     projectModel.saveAsNewProject(withName: name)
                     self.updateEditorsFromProjectModel()
                 } else {
@@ -605,7 +609,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     print("saving current project with the given name and loading the given example")
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForP9Project(name: name) {
+                    if p9FileSystem.validNameForProject(name: name) {
                         projectModel.saveAsNewProject(withName: name)
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")

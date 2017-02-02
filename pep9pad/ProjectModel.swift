@@ -53,7 +53,7 @@ class ProjectModel {
     /// from the filesystem (coredata database).
     /// Returns `false` if no project is found with the given name.
     func loadExistingProject(named n: String) -> Bool {
-        if let file: P9Project = loadP9ProjectFromFS(named: n) {
+        if let file: P9Project = p9FileSystem.loadProject(named: n) {
             fsState = .SavedNamed
             name = file.name
             sourceStr = file.source
@@ -109,14 +109,14 @@ class ProjectModel {
     
     
     func saveProject() {
-        if updateP9ProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
+        if p9FileSystem.updateProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
         }
     }
     
     func saveAsNewProject(withName: String) {
         name = withName
-        if saveNewP9ProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
+        if p9FileSystem.saveNewProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
         }
     }

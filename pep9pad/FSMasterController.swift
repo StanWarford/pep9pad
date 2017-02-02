@@ -18,7 +18,7 @@ class FSMasterController: UITableViewController {
         super.viewDidLoad()
         let navController: UINavigationController = self.splitViewController?.viewControllers[1] as! UINavigationController
         detail = navController.viewControllers[0] as! FSDetailController
-        names = loadP9ProjectNamesFromFS()
+        names = p9FileSystem.loadProjectNames()
     }
     
     func setup(asmDetailVC: Pep9DetailController) {
@@ -96,10 +96,10 @@ class FSMasterController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if removeP9ProjectFromFS(named: names[indexPath.row]) {
+            if p9FileSystem.removeProject(named: names[indexPath.row]) {
                 // deletion was successful
                 // now we must reload `names` array
-                names = loadP9ProjectNamesFromFS()
+                names = p9FileSystem.loadProjectNames()
                 // after reloading the array, we update the table
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()

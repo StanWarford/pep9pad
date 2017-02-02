@@ -158,7 +158,7 @@
 		46F46D391C8F70520092EF04 /* HelpMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D381C8F70520092EF04 /* HelpMasterController.swift */; };
 		46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F46D3A1C8F70650092EF04 /* HelpDetailController.swift */; };
 		46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2681DC7D6E9002880FE /* P9Project.swift */; };
-		46F5F26B1DC7D90F002880FE /* P9FSGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* P9FSGlobals.swift */; };
+		46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26A1DC7D90F002880FE /* P9FileSystem.swift */; };
 		46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26C1DCA528B002880FE /* GCDUtilities.swift */; };
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
@@ -352,7 +352,7 @@
 		46F46D381C8F70520092EF04 /* HelpMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpMasterController.swift; sourceTree = "<group>"; };
 		46F46D3A1C8F70650092EF04 /* HelpDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDetailController.swift; sourceTree = "<group>"; };
 		46F5F2681DC7D6E9002880FE /* P9Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P9Project.swift; sourceTree = "<group>"; };
-		46F5F26A1DC7D90F002880FE /* P9FSGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P9FSGlobals.swift; sourceTree = "<group>"; };
+		46F5F26A1DC7D90F002880FE /* P9FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P9FileSystem.swift; sourceTree = "<group>"; };
 		46F5F26C1DCA528B002880FE /* GCDUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDUtilities.swift; sourceTree = "<group>"; };
 		46F5F26E1DCA626B002880FE /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
@@ -533,7 +533,7 @@
 			children = (
 				4695EB301E429225007E50BD /* DefaultProject */,
 				46C76A5C1DA711690071C340 /* FileSystem.storyboard */,
-				46F5F26A1DC7D90F002880FE /* P9FSGlobals.swift */,
+				46F5F26A1DC7D90F002880FE /* P9FileSystem.swift */,
 				46C76A571DA70B930071C340 /* FSMasterController.swift */,
 				46C76A591DA70BE20071C340 /* FSDetailController.swift */,
 			);
@@ -548,6 +548,16 @@
 				D26113A71DCA7B5400DE8923 /* myFirstProgram.pepl */,
 			);
 			name = DefaultProject;
+			sourceTree = "<group>";
+		};
+		4695EB311E42A763007E50BD /* CoreData Entities */ = {
+			isa = PBXGroup;
+			children = (
+				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
+				46F5F2681DC7D6E9002880FE /* P9Project.swift */,
+				4695EB2D1E428F85007E50BD /* CPUProject.swift */,
+			);
+			name = "CoreData Entities";
 			sourceTree = "<group>";
 		};
 		46A304DF1C992AAE00CDCD1A /* Documentation */ = {
@@ -628,17 +638,6 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
-		46C608D31C8EADC500CC161A /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				D2B061601C7E62040088CEBE /* pep9pad.xcdatamodeld */,
-				46F5F2681DC7D6E9002880FE /* P9Project.swift */,
-				4695EB2D1E428F85007E50BD /* CPUProject.swift */,
-			);
-			name = CoreData;
-			path = pep9pad;
-			sourceTree = "<group>";
-		};
 		46C608D41C8EADD700CC161A /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -653,6 +652,7 @@
 		46C76A5B1DA70BEA0071C340 /* FileSystem */ = {
 			isa = PBXGroup;
 			children = (
+				4695EB311E42A763007E50BD /* CoreData Entities */,
 				46EC8A611C9892F6001405CE /* PepFileType.swift */,
 				D2CC5E4B1DB800220033CFF4 /* FSState.swift */,
 				4695EB2F1E4291F4007E50BD /* P9FileSystem */,
@@ -820,7 +820,6 @@
 				461279441E260EAA00212829 /* FontMenu */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46BC04341E18A2ED006ED01F /* Settings */,
-				46C608D31C8EADC500CC161A /* CoreData */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
 				468BC12C1DC271EA000AE01A /* Utilities */,
 				46C608D21C8EADBB00CC161A /* Supporting Files */,
@@ -1178,7 +1177,7 @@
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
-				46F5F26B1DC7D90F002880FE /* P9FSGlobals.swift in Sources */,
+				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
