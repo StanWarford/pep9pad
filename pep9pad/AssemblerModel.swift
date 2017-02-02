@@ -20,7 +20,7 @@ class AssemblerModel {
     var object: [Int] = []
     /// The listing generated from the most recent assembler call.
     var listing: [String] = []
-    ///
+    /// Note that this corresponds to `listOfReferencedSymbols` in the .cpp file.
     var referencedSymbols: [String] = []
     ///
     var referencedSymbolsLineNums: [Int] = []
@@ -39,7 +39,7 @@ class AssemblerModel {
     // Post: pep.byteCount is the byte count for the object code not adjusted for .BURN.
     // Post: pep.burnCount is the number of .BURN instructions encountered in the source program.
     func assemble() -> Bool {
-        pep.burnCount = 0
+        maps.burnCount = 0
         
         var sourceLine: String
         var errorString: String
@@ -49,26 +49,26 @@ class AssemblerModel {
         var dotEndDetected: Bool = false
         
         //removeErrorMessages();
-        //Asm.listOfReferencedSymbols.removeAll()
-        //Asm::listOfReferencedSymbolLineNums.removeAll()
-        pep.memAddrssToAssemblerListing.removeAll()
-        pep.symbolTable.removeAll()
-        pep.adjustSymbolValueForBurn.removeAll()
-        pep.symbolFormat.removeAll()
-        pep.symbolFormatMultiplier.removeAll();
-        pep.symbolTraceList.removeAll() // Does this clear the lists within the map?
-        pep.globalStructSymbols.removeAll()
-        pep.blockSymbols.removeAll()
-        pep.equateSymbols.removeAll()
+        referencedSymbols.removeAll()
+        referencedSymbolsLineNums.removeAll()
+        maps.memAddrssToAssemblerListing.removeAll()
+        maps.symbolTable.removeAll()
+        maps.adjustSymbolValueForBurn.removeAll()
+        maps.symbolFormat.removeAll()
+        maps.symbolFormatMultiplier.removeAll()
+        maps.symbolTraceList.removeAll() // Does this clear the lists within the map?
+        maps.globalStructSymbols.removeAll()
+        maps.blockSymbols.removeAll()
+        maps.equateSymbols.removeAll()
         source.removeAll()
         
         sourceCodeList = projectModel.sourceStr.components(separatedBy: "\n")
-        pep.byteCount = 0
-        pep.burnCount = 0
+        maps.byteCount = 0
+        maps.burnCount = 0
         
         while (lineNum < sourceCodeList.count && !dotEndDetected) {
             sourceLine = sourceCodeList[lineNum]
-            if (!Asm::processSourceLine(sourceLine, lineNum, code, errorString, dotEndDetected)) {
+            if (!processSourceLine(sourceLine, lineNum, code, errorString, dotEndDetected)) {
                 source[lineNum].comment.append(errorString)
                 return false
             }
@@ -84,27 +84,28 @@ class AssemblerModel {
         }
         
         // check size of program
-        if (pep.byteCount > 65535) {
+        if (maps.byteCount > 65535) {
             errorString = ";ERROR: Object code size too large to fit into memory."
             source[0].comment.append(errorString)
             return false
         }
         
         // check for unused symbols
-        for (int i = 0; i < Asm::listOfReferencedSymbols.length(); i++) {
-            if (!pep.symbolTable.contains(Asm::listOfReferencedSymbols[i])
-                && !(Asm::listOfReferencedSymbols[i] == "charIn")
-                && !(Asm::listOfReferencedSymbols[i] == "charOut")) {
-                errorString = ";ERROR: Symbol " + Asm::listOfReferencedSymbols[i] + " is used but not defined.";
-                appendMessageInSourceCodePaneAt(Asm::listOfReferencedSymbolLineNums[i], errorString);
+        for i in 0..<referencedSymbols.count {
+            if (!maps.symbolTable.contains(where: referencedSymbols[i])
+                && !(referencedSymbols[i] == "charIn")
+                && !(referencedSymbols[i] == "charOut")) {
+                errorString = ";ERROR: Symbol " + referencedSymbols[i] + " is used but not defined.";
+                //appendMessageInSourceCodePaneAt(referencedSymbolsLineNums[i], errorString);
                 return false;
             }
         }
         
         
-        pep.traceTagWarning = false
+        maps.traceTagWarning = false
+        // TODO: difference between size() and length()?
         for (int i = 0; i < codeList.size(); i++) {
-            if (!codeList[i]->processFormatTraceTags(lineNum, errorString)) {
+            if (!codeList[i].processFormatTraceTags(lineNum, errorString)) {
                 appendMessageInSourceCodePaneAt(lineNum, errorString);
                 pep.traceTagWarning = true;
             }

@@ -71,13 +71,13 @@ class PepMaps {
         if (addressMode == .SX) { return 6 }
         if (addressMode == .SFX) { return 7 }
         assert(false)
-        return -1; // Should not occur
+        return -1 // Should not occur
     }
     func aAddressField(addressMode: EAddrMode) -> Int {
         if (addressMode == .I) { return 0 }
         if (addressMode == .X) { return 1 }
         assert(false)
-        return -1; // Should not occur
+        return -1 // Should not occur
     }
     
     
@@ -92,7 +92,7 @@ class PepMaps {
         if (addressMode == .SX) { return "sx" }
         if (addressMode == .SFX) { return "sfx" }
         assert(false)
-        return ""; // Should not occur
+        return "" // Should not occur
     }
     
     
@@ -107,7 +107,7 @@ class PepMaps {
         if (addressMode == .SX) { return ", sx" }
         if (addressMode == .SFX) { return ", sfx" }
         assert(false)
-        return ""; // Should not occur
+        return "" // Should not occur
     }
 
     // Maps between mnemonic enums and strings.
@@ -122,16 +122,29 @@ class PepMaps {
     var addrModeRequiredMap: [EMnemonic:Bool] = [:]
     var isTrapMap: [EMnemonic:Bool] = [:]
     
-    
-    // Map to specify legal addressing modes for each instruction.
-    // Initialized with initAddrModesMap().
+    /// Specifies legal addressing modes for each instruction.
+    /// Initialized with initAddrModesMap().
     var addrModesMap: [EMnemonic:Int] = [:]
+    
+    // Decoder tables, initialized with `initDecoderTables()`.
+    // Both have 255 values.
+    var decodeMnemonic: [EMnemonic] = []
+    var decodeAddrMode: [EAddrMode] = []
 
     // The symbol table
     var symbolTable: [String:Int] = [:]
     var adjustSymbolValueForBurn: [String:Bool] = [:]
     
-    // The trace tag tables
+    var blockSymbols: [String] = []
+    var equateSymbols: [String] = []
+    
+    
+    
+    
+    
+    // MARK: - Tags and Tracing
+    
+    /// TODO -- work on these
     var symbolFormat: [String:ESymbolFormat] = [:]
     var symbolFormatMultiplier: [String:Int] = [:]
     
@@ -144,25 +157,20 @@ class PepMaps {
     // The [String] would contain next and data
     var symbolTraceList: [Int:[String]] = [:]
     
-    var blockSymbols: [String] = []
-    var equateSymbols: [String] = []
     
-    // Map from instruction memory address to assembler listing line
-    // These pointers are set to the addresses of the program or OS maps
-    // depending on whether the program or OS is being assembled
+    /// Map from instruction memory address to assembler listing line.
+    /// These pointers are set to the addresses of the program or OS maps
+    /// depending on whether the program or OS is being assembled.
     var memAddrssToAssemblerListing: [Int:Int] = [:]
-    var listingRowChecked: [Int:Bool] = [:]
+    
+    // TODO: I don't think this belongs here.  In our implementation lines can be enabled or disabled with trace tags.  Actually, now that I'm thinking about it, why even bother with trace tags to disable lines?  If the user already has to modify the source to disable a line, why wouldn't they just comment it out?
+    // var listingRowChecked: [Int:Bool] = [:]
     
     var memAddrssToAssemblerListingProg: [Int:Int] = [:]
-    var listingRowCheckedProg: [Int:Bool] = [:]
+    //var listingRowCheckedProg: [Int:Bool] = [:]
     
     var memAddrssToAssemblerListingOS: [Int:Int] = [:]
-    var listingRowCheckedOS: [Int:Bool] = [:]
-    
-    // Decoder tables, initialized with `initDecoderTables()`.
-    // Both have 255 values.
-    var decodeMnemonic: [EMnemonic] = []
-    var decodeAddrMode: [EAddrMode] = []
+    //var listingRowCheckedOS: [Int:Bool] = [:]
 
     
     // .BURN and the ROM state
