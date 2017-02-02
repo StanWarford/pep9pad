@@ -62,7 +62,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     }
     
     func showSendMailErrorAlert() {
-        let mailAlert = UIAlertController(title: "sendMailErrorAlert", message: "Could not send mail.", preferredStyle: .alert)
+        let mailAlert = UIAlertController(title: "Error", message: "Could not send mail.", preferredStyle: .alert)
+        mailAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(mailAlert, animated: true, completion: nil)
     }
     
