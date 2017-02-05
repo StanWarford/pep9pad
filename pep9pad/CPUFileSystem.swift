@@ -1,7 +1,9 @@
 //
+//  CPUFileSystem.swift
 //  pep9pad
 //
-//  Copyright © 2016 Pepperdine University. All rights reserved.
+//  Created by Josh Haug on 2/2/17.
+//  Copyright © 2017 Pepperdine University. All rights reserved.
 //
 
 import UIKit
@@ -9,17 +11,17 @@ import CoreData
 
 
 
-let P9ProjectName = "P9Project"
-typealias P9ProjectType = (name:String, source:String, object:String, listing:String)
+let CPUProjectName = "CPUProject"
+typealias CPUProjectType = (name:String, source:String)
 
 
 
-let p9FileSystem = P9FileSystem()
+let cpuFileSystem = CPUFileSystem()
 
-class P9FileSystem {
+class CPUFileSystem {
     // MARK: - Defaults
     let numDefaultProjects: Int = 1
-    var defaultProjects: Array<P9ProjectType>!
+    var defaultProjects: Array<CPUProjectType>!
     
     /// Only called from AppDelegate, and only called when `isFirstLaunch` is true.
     /// i.e. happens only once, on the first launch following an installation.
@@ -27,22 +29,18 @@ class P9FileSystem {
     func setup() {
         
         defaultProjects = [
-            (name:"My First Project",
-             source: getStringFromDefaultProject(fileName: "myFirstProject", ofType: PepFileType.pep),
-             object: getStringFromDefaultProject(fileName: "myFirstProject", ofType: PepFileType.pepo),
-             listing: getStringFromDefaultProject(fileName: "myFirstProject", ofType: PepFileType.pepl))
+            (name:"My First CPU Project",
+             source: getStringFromDefaultProject(fileName: "myFirstCPUProject", ofType: PepFileType.pepcpu))
         ]
-
+        
         let appDel: AppDelegate =  UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.managedObjectContext
         
         for proj in defaultProjects {
-            let ent = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
-            let newFile = P9Project(entity: ent!, insertInto: context)
+            let ent = NSEntityDescription.entity(forEntityName: CPUProjectName, in: context)
+            let newFile = CPUProject(entity: ent!, insertInto: context)
             newFile.name = proj.name
             newFile.source = proj.source
-            newFile.object = proj.object
-            newFile.listing = proj.listing
             do {
                 try context.save()
             } catch {
@@ -136,7 +134,7 @@ class P9FileSystem {
         let context: NSManagedObjectContext = appDel.managedObjectContext
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-        fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: CPUProjectName, in: context)
         fetchRequest.includesPropertyValues = false
         
         do {
@@ -144,7 +142,7 @@ class P9FileSystem {
             if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
                 for result in results {
                     // cast it first:
-                    let res = result as! P9Project
+                    let res = result as! CPUProject
                     names.append(res.name)
                 }
             }
@@ -157,20 +155,20 @@ class P9FileSystem {
     }
     
     
-    func loadProject(named n: String) -> P9Project? {
+    func loadProject(named n: String) -> CPUProject? {
         
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.managedObjectContext
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-        fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: CPUProjectName, in: context)
         fetchRequest.includesPropertyValues = false
         
         do {
             
             if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
                 for result in results {
-                    let res = result as! P9Project
+                    let res = result as! CPUProject
                     if res.name == n {
                         return res
                     }
@@ -191,14 +189,14 @@ class P9FileSystem {
         let context: NSManagedObjectContext = appDel.managedObjectContext
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-        fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: CPUProjectName, in: context)
         fetchRequest.includesPropertyValues = false
         
         do {
             
             if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
                 for result in results {
-                    let res = result as! P9Project
+                    let res = result as! CPUProject
                     if res.name == n {
                         context.delete(result)
                         try context.save()
@@ -215,23 +213,21 @@ class P9FileSystem {
     }
     
     
-    func updateProject(named n: String, source: String, object: String, listing: String) -> Bool {
+    func updateProject(named n: String, source: String) -> Bool {
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.managedObjectContext
         
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
-        fetchRequest.entity = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: CPUProjectName, in: context)
         fetchRequest.includesPropertyValues = false
         
         do {
             
             if let results = try context.fetch(fetchRequest) as? [NSManagedObject] {
                 for result in results {
-                    let res = result as! P9Project
+                    let res = result as! CPUProject
                     if res.name == n {
                         res.source = source
-                        res.object = object
-                        res.listing = listing
                         try context.save()
                         return true
                     }
@@ -246,16 +242,14 @@ class P9FileSystem {
     }
     
     
-    func saveNewProject(named n: String, source: String, object: String, listing: String) -> Bool {
+    func saveNewProject(named n: String, source: String) -> Bool {
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.managedObjectContext
         
-        let ent = NSEntityDescription.entity(forEntityName: P9ProjectName, in: context)
-        let newFile = P9Project(entity: ent!, insertInto: context)
+        let ent = NSEntityDescription.entity(forEntityName: CPUProjectName, in: context)
+        let newFile = CPUProject(entity: ent!, insertInto: context)
         newFile.name = n
         newFile.source = source
-        newFile.object = object
-        newFile.listing = listing
         
         do {
             try context.save()
@@ -274,7 +268,7 @@ class P9FileSystem {
         return false
     }
     
-
+    
 }
 
 

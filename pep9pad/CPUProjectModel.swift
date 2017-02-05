@@ -43,7 +43,7 @@ class CPUProjectModel {
     /// from the filesystem (coredata database).
     /// Returns `false` if no project is found with the given name.
     func loadExistingProject(named n: String) -> Bool {
-        if let file: P9Project = p9FileSystem.loadProject(named: n) {
+        if let file: CPUProject = cpuFileSystem.loadProject(named: n) {
             fsState = .SavedNamed
             name = file.name
             sourceStr = file.source

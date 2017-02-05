@@ -13,5 +13,6 @@ enum PepFileType: String {
     case pepl   = "pepl"
     case pepb   = "pepb"
     case peph   = "peph"
+    case pepcpu = "pepcpu"
     case c      = "txt" // things get buggy if we use dynamically load .c files, but not if we load .txt
 }
