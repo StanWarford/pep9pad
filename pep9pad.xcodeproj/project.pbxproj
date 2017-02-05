@@ -416,6 +416,8 @@
 		461279431E260E9A00212829 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
+				468124171DE81B27003D807A /* MachineModel.swift */,
 				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
 				46F46D321C8F49340092EF04 /* Enums.swift */,
@@ -467,7 +469,6 @@
 		461279481E26116100212829 /* Machine */ = {
 			isa = PBXGroup;
 			children = (
-				468124171DE81B27003D807A /* MachineModel.swift */,
 			);
 			name = Machine;
 			sourceTree = "<group>";
@@ -683,7 +684,6 @@
 		46E246B01DE0E24200611A18 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
-				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
 				468A95D31DDCECF400916BE7 /* Code.swift */,
 				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
 				46E246AE1DE0E1C300611A18 /* Dots.swift */,

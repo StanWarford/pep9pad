@@ -135,86 +135,85 @@ class AssemblerModel {
             return [true]
         }
         let firstChar: Character = sourceLine.characters.first!
-        rxAddrMode.setCaseSensitivity(CaseInsensitive)
         if (firstChar == ",") {
-            if (rxAddrMode.indexIn(sourceLine) == -1) {
+            if !rxAddrMode.appearsIn(sourceLine) {
                 let tokenString = ";ERROR: Malformed addressing mode."
                 return [false]
             }
             token = .lt_ADDRESSING_MODE
-            let tokenString = rxAddrMode.capturedTexts()[0]
-            sourceLine.remove(0, tokenString.length())
+            let tokenString = rxAddrMode.matchesIn(sourceLine)[0]
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         if (firstChar == "'") {
-            if (rxCharConst.indexIn(sourceLine) == -1) {
+            if !rxCharConst.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed character constant."
                 return [false]
             }
             token = .lt_CHAR_CONSTANT
-            tokenString = rxCharConst.capturedTexts()[0]
-            sourceLine.remove(0, tokenString.length())
+            tokenString = rxCharConst.matchesIn(sourceLine)[0]
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         if (firstChar == ";") {
-            if (rxComment.indexIn(sourceLine) == -1) {
+            if !rxComment.appearsIn(sourceLine) {
                 //This error should not occur, as any characters are allowed in a comment. 
                 tokenString = ";ERROR: Malformed comment"
                 return [false]
             }
             token = .lt_COMMENT
-            tokenString = rxComment.capturedTexts()[0]
-            sourceLine.remove(0, tokenString.characters.count)
+            tokenString = rxComment.matchesIn(sourceLine)[0]
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         if (startsWithHexPrefix(sourceLine)) {
-            if (rxHexConst.indexIn(sourceLine) == -1) {
+            if !rxHexConst.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed hex constant."
                 return [false]
             }
             token = .lt_HEX_CONSTANT
-            tokenString = rxHexConst.capturedTexts()[0]
+            tokenString = rxHexConst.matchesIn(sourceLine)[0]
             sourceLine.remove(0, tokenString.length())
             return [true]
         }
         if ((firstChar.isDigit() || firstChar == "+" || firstChar == "-")) {
-            if (rxDecConst.indexIn(sourceLine) == -1) {
+            if !rxDecConst.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed decimal constant."
                 return [false]
             }
             token = .lt_DEC_CONSTANT
-            tokenString = rxDecConst.capturedTexts()[0]
+            tokenString = rxDecConst.matchesIn(sourceLine)[0]
             sourceLine.remove(0, tokenString.characters.count)
             return [true]
         }
         if (firstChar == ".") {
-            if (rxDotCommand.indexIn(sourceLine) == -1) {
+            if !rxDotCommand.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed dot command."
                 return [false]
             }
             token = .lt_DOT_COMMAND
-            tokenString = rxDotCommand.capturedTexts()[0]
+            tokenString = rxDotCommand.matchesIn(sourceLine)[0]
             sourceLine.remove(0, tokenString.characters.count)
             return [true]
         }
         if (firstChar.isLetter() || firstChar == "_") {
-            if (rxIdentifier.indexIn(sourceLine) == -1) {
+            if !rxIdentifier.appearsIn(sourceLine) {
                 // this should not occur, as one-character identifiers are valid
                 tokenString = ";ERROR: Malformed identifier."
                 return [false]
             }
-            tokenString = rxIdentifier.capturedTexts()[0]
+            tokenString = rxIdentifier.matchesIn(sourceLine)[0]
             token = tokenString.endswith(":") ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
             sourceLine.remove(0, tokenString.characters.count)
             return [true]
         }
         if (firstChar == "\"") {
-            if (rxStringConst.indexIn(sourceLine) == -1) {
+            if !rxStringConst.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed string constant."
                 return [false]
             }
             token = .lt_STRING_CONSTANT
-            tokenString = rxStringConst.capturedTexts()[0]
+            tokenString = rxStringConst.matchesIn(sourceLine)[0]
             sourceLine.remove(0, tokenString.characters.count)
             return [true]
         }

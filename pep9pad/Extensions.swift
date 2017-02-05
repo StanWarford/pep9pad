@@ -97,6 +97,12 @@ extension String {
     var asciiArray: [UInt32] {
         return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
+    func fullRange() -> NSRange {
+        return NSMakeRange(0, self.characters.count)
+    }
+    var length: Int {
+        return self.characters.count
+    }
 }
 extension Character {
     var asciiValue: UInt32? {
@@ -104,6 +110,19 @@ extension Character {
     }
 }
 
+
+extension NSRegularExpression {
+    func appearsIn(_ str: String) -> Bool {
+        return self.numberOfMatches(in: str, options: .reportCompletion, range: str.fullRange()) > 0
+    }
+    
+    func matchesIn(_ str: String) -> [String] {
+        let ns = str as NSString
+        //return self.firstMatch(in: str, options: .reportCompletion, range: str.fullRange())?.components
+        let results = matches(in: ns as String, range: NSRange(location: 0, length: ns.length))
+        return results.map { ns.substring(with: $0.range)}
+    }
+}
 
 
 
