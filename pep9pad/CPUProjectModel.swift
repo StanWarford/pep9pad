@@ -1,16 +1,17 @@
 //
-//  ProjectModel.swift
+//  CPUProjectModel.swift
 //  pep9pad
 //
-//  Copyright © 2016 Pepperdine University. All rights reserved.
+//  Created by Josh Haug on 1/30/17.
+//  Copyright © 2017 Pepperdine University. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 /// Global, used to access the currently-edited project and interact with the fs.
-var projectModel = ProjectModel()
+var cpuProjectModel = ProjectModel()
 
-class ProjectModel {
+class CPUProjectModel {
     
     
     // MARK: - Attributes
@@ -20,22 +21,13 @@ class ProjectModel {
     var fsState: FSState = .SavedNamed
     
     
-    /// Note: this class treats the source, object, and listing as plain Strings.
-
+    /// Note: this class treats the source as a plain String.
+    
     /// The name of the current project.  Default is empty string.
     var name: String = ""
     /// The assembly source of the current project.  Default is empty string.
     var sourceStr: String = ""
-    /// The object code of the current project. Default is empty string.
-    var objectStr: String = ""
-    /// The assembler listing of the current project. Default is empty string.
-    var listingStr: String = ""
-    
-//    // I think these belog in trace model.
-//    var listingTrace: [String] = []
-//    var hasCheckBox: [Bool] = []
-    
-    
+
     
     // MARK: - Methods
     
@@ -45,20 +37,16 @@ class ProjectModel {
         fsState = .Blank
         name = ""
         sourceStr = ""
-        objectStr = ""
-        listingStr = ""
     }
-
+    
     /// Loads an existing project's `name`, `source`, `object`, and `listing`
     /// from the filesystem (coredata database).
     /// Returns `false` if no project is found with the given name.
     func loadExistingProject(named n: String) -> Bool {
-        if let file: P9Project = p9FileSystem.loadProject(named: n) {
+        if let file: CPUProject = cpuFileSystem.loadProject(named: n) {
             fsState = .SavedNamed
             name = file.name
             sourceStr = file.source
-            objectStr = file.object
-            listingStr = file.listing
             return true
         }
         return false
@@ -69,22 +57,17 @@ class ProjectModel {
     func loadDefaultProject() {
         // don't bother loading from coredata
         // just load that hello world program
-        let pathToSource = Bundle.main.path(forResource: "myFirstProject", ofType: "pep")
-        let pathToObject = Bundle.main.path(forResource: "myFirstProject", ofType: "pepo")
-        let pathToListing = Bundle.main.path(forResource: "myFirstProject", ofType: "pepl")
-
+        let pathToSource = Bundle.main.path(forResource: "myFirstProgram", ofType: "pep")
+        
         do {
-            print("Loaded default project.")
-            name = "My First Project"
+            print("Loaded file named myFirstProgram.pep")
+            name = "My First Program"
             sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
-            objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii)
-            listingStr = try String(contentsOfFile:pathToListing!, encoding: String.Encoding.ascii)
-
         } catch _ as NSError {
-            print("Could not load default project.")
+            print("Could not load file named myFirstProgram.pep")
             return
         }
-
+        
     }
     
     func loadExample(text: String, ofType: PepFileType) {
@@ -92,56 +75,46 @@ class ProjectModel {
         switch ofType {
         case .pep:
             sourceStr = text
-            objectStr = ""
-            listingStr = ""
             fsState = .UnsavedUnnamed
         case .pepo, .peph:
             sourceStr = ""
-            objectStr = text
-            listingStr = ""
             fsState = .UnsavedUnnamed
             
         default:
             break
         }
-
+        
     }
     
     
-    func saveProject() {
-        if p9FileSystem.updateProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
-            fsState = .SavedNamed
-        }
-    }
-    
-    func saveAsNewProject(withName: String) {
-        name = withName
-        if p9FileSystem.saveNewProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
-            fsState = .SavedNamed
-        }
-    }
+//    func saveProjectInFS() {
+//        if updateProjectInFS(named: name, source: sourceStr) {
+//            fsState = .SavedNamed
+//        }
+//    }
+//    
+//    func saveAsNewProjectInFS(withName: String) {
+//        name = withName
+//        if saveNewProjectInFS(named: name, source: sourceStr) {
+//            fsState = .SavedNamed
+//        }
+//    }
     
     
     /// Called by classes that conform to `ProjectModelEditor` (i.e. the source, object, and listing vcs)
     /// whenever an editor detects the user has edited its `textField`'s contents.
     /// This function sets `fsState` accordingly.
-    func receiveChanges(from editor: ProjectModelEditor, text: String) {
-        if editor is SourceController {
-            sourceStr = text
-            changeStateToUnsaved()
-        } else if editor is ObjectController {
-            objectStr = text
-            changeStateToUnsaved()
-        } else if editor is ListingController {
-            // I can't think of a reason why this would ever be called.
-            assert(false)
-        } else {
-            // unrecognized call
-            assert(false)
-        }
-    }
+//    func receiveChanges(from editor: ProjectModelEditor, text: String) {
+//        if editor is CPUSourceController {
+//            sourceStr = text
+//            changeStateToUnsaved()
+//        } else {
+//            // unrecognized call
+//            assert(false)
+//        }
+//    }
     
-    /// Called by `self.receiveChanges()` whenever a change has been detected in source or object code. 
+    /// Called by `self.receiveChanges()` whenever a change has been detected in source code.
     /// Marks the current project as .UnsavedNamed or .UnsavedUnnamed, depending on the current value of `fsState`.
     func changeStateToUnsaved() {
         switch fsState {

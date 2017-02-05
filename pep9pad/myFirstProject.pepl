@@ -2,7 +2,7 @@
       Object
 Addr  code   Symbol   Mnemon  Operand     Comment
 -------------------------------------------------------------------------------
-             ;File: myFirstProgram.pep
+             ;File: myFirstProject.pep
              ;Sends "Hello, world!" to the output device
              ;
 0000  490004          STRO    msg,d       

@@ -1,4 +1,4 @@
-;File: myFirstProgram.pep
+;File: myFirstProject.pep
 ;Sends "Hello, world!" to the output device
 ;
 STRO    msg,d
