@@ -12,7 +12,6 @@
 		460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460FBEA71E24A4DD008AD603 /* FontMenu.xib */; };
 		460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460FBEA91E24A513008AD603 /* FontMenuView.swift */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
-		4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */; };
 		461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461875951C90089F0095B818 /* HelpDocumentation.swift */; };
 		4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875991C900CA10095B818 /* assemblylanguage.html */; };
 		461875A41C900D740095B818 /* debuggingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 4618759B1C900D730095B818 /* debuggingprograms.html */; };
@@ -207,7 +206,6 @@
 		460FBEA71E24A4DD008AD603 /* FontMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenu.xib; sourceTree = "<group>"; };
 		460FBEA91E24A513008AD603 /* FontMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuView.swift; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
-		4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepColorExtensions.swift; sourceTree = "<group>"; };
 		461875951C90089F0095B818 /* HelpDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDocumentation.swift; sourceTree = "<group>"; };
 		461875991C900CA10095B818 /* assemblylanguage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = assemblylanguage.html; sourceTree = "<group>"; };
 		4618759B1C900D730095B818 /* debuggingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = debuggingprograms.html; sourceTree = "<group>"; };
@@ -503,6 +501,17 @@
 			name = Trace;
 			sourceTree = "<group>";
 		};
+		464DF5AF1E46FB46006B9263 /* SyntaxHighlighting */ = {
+			isa = PBXGroup;
+			children = (
+				4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */,
+				4670DDC41E30762500293BFA /* HighlightableLanguage.swift */,
+				4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */,
+				4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */,
+			);
+			name = SyntaxHighlighting;
+			sourceTree = "<group>";
+		};
 		465C76241C90DBF30029311F /* Help Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,15 +618,11 @@
 		46A304E41C992D5500CDCD1A /* CodeView */ = {
 			isa = PBXGroup;
 			children = (
+				464DF5AF1E46FB46006B9263 /* SyntaxHighlighting */,
 				463A66301C97CE0E004C35B2 /* CodeView.swift */,
 				4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */,
 				466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */,
-				4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */,
-				4612397E1CF28C4900EF0C18 /* PepColorExtensions.swift */,
 				466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */,
-				4670DDC41E30762500293BFA /* HighlightableLanguage.swift */,
-				4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */,
-				4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */,
 			);
 			name = CodeView;
 			path = pep9pad;
@@ -1204,7 +1209,6 @@
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
-				4612397F1CF28C4900EF0C18 /* PepColorExtensions.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
