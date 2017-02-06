@@ -136,6 +136,9 @@ bool Asm::getToken(QString &sourceLine, ELexicalToken &token, QString &tokenStri
 QList<QString> Asm::listOfReferencedSymbols;
 QList<int> Asm::listOfReferencedSymbolLineNums;
 
+
+// I moved this function in the Swift version. It now is in Extensions.swift.
+// It extends the built-in String type, which is pretty cool.  I figure it's general purpose enough.
 bool Asm::startsWithHexPrefix(QString str)
 {
     if (str.length() < 2) return false;
