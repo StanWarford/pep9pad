@@ -97,16 +97,35 @@ extension String {
     var asciiArray: [UInt32] {
         return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
+    
     func fullRange() -> NSRange {
         return NSMakeRange(0, self.characters.count)
     }
+    
     var length: Int {
         return self.characters.count
     }
+    
+    mutating func remove(_ from: Int, _ to: Int) {
+        let startIdx = self.index(self.startIndex, offsetBy: from)
+        let endIdx = self.index(startIdx, offsetBy: to)
+        self.removeSubrange(startIdx..<endIdx)
+    }
+    
+    func hasHexPrefix() -> Bool {
+        return self.hasPrefix("0x") || self.hasPrefix("0X")
+    }
 }
+
+
 extension Character {
     var asciiValue: UInt32? {
         return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
+    }
+    
+    func isDigit() -> Bool {
+        return self == "0" || self == "1" || self == "2" || self == "3" || self == "4"
+            || self == "5" || self == "6" || self == "7" || self == "8" || self == "9"
     }
 }
 

@@ -166,24 +166,24 @@ class AssemblerModel {
             sourceLine.remove(0, tokenString.length)
             return [true]
         }
-        if (startsWithHexPrefix(sourceLine)) {
+        if (sourceLine.hasHexPrefix()) {
             if !rxHexConst.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed hex constant."
                 return [false]
             }
             token = .lt_HEX_CONSTANT
             tokenString = rxHexConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length())
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
-        if ((firstChar.isDigit() || firstChar == "+" || firstChar == "-")) {
+        if (firstChar.isDigit() || firstChar == "+" || firstChar == "-") {
             if !rxDecConst.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed decimal constant."
                 return [false]
             }
             token = .lt_DEC_CONSTANT
             tokenString = rxDecConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.characters.count)
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         if (firstChar == ".") {
@@ -193,7 +193,7 @@ class AssemblerModel {
             }
             token = .lt_DOT_COMMAND
             tokenString = rxDotCommand.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.characters.count)
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         if (firstChar.isLetter() || firstChar == "_") {
@@ -203,8 +203,8 @@ class AssemblerModel {
                 return [false]
             }
             tokenString = rxIdentifier.matchesIn(sourceLine)[0]
-            token = tokenString.endswith(":") ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
-            sourceLine.remove(0, tokenString.characters.count)
+            token = tokenString.characters.last == ":" ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         if (firstChar == "\"") {
@@ -214,7 +214,7 @@ class AssemblerModel {
             }
             token = .lt_STRING_CONSTANT
             tokenString = rxStringConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.characters.count)
+            sourceLine.remove(0, tokenString.length)
             return [true]
         }
         tokenString = ";ERROR: Syntax error."
@@ -281,8 +281,7 @@ class AssemblerModel {
     }
     
     
-    
-    
+
     
     
     // MARK: - Parser
