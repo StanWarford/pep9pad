@@ -98,8 +98,22 @@ extension String {
         return unicodeScalars.filter{$0.isASCII}.map{$0.value}
     }
     
-    func toInt() -> Int? {
-        return Int(self)
+    func fullRange() -> NSRange {
+        return NSMakeRange(0, self.characters.count)
+    }
+    
+    var length: Int {
+        return self.characters.count
+    }
+    
+    mutating func remove(_ from: Int, _ to: Int) {
+        let startIdx = self.index(self.startIndex, offsetBy: from)
+        let endIdx = self.index(startIdx, offsetBy: to)
+        self.removeSubrange(startIdx..<endIdx)
+    }
+    
+    func hasHexPrefix() -> Bool {
+        return self.hasPrefix("0x") || self.hasPrefix("0X")
     }
 }
 
@@ -119,9 +133,38 @@ extension Character {
     var asciiValue: UInt32? {
         return String(self).unicodeScalars.filter{$0.isASCII}.first?.value
     }
+    
+    func isDigit() -> Bool {
+        if let val = self.asciiValue {
+            let numericAsciiRange: Range<UInt32> = 48..<58
+            return numericAsciiRange.contains(val)
+        }
+        return false
+    }
+    
+    func isLetter() -> Bool {
+        if let val = self.asciiValue {
+            let letterAsciiRangeUpper: Range<UInt32> = 65..<91
+            let letterAsciiRangeLower: Range<UInt32> = 97..<123
+            return letterAsciiRangeLower.contains(val) || letterAsciiRangeUpper.contains(val)
+        }
+        return false
+    }
 }
 
 
+extension NSRegularExpression {
+    func appearsIn(_ str: String) -> Bool {
+        return self.numberOfMatches(in: str, options: .reportCompletion, range: str.fullRange()) > 0
+    }
+    
+    func matchesIn(_ str: String) -> [String] {
+        let ns = str as NSString
+        //return self.firstMatch(in: str, options: .reportCompletion, range: str.fullRange())?.components
+        let results = matches(in: ns as String, range: NSRange(location: 0, length: ns.length))
+        return results.map { ns.substring(with: $0.range)}
+    }
+}
 
 
 extension UIColor {
@@ -162,11 +205,6 @@ extension UIColor {
         
     }
 }
-
-
-
-
-
 
 
 
