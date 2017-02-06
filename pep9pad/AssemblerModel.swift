@@ -128,7 +128,7 @@ class AssemblerModel {
         var token: ELexicalToken = token
         var tokenString: String = tokenString
         
-        sourceLine = sourceLine.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        sourceLine = sourceLine.trimmed()
         if (sourceLine.characters.count == 0) {
             token = .lt_EMPTY
             let tokenString = ""
@@ -284,8 +284,26 @@ class AssemblerModel {
         
     }
     
-    
-
+    func stringToAddrMode(_ rawStr: String) -> EAddrMode {
+        var str = rawStr
+        if str.characters.first == "," {
+            // remove the comma
+            str.characters.removeFirst()
+        }
+        
+        str = str.trimmed().uppercased()
+        
+        if (str == "I") { return .I }
+        if (str == "D") { return .D }
+        if (str == "N") { return .N }
+        if (str == "S") { return .S }
+        if (str == "SF") { return .SF }
+        if (str == "X") { return .X }
+        if (str == "SX") { return .SX }
+        if (str == "SFX") { return .SFX }
+        return .None
+        
+    }
     
     
     // MARK: - Parser
