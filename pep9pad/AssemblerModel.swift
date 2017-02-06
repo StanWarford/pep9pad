@@ -224,9 +224,13 @@ class AssemblerModel {
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
+    // MARK: SUBJECT TO CHANGE
     func getObjectCode() -> [Int] {
-        // PLACEHOLDER
-        return [0]
+        object.removeAll()
+        for i in 0...source.count {
+            source[i].appendObjectCode(objectCode: object)
+        }
+        return object
     }
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
