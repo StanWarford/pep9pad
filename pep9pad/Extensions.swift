@@ -115,6 +115,10 @@ extension String {
     func hasHexPrefix() -> Bool {
         return self.hasPrefix("0x") || self.hasPrefix("0X")
     }
+    
+    func trimmed() -> String {
+        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
 }
 
 
