@@ -124,8 +124,20 @@ extension Character {
     }
     
     func isDigit() -> Bool {
-        return self == "0" || self == "1" || self == "2" || self == "3" || self == "4"
-            || self == "5" || self == "6" || self == "7" || self == "8" || self == "9"
+        if let val = self.asciiValue {
+            let numericAsciiRange: Range<UInt32> = 48..<58
+            return numericAsciiRange.contains(val)
+        }
+        return false
+    }
+    
+    func isLetter() -> Bool {
+        if let val = self.asciiValue {
+            let letterAsciiRangeUpper: Range<UInt32> = 65..<91
+            let letterAsciiRangeLower: Range<UInt32> = 97..<123
+            return letterAsciiRangeLower.contains(val) || letterAsciiRangeUpper.contains(val)
+        }
+        return false
     }
 }
 
