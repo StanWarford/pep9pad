@@ -28,7 +28,7 @@ class NonUnaryInstruction: Code {
         // Placeholder
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: inout [Bool]) {
+    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         // Placeholder
     }
     
