@@ -70,7 +70,7 @@
 		4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */; };
 		4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB2D1E428F85007E50BD /* CPUProject.swift */; };
 		4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */; };
-		4695EB361E4404F3007E50BD /* myFirstCPUProgram.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProgram.pepcpu */; };
+		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
 		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
@@ -264,7 +264,7 @@
 		4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPUTabBar.storyboard; sourceTree = "<group>"; };
 		4695EB2D1E428F85007E50BD /* CPUProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProject.swift; sourceTree = "<group>"; };
 		4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFileSystem.swift; sourceTree = "<group>"; };
-		4695EB351E4404F3007E50BD /* myFirstCPUProgram.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProgram.pepcpu"; sourceTree = "<group>"; };
+		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
@@ -586,7 +586,7 @@
 		4695EB371E440513007E50BD /* DefaultProject */ = {
 			isa = PBXGroup;
 			children = (
-				4695EB351E4404F3007E50BD /* myFirstCPUProgram.pepcpu */,
+				4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */,
 			);
 			name = DefaultProject;
 			sourceTree = "<group>";
@@ -1063,7 +1063,7 @@
 				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
-				4695EB361E4404F3007E50BD /* myFirstCPUProgram.pepcpu in Resources */,
+				4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */,
 				468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */,
 				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
 				462BA7661E2B2A3B00BBABCD /* fig0618.txt in Resources */,
