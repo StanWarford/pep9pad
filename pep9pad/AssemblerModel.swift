@@ -27,6 +27,7 @@ class AssemblerModel {
     
     func processSourceLine(_ sourceLine: String, _ code: Code, _ errorString: String) -> Bool {
         //PLACEHOLDER
+        return true
     }
     
     
@@ -92,9 +93,9 @@ class AssemblerModel {
         
         // check for unused symbols
         for i in 0..<referencedSymbols.count {
-            if (!maps.symbolTable.contains(where: referencedSymbols[i])
-                && !(referencedSymbols[i] == "charIn")
-                && !(referencedSymbols[i] == "charOut")) {
+            if (!Array(maps.symbolTable.keys).contains(assembler.referencedSymbols[i])
+                && !(assembler.referencedSymbols[i] == "charIn")
+                && !(assembler.referencedSymbols[i] == "charOut")) {
                 errorString = ";ERROR: Symbol " + referencedSymbols[i] + " is used but not defined.";
                 //appendMessageInSourceCodePaneAt(referencedSymbolsLineNums[i], errorString);
                 return false;
@@ -104,19 +105,19 @@ class AssemblerModel {
         
         maps.traceTagWarning = false
         // TODO: difference between size() and length()?
-        for (int i = 0; i < codeList.size(); i++) {
-            if (!codeList[i].processFormatTraceTags(lineNum, errorString)) {
-                appendMessageInSourceCodePaneAt(lineNum, errorString);
-                pep.traceTagWarning = true;
+        for i in 0..<assembler.source.count {
+            if (!assembler.source[i].processFormatTraceTags(lineNum, errorString)) {
+                //appendMessageInSourceCodePaneAt(lineNum, errorString);
+                maps.traceTagWarning = true;
             }
         }
         
         
-        if (!pep.traceTagWarning && !(pep.blockSymbols.isEmpty() && pep.equateSymbols.isEmpty())) {
-            for (int i = 0; i < codeList.size(); i++) {
-                if (!codeList[i]->processSymbolTraceTags(lineNum, errorString)) {
-                    appendMessageInSourceCodePaneAt(lineNum, errorString);
-                    pep.traceTagWarning = true;
+        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
+            for i in 0..<assembler.source.count {
+                if !(assembler.source[i].processSymbolTraceTags(lineNum, errorString)) {
+                    //appendMessageInSourceCodePaneAt(lineNum, errorString);
+                    maps.traceTagWarning = true;
                 }
             }
         }
@@ -129,7 +130,7 @@ class AssemblerModel {
 
         }
 
-    }
+    
 
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
@@ -311,8 +312,8 @@ class AssemblerModel {
     let rxArrayMultiplier = try! NSRegularExpression(pattern: "((\\d)+)a", options: [.caseInsensitive])
     
 
-    
-    
-    
-    
 }
+
+    
+    
+
