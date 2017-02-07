@@ -9,6 +9,120 @@ import Foundation
 
 var assembler = AssemblerModel()
 
+
+// MARK: Regular expressions for lexical analysis
+// NOTE: the following variables use the `try!` modifier to force a pattern-matching attempt. `NSRegularExpression` throws an error if the pattern is invalid. Our patterns are fixed and thus will never `throw` an error.
+let rxAddrMode = try! NSRegularExpression(pattern: "^((,)(\\s*)(i|d|x|n|s(?![fx])|sx(?![f])|sf|sfx){1}){1}", options: [.caseInsensitive])
+let rxCharConst = try! NSRegularExpression(pattern: "^((\')(?![\'])(([^\'\\\\]){1}|((\\\\)([\'|b|f|n|r|t|v|\"|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))(\'))", options: [.caseInsensitive])
+let rxComment = try! NSRegularExpression(pattern: "^((;{1})(.)*)", options: [.caseInsensitive])
+let rxDecConst = try! NSRegularExpression(pattern: "^((([+|-]{0,1})([0-9]+))|^(([1-9])([0-9]*)))", options: [.caseInsensitive])
+let rxDotCommand = try! NSRegularExpression(pattern: "^((.)(([A-Z|a-z]{1})(\\w)*))", options: [.caseInsensitive])
+let rxHexConst = try! NSRegularExpression(pattern: "^((0(?![x|X]))|((0)([x|X])([0-9|A-F|a-f])+)|((0)([0-9]+)))", options: [.caseInsensitive])
+let rxIdentifier = try! NSRegularExpression(pattern: "^((([A-Z|a-z|_]{1})(\\w*))(:){0,1})", options: [.caseInsensitive])
+let rxStringConst = try! NSRegularExpression(pattern: "^((\")((([^\"\\\\])|((\\\\)([\'|b|f|n|r|t|v|\"|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))*)(\"))", options: [.caseInsensitive])
+
+// MARK: Regular expressions for trace tag analysis
+let rxFormatTag = try! NSRegularExpression(pattern: "(#((1c)|(1d)|(1h)|(2d)|(2h))((\\d)+a)?(\\s|$))", options: [.caseInsensitive])
+let rxSymbolTag = try! NSRegularExpression(pattern: "#([a-zA-Z][a-zA-Z0-9]{0,7})", options: [.caseInsensitive])
+let rxArrayMultiplier = try! NSRegularExpression(pattern: "((\\d)+)a", options: [.caseInsensitive])
+
+
+
+func getToken(sourceLine: inout String, token: inout ELexicalToken, tokenString: inout String) -> Bool {
+    sourceLine = sourceLine.trimmed()
+    if (sourceLine.characters.count == 0) {
+        token = .lt_EMPTY
+        tokenString = ""
+        return true
+    }
+    let firstChar: Character = sourceLine.characters.first!
+    if (firstChar == ",") {
+        if !rxAddrMode.appearsIn(sourceLine) {
+            tokenString = ";ERROR: Malformed addressing mode."
+            return false
+        }
+        token = .lt_ADDRESSING_MODE
+        tokenString = rxAddrMode.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (firstChar == "'") {
+        if !rxCharConst.appearsIn(sourceLine) {
+            tokenString = ";ERROR: Malformed character constant."
+            return false
+        }
+        token = .lt_CHAR_CONSTANT
+        tokenString = rxCharConst.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (firstChar == ";") {
+        if !rxComment.appearsIn(sourceLine) {
+            //This error should not occur, as any characters are allowed in a comment.
+            tokenString = ";ERROR: Malformed comment"
+            return false
+        }
+        token = .lt_COMMENT
+        tokenString = rxComment.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (sourceLine.hasHexPrefix()) {
+        if !rxHexConst.appearsIn(sourceLine) {
+            tokenString = ";ERROR: Malformed hex constant."
+            return false
+        }
+        token = .lt_HEX_CONSTANT
+        tokenString = rxHexConst.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (firstChar.isDigit() || firstChar == "+" || firstChar == "-") {
+        if !rxDecConst.appearsIn(sourceLine) {
+            tokenString = ";ERROR: Malformed decimal constant."
+            return false
+        }
+        token = .lt_DEC_CONSTANT
+        tokenString = rxDecConst.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (firstChar == ".") {
+        if !rxDotCommand.appearsIn(sourceLine) {
+            tokenString = ";ERROR: Malformed dot command."
+            return false
+        }
+        token = .lt_DOT_COMMAND
+        tokenString = rxDotCommand.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (firstChar.isLetter() || firstChar == "_") {
+        if !rxIdentifier.appearsIn(sourceLine) {
+            // this should not occur, as one-character identifiers are valid
+            tokenString = ";ERROR: Malformed identifier."
+            return false
+        }
+        tokenString = rxIdentifier.matchesIn(sourceLine)[0]
+        token = tokenString.characters.last == ":" ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    if (firstChar == "\"") {
+        if !rxStringConst.appearsIn(sourceLine) {
+            tokenString = ";ERROR: Malformed string constant."
+            return false
+        }
+        token = .lt_STRING_CONSTANT
+        tokenString = rxStringConst.matchesIn(sourceLine)[0]
+        sourceLine.remove(0, tokenString.length)
+        return true
+    }
+    tokenString = ";ERROR: Syntax error."
+    return false
+}
+
+
 /// The highest level of abstraction in Pep9Pad.
 class AssemblerModel {
     
@@ -134,46 +248,32 @@ class AssemblerModel {
         // placeholder
         return true
         
-//        Asm::ELexicalToken token; // Passed to getToken.
-//        QString tokenString; // Passed to getToken.
-//        QString localSymbolDef = ""; // Saves symbol definition for processing in the following state.
-//        Enu::EMnemonic localEnumMnemonic; // Key to Pep:: table lookups.
-//        
-//        // The concrete code objects asssigned to code.
-//        UnaryInstruction *unaryInstruction = NULL;
-//        NonUnaryInstruction *nonUnaryInstruction = NULL;
-//        DotAddrss *dotAddrss = NULL;
-//        DotAlign *dotAlign = NULL;
-//        DotAscii *dotAscii = NULL;
-//        DotBlock *dotBlock = NULL;
-//        DotBurn *dotBurn = NULL;
-//        DotByte *dotByte = NULL;
-//        DotEnd *dotEnd = NULL;
-//        DotEquate *dotEquate = NULL;
-//        DotWord *dotWord = NULL;
-//        CommentOnly *commentOnly = NULL;
-//        BlankLine *blankLine = NULL;
+//        var token: ELexicalToken // Passed to getToken.
+//        var tokenString: String; // Passed to getToken.
+//        var localSymbolDef: String = ""; // Saves symbol definition for processing in the following state.
+//        var localEnumMnemonic: EMnemonic // Key to Pep:: table lookups.
+//
 //        
 //        dotEndDetected = false
-//        Asm::ParseState state = Asm::PS_START
-//        do {
+//        var state: ParseState = ParseState.ps_START
+//        repeat {
 //            if (!getToken(sourceLine, token, tokenString)) {
 //                errorString = tokenString
 //                return false
 //            }
 //            switch (state) {
-//            case .PS_START:
-//                if (token == Asm::LT_IDENTIFIER) {
-//                if (Pep::mnemonToEnumMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToEnumMap.value(tokenString.toUpper());
-//                    if (Pep::isUnaryMap.value(localEnumMnemonic)) {
-//                        unaryInstruction = new UnaryInstruction;
-//                        unaryInstruction->symbolDef = "";
-//                        unaryInstruction->mnemonic = localEnumMnemonic;
+//            case .ps_START:
+//                if (token == ELexicalToken.lt_IDENTIFIER) {
+//                if (maps.mnemonToEnumMap.keys).contains(tokenString.uppercased()) {
+//                    localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!;
+//                    if  maps.isUnaryMap[localEnumMnemonic]! {
+//                        let unaryInstruction = UnaryInstruction()
+//                        unaryInstruction.symbolDef = "";
+//                        unaryInstruction.mnemonic = localEnumMnemonic;
 //                        code = unaryInstruction;
-//                        code->memAddress = Pep::byteCount;
-//                        Pep::byteCount += 1; // One byte generated for unary instruction.
-//                        state = Asm::PS_CLOSE;
+//                        code.memAddress = maps.byteCount;
+//                        maps.byteCount += 1; // One byte generated for unary instruction.
+//                        state = ParseState.ps_CLOSE;
 //                    }
 //                    else {
 //                        nonUnaryInstruction = new NonUnaryInstruction;
@@ -821,7 +921,7 @@ class AssemblerModel {
 //        }
 //            while (state != Asm::PS_FINISH);
 //        return true;
-        
+
     }
     
     
@@ -829,100 +929,7 @@ class AssemblerModel {
     
     
     
-    func getToken(sourceLine: inout String, token: inout ELexicalToken, tokenString: inout String) -> Bool {
-        
-        sourceLine = sourceLine.trimmed()
-        if (sourceLine.characters.count == 0) {
-            token = .lt_EMPTY
-            tokenString = ""
-            return true
-        }
-        let firstChar: Character = sourceLine.characters.first!
-        if (firstChar == ",") {
-            if !rxAddrMode.appearsIn(sourceLine) {
-                tokenString = ";ERROR: Malformed addressing mode."
-                return false
-            }
-            token = .lt_ADDRESSING_MODE
-            tokenString = rxAddrMode.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (firstChar == "'") {
-            if !rxCharConst.appearsIn(sourceLine) {
-                tokenString = ";ERROR: Malformed character constant."
-                return false
-            }
-            token = .lt_CHAR_CONSTANT
-            tokenString = rxCharConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (firstChar == ";") {
-            if !rxComment.appearsIn(sourceLine) {
-                //This error should not occur, as any characters are allowed in a comment. 
-                tokenString = ";ERROR: Malformed comment"
-                return false
-            }
-            token = .lt_COMMENT
-            tokenString = rxComment.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (sourceLine.hasHexPrefix()) {
-            if !rxHexConst.appearsIn(sourceLine) {
-                tokenString = ";ERROR: Malformed hex constant."
-                return false
-            }
-            token = .lt_HEX_CONSTANT
-            tokenString = rxHexConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (firstChar.isDigit() || firstChar == "+" || firstChar == "-") {
-            if !rxDecConst.appearsIn(sourceLine) {
-                tokenString = ";ERROR: Malformed decimal constant."
-                return false
-            }
-            token = .lt_DEC_CONSTANT
-            tokenString = rxDecConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (firstChar == ".") {
-            if !rxDotCommand.appearsIn(sourceLine) {
-                tokenString = ";ERROR: Malformed dot command."
-                return false
-            }
-            token = .lt_DOT_COMMAND
-            tokenString = rxDotCommand.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (firstChar.isLetter() || firstChar == "_") {
-            if !rxIdentifier.appearsIn(sourceLine) {
-                // this should not occur, as one-character identifiers are valid
-                tokenString = ";ERROR: Malformed identifier."
-                return false
-            }
-            tokenString = rxIdentifier.matchesIn(sourceLine)[0]
-            token = tokenString.characters.last == ":" ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        if (firstChar == "\"") {
-            if !rxStringConst.appearsIn(sourceLine) {
-                tokenString = ";ERROR: Malformed string constant."
-                return false
-            }
-            token = .lt_STRING_CONSTANT
-            tokenString = rxStringConst.matchesIn(sourceLine)[0]
-            sourceLine.remove(0, tokenString.length)
-            return true
-        }
-        tokenString = ";ERROR: Syntax error."
-        return false
-    }
+
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
@@ -1044,22 +1051,7 @@ class AssemblerModel {
         case ps_SYMBOL_DEF
     }
     
-    
-    // MARK: Regular expressions for lexical analysis
-    // NOTE: the following variables use the `try!` modifier to force a pattern-matching attempt. `NSRegularExpression` throws an error if the pattern is invalid. Our patterns are fixed and thus will never `throw` an error.
-    let rxAddrMode = try! NSRegularExpression(pattern: "^((,)(\\s*)(i|d|x|n|s(?![fx])|sx(?![f])|sf|sfx){1}){1}", options: [.caseInsensitive])
-    let rxCharConst = try! NSRegularExpression(pattern: "^((\')(?![\'])(([^\'\\\\]){1}|((\\\\)([\'|b|f|n|r|t|v|\"|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))(\'))", options: [.caseInsensitive])
-    let rxComment = try! NSRegularExpression(pattern: "^((;{1})(.)*)", options: [.caseInsensitive])
-    let rxDecConst = try! NSRegularExpression(pattern: "^((([+|-]{0,1})([0-9]+))|^(([1-9])([0-9]*)))", options: [.caseInsensitive])
-    let rxDotCommand = try! NSRegularExpression(pattern: "^((.)(([A-Z|a-z]{1})(\\w)*))", options: [.caseInsensitive])
-    let rxHexConst = try! NSRegularExpression(pattern: "^((0(?![x|X]))|((0)([x|X])([0-9|A-F|a-f])+)|((0)([0-9]+)))", options: [.caseInsensitive])
-    let rxIdentifier = try! NSRegularExpression(pattern: "^((([A-Z|a-z|_]{1})(\\w*))(:){0,1})", options: [.caseInsensitive])
-    let rxStringConst = try! NSRegularExpression(pattern: "^((\")((([^\"\\\\])|((\\\\)([\'|b|f|n|r|t|v|\"|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))*)(\"))", options: [.caseInsensitive])
-    
-    // MARK: Regular expressions for trace tag analysis
-    let rxFormatTag = try! NSRegularExpression(pattern: "(#((1c)|(1d)|(1h)|(2d)|(2h))((\\d)+a)?(\\s|$))", options: [.caseInsensitive])
-    let rxSymbolTag = try! NSRegularExpression(pattern: "#([a-zA-Z][a-zA-Z0-9]{0,7})", options: [.caseInsensitive])
-    let rxArrayMultiplier = try! NSRegularExpression(pattern: "((\\d)+)a", options: [.caseInsensitive])
+
     
 
     
