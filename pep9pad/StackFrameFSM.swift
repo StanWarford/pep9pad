@@ -55,7 +55,7 @@ class StackFrameFSM {
         return 0 // don't add a frame yet
     }
     
-    /// set everything to 0 and start state
+    /// set everything to 0 and move to .start
     func reset() {
         state = .start
         numCellsFromSubSP = 0
