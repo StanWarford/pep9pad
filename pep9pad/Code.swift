@@ -8,6 +8,7 @@
 import Foundation
 
 /// Abstract class.  Each instance of this class represents one line of parsed assembly code.
+/// These are subclassed in Instructions.swift, Dots.swift, and NonExecutables.swift.
 class Code {
     
     internal var memAddress: Int = 0

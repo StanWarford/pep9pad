@@ -157,7 +157,21 @@ class ProjectModel {
     
     
     
-    
+    func appendMessageInSource(atLine: Int, message: String) {
+        // make an array of all lines in sourceString
+        var lineArray: [String] = []
+        sourceStr.enumerateLines { (line, stop) -> () in
+            lineArray.append(line)
+        }
+        // now alter the line in question
+        let lineIndex = atLine-1
+        if lineIndex < lineArray.count {
+            lineArray[lineIndex].append(message)
+            sourceStr = lineArray.joined(separator: "\n")
+        } else {
+            print("Incorrect line number given for appendErrorInSource(::)")
+        }
+    }
     
     
     
