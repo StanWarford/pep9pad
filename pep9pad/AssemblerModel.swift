@@ -28,99 +28,6 @@ let rxArrayMultiplier = try! NSRegularExpression(pattern: "((\\d)+)a", options: 
 
 
 
-func getToken(sourceLine: inout String, token: inout ELexicalToken, tokenString: inout String) -> Bool {
-    sourceLine = sourceLine.trimmed()
-    if (sourceLine.characters.count == 0) {
-        token = .lt_EMPTY
-        tokenString = ""
-        return true
-    }
-    let firstChar: Character = sourceLine.characters.first!
-    if (firstChar == ",") {
-        if !rxAddrMode.appearsIn(sourceLine) {
-            tokenString = ";ERROR: Malformed addressing mode."
-            return false
-        }
-        token = .lt_ADDRESSING_MODE
-        tokenString = rxAddrMode.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (firstChar == "'") {
-        if !rxCharConst.appearsIn(sourceLine) {
-            tokenString = ";ERROR: Malformed character constant."
-            return false
-        }
-        token = .lt_CHAR_CONSTANT
-        tokenString = rxCharConst.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (firstChar == ";") {
-        if !rxComment.appearsIn(sourceLine) {
-            //This error should not occur, as any characters are allowed in a comment.
-            tokenString = ";ERROR: Malformed comment"
-            return false
-        }
-        token = .lt_COMMENT
-        tokenString = rxComment.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (sourceLine.hasHexPrefix()) {
-        if !rxHexConst.appearsIn(sourceLine) {
-            tokenString = ";ERROR: Malformed hex constant."
-            return false
-        }
-        token = .lt_HEX_CONSTANT
-        tokenString = rxHexConst.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (firstChar.isDigit() || firstChar == "+" || firstChar == "-") {
-        if !rxDecConst.appearsIn(sourceLine) {
-            tokenString = ";ERROR: Malformed decimal constant."
-            return false
-        }
-        token = .lt_DEC_CONSTANT
-        tokenString = rxDecConst.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (firstChar == ".") {
-        if !rxDotCommand.appearsIn(sourceLine) {
-            tokenString = ";ERROR: Malformed dot command."
-            return false
-        }
-        token = .lt_DOT_COMMAND
-        tokenString = rxDotCommand.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (firstChar.isLetter() || firstChar == "_") {
-        if !rxIdentifier.appearsIn(sourceLine) {
-            // this should not occur, as one-character identifiers are valid
-            tokenString = ";ERROR: Malformed identifier."
-            return false
-        }
-        tokenString = rxIdentifier.matchesIn(sourceLine)[0]
-        token = tokenString.characters.last == ":" ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    if (firstChar == "\"") {
-        if !rxStringConst.appearsIn(sourceLine) {
-            tokenString = ";ERROR: Malformed string constant."
-            return false
-        }
-        token = .lt_STRING_CONSTANT
-        tokenString = rxStringConst.matchesIn(sourceLine)[0]
-        sourceLine.remove(0, tokenString.length)
-        return true
-    }
-    tokenString = ";ERROR: Syntax error."
-    return false
-}
 
 
 /// The highest level of abstraction in Pep9Pad.
@@ -136,6 +43,20 @@ class AssemblerModel {
     var listing: [String] = []
     
     
+    /// The number of times a .BURN directive is found in the current project.
+    /// Should equal 0 unless installing an OS (in which case it should be equal to (not greater than) 1).
+    var burnCount: Int = 0
+    /// The number of bytes occupied by the current line.
+    var byteCount: Int = 0
+    /// The end of the ROM, written in Asmb as .BURN 0xFFFF or whatever.
+    var dotBurnArgument: Int = 0
+    /// The beginning of ROM, which is the dotBurnArgument - the size of the OS.
+    var romStartAddress: Int = 0
+    /// The list of all referenced symbols in the assembly program.  
+    /// Each element is a 2-touple with a `source` and `lineNumber` attribute.
+    var referencedSymbols: [ReferencedSymbol] = []
+    
+    
     
     // MARK: - Methods
     // Pre: self.textView.text contains a Pep/9 source program.
@@ -144,97 +65,99 @@ class AssemblerModel {
     // Post: pep.symbolTable is populated with values not adjusted for .BURN.
     // Post: pep.byteCount is the byte count for the object code not adjusted for .BURN.
     // Post: pep.burnCount is the number of .BURN instructions encountered in the source program.
-//    func assemble() -> Bool {
-//        pep.burnCount = 0
-//        
-//        var sourceLine: String
-//        var errorString: String
-//        var sourceCodeList: [String]
-//        var code: Code
-//        var lineNum: Int = 0
-//        var dotEndDetected: Bool = false
-//        
-//        //removeErrorMessages();
-//        //Asm.listOfReferencedSymbols.removeAll()
-//        //Asm::listOfReferencedSymbolLineNums.removeAll()
-//        pep.memAddrssToAssemblerListing.removeAll()
-//        pep.symbolTable.removeAll()
-//        pep.adjustSymbolValueForBurn.removeAll()
-//        pep.symbolFormat.removeAll()
-//        pep.symbolFormatMultiplier.removeAll();
-//        pep.symbolTraceList.removeAll() // Does this clear the lists within the map?
-//        pep.globalStructSymbols.removeAll()
-//        pep.blockSymbols.removeAll()
-//        pep.equateSymbols.removeAll()
-//        source.removeAll()
-//        
-//        sourceCodeList = projectModel.sourceStr.components(separatedBy: "\n")
-//        pep.byteCount = 0
-//        pep.burnCount = 0
-//        
-//        while (lineNum < sourceCodeList.count && !dotEndDetected) {
-//            sourceLine = sourceCodeList[lineNum]
-//            if (!Asm::processSourceLine(sourceLine, lineNum, code, errorString, dotEndDetected)) {
-//                source[lineNum].comment.append(errorString)
-//                return false
-//            }
-//            source.append(code)
-//            lineNum += 1
-//        }
-//        
-//        // check for existence of .END
-//        if (!dotEndDetected) {
-//            errorString = ";ERROR: Missing .END sentinel."
-//            source[0].comment.append(errorString)
-//            return false
-//        }
-//        
-//        // check size of program
-//        if (pep.byteCount > 65535) {
-//            errorString = ";ERROR: Object code size too large to fit into memory."
-//            source[0].comment.append(errorString)
-//            return false
-//        }
-//        
-//        // check for unused symbols
-//        for (int i = 0; i < Asm::listOfReferencedSymbols.length(); i++) {
-//            if (!pep.symbolTable.contains(Asm::listOfReferencedSymbols[i])
-//                && !(Asm::listOfReferencedSymbols[i] == "charIn")
-//                && !(Asm::listOfReferencedSymbols[i] == "charOut")) {
-//                errorString = ";ERROR: Symbol " + Asm::listOfReferencedSymbols[i] + " is used but not defined.";
-//                appendMessageInSourceCodePaneAt(Asm::listOfReferencedSymbolLineNums[i], errorString);
-//                return false;
-//            }
-//        }
-//        
-//        
-//        pep.traceTagWarning = false
-//        for (int i = 0; i < codeList.size(); i++) {
-//            if (!codeList[i]->processFormatTraceTags(lineNum, errorString)) {
-//                appendMessageInSourceCodePaneAt(lineNum, errorString);
-//                pep.traceTagWarning = true;
-//            }
-//        }
-//        
-//        
-//        if (!pep.traceTagWarning && !(pep.blockSymbols.isEmpty() && pep.equateSymbols.isEmpty())) {
-//            for (int i = 0; i < codeList.size(); i++) {
-//                if (!codeList[i]->processSymbolTraceTags(lineNum, errorString)) {
-//                    appendMessageInSourceCodePaneAt(lineNum, errorString);
-//                    pep.traceTagWarning = true;
-//                }
-//            }
-//        }
-//        
-//        
-////            traceVC.setMemoryTrace()
-////            listingVC.showListing()
-//
-//        return true
-//
-//        }
-//
-//    }
+    func assemble() -> Bool {
+        maps.burnCount = 0
+        
+        // Initialize these here, otherwise the processSourceLine call later on complains that the passed-by-ref variables are not initialized.
+        var sourceLine: String = ""
+        var errorString: String = ""
+        var sourceCodeList: [String]
+        var code: Code = Code()
+        var lineNum: Int = 0
+        var dotEndDetected: Bool = false
+        
+        //removeErrorMessages();
+        referencedSymbols.removeAll()
+        maps.memAddrssToAssemblerListing.removeAll()
+        maps.symbolTable.removeAll()
+        maps.adjustSymbolValueForBurn.removeAll()
+        maps.symbolFormat.removeAll()
+        maps.symbolFormatMultiplier.removeAll()
+        maps.symbolTraceList.removeAll() // Does this clear the lists within the map?
+        maps.globalStructSymbols.removeAll()
+        maps.blockSymbols.removeAll()
+        maps.equateSymbols.removeAll()
+        source.removeAll()
+        
+        sourceCodeList = projectModel.sourceStr.components(separatedBy: "\n")
+        maps.byteCount = 0
+        maps.burnCount = 0
+        
+        while (lineNum < sourceCodeList.count && !dotEndDetected) {
+            sourceLine = sourceCodeList[lineNum]
+            if (!processSourceLine(sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected)) {
+                source[lineNum].comment.append(errorString)
+                return false
+            }
+            source.append(code)
+            lineNum += 1
+        }
+        
+        // check for existence of .END
+        if (!dotEndDetected) {
+            errorString = ";ERROR: Missing .END sentinel."
+            source[0].comment.append(errorString)
+            return false
+        }
+        
+        // check size of program
+        if (maps.byteCount > 65535) {
+            errorString = ";ERROR: Object code size too large to fit into memory."
+            source[0].comment.append(errorString)
+            return false
+        }
+        
+        // check for unused symbols
+        for i in 0..<referencedSymbols.count {
+            if (!Array(maps.symbolTable.keys).contains(assembler.referencedSymbols[i].symbol)
+                && !(assembler.referencedSymbols[i].symbol == "charIn")
+                && !(assembler.referencedSymbols[i].symbol == "charOut")) {
+                errorString = ";ERROR: Symbol " + referencedSymbols[i].symbol + " is used but not defined."
+                projectModel.appendMessageInSource(atLine: referencedSymbols[i].lineNumber, message: errorString)
+                return false;
+            }
+        }
+        
+        
+        maps.traceTagWarning = false
+
+        // check format trace tags
+        for i in 0..<assembler.source.count {
+            if (!assembler.source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
+                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                maps.traceTagWarning = true
+            }
+        }
+        
+        // check symbol trace tags
+        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
+            for i in 0..<assembler.source.count {
+                if !(assembler.source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
+                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                    maps.traceTagWarning = true
+                }
+            }
+        }
+        
+        // these have been moved to the assembleSource function in the Pep9DetailController
+        //traceVC.setMemoryTrace()
+        //listingVC.showListing()
+        
+        return true
+        
+    }
+    
+
     
     
     
@@ -937,7 +860,7 @@ class AssemblerModel {
     func getObjectCode() -> [Int] {
         object.removeAll()
         for i in 0...source.count {
-            source[i].appendObjectCode(objectCode: object)
+            source[i].appendObjectCode(objectCode: &object)
         }
         return object
     }
