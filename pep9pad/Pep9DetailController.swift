@@ -607,15 +607,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
-            //TODO {
-            if let filePath = Bundle.main.path(forResource: "myFirstProgram", ofType: "pep") {
-                print("File path loaded.")
-                if let fileData = NSData(contentsOfFile: filePath) {
-                    print("File data laoded.")
-                    mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: "myFirstProgram")
-                    self.present(mailComposeViewController, animated: true, completion: nil)
-                }
+            
+            if let fileData = projectModel.sourceStr.data(using: .utf8) {
+                print("File data lauded.")
+                mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: projectModel.name)
+                self.present(mailComposeViewController, animated: true, completion: nil)
             }
+            
             // } ENDTODO
         } else {
             self.showSendMailErrorAlert()
