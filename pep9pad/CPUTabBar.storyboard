@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Trace-->
         <scene sceneID="huy-lY-ero">
             <objects>
-                <viewController id="oQ6-FE-GzM" sceneMemberID="viewController">
+                <viewController id="oQ6-FE-GzM" customClass="CPUDebugController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ME0-PE-daO"/>
                         <viewControllerLayoutGuide type="bottom" id="ffv-Se-jI9"/>
@@ -31,7 +31,7 @@
         <!--Visual-->
         <scene sceneID="7gg-EU-r0k">
             <objects>
-                <viewController id="In7-7O-iUd" sceneMemberID="viewController">
+                <viewController id="In7-7O-iUd" customClass="CPUVisualController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qsx-YS-CwL"/>
                         <viewControllerLayoutGuide type="bottom" id="QA8-iO-Kcw"/>
@@ -50,7 +50,7 @@
         <!--Split-->
         <scene sceneID="EUT-DB-XFA">
             <objects>
-                <viewController id="gna-lT-Gon" sceneMemberID="viewController">
+                <viewController id="gna-lT-Gon" customClass="CPUSplitController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Euj-Ad-eit"/>
                         <viewControllerLayoutGuide type="bottom" id="SJf-az-k8d"/>
