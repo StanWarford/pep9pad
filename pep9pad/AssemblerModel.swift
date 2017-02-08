@@ -135,7 +135,7 @@ class AssemblerModel {
     // Post: self.hasCheckBox is populated with the checkBox list that specifies whether a trace line can have a break point.
     // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
-        // PLACEHOLDER
+        listing.removeAll()
         return [""]
     }
     
