@@ -11,14 +11,42 @@ import Foundation
 class DotAddress: Code {
     
     private var argument: Argument!
-
     
-    override func appendObjectCode(objectCode: inout [Int]) {
-        // Placeholder
+    
+    override func appendObjectCode( objectCode:inout [Int]) {
+        var objectCode = objectCode
+        if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
+            var symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
+            objectCode.append(symbolValue / 256)
+            objectCode.append(symbolValue % 256)
+        }
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        // Placeholder
+        var hasCheckBox = hasCheckBox
+        //QString memStr = QString("%1").arg(memAddress, 4, 16, QLatin1Char('0')).toUpper();
+        var symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!;
+        //QString codeStr = QString("%1").arg(symbolValue, 4, 16, QLatin1Char('0')).toUpper();
+        if maps.burnCount == 1 && memAddress < maps.romStartAddress {
+            //codeStr = "    ";
+        }
+        var symbolStr: String = symbolDef;
+        if (symbolStr.length > 0) {
+            symbolStr.append(":")
+        }
+        var dotStr: String = ".ADDRSS"
+        var oprndStr: String = argument.getArgumentString();
+        /*QString lineStr = QString("%1%2%3%4%5%6")
+         .arg(memStr, -6, QLatin1Char(' '))
+         .arg(codeStr, -7, QLatin1Char(' '))
+         .arg(symbolStr, -9, QLatin1Char(' '))
+         .arg(dotStr, -8, QLatin1Char(' '))
+         .arg(oprndStr, -12)
+         .arg(comment);*/
+        //assembler.listing.append(lineStr);    MARK
+        //listingTrace.append(lineStr);         MARK
+        hasCheckBox.append(false);
+        
     }
 }
 
@@ -28,12 +56,48 @@ class DotAlign: Code {
     private var argument: Argument!
     private var numBytesGenerated: Argument!
     
-    override func appendObjectCode(objectCode: inout [Int]) {
-        // Placeholder
+    override func appendObjectCode(objectCode:inout [Int]) {
+        var objectCode = objectCode
+        if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
+            var symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
+            objectCode.append(symbolValue / 256)
+            objectCode.append(symbolValue % 256)
+        }
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        // Placeholder
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
+        var assemblerListing = assemblerListing
+        var listingTrace = listingTrace
+        var hasCheckBox = hasCheckBox
+        var numBytes: Int = numBytesGenerated.getArgumentValue()
+        var memStr: String = "numBytes" //== 0 ? "       " :  MARK
+        var codeStr: String = ""
+        while numBytes > 0 && codeStr.length < 6 {
+            codeStr.append("00")
+            numBytes = numBytes - 1
+        }
+        if maps.burnCount == 1 && memAddress < maps.romStartAddress {
+            codeStr = "       "
+        }
+        var symbolStr: String = symbolDef
+        if symbolStr.length > 0 {
+            symbolStr.append(":")
+        }
+        var dotStr: String = ".ALIGN"
+        var oprndStr: String = argument.getArgumentString()
+        var lineStr: String = ("")//.addingPercentEncoding(withAllowedCharacters: <#T##CharacterSet#>) MARK
+        assemblerListing.append(lineStr)
+        listingTrace.append(lineStr)
+        hasCheckBox.append(false)
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
+            while numBytes > 0 {
+                codeStr = ""
+                while numBytes > 0 && codeStr.length < 6 {
+                    codeStr.append("00")
+                    numBytes = numBytes - 1
+                }
+            }
+        }
     }
 }
 
@@ -42,13 +106,61 @@ class DotAlign: Code {
 class DotAscii: Code {
     
     private var argument: Argument!
-
-    override func appendObjectCode(objectCode: inout [Int]) {
-        // Placeholder
+    
+    override func appendObjectCode(objectCode:inout [Int]) {
+        var objectCode = objectCode
+        if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
+            var value: Int = 0   // MARK
+            var str: String = argument.getArgumentString()
+            str.remove(0, 1)
+            str.chop()
+            while str.length > 0 {
+                //assembler.unquotedStringToInt(str, value) //MARK
+                objectCode.append(value)
+            }
+        }
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        // Placeholder
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
+        var assemblerListing = assemblerListing
+        var listingTrace = listingTrace
+        var hasCheckBox = hasCheckBox
+        var memStr: String = "" // MARK
+        var str: String = argument.getArgumentString()
+        str.remove(0, 1)
+        str.chop()
+        var value: Int
+        var codeStr: String = ""
+        while str.length < 0 && codeStr.length < 6 {
+            // assembler.unquotedStringToInt(str, value)
+            codeStr.append("") // MARK
+        }
+        if maps.burnCount == 1 && memAddress < maps.romStartAddress {
+            codeStr = "      "
+        }
+        var symbolStr: String = symbolDef
+        if symbolStr.length > 0 {
+            symbolStr.append(":")
+        }
+        var dotStr: String = ".ASCII"
+        var oprndStr: String = argument.getArgumentString()
+        var lineStr = "" // MARK
+        assemblerListing.append(lineStr)
+        listingTrace.append(lineStr)
+        hasCheckBox.append(false)
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
+            while str.length > 0 {
+                codeStr = ""
+                while str.length > 0 && codeStr.length < 6 {
+                    // assembler.unquotedStringToInt(str, value)
+                    codeStr.append("")  //  MARK
+                }
+                lineStr = ("      %1")//    MARK
+                assemblerListing.append(lineStr)
+                listingTrace.append(lineStr)
+                hasCheckBox.append(false)
+            }
+        }
     }
 }
 
@@ -57,23 +169,71 @@ class DotAscii: Code {
 class DotBlock: Code {
     
     private var argument: Argument!
-
     
-    override func appendObjectCode(objectCode: inout [Int]) {
+    
+    override func appendObjectCode(objectCode:inout [Int]) {
+        var objectCode = objectCode
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
+            for i in 0..<argument.getArgumentValue() {
+                objectCode.append(0)
+            }
+        }
+    }
+    
+    override func appendSourceLine(assemblerListing: inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
+        var assemblerListing = assemblerListing
+        var listingTrace = listingTrace
+        var hasCheckBox = hasCheckBox
+        var memStr: String = ("") // MARK
+        var numBytes: Int = argument.getArgumentValue()
+        var codeStr: String = ""
+        while numBytes > 0 && codeStr.length < 6  {
+            codeStr.append("00")
+            numBytes = numBytes - 1
+        }
+        if maps.burnCount == 1 && memAddress < maps.romStartAddress {
+            codeStr = "       "
+        }
+        var symbolStr: String = symbolDef
+        if symbolStr.length > 0 {
+            symbolStr.append(":")
+        }
+        var dotStr: String = ".BLOCK"
+        var oprndStr: String = argument.getArgumentString()
+        var lineStr:String = ("")   //   MARK
+        assemblerListing.append(lineStr)
+        listingTrace.append(lineStr)
+        hasCheckBox.append(false)
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
+            while numBytes > 0 {
+                codeStr = ""
+                while numBytes > 0 && codeStr.length < 6 {
+                    codeStr.append("00")
+                    numBytes = numBytes - 1
+                }
+                lineStr = ("")  // MARK
+                assemblerListing.append(lineStr)
+                listingTrace.append(lineStr)
+                hasCheckBox.append(false)
+            }
+        }
+    }
+    
+    override func processFormatTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool { // MARK
+        /*if symbolDef.isEmpty {
+            return true
+        }
+        //var pos: Int = assembler.rxFormatTag .index(ofAccessibilityElement: comment)
+        if pos > -1 {
+            var formatTag: String = assembler.rxFormatTag // MARK
+            // var tagType: enum.ESymbolFormat = assembler.formatTag // MARK
+            //var multiplier: Int = assembler.formatMultiplier*/
+            return true
+        //}
+    }
+    
+    override func processSymbolTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool {
         // Placeholder
-    }
-    
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        // Placeholder
-    }
-    
-    override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
-        // placeholder
-        return true
-    }
-    
-    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
-        // placeholder
         return true
     }
 }
@@ -82,13 +242,13 @@ class DotBlock: Code {
 class DotBurn: Code {
     
     private var argument: Argument!
-
     
-    override func appendObjectCode(objectCode: inout [Int]) {
+    
+    override func appendObjectCode(objectCode:inout [Int]) {
         // Placeholder
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
         // Placeholder
     }
 }
@@ -96,23 +256,23 @@ class DotBurn: Code {
 class DotByte: Code {
     
     private var argument: Argument!
-
     
-    override func appendObjectCode(objectCode: inout [Int]) {
+    
+    override func appendObjectCode(objectCode:inout [Int]) {
         // Placeholder
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
         // Placeholder
     }
 }
 
 class DotEnd: Code {
-    override func appendObjectCode(objectCode: inout [Int]) {
+    override func appendObjectCode(objectCode:inout [Int]) {
         // Placeholder
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
         // Placeholder
     }
 }
@@ -122,15 +282,15 @@ class DotEquate: Code {
     
     private var argument: Argument!
     
-    override func appendObjectCode(objectCode: inout [Int]) {
+    override func appendObjectCode(objectCode:inout [Int]) {
         // Placeholder
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
         // Placeholder
     }
     
-    override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
+    override func processFormatTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool {
         // Placeholder
         return true
     }
@@ -140,13 +300,13 @@ class DotEquate: Code {
 class DotWord: Code {
     
     private var argument: Argument!
-
     
-    override func appendObjectCode(objectCode: inout [Int]) {
+    
+    override func appendObjectCode(objectCode:inout [Int]) {
         // Placeholder
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
         // Placeholder
     }
     

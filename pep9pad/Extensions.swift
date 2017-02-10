@@ -119,6 +119,10 @@ extension String {
     func trimmed() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
+    
+    mutating func chop() {
+        self.characters.removeLast()
+    }
 }
 
 
