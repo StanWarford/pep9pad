@@ -91,7 +91,7 @@ class DotBurn: Code {
     override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String // MARK: NEED TO UPDATE
+        var memStr: String = memAddress.toHex4()
         var symbolStr = symbolDef;
         if (symbolStr.characters.count > 0) {
             symbolStr.append(":")
@@ -120,8 +120,8 @@ class DotByte: Code {
     override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String // MARK: NEED TO UPDATE
-        var codeStr: String // MARK: NEED TO UPDATE
+        var memStr: String = memAddress.toHex4()
+        var codeStr: String = argument.getArgumentValue().toHex4()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "  "
         }
