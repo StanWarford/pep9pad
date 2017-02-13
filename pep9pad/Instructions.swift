@@ -60,7 +60,7 @@ class NonUnaryInstruction: Code {
         var hasCheckBox = hasCheckBox
         var memStr: String // MARK: NEED TO UPDATE
         var temp: Int // MARK: NEED TO DO
-        temp += maps.addrModeRequiredMap.values ? maps.aaaAddressField(addressMode: addressingMode) : maps.aAddressField(addressMode: addressingMode)
+        // temp += maps.addrModeRequiredMap.values ? maps.aaaAddressField(addressMode: addressingMode) : maps.aAddressField(addressMode: addressingMode)
         var codeStr: String // MARK: NEED TO UPDATE
         var oprndNumStr: String // MARK: NEED TO UPDATE
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
@@ -87,13 +87,61 @@ class NonUnaryInstruction: Code {
         if pos > -1 {
             var list: String
             // MARK: NEED TO DO THIS
-            // TO BE CONTINUED
+            // MARK NEED TO DO THIS
+            // MARK: NEED TO IMPLEMENT CODE BELOW
+            // var multiplier: Int = assembler.formatMultiplier(formatTag)
+            // MARK: NEED TO DO 
+            if !maps.equateSymbols.contains(symbolDef) {
+                maps.equateSymbols.append(symbolDef)
+            }
+            // MARK: NEED TO DO
+            // MARK: NEED TO DO
+            list.append(symbolDef)
+            // MARK: NEED TO DO
         }
         return true
     }
     
     override func processSymbolTraceTags(sourceLine: Int, errorString: String) -> Bool {
-        // Placeholder
-        return true
+        var sourceLine = sourceLine
+        var errorString = errorString
+        if mnemonic == EMnemonic.ADDSP || mnemonic == EMnemonic.SUBSP {
+            var numBytesAllocated: Int
+            if addressingMode != EAddrMode.I {
+                errorString = ";WARNING: Stack trace not possible unless immediate addressing is specified"
+                sourceLine = sourceCodeLine
+                return false
+            }
+            //numBytesAllocated = argument.getArgumentString()
+            var symbol: String
+            var list: [String]
+            var numBytesListed: Int = 0
+            var pos: Int = 0
+            while (pos = assembler.rxSymbolTag.indexIn(comment, pos)) != -1 {
+                symbol = assembler.rxSymbolTag.cap(1)
+                if !maps.equateSymbols.contains(symbol) {
+                    errorString = ";WARNING: " + symbol + " not specified in .EQUATE."
+                    sourceLine = sourceCodeLine
+                    return false
+                }
+                numBytesListed += assembler.tagNumBytes(maps.symbolFormat.values) * maps.symbolFormatMultiplier.values
+                list.append(symbol)
+                pos += assembler.rxSymbolTag.matchedLength()
+            }
+            if numBytesAllocated != numBytesListed {
+                var message: String = (mnemonic == EMnemonic.ADDSP) ? "deallocated" : "allocated"
+                errorString = // TODO
+                // TODO
+                return false
+            }
+            // TODO
+            return true
+        }
+        else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
+            var pos: Int = 0
+            var symbol: String
+            var list: [String]
+            // MARK: ALL CODE BELOW TODO
+        }
     }
 }
