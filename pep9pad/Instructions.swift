@@ -20,7 +20,7 @@ class UnaryInstruction: Code {
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String = memAddress.toHex4()
+        let memStr: String = memAddress.toHex4()
         var codeStr: String = maps.opCodeMap[mnemonic]!.toHex4()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "  "
@@ -29,8 +29,12 @@ class UnaryInstruction: Code {
         if symbolStr.characters.count > 0 {
             symbolStr.append(":")
         }
-        var mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
-        var lineStr: String = "test" // MARK: TODO
+        let mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
+        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: " ", fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
+        lineStr.append(mnemonStr.stringFormatter(str: " ", fixLength: 8))
+        lineStr.append("           " + comment)
         maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
         maps.listingRowChecked[assemblerListing.count] = false
         assembler.listing.append(lineStr)
@@ -48,24 +52,27 @@ class NonUnaryInstruction: Code {
     override func appendObjectCode(objectCode: inout [Int]) {
         var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
-            var instructionSpecifier = maps.opCodeMap.values
-            // MARK: TO BE CONTINUED
+            var instructionSpecifier = maps.opCodeMap[mnemonic]
+            if maps.addrModeRequiredMap[mnemonic]! {
+                instructionSpecifier = instructionSpecifier! + maps.aaaAddressField(addressMode: addressingMode)
+            } else {
+                instructionSpecifier = instructionSpecifier! +  maps.aAddressField(addressMode: addressingMode)
+            }
+            objectCode.append(instructionSpecifier!)
+            let operandSpecifier = argument.getArgumentValue()
+            objectCode.append(operandSpecifier / 256)
+            objectCode.append(operandSpecifier % 256)
         }
-        // MARK: NEED TO DO
-        var operandSpecifier = argument.getArgumentValue()
-        objectCode.append(operandSpecifier / 256)
-        objectCode.append(operandSpecifier % 256)
-        
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String // MARK: NEED TO UPDATE
-        var temp: Int // MARK: NEED TO DO
-        // temp += maps.addrModeRequiredMap.values ? maps.aaaAddressField(addressMode: addressingMode) : maps.aAddressField(addressMode: addressingMode)
-        var codeStr: String // MARK: NEED TO UPDATE
-        var oprndNumStr: String // MARK: NEED TO UPDATE
+        let memStr: String = memAddress.toHex4()
+        var temp: Int = maps.opCodeMap[mnemonic]!
+        temp += maps.addrModeRequiredMap[mnemonic]! ? maps.aaaAddressField(addressMode: addressingMode) : maps.aAddressField(addressMode: addressingMode)
+        var codeStr: String = temp.toHex4()
+        var oprndNumStr: String = argument.getArgumentValue().toHex4()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "  "
             oprndNumStr = "   "
@@ -74,18 +81,31 @@ class NonUnaryInstruction: Code {
         if symbolStr.characters.count > 0 {
             symbolStr.append(":")
         }
-        var mnemonStr: String // MARK: NEED TO UPDATE
+        let mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
         var oprndStr: String = argument.getArgumentString()
-        // MARK: NEED TO DO THIS
-        var lineStr: String = "TEST" // MARK: NEED TO UPDATE
-        // MARK: NEED TO DO THIS
-        // MARK: NEED TO DO THIS
+        if maps.addrModeRequiredMap[mnemonic]! {
+            oprndStr.append("," + maps.stringForAddrMode(addressMode: addressingMode))
+        } else if addressingMode == EAddrMode.X {
+            oprndStr.append("," + maps.stringForAddrMode(addressMode: addressingMode))
+        }
+        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: "", fixLength: 2))
+        lineStr.append(oprndNumStr.stringFormatter(str: " ", fixLength: 5))
+        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
+        lineStr.append(mnemonStr.stringFormatter(str: " ", fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        lineStr.append(comment)
+        maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
+        maps.listingRowChecked[assemblerListing.count] = false
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(true)
     }
     
     override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
+        if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
+            // MARK: TODO
+        }
         return true
     }
     
