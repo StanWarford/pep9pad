@@ -119,9 +119,9 @@ extension String {
     func trimmed() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-
-
-
+    
+    func 
+}
 
 extension Dictionary where Key:Any {
     func arrayOfKeys() -> [Any] {

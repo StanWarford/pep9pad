@@ -30,7 +30,7 @@ class UnaryInstruction: Code {
             symbolStr.append(":")
         }
         var mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
-        var lineStr: String = //
+        var lineStr: String = "test"
         // MARK: NEED TO DO
         // MARK: NEED TO DO
         assembler.listing.append(lineStr)
