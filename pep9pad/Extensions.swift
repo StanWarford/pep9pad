@@ -120,7 +120,9 @@ extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
-    func 
+    mutating func chop() {
+        self.characters.removeLast()
+    }
 }
 
 extension Dictionary where Key:Any {

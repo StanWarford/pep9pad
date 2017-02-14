@@ -725,7 +725,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         // PLACEHOLDER
         return true
 
-//        burnCount = 0
+//        var burnCount = 0
 //        if assembler.assemble() {
 //            // check for .BURN
 //            if burnCount > 0 {

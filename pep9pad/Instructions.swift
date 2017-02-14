@@ -10,14 +10,14 @@ import Foundation
 class UnaryInstruction: Code {
     private var mnemonic: EMnemonic!
     override init(){}
-    override func appendObjectCode(objectCode: [Int]) {
+    override func appendObjectCode(objectCode: inout [Int]) {
         var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             objectCode.append(maps.opCodeMap[mnemonic]!)
         }
     }
     
-    override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         var memStr: String = memAddress.toHex4()
@@ -45,7 +45,7 @@ class NonUnaryInstruction: Code {
     private var argument: Argument!
     override init() {}
     
-    override func appendObjectCode(objectCode: [Int]) {
+    override func appendObjectCode(objectCode: inout [Int]) {
         var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             var instructionSpecifier = maps.opCodeMap.values
@@ -58,7 +58,7 @@ class NonUnaryInstruction: Code {
         
     }
     
-    override func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {
+    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         var memStr: String // MARK: NEED TO UPDATE
@@ -85,23 +85,7 @@ class NonUnaryInstruction: Code {
         hasCheckBox.append(true)
     }
     
-    override func processFormatTraceTags(sourceLine: Int, errorString: String) -> Bool {
-        var pos: Int = assembler.rxFormatTag.index(ofAccessibilityElement: comment)
-        if pos > -1 {
-            var list: String
-            // MARK: NEED TO DO THIS
-            // MARK NEED TO DO THIS
-            // MARK: NEED TO IMPLEMENT CODE BELOW
-            // var multiplier: Int = assembler.formatMultiplier(formatTag)
-            // MARK: NEED TO DO 
-            if !maps.equateSymbols.contains(symbolDef) {
-                maps.equateSymbols.append(symbolDef)
-            }
-            // MARK: NEED TO DO
-            // MARK: NEED TO DO
-            list.append(symbolDef)
-            // MARK: NEED TO DO
-        }
+    override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         return true
     }
     

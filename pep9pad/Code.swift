@@ -8,6 +8,7 @@
 import Foundation
 
 /// Abstract class.  Each instance of this class represents one line of parsed assembly code.
+/// These are subclassed in Instructions.swift, Dots.swift, and NonExecutables.swift.
 class Code {
     
     internal var memAddress: Int = 0
@@ -15,19 +16,19 @@ class Code {
     internal var symbolDef: String = ""
     internal var comment: String = ""
     
-    func appendObjectCode(objectCode: [Int]) {}
+    func appendObjectCode(objectCode: inout [Int]) {}
     
-    func appendSourceLine(assemblerListing: [String], listingTrace: [String], hasCheckBox: [Bool]) {}
+    func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {}
     
     func adjustMemAddress(addressDelta: Int) {
         memAddress += addressDelta
     }
     
-    func processFormatTraceTags(sourceLine: Int, errorString: String) -> Bool {
+    func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         return true
     }
     
-    func processSymbolTraceTags(sourceLine: Int, errorString: String) -> Bool {
+    func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         return true
     }
     
