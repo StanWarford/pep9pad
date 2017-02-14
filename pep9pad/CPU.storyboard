@@ -1,15 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8MR-lD-wdI">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8MR-lD-wdI">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="DKj-43-hih">
             <objects>
                 <navigationController id="Brd-0H-ER3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b12-jd-Olr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="b12-jd-Olr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -30,28 +35,55 @@
                         <viewControllerLayoutGuide type="bottom" id="JJI-nJ-Oxh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vmG-m9-50S">
-                        <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CPU placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-YH-0Gq">
-                                <rect key="frame" x="0.0" y="64" width="694" height="704"/>
-                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wk4-yE-xb4">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="qht-iR-JGP" kind="embed" id="u1H-O8-Nhq"/>
+                                </connections>
+                            </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XPH-YH-0Gq" firstAttribute="top" secondItem="fl6-18-gOj" secondAttribute="bottom" id="74o-zH-EyV"/>
-                            <constraint firstItem="XPH-YH-0Gq" firstAttribute="bottom" secondItem="JJI-nJ-Oxh" secondAttribute="top" id="HaA-cV-jow"/>
-                            <constraint firstAttribute="trailing" secondItem="XPH-YH-0Gq" secondAttribute="trailing" id="O1O-Hq-9Vh"/>
-                            <constraint firstItem="XPH-YH-0Gq" firstAttribute="leading" secondItem="vmG-m9-50S" secondAttribute="leading" id="izD-j1-hpi"/>
-                        </constraints>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kEW-wl-1l9"/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-2/3"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="kEW-wl-1l9">
+                        <leftBarButtonItems>
+                            <barButtonItem title="▶️" id="AYM-GG-w3G"/>
+                            <barButtonItem title="🐛" id="mii-Hf-U0y"/>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="shC-2O-NRf"/>
+                            <barButtonItem title="⚙" id="AE2-Ug-R6S"/>
+                            <barButtonItem title="calc" id="KV5-4F-g8V"/>
+                            <barButtonItem title="Aa" id="q9p-vn-jrz"/>
+                            <barButtonItem title="Bus" id="nwr-pZ-qxT"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="actionBtn" destination="shC-2O-NRf" id="LnX-4v-zaR"/>
+                        <outlet property="busBtn" destination="nwr-pZ-qxT" id="kLG-pi-NOh"/>
+                        <outlet property="calcBtn" destination="KV5-4F-g8V" id="z7m-fD-5Aj"/>
+                        <outlet property="debugBtn" destination="mii-Hf-U0y" id="R9j-4s-yN4"/>
+                        <outlet property="fontBtn" destination="q9p-vn-jrz" id="2sP-5s-E4Y"/>
+                        <outlet property="runBtn" destination="AYM-GG-w3G" id="8nB-I3-RYl"/>
+                        <outlet property="settingsBtn" destination="AE2-Ug-R6S" id="TDU-8L-vVY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXd-BD-Ume" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-54" y="-315"/>
+            <point key="canvasLocation" x="-54.4921875" y="-315.625"/>
+        </scene>
+        <!--CPUTabBar-->
+        <scene sceneID="f5Q-FG-96s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CPUTabBar" id="qht-iR-JGP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KMW-iX-Odr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="390" y="-316"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yms-yW-iO2">
@@ -83,14 +115,14 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhP-xu-dpr">
                                 <rect key="frame" x="0.0" y="509" width="320" height="259"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-2B-FFr">
                                 <rect key="frame" x="0.0" y="64" width="320" height="437"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.42148951480263158" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.42148951480263158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nhP-xu-dpr" firstAttribute="leading" secondItem="OZO-2B-FFr" secondAttribute="leading" id="Aav-UE-Cf2"/>
                             <constraint firstItem="OZO-2B-FFr" firstAttribute="top" secondItem="qMb-oE-xCe" secondAttribute="bottom" id="SJa-Vj-E5w"/>
@@ -108,9 +140,8 @@
                                 <action selector="homeButtonPressed:" destination="nmb-1W-Fcm" id="tCN-ex-Bk4"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="Cw6-9T-WKr"/>
                     </navigationItem>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad-1/3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk1-K4-Ibb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,7 +161,4 @@
             <point key="canvasLocation" x="-1636" y="-668"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="CPU placeholder" width="660" height="700"/>
-    </resources>
 </document>

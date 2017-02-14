@@ -15,11 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        
         if isFirstLaunch {
             GlobalUserInitiatedQueue.async {
-                setupFS()
+                p9FileSystem.setup()
+                cpuFileSystem.setup()
             }
         }
         
@@ -28,12 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
+    
+    
+    
+    /// The name of the stored NSUserDefault value below.  Has to be super long to differentiate it from similar keys from other apps.
+    let firstLaunchKey: String = "Pep9PadFirstLaunchDateSpecialKey"
     /// A property stored in `NSUserDefaults` which is set to `true` upon installation of the app.
     /// The first launch of the app permanently sets this value to `false`.
     var isFirstLaunch: Bool {
         get {
-            if (UserDefaults.standard.object(forKey: "firstLaunchDate") == nil) {
-                UserDefaults.standard.set(Date(), forKey: "firstLaunchDate")
+            if (UserDefaults.standard.object(forKey: firstLaunchKey) == nil) {
+                UserDefaults.standard.set(Date(), forKey: firstLaunchKey)
                 UserDefaults.standard.synchronize()
                 return true
             } else {
@@ -41,8 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
-
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

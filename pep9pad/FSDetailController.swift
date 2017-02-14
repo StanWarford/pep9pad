@@ -25,7 +25,7 @@ class FSDetailController: UIViewController {
     // MARK: - Methods
     
     internal func loadFile(_ named: String) {
-        if let file: FSEntity = loadProjectFromFS(named: named) {
+        if let file: P9Project = p9FileSystem.loadProject(named: named) {
             textView.setText(file.source)
             nameOfDisplayedFile = named
         } else {

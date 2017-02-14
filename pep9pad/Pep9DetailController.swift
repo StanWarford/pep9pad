@@ -7,14 +7,16 @@
 
 import UIKit
 import FontAwesome_swift
+import MessageUI
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
 typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
 
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
-/// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.  
-class Pep9DetailController: UIViewController, UITabBarDelegate {
+/// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
+
+class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeViewControllerDelegate {
     
     internal var master: Pep9MasterController!
     internal var tabBar: UITabBarController!
@@ -43,6 +45,30 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    //MARK: Mail Composition
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients([])
+        mailComposerVC.setSubject("Subject of you mail")
+        mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let mailAlert = UIAlertController(title: "Error", message: "Could not send mail.", preferredStyle: .alert)
+        mailAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(mailAlert, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     
@@ -220,7 +246,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(saveAction)
         
         let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
-            self.shareProjectBtnPressed()
+            self.shareProjectBtnPressed(sender: self.actionBtn)
         }
         shareAction.isEnabled = (projectModel.fsState != .Blank)
         alertController.addAction(shareAction)
@@ -365,7 +391,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 print("saving changes and creating a new project")
-                projectModel.saveProjectInFS()
+                projectModel.saveProject()
                 projectModel.newBlankProject()
                 self.updateEditorsFromProjectModel()
             }
@@ -401,8 +427,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 alertController.addAction(cancelAction)
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveAsNewProjectInFS(withName: name)
+                    if p9FileSystem.validNameForProject(name: name) {
+                        projectModel.saveAsNewProject(withName: name)
                         projectModel.newBlankProject()
                         self.updateEditorsFromProjectModel()
                         print("saving current project with the given name and creating a new project")
@@ -456,8 +482,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 // save changes and present fs
                 print("saving changes and opening a preexisting project")
-                projectModel.saveProjectInFS()
+                projectModel.saveProject()
                 //self.updateEditorsFromProjectModel()
+                self.presentFileSystem()
             }
             alertController.addAction(yesAction)
             
@@ -465,6 +492,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 // discard changes and present fs
                 print("discarding changes and opening a preexisting project")
                 //self.updateEditorsFromProjectModel()
+                self.presentFileSystem()
             }
             alertController.addAction(noAction)
             
@@ -472,7 +500,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 // Don't do anything
             }
             alertController.addAction(cancelAction)
-            
             self.present(alertController, animated: true)
         case .UnsavedUnnamed:
             // project has never been saved
@@ -490,11 +517,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     print("saving current project with the given name and opening a preexisting project")
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveAsNewProjectInFS(withName: name)
+                    if p9FileSystem.validNameForProject(name: name) {
+                        projectModel.saveAsNewProject(withName: name)
                         self.updateEditorsFromProjectModel()
+                        self.presentFileSystem()
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
+                        self.presentFileSystem()
                     }
                 }
                 alertController.addAction(okAction)
@@ -505,6 +534,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 print("destroying this project and opening a preexisting project")
+                self.presentFileSystem()
+
             }
             alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -516,9 +547,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .SavedNamed, .Blank:
             // these go together, as in both instances there is nothing (more) to save
             print("opening a preexisting project")
-            break
+            self.presentFileSystem()
         }
         
+    }
+    
+    
+    func presentFileSystem() {
         let vc = UIStoryboard(name: "FileSystem", bundle: Bundle.main).instantiateInitialViewController()
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {
@@ -535,7 +570,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             // project has not been saved recently
             // Rather than present an alertController here, I say we just update the fs.  
             // Having an "are you sure?" message seems redundant for something as innocuous as a save.
-            projectModel.saveProjectInFS()
+            projectModel.saveProject()
 
         case .UnsavedUnnamed:
             // project has never been saved
@@ -551,8 +586,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 print("saving current project with the given name and opening a preexisting project")
                 let name = (alertController.textFields?.first?.text)!
-                if validNameForFS(name: name) {
-                    projectModel.saveAsNewProjectInFS(withName: name)
+                if p9FileSystem.validNameForProject(name: name) {
+                    projectModel.saveAsNewProject(withName: name)
                     self.updateEditorsFromProjectModel()
                 } else {
                     print("invalid (non-unique or too short) name for project, giving up save")
@@ -568,8 +603,23 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
-    func shareProjectBtnPressed() {
-        
+    func shareProjectBtnPressed(sender: AnyObject) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.source), mimeType: "txt", fileName: projectModel.name.appending(".pep"))
+            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.object), mimeType: "txt", fileName: projectModel.name.appending(".pepo"))
+            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.listing), mimeType: "txt", fileName: projectModel.name.appending(".pepl"))
+            self.present(mailComposeViewController, animated: true, completion: nil)
+//            if let fileData = projectModel.sourceStr.data(using: .utf8) {
+//                print("File data lauded.")
+//                mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: projectModel.name)
+//                self.present(mailComposeViewController, animated: true, completion: nil)
+//            }
+            
+            // } ENDTODO
+        } else {
+            self.showSendMailErrorAlert()
+        }
     }
     
     /// Try to load the given example.  Depending on `self.fsState`, this function may present the user with options (e.g. if the user has never saved the current project) before loading the given example.  If the user chooses to cancel this save operation, the function returns false.
@@ -579,7 +629,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .UnsavedNamed:
             // project has not been saved recently
             // rather than present an alertController here, I say we just update the fs automatically
-            projectModel.saveProjectInFS()
+            projectModel.saveProject()
         case .UnsavedUnnamed:
             // project has never been saved
             
@@ -600,8 +650,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     print("saving current project with the given name and loading the given example")
                     let name = (alertController.textFields?.first?.text)!
-                    if validNameForFS(name: name) {
-                        projectModel.saveAsNewProjectInFS(withName: name)
+                    if p9FileSystem.validNameForProject(name: name) {
+                        projectModel.saveAsNewProject(withName: name)
                     } else {
                         print("invalid (non-unique or too short) name for project, giving up save")
                     }

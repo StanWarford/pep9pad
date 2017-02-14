@@ -25,12 +25,8 @@ Storyboard Challenges...
 * Add object and listing fields to FileSystemDetailController, separate into three vertical components. 
 * Add separator to help code views (leave some space in between 'em and make the background dark).
 * Finish FontMenu.xib, figure out how to load it from AMPopTip 
-* General issue with sizing in IOMem (extending underneath P9Processor?)
-* Memory view needs to have scroll bar
 * Remove all autocomplete stuff in any textfield
 * Fix I/O font (refrence appSettings.font) and add separator, also fix placement
-* Capitalize the labels in ByteCalc.
-* Make UITextFields in Help system non-editable
 * Action preservation for ”are you sure you don’t want to save changes?" alert
 
 
@@ -52,8 +48,9 @@ Coding Challenges...
 * Make the Email UIAlertView (see Documentation/Email and search www.bing.com for "MFMailCompose")
 * Add persistence to the settings using NSUserDefaults
 * Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug. (RegExp is being weird, this might mean we're missing an escape character somewhere)
+
 * Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
-* Ensure that the ByteCalc's 'Hex' field always displays '0x' (not editable).
+
 
 Machine/Simulator...
 * Write vonNeumannStep(:), translate from the matching function in Sim.cpp

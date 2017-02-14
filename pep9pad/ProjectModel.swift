@@ -53,7 +53,7 @@ class ProjectModel {
     /// from the filesystem (coredata database).
     /// Returns `false` if no project is found with the given name.
     func loadExistingProject(named n: String) -> Bool {
-        if let file: FSEntity = loadProjectFromFS(named: n) {
+        if let file: P9Project = p9FileSystem.loadProject(named: n) {
             fsState = .SavedNamed
             name = file.name
             sourceStr = file.source
@@ -69,19 +69,19 @@ class ProjectModel {
     func loadDefaultProject() {
         // don't bother loading from coredata
         // just load that hello world program
-        let pathToSource = Bundle.main.path(forResource: "myFirstProgram", ofType: "pep")
-        let pathToObject = Bundle.main.path(forResource: "myFirstProgram", ofType: "pepo")
-        let pathToListing = Bundle.main.path(forResource: "myFirstProgram", ofType: "pepl")
+        let pathToSource = Bundle.main.path(forResource: "myFirstProject", ofType: "pep")
+        let pathToObject = Bundle.main.path(forResource: "myFirstProject", ofType: "pepo")
+        let pathToListing = Bundle.main.path(forResource: "myFirstProject", ofType: "pepl")
 
         do {
-            print("Loaded file named myFirstProgram.pep")
-            name = "My First Program"
+            print("Loaded default project.")
+            name = "My First Project"
             sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
             objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii)
             listingStr = try String(contentsOfFile:pathToListing!, encoding: String.Encoding.ascii)
 
         } catch _ as NSError {
-            print("Could not load file named myFirstProgram.pep")
+            print("Could not load default project.")
             return
         }
 
@@ -108,19 +108,32 @@ class ProjectModel {
     }
     
     
-    func saveProjectInFS() {
-        if updateProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
+    func saveProject() {
+        if p9FileSystem.updateProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
         }
     }
     
-    func saveAsNewProjectInFS(withName: String) {
+    func saveAsNewProject(withName: String) {
         name = withName
-        if saveNewProjectInFS(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
+        if p9FileSystem.saveNewProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
         }
     }
     
+    
+    func getData(ofType: ProjectContents) -> Data! {
+        switch ofType {
+        case .source:
+            return sourceStr.data(using: .utf8)
+        case .object:
+            return objectStr.data(using: .utf8)
+        case .listing:
+            return listingStr.data(using: .utf8)
+        default:
+            break
+        }
+    }
     
     /// Called by classes that conform to `ProjectModelEditor` (i.e. the source, object, and listing vcs)
     /// whenever an editor detects the user has edited its `textField`'s contents.
