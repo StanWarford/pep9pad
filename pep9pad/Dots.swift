@@ -283,7 +283,7 @@ class DotByte: Code {
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String = memAddress.toHex4()
+        let memStr: String = memAddress.toHex4()
         var codeStr: String = argument.getArgumentValue().toHex4()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "  "
@@ -292,12 +292,17 @@ class DotByte: Code {
         if symbolStr.characters.count > 0 {
             symbolStr.append(":")
         }
-        var dotStr: String = ".BYTE"
+        let dotStr: String = ".BYTE"
         var oprndStr: String = argument.getArgumentString()
         if oprndStr.hasPrefix("0x") || oprndStr.hasPrefix("0X") {
             oprndStr = oprndStr.substring(from: oprndStr.index(oprndStr.endIndex, offsetBy: -2))
         }
-        var lineStr: String = "test" // MARK: NEED TO UPDATE
+        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: " ", fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        lineStr.append(comment)
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
@@ -312,13 +317,16 @@ class DotEnd: Code {
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String // MARK: NEED TO UPDATE
+        let memStr: String = memAddress.toHex4()
         var symbolStr: String = symbolDef
         if symbolStr.characters.count >  0 {
             symbolStr.append(":")
         }
-        var dotStr = ".END"
-        var lineStr: String = "test"
+        let dotStr = ".END"
+        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
+        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
+        lineStr.append(comment)
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
@@ -335,15 +343,17 @@ class DotEquate: Code {
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         var symbolStr: String = symbolDef
         if symbolStr.characters.count > 0 {
             symbolStr.append(":")
         }
-        var dotStr: String = ".EQUATE"
-        var oprndStr: String = argument.getArgumentString()
-        var lineStr: String = "TEST" // MARK: NEED TO UPDATE
+        let dotStr: String = ".EQUATE"
+        let oprndStr: String = argument.getArgumentString()
+        var lineStr: String = symbolStr.stringFormatter(str: " ", fixLength: 9)
+        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        lineStr.append(comment)
         assembler.listing.append(lineStr)
         hasCheckBox.append(false)
     }
@@ -361,7 +371,7 @@ class DotWord: Code {
     override func appendObjectCode(objectCode: inout [Int]) {
         var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
-            var value: Int = argument.getArgumentValue()
+            let value: Int = argument.getArgumentValue()
             objectCode.append(value / 256)
             objectCode.append(value % 256)
         }
@@ -370,8 +380,8 @@ class DotWord: Code {
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String // MARK: NEED TO UPDATE
-        var codeStr: String // MARK: NEED TO UPDATE
+        let memStr: String = memAddress.toHex4()
+        var codeStr: String = argument.getArgumentValue().toHex4()
         if  maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "   "
         }
@@ -379,9 +389,15 @@ class DotWord: Code {
         if symbolStr.characters.count > 0 {
             symbolStr.append(":")
         }
-        var dotStr: String = ".WORD"
-        var oprndStr: String = argument.getArgumentString()
-        var lineStr: String = "TEST" // MARK: NEED TO UPDATE
+        let dotStr: String = ".WORD"
+        let oprndStr: String = argument.getArgumentString()
+        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: " ", fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        lineStr.append(comment)
+        
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)

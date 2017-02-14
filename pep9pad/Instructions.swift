@@ -30,9 +30,9 @@ class UnaryInstruction: Code {
             symbolStr.append(":")
         }
         var mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
-        var lineStr: String = "test"
-        // MARK: NEED TO DO
-        // MARK: NEED TO DO
+        var lineStr: String = "test" // MARK: TODO
+        maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
+        maps.listingRowChecked[assemblerListing.count] = false
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(true)
