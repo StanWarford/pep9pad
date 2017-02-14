@@ -123,6 +123,11 @@ extension String {
     mutating func chop() {
         self.characters.removeLast()
     }
+    
+    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = false) -> String {
+        let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
+        return paddedString
+    }
 }
 
 extension Dictionary where Key:Any {

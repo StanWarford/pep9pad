@@ -250,19 +250,24 @@ class DotBurn: Code {
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String = memAddress.toHex4()
+        let memStr: String = memAddress.toHex4()
         var symbolStr = symbolDef;
         if (symbolStr.characters.count > 0) {
             symbolStr.append(":")
         }
-        var dotStr: String = ".BURN"
-        var oprndStr: String = argument.getArgumentString()
-        let lineStr: String = "test" // MARK: NEED TO UPDATE
+        let dotStr: String = ".BURN"
+        let oprndStr: String = argument.getArgumentString()
+        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
+        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: " ", fixLength:  8))
+        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        lineStr.append(comment)
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
     }
 }
+
 
 class DotByte: Code {
     
