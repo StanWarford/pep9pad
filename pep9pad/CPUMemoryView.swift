@@ -5,32 +5,208 @@
 //  Copyright © 2017 Pepperdine University. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class CPUMemoryView: MemoryView {
+
+//
+//  MemoryView.swift
+//  pep9pad
+//
+//  Copyright © 2016 Pepperdine University. All rights reserved.
+//
+
+import UIKit
+
+class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     
     
-    var rows: [String] = []
-    var highlightedIndex: Int
-    var currentMemoryOffset: Int
-    var mem: [Character] //     initialized in c++ as char mem[0x10000];
-    var 
     
-    /// Populates the table.
-    func populateMemoryItems() {
+    // MARK: - Initializers
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        initializeSubviews()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initializeSubviews()
+    }
+    
+    func initializeSubviews() {
+        // below doesn't work as returned class name is normally in project module scope
+        // let viewName = NSStringFromClass(self.classForCoder)
+        
+        let view: UIView = Bundle.main.loadNibNamed("Memory", owner: self, options: nil)![0] as! UIView
+        self.addSubview(view)
+        view.frame = self.bounds
+        refresh()
+    }
+    
+    
+    
+    // MARK: - Methods
+    /// An array of strings.  Each string is in this form: 0FFF | 00 00 00 00 00 00 00 00.
+    var memoryDump: [String] = [String](repeating: "", count: 8192)
+    
+    
+    /// Refreshes the whole memory pane.
+    func refresh() {
+        memoryDump.removeAll(keepingCapacity: true)
+        var line: String = ""
+        
+        for byte in stride(from: 0, to: 65536, by: 8){
+            line = ""
+            // address column
+            line.append("\(byte.toHex4()) | ")
+            // hex column
+            for bit in 0..<8 {
+                line.append("\(machine.mem[byte+bit].toHex2()) ")
+            }
+            // this is the CPU activity, so no ASCII representation
+            memoryDump.append(line)
+            
+        }
+    }
+    
+    
+    
+    /// Refreshes the memory in a given range.
+    func refresh(fromByte: Int, toByte: Int) {
+        let fromLine = fromByte / 8
+        let toLine = toByte / 8
+        
+        var line: String
+        var ch: String
+        var byteNum: Int
+        
+        for lineNum in fromLine...toLine {
+            line = ""
+            byteNum = lineNum * 8
+            line.append("\(byteNum.toHex4()) | ")
+            
+            for j in 0..<8 {
+                line.append("\(machine.mem[byteNum+j].toHex2()) ")
+            }
+            
+            memoryDump[lineNum] = line
+            
+        }
         
     }
     
-    /// Refreshes the memory to reflect the model.
-    func refreshMemory() {
+    func cacheModifiedBytes() {
+        
+    }
+    /// If not b, whole table is unhighlighted. If b, current program counter is highlighted.
+    func shouldHighlight(_ b: Bool) {
+        
+    }
+    
+    /// Highlights individual bytes.
+    func hightlightByte(atAddr: Int, foreground: UIColor, background: UIColor) {
         
     }
     
     
-    func setMemAddress(memAddress: Int, value: Int) {
+    func scrollToByte(_ byte: Int) {
+        let row: Int
+        if byte % 8 == 0 {
+            row = byte / 8
+        } else {
+            row = max(Int(byte/8), 1)
+        }
+        table.scrollToRow(at: IndexPath(row: row, section: 0), at: .none, animated: true)
         
     }
     
+    
+    // MARK: - IBOutlets and Actions
+    
+    
+    @IBOutlet var table: UITableView! {
+        didSet {
+            self.table.dataSource = self
+            self.table.delegate = self
+        }
+    }
+    @IBOutlet var toolbar: UIToolbar!
+    @IBOutlet var searchField: UITextField! {
+        didSet {
+            self.searchField.delegate = self
+        }
+    }
+    @IBOutlet var spBtn: UIBarButtonItem!
+    @IBOutlet var pcBtn: UIBarButtonItem!
+    
+    @IBAction func spBtnPressed(_ sender: UIBarButtonItem) {
+        scrollToByte(machine.stackPointer)
+    }
+    
+    
+    @IBAction func pcBtnPressed(_ sender: UIBarButtonItem) {
+        scrollToByte(machine.programCounter)
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - Conformance to UITableViewDataSource
+    
+    let cellID = "CPUMemDumpCellID"
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellID)
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: cellID)
+        }
+        
+        cell?.textLabel?.attributedText = NSAttributedString(string: memoryDump[indexPath.row])
+        cell?.textLabel?.font = UIFont(name: "Courier", size: 11.0)!
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8192//section == 1 ? 8192 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 15
+    }
+    
+    
+    
+    
+    
+    // MARK: - Conformance to UITextFieldDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text! as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string) as String
+        
+        if let intVal = Int(newText, radix: 16) {
+            if intVal > 65536 {
+                scrollToByte(65535)
+            } else if intVal < 0 {
+                scrollToByte(0)
+            } else {
+                scrollToByte(intVal)
+            }
+        }
+        
+        return true
+    }
+    
+    
+    
+    
+}
+
     func setMemPrecondition(memAddress: Int, value: Int) {
         
     }
@@ -38,25 +214,5 @@ class CPUMemoryView: MemoryView {
     func testMemPostcondition(memAddress: Int, value: Int) {
         
     }
-    
-    /// Sets all memory to 0x00.
-    func clearMemory() {
-        
-    }
-    /// Scrolls to modified cell and highlights it.
-    func showMemEdited(address: Int) {
-        
-    }
-    
-    /// Highlights all modified bytes in the current view.
-    func highlightModifiedBytes() {
-        
-    }
-
-    /// Scrolls to the given address.  Used to display the recently modified code.
-    func scrollToAddress(address: Int) {
-        
-    }
-    
     
 }
