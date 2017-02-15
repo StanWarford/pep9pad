@@ -203,9 +203,6 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
     }
     
     
-    
-    
-}
 
     func setMemPrecondition(memAddress: Int, value: Int) {
         

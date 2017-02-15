@@ -19,7 +19,7 @@ class CPUDetailViewController : UIViewController {
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.title = String.fontAwesomeIconWithName(nameOfIcon)
     }
-
+    // MARK: IBOutlets
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .Play, ofSize: 20)
@@ -46,5 +46,17 @@ class CPUDetailViewController : UIViewController {
     }
     
     @IBOutlet var actionBtn: UIBarButtonItem!
+    // MARK: IBActions
 
+    @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
+        if cpuAssembler.microAssemble() {
+            
+        }
+    }
+    
+    @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
+        // Assemble, output errors if necessary
+        // Start single-step
+    }
+    
 }

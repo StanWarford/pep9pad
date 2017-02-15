@@ -59,6 +59,7 @@ class CPUAssemblerModel {
     let rxHexConst = try! NSRegularExpression(pattern: "^((0(?![x|X]))|((0)([x|X])([0-9|A-F|a-f])+)|((0)([0-9]+)))", options: [.caseInsensitive])
     
     
+    
     // Pre: sourceLine has one line of source code.
     // Post: If the next token is valid, the string of characters representing the next token are deleted from the
     // beginning of sourceLine and returned in tokenString, true is returned, and token is set to the token type.
@@ -81,5 +82,10 @@ class CPUAssemblerModel {
         return false
     }
     
-
+    func microAssemble() -> Bool {
+        var sourceCode:String = cpuProjectModel.sourceStr
+        
+        return true
+    }
+    
 }
