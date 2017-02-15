@@ -169,6 +169,8 @@
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
+		D28BC78F1E54E43B00E96EFA /* CPU1ByteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */; };
+		D28BC7911E54E4A800E96EFA /* CPU2ByteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */; };
 		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
 		D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */; };
 		D2A7D0AB1E4BC8D700A9CD37 /* CPUDebugController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0AA1E4BC8D700A9CD37 /* CPUDebugController.swift */; };
@@ -372,6 +374,8 @@
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepl; sourceTree = "<group>"; };
+		D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteController.swift; sourceTree = "<group>"; };
+		D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteController.swift; sourceTree = "<group>"; };
 		D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUSplitController.swift; sourceTree = "<group>"; };
 		D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUVisualController.swift; sourceTree = "<group>"; };
 		D2A7D0AA1E4BC8D700A9CD37 /* CPUDebugController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDebugController.swift; sourceTree = "<group>"; };
@@ -732,6 +736,8 @@
 				D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */,
 				D2A7D0AA1E4BC8D700A9CD37 /* CPUDebugController.swift */,
 				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
+				D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */,
+				D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */,
 				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
 				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
 				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
@@ -1212,6 +1218,7 @@
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
+				D28BC78F1E54E43B00E96EFA /* CPU1ByteController.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
@@ -1228,6 +1235,7 @@
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
+				D28BC7911E54E4A800E96EFA /* CPU2ByteController.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
