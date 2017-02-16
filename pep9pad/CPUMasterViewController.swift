@@ -7,13 +7,13 @@
 
 import UIKit
 
-class CPUMasterViewController: UIViewController {
+class CPUMasterController: UIViewController {
     
-    internal var detail: CPUDetailViewController!
+    internal var detail: CPUDetailController!
     override func viewDidLoad() {
         super.viewDidLoad()
         let detailnc = (self.splitViewController?.viewControllers[1])! as! UINavigationController
-        self.detail = (detailnc.viewControllers[0] as UIViewController) as! CPUDetailViewController
+        self.detail = (detailnc.viewControllers[0] as UIViewController) as! CPUDetailController
     }
     
     @IBAction func homeButtonPressed(_ sender: UIBarButtonItem) {

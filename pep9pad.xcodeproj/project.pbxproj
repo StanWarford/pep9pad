@@ -173,7 +173,7 @@
 		D28BC7911E54E4A800E96EFA /* CPU2ByteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */; };
 		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
 		D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */; };
-		D2A7D0AB1E4BC8D700A9CD37 /* CPUDebugController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0AA1E4BC8D700A9CD37 /* CPUDebugController.swift */; };
+		D2A7D0AB1E4BC8D700A9CD37 /* CPUTraceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
@@ -188,7 +188,7 @@
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
-		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */; };
+		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -378,7 +378,7 @@
 		D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteController.swift; sourceTree = "<group>"; };
 		D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUSplitController.swift; sourceTree = "<group>"; };
 		D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUVisualController.swift; sourceTree = "<group>"; };
-		D2A7D0AA1E4BC8D700A9CD37 /* CPUDebugController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDebugController.swift; sourceTree = "<group>"; };
+		D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUTraceController.swift; sourceTree = "<group>"; };
 		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -399,7 +399,7 @@
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
-		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailViewController.swift; sourceTree = "<group>"; };
+		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -731,15 +731,8 @@
 			isa = PBXGroup;
 			children = (
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
-				D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */,
-				464D143E1E52765800C7FCBE /* CPUMemoryView.swift */,
-				D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */,
-				D2A7D0AA1E4BC8D700A9CD37 /* CPUDebugController.swift */,
-				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
-				D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */,
-				D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */,
-				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
-				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
+				46D674DB1E56057B00AE1B8F /* Master */,
+				46D674DC1E5605A200AE1B8F /* Detail */,
 				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
 				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
@@ -755,6 +748,29 @@
 			);
 			name = Images;
 			path = pep9pad;
+			sourceTree = "<group>";
+		};
+		46D674DB1E56057B00AE1B8F /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				464D143E1E52765800C7FCBE /* CPUMemoryView.swift */,
+				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
+			);
+			name = Master;
+			sourceTree = "<group>";
+		};
+		46D674DC1E5605A200AE1B8F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */,
+				D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */,
+				D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */,
+				D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */,
+				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
+				D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */,
+				D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		46E246B01DE0E24200611A18 /* Assembler */ = {
@@ -1260,14 +1276,14 @@
 				466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */,
 				46202E261DE95EBB00F8B70B /* PepMaps.swift in Sources */,
 				D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */,
-				D2A7D0AB1E4BC8D700A9CD37 /* CPUDebugController.swift in Sources */,
+				D2A7D0AB1E4BC8D700A9CD37 /* CPUTraceController.swift in Sources */,
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterController.swift in Sources */,
 				46C76A5A1DA70BE20071C340 /* FSDetailController.swift in Sources */,
 				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
-				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
+				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
