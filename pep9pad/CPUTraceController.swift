@@ -1,5 +1,5 @@
 //
-//  CPUDebugController.swift
+//  CPUTraceController.swift
 //  pep9pad
 //
 //  Created by Stan Warford on 2/8/17.
@@ -7,6 +7,6 @@
 //
 
 import UIKit
-class CPUDebugController: UIViewController {
+class CPUTraceController: UIViewController {
     
 }

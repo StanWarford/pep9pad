@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8MR-lD-wdI">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8MR-lD-wdI">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,7 +14,7 @@
         <scene sceneID="DKj-43-hih">
             <objects>
                 <navigationController id="Brd-0H-ER3" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b12-jd-Olr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="b12-jd-Olr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-858" y="-315"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail Controller-->
         <scene sceneID="Sho-IO-PcS">
             <objects>
-                <viewController id="H8P-5l-Sdd" customClass="CPUDetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H8P-5l-Sdd" customClass="CPUDetailController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fl6-18-gOj"/>
                         <viewControllerLayoutGuide type="bottom" id="JJI-nJ-Oxh"/>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="qht-iR-JGP" kind="embed" id="u1H-O8-Nhq"/>
+                                    <segue destination="qht-iR-JGP" kind="embed" identifier="embedTabBarCPU" id="u1H-O8-Nhq"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="-858" y="-1032"/>
         </scene>
-        <!--Master View Controller-->
+        <!--Master Controller-->
         <scene sceneID="MYh-m1-ahr">
             <objects>
-                <viewController id="nmb-1W-Fcm" customClass="CPUMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nmb-1W-Fcm" customClass="CPUMasterController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qMb-oE-xCe"/>
                         <viewControllerLayoutGuide type="bottom" id="uib-fY-8oU"/>

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -60,37 +60,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
-                                <rect key="frame" x="0.0" y="360" width="1024" height="351"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
+                                <rect key="frame" x="0.0" y="359.5" width="1024" height="351.5"/>
                                 <connections>
                                     <segue destination="nEr-Xs-Y13" kind="embed" id="rSY-lj-Oed"/>
                                 </connections>
                             </containerView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8bt-LU-myg">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="352"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-Fy-WbN" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="365"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8bt-LU-myg" firstAttribute="height" secondItem="MHn-bV-5I1" secondAttribute="height" id="0Qv-VZ-hPq"/>
-                            <constraint firstItem="8bt-LU-myg" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="Akd-rk-y0Z"/>
+                            <constraint firstItem="MHn-bV-5I1" firstAttribute="top" secondItem="uVq-Fy-WbN" secondAttribute="bottom" constant="-5.5" id="0Dd-Lb-SRP"/>
+                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="top" secondItem="Euj-Ad-eit" secondAttribute="bottom" constant="-20" id="BzU-3H-JJs"/>
                             <constraint firstItem="MHn-bV-5I1" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="F96-BJ-Atu"/>
-                            <constraint firstItem="8bt-LU-myg" firstAttribute="top" secondItem="Euj-Ad-eit" secondAttribute="bottom" constant="-20" id="LPs-UU-Qbf"/>
-                            <constraint firstItem="8bt-LU-myg" firstAttribute="width" secondItem="MHn-bV-5I1" secondAttribute="width" id="MQE-sQ-nEq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uVq-Fy-WbN" secondAttribute="trailing" constant="-20" id="NoQ-Yj-n5d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MHn-bV-5I1" secondAttribute="trailing" constant="-20" id="TVe-9x-K21"/>
                             <constraint firstItem="MHn-bV-5I1" firstAttribute="centerX" secondItem="fwp-A4-VDX" secondAttribute="centerX" id="a93-VO-xxb"/>
-                            <constraint firstItem="MHn-bV-5I1" firstAttribute="top" secondItem="8bt-LU-myg" secondAttribute="bottom" constant="8" id="eI5-KT-MJm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8bt-LU-myg" secondAttribute="trailing" constant="-20" id="eIx-uB-Lc5"/>
+                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="width" secondItem="MHn-bV-5I1" secondAttribute="width" id="fsv-fS-L8y"/>
+                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="height" secondItem="MHn-bV-5I1" secondAttribute="height" id="g2B-ZO-YUI"/>
                             <constraint firstItem="SJf-az-k8d" firstAttribute="top" secondItem="MHn-bV-5I1" secondAttribute="bottom" constant="8" id="min-NQ-16I"/>
-                            <constraint firstItem="8bt-LU-myg" firstAttribute="centerX" secondItem="fwp-A4-VDX" secondAttribute="centerX" id="qZ2-AC-Ntj"/>
+                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="centerX" secondItem="fwp-A4-VDX" secondAttribute="centerX" id="vlE-G7-7wB"/>
+                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="wrG-RV-Iie"/>
                             <constraint firstItem="MHn-bV-5I1" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="z4q-mH-7Or"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Split" id="CVe-R0-jAd" userLabel="Split"/>
+                    <connections>
+                        <outlet property="textView" destination="uVq-Fy-WbN" id="EBY-4V-kY4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQ4-88-YIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,8 +119,12 @@
         <scene sceneID="RIc-9R-Am1">
             <objects>
                 <viewController id="nEr-Xs-Y13" customClass="CPU1ByteController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fHN-Re-Tub"/>
+                        <viewControllerLayoutGuide type="bottom" id="S06-8o-Nh3"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="thc-4l-TGt">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="351"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="351.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
