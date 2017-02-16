@@ -684,7 +684,7 @@ class MachineModel {
     
     
     
-    // I wrote this function to make the CpuController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
+    // I wrote this function to make the ProcessorController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
     func prettyVersion(_ register: CPURegisters, format: CPUFormats) -> String {
         var value = 0
         

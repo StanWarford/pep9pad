@@ -8,5 +8,13 @@
 
 import UIKit
 class CPUVisualController: UIViewController {
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    /// Updates this VC to be consistent with the bus size in the cpuProjectModel.
+    func busSizeChanged() {
+        print("visual controller will update accordingly")
+    }
+    
 }
