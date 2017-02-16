@@ -99,7 +99,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
                     for idx in tabBar.viewControllers! {
                         // and accessing the `view` of each
                         let _ = idx.view
-                        // print("accessed view num \(idx)")
+                        // note that we don't do anything with the view, we just have to access it
                     }
                 }
                 

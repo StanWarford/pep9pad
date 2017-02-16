@@ -27,6 +27,8 @@ class CPUProjectModel {
     var name: String = ""
     /// The assembly source of the current project.  Default is empty string.
     var sourceStr: String = ""
+    /// The size of the bus.
+    var busSize: CPUBusSize = .oneByte
     
     // MARK: - Methods
     

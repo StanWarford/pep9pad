@@ -63,11 +63,31 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="shC-2O-NRf"/>
-                            <barButtonItem title="⚙" id="AE2-Ug-R6S"/>
-                            <barButtonItem title="calc" id="KV5-4F-g8V"/>
-                            <barButtonItem title="Aa" id="q9p-vn-jrz"/>
-                            <barButtonItem title="Bus" id="nwr-pZ-qxT"/>
+                            <barButtonItem systemItem="action" id="shC-2O-NRf">
+                                <connections>
+                                    <action selector="actionBtnPressed:" destination="H8P-5l-Sdd" id="nM6-eh-hkJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="⚙" id="AE2-Ug-R6S">
+                                <connections>
+                                    <action selector="settingsBtnPressed:" destination="H8P-5l-Sdd" id="ltq-wH-4sn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="calc" id="KV5-4F-g8V">
+                                <connections>
+                                    <action selector="calcBtnPressed:" destination="H8P-5l-Sdd" id="OLP-oK-msk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Aa" id="q9p-vn-jrz">
+                                <connections>
+                                    <action selector="fontBtnPressed:" destination="H8P-5l-Sdd" id="qaS-IR-h8K"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Bus" id="nwr-pZ-qxT">
+                                <connections>
+                                    <action selector="busBtnPressed:" destination="H8P-5l-Sdd" id="VyT-pb-G9R"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>

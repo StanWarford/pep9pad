@@ -30,14 +30,6 @@ class CPUDetailController : UIViewController {
         super.viewDidLoad()
     }
     
-    /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
-    func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSFontAttributeName: UIFont.fontAwesomeOfSize(ofSize)] as Dictionary!
-        btn.setTitleTextAttributes(attrs, for: .normal)
-        btn.title = String.fontAwesomeIconWithName(nameOfIcon)
-    }
-    
-    
     
     
     // MARK: - Conformance to UITabBarDelegate
@@ -64,7 +56,7 @@ class CPUDetailController : UIViewController {
                     for idx in tabBar.viewControllers! {
                         // and accessing the `view` of each
                         let _ = idx.view
-                        // print("accessed view num \(idx)")
+                        // note that we don't do anything with the view, we just have to access it
                     }
                 }
                 
@@ -84,6 +76,14 @@ class CPUDetailController : UIViewController {
     
     
     // MARK: IBOutlets
+    
+    /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
+    func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
+        let attrs = [NSFontAttributeName: UIFont.fontAwesomeOfSize(ofSize)] as Dictionary!
+        btn.setTitleTextAttributes(attrs, for: .normal)
+        btn.title = String.fontAwesomeIconWithName(nameOfIcon)
+    }
+    
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .Play, ofSize: 20)
@@ -110,6 +110,10 @@ class CPUDetailController : UIViewController {
     }
     
     @IBOutlet var actionBtn: UIBarButtonItem!
+    
+    
+    
+    
     // MARK: IBActions
 
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
@@ -121,6 +125,43 @@ class CPUDetailController : UIViewController {
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
         // Assemble, output errors if necessary
         // Start single-step
+    }
+    
+    @IBAction func busBtnPressed(_ sender: UIBarButtonItem) {
+        
+        var alertController: UIAlertController
+        
+        if cpuProjectModel.busSize == .oneByte {
+            alertController = UIAlertController(title: nil, message: "You're using the one-byte bus.", preferredStyle: .actionSheet)
+
+            let twoByteAction = UIAlertAction(title: "Switch to two-byte bus", style: .default) { (action) in
+                cpuProjectModel.busSize = .twoByte
+            }
+            alertController.addAction(twoByteAction)
+        } else {
+            alertController = UIAlertController(title: nil, message: "You're using the two-byte bus.", preferredStyle: .actionSheet)
+            let oneByteAction = UIAlertAction(title: "Switch to one-byte bus", style: .default) { (action) in
+                cpuProjectModel.busSize = .oneByte
+            }
+            alertController.addAction(oneByteAction)
+
+        }
+        
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
+
+
+    }
+    
+    @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
+    }
+    @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {
+    }
+    @IBAction func actionBtnPressed(_ sender: UIBarButtonItem) {
     }
     
 }
