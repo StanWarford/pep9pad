@@ -10,7 +10,7 @@ import UIKit
 class Pep9MasterController: UIViewController {
     
     internal var detail: Pep9DetailController!
-    internal var cpu: CpuController!
+    internal var cpu: Pep9ProcessorController!
     internal var io: IOMemController!
 
     override func viewDidLoad() {
@@ -21,7 +21,7 @@ class Pep9MasterController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "cpuEmbedSegue" {
-            self.cpu = segue.destination as? CpuController
+            self.cpu = segue.destination as? Pep9ProcessorController
         } else if segue.identifier == "ioEmbedSegue" {
             self.io = segue.destination as? IOMemController
         }

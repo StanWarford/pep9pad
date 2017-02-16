@@ -20,28 +20,15 @@ class CPUDetailController : UIViewController {
     internal var master: CPUMasterController!
     internal var tabBar: UITabBarController!
     internal var tabVCs: CPUTabBarVCs = (nil, nil, nil)
-
     
     
     
-    
+    // MARK: - View Controller Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
-    
-    // MARK: - Conformance to UITabBarDelegate
-    
-    func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
-        // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
-        let icons: [FontAwesome] = [.Columns, .Eye, .Stethoscope]
-        let defaultSize = CGSize(width: 30, height: 30)
-        for idx in 0..<tabBarItems.count {
-            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
-        }
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
@@ -63,7 +50,6 @@ class CPUDetailController : UIViewController {
                 // now we can assign all the elements of tabVCs
                 tabVCs.split = tabBar.viewControllers?[0] as? CPUSplitController
                 tabVCs.visual = tabBar.viewControllers?[1] as? CPUVisualController
-
                 tabVCs.trace = tabBar.viewControllers?[2] as? CPUTraceController
                 
             default:
@@ -75,7 +61,35 @@ class CPUDetailController : UIViewController {
     
     
     
-    // MARK: IBOutlets
+    // MARK: - Methods -
+    func switchToBus(_ ofSize: CPUBusSize) {
+        if ofSize != cpu.busSize {
+            // change the global instance
+            changeBusInstance(toSize: ofSize)
+            tabVCs.split?.busSizeChanged()
+            tabVCs.visual?.busSizeChanged()
+            tabVCs.trace?.busSizeChanged()
+        } else {
+            print("no CPU change necessary")
+        }
+    }
+    
+    
+    
+    // MARK: - Conformance to UITabBarDelegate -
+    
+    func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
+        // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
+        let icons: [FontAwesome] = [.Columns, .Eye, .Stethoscope]
+        let defaultSize = CGSize(width: 30, height: 30)
+        for idx in 0..<tabBarItems.count {
+            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
+        }
+    }
+    
+    
+    
+    // MARK: - IBOutlets -
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
@@ -114,7 +128,7 @@ class CPUDetailController : UIViewController {
     
     
     
-    // MARK: IBActions
+    // MARK: - IBActions -
 
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
         if cpuAssembler.microAssemble() {
@@ -131,17 +145,17 @@ class CPUDetailController : UIViewController {
         
         var alertController: UIAlertController
         
-        if cpuProjectModel.busSize == .oneByte {
+        if cpu.busSize == .oneByte {
             alertController = UIAlertController(title: nil, message: "You're using the one-byte bus.", preferredStyle: .actionSheet)
 
             let twoByteAction = UIAlertAction(title: "Switch to two-byte bus", style: .default) { (action) in
-                cpuProjectModel.busSize = .twoByte
+                self.switchToBus(.twoByte)
             }
             alertController.addAction(twoByteAction)
         } else {
             alertController = UIAlertController(title: nil, message: "You're using the two-byte bus.", preferredStyle: .actionSheet)
             let oneByteAction = UIAlertAction(title: "Switch to one-byte bus", style: .default) { (action) in
-                cpuProjectModel.busSize = .oneByte
+                self.switchToBus(.oneByte)
             }
             alertController.addAction(oneByteAction)
 

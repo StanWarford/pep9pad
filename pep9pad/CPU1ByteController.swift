@@ -8,7 +8,14 @@
 
 import UIKit
 
-class CPU1ByteController: UIViewController {
+class CPU1ByteController: UIViewController, CPUController {
     
+    // MARK: - Properties -
+    let busSize: CPUBusSize = .oneByte
+    
+    // MARK: - ViewController Lifecycle -
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
 }

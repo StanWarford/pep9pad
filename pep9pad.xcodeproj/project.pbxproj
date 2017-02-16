@@ -74,9 +74,10 @@
 		4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB2D1E428F85007E50BD /* CPUProject.swift */; };
 		4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */; };
 		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
+		46A71C0C1E563CAB00FCEFEA /* CPUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A71C0B1E563CAB00FCEFEA /* CPUController.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
-		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
+		46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */; };
 		46C76A541DA494130071C340 /* FontAwesome in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A531DA494130071C340 /* FontAwesome */; };
 		46C76A561DA496510071C340 /* Pep9DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A551DA496510071C340 /* Pep9DetailController.swift */; };
 		46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A571DA70B930071C340 /* FSMasterController.swift */; };
@@ -277,9 +278,10 @@
 		4695EB2D1E428F85007E50BD /* CPUProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProject.swift; sourceTree = "<group>"; };
 		4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFileSystem.swift; sourceTree = "<group>"; };
 		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
+		46A71C0B1E563CAB00FCEFEA /* CPUController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUController.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
+		46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9ProcessorController.swift; sourceTree = "<group>"; };
 		46C76A531DA494130071C340 /* FontAwesome */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAwesome; sourceTree = "<group>"; };
 		46C76A551DA496510071C340 /* Pep9DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9DetailController.swift; sourceTree = "<group>"; };
 		46C76A571DA70B930071C340 /* FSMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSMasterController.swift; sourceTree = "<group>"; };
@@ -464,10 +466,10 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
-		461279461E26104A00212829 /* MasterController */ = {
+		461279461E26104A00212829 /* Master */ = {
 			isa = PBXGroup;
 			children = (
-				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
+				46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */,
 				D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */,
 				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
 				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
@@ -475,10 +477,10 @@
 				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 				D2B82DE31E035B8700F960FE /* Memory.xib */,
 			);
-			name = MasterController;
+			name = Master;
 			sourceTree = "<group>";
 		};
-		461279471E26106E00212829 /* DetailController */ = {
+		461279471E26106E00212829 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
@@ -489,7 +491,7 @@
 				46C76A691DB9593A0071C340 /* ListingController.swift */,
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 			);
-			name = DetailController;
+			name = Detail;
 			sourceTree = "<group>";
 		};
 		461279481E26116100212829 /* Machine */ = {
@@ -647,6 +649,16 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
+		46A71C0D1E563DC500FCEFEA /* CPUModels */ = {
+			isa = PBXGroup;
+			children = (
+				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
+				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
+				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
+			);
+			name = CPUModels;
+			sourceTree = "<group>";
+		};
 		46B58BD31C8FD872006E46B4 /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,8 +732,8 @@
 			isa = PBXGroup;
 			children = (
 				D2B0615D1C7E62040088CEBE /* Pep9Main.storyboard */,
-				461279461E26104A00212829 /* MasterController */,
-				461279471E26106E00212829 /* DetailController */,
+				461279461E26104A00212829 /* Master */,
+				461279471E26106E00212829 /* Detail */,
 				461279431E260E9A00212829 /* Models */,
 				46278CC61E075834009D6371 /* Trace */,
 			);
@@ -735,9 +747,7 @@
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
 				46D674DB1E56057B00AE1B8F /* Master */,
 				46D674DC1E5605A200AE1B8F /* Detail */,
-				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
-				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
-				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
+				46A71C0D1E563DC500FCEFEA /* CPUModels */,
 			);
 			name = Pep9CPU;
 			path = pep9pad;
@@ -769,6 +779,7 @@
 				D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */,
 				D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */,
 				D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */,
+				46A71C0B1E563CAB00FCEFEA /* CPUController.swift */,
 				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
 				D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */,
 				D28BC7901E54E4A800E96EFA /* CPU2ByteController.swift */,
@@ -1245,10 +1256,11 @@
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
-				46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */,
+				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */,
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
+				46A71C0C1E563CAB00FCEFEA /* CPUController.swift in Sources */,
 				464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,

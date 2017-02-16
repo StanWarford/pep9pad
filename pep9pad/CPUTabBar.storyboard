@@ -13,13 +13,13 @@
         <!--Trace-->
         <scene sceneID="huy-lY-ero">
             <objects>
-                <viewController id="oQ6-FE-GzM" customClass="CPUDebugController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oQ6-FE-GzM" customClass="CPUTraceController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ME0-PE-daO"/>
                         <viewControllerLayoutGuide type="bottom" id="ffv-Se-jI9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rVg-JV-3HC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -38,7 +38,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QA8-iO-Kcw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7xZ-dP-3rY">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -57,31 +57,31 @@
                         <viewControllerLayoutGuide type="bottom" id="SJf-az-k8d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fwp-A4-VDX">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
-                                <rect key="frame" x="0.0" y="359.5" width="1024" height="351.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-Fy-WbN" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="328"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
+                                <rect key="frame" x="0.0" y="327.5" width="1024" height="327.5"/>
                                 <connections>
                                     <segue destination="nEr-Xs-Y13" kind="embed" id="rSY-lj-Oed"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-Fy-WbN" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="365"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MHn-bV-5I1" firstAttribute="top" secondItem="uVq-Fy-WbN" secondAttribute="bottom" constant="-5.5" id="0Dd-Lb-SRP"/>
-                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="top" secondItem="Euj-Ad-eit" secondAttribute="bottom" constant="-20" id="BzU-3H-JJs"/>
+                            <constraint firstItem="MHn-bV-5I1" firstAttribute="top" secondItem="uVq-Fy-WbN" secondAttribute="bottom" id="0Dd-Lb-SRP"/>
+                            <constraint firstItem="uVq-Fy-WbN" firstAttribute="top" secondItem="Euj-Ad-eit" secondAttribute="bottom" id="BzU-3H-JJs"/>
                             <constraint firstItem="MHn-bV-5I1" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="F96-BJ-Atu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uVq-Fy-WbN" secondAttribute="trailing" constant="-20" id="NoQ-Yj-n5d"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MHn-bV-5I1" secondAttribute="trailing" constant="-20" id="TVe-9x-K21"/>
                             <constraint firstItem="MHn-bV-5I1" firstAttribute="centerX" secondItem="fwp-A4-VDX" secondAttribute="centerX" id="a93-VO-xxb"/>
                             <constraint firstItem="uVq-Fy-WbN" firstAttribute="width" secondItem="MHn-bV-5I1" secondAttribute="width" id="fsv-fS-L8y"/>
                             <constraint firstItem="uVq-Fy-WbN" firstAttribute="height" secondItem="MHn-bV-5I1" secondAttribute="height" id="g2B-ZO-YUI"/>
-                            <constraint firstItem="SJf-az-k8d" firstAttribute="top" secondItem="MHn-bV-5I1" secondAttribute="bottom" constant="8" id="min-NQ-16I"/>
+                            <constraint firstItem="SJf-az-k8d" firstAttribute="top" secondItem="MHn-bV-5I1" secondAttribute="bottom" id="min-NQ-16I"/>
                             <constraint firstItem="uVq-Fy-WbN" firstAttribute="centerX" secondItem="fwp-A4-VDX" secondAttribute="centerX" id="vlE-G7-7wB"/>
                             <constraint firstItem="uVq-Fy-WbN" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="wrG-RV-Iie"/>
                             <constraint firstItem="MHn-bV-5I1" firstAttribute="leading" secondItem="fwp-A4-VDX" secondAttribute="leadingMargin" constant="-20" id="z4q-mH-7Or"/>
@@ -100,6 +100,7 @@
         <scene sceneID="0lL-cP-wQB">
             <objects>
                 <tabBarController id="c8S-Mw-mJC" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="jMd-HZ-i7n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -124,7 +125,7 @@
                         <viewControllerLayoutGuide type="bottom" id="S06-8o-Nh3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="thc-4l-TGt">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="351.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="327.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
