@@ -132,7 +132,8 @@ class CPUDetailController : UIViewController {
 
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
         if cpuAssembler.microAssemble() {
-            
+            cpuProjectModel.sourceStr = "Hello world"
+            tabVCs.split?.pullFromProjectModel()
         }
     }
     
