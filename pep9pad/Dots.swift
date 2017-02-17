@@ -262,7 +262,7 @@ class DotBurn: Code {
         lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength:  8))
         lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
         lineStr.append(comment)
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
     }
@@ -297,13 +297,13 @@ class DotByte: Code {
         if oprndStr.hasPrefix("0x") || oprndStr.hasPrefix("0X") {
             oprndStr = oprndStr.substring(from: oprndStr.index(oprndStr.endIndex, offsetBy: -2))
         }
-        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: " ", fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
         lineStr.append(comment)
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
     }
@@ -323,11 +323,11 @@ class DotEnd: Code {
             symbolStr.append(":")
         }
         let dotStr = ".END"
-        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
-        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
         lineStr.append(comment)
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
     }
@@ -350,11 +350,11 @@ class DotEquate: Code {
         }
         let dotStr: String = ".EQUATE"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = symbolStr.stringFormatter(str: " ", fixLength: 9)
-        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        var lineStr: String = symbolStr.stringFormatter(str: symbolStr, fixLength: 9)
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
         lineStr.append(comment)
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         hasCheckBox.append(false)
     }
     
@@ -391,14 +391,14 @@ class DotWord: Code {
         }
         let dotStr: String = ".WORD"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: " ", fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: " ", fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
         lineStr.append(comment)
         
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
     }
