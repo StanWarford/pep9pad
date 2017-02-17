@@ -124,7 +124,7 @@ extension String {
         self.characters.removeLast()
     }
     
-    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = false) -> String {
+    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = true) -> String {
         let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
         return paddedString
     }
@@ -163,7 +163,6 @@ extension Character {
     }
 }
 
-
 extension NSRegularExpression {
     func appearsIn(_ str: String) -> Bool {
         return self.numberOfMatches(in: str, options: .reportCompletion, range: str.fullRange()) > 0
@@ -174,6 +173,13 @@ extension NSRegularExpression {
         //return self.firstMatch(in: str, options: .reportCompletion, range: str.fullRange())?.components
         let results = matches(in: ns as String, range: NSRange(location: 0, length: ns.length))
         return results.map { ns.substring(with: $0.range)}
+    }
+    
+    func cap(section: Int) -> String {
+        // MARK: TODO
+        let outline: String = rxFormatTag.pattern
+        let value: String = outline.
+        return value
     }
 }
 

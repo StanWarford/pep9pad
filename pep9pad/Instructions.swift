@@ -104,51 +104,45 @@ class NonUnaryInstruction: Code {
     
     override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
-            // MARK: TODO
+            let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
+            if pos > -1 {
+                var list: [String] = [""]
+                var formatTag: String = rxFormatTag.cap(section: 0)
+                // MARK: NEED TO WRITE FUNCTIONS FOR THESE
+                //var tagType: ESymbolFormat = formatTag
+                //var multiplier: Int = formatTag
+                var symbolDef: String = memAddress.toHex2()
+                if !maps.equateSymbols.contains(symbolDef) {
+                    // Limitation: only one dummy format per program
+                    maps.equateSymbols.append(symbolDef)
+                }
+                // MARK: NEED TO FIND OR MAKE REALATED tagType & multiplier
+                // maps.symbolFormat[symbolDef] = tagType
+                //maps.symbolFormatMultiplier[symbolDef] = multiplier
+                list.append(symbolDef)
+                maps.symbolTraceList[memAddress] = list
+            }
         }
         return true
     }
     
-//    override func processSymbolTraceTags(sourceLine: Int, errorString: String) -> Bool {
-//        var sourceLine = sourceLine
-//        var errorString = errorString
-//        if mnemonic == EMnemonic.ADDSP || mnemonic == EMnemonic.SUBSP {
-//            var numBytesAllocated: Int
-//            if addressingMode != EAddrMode.I {
-//                errorString = ";WARNING: Stack trace not possible unless immediate addressing is specified"
-//                sourceLine = sourceCodeLine
-//                return false
-//            }
-//            //numBytesAllocated = argument.getArgumentString()
-//            var symbol: String
-//            var list: [String]
-//            var numBytesListed: Int = 0
-//            var pos: Int = 0
-//            while (pos = assembler.rxSymbolTag.indexIn(comment, pos)) != -1 {
-//                symbol = assembler.rxSymbolTag.cap(1)
-//                if !maps.equateSymbols.contains(symbol) {
-//                    errorString = ";WARNING: " + symbol + " not specified in .EQUATE."
-//                    sourceLine = sourceCodeLine
-//                    return false
-//                }
-//                numBytesListed += assembler.tagNumBytes(maps.symbolFormat.values) * maps.symbolFormatMultiplier.values
-//                list.append(symbol)
-//                pos += assembler.rxSymbolTag.matchedLength()
-//            }
-//            if numBytesAllocated != numBytesListed {
-//                var message: String = (mnemonic == EMnemonic.ADDSP) ? "deallocated" : "allocated"
-//                errorString = // TODO
-//                // TODO
-//                return false
-//            }
-//            // TODO
-//            return true
-//        }
-//        else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
-//            var pos: Int = 0
-//            var symbol: String
-//            var list: [String]
-//            // MARK: ALL CODE BELOW TODO
-//        }
-//    }
+    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
+        var sourceLine = sourceLine
+        var errorString = errorString
+        if mnemonic == EMnemonic.ADDSP || mnemonic == EMnemonic.SUBSP {
+            var numBytesAllocated: Int
+            if addressingMode != EAddrMode.I {
+                errorString = ";WARNING: Stack trace not possible unless immediate addressing is specified"
+                sourceLine = sourceCodeLine
+                return false
+            }
+            numBytesAllocated = argument.getArgumentValue()
+            var symbol: String
+            var list: [String]
+            var numBytesListed: Int = 0
+            var pos: Int = 0
+            // MARK: TODO
+        }
+        return true // remove when done with this function
+    }
 }

@@ -199,7 +199,7 @@ class AssemblerModel {
                         state = ParseState.ps_CLOSE;
                     }
                     else {
-                        let nonUnaryInstruction = NonUnaryInstruction;
+                        let nonUnaryInstruction = NonUnaryInstruction();
                         nonUnaryInstruction.symbolDef = "";
                         nonUnaryInstruction.mnemonic = localEnumMnemonic;
                         code = nonUnaryInstruction;
@@ -217,49 +217,50 @@ class AssemblerModel {
                 tokenString.remove(0, 1); // Remove the period
                 tokenString = tokenString.toUpper();
                 if (tokenString == "ADDRSS") {
-                    let dotAddress = DotAddress;
-                    dotAddrss.symbolDef = "";
-                    code = dotAddrss;
+                    let dotAddress = DotAddress();
+                    dotAddress.symbolDef = "";
+                    code = dotAddress;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_ADDRSS;
                 }
                 else if (tokenString == "ALIGN") {
-                    let dotAlign = DotAlign;
+                    let dotAlign = DotAlign();
                     dotAlign.symbolDef = "";
                     code = dotAlign;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_ALIGN;
+                    
                 }
                 else if (tokenString == "ASCII") {
-                    let dotAscii = DotAscii;
+                    let dotAscii = DotAscii();
                     dotAscii.symbolDef = "";
                     code = dotAscii;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_ASCII;
                 }
                 else if (tokenString == "BLOCK") {
-                    let dotBlock = DotBlock;
+                    let dotBlock = DotBlock();
                     dotBlock.symbolDef = "";
                     code = dotBlock;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_BLOCK;
                 }
                 else if (tokenString == "BURN") {
-                    let dotBurn = DotBurn;
+                    let dotBurn = DotBurn();
                     dotBurn.symbolDef = "";
                     code = dotBurn;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_BURN;
                 }
                 else if (tokenString == "BYTE") {
-                    let dotByte = DotByte;
+                    let dotByte = DotByte();
                     dotByte.symbolDef = "";
                     code = dotByte;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_BYTE;
                 }
                 else if (tokenString == "END") {
-                    let dotEnd = DotEnd;
+                    let dotEnd = DotEnd();
                     dotEnd.symbolDef = "";
                     code = dotEnd;
                     code.memAddress = maps.byteCount;
@@ -267,14 +268,14 @@ class AssemblerModel {
                     state = ParseState.ps_DOT_END;
                 }
                 else if (tokenString == "EQUATE") {
-                    let dotEquate = DotEquate;
+                    let dotEquate = DotEquate();
                     dotEquate.symbolDef = "";
                     code = dotEquate;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_EQUATE;
                 }
                 else if (tokenString == "WORD") {
-                    let dotWord = DotWord;
+                    let dotWord = DotWord();
                     dotWord.symbolDef = "";
                     code = dotWord;
                     code.memAddress = maps.byteCount;
@@ -287,11 +288,11 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_SYMBOL_DEF) {
                 tokenString.chop(1); // Remove the colon
-                if (tokenString.length() > 8) {
+                if (tokenString.length > 8) {
                     errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
                     return false;
                 }
-                if (maps.symbolTable.contains(tokenString)) {
+                if (maps.symbolTable.contains(where: tokenString)) {
                     errorString = ";ERROR: Symbol " + tokenString + " was previously defined.";
                     return false;
                 }
@@ -301,14 +302,14 @@ class AssemblerModel {
                 state = ParseState.ps_SYMBOL_DEF;
             }
             else if (token == ELexicalToken.lt_COMMENT) {
-                let commentOnly = CommentOnly;
+                let commentOnly = CommentOnly();
                 commentOnly.comment = tokenString;
                 code = commentOnly;
                 code.memAddress = maps.byteCount;
                 state = ParseState.ps_COMMENT;
             }
             else if (token == ELexicalToken.lt_EMPTY) {
-                let blankLine = BlankLine;
+                let blankLine = BlankLine();
                 code = blankLine;
                 code.memAddress = maps.byteCount;
                 code.sourceCodeLine = lineNum;
@@ -322,10 +323,10 @@ class AssemblerModel {
                 
             case .ps_SYMBOL_DEF:
                 if (token == ELexicalToken.lt_IDENTIFIER){
-                if (maps.mnemonToEnumMap.contains(tokenString.toUpper())) {
+                if (maps.mnemonToEnumMap.contains(where: tokenString.toUpper())) {
                     localEnumMnemonic = maps.mnemonToEnumMap.value(tokenString.toUpper());
                     if (maps.isUnaryMap.value(localEnumMnemonic)) {
-                        let unaryInstruction = UnaryInstruction;
+                        let unaryInstruction = UnaryInstruction();
                         unaryInstruction.symbolDef = localSymbolDef;
                         unaryInstruction.mnemonic = localEnumMnemonic;
                         code = unaryInstruction;
@@ -334,7 +335,7 @@ class AssemblerModel {
                         state = ParseState.ps_CLOSE;
                     }
                     else {
-                        let nonUnaryInstruction = NonUnaryInstruction;
+                        let nonUnaryInstruction = NonUnaryInstruction();
                         nonUnaryInstruction.symbolDef = localSymbolDef;
                         nonUnaryInstruction.mnemonic = localEnumMnemonic;
                         code = nonUnaryInstruction;
@@ -352,42 +353,42 @@ class AssemblerModel {
                 tokenString.remove(0, 1); // Remove the period
                 tokenString = tokenString.toUpper();
                 if (tokenString == "ADDRSS") {
-                    let dotAddress = DotAddress;
-                    dotAddrss.symbolDef = localSymbolDef;
-                    code = dotAddrss;
+                    let dotAddress = DotAddress();
+                    dotAddress.symbolDef = localSymbolDef;
+                    code = dotAddress;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_ADDRSS;
                 }
                 else if (tokenString == "ASCII") {
-                    let dotAscii = DotAscii;
+                    let dotAscii = DotAscii();
                     dotAscii.symbolDef = localSymbolDef;
                     code = dotAscii;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_ASCII;
                 }
                 else if (tokenString == "BLOCK") {
-                    let dotBlock = DotBlock;
+                    let dotBlock = DotBlock();
                     dotBlock.symbolDef = localSymbolDef;
                     code = dotBlock;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_BLOCK;
                 }
                 else if (tokenString == "BURN") {
-                    let dotBurn = DotBurn;
+                    let dotBurn = DotBurn();
                     dotBurn.symbolDef = localSymbolDef;
                     code = dotBurn;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_BURN;
                 }
                 else if (tokenString == "BYTE") {
-                    let dotByte = DotByte;
+                    let dotByte = DotByte();
                     dotByte.symbolDef = localSymbolDef;
                     code = dotByte;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_BYTE;
                 }
                 else if (tokenString == "END") {
-                    let dotEnd = DotEnd;
+                    let dotEnd = DotEnd();
                     dotEnd.symbolDef = localSymbolDef;
                     code = dotEnd;
                     code.memAddress = maps.byteCount;
@@ -395,14 +396,14 @@ class AssemblerModel {
                     state = ParseState.ps_DOT_END;
                 }
                 else if (tokenString == "EQUATE") {
-                    let dotEquare = DotEquate;
-                    dotEquate.symbolDef = localSymbolDef;
-                    code = dotEquate;
+                    let dotEquare = DotEquate();
+                    dotEquare.symbolDef = localSymbolDef;
+                    code = dotEquare;
                     code.memAddress = maps.byteCount;
                     state = ParseState.ps_DOT_EQUATE;
                 }
                 else if (tokenString == "WORD") {
-                    let dotWord = DotWord;
+                    let dotWord = DotWord();
                     dotWord.symbolDef = localSymbolDef;
                     code = dotWord;
                     code.memAddress = maps.byteCount;
@@ -421,7 +422,7 @@ class AssemblerModel {
                 
             case .ps_INSTRUCTION:
                 if (token == ELexicalToken.lt_IDENTIFIER) {
-                if (tokenString.length() > 8) {
+                if (tokenString.length > 8) {
                     errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
                     return false;
                 }
@@ -482,11 +483,11 @@ class AssemblerModel {
             case .ps_ADDRESSING_MODE:
                 if (token == ELexicalToken.lt_ADDRESSING_MODE) {
                     Enums.addrMode = assembler.stringToAddrMode(tokenString);
-                if ((addrMode & maps.addrModesMap.value(localEnumMnemonic)) == 0) { // Nested parens required.
+                if ((rxAddrMode & maps.addrModesMap.value(localEnumMnemonic)) == 0) { // Nested parens required.
                     errorString = ";ERROR: Illegal addressing mode for this instruction.";
                     return false;
                 }
-                nonUnaryInstruction.addressingMode = addrMode;
+                nonUnaryInstruction.addressingMode = rxAddrMode;
                 state = ParseState.ps_CLOSE;
             }
             else if (maps.addrModeRequiredMap.value(localEnumMnemonic)) {
@@ -512,7 +513,7 @@ class AssemblerModel {
                 
             case .ps_DOT_ADDRSS:
                 if (token == ELexicalToken.lt_IDENTIFIER) {
-                if (tokenString.length() > 8) {
+                if (tokenString.length > 8) {
                     errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
                     return false;
                 }
@@ -609,7 +610,7 @@ class AssemblerModel {
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 65536) {
                     dotBur.argument = HexArgument(value);
-                    maps.burnCount++;
+                    maps.burnCount += 1;
                     maps.dotBurnArgument = value;
                     maps.romStartAddress = maps.byteCount;
                     state = ParseState.ps_CLOSE;

@@ -257,10 +257,10 @@ class DotBurn: Code {
         }
         let dotStr: String = ".BURN"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
-        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: " ", fixLength:  8))
-        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength:  8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
         lineStr.append(comment)
         assembler.listing.append(lineStr)
         listingTrace.append(lineStr)
