@@ -141,8 +141,46 @@ class NonUnaryInstruction: Code {
             var list: [String]
             var numBytesListed: Int = 0
             var pos: Int = 0
-            // MARK: TODO
+            while pos == rxSymbolTag.index(ofAccessibilityElement: comment) != -1 { // MARK: TODO
+                symbol = rxSymbolTag.cap(section: 1)
+                if !maps.equateSymbols.contains(symbol) {
+                    errorString = ";WARNING: " + symbol + " not specified in .EQUATE."
+                    sourceLine = sourceCodeLine
+                    return false
+                }
+                numBytesListed += tagNumBytes(maps.symbolFormat[symbol] * maps.symbolFormatMultiplier[symbol]) // MARK: TODO
+                list.append(symbol)
+                pos += rxSymbolTag.matchedLength() // MARK: TODO
+            }
+            if numBytesAllocated != numBytesListed {
+                var message: String = (mnemonic == EMnemonic.ADDSP) ? "deallocated" : "allocated"
+                errorString = ";WARNING Number of bytes " + message + " (" + numBytesAllocated.toHex2() + ") not equal to number of bytes listed in trace tag (" + numBytesAllocated.toHex2() + ")."
+                sourceLine = sourceCodeLine
+                return false
+            }
+            maps.symbolTraceList.insert(memAddress, list) // MARK: TODO
+            return true
         }
-        return true // remove when done with this function
+        else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
+            var pos: Int = 0
+            var symbol: String
+            var list: [String]
+            while pos = rxSymbolTag.indexIn(comment, pos) != -1 {
+                symbol = rxSymbolTag.cap(section: 1)
+                if !maps.equateSymbols.contains(symbol) && !maps.blockSymbols.contains(symbol) {
+                    errorString = ";WARNING " + symbol + " not specified in .EQUATE."
+                    sourceLine = sourceCodeLine
+                    return false
+                }
+                list.append(symbol)
+                pos += rxSymbolTag.matchedLength() // MARK: TODO
+            }
+            if !list.isEmpty {
+                maps.symbolTraceList.insert(memAddress, list) // MARK: TODO
+            }
+            return true
+        } else {
+            return true
+        }
     }
 }
