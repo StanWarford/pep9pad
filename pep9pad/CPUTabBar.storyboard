@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,13 +21,25 @@
                     <view key="view" contentMode="scaleToFill" id="rVg-JV-3HC">
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkg-MU-UXI" customClass="TestView" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="-39" width="1024" height="694"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dkg-MU-UXI" secondAttribute="trailing" id="7aW-91-9lC"/>
+                            <constraint firstItem="dkg-MU-UXI" firstAttribute="bottom" secondItem="ffv-Se-jI9" secondAttribute="top" id="OxF-zD-F3U"/>
+                            <constraint firstItem="dkg-MU-UXI" firstAttribute="top" secondItem="rVg-JV-3HC" secondAttribute="topMargin" constant="-39" id="Sd2-A8-rMP"/>
+                            <constraint firstItem="dkg-MU-UXI" firstAttribute="leading" secondItem="rVg-JV-3HC" secondAttribute="leading" id="er1-c8-NUe"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="ZVV-Bg-AX9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyw-1p-mYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236" y="842"/>
+            <point key="canvasLocation" x="-236.13281249999997" y="841.40625"/>
         </scene>
         <!--Visual-->
         <scene sceneID="7gg-EU-r0k">
