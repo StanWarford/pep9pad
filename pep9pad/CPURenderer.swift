@@ -1,5 +1,5 @@
 //
-//  Test.swift
+//  CPURenderer.swift
 //  Pep9Pad
 //
 //  Created by Warford on 2/20/17.
@@ -13,11 +13,11 @@
 
 import UIKit
 
-public class Test : NSObject {
+public class CPURenderer: NSObject {
 
     //// Drawing Methods
 
-    public dynamic class func drawPep9CPUIPad97(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 768, height: 1024), resizing: ResizingBehavior = .aspectFit) {
+    public dynamic class func drawPep9CPUIPad97(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 768, height: 1024), resizing: ResizingBehavior = .center) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
@@ -603,6 +603,8 @@ public class Test : NSObject {
         aLUPath.stroke()
 
 
+    
+        
         //// CBus Drawing
         let cBusPath = UIBezierPath()
         cBusPath.move(to: CGPoint(x: 363.5, y: 668.5))

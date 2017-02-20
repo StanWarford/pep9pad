@@ -8,8 +8,8 @@
 
 import UIKit
 @IBDesignable
-class TestView: UIView {
+class CPUView: UIView {
     override func draw(_ rect: CGRect) {
-        Test.drawPep9CPUIPad97()
+        CPURenderer.drawPep9CPUIPad97()
     }
 }

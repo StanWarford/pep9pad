@@ -186,8 +186,8 @@
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
-		D2B24BCE1E5B861900B5289A /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCD1E5B861900B5289A /* Test.swift */; };
-		D2B24BD01E5B868600B5289A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCF1E5B868600B5289A /* TestView.swift */; };
+		D2B24BCE1E5B861900B5289A /* CPURenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCD1E5B861900B5289A /* CPURenderer.swift */; };
+		D2B24BD01E5B868600B5289A /* CPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCF1E5B868600B5289A /* CPUView.swift */; };
 		D2B82DE41E035B8700F960FE /* Memory.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B82DE31E035B8700F960FE /* Memory.xib */; };
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
@@ -401,8 +401,8 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2B24BCD1E5B861900B5289A /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test.swift; path = pep9pad/Test.swift; sourceTree = "<group>"; };
-		D2B24BCF1E5B868600B5289A /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestView.swift; path = pep9pad/TestView.swift; sourceTree = "<group>"; };
+		D2B24BCD1E5B861900B5289A /* CPURenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPURenderer.swift; path = pep9pad/CPURenderer.swift; sourceTree = "<group>"; };
+		D2B24BCF1E5B868600B5289A /* CPUView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPUView.swift; path = pep9pad/CPUView.swift; sourceTree = "<group>"; };
 		D2B82DE31E035B8700F960FE /* Memory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Memory.xib; sourceTree = "<group>"; };
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
@@ -897,8 +897,8 @@
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
-				D2B24BCD1E5B861900B5289A /* Test.swift */,
-				D2B24BCF1E5B868600B5289A /* TestView.swift */,
+				D2B24BCD1E5B861900B5289A /* CPURenderer.swift */,
+				D2B24BCF1E5B868600B5289A /* CPUView.swift */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46B58BD31C8FD872006E46B4 /* Help */,
@@ -1271,7 +1271,7 @@
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
-				D2B24BCE1E5B861900B5289A /* Test.swift in Sources */,
+				D2B24BCE1E5B861900B5289A /* CPURenderer.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				D28BC7911E54E4A800E96EFA /* CPU2ByteController.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
@@ -1292,7 +1292,7 @@
 				460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
-				D2B24BD01E5B868600B5289A /* TestView.swift in Sources */,
+				D2B24BD01E5B868600B5289A /* CPUView.swift in Sources */,
 				46D7A0A51E36F63900BA14A7 /* ColoredObject.swift in Sources */,
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* Pep9DetailController.swift in Sources */,
