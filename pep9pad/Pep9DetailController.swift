@@ -54,7 +54,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["test@gmail.com"])
+        mailComposerVC.setToRecipients([])
         mailComposerVC.setSubject("Subject of you mail")
         mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
         
@@ -67,7 +67,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         self.present(mailAlert, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: Error!) {
+    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
         controller.dismiss(animated: true, completion: nil)
     }
     
@@ -606,16 +606,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     func shareProjectBtnPressed(sender: AnyObject) {
         let mailComposeViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
+            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.source), mimeType: "txt", fileName: projectModel.name.appending(".pep"))
+            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.object), mimeType: "txt", fileName: projectModel.name.appending(".pepo"))
+            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.listing), mimeType: "txt", fileName: projectModel.name.appending(".pepl"))
             self.present(mailComposeViewController, animated: true, completion: nil)
-            //TODO {
-            if let filePath = Bundle.main.path(forResource: "myFirstProgram", ofType: "pep") {
-                print("File path loaded.")
-                if let fileData = NSData(contentsOfFile: filePath) {
-                    print("File data laoded.")
-                    mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: "myFirstProgram")
-                    self.present(mailComposeViewController, animated: true, completion: nil)
-                }
-            }
+//            if let fileData = projectModel.sourceStr.data(using: .utf8) {
+//                print("File data lauded.")
+//                mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: projectModel.name)
+//                self.present(mailComposeViewController, animated: true, completion: nil)
+//            }
+            
             // } ENDTODO
         } else {
             self.showSendMailErrorAlert()

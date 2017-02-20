@@ -40,17 +40,20 @@ class IOMemController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         batchInputTextView = UITextView()
         batchInputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: (view.frame.height-44)/3)
+        batchInputTextView.font = UIFont(name: "Courier", size: 15)
         batchInputTextView.text = "Batch Input placeholder"
         view.addSubview(batchInputTextView)
 
         batchOutputTextView = UITextView()
         batchOutputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+22+(view.frame.height/3), width: view.frame.width, height: (view.frame.height-44)/3)
+        batchOutputTextView.font = UIFont(name: "Courier", size: 15)
         batchOutputTextView.text = "Batch Output placeholder"
         view.addSubview(batchOutputTextView)
 
         terminalTextView = UITextView()
         terminalTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44)
         terminalTextView.isHidden = true
+        terminalTextView.font = UIFont(name: "Courier", size: 15)
         terminalTextView.text = "Terminal I/O placeholder"
         view.addSubview(terminalTextView)
 
