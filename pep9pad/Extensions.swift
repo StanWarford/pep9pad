@@ -128,6 +128,17 @@ extension String {
         let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
         return paddedString
     }
+    
+    func startsWith(input: String) -> Bool {
+        var holder: String
+        for i in 0...2 {
+            holder = self[i]
+        }
+        if holder == input {
+            return true
+        }
+        return false
+    }
 }
 
 extension Dictionary where Key:Any {

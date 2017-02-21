@@ -157,15 +157,28 @@ class AssemblerModel {
         
     }
     
-
-    
     func formatMultiplier(_ formatTag: String) -> Int {
         return 1
         // MARK
     }
     
     func formatTagType(formatTag: String) -> ESymbolFormat {
-        return ""
+        if formatTag.startsWith(input: "#1c") {
+            return ESymbolFormat.F_1C
+        }
+        if formatTag.startsWith(input: "#1d") {
+            return ESymbolFormat.F_1D
+        }
+        if formatTag.startsWith(input: "#2d") {
+            return ESymbolFormat.F_2D
+        }
+        if formatTag.startsWith(input: "#1h") {
+            return ESymbolFormat.F_1H
+        }
+        if formatTag.startsWith(input: "#2h") {
+            return ESymbolFormat.F_2H
+        }
+        return ESymbolFormat.F_NONE // Should not occur
     }
     
     func tagNumBytes(symbolFormat: ESymbolFormat) -> Int {
