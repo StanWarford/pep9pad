@@ -244,7 +244,7 @@ class DotBlock: Code {
         var pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
         if pos > -1 {
             var formatTag: String = rxFormatTag.cap(section: 0)
-            enum.ESymbolFormat tagType = formatTag
+            let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
             var multiplier: Int = assembler.formatMultiplier(formatTag)
             return false
         }
