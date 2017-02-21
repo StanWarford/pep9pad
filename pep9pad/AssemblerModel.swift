@@ -159,7 +159,10 @@ class AssemblerModel {
     
 
     
-    
+    func formatMultiplier(formatTag: String) -> Int {
+        return 1
+        // MARK
+    }
     
     /// Pre: sourceLine has one line of source code.
     /// Pre: lineNum is the line number of the source code.
