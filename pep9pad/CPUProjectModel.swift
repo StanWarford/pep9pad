@@ -9,7 +9,7 @@
 import Foundation
 
 /// Global, used to access the currently-edited project and interact with the fs.
-var cpuProjectModel = ProjectModel()
+var cpuProjectModel = CPUProjectModel()
 
 class CPUProjectModel {
     
@@ -27,7 +27,8 @@ class CPUProjectModel {
     var name: String = ""
     /// The assembly source of the current project.  Default is empty string.
     var sourceStr: String = ""
-
+    /// The size of the bus.
+    var busSize: CPUBusSize = .oneByte
     
     // MARK: - Methods
     
@@ -73,11 +74,8 @@ class CPUProjectModel {
     func loadExample(text: String, ofType: PepFileType) {
         // TODO: Figure out whether the user has unsaved work and ask accordingly
         switch ofType {
-        case .pep:
+        case .pepcpu:
             sourceStr = text
-            fsState = .UnsavedUnnamed
-        case .pepo, .peph:
-            sourceStr = ""
             fsState = .UnsavedUnnamed
             
         default:
@@ -87,32 +85,32 @@ class CPUProjectModel {
     }
     
     
-//    func saveProjectInFS() {
+    func saveProjectInFS() {
 //        if updateProjectInFS(named: name, source: sourceStr) {
 //            fsState = .SavedNamed
 //        }
-//    }
-//    
-//    func saveAsNewProjectInFS(withName: String) {
-//        name = withName
+    }
+    
+    func saveAsNewProjectInFS(withName: String) {
+        name = withName
 //        if saveNewProjectInFS(named: name, source: sourceStr) {
 //            fsState = .SavedNamed
 //        }
-//    }
+    }
     
     
-    /// Called by classes that conform to `ProjectModelEditor` (i.e. the source, object, and listing vcs)
-    /// whenever an editor detects the user has edited its `textField`'s contents.
-    /// This function sets `fsState` accordingly.
-//    func receiveChanges(from editor: ProjectModelEditor, text: String) {
-//        if editor is CPUSourceController {
-//            sourceStr = text
-//            changeStateToUnsaved()
-//        } else {
-//            // unrecognized call
-//            assert(false)
-//        }
-//    }
+    // Called by classes that conform to `ProjectModelEditor` (i.e. the source, object, and listing vcs)
+    // whenever an editor detects the user has edited its `textField`'s contents.
+    // This function sets `fsState` accordingly.
+    func receiveChanges(from editor: ProjectModelEditor, text: String) {
+        if editor is CPUSplitController {
+            sourceStr = text
+            changeStateToUnsaved()
+        } else {
+            // unrecognized call
+            assert(false)
+        }
+    }
     
     /// Called by `self.receiveChanges()` whenever a change has been detected in source code.
     /// Marks the current project as .UnsavedNamed or .UnsavedUnnamed, depending on the current value of `fsState`.

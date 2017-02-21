@@ -187,25 +187,14 @@ extension UIColor {
         var brightness  : CGFloat = 0
         var alpha       : CGFloat = 0
         
-        #if os(iOS)
-            
-            if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-                return UIColor( hue: hue,
-                                saturation: saturation,
-                                brightness: brightness * amount,
-                                alpha: alpha )
-            } else {
-                return self
-            }
-            
-        #else
-            
-            getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        if getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
             return UIColor( hue: hue,
                             saturation: saturation,
                             brightness: brightness * amount,
                             alpha: alpha )
-        #endif
+        } else {
+            return self
+        }
         
     }
 }

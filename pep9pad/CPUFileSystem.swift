@@ -25,7 +25,7 @@ class CPUFileSystem {
     
     /// Only called from AppDelegate, and only called when `isFirstLaunch` is true.
     /// i.e. happens only once, on the first launch following an installation.
-    /// Adds all elements of `DefaultFiles` to the CoreDatabase
+    /// Adds all elements of `defaultProjects` to the CoreDatabase
     func setup() {
         
         defaultProjects = [

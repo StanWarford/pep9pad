@@ -1,4 +1,14 @@
 //
+//  CPUMemoryView.swift
+//  pep9pad
+//
+//  Copyright © 2017 Pepperdine University. All rights reserved.
+//
+
+import UIKit
+
+
+//
 //  MemoryView.swift
 //  pep9pad
 //
@@ -7,8 +17,8 @@
 
 import UIKit
 
-class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
-   
+class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+    
     
     
     // MARK: - Initializers
@@ -31,11 +41,11 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         view.frame = self.bounds
         refresh()
     }
-
-
-
+    
+    
+    
     // MARK: - Methods
-
+    /// An array of strings.  Each string is in this form: 0FFF | 00 00 00 00 00 00 00 00.
     var memoryDump: [String] = [String](repeating: "", count: 8192)
     
     
@@ -43,7 +53,6 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     func refresh() {
         memoryDump.removeAll(keepingCapacity: true)
         var line: String = ""
-        var ch: String
         
         for byte in stride(from: 0, to: 65536, by: 8){
             line = ""
@@ -53,20 +62,13 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             for bit in 0..<8 {
                 line.append("\(machine.mem[byte+bit].toHex2()) ")
             }
-            line.append("| ")
-            // ascii column
-            for bit in 0..<8 {
-                let val = machine.mem[byte+bit]
-                ch = val < 33 ? "." : val.toASCII()
-                line.append(ch)
-            }
-            
+            // this is the CPU activity, so no ASCII representation
             memoryDump.append(line)
+            
         }
     }
     
-
-
+    
     
     /// Refreshes the memory in a given range.
     func refresh(fromByte: Int, toByte: Int) {
@@ -86,34 +88,26 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
                 line.append("\(machine.mem[byteNum+j].toHex2()) ")
             }
             
-            line.append("| ")
-            
-            for j in 0..<8 {
-                let val = machine.mem[byteNum+j]
-                ch = val < 33 ? "." : val.toASCII()
-                line.append(ch)
-            }
-
-        memoryDump[lineNum] = line
+            memoryDump[lineNum] = line
             
         }
-
+        
     }
-
-    func cacheModifiedBytes() {
     
+    func cacheModifiedBytes() {
+        
     }
     /// If not b, whole table is unhighlighted. If b, current program counter is highlighted.
     func shouldHighlight(_ b: Bool) {
-    
+        
     }
-
+    
     /// Highlights individual bytes.
     func hightlightByte(atAddr: Int, foreground: UIColor, background: UIColor) {
         
     }
-
-
+    
+    
     func scrollToByte(_ byte: Int) {
         let row: Int
         if byte % 8 == 0 {
@@ -126,9 +120,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     }
     
     
-    
-
-    // MARK: - IBOutlets and Actions 
+    // MARK: - IBOutlets and Actions
     
     
     @IBOutlet var table: UITableView! {
@@ -159,10 +151,10 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     
     
     
-
+    
     // MARK: - Conformance to UITableViewDataSource
     
-    let cellID = "MemDumpCellID"
+    let cellID = "CPUMemDumpCellID"
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -206,11 +198,18 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
                 scrollToByte(intVal)
             }
         }
-
+        
         return true
     }
     
     
+
+    func setMemPrecondition(memAddress: Int, value: Int) {
+        
+    }
     
+    func testMemPostcondition(memAddress: Int, value: Int) {
+        
+    }
     
 }

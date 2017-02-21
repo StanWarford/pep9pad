@@ -76,6 +76,12 @@ enum CPURegisters {
     case operand
 }
 
+enum ProjectContents {
+    case source
+    case object
+    case listing
+}
+
 enum CPUFormats {
     case bin
     case hex

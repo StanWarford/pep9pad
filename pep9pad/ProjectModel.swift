@@ -122,6 +122,19 @@ class ProjectModel {
     }
     
     
+    func getData(ofType: ProjectContents) -> Data! {
+        switch ofType {
+        case .source:
+            return sourceStr.data(using: .utf8)
+        case .object:
+            return objectStr.data(using: .utf8)
+        case .listing:
+            return listingStr.data(using: .utf8)
+        default:
+            break
+        }
+    }
+    
     /// Called by classes that conform to `ProjectModelEditor` (i.e. the source, object, and listing vcs)
     /// whenever an editor detects the user has edited its `textField`'s contents.
     /// This function sets `fsState` accordingly.
