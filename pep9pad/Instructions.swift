@@ -110,8 +110,8 @@ class NonUnaryInstruction: Code {
                 var formatTag: String = rxFormatTag.cap(section: 0)
                 // MARK: NEED TO WRITE FUNCTIONS FOR THESE
                 //var tagType: ESymbolFormat = formatTag
-                //var multiplier: Int = formatTag
-                var symbolDef: String = memAddress.toHex2()
+                var multiplier: Int = 
+                let symbolDef: String = memAddress.toHex2()
                 if !maps.equateSymbols.contains(symbolDef) {
                     // Limitation: only one dummy format per program
                     maps.equateSymbols.append(symbolDef)
@@ -140,8 +140,8 @@ class NonUnaryInstruction: Code {
             var symbol: String
             var list: [String]
             var numBytesListed: Int = 0
-            var pos: Int = 0
-            while pos == rxSymbolTag.index(ofAccessibilityElement: comment) != -1 { // MARK: TODO
+            var pos: Int = rxSymbolTag.index(ofAccessibilityElement: comment)
+            while pos > -1 {
                 symbol = rxSymbolTag.cap(section: 1)
                 if !maps.equateSymbols.contains(symbol) {
                     errorString = ";WARNING: " + symbol + " not specified in .EQUATE."
@@ -158,7 +158,7 @@ class NonUnaryInstruction: Code {
                 sourceLine = sourceCodeLine
                 return false
             }
-            maps.symbolTraceList.insert(memAddress, list) // MARK: TODO
+            maps.symbolTraceList[memAddress] = list
             return true
         }
         else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {

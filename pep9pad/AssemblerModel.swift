@@ -287,7 +287,7 @@ class AssemblerModel {
                 }
             }
             else if (token == ELexicalToken.lt_SYMBOL_DEF) {
-                tokenString.chop(1); // Remove the colon
+                tokenString.chop(1)
                 if (tokenString.length > 8) {
                     errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
                     return false;
