@@ -107,9 +107,9 @@ class NonUnaryInstruction: Code {
             let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
             if pos > -1 {
                 var list: [String] = [""]
-                var formatTag: String = rxFormatTag.cap(section: 0)
-                var tagType: ESymbolFormat = 
-                var multiplier: Int = assembler.formatMultiplier(formatTag: formatTag) //NEED TO WRITE FUNCTION
+                let formatTag: String = rxFormatTag.cap(section: 0)
+                let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
+                let multiplier: Int = assembler.formatMultiplier(formatTag)
                 let symbolDef: String = memAddress.toHex2()
                 if !maps.equateSymbols.contains(symbolDef) {
                     // Limitation: only one dummy format per program
