@@ -108,17 +108,15 @@ class NonUnaryInstruction: Code {
             if pos > -1 {
                 var list: [String] = [""]
                 var formatTag: String = rxFormatTag.cap(section: 0)
-                // MARK: NEED TO WRITE FUNCTIONS FOR THESE
-                //var tagType: ESymbolFormat = formatTag
-                var multiplier: Int = 
+                var tagType: ESymbolFormat = 
+                var multiplier: Int = assembler.formatMultiplier(formatTag: formatTag) //NEED TO WRITE FUNCTION
                 let symbolDef: String = memAddress.toHex2()
                 if !maps.equateSymbols.contains(symbolDef) {
                     // Limitation: only one dummy format per program
                     maps.equateSymbols.append(symbolDef)
                 }
-                // MARK: NEED TO FIND OR MAKE REALATED tagType & multiplier
-                // maps.symbolFormat[symbolDef] = tagType
-                //maps.symbolFormatMultiplier[symbolDef] = multiplier
+                maps.symbolFormat[symbolDef] = tagType  // Any duplicates have value replaced
+                maps.symbolFormatMultiplier[symbolDef] = multiplier
                 list.append(symbolDef)
                 maps.symbolTraceList[memAddress] = list
             }

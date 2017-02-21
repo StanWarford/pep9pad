@@ -238,16 +238,17 @@ class DotBlock: Code {
     }
     
     override func processFormatTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool { // MARK
-        /*if symbolDef.isEmpty {
+        if symbolDef.isEmpty {
             return true
         }
         var pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
         if pos > -1 {
             var formatTag: String = rxFormatTag.cap(section: 0)
             enum.ESymbolFormat tagType = formatTag
-            var multiplier: Int = formatMultiplier
-            return true
-        }*/
+            var multiplier: Int = assembler.formatMultiplier(formatTag)
+            return false
+        }
+        return true
     }
     
     override func processSymbolTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool {
