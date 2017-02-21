@@ -159,9 +159,13 @@ class AssemblerModel {
     
 
     
-    func formatMultiplier(formatTag: String) -> Int {
+    func formatMultiplier(_ formatTag: String) -> Int {
         return 1
         // MARK
+    }
+    
+    func formatTagType(formatTag: String) -> ESymbolFormat {
+        return ""
     }
     
     /// Pre: sourceLine has one line of source code.
