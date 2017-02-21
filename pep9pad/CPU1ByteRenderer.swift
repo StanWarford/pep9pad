@@ -1,5 +1,4 @@
 //
-//  CPURenderer.swift
 //  Pep9Pad
 //
 //  Created by Warford on 2/20/17.
@@ -13,7 +12,7 @@
 
 import UIKit
 
-public class CPURenderer: NSObject {
+public class CPU1ByteRenderer: NSObject {
 
     //// Drawing Methods
 

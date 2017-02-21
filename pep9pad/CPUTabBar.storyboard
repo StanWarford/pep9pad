@@ -22,23 +22,8 @@
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" minimumZoomScale="0.0" maximumZoomScale="12" translatesAutoresizingMaskIntoConstraints="NO" id="JCn-C6-Lnk">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="JCn-C6-Lnk">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="655"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wjc-tY-Frg" customClass="CPUView" customModule="pep9pad" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="1008" height="639"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.72108843540000001" green="0.92974064629999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Wjc-tY-Frg" firstAttribute="centerX" secondItem="JCn-C6-Lnk" secondAttribute="centerX" id="Fk0-3S-18P"/>
-                                    <constraint firstItem="Wjc-tY-Frg" firstAttribute="bottom" secondItem="JCn-C6-Lnk" secondAttribute="bottomMargin" id="IN5-oL-R7V"/>
-                                    <constraint firstItem="Wjc-tY-Frg" firstAttribute="trailing" secondItem="JCn-C6-Lnk" secondAttribute="trailingMargin" id="SIk-KC-qHG"/>
-                                    <constraint firstItem="Wjc-tY-Frg" firstAttribute="leading" secondItem="JCn-C6-Lnk" secondAttribute="leadingMargin" id="UuR-sK-Mc8"/>
-                                    <constraint firstItem="Wjc-tY-Frg" firstAttribute="centerY" secondItem="JCn-C6-Lnk" secondAttribute="centerY" id="Xmk-ky-0dx"/>
-                                    <constraint firstItem="Wjc-tY-Frg" firstAttribute="top" secondItem="JCn-C6-Lnk" secondAttribute="topMargin" id="tm1-TK-uur"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,7 +36,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="ZVV-Bg-AX9"/>
                     <connections>
-                        <outlet property="cpuView" destination="Wjc-tY-Frg" id="6At-Oo-FJG"/>
                         <outlet property="scrollView" destination="JCn-C6-Lnk" id="DC2-FQ-klK"/>
                     </connections>
                 </viewController>
@@ -91,7 +75,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-Fy-WbN" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="327.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
