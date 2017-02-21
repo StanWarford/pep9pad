@@ -181,6 +181,11 @@ extension NSRegularExpression {
         let value: String = outline.index(before: ???)
         return value
     }
+    
+    func matchedLength() -> Int {
+        
+    }
+    
 }
 
 

@@ -168,6 +168,25 @@ class AssemblerModel {
         return ""
     }
     
+    func tagNumBytes(symbolFormat: ESymbolFormat) -> Int {
+        switch symbolFormat {
+        case ESymbolFormat.F_1C:
+            return 1
+        case ESymbolFormat.F_1D:
+            return 1
+        case ESymbolFormat.F_2D:
+            return 2
+        case ESymbolFormat.F_1H:
+            return 2
+        case ESymbolFormat.F_2H:
+            return 2
+        case ESymbolFormat.F_NONE:
+            return 0
+        default:
+            return -1
+        }
+    }
+    
     /// Pre: sourceLine has one line of source code.
     /// Pre: lineNum is the line number of the source code.
     /// Post: If the source line is valid, true is returned and code is set to the source code for the line.
