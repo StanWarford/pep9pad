@@ -158,7 +158,7 @@ class AssemblerModel {
     }
     
     func formatMultiplier(_ formatTag: String) -> Int {
-        var pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
+        let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
         if pos > -1 {
             var multiplierTag: String = rxArrayMultiplier.cap(section: 0)
             multiplierTag.chop()

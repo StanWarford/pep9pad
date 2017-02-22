@@ -187,9 +187,8 @@ extension NSRegularExpression {
     }
     
     func cap(section: Int) -> String {
-        // MARK: TODO
         let outline: String = rxFormatTag.pattern
-        let value: String = outline.index(before: ???)
+        let value: String = outline.
         return value
     }
     
