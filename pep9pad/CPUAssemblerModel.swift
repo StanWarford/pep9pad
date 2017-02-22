@@ -88,13 +88,11 @@ class CPUAssemblerModel {
         
         var sourceLine: String
         var errorString: String
-        // QStringList sourceCodeList;
-        // Code *code;
+        // Code *code;  Note: change Code to MicroCode and code to microCode for Swift
         var lineNum: Int = 0
         // removeErrorMessages();
         // Sim::codeList.clear();
         // QString sourceCode = editor->toPlainText();
-        // sourceCodeList = sourceCode.split('\n');
         let sourceCodeList = sourceCode.components(separatedBy: "\n")
         for (lineNum, sourceLine) in sourceCodeList.enumerated() {
             print("\(lineNum): " + sourceLine)
