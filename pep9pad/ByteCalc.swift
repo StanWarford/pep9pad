@@ -63,6 +63,45 @@ class ByteCalc: NSObject, UITextFieldDelegate {
     let assembly = 4
     
     
+    
+    
+    
+    
+    
+    
+    // MARK: - Methods -
+    func makeAlert() -> UIAlertController {
+        let alertController = UIAlertController(title: "Byte Calculator", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField() { decimalField in
+            self.decimalField = decimalField
+        }
+        
+        alertController.addTextField() { hexField in
+            self.hexField = hexField
+        }
+        
+        alertController.addTextField() { binaryField in
+            self.binaryField = binaryField
+        }
+        
+        alertController.addTextField() { asciiField in
+            self.asciiField = asciiField
+        }
+        
+        alertController.addTextField() { assemblyField in
+            self.assemblyField = assemblyField
+        }
+        
+        
+        alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+        
+        return alertController
+        
+    }
+    
+    
+    
     func convertAndPopulate(from textField: UITextField, textToConvert: String) {
         // Note: by conditionally unwrapping into a UInt8 we ensure that the value is between 0 and 255.
         

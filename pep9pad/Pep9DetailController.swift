@@ -16,7 +16,7 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
 
-class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeViewControllerDelegate {
+class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     internal var master: Pep9MasterController!
@@ -24,7 +24,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     // must initialize this, otherwise we get a runtime error
     internal var tabVCs: Pep9TabBarVCs = (nil, nil, nil, nil)
     
-    internal var fontMenu = FontMenu()
+    internal let byteCalc = ByteCalc()
+    internal let fontMenu = FontMenu()
+    internal let mailer = Pep9Mailer()
 
     
     // MARK: - ViewController Lifecycle
@@ -49,31 +51,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    //MARK: Mail Composition
-    
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
-        mailComposerVC.setToRecipients([])
-        mailComposerVC.setSubject("Subject of you mail")
-        mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
-        
-        return mailComposerVC
-    }
-    
-    func showSendMailErrorAlert() {
-        let mailAlert = UIAlertController(title: "Error", message: "Could not send mail.", preferredStyle: .alert)
-        mailAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(mailAlert, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
     
     
     
@@ -262,7 +239,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
-        let fontMenu = self.fontMenu.createAlertController()
+        let fontMenu = self.fontMenu.makeAlert()
         fontMenu.popoverPresentationController?.barButtonItem = sender
         self.present(fontMenu, animated: true, completion: nil)
         
@@ -270,36 +247,11 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     }
     
     
-    let byteCalc = ByteCalc()
     
     
     @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Byte Calculator", message: nil, preferredStyle: .alert)
-        
-        alertController.addTextField() { decimalField in
-            self.byteCalc.decimalField = decimalField
-        }
-        
-        alertController.addTextField() { hexField in
-            self.byteCalc.hexField = hexField
-        }
-        
-        alertController.addTextField() { binaryField in
-            self.byteCalc.binaryField = binaryField
-        }
-        
-        alertController.addTextField() { asciiField in
-            self.byteCalc.asciiField = asciiField
-        }
-        
-        alertController.addTextField() { assemblyField in
-            self.byteCalc.assemblyField = assemblyField
-        }
-        
-        
-        alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
+        let calcAlert = byteCalc.makeAlert()
+        self.present(calcAlert, animated: true, completion: nil)
         
     }
     
@@ -570,22 +522,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     }
     
     func shareProjectBtnPressed(sender: AnyObject) {
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.source), mimeType: "txt", fileName: projectModel.name.appending(".pep"))
-            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.object), mimeType: "txt", fileName: projectModel.name.appending(".pepo"))
-            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.listing), mimeType: "txt", fileName: projectModel.name.appending(".pepl"))
-            self.present(mailComposeViewController, animated: true, completion: nil)
-            //            if let fileData = projectModel.sourceStr.data(using: .utf8) {
-            //                print("File data lauded.")
-            //                mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: projectModel.name)
-            //                self.present(mailComposeViewController, animated: true, completion: nil)
-            //            }
-            
-            // } ENDTODO
-        } else {
-            self.showSendMailErrorAlert()
-        }
+        let mailController = mailer.makeAlert()
+        self.present(mailController, animated: true, completion: nil)
     }
     
     /// Try to load the given example.  Depending on `self.fsState`, this function may present the user with options (e.g. if the user has never saved the current project) before loading the given example.  If the user chooses to cancel this save operation, the function returns false.
@@ -649,27 +587,15 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         if shouldLoad {
             projectModel.loadExample(text: text, ofType: ofType)
             updateEditorsFromProjectModel()
-            exampleWasLoaded(ofType: ofType)
+            switchToTab(atIndex: (ofType == .pep ? 0 : 1))
         }
         
         return shouldLoad
     }
     
     /// Switches the tabBar to the appropriate index.
-    func exampleWasLoaded(ofType: PepFileType) {
-        
-        switch ofType {
-        case .pep:
-            // switch to SourceViewController
-            tabBar.selectedIndex = 0
-            
-        case .pepo, .peph:
-            // switch to ObjectViewController
-            tabBar.selectedIndex = 1
-            
-        default:
-            break
-        }
+    func switchToTab(atIndex i: Int) {
+        tabBar.selectedIndex = min(i, (tabBar.toolbarItems?.count)!)
     }
     
     

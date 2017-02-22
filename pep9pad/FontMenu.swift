@@ -13,7 +13,7 @@ class FontMenu: NSObject, UITableViewDataSource, UITableViewDelegate {
         //prepare
     }
     
-    func createAlertController() -> UIAlertController {
+    func makeAlert() -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let controller = UIViewController()
         var tableView = UITableView()
