@@ -16,7 +16,7 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
 
-class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeViewControllerDelegate {
     
     
     internal var master: Pep9MasterController!
@@ -24,23 +24,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     // must initialize this, otherwise we get a runtime error
     internal var tabVCs: Pep9TabBarVCs = (nil, nil, nil, nil)
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1 // This was put in mainly for my own unit testing
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // Most of the time my data source is an array of something...  will replace with the actual name of the data source
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Note:  Be sure to replace the argument to dequeueReusableCellWithIdentifier with the actual identifier string!
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.backgroundColor = UIColor.clear
-        
-        // set cell's textLabel.text property
-        // set cell's detailTextLabel.text property
-        return cell
-    }
+    internal var fontMenu = FontMenu()
+
     
     // MARK: - ViewController Lifecycle
     
@@ -277,43 +262,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let controller = UIViewController()
-        var tableView = UITableView()
-        let rect = CGRect(x: 0, y: 0, width: 272, height: 200) // adjust last arg to make bigger/smaller
-        tableView = UITableView(frame: rect)
-        controller.preferredContentSize = rect.size
-        
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
-        //tableView.separator
-        tableView.tag = 1002
-        controller.view.addSubview(tableView)
-        controller.view.bringSubview(toFront: tableView)
-        controller.view.isUserInteractionEnabled = true
-        tableView.isUserInteractionEnabled = true
-        tableView.allowsSelection = false
-        tableView.backgroundColor = UIColor.clear
-        
-        alertController.setValue(controller, forKey: "contentViewController")
-        
-        //    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Title" message:@"Message" preferredStyle:UIAlertControllerStyleAlert];
-        //    [alertController setValue:controller forKey:@"contentViewController"];
-        //    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
-        //
-        //    }];
-        //    [alertController addAction:cancelAction];
-        //    [self presentViewController:alertController animated:YES completion:nil];
-        let somethingAction = UIAlertAction(title: "act 1", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
-        let cancelAction = UIAlertAction(title: "act 2", style: .cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(somethingAction)
-        
-        alertController.popoverPresentationController?.barButtonItem = sender
-        self.present(alertController, animated: true, completion: nil)
+        let fontMenu = self.fontMenu.createAlertController()
+        fontMenu.popoverPresentationController?.barButtonItem = sender
+        self.present(fontMenu, animated: true, completion: nil)
         
         
     }

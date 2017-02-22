@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */; };
-		460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460FBEA71E24A4DD008AD603 /* FontMenu.xib */; };
-		460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460FBEA91E24A513008AD603 /* FontMenuView.swift */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
 		461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461875951C90089F0095B818 /* HelpDocumentation.swift */; };
 		4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875991C900CA10095B818 /* assemblylanguage.html */; };
@@ -51,6 +49,7 @@
 		4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */; };
 		4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */; };
 		4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */; };
+		4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* CodeView.swift */; };
 		4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */; };
@@ -215,8 +214,6 @@
 /* Begin PBXFileReference section */
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblerModel.swift; sourceTree = "<group>"; };
-		460FBEA71E24A4DD008AD603 /* FontMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenu.xib; sourceTree = "<group>"; };
-		460FBEA91E24A513008AD603 /* FontMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuView.swift; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
 		461875951C90089F0095B818 /* HelpDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDocumentation.swift; sourceTree = "<group>"; };
 		461875991C900CA10095B818 /* assemblylanguage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = assemblylanguage.html; sourceTree = "<group>"; };
@@ -257,6 +254,7 @@
 		4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewDelegate.swift; sourceTree = "<group>"; };
 		4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteView.swift; sourceTree = "<group>"; };
 		4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteRenderer.swift; sourceTree = "<group>"; };
+		4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenu.swift; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameFSM.swift; sourceTree = "<group>"; };
@@ -460,16 +458,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		461279441E260EAA00212829 /* FontMenu */ = {
-			isa = PBXGroup;
-			children = (
-				460FBEA71E24A4DD008AD603 /* FontMenu.xib */,
-				460FBEA91E24A513008AD603 /* FontMenuView.swift */,
-			);
-			name = FontMenu;
-			path = pep9pad;
-			sourceTree = "<group>";
-		};
 		461279461E26104A00212829 /* Master */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +477,7 @@
 			children = (
 				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
 				46C76A551DA496510071C340 /* Pep9DetailController.swift */,
+				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
 				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
 				46C76A631DAF112A0071C340 /* SourceController.swift */,
 				46C76A671DB856A50071C340 /* ObjectController.swift */,
@@ -904,7 +893,6 @@
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46A304E41C992D5500CDCD1A /* CodeView */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
-				461279441E260EAA00212829 /* FontMenu */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46BC04341E18A2ED006ED01F /* Settings */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
@@ -1174,7 +1162,6 @@
 				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
 				462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
-				460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
 				461875A51C900D740095B818 /* examples.html in Resources */,
@@ -1289,7 +1276,6 @@
 				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
-				460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
@@ -1316,6 +1302,7 @@
 				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,
+				4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
 				4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */,
