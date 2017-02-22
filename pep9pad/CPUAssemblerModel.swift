@@ -83,8 +83,40 @@ class CPUAssemblerModel {
     }
     
     func microAssemble() -> Bool {
-        var sourceCode:String = cpuProjectModel.sourceStr
+        var sourceCode: String = cpuProjectModel.sourceStr
         print(sourceCode)
+        
+        var sourceLine: String
+        var errorString: String
+        // QStringList sourceCodeList;
+        // Code *code;
+        var lineNum: Int = 0
+        // removeErrorMessages();
+        // Sim::codeList.clear();
+        // QString sourceCode = editor->toPlainText();
+        // sourceCodeList = sourceCode.split('\n');
+        let sourceCodeList = sourceCode.components(separatedBy: "\n")
+        for (lineNum, sourceLine) in sourceCodeList.enumerated() {
+            print("\(lineNum): " + sourceLine)
+        }
+        
+        // while (lineNum < sourceCodeList.size()) {
+        //     sourceLine = sourceCodeList[lineNum];
+        //     if (!Asm::processSourceLine(sourceLine, code, errorString)) {
+        //         appendMessageInSourceCodePaneAt(lineNum, errorString);
+        //         return false;
+        //     }
+        //     Sim::codeList.append(code);
+        //     if (code->isMicrocode()) {
+        //         Sim::cycleCount++;
+        //     }
+        //     lineNum++;
+        // }
+        // we guarantee a \n at the end of our document for single step highlighting
+        // if (!sourceCode.endsWith("\n")) {
+        //     editor->appendPlainText("\n");
+        // }
+        
         return true
     }
     
