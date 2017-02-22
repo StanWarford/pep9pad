@@ -1,5 +1,5 @@
 //
-//  CPURenderer.swift
+//  CPU2ByteRenderer.swift
 //  Pep9Pad
 //
 //  Created by Warford on 2/20/17.
@@ -13,10 +13,10 @@
 
 import UIKit
 
-public class CPURenderer: NSObject {
-
+public class CPU2ByteRenderer: NSObject {
+    
     //// Drawing Methods
-
+    
     public dynamic class func drawPep9CPUIPad97(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 768, height: 1024), resizing: ResizingBehavior = .center) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
@@ -26,8 +26,8 @@ public class CPURenderer: NSObject {
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 768, height: 1024), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 768, y: resizedFrame.height / 1024)
-
-
+        
+        
         //// Color Declarations
         let color3 = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
         let initial = UIColor(red: 0.977, green: 0.836, blue: 0.004, alpha: 1.000)
@@ -38,11 +38,11 @@ public class CPURenderer: NSObject {
         var color2SaturationComponent: CGFloat = 1
         var color2BrightnessComponent: CGFloat = 1
         color2.getHue(&color2HueComponent, saturation: &color2SaturationComponent, brightness: &color2BrightnessComponent, alpha: nil)
-
+        
         let pointerColors = UIColor(hue: color2HueComponent, saturation: color2SaturationComponent, brightness: 0.5, alpha: color2.cgColor.alpha)
         let aLUColor = UIColor(red: 0.758, green: 0.814, blue: 0.983, alpha: 1.000)
         let color7 = UIColor(red: 0.325, green: 0.546, blue: 0.914, alpha: 1.000)
-
+        
         //// CMux Pointer Drawing
         let cMuxPointerPath = UIBezierPath()
         cMuxPointerPath.move(to: CGPoint(x: 612.17, y: 627))
@@ -72,8 +72,8 @@ public class CPURenderer: NSObject {
         pointerColors.setStroke()
         cMuxPointerPath.lineWidth = 1
         cMuxPointerPath.stroke()
-
-
+        
+        
         //// AMux Pointer Drawing
         let aMuxPointerPath = UIBezierPath()
         aMuxPointerPath.move(to: CGPoint(x: 506.23, y: 545))
@@ -90,8 +90,8 @@ public class CPURenderer: NSObject {
         aMuxPointerPath.lineWidth = 1
         aMuxPointerPath.lineCapStyle = .square
         aMuxPointerPath.stroke()
-
-
+        
+        
         //// MARCk Drawing
         let mARCkPath = UIBezierPath()
         mARCkPath.move(to: CGPoint(x: 268.17, y: 263))
@@ -129,8 +129,8 @@ public class CPURenderer: NSObject {
         pointerColors.setStroke()
         mARCkPath.lineWidth = 1
         mARCkPath.stroke()
-
-
+        
+        
         //// MDRCk Drawing
         let mDRCkPath = UIBezierPath()
         mDRCkPath.move(to: CGPoint(x: 242, y: 409))
@@ -152,8 +152,8 @@ public class CPURenderer: NSObject {
         pointerColors.setStroke()
         mDRCkPath.lineWidth = 1
         mDRCkPath.stroke()
-
-
+        
+        
         //// MDRMux Pointer Drawing
         let mDRMuxPointerPath = UIBezierPath()
         mDRMuxPointerPath.move(to: CGPoint(x: 303.23, y: 515))
@@ -179,15 +179,15 @@ public class CPURenderer: NSObject {
         pointerColors.setStroke()
         mDRMuxPointerPath.lineWidth = 1
         mDRMuxPointerPath.stroke()
-
-
+        
+        
         //// MDRMux Drawing
         let mDRMuxPath = UIBezierPath(rect: CGRect(x: 192.5, y: 502.5, width: 99, height: 26))
         UIColor.black.setStroke()
         mDRMuxPath.lineWidth = 1
         mDRMuxPath.stroke()
-
-
+        
+        
         //// BBus Drawing
         let bBusPath = UIBezierPath()
         bBusPath.move(to: CGPoint(x: 554, y: 151))
@@ -209,8 +209,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         bBusPath.lineWidth = 1
         bBusPath.stroke()
-
-
+        
+        
         //// RegisterBank Drawing
         let registerBankPath = UIBezierPath(rect: CGRect(x: 22.5, y: 25.5, width: 600, height: 125))
         initial2.setFill()
@@ -219,8 +219,8 @@ public class CPURenderer: NSObject {
         registerBankPath.lineWidth = 1
         registerBankPath.lineCapStyle = .square
         registerBankPath.stroke()
-
-
+        
+        
         //// MARB Drawing
         let mARBPath = UIBezierPath(rect: CGRect(x: 192.5, y: 197.5, width: 99, height: 26))
         initial2.setFill()
@@ -228,15 +228,15 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         mARBPath.lineWidth = 1
         mARBPath.stroke()
-
-
+        
+        
         //// DataOut Drawing
         let dataOutPath = UIBezierPath(rect: CGRect(x: 192.5, y: 441.5, width: 99, height: 26))
         UIColor.black.setStroke()
         dataOutPath.lineWidth = 1
         dataOutPath.stroke()
-
-
+        
+        
         //// MARA Drawing
         let mARAPath = UIBezierPath(rect: CGRect(x: 192.5, y: 300.5, width: 99, height: 24))
         initial2.setFill()
@@ -244,8 +244,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         mARAPath.lineWidth = 1
         mARAPath.stroke()
-
-
+        
+        
         //// MAR to Bus Drawing
         let mARToBusPath = UIBezierPath()
         mARToBusPath.move(to: CGPoint(x: 251, y: 300.5))
@@ -266,29 +266,29 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         mARToBusPath.lineWidth = 1
         mARToBusPath.stroke()
-
-
+        
+        
         //// System Bus Drawing
         let systemBusPath = UIBezierPath(rect: CGRect(x: 69.5, y: 210.5, width: 24, height: 801))
         UIColor.black.setStroke()
         systemBusPath.lineWidth = 1
         systemBusPath.stroke()
-
-
+        
+        
         //// System Bus 2 Drawing
         let systemBus2Path = UIBezierPath(rect: CGRect(x: 94, y: 434.5, width: 14.5, height: 577))
         pointerColors.setStroke()
         systemBus2Path.lineWidth = 1
         systemBus2Path.stroke()
-
-
+        
+        
         //// AMux Drawing
         let aMuxPath = UIBezierPath(rect: CGRect(x: 395.5, y: 532.5, width: 99, height: 26))
         UIColor.black.setStroke()
         aMuxPath.lineWidth = 1
         aMuxPath.stroke()
-
-
+        
+        
         //// ABus Drawing
         let aBusPath = UIBezierPath()
         aBusPath.move(to: CGPoint(x: 465, y: 151))
@@ -310,8 +310,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         aBusPath.lineWidth = 1
         aBusPath.stroke()
-
-
+        
+        
         //// AMux to ALU Drawing
         let aMuxToALUPath = UIBezierPath()
         aMuxToALUPath.move(to: CGPoint(x: 435, y: 559))
@@ -326,8 +326,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         aMuxToALUPath.lineWidth = 1
         aMuxToALUPath.stroke()
-
-
+        
+        
         //// Addr Drawing
         let addrPath = UIBezierPath()
         addrPath.move(to: CGPoint(x: 70, y: 559))
@@ -340,27 +340,27 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         addrPath.lineWidth = 1
         addrPath.stroke()
-
-
+        
+        
         //// CMux Drawing
         let cMuxPath = UIBezierPath(rect: CGRect(x: 323.5, y: 668.5, width: 99, height: 26))
         UIColor.black.setStroke()
         cMuxPath.lineWidth = 1
         cMuxPath.stroke()
-
-
+        
+        
         //// CSMux Drawing
         let cSMuxPath = UIBezierPath(rect: CGRect(x: 572.5, y: 700.5, width: 99, height: 26))
         UIColor.black.setStroke()
         cSMuxPath.lineWidth = 1
         cSMuxPath.stroke()
-
-
+        
+        
         //// MDRMux Out Drawing
         context.saveGState()
         context.translateBy(x: 262, y: 517.84)
         context.rotate(by: -180 * CGFloat.pi/180)
-
+        
         let mDRMuxOutPath = UIBezierPath()
         mDRMuxOutPath.move(to: CGPoint(x: 10, y: 15))
         mDRMuxOutPath.addLine(to: CGPoint(x: 10, y: 24.16))
@@ -372,10 +372,10 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         mDRMuxOutPath.lineWidth = 1
         mDRMuxOutPath.stroke()
-
+        
         context.restoreGState()
-
-
+        
+        
         //// Data line Drawing
         let dataLinePath = UIBezierPath()
         dataLinePath.move(to: CGPoint(x: 52.91, y: 617.5))
@@ -396,8 +396,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         dataLinePath.lineWidth = 1
         dataLinePath.stroke()
-
-
+        
+        
         //// AMux Input Drawing
         let aMuxInputPath = UIBezierPath()
         aMuxInputPath.move(to: CGPoint(x: 426.5, y: 445))
@@ -415,13 +415,13 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         aMuxInputPath.lineWidth = 1
         aMuxInputPath.stroke()
-
-
+        
+        
         //// MDRMux Out 2 Drawing
         context.saveGState()
         context.translateBy(x: 193, y: 434.84)
         context.rotate(by: 90 * CGFloat.pi/180)
-
+        
         let mDRMuxOut2Path = UIBezierPath()
         mDRMuxOut2Path.move(to: CGPoint(x: 9.66, y: 1))
         mDRMuxOut2Path.addLine(to: CGPoint(x: 10, y: 59.16))
@@ -435,17 +435,17 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         mDRMuxOut2Path.lineWidth = 1
         mDRMuxOut2Path.stroke()
-
+        
         context.restoreGState()
-
-
+        
+        
         //// AndZ Drawing
         let andZPath = UIBezierPath(rect: CGRect(x: 545.5, y: 892.5, width: 57, height: 26))
         UIColor.black.setStroke()
         andZPath.lineWidth = 1
         andZPath.stroke()
-
-
+        
+        
         //// SysBus to MDRMux Drawing
         let sysBusToMDRMuxPath = UIBezierPath()
         sysBusToMDRMuxPath.move(to: CGPoint(x: 225.5, y: 603.5))
@@ -463,8 +463,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         sysBusToMDRMuxPath.lineWidth = 1
         sysBusToMDRMuxPath.stroke()
-
-
+        
+        
         //// ALU Out Drawing
         let aLUOutPath = UIBezierPath()
         aLUOutPath.move(to: CGPoint(x: 392.5, y: 749.5))
@@ -492,8 +492,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         aLUOutPath.lineWidth = 1
         aLUOutPath.stroke()
-
-
+        
+        
         //// LoadCk Drawing
         let loadCkPath = UIBezierPath()
         loadCkPath.move(to: CGPoint(x: 638.23, y: 50))
@@ -510,8 +510,8 @@ public class CPURenderer: NSObject {
         loadCkPath.lineWidth = 1
         loadCkPath.lineCapStyle = .square
         loadCkPath.stroke()
-
-
+        
+        
         //// C Drawing
         let cPath = UIBezierPath()
         cPath.move(to: CGPoint(x: 638.23, y: 75))
@@ -528,8 +528,8 @@ public class CPURenderer: NSObject {
         cPath.lineWidth = 1
         cPath.lineCapStyle = .square
         cPath.stroke()
-
-
+        
+        
         //// B Drawing
         let bPath = UIBezierPath()
         bPath.move(to: CGPoint(x: 638.23, y: 100))
@@ -546,8 +546,8 @@ public class CPURenderer: NSObject {
         bPath.lineWidth = 1
         bPath.lineCapStyle = .square
         bPath.stroke()
-
-
+        
+        
         //// A Drawing
         let aPath = UIBezierPath()
         aPath.move(to: CGPoint(x: 638.23, y: 125))
@@ -564,8 +564,8 @@ public class CPURenderer: NSObject {
         aPath.lineWidth = 1
         aPath.lineCapStyle = .square
         aPath.stroke()
-
-
+        
+        
         //// ALU Pointer Drawing
         let aLUPointerPath = UIBezierPath()
         aLUPointerPath.move(to: CGPoint(x: 600.23, y: 660))
@@ -582,8 +582,8 @@ public class CPURenderer: NSObject {
         aLUPointerPath.lineWidth = 1
         aLUPointerPath.lineCapStyle = .square
         aLUPointerPath.stroke()
-
-
+        
+        
         //// ALU Drawing
         let aLUPath = UIBezierPath()
         aLUPath.move(to: CGPoint(x: 408.5, y: 608.5))
@@ -601,9 +601,9 @@ public class CPURenderer: NSObject {
         color7.setStroke()
         aLUPath.lineWidth = 2
         aLUPath.stroke()
-
-
-    
+        
+        
+        
         
         //// CBus Drawing
         let cBusPath = UIBezierPath()
@@ -635,8 +635,8 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         cBusPath.lineWidth = 1
         cBusPath.stroke()
-
-
+        
+        
         //// CMux Input Drawing
         let cMuxInputPath = UIBezierPath()
         cMuxInputPath.move(to: CGPoint(x: 333.5, y: 859.5))
@@ -660,36 +660,36 @@ public class CPURenderer: NSObject {
         UIColor.black.setStroke()
         cMuxInputPath.lineWidth = 1
         cMuxInputPath.stroke()
-
-
+        
+        
         //// SCk Storage Drawing
         let sCkStoragePath = UIBezierPath(rect: CGRect(x: 648.5, y: 749.5, width: 25, height: 25))
         UIColor.black.setStroke()
         sCkStoragePath.lineWidth = 1
         sCkStoragePath.stroke()
-
-
+        
+        
         //// VCk Storage Drawing
         let vCkStoragePath = UIBezierPath(rect: CGRect(x: 648.5, y: 829.5, width: 25, height: 25))
         UIColor.black.setStroke()
         vCkStoragePath.lineWidth = 1
         vCkStoragePath.stroke()
-
-
+        
+        
         //// CCk Storage Drawing
         let cCkStoragePath = UIBezierPath(rect: CGRect(x: 648.5, y: 786.5, width: 25, height: 25))
         UIColor.black.setStroke()
         cCkStoragePath.lineWidth = 1
         cCkStoragePath.stroke()
-
-
+        
+        
         //// ZCk Storage Drawing
         let zCkStoragePath = UIBezierPath(rect: CGRect(x: 648.5, y: 892.5, width: 25, height: 25))
         UIColor.black.setStroke()
         zCkStoragePath.lineWidth = 1
         zCkStoragePath.stroke()
-
-
+        
+        
         //// NCk Storage Drawing
         let nCkStoragePath = UIBezierPath(rect: CGRect(x: 648.5, y: 948.5, width: 25, height: 25))
         UIColor.black.setStroke()
@@ -697,41 +697,41 @@ public class CPURenderer: NSObject {
         nCkStoragePath.stroke()
         
         context.restoreGState()
-
+        
     }
-
-
-
-
+    
+    
+    
+    
     @objc public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.
         case aspectFill /// The content is proportionally resized to completely fill the target rectangle.
         case stretch /// The content is stretched to match the entire target rectangle.
         case center /// The content is centered in the target rectangle, but it is NOT resized.
-
+        
         public func apply(rect: CGRect, target: CGRect) -> CGRect {
             if rect == target || target == CGRect.zero {
                 return rect
             }
-
+            
             var scales = CGSize.zero
             scales.width = abs(target.width / rect.width)
             scales.height = abs(target.height / rect.height)
-
+            
             switch self {
-                case .aspectFit:
-                    scales.width = min(scales.width, scales.height)
-                    scales.height = scales.width
-                case .aspectFill:
-                    scales.width = max(scales.width, scales.height)
-                    scales.height = scales.width
-                case .stretch:
-                    break
-                case .center:
-                    scales.width = 1
-                    scales.height = 1
+            case .aspectFit:
+                scales.width = min(scales.width, scales.height)
+                scales.height = scales.width
+            case .aspectFill:
+                scales.width = max(scales.width, scales.height)
+                scales.height = scales.width
+            case .stretch:
+                break
+            case .center:
+                scales.width = 1
+                scales.height = 1
             }
-
+            
             var result = rect.standardized
             result.size.width *= scales.width
             result.size.height *= scales.height

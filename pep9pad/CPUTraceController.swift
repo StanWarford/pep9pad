@@ -23,7 +23,7 @@ class CPUTraceController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - IBOutlets -
     
-    @IBOutlet var cpuView: CPUView!
+    @IBOutlet var cpuView: CPU1ByteView!
 
     @IBOutlet var scrollView: UIScrollView! {
         didSet {
