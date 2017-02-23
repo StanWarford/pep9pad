@@ -429,7 +429,6 @@
 				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
 				46D4E0D11E49B04800D5B1D0 /* ReferencedSymbol.swift */,
 				468124171DE81B27003D807A /* MachineModel.swift */,
-				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
 				46F46D321C8F49340092EF04 /* Enums.swift */,
 				46E246B01DE0E24200611A18 /* Assembler */,
@@ -731,6 +730,7 @@
 		46E246B01DE0E24200611A18 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
+				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
 				468A95D31DDCECF400916BE7 /* Code.swift */,
 				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
 				46E246AE1DE0E1C300611A18 /* Dots.swift */,
