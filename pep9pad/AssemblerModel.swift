@@ -157,9 +157,94 @@ class AssemblerModel {
         
     }
     
-
-
+    func formatMultiplier(_ formatTag: String) -> Int {
+        let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
+        if pos > -1 {
+            var multiplierTag: String = rxArrayMultiplier.cap(section: 0)
+            multiplierTag.chop()
+            return Int(multiplierTag)!
+        }
+        return 1
+    }
     
+    func formatTagType(formatTag: String) -> ESymbolFormat {
+        if formatTag.startsWith(input: "#1c") {
+            return ESymbolFormat.F_1C
+        }
+        if formatTag.startsWith(input: "#1d") {
+            return ESymbolFormat.F_1D
+        }
+        if formatTag.startsWith(input: "#2d") {
+            return ESymbolFormat.F_2D
+        }
+        if formatTag.startsWith(input: "#1h") {
+            return ESymbolFormat.F_1H
+        }
+        if formatTag.startsWith(input: "#2h") {
+            return ESymbolFormat.F_2H
+        }
+        return ESymbolFormat.F_NONE // Should not occur
+    }
+    
+    func tagNumBytes(symbolFormat: ESymbolFormat) -> Int {
+        switch symbolFormat {
+        case ESymbolFormat.F_1C:
+            return 1
+        case ESymbolFormat.F_1D:
+            return 1
+        case ESymbolFormat.F_2D:
+            return 2
+        case ESymbolFormat.F_1H:
+            return 2
+        case ESymbolFormat.F_2H:
+            return 2
+        case ESymbolFormat.F_NONE:
+            return 0
+        default:
+            return -1
+        }
+    }
+    
+    func unquotedStringToInt(str: inout String, value: inout Int) {
+        // PLACEHOLDER
+    }
+    
+    func stringToAddrMode (str: String) -> EAddrMode {
+        // PLACEHOLDER
+    }
+    
+    func byteStringLength(str: String) -> Int {
+        // PLACEHOLDER
+        return 1
+    }
+    
+    func charStringToInt (str: String) -> Int {
+        var str = str
+        str.remove(0, 1)
+        str.chop()
+        var value: Int
+        assembler.unquotedStringToInt(str: &str, value: &value)
+        return value
+    }
+    
+    func string2ArgumentToInt(str: String) -> Int {
+        var valueA: Int
+        var valueB: Int
+        var str = str
+        str.remove(0, 1)
+        str.chop()
+        assembler.unquotedStringToInt(str: &str, value: &valueA)
+        if str.length == 0 {
+            return valueA
+        } else {
+            assembler.unquotedStringToInt(str: &str, value: &valueB)
+            valueA = 256 * valueA + valueB
+            if valueA < 0 {
+                valueA = valueA + 65536
+            }
+            return valueA
+        }
+    }
     
     /// Pre: sourceLine has one line of source code.
     /// Pre: lineNum is the line number of the source code.
@@ -984,3 +1069,4 @@ class AssemblerModel {
     
     
 }
+

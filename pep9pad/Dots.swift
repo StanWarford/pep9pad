@@ -16,7 +16,7 @@ class DotAddress: Code {
     override func appendObjectCode( objectCode:inout [Int]) {
         var objectCode = objectCode
         if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
-            var symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
+            let symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
             objectCode.append(symbolValue / 256)
             objectCode.append(symbolValue % 256)
         }
@@ -24,28 +24,27 @@ class DotAddress: Code {
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var hasCheckBox = hasCheckBox
-        //QString memStr = QString("%1").arg(memAddress, 4, 16, QLatin1Char('0')).toUpper();
-        var symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!;
-        //QString codeStr = QString("%1").arg(symbolValue, 4, 16, QLatin1Char('0')).toUpper();
+        let memStr: String = memAddress.toHex4()
+        let symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!;
+        var codeStr: String = symbolValue.toHex4()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
-            //codeStr = "    ";
+            codeStr = "    "
         }
-        var symbolStr: String = symbolDef;
+        var symbolStr: String = symbolDef
         if (symbolStr.length > 0) {
             symbolStr.append(":")
         }
-        var dotStr: String = ".ADDRSS"
-        var oprndStr: String = argument.getArgumentString();
-        /*QString lineStr = QString("%1%2%3%4%5%6")
-         .arg(memStr, -6, QLatin1Char(' '))
-         .arg(codeStr, -7, QLatin1Char(' '))
-         .arg(symbolStr, -9, QLatin1Char(' '))
-         .arg(dotStr, -8, QLatin1Char(' '))
-         .arg(oprndStr, -12)
-         .arg(comment);*/
-        //assembler.listing.append(lineStr);    MARK
-        //listingTrace.append(lineStr);         MARK
-        hasCheckBox.append(false);
+        let dotStr: String = ".ADDRSS"
+        let oprndStr: String = argument.getArgumentString();
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
+        lineStr.append(comment)
+        assemblerListing.append(lineStr)
+        listingTrace.append(lineStr)
+        hasCheckBox.append(false)
         
     }
 }
@@ -59,7 +58,7 @@ class DotAlign: Code {
     override func appendObjectCode(objectCode:inout [Int]) {
         var objectCode = objectCode
         if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
-            var symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
+            let symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
             objectCode.append(symbolValue / 256)
             objectCode.append(symbolValue % 256)
         }
@@ -70,7 +69,7 @@ class DotAlign: Code {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         var numBytes: Int = numBytesGenerated.getArgumentValue()
-        var memStr: String = "numBytes" //== 0 ? "       " :  MARK
+        let memStr: String = numBytes == 0 ? "       " : memAddress.toHex4()
         var codeStr: String = ""
         while numBytes > 0 && codeStr.length < 6 {
             codeStr.append("00")
@@ -83,9 +82,14 @@ class DotAlign: Code {
         if symbolStr.length > 0 {
             symbolStr.append(":")
         }
-        var dotStr: String = ".ALIGN"
-        var oprndStr: String = argument.getArgumentString()
-        var lineStr: String = ("")//.addingPercentEncoding(withAllowedCharacters: <#T##CharacterSet#>) MARK
+        let dotStr: String = ".ALIGN"
+        let oprndStr: String = argument.getArgumentString()
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
+        lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
@@ -96,6 +100,10 @@ class DotAlign: Code {
                     codeStr.append("00")
                     numBytes = numBytes - 1
                 }
+                lineStr = codeStr.stringFormatter(str: codeStr, fixLength: 7)
+                assemblerListing.append(lineStr)
+                listingTrace.append(lineStr)
+                hasCheckBox.append(false)
             }
         }
     }
@@ -110,7 +118,7 @@ class DotAscii: Code {
     override func appendObjectCode(objectCode:inout [Int]) {
         var objectCode = objectCode
         if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
-            var value: Int = 0   // MARK
+            let value: Int = 0   // MARK
             var str: String = argument.getArgumentString()
             str.remove(0, 1)
             str.chop()
@@ -125,15 +133,15 @@ class DotAscii: Code {
         var assemblerListing = assemblerListing
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String = "" // MARK
+        let memStr: String = memAddress.toHex4()
         var str: String = argument.getArgumentString()
         str.remove(0, 1)
         str.chop()
-        var value: Int
+        let value: Int
         var codeStr: String = ""
         while str.length < 0 && codeStr.length < 6 {
             // assembler.unquotedStringToInt(str, value)
-            codeStr.append("") // MARK
+            codeStr.append(value.toHex2())
         }
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "      "
@@ -142,9 +150,14 @@ class DotAscii: Code {
         if symbolStr.length > 0 {
             symbolStr.append(":")
         }
-        var dotStr: String = ".ASCII"
-        var oprndStr: String = argument.getArgumentString()
-        var lineStr = "" // MARK
+        let dotStr: String = ".ASCII"
+        let oprndStr: String = argument.getArgumentString()
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
+        lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
@@ -152,10 +165,10 @@ class DotAscii: Code {
             while str.length > 0 {
                 codeStr = ""
                 while str.length > 0 && codeStr.length < 6 {
-                    // assembler.unquotedStringToInt(str, value)
-                    codeStr.append("")  //  MARK
+                    // assembler.unquotedStringToInt(str, value)   MARK
+                    codeStr.append(value.toHex2())
                 }
-                lineStr = ("      %1")//    MARK
+                lineStr = (codeStr.stringFormatter(str: codeStr, fixLength: 7))
                 assemblerListing.append(lineStr)
                 listingTrace.append(lineStr)
                 hasCheckBox.append(false)
@@ -174,7 +187,7 @@ class DotBlock: Code {
     override func appendObjectCode(objectCode:inout [Int]) {
         var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
-            for i in 0..<argument.getArgumentValue() {
+            for _ in 0..<argument.getArgumentValue() {
                 objectCode.append(0)
             }
         }
@@ -184,7 +197,7 @@ class DotBlock: Code {
         var assemblerListing = assemblerListing
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
-        var memStr: String = ("") // MARK
+        let memStr: String = (memAddress.toHex4())
         var numBytes: Int = argument.getArgumentValue()
         var codeStr: String = ""
         while numBytes > 0 && codeStr.length < 6  {
@@ -198,9 +211,14 @@ class DotBlock: Code {
         if symbolStr.length > 0 {
             symbolStr.append(":")
         }
-        var dotStr: String = ".BLOCK"
-        var oprndStr: String = argument.getArgumentString()
-        var lineStr:String = ("")   //   MARK
+        let dotStr: String = ".BLOCK"
+        let oprndStr: String = argument.getArgumentString()
+        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
+        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
+        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
+        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: ""))
+        lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(false)
@@ -211,7 +229,7 @@ class DotBlock: Code {
                     codeStr.append("00")
                     numBytes = numBytes - 1
                 }
-                lineStr = ("")  // MARK
+                lineStr = (codeStr.stringFormatter(str: codeStr, fixLength: 7))
                 assemblerListing.append(lineStr)
                 listingTrace.append(lineStr)
                 hasCheckBox.append(false)
@@ -220,19 +238,30 @@ class DotBlock: Code {
     }
     
     override func processFormatTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool { // MARK
-        /*if symbolDef.isEmpty {
+        if symbolDef.isEmpty {
             return true
         }
-        //var pos: Int = assembler.rxFormatTag .index(ofAccessibilityElement: comment)
+        let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
         if pos > -1 {
-            var formatTag: String = assembler.rxFormatTag // MARK
-            // var tagType: enum.ESymbolFormat = assembler.formatTag // MARK
-            //var multiplier: Int = assembler.formatMultiplier*/
-            return true
-        //}
+            let formatTag: String = rxFormatTag.cap(section: 0)
+            let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
+            let multiplier: Int = assembler.formatMultiplier(formatTag)
+            if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
+                errorString = ";WARNING: Format tag does not match number of bytes allocated by .BLOCK."
+                sourceLine = sourceCodeLine
+                return false
+            }
+            maps.symbolFormat[symbolDef] = tagType
+            maps.symbolFormatMultiplier[symbolDef] = multiplier
+            maps.blockSymbols.append(symbolDef)
+        }
+        return true
     }
     
-    override func processSymbolTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool {
+    override func processSymbolTraceTags(at sourceLine:inout Int, err errorString:
+        
+        
+        inout String) -> Bool {
         // Placeholder
         return true
     }

@@ -128,6 +128,17 @@ extension String {
         let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
         return paddedString
     }
+    
+    func startsWith(input: String) -> Bool {
+        var holder: String
+        for i in 0...2 {
+            holder = self[i]
+        }
+        if holder == input {
+            return true
+        }
+        return false
+    }
 }
 
 extension Dictionary where Key:Any {
@@ -175,12 +186,20 @@ extension NSRegularExpression {
         return results.map { ns.substring(with: $0.range)}
     }
     
+    // MARK: NO IDEA IF THIS WORKS
     func cap(section: Int) -> String {
-        // MARK: TODO
-        let outline: String = rxFormatTag.pattern
-        let value: String = outline.index(before: ???)
+        var value: String
+        let outline: [String] = [rxFormatTag.pattern]
+        for i in 0...3 {
+            value = outline[i]
+        }
         return value
     }
+    
+    func matchedLength() -> Int {
+        
+    }
+    
 }
 
 
