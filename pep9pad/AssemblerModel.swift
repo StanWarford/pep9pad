@@ -205,6 +205,47 @@ class AssemblerModel {
         }
     }
     
+    func unquotedStringToInt(str: inout String, value: inout Int) {
+        // PLACEHOLDER
+    }
+    
+    func stringToAddrMode (str: String) -> EAddrMode {
+        // PLACEHOLDER
+    }
+    
+    func byteStringLength(str: String) -> Int {
+        // PLACEHOLDER
+        return 1
+    }
+    
+    func charStringToInt (str: String) -> Int {
+        var str = str
+        str.remove(0, 1)
+        str.chop()
+        var value: Int
+        assembler.unquotedStringToInt(str: &str, value: &value)
+        return value
+    }
+    
+    func string2ArgumentToInt(str: String) -> Int {
+        var valueA: Int
+        var valueB: Int
+        var str = str
+        str.remove(0, 1)
+        str.chop()
+        assembler.unquotedStringToInt(str: &str, value: &valueA)
+        if str.length == 0 {
+            return valueA
+        } else {
+            assembler.unquotedStringToInt(str: &str, value: &valueB)
+            valueA = 256 * valueA + valueB
+            if valueA < 0 {
+                valueA = valueA + 65536
+            }
+            return valueA
+        }
+    }
+    
     /// Pre: sourceLine has one line of source code.
     /// Pre: lineNum is the line number of the source code.
     /// Post: If the source line is valid, true is returned and code is set to the source code for the line.
