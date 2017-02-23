@@ -8,7 +8,7 @@
 import Foundation
 
 class UnaryInstruction: Code {
-    private var mnemonic: EMnemonic!
+    var mnemonic: EMnemonic!
     override init(){}
     override func appendObjectCode(objectCode: inout [Int]) {
         var objectCode = objectCode
@@ -44,9 +44,9 @@ class UnaryInstruction: Code {
 }
 
 class NonUnaryInstruction: Code {
-    private var mnemonic: EMnemonic!
+    var mnemonic: EMnemonic!
     private var addressingMode: EAddrMode!
-    private var argument: Argument!
+    var argument: Argument!
     override init() {}
     
     override func appendObjectCode(objectCode: inout [Int]) {
@@ -63,7 +63,10 @@ class NonUnaryInstruction: Code {
             objectCode.append(operandSpecifier / 256)
             objectCode.append(operandSpecifier % 256)
         }
-    }
+    
+    
+    
+}
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace

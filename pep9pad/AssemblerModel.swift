@@ -95,7 +95,7 @@ class AssemblerModel {
         
         while (lineNum < sourceCodeList.count && !dotEndDetected) {
             sourceLine = sourceCodeList[lineNum]
-            if (!processSourceLine(sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected)) {
+            if (!processSourceLine(&sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected)) {
                 source[lineNum].comment.append(errorString)
                 return false
             }
@@ -158,7 +158,7 @@ class AssemblerModel {
     }
     
 
-    
+
     
     
     /// Pre: sourceLine has one line of source code.
@@ -167,7 +167,7 @@ class AssemblerModel {
     /// Post: dotEndDetected is set to true if .END is processed. Otherwise it is set to false.
     /// Post: maps.byteCount is incremented by the number of bytes generated.
     /// Post: If the source line is not valid, false is returned and errorString is set to the error message.
-    func processSourceLine(_ sourceLine: String, lineNum: Int, code: inout Code, errorString: inout String, dotEndDetected: inout Bool) -> Bool {
+    func processSourceLine(_ sourceLine: inout String, lineNum: Int, code: inout Code, errorString: inout String, dotEndDetected: inout Bool) -> Bool {
         // placeholder
         return true
         
@@ -180,7 +180,7 @@ class AssemblerModel {
         dotEndDetected = false
         var state: ParseState = ParseState.ps_START
         repeat {
-            if (!getToken(sourceLine, token, tokenString)) {
+            if !getToken( sourceLine: &sourceLine, token: &token, tokenString: &tokenString) {
                 errorString = tokenString
                 return false
             }
@@ -215,7 +215,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_DOT_COMMAND) {
                 tokenString.remove(0, 1); // Remove the period
-                tokenString = tokenString.toUpper();
+                tokenString = tokenString.capitalized;
                 if (tokenString == "ADDRSS") {
                     let dotAddress = DotAddress();
                     dotAddress.symbolDef = "";
@@ -287,18 +287,18 @@ class AssemblerModel {
                 }
             }
             else if (token == ELexicalToken.lt_SYMBOL_DEF) {
-                tokenString.chop(1); // Remove the colon
+                tokenString.chop(); // Remove the colon
                 if (tokenString.length > 8) {
                     errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
                     return false;
                 }
-                if (maps.symbolTable.contains(where: tokenString)) {
+                if ((maps.symbolTable[tokenString]) != nil) {
                     errorString = ";ERROR: Symbol " + tokenString + " was previously defined.";
                     return false;
                 }
                 localSymbolDef = tokenString;
-                maps.symbolTable.insert(localSymbolDef, maps.byteCount);
-                maps.adjustSymbolValueForBurn.insert(localSymbolDef, true);
+                maps.symbolTable[localSymbolDef] = maps.byteCount;
+                maps.adjustSymbolValueForBurn[localSymbolDef] = true;
                 state = ParseState.ps_SYMBOL_DEF;
             }
             else if (token == ELexicalToken.lt_COMMENT) {
@@ -323,9 +323,9 @@ class AssemblerModel {
                 
             case .ps_SYMBOL_DEF:
                 if (token == ELexicalToken.lt_IDENTIFIER){
-                if (maps.mnemonToEnumMap.contains(where: tokenString.toUpper())) {
-                    localEnumMnemonic = maps.mnemonToEnumMap.value(tokenString.toUpper());
-                    if (maps.isUnaryMap.value(localEnumMnemonic)) {
+                    if (maps.mnemonToEnumMap[tokenString.capitalized] != nil) {
+                    localEnumMnemonic = maps.mnemonToEnumMap[tokenString.capitalized]!;
+                        if (maps.isUnaryMap[localEnumMnemonic] != nil) {
                         let unaryInstruction = UnaryInstruction();
                         unaryInstruction.symbolDef = localSymbolDef;
                         unaryInstruction.mnemonic = localEnumMnemonic;
@@ -351,7 +351,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_DOT_COMMAND) {
                 tokenString.remove(0, 1); // Remove the period
-                tokenString = tokenString.toUpper();
+                tokenString = tokenString.capitalized;
                 if (tokenString == "ADDRSS") {
                     let dotAddress = DotAddress();
                     dotAddress.symbolDef = localSymbolDef;
@@ -421,12 +421,13 @@ class AssemblerModel {
             break;
                 
             case .ps_INSTRUCTION:
-                if (token == ELexicalToken.lt_IDENTIFIER) {
+            if (token == ELexicalToken.lt_IDENTIFIER) {
                 if (tokenString.length > 8) {
-                    errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
-                    return false;
+                        errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
+                        return false;
                 }
-                assembler.nonUnaryInstruction.argument = SymbolRefArgument(tokenString);
+                let nonUnaryInstruction = SymbolRefArgument(symbolRef: tokenString)
+//                NonUnaryInstruction = SymbolRefArgument(tokenString);
                 assembler.listOfReferencedSymbols.append(tokenString);
                 assembler.listOfReferencedSymbolLineNums.append(lineNum);
                 state = ParseState.ps_ADDRESSING_MODE;
