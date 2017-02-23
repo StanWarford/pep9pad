@@ -10,7 +10,6 @@ import UIKit
 class FontMenu: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     override init() {
-        //prepare
     }
     
     func makeAlert() -> UIAlertController {
@@ -27,41 +26,57 @@ class FontMenu: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         // tableView.separatorEffect    <- what is this?
         tableView.tag = 1002
+        
+        tableView.register(UINib(nibName: "FontMenuColorCell", bundle: nil), forCellReuseIdentifier: "colorScheme")
+        
         controller.view.addSubview(tableView)
         controller.view.bringSubview(toFront: tableView)
         controller.view.isUserInteractionEnabled = true
+        
         tableView.isUserInteractionEnabled = true
         tableView.allowsSelection = false
+        tableView.isScrollEnabled = false
         tableView.backgroundColor = UIColor.clear
         
         alertController.setValue(controller, forKey: "contentViewController")
         
-        let somethingAction = UIAlertAction(title: "act 1", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
-        let otherAction = UIAlertAction(title: "act 2", style: .default, handler: {(alert: UIAlertAction!) in print("cancel")})
-        
-        alertController.addAction(otherAction)
-        alertController.addAction(somethingAction)
+//        let somethingAction = UIAlertAction(title: "act 1", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
+//        let otherAction = UIAlertAction(title: "act 2", style: .default, handler: {(alert: UIAlertAction!) in print("cancel")})
+//        
+//        alertController.addAction(otherAction)
+//        alertController.addAction(somethingAction)
         
         return alertController
 
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1 // This was put in mainly for my own unit testing
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3 // Most of the time my data source is an array of something...  will replace with the actual name of the data source
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 69
+        default:
+            return 30
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Note:  Be sure to replace the argument to dequeueReusableCellWithIdentifier with the actual identifier string!
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-        cell.backgroundColor = UIColor.clear
-        
-        // set cell's textLabel.text property
-        // set cell's detailTextLabel.text property
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "colorScheme") {
+            cell.backgroundColor = UIColor.clear
+            
+            // set cell's textLabel.text property
+            // set cell's detailTextLabel.text property
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
 
 }

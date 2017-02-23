@@ -75,11 +75,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-Fy-WbN" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="327.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="328"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
-                                <rect key="frame" x="0.0" y="327.5" width="1024" height="327.5"/>
+                                <rect key="frame" x="0.0" y="328" width="1024" height="327"/>
                                 <connections>
                                     <segue destination="nEr-Xs-Y13" kind="embed" id="rSY-lj-Oed"/>
                                 </connections>
@@ -139,7 +139,7 @@
                         <viewControllerLayoutGuide type="bottom" id="S06-8o-Nh3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="thc-4l-TGt">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="327.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="327"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

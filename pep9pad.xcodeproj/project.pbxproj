@@ -51,6 +51,7 @@
 		4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */; };
 		4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */; };
 		4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF901E5D8468007593E1 /* Pep9Mailer.swift */; };
+		4637EF961E5E72B7007593E1 /* FontMenuColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* CodeView.swift */; };
 		4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */; };
@@ -257,6 +258,7 @@
 		4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteRenderer.swift; sourceTree = "<group>"; };
 		4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontMenu.swift; path = pep9pad/FontMenu.swift; sourceTree = "<group>"; };
 		4637EF901E5D8468007593E1 /* Pep9Mailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9Mailer.swift; sourceTree = "<group>"; };
+		4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenuColorCell.xib; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameFSM.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
+				4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */,
 				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
 				4637EF901E5D8468007593E1 /* Pep9Mailer.swift */,
 			);
@@ -1147,6 +1150,7 @@
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
 				46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */,
+				4637EF961E5E72B7007593E1 /* FontMenuColorCell.xib in Resources */,
 				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
 				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
 				46EC8B001C9895CD001405CE /* prob0827.pep in Resources */,
