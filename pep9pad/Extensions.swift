@@ -139,6 +139,10 @@ extension String {
         }
         return false
     }
+    
+    func stringToHex() -> String {
+        return String(format: "%02X", self)
+    }
 }
 
 extension Dictionary where Key:Any {
