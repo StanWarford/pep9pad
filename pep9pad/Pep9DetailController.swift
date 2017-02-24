@@ -55,7 +55,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         mailComposerVC.setToRecipients([])
-        mailComposerVC.setSubject("Subject of you mail")
+        mailComposerVC.setSubject("Subject of your e-mail")
         mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
         
         return mailComposerVC
@@ -610,13 +610,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
             mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.object), mimeType: "txt", fileName: projectModel.name.appending(".pepo"))
             mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.listing), mimeType: "txt", fileName: projectModel.name.appending(".pepl"))
             self.present(mailComposeViewController, animated: true, completion: nil)
-//            if let fileData = projectModel.sourceStr.data(using: .utf8) {
-//                print("File data lauded.")
-//                mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: projectModel.name)
-//                self.present(mailComposeViewController, animated: true, completion: nil)
-//            }
-            
-            // } ENDTODO
         } else {
             self.showSendMailErrorAlert()
         }

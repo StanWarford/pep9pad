@@ -169,6 +169,9 @@
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
+		8B29E2C61E5BCDD500FD1838 /* CPUFSDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2C41E5BCDD500FD1838 /* CPUFSDetailController.swift */; };
+		8B29E2C71E5BCDD500FD1838 /* CPUFSMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B29E2C51E5BCDD500FD1838 /* CPUFSMasterController.swift */; };
+		8B29E2C91E5BCE8800FD1838 /* CPUFileSystem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B29E2C81E5BCE8800FD1838 /* CPUFileSystem.storyboard */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
 		D28BC78F1E54E43B00E96EFA /* CPU1ByteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BC78E1E54E43B00E96EFA /* CPU1ByteController.swift */; };
@@ -377,6 +380,9 @@
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
 		4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		8B29E2C41E5BCDD500FD1838 /* CPUFSDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFSDetailController.swift; sourceTree = "<group>"; };
+		8B29E2C51E5BCDD500FD1838 /* CPUFSMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFSMasterController.swift; sourceTree = "<group>"; };
+		8B29E2C81E5BCE8800FD1838 /* CPUFileSystem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPUFileSystem.storyboard; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepl; sourceTree = "<group>"; };
@@ -601,7 +607,10 @@
 		4695EB321E43FAC3007E50BD /* CPUFileSystem */ = {
 			isa = PBXGroup;
 			children = (
+				8B29E2C81E5BCE8800FD1838 /* CPUFileSystem.storyboard */,
 				4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */,
+				8B29E2C41E5BCDD500FD1838 /* CPUFSDetailController.swift */,
+				8B29E2C51E5BCDD500FD1838 /* CPUFSMasterController.swift */,
 				4695EB371E440513007E50BD /* DefaultProject */,
 			);
 			name = CPUFileSystem;
@@ -1133,6 +1142,7 @@
 				46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */,
 				462BA7711E2B2A3B00BBABCD /* fig0642.txt in Resources */,
 				462BA76C1E2B2A3B00BBABCD /* fig0632.txt in Resources */,
+				8B29E2C91E5BCE8800FD1838 /* CPUFileSystem.storyboard in Resources */,
 				46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */,
 				46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */,
 				46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */,
@@ -1306,6 +1316,7 @@
 				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
+				8B29E2C61E5BCDD500FD1838 /* CPUFSDetailController.swift in Sources */,
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
@@ -1316,6 +1327,7 @@
 				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,
+				8B29E2C71E5BCDD500FD1838 /* CPUFSMasterController.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
 				4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */,
