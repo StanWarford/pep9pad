@@ -254,12 +254,7 @@ class AssemblerModel {
         
         
     }
-    
-        
-        
-    
 
-    
     func formatMultiplier(_ formatTag: String) -> Int {
         let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
         if pos > -1 {
@@ -313,7 +308,29 @@ class AssemblerModel {
     }
     
     func stringToAddrMode (str: String) -> EAddrMode {
-        // PLACEHOLDER
+        var str = str
+        str.remove(0, 1) // Remove the comma
+        str = str.trimmed().capitalized
+        switch str {
+        case "I":
+            return EAddrMode.I
+        case "D":
+            return EAddrMode.D
+        case "N":
+            return EAddrMode.N
+        case "S":
+            return EAddrMode.S
+        case "SF":
+            return EAddrMode.SF
+        case "X":
+            return EAddrMode.X
+        case "SX":
+            return EAddrMode.SX
+        case "SFX":
+            return EAddrMode.SFX
+        default:
+            return EAddrMode.None
+        }
     }
     
     func byteStringLength(str: String) -> Int {
