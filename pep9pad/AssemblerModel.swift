@@ -309,7 +309,39 @@ class AssemblerModel {
     }
     
     func unquotedStringToInt(str: inout String, value: inout Int) {
-        // PLACEHOLDER
+        var s: String = ""
+        if str.startsWith(input: "\\x") || str.startsWith(input: "\\X") {
+            str.remove(0, 2)
+            s = str.left(num: 2)
+            str.remove(0, 2)
+            var ok: Bool
+            value = 
+        } else if str.startsWith(input: "\\") {
+            str.remove(0, 1)
+            s = str.left(num: 2)
+            str.remove(0, 2)
+            switch s {
+            case "b":
+                value = 8
+            case "f":
+                value = 12
+            case "n":
+                value = 10
+            case "r":
+                value = 13
+            case "t":
+                value = 9
+            case "v":
+                value = 11
+            default:
+                value = Character(s[0]).toLatin1()
+            }
+        } else {
+            s str.left(1)
+            str.remove(0, 1)
+            value = Character(s[0]).toLatin1()
+        }
+        value += value < 0 ? 256 : 0
     }
     
     func stringToAddrMode (str: String) -> EAddrMode {
