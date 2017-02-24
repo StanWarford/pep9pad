@@ -317,7 +317,23 @@ class AssemblerModel {
     }
     
     func byteStringLength(str: String) -> Int {
-        // PLACEHOLDER
+        var string = str
+        string.remove(0, 1) ; // Remove the leftmost double quote.
+        string.chop(); // Remove the rightmost double quote.
+        var length: Int = 0;
+        while (string.length > 0) {
+            if (str.startsWith(input: "\\x") || str.startsWith(input: "\\X")) {
+                string.remove(0, 4); // Remove the \xFF
+            }
+            else if (str.startsWith(input: "\\")) {
+                string.remove(0, 2); // Remove the quoted character
+            }
+            else {
+                string.remove(0, 1); // Remove the single character
+            }
+            length += 1;
+        }
+        return length;
         return 1
     }
     
