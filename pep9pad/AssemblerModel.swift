@@ -254,12 +254,7 @@ class AssemblerModel {
         
         
     }
-    
-        
-        
-    
 
-    
     func formatMultiplier(_ formatTag: String) -> Int {
         let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
         if pos > -1 {
@@ -315,7 +310,7 @@ class AssemblerModel {
             s = str.left(num: 2)
             str.remove(0, 2)
             var ok: Bool
-            value = 
+            value = s.str
         } else if str.startsWith(input: "\\") {
             str.remove(0, 1)
             s = str.left(num: 2)
@@ -345,11 +340,49 @@ class AssemblerModel {
     }
     
     func stringToAddrMode (str: String) -> EAddrMode {
-        // PLACEHOLDER
+        var str = str
+        str.remove(0, 1) // Remove the comma
+        str = str.trimmed().capitalized
+        switch str {
+        case "I":
+            return EAddrMode.I
+        case "D":
+            return EAddrMode.D
+        case "N":
+            return EAddrMode.N
+        case "S":
+            return EAddrMode.S
+        case "SF":
+            return EAddrMode.SF
+        case "X":
+            return EAddrMode.X
+        case "SX":
+            return EAddrMode.SX
+        case "SFX":
+            return EAddrMode.SFX
+        default:
+            return EAddrMode.None
+        }
     }
     
     func byteStringLength(str: String) -> Int {
-        // PLACEHOLDER
+        var string = str
+        string.remove(0, 1) ; // Remove the leftmost double quote.
+        string.chop(); // Remove the rightmost double quote.
+        var length: Int = 0;
+        while (string.length > 0) {
+            if (str.startsWith(input: "\\x") || str.startsWith(input: "\\X")) {
+                string.remove(0, 4); // Remove the \xFF
+            }
+            else if (str.startsWith(input: "\\")) {
+                string.remove(0, 2); // Remove the quoted character
+            }
+            else {
+                string.remove(0, 1); // Remove the single character
+            }
+            length += 1;
+        }
+        return length;
         return 1
     }
     
