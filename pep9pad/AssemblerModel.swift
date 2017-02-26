@@ -310,7 +310,7 @@ class AssemblerModel {
             s = str.left(num: 2)
             str.remove(0, 2)
             var ok: Bool
-            value = s.str
+            value = s.stringToHex() // MARK: NEED TO MAKE THIS FUNCTION RETURN INT NOT HEX I GUESS
         } else if str.startsWith(input: "\\") {
             str.remove(0, 1)
             s = str.left(num: 2)
@@ -332,7 +332,7 @@ class AssemblerModel {
                 value = Character(s[0]).toLatin1()
             }
         } else {
-            s = str.left(1)
+            s = str.left(num: 1)
             str.remove(0, 1)
             value = Character(s[0]).toLatin1()
         }
