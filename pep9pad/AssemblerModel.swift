@@ -681,12 +681,12 @@ class AssemblerModel {
                 }
                 let nonUnaryInstruction = SymbolRefArgument(symbolRef: tokenString)
 //                NonUnaryInstruction = SymbolRefArgument(tokenString);
-                assembler.listOfReferencedSymbols.append(tokenString);
-                assembler.listOfReferencedSymbolLineNums.append(lineNum);
+                assembler.referencedSymbols.append(tokenString);
+                assembler.referencedSymbolLineNums.append(lineNum);
                 state = ParseState.ps_ADDRESSING_MODE;
             }
             else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(tokenString) > 2) {
+                if (assembler.byteStringLength(str: tokenString) > 2) {
                     errorString = ";ERROR: String operands must have length at most two.";
                     return false;
                 }
@@ -772,7 +772,7 @@ class AssemblerModel {
                     return false;
                 }
                 dotAddrss.argument = SymbolRefArgument(tokenString);
-                assembler.listOfReferencedSymbols.append(tokenString);
+                assembler.referencedSymbols.append(tokenString);
                 assembler.listOfReferencedSymbolLineNums.append(lineNum);
                 maps.byteCount += 2;
                 state = ParseState.ps_CLOSE;
