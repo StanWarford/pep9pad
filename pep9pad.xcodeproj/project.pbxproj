@@ -59,6 +59,9 @@
 		464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */; };
 		464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143C1E52745B00C7FCBE /* CPUCode.swift */; };
 		464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143E1E52765800C7FCBE /* CPUMemoryView.swift */; };
+		464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */; };
+		464DE4761E6A00AB00763503 /* FontMenuSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */; };
+		464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
 		4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */; };
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
@@ -266,6 +269,9 @@
 		464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUAssemblerModel.swift; sourceTree = "<group>"; };
 		464D143C1E52745B00C7FCBE /* CPUCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUCode.swift; sourceTree = "<group>"; };
 		464D143E1E52765800C7FCBE /* CPUMemoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMemoryView.swift; sourceTree = "<group>"; };
+		464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuColorCell.swift; sourceTree = "<group>"; };
+		464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuSizeCell.swift; sourceTree = "<group>"; };
+		464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenuSizeCell.xib; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
 		4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CHighlightingPatterns.plist; sourceTree = "<group>"; };
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
@@ -522,6 +528,9 @@
 			children = (
 				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
 				4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */,
+				464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */,
+				464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */,
+				464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */,
 				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
 				4637EF901E5D8468007593E1 /* Pep9Mailer.swift */,
 			);
@@ -1123,6 +1132,7 @@
 				D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
 				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
+				464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
 				4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */,
@@ -1260,6 +1270,7 @@
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
 				464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */,
+				464DE4761E6A00AB00763503 /* FontMenuSizeCell.swift in Sources */,
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
@@ -1275,6 +1286,7 @@
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				D2B24BCE1E5B861900B5289A /* CPU1ByteRenderer.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
+				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,

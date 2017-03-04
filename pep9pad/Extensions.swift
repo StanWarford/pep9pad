@@ -171,6 +171,12 @@ extension NSRegularExpression {
 }
 
 
+// Definition:
+extension Notification.Name {
+    static let settingsChanged = Notification.Name("settingsForPep9AndPep9CPUChanged")
+}
+
+
 extension UIColor {
     
     func lighter(_ amount : CGFloat = 0.25) -> UIColor {

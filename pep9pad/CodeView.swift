@@ -36,6 +36,10 @@ class CodeView: UIView, UITextViewDelegate {
         textView.showsVerticalScrollIndicator = true
         textView.isScrollEnabled = true
         textView.delegate = self
+        textView.isSelectable = true
+        textView.font = UIFont(name: Courier, size: appSettings.fontSize)
+        // Register to receive notification
+        NotificationCenter.default.addObserver(self, selector: #selector(CodeView.settingsChanged), name: .settingsChanged, object: nil)
 //        self.font = UIFont(name: Courier, size: 16)
 //        self.directionalLockEnabled = true
 //        self.textAlignment = .Left
@@ -61,7 +65,15 @@ class CodeView: UIView, UITextViewDelegate {
         }
     }
     
-
+    func settingsChanged() {
+        
+        textView.font = UIFont(name: Courier, size: appSettings.fontSize)
+        //textView.font = textView.font?.withSize(appSettings.fontSize)
+        // TODO: change foreground and background color to match the scheme in appSettings
+    }
+    
+    
+    
     // MARK: - Text-Handling Functions
     
     internal func setText(_ to: String) {
@@ -72,7 +84,6 @@ class CodeView: UIView, UITextViewDelegate {
     func removeAllText() {
         textView.text.removeAll()
     }
-    
     
     func getText() -> String {
         return textView.text

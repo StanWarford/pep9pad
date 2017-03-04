@@ -16,7 +16,7 @@ class PepTextStorage: BaseTextStorage {
     override func processEditing() {
         let text = string as NSString
         let attributes : [String:AnyObject]? = [
-            NSFontAttributeName : UIFont(name: Courier, size: 18)!
+            NSFontAttributeName : UIFont(name: Courier, size: appSettings.fontSize)!
         ]
         
         setAttributes(attributes, range: NSRange(location: 0, length: length))
@@ -97,13 +97,13 @@ class PepTextStorage: BaseTextStorage {
             // Operators are blue, bold, and capitalized.
             attributes = [
                 NSForegroundColorAttributeName:blueColor,
-                NSFontAttributeName:UIFont(name: CourierBold, size: 18)!
+                NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "dot", "keyword":
             // Dot commands are blue, italicized, and capitalized.
             attributes = [
                 NSForegroundColorAttributeName:blueColor,
-                NSFontAttributeName:UIFont(name: CourierItalic, size: 18)!
+                NSFontAttributeName:UIFont(name: CourierItalic, size: appSettings.fontSize)!
             ]
         case "singleLineComment", "comment", "documentation_comment":
             // Comments are green.
@@ -115,7 +115,7 @@ class PepTextStorage: BaseTextStorage {
             // Symbols are purple and bold.
             attributes = [
                 NSForegroundColorAttributeName:purpleColor,
-                NSFontAttributeName:UIFont(name: CourierBold, size: 18)!
+                NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
 
             ]
         case "singleQuote", "doubleQuote", "string" :

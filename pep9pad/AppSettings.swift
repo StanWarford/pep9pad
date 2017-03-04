@@ -51,6 +51,10 @@ class AppSettings {
         UserDefaults.standard.setValue(darkModeOn, forKey: SavedSettings.darkModeOn.rawValue)
         //UserDefaults.standard.setValue(font.fontName, forKey: SavedSettings.fontName.rawValue)
         UserDefaults.standard.setValue(font.pointSize, forKey: SavedSettings.fontSize.rawValue)
+        
+        // Post notification
+        NotificationCenter.default.post(name: .settingsChanged, object: nil)
+
     }
     
     func loadSettings() {

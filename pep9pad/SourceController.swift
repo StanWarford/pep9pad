@@ -19,7 +19,6 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     }
     
     
-    
     // MARK: - Interface Builder
     
     /// The primary view in this UIViewController.

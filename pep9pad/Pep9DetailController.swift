@@ -149,13 +149,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: .actionSheet)
         
-        let tempController = UIViewController()
-        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
-        let trapsSwitch = UISwitch(frame: CGRect(x:0, y:0, width:25.0, height:25.0))
-        let trapsLabel = UILabel(frame: CGRect(x:25, y:0, width:175.0, height:25.0))
-        trapsLabel.text = "Trace Traps"
-        tempController.view.addSubview(trapsSwitch)
-        alertController.view.addSubview(tempController.view)
+        // TODO: add trace traps switch
         
         let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
             //TODO: Implement debugSourceAction
@@ -239,11 +233,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
-        let fontMenu = self.fontMenu.makeAlert()
-        fontMenu.popoverPresentationController?.barButtonItem = sender
+        let fontMenu = self.fontMenu.makeAlert(barButton: sender)
         self.present(fontMenu, animated: true, completion: nil)
-        
-        
     }
     
     

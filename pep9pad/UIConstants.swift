@@ -20,3 +20,7 @@ let statBarHeight: CGFloat = 20
 /// Combined height of the navigation and status bars.  Useful when manipulating views programmatically.
 /// For reference, the status bar's height is 20 points, and the nav bar's height is 44.
 let navAndStatBarHeight: CGFloat = 64
+
+func selectedBlue() -> UIColor {
+    return UIColor(red: 6, green: 108, blue: 255, alpha: 1.0)
+}
