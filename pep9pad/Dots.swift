@@ -287,8 +287,8 @@ class DotBlock: Code {
             sourceLine = sourceCodeLine
             return false
         }
-        maps.blockSymbols.append(contentsOf: symbolDef)
-        maps.globalStructSymbols // UPDATE
+        maps.blockSymbols.append(symbolDef)
+        maps.globalStructSymbols.updateValue(list, forKey: symbolDef) // UPDATE
         return true
     }
 }
