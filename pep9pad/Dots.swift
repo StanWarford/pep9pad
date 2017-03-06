@@ -137,10 +137,10 @@ class DotAscii: Code {
         var str: String = argument.getArgumentString()
         str.remove(0, 1)
         str.chop()
-        let value: Int
+        var value: Int = 0
         var codeStr: String = ""
         while str.length < 0 && codeStr.length < 6 {
-            // assembler.unquotedStringToInt(str, value)
+            assembler.unquotedStringToInt(str: str, value: value)
             codeStr.append(value.toHex2())
         }
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
@@ -258,11 +258,37 @@ class DotBlock: Code {
         return true
     }
     
-    override func processSymbolTraceTags(at sourceLine:inout Int, err errorString:
+    override func processSymbolTraceTags(at sourceLine:inout Int, err errorString: inout String) -> Bool {
+        if symbolDef.isEmpty {
+            return true
+        }
+        if maps.blockSymbols.contains(symbolDef) {
+            return true // Pre-Existing format tag takes precedence over symbol tag.
+        }
         
-        
-        inout String) -> Bool {
-        // Placeholder
+        var numBytesAllocated: Int = argument.getArgumentValue()
+        var symbol: String
+        var list: [String]
+        var numBytesListed: Int = 0
+        var pos: Int = 0
+        while pos = rxSymbolTag.indexIn(comment, pos) != 1 {  // UPDATE
+            symbol = rxSymbolTag.cap(section: 1)
+            if !(maps.equateSymbols.contains(symbol)) {
+                errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
+                sourceLine = sourceCodeLine
+                return false
+            }
+            numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
+            list.append(symbol)
+            pos += rxSymbolTag.matchedLength()
+        }
+        if (numBytesAllocated != numBytesListed) && (numBytesListed > 0) {
+            errorString = ";WARNING: Number of bytes allocated (" //+  UPDATE
+            sourceLine = sourceCodeLine
+            return false
+        }
+        maps.blockSymbols.append(contentsOf: symbolDef)
+        maps.globalStructSymbols // UPDATE
         return true
     }
 }
