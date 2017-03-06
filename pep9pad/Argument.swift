@@ -93,7 +93,7 @@ class HexArgument: Argument {
         //return "0x" + QString("%1").arg(hexValue, 4, 16, QLatin1Char('0')).toUpper();
         return "TODO"
 }
-
+}
     
     
 class StringArgument: Argument {
@@ -111,7 +111,7 @@ class StringArgument: Argument {
         return stringValue
     }
 }
-    
+
     
     
 class SymbolRefArgument: Argument {

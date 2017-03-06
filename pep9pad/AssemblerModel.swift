@@ -672,16 +672,15 @@ class AssemblerModel {
                 return false;
             }
             break;
-                
             case .ps_INSTRUCTION:
             if (token == ELexicalToken.lt_IDENTIFIER) {
                 if (tokenString.length > 8) {
                         errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters.";
                         return false;
                 }
-                let nonUnaryInstruction = SymbolRefArgument(symbolRef: tokenString)
-//                NonUnaryInstruction = SymbolRefArgument(tokenString);
-                assembler.referencedSymbols.append(tokenString);
+                let nonUnaryInstruction = NonUnaryInstruction()
+                nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
+                assembler.referencedSymbols.insert(tokenString, at: lineNum)
                 assembler.referencedSymbolLineNums.append(lineNum);
                 state = ParseState.ps_ADDRESSING_MODE;
             }
@@ -695,7 +694,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2); // Remove "0x" prefix.
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 65536) {
                     assembler.nonUnaryInstruction.argument = HexArgument(value);
@@ -707,7 +706,7 @@ class AssemblerModel {
                 }
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 10);
                 if ((-32768 <= value) && (value <= 65535)) {
                     if (value < 0) {
@@ -785,7 +784,7 @@ class AssemblerModel {
                 
             case .ps_DOT_ALIGN:
                 if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 10);
                 if (value == 2 || value == 4 || value == 8) {
                     var numBytes = (value - maps.byteCount % value) % value;
@@ -819,7 +818,7 @@ class AssemblerModel {
                 
             case .ps_DOT_BLOCK:
                 if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 10);
                 if ((0 <= value) && (value <= 65535)) {
                     if (value < 0) {
@@ -839,7 +838,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2); // Remove "0x" prefix.
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 65536) {
                     dotBlock.argument = HexArgument(value);
@@ -860,7 +859,7 @@ class AssemblerModel {
             case .ps_DOT_BURN:
                 if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2); // Remove "0x" prefix.
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 65536) {
                     dotBur.argument = HexArgument(value);
@@ -887,7 +886,7 @@ class AssemblerModel {
                 state = ParseState.ps_CLOSE;
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 10);
                 if ((-128 <= value) && (value <= 255)) {
                     if (value < 0) {
@@ -904,7 +903,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2); // Remove "0x" prefix.
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 256) {
                     dotByte.argument = HexArgument(value);
@@ -954,7 +953,7 @@ class AssemblerModel {
                 return false;
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 10);
                 if ((-32768 <= value) && (value <= 65535)) {
                     
@@ -976,7 +975,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2); // Remove "0x" prefix.
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 65536) {
                     dotEquate.argument = HexArgument(value);
@@ -1018,7 +1017,7 @@ class AssemblerModel {
                 state = ParseState.ps_CLOSE;
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 10);
                 if ((-32768 <= value) && (value < 65536)) {
                     
@@ -1039,7 +1038,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2); // Remove "0x" prefix.
-                var ok: bool;
+                var ok: Bool;
                 var value = tokenString.toInt(&ok, 16);
                 if (value < 65536) {
                     dotWord.argument = HexArgument(value);
