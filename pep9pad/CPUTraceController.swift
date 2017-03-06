@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class CPUTraceController: UIViewController {
+class CPUTraceController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - ViewController Lifecycle -
     override func viewDidLoad() {
@@ -19,4 +19,21 @@ class CPUTraceController: UIViewController {
     func busSizeChanged() {
         print("trace controller will update accordingly")
     }
+    
+    
+    // MARK: - IBOutlets -
+    
+    @IBOutlet var cpuView: CPU1ByteView!
+
+    @IBOutlet var scrollView: UIScrollView! {
+        didSet {
+            self.scrollView.delegate = self
+        }
+    }
+    
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return cpuView
+    }
+    
 }

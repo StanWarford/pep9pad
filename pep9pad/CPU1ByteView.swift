@@ -1,5 +1,5 @@
 //
-//  TestView.swift
+//  CPU1ByteView
 //  pep9pad
 //
 //  Created by Stan Warford on 2/20/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 @IBDesignable
-class CPUView: UIView {
+class CPU1ByteView: UIView {
     override func draw(_ rect: CGRect) {
-        CPURenderer.drawPep9CPUIPad97()
+        CPU1ByteRenderer.drawPep9CPUIPad97()
     }
 }

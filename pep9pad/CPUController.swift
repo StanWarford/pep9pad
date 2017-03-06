@@ -8,17 +8,33 @@
 
 import UIKit
 
-/// The global instance of the CPUController. Defaults to 1 byte.
-var cpu: CPUController = CPU1ByteController()
+/// The global instance of the CPUController.
+var cpuController: CPUController = CPUController()
 
-/// Changes the bus instance 
-func changeBusInstance(toSize: CPUBusSize) {
-    if cpu.busSize != toSize {
-        cpu = toSize == .oneByte ? CPU1ByteController() : CPU2ByteController()
+class CPUController: UIViewController {
+    
+    // MARK: - Properties -
+    /// The instance of the CPUXByteView.  Swapped out by `changeBusSize()`.
+    var cpu: UIView = CPU1ByteView()
+    /// The size of `cpu`'s bus.
+    var currentBusSize: CPUBusSize = .oneByte
+    
+    // MARK: - Methods -
+    
+    func changeBusSize() {
+        if currentBusSize == .oneByte {
+            cpu = CPU2ByteView()
+            currentBusSize = .twoByte
+        } else {
+            cpu = CPU1ByteView()
+            currentBusSize = .oneByte
+        }
     }
-}
-
-/// The abstract protocol to which both the CPU1ByteController and CPU2ByteController conform.
-protocol CPUController {
-    var busSize: CPUBusSize {get}
+    
+    // MARK: - View Controller Lifecycle -
+    override func viewDidLoad() {
+        self.view = cpu
+        super.viewDidLoad()
+    }
+    
 }

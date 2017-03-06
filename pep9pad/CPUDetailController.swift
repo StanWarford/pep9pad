@@ -63,9 +63,9 @@ class CPUDetailController : UIViewController {
     
     // MARK: - Methods -
     func switchToBus(_ ofSize: CPUBusSize) {
-        if ofSize != cpu.busSize {
+        if ofSize != cpuController.currentBusSize {
             // change the global instance
-            changeBusInstance(toSize: ofSize)
+            cpuController.changeBusSize()
             tabVCs.split?.busSizeChanged()
             tabVCs.visual?.busSizeChanged()
             tabVCs.trace?.busSizeChanged()
@@ -146,7 +146,7 @@ class CPUDetailController : UIViewController {
         
         var alertController: UIAlertController
         
-        if cpu.busSize == .oneByte {
+        if cpuController.currentBusSize == .oneByte {
             alertController = UIAlertController(title: nil, message: "You're using the one-byte bus.", preferredStyle: .actionSheet)
 
             let twoByteAction = UIAlertAction(title: "Switch to two-byte bus", style: .default) { (action) in
