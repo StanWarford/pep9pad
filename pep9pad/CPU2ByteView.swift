@@ -26,6 +26,10 @@ class CPU2ByteView: CPUView {
     
     // MARK: - Drawing -
     override func draw(_ rect: CGRect) {
+        // Need to do this, otherwise the background will default to black.
+        UIColor.white.setFill()
+        UIRectFill(rect)
+        // Now draw from renderer.
         CPU2ByteRenderer.drawPep9CPUIPad97()
     }
 }
