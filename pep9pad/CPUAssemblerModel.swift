@@ -79,25 +79,29 @@ class CPUAssemblerModel {
     // The only detected resource conflict checked is for duplicated fields.
     func processSourceLine(sourceLine: String, code: inout Code, errorString: inout String) -> Bool {
         //placeholder
-        return false
+        return true
     }
     
     func microAssemble() -> Bool {
-        var sourceCode: String = cpuProjectModel.sourceStr
+        let sourceCode: String = cpuProjectModel.sourceStr
         print(sourceCode)
+        var sourceCode2: String = ""
         
-        var sourceLine: String
+        let sourceLine: String
         var errorString: String
         // Code *code;  Note: change Code to MicroCode and code to microCode for Swift
-        var lineNum: Int = 0
+        var lineNum: Int
         // removeErrorMessages();
         // Sim::codeList.clear();
         // QString sourceCode = editor->toPlainText();
         let sourceCodeList = sourceCode.components(separatedBy: "\n")
         for (lineNum, sourceLine) in sourceCodeList.enumerated() {
-            print("\(lineNum): " + sourceLine)
+            sourceCode2 += "\(lineNum): " + sourceLine + "\n"
+            if !processSourceLine(sourceLine: <#T##String#>, code: &<#T##Code#>, errorString: &<#T##String#>) {
+                
+            }
         }
-        
+        cpuProjectModel.sourceStr = sourceCode2
         // while (lineNum < sourceCodeList.size()) {
         //     sourceLine = sourceCodeList[lineNum];
         //     if (!Asm::processSourceLine(sourceLine, code, errorString)) {

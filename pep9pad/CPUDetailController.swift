@@ -74,6 +74,9 @@ class CPUDetailController : UIViewController {
         }
     }
     
+    func updateEditorFromProjectModel() {
+        tabVCs.split?.pullFromProjectModel()
+    }
     
     
     // MARK: - Conformance to UITabBarDelegate -
@@ -132,8 +135,11 @@ class CPUDetailController : UIViewController {
 
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
         if cpuAssembler.microAssemble() {
-            
+            //succeed
+        } else {
+            //errors
         }
+        updateEditorFromProjectModel()
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
