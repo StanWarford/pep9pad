@@ -78,6 +78,8 @@
 		4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */; };
 		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
 		46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A71C0B1E563CAB00FCEFEA /* CPUView.swift */; };
+		46B3AD751E6666320003B322 /* MemoryCellGraphicsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3AD741E6666320003B322 /* MemoryCellGraphicsItem.swift */; };
+		46B3AD771E6678950003B322 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3AD761E6678950003B322 /* Stack.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
 		46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */; };
@@ -285,6 +287,8 @@
 		4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFileSystem.swift; sourceTree = "<group>"; };
 		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
 		46A71C0B1E563CAB00FCEFEA /* CPUView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUView.swift; sourceTree = "<group>"; };
+		46B3AD741E6666320003B322 /* MemoryCellGraphicsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryCellGraphicsItem.swift; sourceTree = "<group>"; };
+		46B3AD761E6678950003B322 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9ProcessorController.swift; sourceTree = "<group>"; };
@@ -512,6 +516,7 @@
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				46278CC81E076CFA009D6371 /* StackController.swift */,
 				468FB3111E0CB50D001F154A /* TraceTableController.swift */,
+				46B3AD741E6666320003B322 /* MemoryCellGraphicsItem.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
 			name = Trace;
@@ -563,6 +568,7 @@
 				468BC12D1DC27220000AE01A /* UIConstants.swift */,
 				46F5F26C1DCA528B002880FE /* GCDUtilities.swift */,
 				46C80BDB1DF0D0830096D4E0 /* Extensions.swift */,
+				46B3AD761E6678950003B322 /* Stack.swift */,
 			);
 			name = Utilities;
 			path = pep9pad;
@@ -1280,6 +1286,7 @@
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
+				46B3AD771E6678950003B322 /* Stack.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
 				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
@@ -1315,6 +1322,7 @@
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
+				46B3AD751E6666320003B322 /* MemoryCellGraphicsItem.swift in Sources */,
 				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,

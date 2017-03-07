@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cT3-8r-TMA">
-                                <rect key="frame" x="0.0" y="391.5" width="703" height="327.5"/>
+                                <rect key="frame" x="0.0" y="391.5" width="702.5" height="327.5"/>
                                 <connections>
                                     <segue destination="rLZ-kr-Eur" kind="embed" id="64A-R2-CgT"/>
                                 </connections>
@@ -71,7 +71,7 @@
                                 <rect key="frame" x="0.0" y="28" width="703" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMG-NI-1ej" id="Xk1-HE-Rbf">
-                                    <rect key="frame" x="0.0" y="0.0" width="703" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="703" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -95,28 +95,28 @@
                         <viewControllerLayoutGuide type="bottom" id="lK0-kv-pWK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hah-ao-oFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="327.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="702.5" height="327.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-TE-Nc8">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="327.5"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="F5t-7e-Yjr">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="328"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="3Sd-TE-Nc8" secondAttribute="trailing" id="Bjx-r3-Gsa"/>
-                            <constraint firstItem="3Sd-TE-Nc8" firstAttribute="bottom" secondItem="lK0-kv-pWK" secondAttribute="top" id="DRi-ha-Cw9"/>
-                            <constraint firstItem="3Sd-TE-Nc8" firstAttribute="top" secondItem="cMk-Uo-6CF" secondAttribute="bottom" id="Vky-q2-flx"/>
-                            <constraint firstItem="3Sd-TE-Nc8" firstAttribute="leading" secondItem="hah-ao-oFZ" secondAttribute="leading" id="kaV-hn-dfT"/>
+                            <constraint firstItem="F5t-7e-Yjr" firstAttribute="bottom" secondItem="lK0-kv-pWK" secondAttribute="top" id="QQD-9c-qsY"/>
+                            <constraint firstItem="F5t-7e-Yjr" firstAttribute="top" secondItem="cMk-Uo-6CF" secondAttribute="bottom" id="RYi-GU-Jrn"/>
+                            <constraint firstItem="F5t-7e-Yjr" firstAttribute="leading" secondItem="hah-ao-oFZ" secondAttribute="leading" id="l3s-Wt-ATi"/>
+                            <constraint firstAttribute="trailing" secondItem="F5t-7e-Yjr" secondAttribute="trailing" id="pJz-uY-XHu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="F5t-7e-Yjr" id="k3x-n7-8qv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Saa-Zj-2Fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496.58203124999994" y="85.9375"/>
+            <point key="canvasLocation" x="496.28906249999994" y="85.9375"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="MemTrace" width="376" height="205"/>
-    </resources>
 </document>

@@ -9,15 +9,36 @@
 import UIKit
 
 
-class StackController: UIViewController {
+class StackController: UIViewController, UIScrollViewDelegate {
+    
+    var stackView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //iew.addSubview(MemoryCellGraphicsItem())
+        stackView = UIView(frame: scrollView.frame)
+        stackView.addSubview(UIImageView(image: UIImage(named: "MemTrace")))
+        scrollView.addSubview(stackView)
+
+        
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        
+        //scrollView.addSubview(MemoryCellGraphicsItem(frame: CGRect(x:0,y:0,width:40,height:40)))
+    }
 
     // MARK: - Interface Builder
     
+    @IBOutlet var scrollView: UIScrollView!{
+        didSet {
+            scrollView.backgroundColor = .white
+            //scrollView.addSubview(MemoryCellGraphicsItem(frame: scrollView.frame))
+            //scrollView.addSubview(MemoryCellGraphicsItem())
+        }
+    }
 
 
 
@@ -62,6 +83,13 @@ class StackController: UIViewController {
     /// Post: Heap changes are cached for the next time the simulation view is updated
     func cacheHeapChanges() {
         
+    }
+    
+    
+    // MARK: - Conformance to UIScrollViewDelegate
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return stackView
     }
     
 }
