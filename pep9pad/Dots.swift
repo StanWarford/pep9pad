@@ -140,7 +140,7 @@ class DotAscii: Code {
         var value: Int = 0
         var codeStr: String = ""
         while str.length < 0 && codeStr.length < 6 {
-            assembler.unquotedStringToInt(str: str, value: value)
+            assembler.unquotedStringToInt(str: &str, value: &value)
             codeStr.append(value.toHex2())
         }
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
