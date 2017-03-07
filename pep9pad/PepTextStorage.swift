@@ -130,10 +130,10 @@ class PepTextStorage: BaseTextStorage {
                 NSBackgroundColorAttributeName:blueColor
             ]
         case "error":
-            // Errors have a red background.
+            // Errors have an orange background.
             attributes = [
                 NSForegroundColorAttributeName:whiteColor,
-                NSBackgroundColorAttributeName:redColor
+                NSBackgroundColorAttributeName:orangeColor
             ]
         default:
             attributes = [NSForegroundColorAttributeName:UIColor.orange]
