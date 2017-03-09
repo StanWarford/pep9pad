@@ -45,7 +45,7 @@ class UnaryInstruction: Code {
 
 class NonUnaryInstruction: Code {
     var mnemonic: EMnemonic!
-    private var addressingMode: EAddrMode!
+    var addressingMode: EAddrMode!
     var argument: Argument!
     override init() {}
     

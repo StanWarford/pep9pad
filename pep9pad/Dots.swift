@@ -113,7 +113,7 @@ class DotAlign: Code {
 
 class DotAscii: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode:inout [Int]) {
         var objectCode = objectCode
@@ -140,7 +140,7 @@ class DotAscii: Code {
         var value: Int = 0
         var codeStr: String = ""
         while str.length < 0 && codeStr.length < 6 {
-            assembler.unquotedStringToInt(str: str, value: value)
+            assembler.unquotedStringToInt(str: &str, value: &value)
             codeStr.append(value.toHex2())
         }
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
@@ -296,7 +296,7 @@ class DotBlock: Code {
 
 class DotBurn: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode: inout [Int]) {
         // Does not generate code
