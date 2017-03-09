@@ -334,7 +334,8 @@ class AssemblerModel {
         } else {
             s = str.left(num: 1)
             str.remove(0, 1)
-            value = Character(s[0]).toLatin1()
+            var temp: Character = s.characters.first!
+            value = temp(encoding: NSISOLatin1StringEncoding) // UPDATE
         }
         value += value < 0 ? 256 : 0
     }
