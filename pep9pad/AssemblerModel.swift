@@ -524,9 +524,9 @@ class AssemblerModel {
                     state = ParseState.ps_DOT_END
                 }
                 else if (tokenString == "EQUATE") {
-                    let dotEquate = DotEquate()
-                    dotEquate.symbolDef = ""
-                    code = dotEquate
+                    let DotEquate = DotEquate()
+                    DotEquate.symbolDef = ""
+                    code = DotEquate
                     code.memAddress = maps.byteCount
                     state = ParseState.ps_DOT_EQUATE
                 }
@@ -770,7 +770,7 @@ class AssemblerModel {
                     errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
                     return false
                 }
-                dotAddrss.memAddress = SymbolRefArgument(symbolRef: tokenString)
+                DotAddress.memAddress = SymbolRefArgument(symbolRef: tokenString)
                 assembler.referencedSymbols.append(tokenString)
                 assembler.listOfReferencedSymbolLineNums.append(lineNum)
                 maps.byteCount += 2
@@ -788,8 +788,8 @@ class AssemblerModel {
                 var value = tokenString.toInt(&ok, 10)
                 if (value == 2 || value == 4 || value == 8) {
                     var numBytes = (value - maps.byteCount % value) % value
-                    dotAlign.argument = UnsignedDecArgument(value)
-                    dotAlign.numBytesGenerated = UnsignedDecArgument(numBytes)
+                    DotAlign.argument = UnsignedDecArgument(value)
+                    DotAlign.numBytesGenerated = UnsignedDecArgument(numBytes)
                     maps.byteCount += numBytes
                     state = ParseState.ps_CLOSE
                 }
@@ -806,8 +806,8 @@ class AssemblerModel {
                 
             case .ps_DOT_ASCII:
                 if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                dotAscii.argument = StringArgument(tokenString)
-                maps.byteCount += assembler.byteStringLength(tokenString)
+                DotAscii.argument = StringArgument(tokenString)
+                maps.byteCount += assembler.byteStringLength(str: tokenString)
                 state = ParseState.ps_CLOSE
             }
             else {
@@ -823,10 +823,10 @@ class AssemblerModel {
                 if ((0 <= value) && (value <= 65535)) {
                     if (value < 0) {
                         value += 65536 // Stored as two-byte unsigned.
-                        dotBlock.argument = DecArgument(value)
+                        DotBlock.argument = DecArgument(value)
                     }
                     else {
-                        dotBlock.argument = UnsignedDecArgument(value)
+                        DotBlock.argument = UnsignedDecArgument(value)
                     }
                     maps.byteCount += value
                     state = ParseState.ps_CLOSE
@@ -841,7 +841,7 @@ class AssemblerModel {
                 var ok: Bool
                 var value = tokenString.toInt(&ok, 16)
                 if (value < 65536) {
-                    dotBlock.argument = HexArgument(value)
+                    DotBlock.argument = HexArgument(value)
                     maps.byteCount += value
                     state = ParseState.ps_CLOSE
                 }
@@ -862,7 +862,7 @@ class AssemblerModel {
                 var ok: Bool
                 var value = tokenString.toInt(&ok, 16)
                 if (value < 65536) {
-                    dotBur.argument = HexArgument(value)
+                    DotBurn.argument = HexArgument(value)
                     maps.burnCount += 1
                     maps.dotBurnArgument = value
                     maps.romStartAddress = maps.byteCount
@@ -881,7 +881,7 @@ class AssemblerModel {
                 
             case .ps_DOT_BYTE:
                 if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                dotByte.argument = CharArgument(tokenString)
+                DotByte.argument = CharArgument(tokenString)
                 maps.byteCount += 1
                 state = ParseState.ps_CLOSE
             }
@@ -892,7 +892,7 @@ class AssemblerModel {
                     if (value < 0) {
                         value += 256 // value stored as one-byte unsigned.
                     }
-                    dotByte.argument = DecArgument(value)
+                    DotByte.argument = DecArgument(value)
                     maps.byteCount += 1
                     state = ParseState.ps_CLOSE
                 }
@@ -906,7 +906,7 @@ class AssemblerModel {
                 var ok: Bool
                 var value = tokenString.toInt(&ok, 16)
                 if (value < 256) {
-                    dotByte.argument = HexArgument(value)
+                    DotByte.argument = HexArgument(value)
                     maps.byteCount += 1
                     state = ParseState.ps_CLOSE
                 }
@@ -916,11 +916,11 @@ class AssemblerModel {
                 }
             }
             else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(tokenString) > 1) {
+                if (assembler.byteStringLength(str: tokenString) > 1) {
                     errorString = ";ERROR: .BYTE string operands must have length one."
                     return false
                 }
-                dotByte.argument = StringArgument(tokenString)
+                DotByte.argument = StringArgument(tokenString)
                 maps.byteCount += 1
                 state = ParseState.ps_CLOSE
             }
@@ -932,12 +932,12 @@ class AssemblerModel {
                 
             case .ps_DOT_END:
                 if (token == ELexicalToken.lt_COMMENT) {
-                dotEnd.comment = tokenString
+                DotEnd.comment = tokenString
                 code.sourceCodeLine = lineNum
                 state = ParseState.ps_FINISH
             }
             else if (token == ELexicalToken.lt_EMPTY) {
-                dotEnd.comment = ""
+                DotEnd.comment = ""
                 code.sourceCodeLine = lineNum
                 state = ParseState.ps_FINISH
             }
@@ -948,7 +948,7 @@ class AssemblerModel {
             break
                 
             case .ps_DOT_EQUATE:
-                if (dotEquate.symbolDef == "") {
+                if (DotEquate.symbolDef == "") {
                 errorString = ";ERROR: .EQUATE must have a symbol definition."
                 return false
             }
@@ -959,13 +959,13 @@ class AssemblerModel {
                     
                     if (value < 0) {
                         value += 65536 // Stored as two-byte unsigned.
-                        dotEquate.argument = DecArgument(value)
+                        DotEquate.argument = DecArgument(value)
                     }
                     else {
-                        dotEquate.argument = UnsignedDecArgument(value)
+                        DotEquate.argument = UnsignedDecArgument(value)
                     }
-                    maps.symbolTable.insert(dotEquate.symbolDef, value)
-                    maps.adjustSymbolValueForBurn.insert(dotEquate.symbolDef, false)
+                    maps.symbolTable.insert(DotEquate.symbolDef, value)
+                    maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
                     state = ParseState.ps_CLOSE
                 }
                 else {
@@ -978,9 +978,9 @@ class AssemblerModel {
                 var ok: Bool
                 var value = tokenString.toInt(&ok, 16)
                 if (value < 65536) {
-                    dotEquate.argument = HexArgument(value)
-                    maps.symbolTable.insert(dotEquate.symbolDef, value)
-                    maps.adjustSymbolValueForBurn.insert(dotEquate.symbolDef, false)
+                    DotEquate.argument = HexArgument(value)
+                    maps.symbolTable.insert(DotEquate.symbolDef, value)
+                    maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
                     state = ParseState.ps_CLOSE
                 }
                 else {
@@ -989,19 +989,19 @@ class AssemblerModel {
                 }
             }
             else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(tokenString) > 2) {
+                if (assembler.byteStringLength(str: tokenString) > 2) {
                     errorString = ";ERROR: .EQUATE string operand must have length at most two."
                     return false
                 }
-                dotEquate.argument = StringArgument(tokenString)
-                maps.symbolTable.insert(dotEquate.symbolDef, assembler.string2ArgumentToInt(tokenString))
-                maps.adjustSymbolValueForBurn.insert(dotEquate.symbolDef, false)
+                DotEquate.argument = StringArgument(tokenString)
+                maps.symbolTable.insert(DotEquate.symbolDef, assembler.string2ArgumentToInt(tokenString))
+                maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
                 state = ParseState.ps_CLOSE
             }
             else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                dotEquate.argument = CharArgument(tokenString)
-                maps.symbolTable.insert(dotEquate.symbolDef, assembler.charStringToInt(tokenString))
-                maps.adjustSymbolValueForBurn.insert(dotEquate.symbolDef, false)
+                DotEquate.argument = CharArgument(tokenString)
+                maps.symbolTable.insert(DotEquate.symbolDef, assembler.charStringToInt(tokenString))
+                maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
                 state = ParseState.ps_CLOSE
             }
             else {
@@ -1012,7 +1012,7 @@ class AssemblerModel {
                 
             case .ps_DOT_WORD:
                 if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                dotWord.argument = CharArgument(tokenString)
+                DotWord.argument = CharArgument(tokenString)
                 maps.byteCount += 2
                 state = ParseState.ps_CLOSE
             }
@@ -1023,10 +1023,10 @@ class AssemblerModel {
                     
                     if (value < 0) {
                         value += 65536 // Stored as two-byte unsigned.
-                        dotWord.argument = DecArgument(value)
+                        DotWord.argument = DecArgument(value)
                     }
                     else {
-                        dotWord.argument = UnsignedDecArgument(value)
+                        DotWord.argument = UnsignedDecArgument(value)
                     }
                     maps.byteCount += 2
                     state = ParseState.ps_CLOSE
@@ -1041,7 +1041,7 @@ class AssemblerModel {
                 var ok: Bool
                 var value = tokenString.toInt(&ok, 16)
                 if (value < 65536) {
-                    dotWord.argument = HexArgument(value)
+                    DotWord.argument = HexArgument(value)
                     maps.byteCount += 2
                     state = ParseState.ps_CLOSE
                 }
@@ -1055,7 +1055,7 @@ class AssemblerModel {
                     errorString = ";ERROR: .WORD string operands must have length at most two."
                     return false
                 }
-                dotWord.argument = StringArgument(tokenString)
+                DotWord.argument = StringArgument(tokenString)
                 maps.byteCount += 2
                 state = ParseState.ps_CLOSE
             }

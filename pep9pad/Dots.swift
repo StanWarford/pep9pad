@@ -113,7 +113,7 @@ class DotAlign: Code {
 
 class DotAscii: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode:inout [Int]) {
         var objectCode = objectCode
@@ -296,7 +296,7 @@ class DotBlock: Code {
 
 class DotBurn: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode: inout [Int]) {
         // Does not generate code
