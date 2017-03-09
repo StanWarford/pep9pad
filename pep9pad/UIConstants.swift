@@ -24,3 +24,4 @@ let navAndStatBarHeight: CGFloat = 64
 func selectedBlue() -> UIColor {
     return UIColor(red: 6, green: 108, blue: 255, alpha: 1.0)
 }
+

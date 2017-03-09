@@ -40,6 +40,8 @@ class CodeView: UIView, UITextViewDelegate {
         textView.font = UIFont(name: Courier, size: appSettings.fontSize)
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(CodeView.settingsChanged), name: .settingsChanged, object: nil)
+        
+        settingsChanged()
 //        self.font = UIFont(name: Courier, size: 16)
 //        self.directionalLockEnabled = true
 //        self.textAlignment = .Left
@@ -68,6 +70,8 @@ class CodeView: UIView, UITextViewDelegate {
     func settingsChanged() {
         
         textView.font = UIFont(name: Courier, size: appSettings.fontSize)
+        textView.backgroundColor = appSettings.getColorFor(.background)
+        textView.textColor = appSettings.getColorFor(.text)
         //textView.font = textView.font?.withSize(appSettings.fontSize)
         // TODO: change foreground and background color to match the scheme in appSettings
     }
