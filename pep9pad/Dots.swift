@@ -10,7 +10,7 @@ import Foundation
 
 class DotAddress: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     
     override func appendObjectCode( objectCode:inout [Int]) {
@@ -52,8 +52,8 @@ class DotAddress: Code {
 
 class DotAlign: Code {
     
-    private var argument: Argument!
-    private var numBytesGenerated: Argument!
+    var argument: Argument!
+    var numBytesGenerated: Argument!
     
     override func appendObjectCode(objectCode:inout [Int]) {
         var objectCode = objectCode
@@ -181,7 +181,7 @@ class DotAscii: Code {
 
 class DotBlock: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     
     override func appendObjectCode(objectCode:inout [Int]) {
@@ -326,7 +326,7 @@ class DotBurn: Code {
 
 class DotByte: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode: inout [Int]) {
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
@@ -391,7 +391,7 @@ class DotEnd: Code {
 
 class DotEquate: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode: inout [Int]) {
         // Does not generate code

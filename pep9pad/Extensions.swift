@@ -147,6 +147,14 @@ extension String {
     func stringToHex() -> String {
         return String(format: "%02X", self)
     }
+    
+    func toInt(value: Int) -> Int {
+        if let d = UInt64(self, radix: value) {
+            return Int(d)
+        } else {
+            return 0
+        }
+    }
 }
 
 extension Dictionary where Key:Any {
