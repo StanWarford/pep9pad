@@ -82,6 +82,8 @@
 		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
 		46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A71C0B1E563CAB00FCEFEA /* CPUView.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
+		46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */; };
+		46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB48DF1E7230D5001EF954 /* CPUColors.swift */; };
 		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
 		46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */; };
 		46C76A541DA494130071C340 /* FontAwesome in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A531DA494130071C340 /* FontAwesome */; };
@@ -190,7 +192,6 @@
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
-		D2B24BCE1E5B861900B5289A /* CPU1ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCD1E5B861900B5289A /* CPU1ByteRenderer.swift */; };
 		D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */; };
 		D2B82DE41E035B8700F960FE /* Memory.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B82DE31E035B8700F960FE /* Memory.xib */; };
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
@@ -292,6 +293,8 @@
 		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
 		46A71C0B1E563CAB00FCEFEA /* CPUView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUView.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
+		46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteRenderer.swift; sourceTree = "<group>"; };
+		46BB48DF1E7230D5001EF954 /* CPUColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUColors.swift; sourceTree = "<group>"; };
 		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9ProcessorController.swift; sourceTree = "<group>"; };
 		46C76A531DA494130071C340 /* FontAwesome */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAwesome; sourceTree = "<group>"; };
@@ -409,7 +412,6 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2B24BCD1E5B861900B5289A /* CPU1ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteRenderer.swift; sourceTree = "<group>"; };
 		D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteView.swift; sourceTree = "<group>"; };
 		D2B82DE31E035B8700F960FE /* Memory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Memory.xib; sourceTree = "<group>"; };
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
@@ -789,8 +791,9 @@
 		46D674DC1E5605A200AE1B8F /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				D2B24BCD1E5B861900B5289A /* CPU1ByteRenderer.swift */,
 				4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */,
+				46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */,
+				46BB48DF1E7230D5001EF954 /* CPUColors.swift */,
 				D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */,
 				4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */,
 				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */,
@@ -1265,6 +1268,7 @@
 				460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */,
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
+				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
@@ -1284,7 +1288,6 @@
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
-				D2B24BCE1E5B861900B5289A /* CPU1ByteRenderer.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
@@ -1292,6 +1295,7 @@
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
+				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
 				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
