@@ -16,7 +16,8 @@ class PepTextStorage: BaseTextStorage {
     override func processEditing() {
         let text = string as NSString
         let attributes : [String:AnyObject]? = [
-            NSFontAttributeName : UIFont(name: Courier, size: appSettings.fontSize)!
+            NSFontAttributeName : UIFont(name: Courier, size: appSettings.fontSize)!,
+            NSForegroundColorAttributeName: appSettings.darkModeOn ? UIColor.white : UIColor.black
         ]
         
         setAttributes(attributes, range: NSRange(location: 0, length: length))
