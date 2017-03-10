@@ -421,7 +421,7 @@ class DotEquate: Code {
 
 class DotWord: Code {
     
-    private var argument: Argument!
+    var argument: Argument!
     
     override func appendObjectCode(objectCode: inout [Int]) {
         var objectCode = objectCode
