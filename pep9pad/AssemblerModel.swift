@@ -974,9 +974,8 @@ class AssemblerModel {
                     else {
                         dotEquate.argument = UnsignedDecArgument(dec: value)
                     }
-                    maps.symbolTable[DictionaryIndex<dotEquate.symbolDef, value>]    // This line meant to replace one below
-                    maps.symbolTable.insert(dotEquate.symbolDef, value)
-                    maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
+                    maps.symbolTable[dotEquate.symbolDef] = value
+                    maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                     state = ParseState.ps_CLOSE
                 }
                 else {
@@ -990,8 +989,8 @@ class AssemblerModel {
                 var value = tokenString.toInt(value: 16)
                 if (value < 65536) {
                     dotEquate.argument = HexArgument(hex: value)
-                    maps.symbolTable.insert(DotEquate.symbolDef, value)
-                    maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
+                    maps.symbolTable[dotEquate.symbolDef] = value
+                    maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                     state = ParseState.ps_CLOSE
                 }
                 else {
@@ -1005,14 +1004,14 @@ class AssemblerModel {
                     return false
                 }
                 dotEquate.argument = StringArgument(str: tokenString)
-                maps.symbolTable.insert(DotEquate.symbolDef, assembler.string2ArgumentToInt(tokenString))
-                maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
+                maps.symbolTable[dotEquate.symbolDef] = assembler.string2ArgumentToInt(str: tokenString)
+                maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                 state = ParseState.ps_CLOSE
             }
             else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
                 dotEquate.argument = CharArgument(char: tokenString)
-                maps.symbolTable.insert(DotEquate.symbolDef, assembler.charStringToInt(tokenString))
-                maps.adjustSymbolValueForBurn.insert(DotEquate.symbolDef, false)
+                maps.symbolTable[dotEquate.symbolDef] = assembler.charStringToInt(str: tokenString)
+                maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                 state = ParseState.ps_CLOSE
             }
             else {

@@ -271,7 +271,7 @@ class DotBlock: Code {
         var list: [String]
         var numBytesListed: Int = 0
         var pos: Int = 0
-        while pos = rxSymbolTag.indexIn(comment, pos) != 1 {  // UPDATE
+        while (pos = rxSymbolTag.indexIn(comment, pos)) != 1 {  // UPDATE
             symbol = rxSymbolTag.cap(section: 1)
             if !(maps.equateSymbols.contains(symbol)) {
                 errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
