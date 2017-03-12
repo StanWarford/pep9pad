@@ -336,7 +336,7 @@ class AssemblerModel {
             str.remove(0, 1)
             var temp: String = String(s.characters.prefix(1))
             // LOL look at this shit MARK: HELP
-            value = ((temp.cString(using: String.Encoding.isoLatin1)) as Int8).integerValue
+            value = ((temp.cString(using: String.Encoding.isoLatin1)) as? Int8).integerValue
         }
         value += value < 0 ? 256 : 0
     }
@@ -705,8 +705,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2) // Remove "0x" prefix.
-                var ok: Bool
-                var value = tokenString.toInt(value: 16)
+                let value = tokenString.toInt(value: 16)
                 if (value < 65536) {
                     nonUnaryInstruction.argument = HexArgument(hex: value)
                     state = ParseState.ps_ADDRESSING_MODE
@@ -717,7 +716,6 @@ class AssemblerModel {
                 }
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: Bool
                 var value = tokenString.toInt(value: 10)
                 if ((-32768 <= value) && (value <= 65535)) {
                     if (value < 0) {
@@ -745,7 +743,7 @@ class AssemblerModel {
             break
             case .ps_ADDRESSING_MODE:
                 if (token == ELexicalToken.lt_ADDRESSING_MODE) {
-                    var addrMode: EAddrMode = assembler.stringToAddrMode(tokenString)
+                    let addrMode: EAddrMode = assembler.stringToAddrMode(tokenString)
                     if ((addrMode.rawValue & maps.addrModesMap[localEnumMnemonic]!) == 0) { // Nested parens required.
                         errorString = ";ERROR: Illegal addressing mode for this instruction."
                         return false
@@ -793,10 +791,9 @@ class AssemblerModel {
                 
             case .ps_DOT_ALIGN:
                 if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: Bool
-                var value = tokenString.toInt(value: 10)
+                let value = tokenString.toInt(value: 10)
                 if (value == 2 || value == 4 || value == 8) {
-                    var numBytes = (value - maps.byteCount % value) % value
+                    let numBytes = (value - maps.byteCount % value) % value
                     dotAlign.argument = UnsignedDecArgument(dec: value)
                     dotAlign.numBytesGenerated = UnsignedDecArgument(dec: numBytes)
                     maps.byteCount += numBytes
@@ -827,7 +824,6 @@ class AssemblerModel {
                 
             case .ps_DOT_BLOCK:
                 if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: Bool
                 var value = tokenString.toInt(value: 10)
                 if ((0 <= value) && (value <= 65535)) {
                     if (value < 0) {
@@ -847,8 +843,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2) // Remove "0x" prefix.
-                var ok: Bool
-                var value = tokenString.toInt(value: 16)
+                let value = tokenString.toInt(value: 16)
                 if (value < 65536) {
                     dotBlock.argument = HexArgument(hex: value)
                     maps.byteCount += value
@@ -868,8 +863,7 @@ class AssemblerModel {
             case .ps_DOT_BURN:
                 if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2) // Remove "0x" prefix.
-                var ok: Bool
-                var value = tokenString.toInt(value: 16)
+                let value = tokenString.toInt(value: 16)
                 if (value < 65536) {
                     
                     dotBurn.argument = HexArgument(hex: value)
@@ -896,7 +890,6 @@ class AssemblerModel {
                 state = ParseState.ps_CLOSE
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: Bool
                 var value = tokenString.toInt(value: 10)
                 if ((-128 <= value) && (value <= 255)) {
                     if (value < 0) {
@@ -913,8 +906,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2) // Remove "0x" prefix.
-                var ok: Bool
-                var value = tokenString.toInt(value: 16)
+                let value = tokenString.toInt(value: 16)
                 if (value < 256) {
                     dotByte.argument = HexArgument(hex: value)
                     maps.byteCount += 1
@@ -963,7 +955,6 @@ class AssemblerModel {
                 return false
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: Bool
                 var value = tokenString.toInt(value: 10)
                 if ((-32768 <= value) && (value <= 65535)) {
                     
@@ -985,8 +976,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2) // Remove "0x" prefix.
-                var ok: Bool
-                var value = tokenString.toInt(value: 16)
+                let value = tokenString.toInt(value: 16)
                 if (value < 65536) {
                     dotEquate.argument = HexArgument(hex: value)
                     maps.symbolTable[dotEquate.symbolDef] = value
@@ -1027,7 +1017,6 @@ class AssemblerModel {
                 state = ParseState.ps_CLOSE
             }
             else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var ok: Bool
                 var value = tokenString.toInt(value: 10)
                 if ((-32768 <= value) && (value < 65536)) {
                     
@@ -1048,8 +1037,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                 tokenString.remove(0, 2) // Remove "0x" prefix.
-                var ok: Bool
-                var value = tokenString.toInt(value: 16)
+                let value = tokenString.toInt(value: 16)
                 if (value < 65536) {
                     dotWord.argument = HexArgument(hex: value)
                     maps.byteCount += 2
@@ -1060,7 +1048,7 @@ class AssemblerModel {
                     return false
                 }
             }
-            else if (token == ELexicalToken.lt_str: STRING_CONSTANT) {
+            else if (token == ELexicalToken.lt_STRING_CONSTANT) {
                 if (assembler.byteStringLength(str: tokenString) > 2) {
                     errorString = ";ERROR: .WORD string operands must have length at most two."
                     return false
