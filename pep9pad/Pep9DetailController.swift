@@ -586,7 +586,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     /// Switches the tabBar to the appropriate index.
     func switchToTab(atIndex i: Int) {
-        tabBar.selectedIndex = min(i, (tabBar.toolbarItems?.count)!)
+        tabBar.selectedIndex = i
     }
     
     

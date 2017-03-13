@@ -27,5 +27,9 @@ class CPUView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    func redraw() {
+        // overridden in subclasses
+    }
     var busSize: CPUBusSize = .oneByte // defaults to oneByte for simplicity
 }

@@ -33,8 +33,8 @@ class AppSettings {
     /// should just handle this info with a method.
     func getColorFor(_ thing: ColoredObject) -> UIColor {
         switch thing {
-        case .background: return darkModeOn ? UIColor(red: 0, green: 43.0/255.0, blue: 54.0/255.0, alpha: 1.0) : .white
-        case .text: return darkModeOn ? .white : .black
+        case .background: return darkModeOn ? UIColor(red: 0, green: 43.0/255.0, blue: 54.0/255.0, alpha: 1.0) : UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0)
+        case .text: return darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.35, green:0.43, blue:0.46, alpha:1.0)
         case .errorText: return .red
         }
     }

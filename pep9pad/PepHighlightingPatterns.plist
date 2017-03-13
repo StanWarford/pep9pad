@@ -13,9 +13,9 @@
 	<key>multiLineComment</key>
 	<string></string>
 	<key>warning</key>
-	<string>;WARNING:[\\s].*$</string>
+	<string>;WARNING:[\s].*$</string>
 	<key>errorStart</key>
-	<string>;ERROR:[\\s]</string>
+	<string>;ERROR:[\s]</string>
 	<key>errorEnd</key>
 	<string>$</string>
 	<key>singleQuote</key>
