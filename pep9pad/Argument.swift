@@ -121,14 +121,22 @@ class SymbolRefArgument: Argument {
     }
     
     override func getArgumentValue() -> Int {
-        //MARK: TODO
+
         if (symbolRefValue == "charIn") {
-            return maps.symbolTable.contains(where: ((key: "charIn", value: 1)), (Bool) -> Bool) ? maps.symbolTable[symbolRefValue] : 256 * machine.mem[maps.dotBurnArgument - 7] + machine.mem[maps.dotBurnArgument - 6]
-//            return maps.symbolTable.contains(where: "charIn") ? maps.symbolTable[symbolRefValue] : 256 * machine.mem[maps.dotBurnArgument - 7] + machine.mem[maps.dotBurnArgument - 6]
+            if (maps.symbolTable.arrayOfKeys() as! [String]).contains("charIn") {
+                return maps.symbolTable[symbolRefValue]!
+            } else {
+                return 256 * machine.mem[maps.dotBurnArgument-7] + machine.mem[maps.dotBurnArgument-6]
+            }
         }
         else if (symbolRefValue == "charOut") {
-            return maps.symbolTable.contains(where: ((key: "charIn", value: 1)) -> Bool) ? maps.symbolTable[symbolRefValue] : 256 * machine.mem[maps.dotBurnArgument - 7] + machine.mem[maps.dotBurnArgument - 6]
-            //return Pep::symbolTable.contains("charOut") ? Pep::symbolTable.value(symbolRefValue) : 256 * Sim::Mem[Pep::dotBurnArgument - 5] + Sim::Mem[Pep::dotBurnArgument - 4];
+            
+            if (maps.symbolTable.arrayOfKeys() as! [String]).contains("charOut") {
+                return maps.symbolTable[symbolRefValue]!
+            } else {
+                return 256 * machine.mem[maps.dotBurnArgument-5] + machine.mem[maps.dotBurnArgument-4]
+            }
+
         }
         else {
             return maps.symbolTable[symbolRefValue]!
