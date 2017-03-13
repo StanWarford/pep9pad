@@ -11,7 +11,7 @@ class ListingController: UIViewController, ProjectModelEditor {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.frame, highlightAs: .pep)
+        textView.setupTextView(textView.bounds, highlightAs: .pep)
         textView.setEditable(false)
         pullFromProjectModel()
     }
