@@ -266,11 +266,12 @@ class DotBlock: Code {
             return true // Pre-Existing format tag takes precedence over symbol tag.
         }
         
-        let numBytesAllocated: Int = argument.getArgumentValue()
+        var numBytesAllocated: Int = argument.getArgumentValue()
         var symbol: String
-        var list: [String] = []
+        var list: [String]
         var numBytesListed: Int = 0
-        while rxSymbolTag.appearsIn(comment) {
+        var pos: Int = 0
+        while (pos = rxSymbolTag.indexIn(comment, pos)) != 1 {  // UPDATE
             symbol = rxSymbolTag.cap(section: 1)
             if !(maps.equateSymbols.contains(symbol)) {
                 errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
@@ -279,6 +280,7 @@ class DotBlock: Code {
             }
             numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
             list.append(symbol)
+            pos += rxSymbolTag.matchedLength()
         }
         if (numBytesAllocated != numBytesListed) && (numBytesListed > 0) {
             errorString = ";WARNING: Number of bytes allocated (" //+  UPDATE

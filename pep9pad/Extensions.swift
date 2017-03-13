@@ -201,7 +201,7 @@ extension NSRegularExpression {
     
     // MARK: NO IDEA IF THIS WORKS
     func cap(section: Int) -> String {
-        var value: String = ""
+        var value: String
         let outline: [String] = [rxFormatTag.pattern]
         for i in 0...3 {
             value = outline[i]
