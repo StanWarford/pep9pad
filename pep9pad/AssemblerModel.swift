@@ -309,13 +309,12 @@ class AssemblerModel {
             str.remove(0, 2)
             s = str.left(num: 2)
             str.remove(0, 2)
-            var ok: Bool
             value = s.toInt(value: 16)
         } else if str.startsWith(input: "\\") {
             str.remove(0, 1)
-            s = str.left(num: 2)
+            let fuckThis = str.left(num: 2)
             str.remove(0, 2)
-            switch s {
+            switch fuckThis {
             case "b":
                 value = 8
             case "f":
@@ -329,14 +328,12 @@ class AssemblerModel {
             case "v":
                 value = 11
             default:
-                value = Character(s[0]).toLatin1()
+                value = Int((fuckThis.characters.first!).asciiValue!)
             }
         } else {
-            s = str.left(num: 1)
+            let fuckThat = str.left(num: 1)
             str.remove(0, 1)
-            var temp: String = String(s.characters.prefix(1))
-            // LOL look at this shit MARK: HELP
-            value = ((temp.cString(using: String.Encoding.isoLatin1)) as? Int8).integerValue
+            value = Int((fuckThat.characters.first!).asciiValue!)
         }
         value += value < 0 ? 256 : 0
     }
@@ -385,21 +382,20 @@ class AssemblerModel {
             length += 1
         }
         return length
-        return 1
     }
     
     func charStringToInt (str: String) -> Int {
         var str = str
         str.remove(0, 1)
         str.chop()
-        var value: Int
+        var value: Int =  0
         assembler.unquotedStringToInt(str: &str, value: &value)
         return value
     }
     
     func string2ArgumentToInt(str: String) -> Int {
-        var valueA: Int
-        var valueB: Int
+        var valueA: Int = 0
+        var valueB: Int = 0
         var str = str
         str.remove(0, 1)
         str.chop()
