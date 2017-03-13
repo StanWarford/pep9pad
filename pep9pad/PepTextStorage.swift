@@ -17,7 +17,7 @@ class PepTextStorage: BaseTextStorage {
         let text = string as NSString
         let attributes : [String:AnyObject]? = [
             NSFontAttributeName : UIFont(name: Courier, size: appSettings.fontSize)!,
-            NSForegroundColorAttributeName: appSettings.darkModeOn ? UIColor.white : UIColor.black
+            NSForegroundColorAttributeName: appSettings.darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.00, green:0.17, blue:0.21, alpha:1.0)
         ]
         
         setAttributes(attributes, range: NSRange(location: 0, length: length))
