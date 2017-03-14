@@ -119,9 +119,40 @@ extension String {
     func trimmed() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
+    
+    mutating func chop() {
+        self.characters.removeLast()
+    }
+    
+    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = true) -> String {
+        let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
+        return paddedString
+    }
+    
+    func startsWith(input: String) -> Bool {
+        let length: Int = input.length
+        if input == String(self.characters.prefix(length)) {
+            return true
+        }
+        return false
+    }
+    
+    func left(num: Int) -> String {
+        return String(self.characters.prefix(num))
+    }
+    
+    func stringToHex() -> String {
+        return String(format: "%02X", self)
+    }
+    
+    func toInt(value: Int) -> Int {
+        if let d = UInt64(self, radix: value) {
+            return Int(d)
+        } else {
+            return 0
+        }
+    }
 }
-
-
 
 extension Dictionary where Key:Any {
     func arrayOfKeys() -> [Any] {
@@ -156,7 +187,6 @@ extension Character {
     }
 }
 
-
 extension NSRegularExpression {
     func appearsIn(_ str: String) -> Bool {
         return self.numberOfMatches(in: str, options: .reportCompletion, range: str.fullRange()) > 0
@@ -168,6 +198,22 @@ extension NSRegularExpression {
         let results = matches(in: ns as String, range: NSRange(location: 0, length: ns.length))
         return results.map { ns.substring(with: $0.range)}
     }
+    
+    // MARK: NO IDEA IF THIS WORKS
+    func cap(section: Int) -> String {
+        var value: String = ""
+        let outline: [String] = [rxFormatTag.pattern]
+        for i in 0...3 {
+            value = outline[i]
+        }
+        return value
+    }
+    
+    func matchedLength() -> Int {
+        return 0
+        // MARK
+    }
+    
 }
 
 

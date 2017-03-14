@@ -93,7 +93,7 @@ class HexArgument: Argument {
         //return "0x" + QString("%1").arg(hexValue, 4, 16, QLatin1Char('0')).toUpper();
         return "TODO"
 }
-
+}
     
     
 class StringArgument: Argument {
@@ -111,29 +111,40 @@ class StringArgument: Argument {
         return stringValue
     }
 }
+
     
     
+class SymbolRefArgument: Argument {
+    internal var symbolRefValue: String = ""
+    init(symbolRef: String) {
+        symbolRefValue = symbolRef
+    }
     
-//class SymbolRefArgument: Argument {
-//    internal var symbolRefValue: String = ""
-//    init(symbolRef: String) {
-//        symbolRefValue = symbolRef
-//    }
-//    
-//    override func getArgumentValue() -> Int {
-//        if (symbolRefValue == "charIn") {
-//            return Pep::symbolTable.contains("charIn") ? Pep::symbolTable.value(symbolRefValue) : 256 * Sim::Mem[Pep::dotBurnArgument - 7] + Sim::Mem[Pep::dotBurnArgument - 6];
-//        }
-//        else if (symbolRefValue == "charOut") {
-//            return Pep::symbolTable.contains("charOut") ? Pep::symbolTable.value(symbolRefValue) : 256 * Sim::Mem[Pep::dotBurnArgument - 5] + Sim::Mem[Pep::dotBurnArgument - 4];
-//        }
-//        else {
-//            return Pep::symbolTable.value(symbolRefValue);
-//        }
-//    }
-//    
-//    override func getArgumentString() -> String {
-//        return symbolRefValue
-//    }
-//}
+    override func getArgumentValue() -> Int {
+
+        if (symbolRefValue == "charIn") {
+            if (maps.symbolTable.arrayOfKeys() as! [String]).contains("charIn") {
+                return maps.symbolTable[symbolRefValue]!
+            } else {
+                return 256 * machine.mem[maps.dotBurnArgument-7] + machine.mem[maps.dotBurnArgument-6]
+            }
+        }
+        else if (symbolRefValue == "charOut") {
+            
+            if (maps.symbolTable.arrayOfKeys() as! [String]).contains("charOut") {
+                return maps.symbolTable[symbolRefValue]!
+            } else {
+                return 256 * machine.mem[maps.dotBurnArgument-5] + machine.mem[maps.dotBurnArgument-4]
+            }
+
+        }
+        else {
+            return maps.symbolTable[symbolRefValue]!
+        }
+    }
+    
+    override func getArgumentString() -> String {
+        return symbolRefValue
+    }
 }
+
