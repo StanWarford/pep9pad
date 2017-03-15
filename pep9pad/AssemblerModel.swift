@@ -431,9 +431,6 @@ class AssemblerModel {
         let dotEquate = DotEquate()
         let dotWord = DotWord()
         
-        // placeholder
-        return true
-        
         var token: ELexicalToken // Passed to getToken.
         var tokenString: String // Passed to getToken.
         var localSymbolDef: String = "" // Saves symbol definition for processing in the following state.
