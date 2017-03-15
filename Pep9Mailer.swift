@@ -50,7 +50,7 @@ class Pep9Mailer: NSObject, MFMailComposeViewControllerDelegate {
         return mailComposerVC
     }
     
-    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     

@@ -62,6 +62,7 @@
 		464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */; };
 		464DE4761E6A00AB00763503 /* FontMenuSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */; };
 		464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */; };
+		46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
 		4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */; };
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
@@ -273,6 +274,7 @@
 		464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuColorCell.swift; sourceTree = "<group>"; };
 		464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuSizeCell.swift; sourceTree = "<group>"; };
 		464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenuSizeCell.xib; sourceTree = "<group>"; };
+		46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencedSymbol.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
 		4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CHighlightingPatterns.plist; sourceTree = "<group>"; };
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
@@ -811,6 +813,7 @@
 			isa = PBXGroup;
 			children = (
 				468A95D31DDCECF400916BE7 /* Code.swift */,
+				46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */,
 				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
 				46E246AE1DE0E1C300611A18 /* Dots.swift */,
 				46E246B11DE0E32A00611A18 /* NonExecutables.swift */,
@@ -1327,6 +1330,7 @@
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
+				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,

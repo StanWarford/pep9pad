@@ -130,8 +130,6 @@ class ProjectModel {
             return objectStr.data(using: .utf8)
         case .listing:
             return listingStr.data(using: .utf8)
-        default:
-            break
         }
     }
     

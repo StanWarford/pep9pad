@@ -604,7 +604,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
-        
+        assembler.assemble()
+        print(assembler.getAssemblerListing())
         // PLACEHOLDER
         return true
         

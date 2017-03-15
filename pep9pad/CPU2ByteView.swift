@@ -30,6 +30,6 @@ class CPU2ByteView: CPUView {
         UIColor.white.setFill()
         UIRectFill(rect)
         // Now draw from renderer.
-        CPU2ByteRenderer.drawPep9CPUIPad97()
+        CPU2ByteRenderer.drawIpad()
     }
 }
