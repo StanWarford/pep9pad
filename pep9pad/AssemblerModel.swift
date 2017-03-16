@@ -14,7 +14,7 @@ var assembler = AssemblerModel()
 // NOTE: the following variables use the `try!` modifier to force a pattern-matching attempt. `NSRegularExpression` throws an error if the pattern is invalid. Our patterns are fixed and thus will never `throw` an error.
 let rxAddrMode = try! NSRegularExpression(pattern: "^((,)(\\s*)(i|d|x|n|s(?![fx])|sx(?![f])|sf|sfx){1}){1}", options: [.caseInsensitive])
 let rxCharConst = try! NSRegularExpression(pattern: "^((\')(?![\'])(([^\'\\\\]){1}|((\\\\)([\'|b|f|n|r|t|v|\"|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))(\'))", options: [.caseInsensitive])
-let rxComment = try! NSRegularExpression(pattern: "^(({1})(.)*)", options: [.caseInsensitive])
+let rxComment = try! NSRegularExpression(pattern: "^((;{1})(.)*)", options: [.caseInsensitive])
 let rxDecConst = try! NSRegularExpression(pattern: "^((([+|-]{0,1})([0-9]+))|^(([1-9])([0-9]*)))", options: [.caseInsensitive])
 let rxDotCommand = try! NSRegularExpression(pattern: "^((.)(([A-Z|a-z]{1})(\\w)*))", options: [.caseInsensitive])
 let rxHexConst = try! NSRegularExpression(pattern: "^((0(?![x|X]))|((0)([x|X])([0-9|A-F|a-f])+)|((0)([0-9]+)))", options: [.caseInsensitive])
@@ -186,7 +186,7 @@ class AssemblerModel {
             sourceLine.remove(0, tokenString.length)
             return true
         }
-        if (firstChar ==  " ") {    // MARK: MAY NEED TO CHANGE THIS
+        if (firstChar ==  ";") {    // MARK: MAY NEED TO CHANGE THIS
             if !rxComment.appearsIn(sourceLine) {
                 //This error should not occur, as any characters are allowed in a comment.
                 tokenString = ";ERROR: Malformed comment"
@@ -431,13 +431,10 @@ class AssemblerModel {
         let dotEquate = DotEquate()
         let dotWord = DotWord()
         
-        // placeholder
-        return true
-        
-        var token: ELexicalToken // Passed to getToken.
-        var tokenString: String // Passed to getToken.
+        var token: ELexicalToken = .lt_COMMENT // Passed to getToken.
+        var tokenString: String = ""// Passed to getToken.
         var localSymbolDef: String = "" // Saves symbol definition for processing in the following state.
-        var localEnumMnemonic: EMnemonic // Key to maps. table lookups.
+        var localEnumMnemonic: EMnemonic = .SUBX // Key to maps. table lookups.
 
         
         dotEndDetected = false
