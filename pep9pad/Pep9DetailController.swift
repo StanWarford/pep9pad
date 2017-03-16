@@ -342,7 +342,15 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let formatFromListingAction = UIAlertAction(title: "Format From Listing", style: .default) { (action) in
-            //TODO: Implement formatFromListingAction
+            let assemblerListingList: [String] = assembler.getAssemblerListing();
+            let regex = try! NSRegularExpression(pattern: "^.............", options: NSRegularExpression.Options.caseInsensitive)
+            
+            for str in assemblerListingList {
+                regex.replaceMatches(in: NSMutableString(string: str), options: NSRegularExpression.MatchingOptions.reportCompletion, range: str.fullRange(), withTemplate: "")
+            }
+            
+            let newStr = assemblerListingList.joined(separator: "\n")
+            
         }
         alertController.addAction(formatFromListingAction)
         
