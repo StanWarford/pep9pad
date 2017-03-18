@@ -308,7 +308,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 print("saving changes and creating a new project")
-                projectModel.saveProject()
+                projectModel.saveExistingProject()
                 projectModel.newBlankProject()
                 self.updateEditorsFromProjectModel()
             }
@@ -399,7 +399,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 // save changes and present fs
                 print("saving changes and opening a preexisting project")
-                projectModel.saveProject()
+                projectModel.saveExistingProject()
                 //self.updateEditorsFromProjectModel()
                 self.presentFileSystem()
             }
@@ -487,7 +487,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             // project has not been saved recently
             // Rather than present an alertController here, I say we just update the fs.
             // Having an "are you sure?" message seems redundant for something as innocuous as a save.
-            projectModel.saveProject()
+            projectModel.saveExistingProject()
             
         case .UnsavedUnnamed:
             // project has never been saved
@@ -532,7 +532,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .UnsavedNamed:
             // project has not been saved recently
             // rather than present an alertController here, I say we just update the fs automatically
-            projectModel.saveProject()
+            projectModel.saveExistingProject()
         case .UnsavedUnnamed:
             // project has never been saved
             

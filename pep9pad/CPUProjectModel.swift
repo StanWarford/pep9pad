@@ -85,7 +85,7 @@ class CPUProjectModel {
     }
     
     
-    func saveProjectInFS() {
+    func saveExistingProjectInFS() {
 //        if updateProjectInFS(named: name, source: sourceStr) {
 //            fsState = .SavedNamed
 //        }

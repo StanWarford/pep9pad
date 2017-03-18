@@ -96,7 +96,7 @@ class AssemblerModel {
         while (lineNum < sourceCodeList.count && !dotEndDetected) {
             sourceLine = sourceCodeList[lineNum]
             if (!processSourceLine(&sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected)) {
-                source[lineNum].comment.append(errorString)
+                sourceCodeList[lineNum] += errorString
                 return false
             }
             source.append(code)
@@ -447,104 +447,101 @@ class AssemblerModel {
             switch (state) {
             case .ps_START:
                 if (token == ELexicalToken.lt_IDENTIFIER) {
-                if (maps.mnemonToEnumMap.keys).contains(tokenString.uppercased()) {
-                    localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
-                    if  maps.isUnaryMap[localEnumMnemonic]! {
-                        let unaryInstruction = UnaryInstruction()
-                        unaryInstruction.symbolDef = ""
-                        unaryInstruction.mnemonic = localEnumMnemonic
-                        code = unaryInstruction
+                    if (maps.mnemonToEnumMap.keys).contains(tokenString.uppercased()) {
+                        localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
+                        if maps.isUnaryMap[localEnumMnemonic]! {
+                            let unaryInstruction = UnaryInstruction()
+                            unaryInstruction.symbolDef = ""
+                            unaryInstruction.mnemonic = localEnumMnemonic
+                            code = unaryInstruction
+                            code.memAddress = maps.byteCount
+                            maps.byteCount += 1 // One byte generated for unary instruction.
+                            state = ParseState.ps_CLOSE
+                        } else {
+                            nonUnaryInstruction.symbolDef = ""
+                            nonUnaryInstruction.mnemonic = localEnumMnemonic
+                            code = nonUnaryInstruction
+                            code.memAddress = maps.byteCount
+                            maps.byteCount += 3 // Three bytes generated for nonunary instruction.
+                            state = ParseState.ps_INSTRUCTION
+                        }
+                    } else {
+                        errorString = ";ERROR: Invalid mnemonic."
+                        return false
+                    }
+                } else if (token == ELexicalToken.lt_DOT_COMMAND) {
+                    tokenString.remove(0, 1) // Remove the period
+                    tokenString = tokenString.capitalized
+                    if (tokenString == "ADDRSS") {
+                        let dotAddress = DotAddress()
+                        dotAddress.symbolDef = ""
+                        code = dotAddress
                         code.memAddress = maps.byteCount
-                        maps.byteCount += 1 // One byte generated for unary instruction.
-                        state = ParseState.ps_CLOSE
+                        state = ParseState.ps_DOT_ADDRSS
+                    }
+                    else if (tokenString == "ALIGN") {
+                        let dotAlign = DotAlign()
+                        dotAlign.symbolDef = ""
+                        code = dotAlign
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_ALIGN
+                        
+                    }
+                    else if (tokenString == "ASCII") {
+                        let dotAscii = DotAscii()
+                        dotAscii.symbolDef = ""
+                        code = dotAscii
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_ASCII
+                    }
+                    else if (tokenString == "BLOCK") {
+                        let dotBlock = DotBlock()
+                        dotBlock.symbolDef = ""
+                        code = dotBlock
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_BLOCK
+                    }
+                    else if (tokenString == "BURN") {
+                        let dotBurn = DotBurn()
+                        dotBurn.symbolDef = ""
+                        code = dotBurn
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_BURN
+                    }
+                    else if (tokenString == "BYTE") {
+                        let dotByte = DotByte()
+                        dotByte.symbolDef = ""
+                        code = dotByte
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_BYTE
+                    }
+                    else if (tokenString == "END") {
+                        let dotEnd = DotEnd()
+                        dotEnd.symbolDef = ""
+                        code = dotEnd
+                        code.memAddress = maps.byteCount
+                        dotEndDetected = true
+                        state = ParseState.ps_DOT_END
+                    }
+                    else if (tokenString == "EQUATE") {
+                        let dotEquate = DotEquate()
+                        dotEquate.symbolDef = ""
+                        code = dotEquate
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_EQUATE
+                    }
+                    else if (tokenString == "WORD") {
+                        let dotWord = DotWord()
+                        dotWord.symbolDef = ""
+                        code = dotWord
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_WORD
                     }
                     else {
-                        nonUnaryInstruction.symbolDef = ""
-                        nonUnaryInstruction.mnemonic = localEnumMnemonic
-                        code = nonUnaryInstruction
-                        code.memAddress = maps.byteCount
-                        maps.byteCount += 3 // Three bytes generated for nonunary instruction.
-                        state = ParseState.ps_INSTRUCTION
+                        errorString = ";ERROR: Invalid dot command."
+                        return false
                     }
                 }
-                else {
-                    errorString = ";ERROR: Invalid mnemonic."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_DOT_COMMAND) {
-                tokenString.remove(0, 1) // Remove the period
-                tokenString = tokenString.capitalized
-                if (tokenString == "ADDRSS") {
-                    let dotAddress = DotAddress()
-                    dotAddress.symbolDef = ""
-                    code = dotAddress
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_ADDRSS
-                }
-                else if (tokenString == "ALIGN") {
-                    let dotAlign = DotAlign()
-                    dotAlign.symbolDef = ""
-                    code = dotAlign
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_ALIGN
-                    
-                }
-                else if (tokenString == "ASCII") {
-                    let dotAscii = DotAscii()
-                    dotAscii.symbolDef = ""
-                    code = dotAscii
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_ASCII
-                }
-                else if (tokenString == "BLOCK") {
-                    let dotBlock = DotBlock()
-                    dotBlock.symbolDef = ""
-                    code = dotBlock
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_BLOCK
-                }
-                else if (tokenString == "BURN") {
-                    let dotBurn = DotBurn()
-                    dotBurn.symbolDef = ""
-                    code = dotBurn
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_BURN
-                }
-                else if (tokenString == "BYTE") {
-                    let dotByte = DotByte()
-                    dotByte.symbolDef = ""
-                    code = dotByte
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_BYTE
-                }
-                else if (tokenString == "END") {
-                    let dotEnd = DotEnd()
-                    dotEnd.symbolDef = ""
-                    code = dotEnd
-                    code.memAddress = maps.byteCount
-                    dotEndDetected = true
-                    state = ParseState.ps_DOT_END
-                }
-                else if (tokenString == "EQUATE") {
-                    let dotEquate = DotEquate()
-                    dotEquate.symbolDef = ""
-                    code = dotEquate
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_EQUATE
-                }
-                else if (tokenString == "WORD") {
-                    let dotWord = DotWord()
-                    dotWord.symbolDef = ""
-                    code = dotWord
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_WORD
-                }
-                else {
-                    errorString = ";ERROR: Invalid dot command."
-                    return false
-                }
-            }
             else if (token == ELexicalToken.lt_SYMBOL_DEF) {
                 tokenString.chop() // Remove the colon
                 if (tokenString.length > 8) {
