@@ -11,7 +11,6 @@ class UnaryInstruction: Code {
     var mnemonic: EMnemonic!
     override init(){}
     override func appendObjectCode(objectCode: inout [Int]) {
-        var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             objectCode.append(maps.opCodeMap[mnemonic]!)
         }
@@ -50,7 +49,6 @@ class NonUnaryInstruction: Code {
     override init() {}
     
     override func appendObjectCode(objectCode: inout [Int]) {
-        var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             var instructionSpecifier = maps.opCodeMap[mnemonic]
             if maps.addrModeRequiredMap[mnemonic]! {

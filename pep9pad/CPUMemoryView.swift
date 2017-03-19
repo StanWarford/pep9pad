@@ -71,6 +71,7 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
     
     
     /// Refreshes the memory in a given range.
+    /// This given range is inclusive at upper and lower bounds.
     func refresh(fromByte: Int, toByte: Int) {
         let fromLine = fromByte / 8
         let toLine = toByte / 8

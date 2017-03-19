@@ -59,8 +59,8 @@ class AssemblerModel {
     
     
     // MARK: - Methods
-    // Pre: self.textView.text contains a Pep/9 source program.
-    // Post: If the program assembles correctly, true is returned, and sourceCode is populated
+    // Pre: SourceController contains a Pep/9 source program.
+    // Post: If the program assembles correctly, true is returned, and source is populated
     // with the code objects. Otherwise false is returned and codeList is partially populated.
     // Post: pep.symbolTable is populated with values not adjusted for .BURN.
     // Post: pep.byteCount is the byte count for the object code not adjusted for .BURN.
@@ -96,7 +96,7 @@ class AssemblerModel {
         while (lineNum < sourceCodeList.count && !dotEndDetected) {
             sourceLine = sourceCodeList[lineNum]
             if (!processSourceLine(&sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected)) {
-                sourceCodeList[lineNum] += errorString
+                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
                 return false
             }
             source.append(code)
@@ -106,14 +106,14 @@ class AssemblerModel {
         // check for existence of .END
         if (!dotEndDetected) {
             errorString = ";ERROR: Missing .END sentinel."
-            source[0].comment.append(errorString)
+            projectModel.appendMessageInSource(atLine: 0, message: errorString)
             return false
         }
         
         // check size of program
         if (maps.byteCount > 65535) {
             errorString = ";ERROR: Object code size too large to fit into memory."
-            source[0].comment.append(errorString)
+            projectModel.appendMessageInSource(atLine: 0, message: errorString)
             return false
         }
         
@@ -341,7 +341,7 @@ class AssemblerModel {
     func stringToAddrMode (str: String) -> EAddrMode {
         var str = str
         str.remove(0, 1) // Remove the comma
-        str = str.trimmed().capitalized
+        str = str.trimmed().uppercased()
         switch str {
         case "I":
             return EAddrMode.I
@@ -471,7 +471,7 @@ class AssemblerModel {
                     }
                 } else if (token == ELexicalToken.lt_DOT_COMMAND) {
                     tokenString.remove(0, 1) // Remove the period
-                    tokenString = tokenString.capitalized
+                    tokenString = tokenString.uppercased()
                     if (tokenString == "ADDRSS") {
                         let dotAddress = DotAddress()
                         dotAddress.symbolDef = ""
@@ -579,8 +579,8 @@ class AssemblerModel {
                 
             case .ps_SYMBOL_DEF:
                 if (token == ELexicalToken.lt_IDENTIFIER){
-                    if (maps.mnemonToEnumMap[tokenString.capitalized] != nil) {
-                    localEnumMnemonic = maps.mnemonToEnumMap[tokenString.capitalized]!
+                    if (maps.mnemonToEnumMap[tokenString.uppercased()] != nil) {
+                    localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
                         if (maps.isUnaryMap[localEnumMnemonic] != nil) {
                         let unaryInstruction = UnaryInstruction()
                         unaryInstruction.symbolDef = localSymbolDef
@@ -607,7 +607,7 @@ class AssemblerModel {
             }
             else if (token == ELexicalToken.lt_DOT_COMMAND) {
                 tokenString.remove(0, 1) // Remove the period
-                tokenString = tokenString.capitalized
+                tokenString = tokenString.uppercased()
                 if (tokenString == "ADDRSS") {
                     let dotAddress = DotAddress()
                     dotAddress.symbolDef = localSymbolDef
@@ -883,7 +883,7 @@ class AssemblerModel {
                 var value = tokenString.toInt(value: 10)
                 if ((-128 <= value) && (value <= 255)) {
                     if (value < 0) {
-                        value += 256 // value stored as one-byte unsigned.
+                        value += 256 // value stored as one-byte unsigned Int
                     }
                     dotByte.argument = DecArgument(dec: value)
                     maps.byteCount += 1
@@ -1098,10 +1098,9 @@ class AssemblerModel {
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
-    // MARK: SUBJECT TO CHANGE
     func getObjectCode() -> [Int] {
-        object.removeAll()
-        for i in 0...source.count {
+        object = []
+        for i in 0..<source.count {
             source[i].appendObjectCode(objectCode: &object)
         }
         return object
