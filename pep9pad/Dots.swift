@@ -114,13 +114,13 @@ class DotAscii: Code {
     var argument: Argument!
     
     override func appendObjectCode(objectCode:inout [Int]) {
-        if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
-            let value: Int = 0   // MARK
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
+            var value: Int = 0   // MARK
             var str: String = argument.getArgumentString()
-            str.remove(0, 1)
-            str.chop()
+            str.remove(0, 1) // remove the first double quote char
+            str.chop() // remove the last double quote char
             while str.length > 0 {
-                //assembler.unquotedStringToInt(str, value) //MARK
+                assembler.unquotedStringToInt(str: &str, value: &value)
                 objectCode.append(value)
             }
         }

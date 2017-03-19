@@ -676,8 +676,6 @@ class MachineModel {
         case .SUBSP:
             operand = readWordOprnd(addrMode: addrMode)
             stackPointer = add(stackPointer, (~operand + 1) & 0xffff) // Might need to use different add function
-        default:
-            return false
         }
         return false
     }

@@ -25,14 +25,14 @@ class CPUTraceController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView! {
         didSet {
-            self.scrollView.addSubview(cpuView as! UIView)
+            self.scrollView.addSubview(cpuView as UIView)
             self.scrollView.delegate = self
         }
     }
     
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return cpuView as! UIView
+        return cpuView as UIView
     }
     
 }

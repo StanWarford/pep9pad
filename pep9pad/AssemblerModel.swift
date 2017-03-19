@@ -52,7 +52,7 @@ class AssemblerModel {
     var dotBurnArgument: Int = 0
     /// The beginning of ROM, which is the dotBurnArgument - the size of the OS.
     var romStartAddress: Int = 0
-    /// The list of all referenced symbols in the assembly program.  
+    /// The list of all referenced symbols in the assembly program.
     /// Each element is a 2-touple with a `source` and `lineNumber` attribute.
     var referencedSymbols: [ReferencedSymbol] = []
     
@@ -119,9 +119,9 @@ class AssemblerModel {
         
         // check for unused symbols
         for i in 0..<referencedSymbols.count {
-            if (!Array(maps.symbolTable.keys).contains(assembler.referencedSymbols[i].symbol)
-                && !(assembler.referencedSymbols[i].symbol == "charIn")
-                && !(assembler.referencedSymbols[i].symbol == "charOut")) {
+            if (!Array(maps.symbolTable.keys).contains(referencedSymbols[i].symbol)
+                && !(referencedSymbols[i].symbol == "charIn")
+                && !(referencedSymbols[i].symbol == "charOut")) {
                 errorString = ";ERROR: Symbol " + referencedSymbols[i].symbol + " is used but not defined."
                 projectModel.appendMessageInSource(atLine: referencedSymbols[i].lineNumber, message: errorString)
                 return false
@@ -130,10 +130,10 @@ class AssemblerModel {
         
         
         maps.traceTagWarning = false
-
+        
         // check format trace tags
-        for i in 0..<assembler.source.count {
-            if (!assembler.source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
+        for i in 0..<source.count {
+            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
                 projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
                 maps.traceTagWarning = true
             }
@@ -141,8 +141,8 @@ class AssemblerModel {
         
         // check symbol trace tags
         if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
-            for i in 0..<assembler.source.count {
-                if !(assembler.source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
+            for i in 0..<source.count {
+                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
                     projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
                     maps.traceTagWarning = true
                 }
@@ -254,7 +254,7 @@ class AssemblerModel {
         
         
     }
-
+    
     func formatMultiplier(_ formatTag: String) -> Int {
         let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
         if pos > -1 {
@@ -312,9 +312,9 @@ class AssemblerModel {
             value = s.toInt(value: 16)
         } else if str.startsWith(input: "\\") {
             str.remove(0, 1)
-            let fuckThis = str.left(num: 2)
+            let thing = str.left(num: 2)
             str.remove(0, 2)
-            switch fuckThis {
+            switch thing {
             case "b":
                 value = 8
             case "f":
@@ -328,12 +328,12 @@ class AssemblerModel {
             case "v":
                 value = 11
             default:
-                value = Int((fuckThis.characters.first!).asciiValue!)
+                value = Int((thing.characters.first!).asciiValue!)
             }
         } else {
-            let fuckThat = str.left(num: 1)
+            let otherThing = str.left(num: 1)
             str.remove(0, 1)
-            value = Int((fuckThat.characters.first!).asciiValue!)
+            value = Int((otherThing.characters.first!).asciiValue!)
         }
         value += value < 0 ? 256 : 0
     }
@@ -389,7 +389,7 @@ class AssemblerModel {
         str.remove(0, 1)
         str.chop()
         var value: Int =  0
-        assembler.unquotedStringToInt(str: &str, value: &value)
+        unquotedStringToInt(str: &str, value: &value)
         return value
     }
     
@@ -399,11 +399,11 @@ class AssemblerModel {
         var str = str
         str.remove(0, 1)
         str.chop()
-        assembler.unquotedStringToInt(str: &str, value: &valueA)
+        unquotedStringToInt(str: &str, value: &valueA)
         if str.length == 0 {
             return valueA
         } else {
-            assembler.unquotedStringToInt(str: &str, value: &valueB)
+            unquotedStringToInt(str: &str, value: &valueB)
             valueA = 256 * valueA + valueB
             if valueA < 0 {
                 valueA = valueA + 65536
@@ -435,7 +435,7 @@ class AssemblerModel {
         var tokenString: String = ""// Passed to getToken.
         var localSymbolDef: String = "" // Saves symbol definition for processing in the following state.
         var localEnumMnemonic: EMnemonic = .SUBX // Key to maps. table lookups.
-
+        
         
         dotEndDetected = false
         var state: ParseState = ParseState.ps_START
@@ -542,198 +542,198 @@ class AssemblerModel {
                         return false
                     }
                 }
-            else if (token == ELexicalToken.lt_SYMBOL_DEF) {
-                tokenString.chop() // Remove the colon
-                if (tokenString.length > 8) {
-                    errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
+                else if (token == ELexicalToken.lt_SYMBOL_DEF) {
+                    tokenString.chop() // Remove the colon
+                    if (tokenString.length > 8) {
+                        errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
+                        return false
+                    }
+                    if ((maps.symbolTable[tokenString]) != nil) {
+                        errorString = ";ERROR: Symbol " + tokenString + " was previously defined."
+                        return false
+                    }
+                    localSymbolDef = tokenString
+                    maps.symbolTable[localSymbolDef] = maps.byteCount
+                    maps.adjustSymbolValueForBurn[localSymbolDef] = true
+                    state = ParseState.ps_SYMBOL_DEF
+                }
+                else if (token == ELexicalToken.lt_COMMENT) {
+                    let commentOnly = CommentOnly()
+                    commentOnly.comment = tokenString
+                    code = commentOnly
+                    code.memAddress = maps.byteCount
+                    state = ParseState.ps_COMMENT
+                }
+                else if (token == ELexicalToken.lt_EMPTY) {
+                    let blankLine = BlankLine()
+                    code = blankLine
+                    code.memAddress = maps.byteCount
+                    code.sourceCodeLine = lineNum
+                    state = ParseState.ps_FINISH
+                }
+                else {
+                    errorString = ";ERROR: Line must start with symbol definition, mnemonic, dot command, or comment."
                     return false
                 }
-                if ((maps.symbolTable[tokenString]) != nil) {
-                    errorString = ";ERROR: Symbol " + tokenString + " was previously defined."
-                    return false
-                }
-                localSymbolDef = tokenString
-                maps.symbolTable[localSymbolDef] = maps.byteCount
-                maps.adjustSymbolValueForBurn[localSymbolDef] = true
-                state = ParseState.ps_SYMBOL_DEF
-            }
-            else if (token == ELexicalToken.lt_COMMENT) {
-                let commentOnly = CommentOnly()
-                commentOnly.comment = tokenString
-                code = commentOnly
-                code.memAddress = maps.byteCount
-                state = ParseState.ps_COMMENT
-            }
-            else if (token == ELexicalToken.lt_EMPTY) {
-                let blankLine = BlankLine()
-                code = blankLine
-                code.memAddress = maps.byteCount
-                code.sourceCodeLine = lineNum
-                state = ParseState.ps_FINISH
-            }
-            else {
-                errorString = ";ERROR: Line must start with symbol definition, mnemonic, dot command, or comment."
-                return false
-            }
-            break
+                break
                 
             case .ps_SYMBOL_DEF:
                 if (token == ELexicalToken.lt_IDENTIFIER){
                     if (maps.mnemonToEnumMap[tokenString.uppercased()] != nil) {
-                    localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
+                        localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
                         if (maps.isUnaryMap[localEnumMnemonic] != nil) {
-                        let unaryInstruction = UnaryInstruction()
-                        unaryInstruction.symbolDef = localSymbolDef
-                        unaryInstruction.mnemonic = localEnumMnemonic
-                        code = unaryInstruction
-                        code.memAddress = maps.byteCount
-                        maps.byteCount += 1 // One byte generated for unary instruction.
-                        state = ParseState.ps_CLOSE
+                            let unaryInstruction = UnaryInstruction()
+                            unaryInstruction.symbolDef = localSymbolDef
+                            unaryInstruction.mnemonic = localEnumMnemonic
+                            code = unaryInstruction
+                            code.memAddress = maps.byteCount
+                            maps.byteCount += 1 // One byte generated for unary instruction.
+                            state = ParseState.ps_CLOSE
+                        }
+                        else {
+                            let nonUnaryInstruction = NonUnaryInstruction()
+                            nonUnaryInstruction.symbolDef = localSymbolDef
+                            nonUnaryInstruction.mnemonic = localEnumMnemonic
+                            code = nonUnaryInstruction
+                            code.memAddress = maps.byteCount
+                            maps.byteCount += 3 // Three bytes generated for unary instruction.
+                            state = ParseState.ps_INSTRUCTION
+                        }
                     }
                     else {
-                        let nonUnaryInstruction = NonUnaryInstruction()
-                        nonUnaryInstruction.symbolDef = localSymbolDef
-                        nonUnaryInstruction.mnemonic = localEnumMnemonic
-                        code = nonUnaryInstruction
+                        errorString = ";ERROR: Invalid mnemonic."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_DOT_COMMAND) {
+                    tokenString.remove(0, 1) // Remove the period
+                    tokenString = tokenString.uppercased()
+                    if (tokenString == "ADDRSS") {
+                        let dotAddress = DotAddress()
+                        dotAddress.symbolDef = localSymbolDef
+                        code = dotAddress
                         code.memAddress = maps.byteCount
-                        maps.byteCount += 3 // Three bytes generated for unary instruction.
-                        state = ParseState.ps_INSTRUCTION
+                        state = ParseState.ps_DOT_ADDRSS
+                    }
+                    else if (tokenString == "ASCII") {
+                        let dotAscii = DotAscii()
+                        dotAscii.symbolDef = localSymbolDef
+                        code = dotAscii
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_ASCII
+                    }
+                    else if (tokenString == "BLOCK") {
+                        let dotBlock = DotBlock()
+                        dotBlock.symbolDef = localSymbolDef
+                        code = dotBlock
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_BLOCK
+                    }
+                    else if (tokenString == "BURN") {
+                        let dotBurn = DotBurn()
+                        dotBurn.symbolDef = localSymbolDef
+                        code = dotBurn
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_BURN
+                    }
+                    else if (tokenString == "BYTE") {
+                        let dotByte = DotByte()
+                        dotByte.symbolDef = localSymbolDef
+                        code = dotByte
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_BYTE
+                    }
+                    else if (tokenString == "END") {
+                        let dotEnd = DotEnd()
+                        dotEnd.symbolDef = localSymbolDef
+                        code = dotEnd
+                        code.memAddress = maps.byteCount
+                        dotEndDetected = true
+                        state = ParseState.ps_DOT_END
+                    }
+                    else if (tokenString == "EQUATE") {
+                        let dotEquare = DotEquate()
+                        dotEquare.symbolDef = localSymbolDef
+                        code = dotEquare
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_EQUATE
+                    }
+                    else if (tokenString == "WORD") {
+                        let dotWord = DotWord()
+                        dotWord.symbolDef = localSymbolDef
+                        code = dotWord
+                        code.memAddress = maps.byteCount
+                        state = ParseState.ps_DOT_WORD
+                    }
+                    else {
+                        errorString = ";ERROR: Invalid dot command."
+                        return false
                     }
                 }
                 else {
-                    errorString = ";ERROR: Invalid mnemonic."
+                    errorString = ";ERROR: Must have mnemonic or dot command after symbol definition."
                     return false
                 }
-            }
-            else if (token == ELexicalToken.lt_DOT_COMMAND) {
-                tokenString.remove(0, 1) // Remove the period
-                tokenString = tokenString.uppercased()
-                if (tokenString == "ADDRSS") {
-                    let dotAddress = DotAddress()
-                    dotAddress.symbolDef = localSymbolDef
-                    code = dotAddress
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_ADDRSS
-                }
-                else if (tokenString == "ASCII") {
-                    let dotAscii = DotAscii()
-                    dotAscii.symbolDef = localSymbolDef
-                    code = dotAscii
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_ASCII
-                }
-                else if (tokenString == "BLOCK") {
-                    let dotBlock = DotBlock()
-                    dotBlock.symbolDef = localSymbolDef
-                    code = dotBlock
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_BLOCK
-                }
-                else if (tokenString == "BURN") {
-                    let dotBurn = DotBurn()
-                    dotBurn.symbolDef = localSymbolDef
-                    code = dotBurn
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_BURN
-                }
-                else if (tokenString == "BYTE") {
-                    let dotByte = DotByte()
-                    dotByte.symbolDef = localSymbolDef
-                    code = dotByte
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_BYTE
-                }
-                else if (tokenString == "END") {
-                    let dotEnd = DotEnd()
-                    dotEnd.symbolDef = localSymbolDef
-                    code = dotEnd
-                    code.memAddress = maps.byteCount
-                    dotEndDetected = true
-                    state = ParseState.ps_DOT_END
-                }
-                else if (tokenString == "EQUATE") {
-                    let dotEquare = DotEquate()
-                    dotEquare.symbolDef = localSymbolDef
-                    code = dotEquare
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_EQUATE
-                }
-                else if (tokenString == "WORD") {
-                    let dotWord = DotWord()
-                    dotWord.symbolDef = localSymbolDef
-                    code = dotWord
-                    code.memAddress = maps.byteCount
-                    state = ParseState.ps_DOT_WORD
-                }
-                else {
-                    errorString = ";ERROR: Invalid dot command."
-                    return false
-                }
-            }
-            else {
-                errorString = ";ERROR: Must have mnemonic or dot command after symbol definition."
-                return false
-            }
-            break
+                break
             case .ps_INSTRUCTION:
-            if (token == ELexicalToken.lt_IDENTIFIER) {
-                if (tokenString.length > 8) {
+                if (token == ELexicalToken.lt_IDENTIFIER) {
+                    if (tokenString.length > 8) {
                         errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
                         return false
-                }
-                nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
-                assembler.referencedSymbols.append((tokenString, lineNum))
-                state = ParseState.ps_ADDRESSING_MODE
-            }
-            else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(str: tokenString) > 2) {
-                    errorString = ";ERROR: String operands must have length at most two."
-                    return false
-                }
-                nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
-                state = ParseState.ps_ADDRESSING_MODE
-            }
-            else if (token == ELexicalToken.lt_HEX_CONSTANT) {
-                tokenString.remove(0, 2) // Remove "0x" prefix.
-                let value = tokenString.toInt(value: 16)
-                if (value < 65536) {
-                    nonUnaryInstruction.argument = HexArgument(hex: value)
+                    }
+                    nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
+                    referencedSymbols.append((tokenString, lineNum))
                     state = ParseState.ps_ADDRESSING_MODE
                 }
-                else {
-                    errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
-                    return false
+                else if (token == ELexicalToken.lt_STRING_CONSTANT) {
+                    if (byteStringLength(str: tokenString) > 2) {
+                        errorString = ";ERROR: String operands must have length at most two."
+                        return false
+                    }
+                    nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
+                    state = ParseState.ps_ADDRESSING_MODE
                 }
-            }
-            else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var value = tokenString.toInt(value: 10)
-                if ((-32768 <= value) && (value <= 65535)) {
-                    if (value < 0) {
-                        value += 65536 // Stored as two-byte unsigned.
-                        nonUnaryInstruction.argument = DecArgument(dec: value)
+                else if (token == ELexicalToken.lt_HEX_CONSTANT) {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    let value = tokenString.toInt(value: 16)
+                    if (value < 65536) {
+                        nonUnaryInstruction.argument = HexArgument(hex: value)
+                        state = ParseState.ps_ADDRESSING_MODE
                     }
                     else {
-                        nonUnaryInstruction.argument = UnsignedDecArgument(dec: value)
+                        errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
+                        return false
                     }
+                }
+                else if (token == ELexicalToken.lt_DEC_CONSTANT) {
+                    var value = tokenString.toInt(value: 10)
+                    if ((-32768 <= value) && (value <= 65535)) {
+                        if (value < 0) {
+                            value += 65536 // Stored as two-byte unsigned.
+                            nonUnaryInstruction.argument = DecArgument(dec: value)
+                        }
+                        else {
+                            nonUnaryInstruction.argument = UnsignedDecArgument(dec: value)
+                        }
+                        state = ParseState.ps_ADDRESSING_MODE
+                    }
+                    else {
+                        errorString = ";ERROR: Decimal constant is out of range (-32768..65535)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
+                    nonUnaryInstruction.argument = CharArgument(char: tokenString)
                     state = ParseState.ps_ADDRESSING_MODE
                 }
                 else {
-                    errorString = ";ERROR: Decimal constant is out of range (-32768..65535)."
+                    errorString = ";ERROR: Operand specifier expected after mnemonic."
                     return false
                 }
-            }
-            else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                nonUnaryInstruction.argument = CharArgument(char: tokenString)
-                state = ParseState.ps_ADDRESSING_MODE
-            }
-            else {
-                errorString = ";ERROR: Operand specifier expected after mnemonic."
-                return false
-            }
-            break
+                break
             case .ps_ADDRESSING_MODE:
                 if (token == ELexicalToken.lt_ADDRESSING_MODE) {
-                    let addrMode: EAddrMode = assembler.stringToAddrMode(tokenString)
+                    let addrMode: EAddrMode = stringToAddrMode(tokenString)
                     if ((addrMode.rawValue & maps.addrModesMap[localEnumMnemonic]!) == 0) { // Nested parens required.
                         errorString = ";ERROR: Illegal addressing mode for this instruction."
                         return false
@@ -741,344 +741,344 @@ class AssemblerModel {
                     nonUnaryInstruction.addressingMode = addrMode
                     state = ParseState.ps_CLOSE
                 }
-            else if (maps.addrModeRequiredMap[localEnumMnemonic])! {
-                errorString = ";ERROR: Addressing mode required for this instruction."
-                return false
-            }
-            else { // Must be branch type instruction with no addressing mode. Assign default addressing mode.
-                    nonUnaryInstruction.addressingMode = EAddrMode.I
-                if (token == ELexicalToken.lt_COMMENT) {
-                    code.comment = tokenString
-                    state = ParseState.ps_COMMENT
+                else if (maps.addrModeRequiredMap[localEnumMnemonic])! {
+                    errorString = ";ERROR: Addressing mode required for this instruction."
+                    return false
                 }
-                else if (token == ELexicalToken.lt_EMPTY) {
+                else { // Must be branch type instruction with no addressing mode. Assign default addressing mode.
+                    nonUnaryInstruction.addressingMode = EAddrMode.I
+                    if (token == ELexicalToken.lt_COMMENT) {
+                        code.comment = tokenString
+                        state = ParseState.ps_COMMENT
+                    }
+                    else if (token == ELexicalToken.lt_EMPTY) {
+                        code.sourceCodeLine = lineNum
+                        state = ParseState.ps_FINISH
+                    }
+                    else {
+                        errorString = ";ERROR: Comment expected following instruction."
+                        return false
+                    }
+                }
+                break
+                
+            case .ps_DOT_ADDRSS:
+                if (token == ELexicalToken.lt_IDENTIFIER) {
+                    if (tokenString.length > 8) {
+                        errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
+                        return false
+                    }
+                    dotAddrss.argument = SymbolRefArgument(symbolRef: tokenString)
+                    referencedSymbols.append((tokenString, lineNum))
+                    maps.byteCount += 2
+                    state = ParseState.ps_CLOSE
+                }
+                else {
+                    errorString = ";ERROR: .ADDRSS requires a symbol argument."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_ALIGN:
+                if (token == ELexicalToken.lt_DEC_CONSTANT) {
+                    let value = tokenString.toInt(value: 10)
+                    if (value == 2 || value == 4 || value == 8) {
+                        let numBytes = (value - maps.byteCount % value) % value
+                        dotAlign.argument = UnsignedDecArgument(dec: value)
+                        dotAlign.numBytesGenerated = UnsignedDecArgument(dec: numBytes)
+                        maps.byteCount += numBytes
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Decimal constant is out of range (2, 4, 8)."
+                        return false
+                    }
+                }
+                else {
+                    errorString = ";ERROR: .ALIGN requires a decimal constant 2, 4, or 8."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_ASCII:
+                if (token == ELexicalToken.lt_STRING_CONSTANT) {
+                    dotAscii.argument = StringArgument(str: tokenString)
+                    maps.byteCount += byteStringLength(str: tokenString)
+                    state = ParseState.ps_CLOSE
+                }
+                else {
+                    errorString = ";ERROR: .ASCII requires a string constant argument."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_BLOCK:
+                if (token == ELexicalToken.lt_DEC_CONSTANT) {
+                    var value = tokenString.toInt(value: 10)
+                    if ((0 <= value) && (value <= 65535)) {
+                        if (value < 0) {
+                            value += 65536 // Stored as two-byte unsigned.
+                            dotBlock.argument = DecArgument(dec: value)
+                        }
+                        else {
+                            dotBlock.argument = UnsignedDecArgument(dec: value)
+                        }
+                        maps.byteCount += value
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Decimal constant is out of range (0..65535)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_HEX_CONSTANT) {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    let value = tokenString.toInt(value: 16)
+                    if (value < 65536) {
+                        dotBlock.argument = HexArgument(hex: value)
+                        maps.byteCount += value
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
+                        return false
+                    }
+                }
+                else {
+                    errorString = ";ERROR: .BLOCK requires a decimal or hex constant argument."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_BURN:
+                if (token == ELexicalToken.lt_HEX_CONSTANT) {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    let value = tokenString.toInt(value: 16)
+                    if (value < 65536) {
+                        
+                        dotBurn.argument = HexArgument(hex: value)
+                        maps.burnCount += 1
+                        maps.dotBurnArgument = value
+                        maps.romStartAddress = maps.byteCount
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
+                        return false
+                    }
+                }
+                else {
+                    errorString = ";ERROR: .BURN requires a hex constant argument."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_BYTE:
+                if (token == ELexicalToken.lt_CHAR_CONSTANT) {
+                    dotByte.argument = CharArgument(char: tokenString)
+                    maps.byteCount += 1
+                    state = ParseState.ps_CLOSE
+                }
+                else if (token == ELexicalToken.lt_DEC_CONSTANT) {
+                    var value = tokenString.toInt(value: 10)
+                    if ((-128 <= value) && (value <= 255)) {
+                        if (value < 0) {
+                            value += 256 // value stored as one-byte unsigned Int
+                        }
+                        dotByte.argument = DecArgument(dec: value)
+                        maps.byteCount += 1
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Decimal constant is out of byte range (-128..255)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_HEX_CONSTANT) {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    let value = tokenString.toInt(value: 16)
+                    if (value < 256) {
+                        dotByte.argument = HexArgument(hex: value)
+                        maps.byteCount += 1
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Hex constant is out of byte range (0x00..0xFF)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_STRING_CONSTANT) {
+                    if (byteStringLength(str: tokenString) > 1) {
+                        errorString = ";ERROR: .BYTE string operands must have length one."
+                        return false
+                    }
+                    dotByte.argument = StringArgument(str: tokenString)
+                    maps.byteCount += 1
+                    state = ParseState.ps_CLOSE
+                }
+                else {
+                    errorString = ";ERROR: .BYTE requires a char, dec, hex, or string constant argument."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_END:
+                if (token == ELexicalToken.lt_COMMENT) {
+                    dotEnd.comment = tokenString
                     code.sourceCodeLine = lineNum
                     state = ParseState.ps_FINISH
+                }
+                else if (token == ELexicalToken.lt_EMPTY) {
+                    dotEnd.comment = ""
+                    code.sourceCodeLine = lineNum
+                    state = ParseState.ps_FINISH
+                }
+                else {
+                    errorString = ";ERROR: Only a comment can follow .END."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_EQUATE:
+                if (dotEquate.symbolDef == "") {
+                    errorString = ";ERROR: .EQUATE must have a symbol definition."
+                    return false
+                }
+                else if (token == ELexicalToken.lt_DEC_CONSTANT) {
+                    var value = tokenString.toInt(value: 10)
+                    if ((-32768 <= value) && (value <= 65535)) {
+                        
+                        if (value < 0) {
+                            value += 65536 // Stored as two-byte unsigned.
+                            dotEquate.argument = DecArgument(dec: value)
+                        }
+                        else {
+                            dotEquate.argument = UnsignedDecArgument(dec: value)
+                        }
+                        maps.symbolTable[dotEquate.symbolDef] = value
+                        maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Decimal constant is out of range (-32768..65535)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_HEX_CONSTANT) {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    let value = tokenString.toInt(value: 16)
+                    if (value < 65536) {
+                        dotEquate.argument = HexArgument(hex: value)
+                        maps.symbolTable[dotEquate.symbolDef] = value
+                        maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_STRING_CONSTANT) {
+                    if (byteStringLength(str: tokenString) > 2) {
+                        errorString = ";ERROR: .EQUATE string operand must have length at most two."
+                        return false
+                    }
+                    dotEquate.argument = StringArgument(str: tokenString)
+                    maps.symbolTable[dotEquate.symbolDef] = string2ArgumentToInt(str: tokenString)
+                    maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
+                    state = ParseState.ps_CLOSE
+                }
+                else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
+                    dotEquate.argument = CharArgument(char: tokenString)
+                    maps.symbolTable[dotEquate.symbolDef] = charStringToInt(str: tokenString)
+                    maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
+                    state = ParseState.ps_CLOSE
+                }
+                else {
+                    errorString = ";ERROR: .EQUATE requires a dec, hex, or string constant argument."
+                    return false
+                }
+                break
+                
+            case .ps_DOT_WORD:
+                if (token == ELexicalToken.lt_CHAR_CONSTANT) {
+                    dotWord.argument = CharArgument(char: tokenString)
+                    maps.byteCount += 2
+                    state = ParseState.ps_CLOSE
+                }
+                else if (token == ELexicalToken.lt_DEC_CONSTANT) {
+                    var value = tokenString.toInt(value: 10)
+                    if ((-32768 <= value) && (value < 65536)) {
+                        
+                        if (value < 0) {
+                            value += 65536 // Stored as two-byte unsigned.
+                            dotWord.argument = DecArgument(dec: value)
+                        }
+                        else {
+                            dotWord.argument = UnsignedDecArgument(dec: value)
+                        }
+                        maps.byteCount += 2
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Decimal constant is out of range (-32768..65535)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_HEX_CONSTANT) {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    let value = tokenString.toInt(value: 16)
+                    if (value < 65536) {
+                        dotWord.argument = HexArgument(hex: value)
+                        maps.byteCount += 2
+                        state = ParseState.ps_CLOSE
+                    }
+                    else {
+                        errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
+                        return false
+                    }
+                }
+                else if (token == ELexicalToken.lt_STRING_CONSTANT) {
+                    if (byteStringLength(str: tokenString) > 2) {
+                        errorString = ";ERROR: .WORD string operands must have length at most two."
+                        return false
+                    }
+                    dotWord.argument = StringArgument(str: tokenString)
+                    maps.byteCount += 2
+                    state = ParseState.ps_CLOSE
+                }
+                else {
+                    errorString = ";ERROR: .WORD requires a char, dec, hex, or string constant argument."
+                    return false
+                }
+                break
+                
+            case .ps_CLOSE:
+                if (token == ELexicalToken.lt_EMPTY) {
+                    code.sourceCodeLine = lineNum
+                    state = ParseState.ps_FINISH
+                }
+                else if (token == ELexicalToken.lt_COMMENT) {
+                    code.comment = tokenString
+                    state = ParseState.ps_COMMENT
                 }
                 else {
                     errorString = ";ERROR: Comment expected following instruction."
                     return false
                 }
-            }
-            break
-                
-            case .ps_DOT_ADDRSS:
-                if (token == ELexicalToken.lt_IDENTIFIER) {
-                if (tokenString.length > 8) {
-                    errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
-                    return false
-                }
-                dotAddrss.argument = SymbolRefArgument(symbolRef: tokenString)
-                assembler.referencedSymbols.append((tokenString, lineNum))
-                maps.byteCount += 2
-                state = ParseState.ps_CLOSE
-            }
-            else {
-                errorString = ";ERROR: .ADDRSS requires a symbol argument."
-                return false
-            }
-            break
-                
-            case .ps_DOT_ALIGN:
-                if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                let value = tokenString.toInt(value: 10)
-                if (value == 2 || value == 4 || value == 8) {
-                    let numBytes = (value - maps.byteCount % value) % value
-                    dotAlign.argument = UnsignedDecArgument(dec: value)
-                    dotAlign.numBytesGenerated = UnsignedDecArgument(dec: numBytes)
-                    maps.byteCount += numBytes
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Decimal constant is out of range (2, 4, 8)."
-                    return false
-                }
-            }
-            else {
-                errorString = ";ERROR: .ALIGN requires a decimal constant 2, 4, or 8."
-                return false
-            }
-            break
-                
-            case .ps_DOT_ASCII:
-                if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                dotAscii.argument = StringArgument(str: tokenString)
-                maps.byteCount += assembler.byteStringLength(str: tokenString)
-                state = ParseState.ps_CLOSE
-            }
-            else {
-                errorString = ";ERROR: .ASCII requires a string constant argument."
-                return false
-            }
-            break
-                
-            case .ps_DOT_BLOCK:
-                if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var value = tokenString.toInt(value: 10)
-                if ((0 <= value) && (value <= 65535)) {
-                    if (value < 0) {
-                        value += 65536 // Stored as two-byte unsigned.
-                        dotBlock.argument = DecArgument(dec: value)
-                    }
-                    else {
-                        dotBlock.argument = UnsignedDecArgument(dec: value)
-                    }
-                    maps.byteCount += value
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Decimal constant is out of range (0..65535)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_HEX_CONSTANT) {
-                tokenString.remove(0, 2) // Remove "0x" prefix.
-                let value = tokenString.toInt(value: 16)
-                if (value < 65536) {
-                    dotBlock.argument = HexArgument(hex: value)
-                    maps.byteCount += value
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
-                    return false
-                }
-            }
-            else {
-                errorString = ";ERROR: .BLOCK requires a decimal or hex constant argument."
-                return false
-            }
-            break
-                
-            case .ps_DOT_BURN:
-                if (token == ELexicalToken.lt_HEX_CONSTANT) {
-                tokenString.remove(0, 2) // Remove "0x" prefix.
-                let value = tokenString.toInt(value: 16)
-                if (value < 65536) {
-                    
-                    dotBurn.argument = HexArgument(hex: value)
-                    maps.burnCount += 1
-                    maps.dotBurnArgument = value
-                    maps.romStartAddress = maps.byteCount
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
-                    return false
-                }
-            }
-            else {
-                errorString = ";ERROR: .BURN requires a hex constant argument."
-                return false
-            }
-            break
-                
-            case .ps_DOT_BYTE:
-                if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                dotByte.argument = CharArgument(char: tokenString)
-                maps.byteCount += 1
-                state = ParseState.ps_CLOSE
-            }
-            else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var value = tokenString.toInt(value: 10)
-                if ((-128 <= value) && (value <= 255)) {
-                    if (value < 0) {
-                        value += 256 // value stored as one-byte unsigned Int
-                    }
-                    dotByte.argument = DecArgument(dec: value)
-                    maps.byteCount += 1
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Decimal constant is out of byte range (-128..255)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_HEX_CONSTANT) {
-                tokenString.remove(0, 2) // Remove "0x" prefix.
-                let value = tokenString.toInt(value: 16)
-                if (value < 256) {
-                    dotByte.argument = HexArgument(hex: value)
-                    maps.byteCount += 1
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Hex constant is out of byte range (0x00..0xFF)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(str: tokenString) > 1) {
-                    errorString = ";ERROR: .BYTE string operands must have length one."
-                    return false
-                }
-                dotByte.argument = StringArgument(str: tokenString)
-                maps.byteCount += 1
-                state = ParseState.ps_CLOSE
-            }
-            else {
-                errorString = ";ERROR: .BYTE requires a char, dec, hex, or string constant argument."
-                return false
-            }
-            break
-                
-            case .ps_DOT_END:
-                if (token == ELexicalToken.lt_COMMENT) {
-                dotEnd.comment = tokenString
-                code.sourceCodeLine = lineNum
-                state = ParseState.ps_FINISH
-            }
-            else if (token == ELexicalToken.lt_EMPTY) {
-                dotEnd.comment = ""
-                code.sourceCodeLine = lineNum
-                state = ParseState.ps_FINISH
-            }
-            else {
-                errorString = ";ERROR: Only a comment can follow .END."
-                return false
-            }
-            break
-                
-            case .ps_DOT_EQUATE:
-                if (dotEquate.symbolDef == "") {
-                errorString = ";ERROR: .EQUATE must have a symbol definition."
-                return false
-            }
-            else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var value = tokenString.toInt(value: 10)
-                if ((-32768 <= value) && (value <= 65535)) {
-                    
-                    if (value < 0) {
-                        value += 65536 // Stored as two-byte unsigned.
-                        dotEquate.argument = DecArgument(dec: value)
-                    }
-                    else {
-                        dotEquate.argument = UnsignedDecArgument(dec: value)
-                    }
-                    maps.symbolTable[dotEquate.symbolDef] = value
-                    maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Decimal constant is out of range (-32768..65535)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_HEX_CONSTANT) {
-                tokenString.remove(0, 2) // Remove "0x" prefix.
-                let value = tokenString.toInt(value: 16)
-                if (value < 65536) {
-                    dotEquate.argument = HexArgument(hex: value)
-                    maps.symbolTable[dotEquate.symbolDef] = value
-                    maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(str: tokenString) > 2) {
-                    errorString = ";ERROR: .EQUATE string operand must have length at most two."
-                    return false
-                }
-                dotEquate.argument = StringArgument(str: tokenString)
-                maps.symbolTable[dotEquate.symbolDef] = assembler.string2ArgumentToInt(str: tokenString)
-                maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
-                state = ParseState.ps_CLOSE
-            }
-            else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                dotEquate.argument = CharArgument(char: tokenString)
-                maps.symbolTable[dotEquate.symbolDef] = assembler.charStringToInt(str: tokenString)
-                maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
-                state = ParseState.ps_CLOSE
-            }
-            else {
-                errorString = ";ERROR: .EQUATE requires a dec, hex, or string constant argument."
-                return false
-            }
-            break
-                
-            case .ps_DOT_WORD:
-                if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                dotWord.argument = CharArgument(char: tokenString)
-                maps.byteCount += 2
-                state = ParseState.ps_CLOSE
-            }
-            else if (token == ELexicalToken.lt_DEC_CONSTANT) {
-                var value = tokenString.toInt(value: 10)
-                if ((-32768 <= value) && (value < 65536)) {
-                    
-                    if (value < 0) {
-                        value += 65536 // Stored as two-byte unsigned.
-                        dotWord.argument = DecArgument(dec: value)
-                    }
-                    else {
-                        dotWord.argument = UnsignedDecArgument(dec: value)
-                    }
-                    maps.byteCount += 2
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Decimal constant is out of range (-32768..65535)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_HEX_CONSTANT) {
-                tokenString.remove(0, 2) // Remove "0x" prefix.
-                let value = tokenString.toInt(value: 16)
-                if (value < 65536) {
-                    dotWord.argument = HexArgument(hex: value)
-                    maps.byteCount += 2
-                    state = ParseState.ps_CLOSE
-                }
-                else {
-                    errorString = ";ERROR: Hexidecimal constant is out of range (0x0000..0xFFFF)."
-                    return false
-                }
-            }
-            else if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                if (assembler.byteStringLength(str: tokenString) > 2) {
-                    errorString = ";ERROR: .WORD string operands must have length at most two."
-                    return false
-                }
-                dotWord.argument = StringArgument(str: tokenString)
-                maps.byteCount += 2
-                state = ParseState.ps_CLOSE
-            }
-            else {
-                errorString = ";ERROR: .WORD requires a char, dec, hex, or string constant argument."
-                return false
-            }
-            break
-                
-            case .ps_CLOSE:
-                if (token == ELexicalToken.lt_EMPTY) {
-                code.sourceCodeLine = lineNum
-                state = ParseState.ps_FINISH
-            }
-            else if (token == ELexicalToken.lt_COMMENT) {
-                code.comment = tokenString
-                state = ParseState.ps_COMMENT
-            }
-            else {
-                errorString = ";ERROR: Comment expected following instruction."
-                return false
-            }
-            break
+                break
                 
             case .ps_COMMENT:
                 if (token == ELexicalToken.lt_EMPTY) {
-                code.sourceCodeLine = lineNum
-                state = ParseState.ps_FINISH
-            }
-            else {
-                // This error should not occur, as all characters are allowed in comments.
-                errorString = ";ERROR: Problem detected after comment."
-                return false
-            }
-            break
+                    code.sourceCodeLine = lineNum
+                    state = ParseState.ps_FINISH
+                }
+                else {
+                    // This error should not occur, as all characters are allowed in comments.
+                    errorString = ";ERROR: Problem detected after comment."
+                    return false
+                }
+                break
                 
             default:
                 break
@@ -1086,7 +1086,7 @@ class AssemblerModel {
         }
             while (state != ParseState.ps_FINISH)
         return true
-
+        
     }
     
     
@@ -1094,7 +1094,7 @@ class AssemblerModel {
     
     
     
-
+    
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.object is populated with the object code, one byte per entry, and returned.
@@ -1128,7 +1128,7 @@ class AssemblerModel {
     // func getHasCheckBox() . [Bool] {}
     
     // Instead of the above getHasCheckBox, we will be using trace tags to enable/disable lines of code
-    // More on this can be found in 
+    // More on this can be found in
     
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.
@@ -1150,7 +1150,7 @@ class AssemblerModel {
         return true
     }
     
-
+    
     
     // MARK: - Initializer
     init() {
@@ -1215,9 +1215,9 @@ class AssemblerModel {
         case ps_SYMBOL_DEF
     }
     
-
     
-
+    
+    
     
     
     
