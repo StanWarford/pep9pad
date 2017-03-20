@@ -248,7 +248,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
     }
     
-    
+
     @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -274,7 +274,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             for i in 0 ..< maps.romStartAddress {
                 machine.mem[i] = 0
             }
-            
         }
         alertController.addAction(clearMemAction)
         
@@ -283,8 +282,33 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         alertController.addAction(redefineMnemonicsAction)
         
+        
+        // 1216 in mainwindow.cpp
         let installNewOSAction = UIAlertAction(title: "Install New OS", style: .default) { (action) in
-            //TODO: Implement installNewOSAction
+            maps.burnCount = 0
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            maps.listingRowChecked =  maps.listingRowCheckedOS
+            if assembler.assemble() {
+                if !(maps.symbolTable["charIn"] != nil) {
+                    self.installNewOSActionHelper(error: ";ERROR: charIn required to install OS.")
+                }
+                else if !(maps.symbolTable["charOut"] != nil) {
+                    self.installNewOSActionHelper(error: ";ERROR: charOut required to install OS.")
+                }
+                else if maps.burnCount == 0 {
+                    self.installNewOSActionHelper(error: ";ERROR: .BURN required to install OS.")
+                }
+                else if maps.burnCount > 1 {
+                    self.installNewOSActionHelper(error: ";ERROR: Program required to install OS.")
+                }
+                else {
+                    var addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
+            }
+            else {
+                assembler.listing.removeAll(keepingCapacity: true)
+                assembler.object.removeAll(keepingCapacity: true)
+                // TODO: DONT KNOW HOW TO DO THIS LINE OR ONE BELOW
+            }
         }
         alertController.addAction(installNewOSAction)
         
@@ -302,6 +326,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     // MARK: - Methods
+    
+    
+    // TODO: FINISH THIS FUNC
+    func installNewOSActionHelper(error: String) {
+        // sourceCodePane.appendMessageINSourceCodePaneAt(0, error);
+        assembler.listing.removeAll(keepingCapacity: true)
+        assembler.object.removeAll(keepingCapacity: true)
+        // TODO: DONT KNOW HOW TO DO THIS LINE
+        // ui.statusbar.showMessage("Assembly failed", 4000)
+    }
     
     
     func newProjectBtnPressed() {
@@ -608,7 +642,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         tabVCs.object?.pullFromProjectModel()
         tabVCs.listing?.pullFromProjectModel()
     }
-    
     
     /// Called whenever the user taps the 'Assemble Source' button.  This function...
     

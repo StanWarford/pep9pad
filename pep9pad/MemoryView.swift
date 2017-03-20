@@ -29,7 +29,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         let view: UIView = Bundle.main.loadNibNamed("Memory", owner: self, options: nil)![0] as! UIView
         self.addSubview(view)
         view.frame = self.bounds
-        refresh()
+        refreshAll()
     }
 
 
@@ -40,7 +40,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     
     
     /// Refreshes the whole memory pane.
-    func refresh() {
+    func refreshAll() {
         memoryDump.removeAll(keepingCapacity: true)
         var line: String = ""
         var ch: String
