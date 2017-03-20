@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-858" y="-315"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Detail Controller-->
         <scene sceneID="Sho-IO-PcS">
             <objects>
-                <viewController id="H8P-5l-Sdd" customClass="CPUDetailViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H8P-5l-Sdd" customClass="CPUDetailController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fl6-18-gOj"/>
                         <viewControllerLayoutGuide type="bottom" id="JJI-nJ-Oxh"/>
@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="qht-iR-JGP" kind="embed" id="u1H-O8-Nhq"/>
+                                    <segue destination="qht-iR-JGP" kind="embed" identifier="embedTabBarCPU" id="u1H-O8-Nhq"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -51,15 +51,43 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="kEW-wl-1l9">
                         <leftBarButtonItems>
-                            <barButtonItem title="▶️" id="AYM-GG-w3G"/>
-                            <barButtonItem title="🐛" id="mii-Hf-U0y"/>
+                            <barButtonItem title="▶️" id="AYM-GG-w3G">
+                                <connections>
+                                    <action selector="runBtnPressed:" destination="H8P-5l-Sdd" id="HEG-Fa-8AV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="🐛" id="mii-Hf-U0y">
+                                <connections>
+                                    <action selector="debugBtnPressed:" destination="H8P-5l-Sdd" id="MIR-20-A7V"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="shC-2O-NRf"/>
-                            <barButtonItem title="⚙" id="AE2-Ug-R6S"/>
-                            <barButtonItem title="calc" id="KV5-4F-g8V"/>
-                            <barButtonItem title="Aa" id="q9p-vn-jrz"/>
-                            <barButtonItem title="Bus" id="nwr-pZ-qxT"/>
+                            <barButtonItem systemItem="action" id="shC-2O-NRf">
+                                <connections>
+                                    <action selector="actionBtnPressed:" destination="H8P-5l-Sdd" id="nM6-eh-hkJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="⚙" id="AE2-Ug-R6S">
+                                <connections>
+                                    <action selector="settingsBtnPressed:" destination="H8P-5l-Sdd" id="ltq-wH-4sn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="calc" id="KV5-4F-g8V">
+                                <connections>
+                                    <action selector="calcBtnPressed:" destination="H8P-5l-Sdd" id="OLP-oK-msk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Aa" id="q9p-vn-jrz">
+                                <connections>
+                                    <action selector="fontBtnPressed:" destination="H8P-5l-Sdd" id="qaS-IR-h8K"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Bus" id="nwr-pZ-qxT">
+                                <connections>
+                                    <action selector="busBtnPressed:" destination="H8P-5l-Sdd" id="VyT-pb-G9R"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -101,10 +129,10 @@
             </objects>
             <point key="canvasLocation" x="-858" y="-1032"/>
         </scene>
-        <!--Master View Controller-->
+        <!--Master Controller-->
         <scene sceneID="MYh-m1-ahr">
             <objects>
-                <viewController id="nmb-1W-Fcm" customClass="CPUMasterViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="nmb-1W-Fcm" customClass="CPUMasterController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qMb-oE-xCe"/>
                         <viewControllerLayoutGuide type="bottom" id="uib-fY-8oU"/>

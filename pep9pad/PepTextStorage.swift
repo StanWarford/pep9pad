@@ -16,7 +16,8 @@ class PepTextStorage: BaseTextStorage {
     override func processEditing() {
         let text = string as NSString
         let attributes : [String:AnyObject]? = [
-            NSFontAttributeName : UIFont(name: Courier, size: 18)!
+            NSFontAttributeName : UIFont(name: Courier, size: appSettings.fontSize)!,
+            NSForegroundColorAttributeName: appSettings.darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.00, green:0.17, blue:0.21, alpha:1.0)
         ]
         
         setAttributes(attributes, range: NSRange(location: 0, length: length))
@@ -97,13 +98,13 @@ class PepTextStorage: BaseTextStorage {
             // Operators are blue, bold, and capitalized.
             attributes = [
                 NSForegroundColorAttributeName:blueColor,
-                NSFontAttributeName:UIFont(name: CourierBold, size: 18)!
+                NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "dot", "keyword":
             // Dot commands are blue, italicized, and capitalized.
             attributes = [
                 NSForegroundColorAttributeName:blueColor,
-                NSFontAttributeName:UIFont(name: CourierItalic, size: 18)!
+                NSFontAttributeName:UIFont(name: CourierItalic, size: appSettings.fontSize)!
             ]
         case "singleLineComment", "comment", "documentation_comment":
             // Comments are green.
@@ -115,7 +116,7 @@ class PepTextStorage: BaseTextStorage {
             // Symbols are purple and bold.
             attributes = [
                 NSForegroundColorAttributeName:purpleColor,
-                NSFontAttributeName:UIFont(name: CourierBold, size: 18)!
+                NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
 
             ]
         case "singleQuote", "doubleQuote", "string" :
@@ -130,10 +131,10 @@ class PepTextStorage: BaseTextStorage {
                 NSBackgroundColorAttributeName:blueColor
             ]
         case "error":
-            // Errors have a red background.
+            // Errors have an orange background.
             attributes = [
                 NSForegroundColorAttributeName:whiteColor,
-                NSBackgroundColorAttributeName:redColor
+                NSBackgroundColorAttributeName:orangeColor
             ]
         default:
             attributes = [NSForegroundColorAttributeName:UIColor.orange]

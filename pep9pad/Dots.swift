@@ -14,7 +14,6 @@ class DotAddress: Code {
     
     
     override func appendObjectCode( objectCode:inout [Int]) {
-        var objectCode = objectCode
         if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
             let symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
             objectCode.append(symbolValue / 256)
@@ -56,7 +55,6 @@ class DotAlign: Code {
     var numBytesGenerated: Argument!
     
     override func appendObjectCode(objectCode:inout [Int]) {
-        var objectCode = objectCode
         if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
             let symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
             objectCode.append(symbolValue / 256)
@@ -116,14 +114,13 @@ class DotAscii: Code {
     var argument: Argument!
     
     override func appendObjectCode(objectCode:inout [Int]) {
-        var objectCode = objectCode
-        if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
-            let value: Int = 0   // MARK
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
+            var value: Int = 0   // MARK
             var str: String = argument.getArgumentString()
-            str.remove(0, 1)
-            str.chop()
+            str.remove(0, 1) // remove the first double quote char
+            str.chop() // remove the last double quote char
             while str.length > 0 {
-                //assembler.unquotedStringToInt(str, value) //MARK
+                assembler.unquotedStringToInt(str: &str, value: &value)
                 objectCode.append(value)
             }
         }
@@ -185,7 +182,6 @@ class DotBlock: Code {
     
     
     override func appendObjectCode(objectCode:inout [Int]) {
-        var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             for _ in 0..<argument.getArgumentValue() {
                 objectCode.append(0)
@@ -328,7 +324,6 @@ class DotByte: Code {
     
     override func appendObjectCode(objectCode: inout [Int]) {
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
-            var objectCode = objectCode
             objectCode.append(argument.getArgumentValue())
         }
     }
@@ -422,7 +417,6 @@ class DotWord: Code {
     var argument: Argument!
     
     override func appendObjectCode(objectCode: inout [Int]) {
-        var objectCode = objectCode
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             let value: Int = argument.getArgumentValue()
             objectCode.append(value / 256)

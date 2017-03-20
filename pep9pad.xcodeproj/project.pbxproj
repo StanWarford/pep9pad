@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */; };
-		460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460FBEA71E24A4DD008AD603 /* FontMenu.xib */; };
-		460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460FBEA91E24A513008AD603 /* FontMenuView.swift */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
 		461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461875951C90089F0095B818 /* HelpDocumentation.swift */; };
 		4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875991C900CA10095B818 /* assemblylanguage.html */; };
@@ -49,10 +47,22 @@
 		462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75C1E2B2A3B00BBABCD /* fig0646.txt */; };
 		462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75D1E2B2A3B00BBABCD /* fig0648.txt */; };
 		4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */; };
+		4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */; };
+		4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */; };
+		4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */; };
+		4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF901E5D8468007593E1 /* Pep9Mailer.swift */; };
+		4637EF961E5E72B7007593E1 /* FontMenuColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */; };
 		463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A662E1C97CD6C004C35B2 /* Fonts.swift */; };
 		463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463A66301C97CE0E004C35B2 /* CodeView.swift */; };
 		4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */; };
 		4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4642A16F1DFE1DFF00D072F0 /* StackState.swift */; };
+		464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */; };
+		464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143C1E52745B00C7FCBE /* CPUCode.swift */; };
+		464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464D143E1E52765800C7FCBE /* CPUMemoryView.swift */; };
+		464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */; };
+		464DE4761E6A00AB00763503 /* FontMenuSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */; };
+		464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */; };
+		46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
 		4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */; };
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
@@ -71,9 +81,12 @@
 		4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB2D1E428F85007E50BD /* CPUProject.swift */; };
 		4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */; };
 		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
+		46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A71C0B1E563CAB00FCEFEA /* CPUView.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
+		46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */; };
+		46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB48DF1E7230D5001EF954 /* CPUColors.swift */; };
 		46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC04321E18A2DE006ED01F /* AppSettings.swift */; };
-		46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* CpuController.swift */; };
+		46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */; };
 		46C76A541DA494130071C340 /* FontAwesome in Resources */ = {isa = PBXBuildFile; fileRef = 46C76A531DA494130071C340 /* FontAwesome */; };
 		46C76A561DA496510071C340 /* Pep9DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A551DA496510071C340 /* Pep9DetailController.swift */; };
 		46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C76A571DA70B930071C340 /* FSMasterController.swift */; };
@@ -89,7 +102,7 @@
 		46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */; };
 		46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C80BDB1DF0D0830096D4E0 /* Extensions.swift */; };
 		46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CE259E1C98D6C20006021D /* DocumentationViewController.swift */; };
-		46D4E0D21E49B04800D5B1D0 /* ReferencedSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4E0D11E49B04800D5B1D0 /* ReferencedSymbol.swift */; };
+		46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D674DD1E561DB200AE1B8F /* CPUBusSize.swift */; };
 		46D7A0A51E36F63900BA14A7 /* ColoredObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D7A0A41E36F63900BA14A7 /* ColoredObject.swift */; };
 		46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246AE1DE0E1C300611A18 /* Dots.swift */; };
 		46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E246B11DE0E32A00611A18 /* NonExecutables.swift */; };
@@ -167,6 +180,9 @@
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
+		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
+		D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */; };
+		D2A7D0AB1E4BC8D700A9CD37 /* CPUTraceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */; };
 		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
@@ -177,11 +193,12 @@
 		D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */; };
 		D2B061721C7E62050088CEBE /* pep9padTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061711C7E62050088CEBE /* pep9padTests.swift */; };
 		D2B0617D1C7E62050088CEBE /* pep9padUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */; };
+		D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */; };
 		D2B82DE41E035B8700F960FE /* Memory.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B82DE31E035B8700F960FE /* Memory.xib */; };
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
-		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */; };
+		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,8 +221,6 @@
 /* Begin PBXFileReference section */
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblerModel.swift; sourceTree = "<group>"; };
-		460FBEA71E24A4DD008AD603 /* FontMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenu.xib; sourceTree = "<group>"; };
-		460FBEA91E24A513008AD603 /* FontMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuView.swift; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
 		461875951C90089F0095B818 /* HelpDocumentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpDocumentation.swift; sourceTree = "<group>"; };
 		461875991C900CA10095B818 /* assemblylanguage.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = assemblylanguage.html; sourceTree = "<group>"; };
@@ -244,17 +259,29 @@
 		462BA75C1E2B2A3B00BBABCD /* fig0646.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0646.txt; path = pep9pad/figures/fig0646.txt; sourceTree = "<group>"; };
 		462BA75D1E2B2A3B00BBABCD /* fig0648.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0648.txt; path = pep9pad/figures/fig0648.txt; sourceTree = "<group>"; };
 		4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewDelegate.swift; sourceTree = "<group>"; };
+		4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteView.swift; sourceTree = "<group>"; };
+		4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteRenderer.swift; sourceTree = "<group>"; };
+		4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontMenu.swift; path = pep9pad/FontMenu.swift; sourceTree = "<group>"; };
+		4637EF901E5D8468007593E1 /* Pep9Mailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9Mailer.swift; sourceTree = "<group>"; };
+		4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenuColorCell.xib; sourceTree = "<group>"; };
 		463A662E1C97CD6C004C35B2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		463A66301C97CE0E004C35B2 /* CodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackFrameFSM.swift; sourceTree = "<group>"; };
 		4642A16F1DFE1DFF00D072F0 /* StackState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackState.swift; sourceTree = "<group>"; };
+		464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUAssemblerModel.swift; sourceTree = "<group>"; };
+		464D143C1E52745B00C7FCBE /* CPUCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUCode.swift; sourceTree = "<group>"; };
+		464D143E1E52765800C7FCBE /* CPUMemoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMemoryView.swift; sourceTree = "<group>"; };
+		464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuColorCell.swift; sourceTree = "<group>"; };
+		464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontMenuSizeCell.swift; sourceTree = "<group>"; };
+		464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontMenuSizeCell.xib; sourceTree = "<group>"; };
+		46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencedSymbol.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
 		4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CHighlightingPatterns.plist; sourceTree = "<group>"; };
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		4670DDC41E30762500293BFA /* HighlightableLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightableLanguage.swift; sourceTree = "<group>"; };
 		468124171DE81B27003D807A /* MachineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineModel.swift; sourceTree = "<group>"; };
-		4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteCalc.swift; sourceTree = "<group>"; };
+		4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ByteCalc.swift; path = pep9pad/ByteCalc.swift; sourceTree = "<group>"; };
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -266,9 +293,12 @@
 		4695EB2D1E428F85007E50BD /* CPUProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProject.swift; sourceTree = "<group>"; };
 		4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFileSystem.swift; sourceTree = "<group>"; };
 		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
+		46A71C0B1E563CAB00FCEFEA /* CPUView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUView.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
+		46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteRenderer.swift; sourceTree = "<group>"; };
+		46BB48DF1E7230D5001EF954 /* CPUColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUColors.swift; sourceTree = "<group>"; };
 		46BC04321E18A2DE006ED01F /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
-		46C608D01C8EAC1E00CC161A /* CpuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CpuController.swift; sourceTree = "<group>"; };
+		46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9ProcessorController.swift; sourceTree = "<group>"; };
 		46C76A531DA494130071C340 /* FontAwesome */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FontAwesome; sourceTree = "<group>"; };
 		46C76A551DA496510071C340 /* Pep9DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pep9DetailController.swift; sourceTree = "<group>"; };
 		46C76A571DA70B930071C340 /* FSMasterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSMasterController.swift; sourceTree = "<group>"; };
@@ -284,7 +314,7 @@
 		46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pep9Processor.storyboard; sourceTree = "<group>"; };
 		46C80BDB1DF0D0830096D4E0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		46CE259E1C98D6C20006021D /* DocumentationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentationViewController.swift; sourceTree = "<group>"; };
-		46D4E0D11E49B04800D5B1D0 /* ReferencedSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencedSymbol.swift; sourceTree = "<group>"; };
+		46D674DD1E561DB200AE1B8F /* CPUBusSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUBusSize.swift; sourceTree = "<group>"; };
 		46D7A0A41E36F63900BA14A7 /* ColoredObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoredObject.swift; sourceTree = "<group>"; };
 		46E246AE1DE0E1C300611A18 /* Dots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dots.swift; sourceTree = "<group>"; };
 		46E246B11DE0E32A00611A18 /* NonExecutables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NonExecutables.swift; sourceTree = "<group>"; };
@@ -365,6 +395,9 @@
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepl; sourceTree = "<group>"; };
+		D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUSplitController.swift; sourceTree = "<group>"; };
+		D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUVisualController.swift; sourceTree = "<group>"; };
+		D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUTraceController.swift; sourceTree = "<group>"; };
 		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,11 +414,12 @@
 		D2B061781C7E62050088CEBE /* pep9padUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pep9padUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pep9padUITests.swift; sourceTree = "<group>"; };
 		D2B0617E1C7E62050088CEBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteView.swift; sourceTree = "<group>"; };
 		D2B82DE31E035B8700F960FE /* Memory.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Memory.xib; sourceTree = "<group>"; };
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
-		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailViewController.swift; sourceTree = "<group>"; };
+		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,30 +461,21 @@
 			isa = PBXGroup;
 			children = (
 				460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */,
-				46D4E0D11E49B04800D5B1D0 /* ReferencedSymbol.swift */,
 				468124171DE81B27003D807A /* MachineModel.swift */,
+				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
 				46F46D321C8F49340092EF04 /* Enums.swift */,
 				46E246B01DE0E24200611A18 /* Assembler */,
+				461279481E26116100212829 /* Machine */,
 				461279491E26116900212829 /* Project */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
-		461279441E260EAA00212829 /* FontMenu */ = {
+		461279461E26104A00212829 /* Master */ = {
 			isa = PBXGroup;
 			children = (
-				460FBEA71E24A4DD008AD603 /* FontMenu.xib */,
-				460FBEA91E24A513008AD603 /* FontMenuView.swift */,
-			);
-			name = FontMenu;
-			path = pep9pad;
-			sourceTree = "<group>";
-		};
-		461279461E26104A00212829 /* MasterController */ = {
-			isa = PBXGroup;
-			children = (
-				46C608D01C8EAC1E00CC161A /* CpuController.swift */,
+				46C608D01C8EAC1E00CC161A /* Pep9ProcessorController.swift */,
 				D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */,
 				46C7EEE21D80BDD300F74B6E /* Pep9Processor.storyboard */,
 				4694F3D01DBABC0300F0E822 /* IOMem.storyboard */,
@@ -458,21 +483,27 @@
 				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 				D2B82DE31E035B8700F960FE /* Memory.xib */,
 			);
-			name = MasterController;
+			name = Master;
 			sourceTree = "<group>";
 		};
-		461279471E26106E00212829 /* DetailController */ = {
+		461279471E26106E00212829 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				46C76A651DAF173D0071C340 /* Pep9TabBar.storyboard */,
 				46C76A551DA496510071C340 /* Pep9DetailController.swift */,
-				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
 				46C76A631DAF112A0071C340 /* SourceController.swift */,
 				46C76A671DB856A50071C340 /* ObjectController.swift */,
 				46C76A691DB9593A0071C340 /* ListingController.swift */,
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 			);
-			name = DetailController;
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		461279481E26116100212829 /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Machine;
 			sourceTree = "<group>";
 		};
 		461279491E26116900212829 /* Project */ = {
@@ -494,6 +525,20 @@
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 			);
 			name = Trace;
+			sourceTree = "<group>";
+		};
+		4637EF8F1E5D843C007593E1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
+				4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */,
+				464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */,
+				464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */,
+				464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */,
+				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
+				4637EF901E5D8468007593E1 /* Pep9Mailer.swift */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 		464DF5AF1E46FB46006B9263 /* SyntaxHighlighting */ = {
@@ -623,6 +668,16 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
+		46A71C0D1E563DC500FCEFEA /* CPUModels */ = {
+			isa = PBXGroup;
+			children = (
+				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
+				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
+				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
+			);
+			name = CPUModels;
+			sourceTree = "<group>";
+		};
 		46B58BD31C8FD872006E46B4 /* Help */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,8 +751,8 @@
 			isa = PBXGroup;
 			children = (
 				D2B0615D1C7E62040088CEBE /* Pep9Main.storyboard */,
-				461279461E26104A00212829 /* MasterController */,
-				461279471E26106E00212829 /* DetailController */,
+				461279461E26104A00212829 /* Master */,
+				461279471E26106E00212829 /* Detail */,
 				461279431E260E9A00212829 /* Models */,
 				46278CC61E075834009D6371 /* Trace */,
 			);
@@ -709,10 +764,9 @@
 			isa = PBXGroup;
 			children = (
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
-				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
-				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
-				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailViewController.swift */,
-				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
+				46D674DB1E56057B00AE1B8F /* Master */,
+				46D674DC1E5605A200AE1B8F /* Detail */,
+				46A71C0D1E563DC500FCEFEA /* CPUModels */,
 			);
 			name = Pep9CPU;
 			path = pep9pad;
@@ -727,11 +781,39 @@
 			path = pep9pad;
 			sourceTree = "<group>";
 		};
+		46D674DB1E56057B00AE1B8F /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				464D143E1E52765800C7FCBE /* CPUMemoryView.swift */,
+				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
+			);
+			name = Master;
+			sourceTree = "<group>";
+		};
+		46D674DC1E5605A200AE1B8F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */,
+				46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */,
+				46BB48DF1E7230D5001EF954 /* CPUColors.swift */,
+				D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */,
+				4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */,
+				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */,
+				46D674DD1E561DB200AE1B8F /* CPUBusSize.swift */,
+				D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */,
+				D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */,
+				D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */,
+				46A71C0B1E563CAB00FCEFEA /* CPUView.swift */,
+				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		46E246B01DE0E24200611A18 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
-				46202E251DE95EBB00F8B70B /* PepMaps.swift */,
 				468A95D31DDCECF400916BE7 /* Code.swift */,
+				46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */,
 				468A95D51DDCEF2600916BE7 /* Instructions.swift */,
 				46E246AE1DE0E1C300611A18 /* Dots.swift */,
 				46E246B11DE0E32A00611A18 /* NonExecutables.swift */,
@@ -838,8 +920,8 @@
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46B58BD31C8FD872006E46B4 /* Help */,
 				46A304E41C992D5500CDCD1A /* CodeView */,
+				4637EF8F1E5D843C007593E1 /* Buttons */,
 				46C76A5B1DA70BEA0071C340 /* FileSystem */,
-				461279441E260EAA00212829 /* FontMenu */,
 				46C7EEE81D80BF1F00F74B6E /* Pep9CPU */,
 				46BC04341E18A2ED006ED01F /* Settings */,
 				46C7EEE91D80BF6800F74B6E /* Images */,
@@ -1056,6 +1138,7 @@
 				D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
 				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
+				464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
 				4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */,
@@ -1083,6 +1166,7 @@
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
 				46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */,
+				4637EF961E5E72B7007593E1 /* FontMenuColorCell.xib in Resources */,
 				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
 				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
 				46EC8B001C9895CD001405CE /* prob0827.pep in Resources */,
@@ -1109,7 +1193,6 @@
 				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
 				462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
-				460FBEA81E24A4DD008AD603 /* FontMenu.xib in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
 				461875A51C900D740095B818 /* examples.html in Resources */,
@@ -1188,58 +1271,74 @@
 				460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */,
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
+				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
+				464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */,
+				464DE4761E6A00AB00763503 /* FontMenuSizeCell.swift in Sources */,
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
-				46C608D11C8EAC1E00CC161A /* CpuController.swift in Sources */,
+				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */,
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
+				4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
+				46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */,
+				464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
+				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
+				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
+				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
 				468FB3121E0CB50D001F154A /* TraceTableController.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */,
-				46D4E0D21E49B04800D5B1D0 /* ReferencedSymbol.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
+				4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */,
 				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
-				460FBEAA1E24A513008AD603 /* FontMenuView.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
+				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
 				46D7A0A51E36F63900BA14A7 /* ColoredObject.swift in Sources */,
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* Pep9DetailController.swift in Sources */,
 				466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */,
 				46202E261DE95EBB00F8B70B /* PepMaps.swift in Sources */,
+				D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */,
+				D2A7D0AB1E4BC8D700A9CD37 /* CPUTraceController.swift in Sources */,
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterController.swift in Sources */,
 				46C76A5A1DA70BE20071C340 /* FSDetailController.swift in Sources */,
 				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
-				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailViewController.swift in Sources */,
+				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
+				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
+				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
+				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
+				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,
+				4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
 				4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */,

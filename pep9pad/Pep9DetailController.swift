@@ -19,13 +19,17 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 /// Regular Expressions
 let rxRemoveError = try! NSRegularExpression(pattern: ";ERROR:[\\s].*$")
 
-class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeViewControllerDelegate {
-    
+class Pep9DetailController: UIViewController, UITabBarDelegate {
+
     internal var master: Pep9MasterController!
     internal var tabBar: UITabBarController!
     // must initialize this, otherwise we get a runtime error
     internal var tabVCs: Pep9TabBarVCs = (nil, nil, nil, nil)
     
+    internal let byteCalc = ByteCalc()
+    internal let fontMenu = FontMenu()
+    internal let mailer = Pep9Mailer()
+
     
     // MARK: - ViewController Lifecycle
     
@@ -43,7 +47,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-            }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,37 +55,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     }
     
     
-    //MARK: Mail Composition
-    
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        
-        mailComposerVC.setToRecipients([])
-        mailComposerVC.setSubject("Subject of you mail")
-        mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
-        
-        return mailComposerVC
-    }
-    
-    func showSendMailErrorAlert() {
-        let mailAlert = UIAlertController(title: "Error", message: "Could not send mail.", preferredStyle: .alert)
-        mailAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        self.present(mailAlert, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController!, didFinishWith result: MFMailComposeResult, error: Error!) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    
     
     // MARK: - Conformance to UITabBarDelegate
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
         // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
-        let icons: [FontAwesome] = [.FileText, .Code, .List, .Reorder, .Stethoscope]
+        let icons: [FontAwesome] = [.FileText, .Code, .List, .Reorder]
         let defaultSize = CGSize(width: 30, height: 30)
         for idx in 0..<tabBarItems.count {
             tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
@@ -102,7 +81,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
                     for idx in tabBar.viewControllers! {
                         // and accessing the `view` of each
                         let _ = idx.view
-                        // print("accessed view num \(idx)")
+                        // note that we don't do anything with the view, we just have to access it
                     }
                 }
                 
@@ -111,7 +90,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
                 tabVCs.object = tabBar.viewControllers?[1] as? ObjectController
                 tabVCs.listing = tabBar.viewControllers?[2] as? ListingController
                 tabVCs.trace = tabBar.viewControllers?[3] as? TraceController
-
+                
             default:
                 break
                 
@@ -172,13 +151,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: .actionSheet)
         
-        let tempController = UIViewController()
-        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
-        let trapsSwitch = UISwitch(frame: CGRect(x:0, y:0, width:25.0, height:25.0))
-        let trapsLabel = UILabel(frame: CGRect(x:25, y:0, width:175.0, height:25.0))
-        trapsLabel.text = "Trace Traps"
-        tempController.view.addSubview(trapsSwitch)
-        alertController.view.addSubview(tempController.view)
+        // TODO: add trace traps switch
         
         let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
             //TODO: Implement debugSourceAction
@@ -193,7 +166,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         }
         alertController.addAction(debugLoaderAction)
         
-
+        
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
@@ -235,7 +208,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         }
         newAction.isEnabled = (projectModel.fsState != .Blank)
         alertController.addAction(newAction)
-
+        
         let openAction = UIAlertAction(title: "Open Project", style: .default) { (action) in
             self.openProjectBtnPressed()
         }
@@ -262,82 +235,17 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
-//        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        let firstAction = UIAlertAction(title: "", style: .default) { (action) in
-//        }
-//        alertController.addAction(firstAction)
-//        
-//        
-//        
-//        let tempController = UIViewController()
-//        tempController.view.frame = CGRect(x:19.0, y:15.0, width:250.0, height:25.0)
-//        let stepperFrame = CGRect(x:0, y:0, width:250.0, height:25.0)
-//        let stepper = UIStepper(frame: stepperFrame)
-//        
-//        tempController.view.addSubview(stepper)
-//        alertController.view.addSubview(tempController.view)
-//        
-//        
-//        let darkModeAction = UIAlertAction(title: "Turn dark mode \((!appSettings.darkModeOn).toEnglish())", style: .default) { (action) in
-//            appSettings.toggleDarkMode()
-//        }
-//        alertController.addAction(darkModeAction)
-//        
-//        
-
-        
-        
-        
-        let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-        let margin:CGFloat = 8.0
-        let rect = CGRect(x:margin, y:margin, width:alertController.view.bounds.size.width - margin * 4.0, height:300.0)
-        let customViewForAlert = FontMenuView(frame: rect)
-        alertController.view.addSubview(customViewForAlert)
-        
-        let somethingAction = UIAlertAction(title: "act 1", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
-        let cancelAction = UIAlertAction(title: "act 2", style: .cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
-        
-        alertController.addAction(cancelAction)
-        alertController.addAction(somethingAction)
-        
-        alertController.popoverPresentationController?.barButtonItem = sender
-        self.present(alertController, animated: true, completion: nil)
-        
-
+        let fontMenu = self.fontMenu.makeAlert(barButton: sender)
+        self.present(fontMenu, animated: true, completion: nil)
     }
     
     
-    let byteCalc = ByteCalc()
-
+    
     
     @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "Byte Calculator", message: nil, preferredStyle: .alert)
+        let calcAlert = byteCalc.makeAlert()
+        self.present(calcAlert, animated: true, completion: nil)
         
-        alertController.addTextField() { decimalField in
-            self.byteCalc.decimalField = decimalField
-        }
-        
-        alertController.addTextField() { hexField in
-            self.byteCalc.hexField = hexField
-        }
-        
-        alertController.addTextField() { binaryField in
-            self.byteCalc.binaryField = binaryField
-        }
-        
-        alertController.addTextField() { asciiField in
-            self.byteCalc.asciiField = asciiField
-        }
-        
-        alertController.addTextField() { assemblyField in
-            self.byteCalc.assemblyField = assemblyField
-        }
-        
-        
-        alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
-
     }
     
     
@@ -345,7 +253,15 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let formatFromListingAction = UIAlertAction(title: "Format From Listing", style: .default) { (action) in
-            //TODO: Implement formatFromListingAction
+            let assemblerListingList: [String] = assembler.getAssemblerListing();
+            let regex = try! NSRegularExpression(pattern: "^.............", options: NSRegularExpression.Options.caseInsensitive)
+            
+            for str in assemblerListingList {
+                regex.replaceMatches(in: NSMutableString(string: str), options: NSRegularExpression.MatchingOptions.reportCompletion, range: str.fullRange(), withTemplate: "")
+            }
+            
+            let newStr = assemblerListingList.joined(separator: "\n")
+            
         }
         alertController.addAction(formatFromListingAction)
         
@@ -379,7 +295,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
-
+        
     }
     
     
@@ -392,12 +308,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         switch projectModel.fsState {
         case .UnsavedNamed:
             // project was edited
-
+            
             let alertController = UIAlertController(title: "Want to save?", message: "Would you like to save your changes to the current project?", preferredStyle: .alert)
             
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 print("saving changes and creating a new project")
-                projectModel.saveProject()
+                projectModel.saveExistingProject()
                 projectModel.newBlankProject()
                 self.updateEditorsFromProjectModel()
             }
@@ -488,7 +404,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 // save changes and present fs
                 print("saving changes and opening a preexisting project")
-                projectModel.saveProject()
+                projectModel.saveExistingProject()
                 //self.updateEditorsFromProjectModel()
                 self.presentFileSystem()
             }
@@ -541,7 +457,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 print("destroying this project and opening a preexisting project")
                 self.presentFileSystem()
-
+                
             }
             alertController.addAction(noAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
@@ -549,7 +465,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
             }
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true)
-
+            
         case .SavedNamed, .Blank:
             // these go together, as in both instances there is nothing (more) to save
             print("opening a preexisting project")
@@ -574,10 +490,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         switch projectModel.fsState {
         case .UnsavedNamed:
             // project has not been saved recently
-            // Rather than present an alertController here, I say we just update the fs.  
+            // Rather than present an alertController here, I say we just update the fs.
             // Having an "are you sure?" message seems redundant for something as innocuous as a save.
-            projectModel.saveProject()
-
+            projectModel.saveExistingProject()
+            
         case .UnsavedUnnamed:
             // project has never been saved
             // Similar to above, I don't think we need an "are you sure?" message for saving the current project as a new project.
@@ -601,7 +517,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
             }
             alertController.addAction(okAction)
             self.present(alertController, animated: true)
-
+            
             
         case .SavedNamed, .Blank:
             // greyed-out buttons should've prevented you from getting here
@@ -610,22 +526,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     }
     
     func shareProjectBtnPressed(sender: AnyObject) {
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.source), mimeType: "txt", fileName: projectModel.name.appending(".pep"))
-            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.object), mimeType: "txt", fileName: projectModel.name.appending(".pepo"))
-            mailComposeViewController.addAttachmentData(projectModel.getData(ofType: ProjectContents.listing), mimeType: "txt", fileName: projectModel.name.appending(".pepl"))
-            self.present(mailComposeViewController, animated: true, completion: nil)
-//            if let fileData = projectModel.sourceStr.data(using: .utf8) {
-//                print("File data lauded.")
-//                mailComposeViewController.addAttachmentData(fileData as Data, mimeType: "pep", fileName: projectModel.name)
-//                self.present(mailComposeViewController, animated: true, completion: nil)
-//            }
-            
-            // } ENDTODO
-        } else {
-            self.showSendMailErrorAlert()
-        }
+        let mailController = mailer.makeAlert()
+        self.present(mailController, animated: true, completion: nil)
     }
     
     /// Try to load the given example.  Depending on `self.fsState`, this function may present the user with options (e.g. if the user has never saved the current project) before loading the given example.  If the user chooses to cancel this save operation, the function returns false.
@@ -635,7 +537,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
         case .UnsavedNamed:
             // project has not been saved recently
             // rather than present an alertController here, I say we just update the fs automatically
-            projectModel.saveProject()
+            projectModel.saveExistingProject()
         case .UnsavedUnnamed:
             // project has never been saved
             
@@ -679,37 +581,25 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true)
             
-
+            
             
         case .SavedNamed, .Blank:
             // nothing more to do, proceed with loading example
             break
         }
-
+        
         if shouldLoad {
             projectModel.loadExample(text: text, ofType: ofType)
             updateEditorsFromProjectModel()
-            exampleWasLoaded(ofType: ofType)
+            switchToTab(atIndex: (ofType == .pep ? 0 : 1))
         }
         
         return shouldLoad
     }
     
     /// Switches the tabBar to the appropriate index.
-    func exampleWasLoaded(ofType: PepFileType) {
-
-        switch ofType {
-        case .pep:
-            // switch to SourceViewController
-            tabBar.selectedIndex = 0
-            
-        case .pepo, .peph:
-            // switch to ObjectViewController
-            tabBar.selectedIndex = 1
-
-        default:
-            break
-        }
+    func switchToTab(atIndex i: Int) {
+        tabBar.selectedIndex = i
     }
     
     
@@ -727,42 +617,44 @@ class Pep9DetailController: UIViewController, UITabBarDelegate, MFMailComposeVie
     ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
-        
+        assembler.assemble()
+        print(assembler.getObjectCode())
+        updateEditorsFromProjectModel() // in case there were any error messages in the assembly process
         // PLACEHOLDER
         return true
-
-//        var burnCount = 0
-//        if assembler.assemble() {
-//            // check for .BURN
-//            if burnCount > 0 {
-//                let error = ";ERROR: .BURN not allowed in program unless installing OS."
-//                sourceVC.appendMessageAt(0, error)
-//                listingVC.clear()
-//                objectVC.clear()
-//                traceVC.clear()
-//                // TODO: make source code tab visible
-//                return false
-//            }
-//            
-//            // no .BURN, proceed with assemble
-//            objectVC.setObjectCode(assembler.getObjectCode())
-//            listingVC.setListing(assembler.getListing())
-//            traceVC.setListing(assembler.getListingForTrace())
-//            traceVC.setMemoryTrace()
-//            listingVC.showListing()
-//            
-//            // TODO: update current object and listing files
-//            // TODO: format from listing
-//            return true
-//            
-//        } else {
-//            listingVC.clear()
-//            objectVC.clear()
-//            traceVC.clear()
-//            // TODO: make source code tab visible
-//            return false
-//        
-//        }
+        
+        //        burnCount = 0
+        //        if assembler.assemble() {
+        //            // check for .BURN
+        //            if burnCount > 0 {
+        //                let error = ";ERROR: .BURN not allowed in program unless installing OS."
+        //                sourceVC.appendMessageAt(0, error)
+        //                listingVC.clear()
+        //                objectVC.clear()
+        //                traceVC.clear()
+        //                // TODO: make source code tab visible
+        //                return false
+        //            }
+        //
+        //            // no .BURN, proceed with assemble
+        //            objectVC.setObjectCode(assembler.getObjectCode())
+        //            listingVC.setListing(assembler.getListing())
+        //            traceVC.setListing(assembler.getListingForTrace())
+        //            traceVC.setMemoryTrace()
+        //            listingVC.showListing()
+        //
+        //            // TODO: update current object and listing files
+        //            // TODO: format from listing
+        //            return true
+        //
+        //        } else {
+        //            listingVC.clear()
+        //            objectVC.clear()
+        //            traceVC.clear()
+        //            // TODO: make source code tab visible
+        //            return false
+        //
+        //        }
     }
     
     

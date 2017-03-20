@@ -7,21 +7,16 @@
 
 import Foundation
 
-/// The abstract Argument class.
-class Argument {
+/// The Argument protocol.  I did this rather than make a superclass
+protocol Argument {
     /// Returns the Int value of this argument.  Will be overridden by subclasses.
-    func getArgumentValue() -> Int {
-        return -1
-    }
-    
+    func getArgumentValue() -> Int
     /// Returns the String value of this argument.  Will be overridden by subclasses.
-    func getArgumentString() -> String {
-        return ""
-    }
+    func getArgumentString() -> String
 }
 
 
-// MARK: - Concrete subclasses of Argument.
+// MARK: - "Subclasses" of Argument (conformers to the Argument protocol).
 class CharArgument: Argument {
     internal var charValue: String = ""
     
@@ -29,11 +24,11 @@ class CharArgument: Argument {
         charValue = char
     }
     
-//    override func getArgumentValue() -> Int {
-//        return charStringToInt(charValue)
-//    }
+    func getArgumentValue() -> Int {
+        return assembler.charStringToInt(str: charValue)
+    }
     
-    override func getArgumentString() -> String {
+    func getArgumentString() -> String {
         return charValue
     }
 }
@@ -47,11 +42,11 @@ class DecArgument: Argument {
         decValue = dec
     }
     
-    override func getArgumentValue() -> Int {
+    func getArgumentValue() -> Int {
         return decValue
     }
     
-    override func getArgumentString() -> String {
+    func getArgumentString() -> String {
         if decValue >= 32768 {
             return "\(decValue - 65536)"
         }
@@ -67,11 +62,11 @@ class UnsignedDecArgument: Argument {
         decValue = dec
     }
     
-    override func getArgumentValue() -> Int {
+    func getArgumentValue() -> Int {
         return decValue
     }
     
-    override func getArgumentString() -> String {
+    func getArgumentString() -> String {
         return "\(decValue)"
     }
 }
@@ -85,11 +80,11 @@ class HexArgument: Argument {
     }
     
     
-    override func getArgumentValue() -> Int {
+    func getArgumentValue() -> Int {
         return hexValue
     }
     
-    override func getArgumentString() -> String {
+    func getArgumentString() -> String {
         //return "0x" + QString("%1").arg(hexValue, 4, 16, QLatin1Char('0')).toUpper();
         return "TODO"
 }
@@ -99,15 +94,14 @@ class HexArgument: Argument {
 class StringArgument: Argument {
     internal var stringValue: String = ""
     init(str: String) {
-        stringValue = str
+        self.stringValue = str
     }
     
-    override func getArgumentValue() -> Int {
-        //return Asm::string2ArgumentToInt(stringValue);
-        return -1
+    func getArgumentValue() -> Int {
+        return assembler.string2ArgumentToInt(str: stringValue)
     }
     
-    override func getArgumentString() -> String {
+    func getArgumentString() -> String {
         return stringValue
     }
 }
@@ -120,7 +114,7 @@ class SymbolRefArgument: Argument {
         symbolRefValue = symbolRef
     }
     
-    override func getArgumentValue() -> Int {
+    func getArgumentValue() -> Int {
 
         if (symbolRefValue == "charIn") {
             if (maps.symbolTable.arrayOfKeys() as! [String]).contains("charIn") {
@@ -143,7 +137,7 @@ class SymbolRefArgument: Argument {
         }
     }
     
-    override func getArgumentString() -> String {
+    func getArgumentString() -> String {
         return symbolRefValue
     }
 }

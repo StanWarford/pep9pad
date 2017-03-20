@@ -13,14 +13,14 @@
 	<key>multiLineComment</key>
 	<string></string>
 	<key>warning</key>
-	<string>;WARNING:[\\s].*$</string>
+	<string>;WARNING:[\s].*$</string>
 	<key>errorStart</key>
-	<string>;ERROR:[\\s]</string>
+	<string>;ERROR:[\s]</string>
 	<key>errorEnd</key>
 	<string>$</string>
 	<key>singleQuote</key>
-	<string>((\&apos;)(?![\&apos;])(([^\&apos;|\\\\]){1}|((\\\\)([\&apos;|b|f|n|r|t|v|\&quot;|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))(\&apos;))</string>
+	<string>((\&apos;)(?![\&apos;])(([^\&apos;|\\]){1}|((\\)([\&apos;|b|f|n|r|t|v|\&quot;|\\]))|((\\)(([x|X])([0-9|A-F|a-f]{2}))))(\&apos;))</string>
 	<key>doubleQuote</key>
-	<string>((\&quot;)((([^\&quot;|\\\\])|((\\\\)([\&apos;|b|f|n|r|t|v|\&quot;|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))*)(\&quot;))</string>
+	<string>((\&quot;)((([^\&quot;|\\])|((\\)([\&apos;|b|f|n|r|t|v|\&quot;|\\]))|((\\)(([x|X])([0-9|A-F|a-f]{2}))))*)(\&quot;))</string>
 </dict>
 </plist>

@@ -14,10 +14,9 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.frame, delegate: self, highlightAs: .pep)
+        textView.setupTextView(textView.bounds, delegate: self, highlightAs: .pep)
         pullFromProjectModel()
     }
-    
     
     
     // MARK: - Interface Builder

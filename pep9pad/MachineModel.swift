@@ -676,15 +676,13 @@ class MachineModel {
         case .SUBSP:
             operand = readWordOprnd(addrMode: addrMode)
             stackPointer = add(stackPointer, (~operand + 1) & 0xffff) // Might need to use different add function
-        default:
-            return false
         }
         return false
     }
     
     
     
-    // I wrote this function to make the CpuController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
+    // I wrote this function to make the ProcessorController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
     func prettyVersion(_ register: CPURegisters, format: CPUFormats) -> String {
         var value = 0
         

@@ -88,7 +88,6 @@ class ProjectModel {
     }
     
     func loadExample(text: String, ofType: PepFileType) {
-        // TODO: Figure out whether the user has unsaved work and ask accordingly
         switch ofType {
         case .pep:
             sourceStr = text
@@ -100,7 +99,6 @@ class ProjectModel {
             objectStr = text
             listingStr = ""
             fsState = .UnsavedUnnamed
-            
         default:
             break
         }
@@ -108,9 +106,11 @@ class ProjectModel {
     }
     
     
-    func saveProject() {
+    func saveExistingProject() {
         if p9FileSystem.updateProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
+        } else {
+            // project could not be updated in FS
         }
     }
     
@@ -130,8 +130,6 @@ class ProjectModel {
             return objectStr.data(using: .utf8)
         case .listing:
             return listingStr.data(using: .utf8)
-        default:
-            break
         }
     }
     

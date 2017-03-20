@@ -1,5 +1,5 @@
 //
-//  CpuController.swift
+//  Pep9ProcessorController
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
@@ -7,9 +7,7 @@
 
 import UIKit
 
-// I know that 'CPUController' would be the correct capitalization but I think 'CpuController' is more readable. 
-
-class CpuController: UIViewController {
+class Pep9ProcessorController: UIViewController {
 
     // MARK: - Interface Builder
     

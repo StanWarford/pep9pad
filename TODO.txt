@@ -1,69 +1,26 @@
-________________________________________________________________________________________
-________________________________________________________________________________________
-
-                    ______         ____           __    _      __               
-                   /_  __/___     / __ \____     / /   (_)____/ /_              
-                    / / / __ \   / / / / __ \   / /   / / ___/ __/              
-                   / / / /_/ /  / /_/ / /_/ /  / /___/ (__  ) /_                
-                  /_/  \____/  /_____/\____/  /_____/_/____/\__/                
-                                                                                
-                                                                                
-________________________________________________________________________________________
-________________________________________________________________________________________
-
-
-
-
-                                                                                 
+_________________________________ Pep9Pad To-Do List _______________________________
+"Update this if you find something that needs doing."  --Josh                    
+_____________________________________________________________________________________
            _______  ______  _____  __   _ _______     _______ __   _ ______      
            |______ |_____/ |     | | \  |    |    ___ |______ | \  | |     \     
            |       |    \_ |_____| |  \_|    |        |______ |  \_| |_____/     
-                                                                                 
-                                                                                 
-
-Storyboard Challenges...
-* Add object and listing fields to FileSystemDetailController, separate into three vertical components. 
+                                                                                           
 * Add separator to help code views (leave some space in between 'em and make the background dark).
-* Finish FontMenu.xib, figure out how to load it from AMPopTip 
 * Remove all autocomplete stuff in any textfield
 * Fix I/O font (refrence appSettings.font) and add separator, also fix placement
-* Action preservation for ”are you sure you don’t want to save changes?" alert
-
-
-Graphics...
-* App icon, any ideas?
-* Launch screen, any ideas?
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                                                                                 
-
-
-              ______  _______ _______ _     _     _______ __   _ ______          
-              |_____] |_____| |       |____/  ___ |______ | \  | |     \         
-              |_____] |     | |_____  |    \_     |______ |  \_| |_____/         
-                                                                                 
-                                                                                 
-
-Coding Challenges...
-* Make the Email UIAlertView (see Documentation/Email and search www.bing.com for "MFMailCompose")
-* Add persistence to the settings using NSUserDefaults
-* Fix syntax highlighting for ASM, specifically the `;File:` bug (precedence) and the “\n” bug. (RegExp is being weird, this might mean we're missing an escape character somewhere)
-
-* Add checks to ByteCalc to clear other fields when input is illegal in 'Ascii' and 'Binary'.
-
-
-Machine/Simulator...
-* Write vonNeumannStep(:), translate from the matching function in Sim.cpp
-
-Assembler...
-* Write installDefaultOS(), translate from the matching function in Asm.cpp
-* Write installOS(), translate from the matching function in Asm.cpp
-* Write adjustSourceCode(:), translate from the matching function in Asm.cpp
-* etc.
-
-
-Misc...
 * Figure out what to do with Help's <code></code> stuff... do we toss it? Do we change the font?
+* App icon
+* Better colloquial name than "Pep9Pad"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+              ______  _______ _______ _     _     _______ __   _ ______       
+              |_____] |_____| |       |____/  ___ |______ | \  | |     \ 
+              |_____] |     | |_____  |    \_     |______ |  \_| |_____/  
+                                                                                 
+* Action preservation for ”are you sure you don’t want to save changes?" alert
+* Add persistence to the settings using NSUserDefaults
+* ByteCalc should accept and convert things above 255 dec, I think that'd be useful to have for addresses.
+
 
 
 
