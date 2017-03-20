@@ -16,9 +16,11 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
 
+/// Regular Expressions
+let rxRemoveError = try! NSRegularExpression(pattern: ";ERROR:[\\s].*$")
+
 class Pep9DetailController: UIViewController, UITabBarDelegate {
-    
-    
+
     internal var master: Pep9MasterController!
     internal var tabBar: UITabBarController!
     // must initialize this, otherwise we get a runtime error
@@ -269,7 +271,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(removeErrorMsgsAction)
         
         let clearMemAction = UIAlertAction(title: "Clear Memory", style: .default) { (action) in
-            //TODO: Implement clearMemAction
+            for i in 0 ..< maps.romStartAddress {
+                machine.mem[i] = 0
+            }
+            
         }
         alertController.addAction(clearMemAction)
         
