@@ -274,6 +274,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             for i in 0 ..< maps.romStartAddress {
                 machine.mem[i] = 0
             }
+            self.master.cpu.clearCpu()
+            self.master.io.memoryView.refreshAll()
         }
         alertController.addAction(clearMemAction)
         
@@ -313,7 +315,15 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(installNewOSAction)
         
         let reinstallDefaultOSAction = UIAlertAction(title: "Reinstall Default OS", style: .default) { (action) in
-            //TODO: Implement reinstallDefaultOSAction
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            maps.listingRowChecked = maps.listingRowCheckedOS
+            if assembler.installDefaultOS() {
+                assembler.getAssemblerListing()
+                assembler.setListingTrace(assembler.getAssemblerListing(), ) // MARK: UPDATE
+                //ui->statusbar->showMessage("OS Installed", 4000)
+            } else {
+                //ui->statusbar->showMessage("OS assembly failed", 4000)
+            }
         }
         alertController.addAction(reinstallDefaultOSAction)
         
