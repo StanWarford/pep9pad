@@ -96,4 +96,43 @@ class Pep9ProcessorController: UIViewController {
     }
 
 
+    func clearCpu() {
+        
+        nBit.text = ""
+        zBit.text = ""
+        vBit.text = ""
+        cBit.text = ""
+        
+        accHex.text = ""
+        accDec.text = ""
+        
+        xHex.text = ""
+        xDec.text = ""
+        
+        spHex.text = ""
+        spDec.text = ""
+        
+        pcHex.text = ""
+        pcDec.text = ""
+        
+        instrSpecBin.text = ""
+        instrSpecMnemon.text = ""
+        
+        oprndSpecHex.text = ""
+        oprndSpecDec.text = ""
+        oprndHex.text = ""
+        oprndDec.text = ""
+        
+        machine.nBit = false
+        machine.zBit = false
+        machine.vBit = false
+        machine.cBit = false
+        
+        machine.accumulator = 0
+        machine.indexRegister = 0
+        machine.stackPointer = 0
+        machine.programCounter = 0
+
+
+    }
 }
