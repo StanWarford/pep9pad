@@ -289,7 +289,15 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(installNewOSAction)
         
         let reinstallDefaultOSAction = UIAlertAction(title: "Reinstall Default OS", style: .default) { (action) in
-            //TODO: Implement reinstallDefaultOSAction
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            maps.listingRowChecked = maps.listingRowCheckedOS
+            if assembler.installDefaultOS() {
+                assembler.getAssemblerListing()
+                assembler.setListingTrace(assembler.getAssemblerListing(), ) // MARK: UPDATE
+                //ui->statusbar->showMessage("OS Installed", 4000)
+            } else {
+                //ui->statusbar->showMessage("OS assembly failed", 4000)
+            }
         }
         alertController.addAction(reinstallDefaultOSAction)
         
