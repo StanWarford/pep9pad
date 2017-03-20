@@ -236,7 +236,6 @@ bool SourceCodePane::installDefaultOs()
     Pep::romStartAddress += addressDelta;
     getObjectCode();
     installOS();
-
     return true;
 }
 
