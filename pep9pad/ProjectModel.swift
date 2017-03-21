@@ -167,6 +167,13 @@ class ProjectModel {
     }
     
     
+    // Post: Searces for the string ";ERROR: " on each line and removes the end of the line.
+    // Post: Searces for the string ";WARNING: " on each line and removes the end of the line.
+    func removeErrorMessages() {
+        
+    }
+    
+    
     
     func appendMessageInSource(atLine: Int, message: String) {
         // make an array of all lines in sourceString

@@ -28,24 +28,13 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
     // MARK: - Methods
     
-    // Post: Searces for the string ";ERROR: " on each line and removes the end of the line.
-    // Post: Searces for the string ";WARNING: " on each line and removes the end of the line.
-    func removeErrorMessages() {
-        
-    }
-    
-    // Post: Appends message to the end of line lineNumber in a reserved color.
-    func appendMessageInSourceCodeAt(lineNumber: Int, message: String) {
-        
-    }
     
     // Post: Clears the textView.
     func clear() {
-        
     }
     
     
-    // MARK: - Conformance to ProjectModelEditor
+    // MARK: - Conformance to ProjectM  odelEditor
     
     /// Updates the contents of the `textView` with `projectModel.sourceStr`.
     func pullFromProjectModel() {

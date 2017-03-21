@@ -76,7 +76,7 @@ class AssemblerModel {
         var lineNum: Int = 0
         var dotEndDetected: Bool = false
         
-        //removeErrorMessages()
+        projectModel.removeErrorMessages()
         referencedSymbols.removeAll()
         maps.memAddrssToAssemblerListing.removeAll()
         maps.symbolTable.removeAll()
@@ -306,26 +306,26 @@ class AssemblerModel {
     func unquotedStringToInt(str: inout String, value: inout Int) {
         var s: String = ""
         if str.startsWith(input: "\\x") || str.startsWith(input: "\\X") {
-            str.remove(0, 2)
+            str.remove(0, 2) // remove leading `\\`
             s = str.left(num: 2)
             str.remove(0, 2)
             value = s.toInt(value: 16)
         } else if str.startsWith(input: "\\") {
+            str.remove(0, 1) // remove first `\`
+            let thing = str.left(num: 1)
             str.remove(0, 1)
-            let thing = str.left(num: 2)
-            str.remove(0, 2)
             switch thing {
-            case "b":
+            case "b":       // backspace
                 value = 8
-            case "f":
+            case "f":       // form feed
                 value = 12
-            case "n":
+            case "n":       // line feed (new line)
                 value = 10
-            case "r":
+            case "r":       // carriage return
                 value = 13
-            case "t":
+            case "t":       // horizontal tab
                 value = 9
-            case "v":
+            case "v":       // vertical tab
                 value = 11
             default:
                 value = Int((thing.characters.first!).asciiValue!)
@@ -802,7 +802,7 @@ class AssemblerModel {
                 
             case .ps_DOT_ASCII:
                 if (token == ELexicalToken.lt_STRING_CONSTANT) {
-                    dotAscii.argument = StringArgument(str: tokenString)
+                    (code as! DotAscii).argument = StringArgument(str: tokenString)
                     maps.byteCount += byteStringLength(str: tokenString)
                     state = ParseState.ps_CLOSE
                 }
