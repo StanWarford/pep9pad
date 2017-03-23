@@ -132,8 +132,12 @@ class SymbolRefArgument: Argument {
             }
 
         }
-        else {
+        else if (maps.symbolTable.arrayOfKeys() as! [String]).contains(symbolRefValue) {
             return maps.symbolTable[symbolRefValue]!
+        }
+        else {
+            // MARK: FIXME!
+            assert(false)
         }
     }
     

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// Global instance of the Assembler Model.
 var assembler = AssemblerModel()
 
 
@@ -60,7 +60,7 @@ class AssemblerModel {
     
     // MARK: - Methods
     // Pre: SourceController contains a Pep/9 source program.
-    // Post: If the program assembles correctly, true is returned, and source is populated
+    // Post: If the program assembles correctly, true is returned, and source is populated.
     // with the code objects. Otherwise false is returned and codeList is partially populated.
     // Post: pep.symbolTable is populated with values not adjusted for .BURN.
     // Post: pep.byteCount is the byte count for the object code not adjusted for .BURN.
@@ -152,6 +152,7 @@ class AssemblerModel {
         // these have been moved to the assembleSource function in the Pep9DetailController
         //traceVC.setMemoryTrace()
         //listingVC.showListing()
+        
         
         return true
         
@@ -421,7 +422,7 @@ class AssemblerModel {
     func processSourceLine(_ sourceLine: inout String, lineNum: Int, code: inout Code, errorString: inout String, dotEndDetected: inout Bool) -> Bool {
         
         let nonUnaryInstruction = NonUnaryInstruction()
-        let dotAddrss = DotAddress()
+        let dotAddress = DotAddress()
         let dotAlign = DotAlign()
         let dotBurn = DotBurn()
         let dotAscii = DotAscii()
@@ -430,6 +431,9 @@ class AssemblerModel {
         let dotEnd = DotEnd()
         let dotEquate = DotEquate()
         let dotWord = DotWord()
+        let commentOnly = CommentOnly()
+        let blankLine = BlankLine()
+
         
         var token: ELexicalToken = .lt_COMMENT // Passed to getToken.
         var tokenString: String = ""// Passed to getToken.
@@ -473,14 +477,12 @@ class AssemblerModel {
                     tokenString.remove(0, 1) // Remove the period
                     tokenString = tokenString.uppercased()
                     if (tokenString == "ADDRSS") {
-                        let dotAddress = DotAddress()
                         dotAddress.symbolDef = ""
                         code = dotAddress
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_ADDRSS
                     }
                     else if (tokenString == "ALIGN") {
-                        let dotAlign = DotAlign()
                         dotAlign.symbolDef = ""
                         code = dotAlign
                         code.memAddress = maps.byteCount
@@ -488,35 +490,30 @@ class AssemblerModel {
                         
                     }
                     else if (tokenString == "ASCII") {
-                        let dotAscii = DotAscii()
                         dotAscii.symbolDef = ""
                         code = dotAscii
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_ASCII
                     }
                     else if (tokenString == "BLOCK") {
-                        let dotBlock = DotBlock()
                         dotBlock.symbolDef = ""
                         code = dotBlock
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BLOCK
                     }
                     else if (tokenString == "BURN") {
-                        let dotBurn = DotBurn()
                         dotBurn.symbolDef = ""
                         code = dotBurn
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BURN
                     }
                     else if (tokenString == "BYTE") {
-                        let dotByte = DotByte()
                         dotByte.symbolDef = ""
                         code = dotByte
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BYTE
                     }
                     else if (tokenString == "END") {
-                        let dotEnd = DotEnd()
                         dotEnd.symbolDef = ""
                         code = dotEnd
                         code.memAddress = maps.byteCount
@@ -524,14 +521,12 @@ class AssemblerModel {
                         state = ParseState.ps_DOT_END
                     }
                     else if (tokenString == "EQUATE") {
-                        let dotEquate = DotEquate()
                         dotEquate.symbolDef = ""
                         code = dotEquate
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_EQUATE
                     }
                     else if (tokenString == "WORD") {
-                        let dotWord = DotWord()
                         dotWord.symbolDef = ""
                         code = dotWord
                         code.memAddress = maps.byteCount
@@ -558,14 +553,12 @@ class AssemblerModel {
                     state = ParseState.ps_SYMBOL_DEF
                 }
                 else if (token == ELexicalToken.lt_COMMENT) {
-                    let commentOnly = CommentOnly()
                     commentOnly.comment = tokenString
                     code = commentOnly
                     code.memAddress = maps.byteCount
                     state = ParseState.ps_COMMENT
                 }
                 else if (token == ELexicalToken.lt_EMPTY) {
-                    let blankLine = BlankLine()
                     code = blankLine
                     code.memAddress = maps.byteCount
                     code.sourceCodeLine = lineNum
@@ -768,7 +761,7 @@ class AssemblerModel {
                         errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
                         return false
                     }
-                    dotAddrss.argument = SymbolRefArgument(symbolRef: tokenString)
+                    (code as! DotAddress).argument = SymbolRefArgument(symbolRef: tokenString)
                     referencedSymbols.append((tokenString, lineNum))
                     maps.byteCount += 2
                     state = ParseState.ps_CLOSE
@@ -784,8 +777,8 @@ class AssemblerModel {
                     let value = tokenString.toInt(value: 10)
                     if (value == 2 || value == 4 || value == 8) {
                         let numBytes = (value - maps.byteCount % value) % value
-                        dotAlign.argument = UnsignedDecArgument(dec: value)
-                        dotAlign.numBytesGenerated = UnsignedDecArgument(dec: numBytes)
+                        (code as! DotAlign).argument = UnsignedDecArgument(dec: value)
+                        (code as! DotAlign).numBytesGenerated = UnsignedDecArgument(dec: numBytes)
                         maps.byteCount += numBytes
                         state = ParseState.ps_CLOSE
                     }
@@ -818,10 +811,10 @@ class AssemblerModel {
                     if ((0 <= value) && (value <= 65535)) {
                         if (value < 0) {
                             value += 65536 // Stored as two-byte unsigned.
-                            dotBlock.argument = DecArgument(dec: value)
+                            (code as! DotBlock).argument = DecArgument(dec: value)
                         }
                         else {
-                            dotBlock.argument = UnsignedDecArgument(dec: value)
+                            (code as! DotBlock).argument = UnsignedDecArgument(dec: value)
                         }
                         maps.byteCount += value
                         state = ParseState.ps_CLOSE
@@ -835,7 +828,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
-                        dotBlock.argument = HexArgument(hex: value)
+                        (dotBlock as DotBlock).argument = HexArgument(hex: value)
                         maps.byteCount += value
                         state = ParseState.ps_CLOSE
                     }
@@ -855,8 +848,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
-                        
-                        dotBurn.argument = HexArgument(hex: value)
+                        (dotBurn as DotBurn).argument = HexArgument(hex: value)
                         maps.burnCount += 1
                         maps.dotBurnArgument = value
                         maps.romStartAddress = maps.byteCount
@@ -885,7 +877,7 @@ class AssemblerModel {
                         if (value < 0) {
                             value += 256 // value stored as one-byte unsigned Int
                         }
-                        dotByte.argument = DecArgument(dec: value)
+                        (dotByte as DotByte).argument = DecArgument(dec: value)
                         maps.byteCount += 1
                         state = ParseState.ps_CLOSE
                     }
@@ -898,7 +890,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 256) {
-                        dotByte.argument = HexArgument(hex: value)
+                        (dotByte as DotByte).argument = HexArgument(hex: value)
                         maps.byteCount += 1
                         state = ParseState.ps_CLOSE
                     }
@@ -925,7 +917,7 @@ class AssemblerModel {
             case .ps_DOT_END:
                 if (token == ELexicalToken.lt_COMMENT) {
                     dotEnd.comment = tokenString
-                    code.sourceCodeLine = lineNum
+                    (code as! DotEnd).sourceCodeLine = lineNum
                     state = ParseState.ps_FINISH
                 }
                 else if (token == ELexicalToken.lt_EMPTY) {

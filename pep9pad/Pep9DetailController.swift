@@ -10,12 +10,15 @@ import FontAwesome_swift
 import MessageUI
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
-typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
-
+typealias Pep9TabBarVCs = (
+    source: SourceController?,
+    object: ObjectController?,
+    listing: ListingController?,
+    trace: TraceController?
+)
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
-
 class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
@@ -34,8 +37,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // get reference to master by going through the navigation controller
-        let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
-        self.master = masternc.viewControllers[0] as! Pep9MasterController
+        let splitController = self.splitViewController?.viewControllers[0]
+        let masterNavigation = (splitController)! as! UINavigationController
+        master = masterNavigation.viewControllers[0] as! Pep9MasterController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,11 +61,17 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     // MARK: - Conformance to UITabBarDelegate
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
-        // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
+        // these could also work:
+        // .Tasks, .TH List, .Server, .Dashboard, .FileText,
+        // or .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, 
+        // .Table, .Stethoscope, or .Terminal
+        
+        var tab = tabBarItems
         let icons: [FontAwesome] = [.FileText, .Code, .List, .Reorder]
         let defaultSize = CGSize(width: 30, height: 30)
-        for idx in 0..<tabBarItems.count {
-            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
+        for idx in 0..<tab.count {
+            tab[idx].image = UIImage.fontAwesomeIconWithName(
+                icons[idx], textColor: .black, size: defaultSize)
         }
     }
     
@@ -69,17 +79,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         if let id = segue.identifier {
             switch id {
             case "embedTagBar":
-                // the storyboard is hooking up the ASMTabBar
-                // print("Embedding the tab bar")
+                // the storyboard is hooking up the tabBar
                 tabBar = segue.destination as! UITabBarController
                 customizeTabBarImages((tabBar.tabBar.items)! as [UITabBarItem])
                 
-                // initialize all the tabBar's viewControllers by looping through the viewControllers...
+                // initialize all the tabBar's viewControllers by
+                // looping through the viewControllers...
                 if tabBar.viewControllers != nil {
                     for idx in tabBar.viewControllers! {
                         // and accessing the `view` of each
                         let _ = idx.view
-                        // note that we don't do anything with the view, we just have to access it
+                        // note that we don't do anything with the view
+                        // we just have to access it
                     }
                 }
                 
@@ -613,13 +624,26 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
         assembler.assemble()
-        var x = assembler.getObjectCode()
-        var y: [String] = []
-        for i in x {
-            y.append(i.toHex2())
+        
+        var intObject = assembler.getObjectCode()
+        var hexObject: [String] = []
+        
+        // convert object code to hex, and add in \n every 16 bytes
+        for i in 0..<intObject.count {
+            hexObject.append(intObject[i].toHex2())
+            if (i+1) % 16 == 0 {
+                // notice: prepending the "\n"
+                hexObject[i] = "\n" + hexObject[i]
+            
+            }
         }
-        print(y)
+        
+        projectModel.objectStr = hexObject.joined(separator: " ")
+        
         updateEditorsFromProjectModel() // in case there were any error messages in the assembly process
+        
+        
+        
         // PLACEHOLDER
         return true
         

@@ -61,10 +61,7 @@ class NonUnaryInstruction: Code {
             objectCode.append(operandSpecifier / 256)
             objectCode.append(operandSpecifier % 256)
         }
-    
-    
-    
-}
+    }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var listingTrace = listingTrace
