@@ -294,7 +294,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             maps.listingRowChecked = maps.listingRowCheckedOS
             if assembler.installDefaultOS() {
                 assembler.getAssemblerListing()
-                assembler.setListingTrace(assembler.getAssemblerListing(), ) // MARK: UPDATE
+                assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                 //ui->statusbar->showMessage("OS Installed", 4000)
             } else {
                 //ui->statusbar->showMessage("OS assembly failed", 4000)
