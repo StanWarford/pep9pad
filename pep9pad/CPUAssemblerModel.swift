@@ -77,7 +77,7 @@ class CPUAssemblerModel {
     // Post: If the source line is not valid, false is returned and errorString is set to the error message.
     // Checks for out of range integer values.
     // The only detected resource conflict checked is for duplicated fields.
-    func processSourceLine(sourceLine: String, code: inout Code, errorString: inout String) -> Bool {
+    func processSourceLine(sourceLine: String, cpuCode: inout CPUCode, errorString: inout String) -> Bool {
         //placeholder
         return false
     }
@@ -87,17 +87,23 @@ class CPUAssemblerModel {
         print(sourceCode)
         
         var sourceLine: String
-        var errorString: String
+        var errorString: String = ""
         // QStringList sourceCodeList;
-        // Code *code;
+        var cpuCode: CPUCode = CPUCode()
         var lineNum: Int = 0
         // removeErrorMessages();
+        var cpuCodeList = [CPUCode]()
         // Sim::codeList.clear();
         // QString sourceCode = editor->toPlainText();
         // sourceCodeList = sourceCode.split('\n');
         let sourceCodeList = sourceCode.components(separatedBy: "\n")
         for (lineNum, sourceLine) in sourceCodeList.enumerated() {
             print("\(lineNum): " + sourceLine)
+            if (!processSourceLine(sourceLine: sourceLine, cpuCode: &cpuCode, errorString: &errorString)) {
+                //appendMessageInSourceCodePaneAt(lineNum, errorString);
+                return false
+            }
+            cpuCodeList.append(cpuCode)
         }
         
         // while (lineNum < sourceCodeList.size()) {

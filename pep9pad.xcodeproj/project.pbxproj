@@ -170,6 +170,7 @@
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
+		D20E137B1E849CDB00B5E8CA /* CPUEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20E137A1E849CDB00B5E8CA /* CPUEnums.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
 		D28BC7911E54E4A800E96EFA /* CPU2ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28BC7901E54E4A800E96EFA /* CPU2ByteView.swift */; };
@@ -379,6 +380,7 @@
 		4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D20E137A1E849CDB00B5E8CA /* CPUEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUEnums.swift; sourceTree = "<group>"; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepl; sourceTree = "<group>"; };
 		D28BC7901E54E4A800E96EFA /* CPU2ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteView.swift; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
 				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
+				D20E137A1E849CDB00B5E8CA /* CPUEnums.swift */,
 			);
 			name = CPUModels;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 				460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */,
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				4637EF931E5E4F7A007593E1 /* CPU2ByteRenderer.swift in Sources */,
+				D20E137B1E849CDB00B5E8CA /* CPUEnums.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
