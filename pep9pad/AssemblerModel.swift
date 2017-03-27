@@ -1188,7 +1188,7 @@ class AssemblerModel {
         maps.burnCount = 0
         while (lineNum < sourceCodeList.count && !dotEndDetected) {
             sourceLine = sourceCodeList[lineNum]
-            if !assembler.processSourceLine(sourceLine, code, errorString) {
+            if !assembler.processSourceLine(&sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected) {
                 return false
             }
             assembler.source.append(code)
@@ -1201,7 +1201,7 @@ class AssemblerModel {
             return false
         }
         for i in 0..<assembler.referencedSymbols.count {
-            if !Array(maps.symbolTable.keys).contains(assembler.referencedSymbols[i]) {
+            if !maps.symbolTable.keys.contains(assembler.referencedSymbols[i]) {
                 return false
             }
         }
