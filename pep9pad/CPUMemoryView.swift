@@ -202,14 +202,4 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
         return true
     }
     
-    
-
-    func setMemPrecondition(memAddress: Int, value: Int) {
-        
-    }
-    
-    func testMemPostcondition(memAddress: Int, value: Int) {
-        
-    }
-    
 }
