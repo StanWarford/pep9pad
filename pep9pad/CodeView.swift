@@ -119,6 +119,31 @@ class CodeView: UIView, UITextViewDelegate {
             delegate.textViewDidChange()
         }
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        //Ensure we're not at the start of the text field and we are inserting text -- this is only to disable the ``double space adds perio`` shortcut that Apple enabled.
+        if range.location > 0 && text.characters.count > 0 {
+            let whitespace = NSCharacterSet.whitespaces
+            let utf16text = text.utf16
+            let utf16textViewText = textView.text.utf16
+            
+            let startIndex = utf16text.startIndex
+            let locationIndex = utf16textViewText.startIndex.advanced(by: range.location - 1)
+            
+            //Check if a space follows a space
+            if whitespace.contains(UnicodeScalar(utf16text[startIndex])!) && whitespace.contains(UnicodeScalar(utf16textViewText[locationIndex])!) {
+                //Manually replace the space with your own space, programmatically
+                textView.text = (textView.text as NSString).replacingCharacters(in: range, with: " ")
+                //Make sure you update the text caret to reflect the programmatic change to the text view
+                textView.selectedRange = NSMakeRange(range.location + 1, 0)
+                
+                //Tell UIKit not to insert its space, because you've just inserted your own
+                return false
+            }
+        }
+        
+        return true
+    }
 
     
     
