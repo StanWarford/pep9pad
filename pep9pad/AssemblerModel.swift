@@ -412,6 +412,10 @@ class AssemblerModel {
         }
     }
     
+    func setListingTrace (listingTraceList: [String]) {
+        // TODO
+    }
+    
     /// Pre: sourceLine has one line of source code.
     /// Pre: lineNum is the line number of the source code.
     /// Post: If the source line is valid, true is returned and code is set to the source code for the line.
