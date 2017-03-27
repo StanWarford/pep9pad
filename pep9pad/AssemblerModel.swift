@@ -1112,7 +1112,8 @@ class AssemblerModel {
     // Post: self.hasCheckBox is populated with the checkBox list that specifies whether a trace line can have a break point.
     // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
-        // PLACEHOLDER
+        // MARK: IS THIS RIGHT?
+        listing.removeAll()
         return [""]
     }
     
@@ -1133,21 +1134,87 @@ class AssemblerModel {
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.
     func adjustSourceCode(addressDelta: Int) {
-        
+        for i in 0...source.count {
+            source[i].adjustMemAddress(addressDelta: addressDelta)
+        }
     }
     
     // Pre: self.object is populated with code from a complete correct Pep/9 OS source program.
     // Post: self.object is loaded into OS rom of pep.mem
     func installOS() {
-        
+        for i in 0...65536 {
+            machine.mem[i] = 0
+        }
+        let j: Int = maps.romStartAddress
+        let z: Int = j + 1
+        for i in 0...getObjectCode().count {        // MARK: might need to change this
+            machine.mem[z] = getObjectCode()[i]     // MARK: might need to change this
+        }
     }
     
     // Post: the pep/9 operating system is installed into memory, and true is returned
     // If assembly fails, false is returned
     // This function should only be called on program startup once
     func installDefaultOS() -> Bool {
-        // PLACEHOLDER
-        return true
+        var sourceLine: String
+        var errorString: String
+        var sourceCodeList: [String]
+        var code: Code
+        var lineNum = 0
+        var dotEndDetected = false
+        
+        assembler.referencedSymbols = []
+        maps.memAddrssToAssemblerListing = [:]
+        maps.symbolTable = [:]
+        maps.adjustSymbolValueForBurn = [:]
+        while (assembler.source.count != 0) {
+            assembler.source.remove(at: 0)
+        }
+        var sourceCode: String = ""
+        let pathToSource = Bundle.main.path(forResource: "pep9os", ofType: "pep")
+        do {
+            print("Loaded file named pep9os.pep")
+            sourceCode = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
+        } catch _ as NSError {
+            print("Could not load file named pep9os.pep")
+            return false
+        }
+        sourceCodeList = sourceCode.components(separatedBy: "\n")
+        maps.byteCount = 0
+        maps.burnCount = 0
+        while (lineNum < sourceCodeList.count && !dotEndDetected) {
+            sourceLine = sourceCodeList[lineNum]
+            if !assembler.processSourceLine(sourceLine, code, errorString) {
+                return false
+            }
+            assembler.source.append(code)
+            lineNum = lineNum + 1
+        }
+        if !dotEndDetected {
+            return false
+        }
+        if maps.byteCount > 65535 {
+            return false
+        }
+        for i in 0..<assembler.referencedSymbols.count {
+            if !Array(maps.symbolTable.keys).contains(assembler.referencedSymbols[i]) {
+                return false
+            }
+        }
+        if maps.burnCount != 1 {
+            return false
+        }
+        
+        //Adjust for .BURN
+        
+        var addressDelta: Int = maps.dotBurnArgument - maps.burnCount + 1
+        var symbolTableSize: Int = maps.symbolTable.count
+        for (kind, numbers) in maps.symbolTable {
+            var valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
+            if valueAtCurrentKey {
+                maps.symbolTable[kind] = maps.symbolTable[kind]! + addressDelta
+            }
+        }
     }
     
     

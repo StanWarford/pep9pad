@@ -30,6 +30,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     internal let fontMenu = FontMenu()
     internal let mailer = Pep9Mailer()
 
+    // Code Declaration
+    let code = Code()
     
     // MARK: - ViewController Lifecycle
     
@@ -98,6 +100,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
+    
+    //MARK: Install New OS Action Helper
+    // TODO: FINISH THIS FUNC
+    func installNewOSActionHelper(error: String) {
+        projectModel.appendMessageInSource(atLine: 0, message: error)
+        projectModel.listingStr = ""
+        projectModel.objectStr = ""
+        // TODO: listingTrace
+        print("Assembly failed")
+    }
     
     
     
@@ -305,11 +317,28 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 }
                 else {
                     var addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
+                    var mapIterator = maps.symbolTable
+                    for var i in mapIterator {
+                        if maps.adjustSymbolValueForBurn[i.key]! {
+                            i.value = i.value + addressDelta
+                        }
+                    }
+                    // TODO
+                    self.code.adjustMemAddress(addressDelta: addressDelta)
+                    assembler.listing = assembler.getAssemblerListing()
+                    // TODO: listingTracePane
+                    assembler.installOS()
+                    self.master.io.memoryView.refreshAll()
+                    // MARK: ui bar subject to change
+                    print("Assembly succeeded, OS installed")
+                }
             }
             else {
-                assembler.listing.removeAll(keepingCapacity: true)
-                assembler.object.removeAll(keepingCapacity: true)
-                // TODO: DONT KNOW HOW TO DO THIS LINE OR ONE BELOW
+                projectModel.listingStr = ""
+                projectModel.objectStr = ""
+                // TODO: listingTracePane
+                // MARK: ui bar subject to change
+                print("Assembly failed")
             }
         }
         alertController.addAction(installNewOSAction)
@@ -336,16 +365,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     // MARK: - Methods
-    
-    
-    // TODO: FINISH THIS FUNC
-    func installNewOSActionHelper(error: String) {
-        // sourceCodePane.appendMessageINSourceCodePaneAt(0, error);
-        assembler.listing.removeAll(keepingCapacity: true)
-        assembler.object.removeAll(keepingCapacity: true)
-        // TODO: DONT KNOW HOW TO DO THIS LINE
-        // ui.statusbar.showMessage("Assembly failed", 4000)
-    }
     
     
     func newProjectBtnPressed() {
