@@ -29,6 +29,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     internal let byteCalc = ByteCalc()
     internal let fontMenu = FontMenu()
     internal let mailer = Pep9Mailer()
+    internal let redefineMnemonics = RedefineMnemonics()
 
     
     // MARK: - ViewController Lifecycle
@@ -280,7 +281,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(clearMemAction)
         
         let redefineMnemonicsAction = UIAlertAction(title: "Redefine Mnemonics", style: .default) { (action) in
-            //TODO: Implement redefineMnemonicsAction
+            let redefineMnemon = self.redefineMnemonics.makeAlert()
+            self.present(redefineMnemon, animated: true, completion: nil)
+
         }
         alertController.addAction(redefineMnemonicsAction)
         
