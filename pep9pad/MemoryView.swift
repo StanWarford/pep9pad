@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
    
     
     
@@ -26,10 +26,10 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         // below doesn't work as returned class name is normally in project module scope
         // let viewName = NSStringFromClass(self.classForCoder)
         
-        let view: UIView = Bundle.main.loadNibNamed("Memory", owner: self, options: nil)![0] as! UIView
-        self.addSubview(view)
-        view.frame = self.bounds
-        refresh()
+       // let view: UIView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView
+       // self.addSubview(view)
+       // view.frame = self.bounds
+        //refresh()
     }
 
 
@@ -137,24 +137,6 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             self.table.delegate = self
         }
     }
-    @IBOutlet var toolbar: UIToolbar!
-    @IBOutlet var searchField: UITextField! {
-        didSet {
-            self.searchField.delegate = self
-        }
-    }
-    @IBOutlet var spBtn: UIBarButtonItem!
-    @IBOutlet var pcBtn: UIBarButtonItem!
-    
-    @IBAction func spBtnPressed(_ sender: UIBarButtonItem) {
-        scrollToByte(machine.stackPointer)
-    }
-    
-    
-    @IBAction func pcBtnPressed(_ sender: UIBarButtonItem) {
-        scrollToByte(machine.programCounter)
-    }
-    
     
     
     
@@ -187,29 +169,22 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         return 15
     }
     
-    
-    
-    
-    
-    // MARK: - Conformance to UITextFieldDelegate
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let oldText = textField.text! as NSString
-        let newText = oldText.replacingCharacters(in: range, with: string) as String
-        
-        if let intVal = Int(newText, radix: 16) {
-            if intVal > 65536 {
-                scrollToByte(65535)
-            } else if intVal < 0 {
-                scrollToByte(0)
-            } else {
-                scrollToByte(intVal)
-            }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // Instantiate MemoryHeaderView here
+        let memHeader: MemoryHeaderView = MemoryHeaderView()
+        memHeader.initializeSubviews()
+        memHeader.memoryView = self
+        memHeader.backgroundColor = .white
+        return memHeader as UIView
         }
-
-        return true
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
     }
     
+    
+
     
     
     

@@ -50,7 +50,7 @@ class MachineModel {
         accumulator = 0
         indexRegister = 0
         stackPointer = 0
-        programCounter = 0
+        programCounter = 300
         instructionSpecifier = 0
         operandSpecifier = 0
         operand = 0

@@ -178,6 +178,8 @@
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
+		7F68B8151E8099E400D7BA9E /* MemoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F68B8141E8099E400D7BA9E /* MemoryHeader.xib */; };
+		7F68B8171E809A2500D7BA9E /* MemoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F68B8161E809A2500D7BA9E /* MemoryHeaderView.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
 		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
@@ -391,6 +393,8 @@
 		46F5F26E1DCA626B002880FE /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
 		4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F68B8141E8099E400D7BA9E /* MemoryHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoryHeader.xib; sourceTree = "<group>"; };
+		7F68B8161E809A2500D7BA9E /* MemoryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryHeaderView.swift; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
@@ -482,6 +486,8 @@
 				46C76A6B1DB959480071C340 /* MemoryView.swift */,
 				46C76A601DAD86BD0071C340 /* IOMemController.swift */,
 				D2B82DE31E035B8700F960FE /* Memory.xib */,
+				7F68B8141E8099E400D7BA9E /* MemoryHeader.xib */,
+				7F68B8161E809A2500D7BA9E /* MemoryHeaderView.swift */,
 			);
 			name = Master;
 			sourceTree = "<group>";
@@ -1186,6 +1192,7 @@
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
 				461875AA1C900D740095B818 /* problems.html in Resources */,
 				462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */,
+				7F68B8151E8099E400D7BA9E /* MemoryHeader.xib in Resources */,
 				462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
@@ -1283,6 +1290,7 @@
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */,
+				7F68B8171E809A2500D7BA9E /* MemoryHeaderView.swift in Sources */,
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
