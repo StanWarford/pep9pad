@@ -10,11 +10,11 @@ import Foundation
 
 class CPUCode {
     func isMicrocode() -> Bool { return false }
-//    func setCpuLabels(items: inout CpuGraphicsItems) {}
+    //    func setCpuLabels(items: inout CpuGraphicsItems) {}
     func getSourceCode() -> String { return "" }
     func hasUnitPre() -> Bool { return false }
-//    func setUnitPre(mem: inout MainMemory, cpu: inout CPUPane) {}
-//    func testPostCondition(mem: inout MainMemory, )
+    //    func setUnitPre(mem: inout MainMemory, cpu: inout CPUPane) {}
+    //    func testPostCondition(mem: inout MainMemory, )
 }
 
 // Concrete CPUCode classes
@@ -24,7 +24,7 @@ class CPUCode {
 // -1 is initialization value, - tested elsewhere
 
 class Microcode: CPUCode {
-
+    
     var cLoadCk: Int = -1
     var cC: Int = -1
     var cB: Int = -1
@@ -51,24 +51,24 @@ class Microcode: CPUCode {
     var cMemWrite: Int = -1
     var cMemRead: Int = -1
     var cComment: String = ""
-
+    
     // friend class Asm;
     // public:
     // MicroCode();
     // bool isMicrocode();
     // void setCpuLabels(CpuGraphicsItems *cpuPaneItems);
-
-    func QString getSourceCode() -> String {
-        
-    }
-
+    
+    //    func QString getSourceCode() -> String {
+    //
+    //    }
+    
     
     // func has(Enu::EMnemonic field) -> Bool
-
+    
     // void set(Enu::EMnemonic field, int value);
-
+    
     // bool inRange(Enu::EMnemonic field, int value);
-
+    
 }
 
 class CommentOnlyCode: CPUCode {
