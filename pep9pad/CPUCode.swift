@@ -58,9 +58,9 @@ class Microcode: CPUCode {
     // bool isMicrocode();
     // void setCpuLabels(CpuGraphicsItems *cpuPaneItems);
 
-    func QString getSourceCode() -> String {
-        
-    }
+//    func getSourceCode() -> String {
+//        
+//    }
 
     
     // func has(Enu::EMnemonic field) -> Bool

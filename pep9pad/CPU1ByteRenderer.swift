@@ -17,7 +17,7 @@ import UIKit
 var cpu1ByteRenderer = CPU1ByteRenderer()
 
 
-public class CPU1ByteRenderer: NSObject {
+public class CPU1ByteRenderer: NSObject, CPURenderer {
 
     //// Drawing Methods
 
