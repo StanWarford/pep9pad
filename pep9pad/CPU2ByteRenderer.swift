@@ -13,7 +13,7 @@
 
 import UIKit
 
-public class CPU2ByteRenderer: NSObject {
+public class CPU2ByteRenderer: NSObject, CPURenderer {
     
     //// Drawing Methods
     
