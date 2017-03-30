@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
+class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
    
     
     
@@ -26,10 +26,10 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
         // below doesn't work as returned class name is normally in project module scope
         // let viewName = NSStringFromClass(self.classForCoder)
         
-       // let view: UIView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView
-       // self.addSubview(view)
-       // view.frame = self.bounds
-        //refresh()
+        //let view: UIView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView
+        //self.addSubview(view)
+        //view.frame = self.bounds
+        refresh()
     }
 
 
@@ -138,7 +138,26 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    @IBOutlet var searchField: UITextField! {
+        didSet {
+            self.searchField.delegate = self
+        }
+    }
+    @IBOutlet var spBtn: UIButton!
     
+    @IBOutlet var pcBtn: UIButton!
+    
+    @IBAction func spBtnPressed(_ sender: UIButton) {
+        scrollToByte(machine.stackPointer)
+    }
+    
+    @IBAction func pcBtnPressed(_ sender: UIButton) {
+        scrollToByte(machine.programCounter)
+        
+        
+    }
+    
+
     
     
 
@@ -169,23 +188,26 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate {
         return 15
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // Instantiate MemoryHeaderView here
-        let memHeader: MemoryHeaderView = MemoryHeaderView()
-        memHeader.initializeSubviews()
-        memHeader.memoryView = self
-        memHeader.backgroundColor = .white
-        return memHeader as UIView
-        }
-    
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
-    }
-    
     
 
+    // MARK: - Conformance to UITextFieldDelegate
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let oldText = textField.text! as NSString
+        let newText = oldText.replacingCharacters(in: range, with: string) as String
+        
+        if let intVal = Int(newText, radix: 16) {
+            if intVal > 65536 {
+                scrollToByte(65535)
+            } else if intVal < 0 {
+                scrollToByte(0)
+            } else {
+                scrollToByte(intVal)
+            }
+        }
+        
+        return true
+    }
     
     
 }
