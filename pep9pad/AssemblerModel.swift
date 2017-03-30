@@ -1116,16 +1116,19 @@ class AssemblerModel {
     // Post: self.hasCheckBox is populated with the checkBox list that specifies whether a trace line can have a break point.
     // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
-        // MARK: IS THIS RIGHT?
         listing.removeAll()
-        return [""]
+        getListingTrace().removeAll()
+        var hasCheckBox: [Bool] = []
+        for i in 0..<assembler.source.count {
+            assembler.source[i].appendSourceLine(assemblerListing: &getAssemblerListing(), listingTrace: &getListingTrace(), hasCheckBox: hasCheckBox)
+        }
     }
     
     // Pre: self.listingTrace is populated.
     // Post: self.listingTrace is returned.
     func getListingTrace() -> [String] {
         // PLACEHOLDER
-        return [""]
+        return []
     }
     
     // Pre: self.hasCheckBox is populated.
@@ -1161,9 +1164,9 @@ class AssemblerModel {
     // This function should only be called on program startup once
     func installDefaultOS() -> Bool {
         var sourceLine: String
-        var errorString: String
+        var errorString: String = ""
         var sourceCodeList: [String]
-        var code: Code
+        var code = Code()
         var lineNum = 0
         var dotEndDetected = false
         
@@ -1201,7 +1204,7 @@ class AssemblerModel {
             return false
         }
         for i in 0..<assembler.referencedSymbols.count {
-            if !maps.symbolTable.keys.contains(assembler.referencedSymbols[i]) {
+            if !maps.symbolTable.keys.contains(assembler.referencedSymbols[i].symbol) {
                 return false
             }
         }
@@ -1219,6 +1222,11 @@ class AssemblerModel {
                 maps.symbolTable[kind] = maps.symbolTable[kind]! + addressDelta
             }
         }
+        adjustSourceCode(addressDelta: addressDelta)
+        maps.romStartAddress += addressDelta
+        getObjectCode()
+        installOS()
+        return true
     }
     
     
