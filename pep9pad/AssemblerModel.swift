@@ -1117,11 +1117,13 @@ class AssemblerModel {
     // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
         listing.removeAll()
-        getListingTrace().removeAll()
+        var listingTrace = getListingTrace()
+        listingTrace.removeAll()
         var hasCheckBox: [Bool] = []
         for i in 0..<assembler.source.count {
-            assembler.source[i].appendSourceLine(assemblerListing: &getAssemblerListing(), listingTrace: &getListingTrace(), hasCheckBox: hasCheckBox)
+            assembler.source[i].appendSourceLine(assemblerListing: &listing, listingTrace: &listingTrace, hasCheckBox: hasCheckBox)
         }
+        return listing
     }
     
     // Pre: self.listingTrace is populated.
