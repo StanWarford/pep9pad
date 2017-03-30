@@ -113,6 +113,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
+    func setObjectCode(objectCode: [Int]) {
+        // TODO: implement setObjectCode
+    }
+    
     
     // MARK: - IBOutlets
     
@@ -274,12 +278,11 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
             
             let newStr = assemblerListingList.joined(separator: "\n")
-            
         }
         alertController.addAction(formatFromListingAction)
         
         let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
-            //TODO: Implement removeErrorMsgsAction
+            // TODO
         }
         alertController.addAction(removeErrorMsgsAction)
         
@@ -299,8 +302,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         alertController.addAction(redefineMnemonicsAction)
         
-        
-        // 1216 in mainwindow.cpp
         let installNewOSAction = UIAlertAction(title: "Install New OS", style: .default) { (action) in
             maps.burnCount = 0
             maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
@@ -319,17 +320,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     self.installNewOSActionHelper(error: ";ERROR: Program required to install OS.")
                 }
                 else {
-                    var addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
-                    var mapIterator = maps.symbolTable
+                    let addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
+                    let mapIterator = maps.symbolTable
                     for var i in mapIterator {
                         if maps.adjustSymbolValueForBurn[i.key]! {
                             i.value = i.value + addressDelta
                         }
                     }
-                    // TODO
-                    self.code.adjustMemAddress(addressDelta: addressDelta)
+                    assembler.adjustSourceCode(addressDelta: addressDelta)
+                    maps.romStartAddress += addressDelta
+                    self.setObjectCode(objectCode: assembler.getObjectCode())
                     assembler.listing = assembler.getAssemblerListing()
-                    // TODO: listingTracePane
+                    assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                     assembler.installOS()
                     self.master.io.memoryView.refreshAll()
                     // MARK: ui bar subject to change
@@ -339,7 +341,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             else {
                 projectModel.listingStr = ""
                 projectModel.objectStr = ""
-                // TODO: listingTracePane
+                assembler.setListingTrace(listingTraceList: [""])
                 // MARK: ui bar subject to change
                 print("Assembly failed")
             }
@@ -352,9 +354,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             if assembler.installDefaultOS() {
                 assembler.getAssemblerListing()
                 assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
-                //ui->statusbar->showMessage("OS Installed", 4000)
+                print("OS Installed")
             } else {
-                //ui->statusbar->showMessage("OS assembly failed", 4000)
+                print("OS assembly failed")
             }
         }
         alertController.addAction(reinstallDefaultOSAction)
@@ -363,9 +365,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         self.present(alertController, animated: true, completion: nil)
         
     }
-    
-    
-    
     
     // MARK: - Methods
     
