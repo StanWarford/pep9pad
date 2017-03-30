@@ -1131,6 +1131,7 @@ class AssemblerModel {
     func getListingTrace() -> [String] {
         // PLACEHOLDER
         return []
+        
     }
     
     // Pre: self.hasCheckBox is populated.
@@ -1156,8 +1157,8 @@ class AssemblerModel {
         }
         let j: Int = maps.romStartAddress
         let z: Int = j + 1
-        for i in 0...getObjectCode().count {        // MARK: might need to change this
-            machine.mem[z] = getObjectCode()[i]     // MARK: might need to change this
+        for i in 0...object.count {        // MARK: might need to change this
+            machine.mem[z] = object[i]     // MARK: might need to change this
         }
     }
     
