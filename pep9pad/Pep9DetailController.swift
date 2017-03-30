@@ -282,7 +282,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(formatFromListingAction)
         
         let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
-            // TODO
+            let text : String = projectModel.sourceStr
+            var textArr = text.components(separatedBy: " ")
+            for var i in 0..<textArr.count{
+                if textArr[i] == ";ERROR" || textArr[i] == ";WARNING"{
+                    while textArr[i] != "\n"{
+                        textArr[i] = ""
+                        i += 1
+                    }
+                }
+            }
+            projectModel.sourceStr = textArr.joined(separator: " ")
+            self.updateEditorsFromProjectModel()
         }
         alertController.addAction(removeErrorMsgsAction)
         
