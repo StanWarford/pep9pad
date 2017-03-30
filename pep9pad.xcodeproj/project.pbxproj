@@ -199,6 +199,7 @@
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
 		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */; };
+		F613FD6F1E89D1F4003939C0 /* RedefineMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -420,6 +421,7 @@
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
 		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailController.swift; sourceTree = "<group>"; };
+		F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RedefineMnemonics.swift; path = pep9pad/RedefineMnemonics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +532,7 @@
 		4637EF8F1E5D843C007593E1 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */,
 				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
 				4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */,
 				464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */,
@@ -1299,6 +1302,7 @@
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
+				F613FD6F1E89D1F4003939C0 /* RedefineMnemonics.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
 				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
