@@ -250,7 +250,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     
-    
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
         let fontMenu = self.fontMenu.makeAlert(barButton: sender)
         self.present(fontMenu, animated: true, completion: nil)
