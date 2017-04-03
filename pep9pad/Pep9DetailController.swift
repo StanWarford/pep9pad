@@ -16,9 +16,11 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
 
+/// Regular Expressions
+let rxRemoveError = try! NSRegularExpression(pattern: ";ERROR:[\\s].*$")
+
 class Pep9DetailController: UIViewController, UITabBarDelegate {
-    
-    
+
     internal var master: Pep9MasterController!
     internal var tabBar: UITabBarController!
     // must initialize this, otherwise we get a runtime error
@@ -27,7 +29,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     internal let byteCalc = ByteCalc()
     internal let fontMenu = FontMenu()
     internal let mailer = Pep9Mailer()
+    internal let redefineMnemonics = RedefineMnemonics()
 
+    // Code Declaration
+    let code = Code()
     
     // MARK: - ViewController Lifecycle
     
@@ -97,6 +102,20 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
+    //MARK: Install New OS Action Helper
+    // TODO: FINISH THIS FUNC
+    func installNewOSActionHelper(error: String) {
+        projectModel.appendMessageInSource(atLine: 0, message: error)
+        projectModel.listingStr = ""
+        projectModel.objectStr = ""
+        // TODO: listingTrace
+        print("Assembly failed")
+    }
+    
+    
+    func setObjectCode(objectCode: [Int]) {
+        // TODO: implement setObjectCode
+    }
     
     
     // MARK: - IBOutlets
@@ -231,7 +250,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     
-    
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
         let fontMenu = self.fontMenu.makeAlert(barButton: sender)
         self.present(fontMenu, animated: true, completion: nil)
@@ -246,7 +264,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
     }
     
-    
+
     @IBAction func settingsBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -259,32 +277,97 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
             
             let newStr = assemblerListingList.joined(separator: "\n")
-            
         }
         alertController.addAction(formatFromListingAction)
         
         let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
-            //TODO: Implement removeErrorMsgsAction
+            let text : String = projectModel.sourceStr
+            var textArr = text.components(separatedBy: " ")
+            for var i in 0..<textArr.count{
+                if textArr[i] == ";ERROR" || textArr[i] == ";WARNING"{
+                    while textArr[i] != "\n"{
+                        textArr[i] = ""
+                        i += 1
+                    }
+                }
+            }
+            projectModel.sourceStr = textArr.joined(separator: " ")
+            self.updateEditorsFromProjectModel()
         }
         alertController.addAction(removeErrorMsgsAction)
         
         let clearMemAction = UIAlertAction(title: "Clear Memory", style: .default) { (action) in
-            //TODO: Implement clearMemAction
+            for i in 0 ..< maps.romStartAddress {
+                machine.mem[i] = 0
+            }
+            self.master.cpu.clearCpu()
+            self.master.io.memoryView.refreshAll()
         }
         alertController.addAction(clearMemAction)
         
         let redefineMnemonicsAction = UIAlertAction(title: "Redefine Mnemonics", style: .default) { (action) in
-            //TODO: Implement redefineMnemonicsAction
+            let redefineMnemon = self.redefineMnemonics.makeAlert()
+            self.present(redefineMnemon, animated: true, completion: nil)
+
         }
         alertController.addAction(redefineMnemonicsAction)
         
         let installNewOSAction = UIAlertAction(title: "Install New OS", style: .default) { (action) in
-            //TODO: Implement installNewOSAction
+            maps.burnCount = 0
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            maps.listingRowChecked =  maps.listingRowCheckedOS
+            if assembler.assemble() {
+                if !(maps.symbolTable["charIn"] != nil) {
+                    self.installNewOSActionHelper(error: ";ERROR: charIn required to install OS.")
+                }
+                else if !(maps.symbolTable["charOut"] != nil) {
+                    self.installNewOSActionHelper(error: ";ERROR: charOut required to install OS.")
+                }
+                else if maps.burnCount == 0 {
+                    self.installNewOSActionHelper(error: ";ERROR: .BURN required to install OS.")
+                }
+                else if maps.burnCount > 1 {
+                    self.installNewOSActionHelper(error: ";ERROR: Program required to install OS.")
+                }
+                else {
+                    let addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
+                    let mapIterator = maps.symbolTable
+                    for var i in mapIterator {
+                        if maps.adjustSymbolValueForBurn[i.key]! {
+                            i.value = i.value + addressDelta
+                        }
+                    }
+                    assembler.adjustSourceCode(addressDelta: addressDelta)
+                    maps.romStartAddress += addressDelta
+                    self.setObjectCode(objectCode: assembler.getObjectCode())
+                    assembler.listing = assembler.getAssemblerListing()
+                    assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
+                    assembler.installOS()
+                    self.master.io.memoryView.refreshAll()
+                    // MARK: ui bar subject to change
+                    print("Assembly succeeded, OS installed")
+                }
+            }
+            else {
+                projectModel.listingStr = ""
+                projectModel.objectStr = ""
+                assembler.setListingTrace(listingTraceList: [""])
+                // MARK: ui bar subject to change
+                print("Assembly failed")
+            }
         }
         alertController.addAction(installNewOSAction)
         
         let reinstallDefaultOSAction = UIAlertAction(title: "Reinstall Default OS", style: .default) { (action) in
-            assembler.installDefaultOS()
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            maps.listingRowChecked = maps.listingRowCheckedOS
+            if assembler.installDefaultOS() {
+                assembler.getAssemblerListing()
+                assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
+                print("OS Installed")
+            } else {
+                print("OS assembly failed")
+            }
         }
         alertController.addAction(reinstallDefaultOSAction)
         
@@ -292,9 +375,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         self.present(alertController, animated: true, completion: nil)
         
     }
-    
-    
-    
     
     // MARK: - Methods
     
@@ -603,7 +683,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         tabVCs.object?.pullFromProjectModel()
         tabVCs.listing?.pullFromProjectModel()
     }
-    
     
     /// Called whenever the user taps the 'Assemble Source' button.  This function...
     

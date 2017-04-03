@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
-                                <rect key="frame" x="-1" y="0.0" width="1045" height="1023"/>
+                                <rect key="frame" x="-1" y="0.0" width="1044.5" height="1023"/>
                                 <connections>
                                     <segue destination="kVQ-1y-bjq" kind="embed" identifier="embedTagBar" id="YdT-uh-r17"/>
                                 </connections>
@@ -209,7 +209,7 @@
         <scene sceneID="2p8-Ej-FmW">
             <objects>
                 <navigationController id="iJ6-lN-Cra" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mS4-oz-IIt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mS4-oz-IIt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -412,6 +412,10 @@ class AssemblerModel {
         }
     }
     
+    func setListingTrace (listingTraceList: [String]) {
+        // TODO
+    }
+    
     /// Pre: sourceLine has one line of source code.
     /// Pre: lineNum is the line number of the source code.
     /// Post: If the source line is valid, true is returned and code is set to the source code for the line.
@@ -1112,15 +1116,22 @@ class AssemblerModel {
     // Post: self.hasCheckBox is populated with the checkBox list that specifies whether a trace line can have a break point.
     // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
-        // PLACEHOLDER
-        return [""]
+        listing.removeAll()
+        var listingTrace = getListingTrace()
+        listingTrace.removeAll()
+        var hasCheckBox: [Bool] = []
+        for i in 0..<assembler.source.count {
+            assembler.source[i].appendSourceLine(assemblerListing: &listing, listingTrace: &listingTrace, hasCheckBox: hasCheckBox)
+        }
+        return listing
     }
     
     // Pre: self.listingTrace is populated.
     // Post: self.listingTrace is returned.
     func getListingTrace() -> [String] {
         // PLACEHOLDER
-        return [""]
+        return []
+        
     }
     
     // Pre: self.hasCheckBox is populated.
@@ -1133,13 +1144,22 @@ class AssemblerModel {
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.
     func adjustSourceCode(addressDelta: Int) {
-        
+        for i in 0...source.count {
+            source[i].adjustMemAddress(addressDelta: addressDelta)
+        }
     }
     
     // Pre: self.object is populated with code from a complete correct Pep/9 OS source program.
     // Post: self.object is loaded into OS rom of pep.mem
     func installOS() {
-        
+        for i in 0...65536 {
+            machine.mem[i] = 0
+        }
+        let j: Int = maps.romStartAddress
+        let z: Int = j + 1
+        for i in 0...object.count {        // MARK: might need to change this
+            machine.mem[z] = object[i]     // MARK: might need to change this
+        }
     }
     
     // Post: the pep/9 operating system is installed into memory, and true is returned

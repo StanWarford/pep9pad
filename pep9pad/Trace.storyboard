@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,13 +23,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cT3-8r-TMA">
-                                <rect key="frame" x="0.0" y="391.5" width="703" height="327.5"/>
+                                <rect key="frame" x="0.0" y="392" width="702" height="327"/>
                                 <connections>
                                     <segue destination="rLZ-kr-Eur" kind="embed" id="64A-R2-CgT"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bue-Sl-zg8">
-                                <rect key="frame" x="0.0" y="64" width="703" height="327.5"/>
+                                <rect key="frame" x="0.0" y="64" width="703" height="328"/>
                                 <connections>
                                     <segue destination="JJ6-O3-kQD" kind="embed" id="Xuf-Am-13b"/>
                                 </connections>
@@ -63,7 +63,7 @@
             <objects>
                 <tableViewController id="JJ6-O3-kQD" customClass="TraceTableController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Dq4-36-QWB">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="327.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="328"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -95,11 +95,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lK0-kv-pWK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hah-ao-oFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="327.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="702" height="327"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-TE-Nc8">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="327.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="702" height="327.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
