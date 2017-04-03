@@ -15,40 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "252"
             endingLineNumber = "252"
-            landmarkName = "Pep9DetailController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pep9pad.Pep9DetailController.settingsBtnPressed (__ObjC.UIBarButtonItem) -&gt; ()"
-                  moduleName = "pep9pad"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/frankgarcia/Desktop/pep9pad/pep9pad/Pep9DetailController.swift"
-                  timestampString = "512953381.493246"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
-                  offsetFromSymbolStart = "222">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "pep9pad.Pep9DetailController.(settingsBtnPressed (__ObjC.UIBarButtonItem) -&gt; ()).(closure #1)"
-                  moduleName = "pep9pad"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/frankgarcia/Desktop/pep9pad/pep9pad/Pep9DetailController.swift"
-                  timestampString = "512953381.495754"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "254"
-                  endingLineNumber = "254"
-                  offsetFromSymbolStart = "23">
-               </Location>
-            </Locations>
+            landmarkName = "settingsBtnPressed(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -79,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "342"
             endingLineNumber = "342"
-            landmarkName = "settingsBtnPressed(_:)"
+            landmarkName = "newProjectBtnPressed()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -90,7 +58,7 @@
                   moduleName = "pep9pad"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/frankgarcia/Desktop/pep9pad/pep9pad/Pep9DetailController.swift"
-                  timestampString = "512953381.506362"
+                  timestampString = "512953785.426486"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "343"
@@ -105,7 +73,7 @@
                   moduleName = "pep9pad"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/frankgarcia/Desktop/pep9pad/pep9pad/Pep9DetailController.swift"
-                  timestampString = "512953381.508772"
+                  timestampString = "512953785.429529"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "343"
