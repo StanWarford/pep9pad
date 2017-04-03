@@ -1119,7 +1119,7 @@ class AssemblerModel {
         listing.removeAll()
         var listingTrace = getListingTrace()
         listingTrace.removeAll()
-        var hasCheckBox: [Bool] = []
+        let hasCheckBox: [Bool] = []
         for i in 0..<assembler.source.count {
             assembler.source[i].appendSourceLine(assemblerListing: &listing, listingTrace: &listingTrace, hasCheckBox: hasCheckBox)
         }
