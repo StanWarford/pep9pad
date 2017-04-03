@@ -681,7 +681,7 @@ class AssemblerModel {
                         errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
                         return false
                     }
-                    nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
+                    (code as! NonUnaryInstruction).argument = SymbolRefArgument(symbolRef: tokenString)
                     referencedSymbols.append((tokenString, lineNum))
                     state = ParseState.ps_ADDRESSING_MODE
                 }
@@ -690,14 +690,14 @@ class AssemblerModel {
                         errorString = ";ERROR: String operands must have length at most two."
                         return false
                     }
-                    nonUnaryInstruction.argument = SymbolRefArgument(symbolRef: tokenString)
+                    (code as! NonUnaryInstruction).argument = SymbolRefArgument(symbolRef: tokenString)
                     state = ParseState.ps_ADDRESSING_MODE
                 }
                 else if (token == ELexicalToken.lt_HEX_CONSTANT) {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
-                        nonUnaryInstruction.argument = HexArgument(hex: value)
+                        (code as! NonUnaryInstruction).argument = HexArgument(hex: value)
                         state = ParseState.ps_ADDRESSING_MODE
                     }
                     else {
@@ -710,10 +710,10 @@ class AssemblerModel {
                     if ((-32768 <= value) && (value <= 65535)) {
                         if (value < 0) {
                             value += 65536 // Stored as two-byte unsigned.
-                            nonUnaryInstruction.argument = DecArgument(dec: value)
+                            (code as! NonUnaryInstruction).argument = DecArgument(dec: value)
                         }
                         else {
-                            nonUnaryInstruction.argument = UnsignedDecArgument(dec: value)
+                            (code as! NonUnaryInstruction).argument = UnsignedDecArgument(dec: value)
                         }
                         state = ParseState.ps_ADDRESSING_MODE
                     }
@@ -723,7 +723,7 @@ class AssemblerModel {
                     }
                 }
                 else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                    nonUnaryInstruction.argument = CharArgument(char: tokenString)
+                    (code as! NonUnaryInstruction).argument = CharArgument(char: tokenString)
                     state = ParseState.ps_ADDRESSING_MODE
                 }
                 else {
@@ -768,7 +768,7 @@ class AssemblerModel {
                         errorString = ";ERROR: Symbol " + tokenString + " cannot have more than eight characters."
                         return false
                     }
-                    dotAddrss.argument = SymbolRefArgument(symbolRef: tokenString)
+                    (code as! DotAddress).argument = SymbolRefArgument(symbolRef: tokenString)
                     referencedSymbols.append((tokenString, lineNum))
                     maps.byteCount += 2
                     state = ParseState.ps_CLOSE
@@ -784,7 +784,7 @@ class AssemblerModel {
                     let value = tokenString.toInt(value: 10)
                     if (value == 2 || value == 4 || value == 8) {
                         let numBytes = (value - maps.byteCount % value) % value
-                        dotAlign.argument = UnsignedDecArgument(dec: value)
+                        (code as! DotAlign).argument = UnsignedDecArgument(dec: value)
                         dotAlign.numBytesGenerated = UnsignedDecArgument(dec: numBytes)
                         maps.byteCount += numBytes
                         state = ParseState.ps_CLOSE
@@ -818,10 +818,10 @@ class AssemblerModel {
                     if ((0 <= value) && (value <= 65535)) {
                         if (value < 0) {
                             value += 65536 // Stored as two-byte unsigned.
-                            dotBlock.argument = DecArgument(dec: value)
+                            (code as! DotBlock).argument = DecArgument(dec: value)
                         }
                         else {
-                            dotBlock.argument = UnsignedDecArgument(dec: value)
+                            (code as! DotBlock).argument = UnsignedDecArgument(dec: value)
                         }
                         maps.byteCount += value
                         state = ParseState.ps_CLOSE
@@ -835,7 +835,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
-                        dotBlock.argument = HexArgument(hex: value)
+                        (code as! DotBlock).argument = HexArgument(hex: value)
                         maps.byteCount += value
                         state = ParseState.ps_CLOSE
                     }
@@ -856,7 +856,7 @@ class AssemblerModel {
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
                         
-                        dotBurn.argument = HexArgument(hex: value)
+                        (code as! DotBurn).argument = HexArgument(hex: value)
                         maps.burnCount += 1
                         maps.dotBurnArgument = value
                         maps.romStartAddress = maps.byteCount
@@ -875,7 +875,7 @@ class AssemblerModel {
                 
             case .ps_DOT_BYTE:
                 if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                    dotByte.argument = CharArgument(char: tokenString)
+                    (code as! DotByte).argument = CharArgument(char: tokenString)
                     maps.byteCount += 1
                     state = ParseState.ps_CLOSE
                 }
@@ -885,7 +885,7 @@ class AssemblerModel {
                         if (value < 0) {
                             value += 256 // value stored as one-byte unsigned Int
                         }
-                        dotByte.argument = DecArgument(dec: value)
+                        (code as! DotByte).argument = DecArgument(dec: value)
                         maps.byteCount += 1
                         state = ParseState.ps_CLOSE
                     }
@@ -898,7 +898,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 256) {
-                        dotByte.argument = HexArgument(hex: value)
+                        (code as! DotByte).argument = HexArgument(hex: value)
                         maps.byteCount += 1
                         state = ParseState.ps_CLOSE
                     }
@@ -912,7 +912,7 @@ class AssemblerModel {
                         errorString = ";ERROR: .BYTE string operands must have length one."
                         return false
                     }
-                    dotByte.argument = StringArgument(str: tokenString)
+                    (code as! DotByte).argument = StringArgument(str: tokenString)
                     maps.byteCount += 1
                     state = ParseState.ps_CLOSE
                 }
@@ -950,10 +950,10 @@ class AssemblerModel {
                         
                         if (value < 0) {
                             value += 65536 // Stored as two-byte unsigned.
-                            dotEquate.argument = DecArgument(dec: value)
+                            (code as! DotEquate).argument = DecArgument(dec: value)
                         }
                         else {
-                            dotEquate.argument = UnsignedDecArgument(dec: value)
+                            (code as! DotEquate).argument = UnsignedDecArgument(dec: value)
                         }
                         maps.symbolTable[dotEquate.symbolDef] = value
                         maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
@@ -968,7 +968,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
-                        dotEquate.argument = HexArgument(hex: value)
+                        (code as! DotEquate).argument = HexArgument(hex: value)
                         maps.symbolTable[dotEquate.symbolDef] = value
                         maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                         state = ParseState.ps_CLOSE
@@ -983,13 +983,13 @@ class AssemblerModel {
                         errorString = ";ERROR: .EQUATE string operand must have length at most two."
                         return false
                     }
-                    dotEquate.argument = StringArgument(str: tokenString)
+                    (code as! DotEquate).argument = StringArgument(str: tokenString)
                     maps.symbolTable[dotEquate.symbolDef] = string2ArgumentToInt(str: tokenString)
                     maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                     state = ParseState.ps_CLOSE
                 }
                 else if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                    dotEquate.argument = CharArgument(char: tokenString)
+                    (code as! DotEquate).argument = CharArgument(char: tokenString)
                     maps.symbolTable[dotEquate.symbolDef] = charStringToInt(str: tokenString)
                     maps.adjustSymbolValueForBurn[dotEquate.symbolDef] = false
                     state = ParseState.ps_CLOSE
@@ -1002,7 +1002,7 @@ class AssemblerModel {
                 
             case .ps_DOT_WORD:
                 if (token == ELexicalToken.lt_CHAR_CONSTANT) {
-                    dotWord.argument = CharArgument(char: tokenString)
+                    (code as! DotWord).argument = CharArgument(char: tokenString)
                     maps.byteCount += 2
                     state = ParseState.ps_CLOSE
                 }
@@ -1012,10 +1012,10 @@ class AssemblerModel {
                         
                         if (value < 0) {
                             value += 65536 // Stored as two-byte unsigned.
-                            dotWord.argument = DecArgument(dec: value)
+                            (code as! DotWord).argument = DecArgument(dec: value)
                         }
                         else {
-                            dotWord.argument = UnsignedDecArgument(dec: value)
+                            (code as! DotWord).argument = UnsignedDecArgument(dec: value)
                         }
                         maps.byteCount += 2
                         state = ParseState.ps_CLOSE
@@ -1029,7 +1029,7 @@ class AssemblerModel {
                     tokenString.remove(0, 2) // Remove "0x" prefix.
                     let value = tokenString.toInt(value: 16)
                     if (value < 65536) {
-                        dotWord.argument = HexArgument(hex: value)
+                        (code as! DotWord).argument = HexArgument(hex: value)
                         maps.byteCount += 2
                         state = ParseState.ps_CLOSE
                     }
@@ -1043,7 +1043,7 @@ class AssemblerModel {
                         errorString = ";ERROR: .WORD string operands must have length at most two."
                         return false
                     }
-                    dotWord.argument = StringArgument(str: tokenString)
+                    (code as! DotWord).argument = StringArgument(str: tokenString)
                     maps.byteCount += 2
                     state = ParseState.ps_CLOSE
                 }
@@ -1146,9 +1146,73 @@ class AssemblerModel {
     // If assembly fails, false is returned
     // This function should only be called on program startup once
     func installDefaultOS() -> Bool {
-        // PLACEHOLDER
+        var sourceLine: String
+        var errorString: String = ""
+        var sourceCodeList: [String]
+        var code = Code()
+        var lineNum = 0
+        var dotEndDetected = false
+        
+        assembler.referencedSymbols = []
+        maps.memAddrssToAssemblerListing = [:]
+        maps.symbolTable = [:]
+        maps.adjustSymbolValueForBurn = [:]
+        while (assembler.source.count != 0) {
+            assembler.source.remove(at: 0)
+        }
+        var sourceCode: String = ""
+        let pathToSource = Bundle.main.path(forResource: "pep9os", ofType: "pep")
+        do {
+            print("Loaded file named pep9os.pep")
+            sourceCode = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
+        } catch _ as NSError {
+            print("Could not load file named pep9os.pep")
+            return false
+        }
+        sourceCodeList = sourceCode.components(separatedBy: "\n")
+        maps.byteCount = 0
+        maps.burnCount = 0
+        while (lineNum < sourceCodeList.count && !dotEndDetected) {
+            sourceLine = sourceCodeList[lineNum]
+            if !assembler.processSourceLine(&sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected) {
+                return false
+            }
+            assembler.source.append(code)
+            lineNum = lineNum + 1
+        }
+        if !dotEndDetected {
+            return false
+        }
+        if maps.byteCount > 65535 {
+            return false
+        }
+        for i in 0..<assembler.referencedSymbols.count {
+            if !maps.symbolTable.keys.contains(assembler.referencedSymbols[i].symbol) {
+                return false
+            }
+        }
+        if maps.burnCount != 1 {
+            return false
+        }
+        
+        //Adjust for .BURN
+        
+        var addressDelta: Int = maps.dotBurnArgument - maps.burnCount + 1
+        var symbolTableSize: Int = maps.symbolTable.count
+        for (kind, numbers) in maps.symbolTable {
+            var valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
+            if valueAtCurrentKey {
+                maps.symbolTable[kind] = maps.symbolTable[kind]! + addressDelta
+            }
+        }
+        adjustSourceCode(addressDelta: addressDelta)
+        maps.romStartAddress += addressDelta
+        getObjectCode()
+        installOS()
         return true
     }
+    
+
     
     
     

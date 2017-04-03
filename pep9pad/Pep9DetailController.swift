@@ -284,7 +284,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(installNewOSAction)
         
         let reinstallDefaultOSAction = UIAlertAction(title: "Reinstall Default OS", style: .default) { (action) in
-            //TODO: Implement reinstallDefaultOSAction
+            assembler.installDefaultOS()
         }
         alertController.addAction(reinstallDefaultOSAction)
         
