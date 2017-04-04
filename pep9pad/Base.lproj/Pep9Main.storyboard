@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3Qa-9x-ZYb">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
-                                <rect key="frame" x="-1" y="0.0" width="1045" height="1023"/>
+                                <rect key="frame" x="-1" y="0.0" width="1044.5" height="1023"/>
                                 <connections>
                                     <segue destination="kVQ-1y-bjq" kind="embed" identifier="embedTagBar" id="YdT-uh-r17"/>
                                 </connections>
@@ -195,7 +195,7 @@
         <!--Split View Controller-->
         <scene sceneID="vDn-u6-D1s">
             <objects>
-                <splitViewController id="3Qa-9x-ZYb" sceneMemberID="viewController">
+                <splitViewController modalTransitionStyle="crossDissolve" id="3Qa-9x-ZYb" sceneMemberID="viewController">
                     <connections>
                         <segue destination="YNt-35-Q3B" kind="relationship" relationship="masterViewController" id="s6k-ia-w3l"/>
                         <segue destination="iJ6-lN-Cra" kind="relationship" relationship="detailViewController" id="Ug6-9t-Npd"/>
