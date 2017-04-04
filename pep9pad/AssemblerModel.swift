@@ -131,23 +131,23 @@ class AssemblerModel {
         
         maps.traceTagWarning = false
         
-        // check format trace tags
-        for i in 0..<source.count {
-            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
-                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
-                maps.traceTagWarning = true
-            }
-        }
-        
-        // check symbol trace tags
-        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
-            for i in 0..<source.count {
-                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
-                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
-                    maps.traceTagWarning = true
-                }
-            }
-        }
+//        // check format trace tags
+//        for i in 0..<source.count {
+//            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
+//                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+//                maps.traceTagWarning = true
+//            }
+//        }
+//        
+//        // check symbol trace tags
+//        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
+//            for i in 0..<source.count {
+//                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
+//                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+//                    maps.traceTagWarning = true
+//                }
+//            }
+//        }
         
         // these have been moved to the assembleSource function in the Pep9DetailController
         //traceVC.setMemoryTrace()
@@ -742,7 +742,7 @@ class AssemblerModel {
                         errorString = ";ERROR: Illegal addressing mode for this instruction."
                         return false
                     }
-                    nonUnaryInstruction.addressingMode = addrMode
+                    (code as! NonUnaryInstruction).addressingMode = addrMode
                     state = ParseState.ps_CLOSE
                 }
                 else if (maps.addrModeRequiredMap[localEnumMnemonic])! {
@@ -750,7 +750,7 @@ class AssemblerModel {
                     return false
                 }
                 else { // Must be branch type instruction with no addressing mode. Assign default addressing mode.
-                    nonUnaryInstruction.addressingMode = EAddrMode.I
+                    (code as! NonUnaryInstruction).addressingMode = EAddrMode.I
                     if (token == ELexicalToken.lt_COMMENT) {
                         code.comment = tokenString
                         state = ParseState.ps_COMMENT
