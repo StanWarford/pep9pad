@@ -55,8 +55,8 @@ class AssemblerModel {
     /// The list of all referenced symbols in the assembly program.
     /// Each element is a 2-touple with a `source` and `lineNumber` attribute.
     var referencedSymbols: [ReferencedSymbol] = []
-    
-    
+    /// Assigned if the assemble() call fails.
+    var assemblyFailureMessage: String = ""
     
     // MARK: - Methods
     // Pre: SourceController contains a Pep/9 source program.
@@ -97,6 +97,7 @@ class AssemblerModel {
             sourceLine = sourceCodeList[lineNum]
             if (!processSourceLine(&sourceLine, lineNum: lineNum, code: &code, errorString: &errorString, dotEndDetected: &dotEndDetected)) {
                 projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                assemblyFailureMessage = errorString
                 return false
             }
             source.append(code)

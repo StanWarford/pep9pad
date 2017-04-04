@@ -8,6 +8,7 @@
 import UIKit
 import FontAwesome_swift
 import MessageUI
+import PKHUD
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
 typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
@@ -391,6 +392,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 projectModel.saveExistingProject()
                 projectModel.newBlankProject()
                 self.updateEditorsFromProjectModel()
+                
             }
             alertController.addAction(yesAction)
             
@@ -691,14 +693,23 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
-        assembler.assemble()
-        var x = assembler.getObjectCode()
-        var y: [String] = []
-        for i in x {
-            y.append(i.toHex2())
+        if assembler.assemble() {
+            var x = assembler.getObjectCode()
+            var y: [String] = []
+            for i in x {
+                y.append(i.toHex2())
+            }
+            print(y)
+            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
+
+        } else {
+            let error = assembler.assemblyFailureMessage.replacingOccurrences(of: ";ERROR: ", with: "")
+            HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
         }
-        print(y)
         updateEditorsFromProjectModel() // in case there were any error messages in the assembly process
+        
+
+        
         // PLACEHOLDER
         return true
         
