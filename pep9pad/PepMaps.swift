@@ -168,7 +168,7 @@ class PepMaps {
     // .BURN and the ROM state
     var byteCount: Int = 0
     var burnCount: Int = 0
-    var dotBurnArgument: Int = 0
+    var dotBurnArgument: Int = 65535
     var romStartAddress: Int = 0
     
     // Memory trace state

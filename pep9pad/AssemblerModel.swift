@@ -585,7 +585,7 @@ class AssemblerModel {
                 if (token == ELexicalToken.lt_IDENTIFIER){
                     if (maps.mnemonToEnumMap[tokenString.uppercased()] != nil) {
                         localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
-                        if (maps.isUnaryMap[localEnumMnemonic] != nil) {
+                        if (maps.isUnaryMap[localEnumMnemonic]!) {
                             let unaryInstruction = UnaryInstruction()
                             unaryInstruction.symbolDef = localSymbolDef
                             unaryInstruction.mnemonic = localEnumMnemonic
