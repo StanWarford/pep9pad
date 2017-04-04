@@ -87,6 +87,62 @@ class ProjectModel {
 
     }
     
+    
+    // MARK: Recent Projects Stuff
+    
+    /// The key used for UserDefaults for recent projects.
+    let recentProjectsKey: String  = "Pep9PadRecentProjectsKeyForUserDefaults"
+    /// The maximum number of recent project names to keep.
+    let maxRecentProjects: Int = 5
+    
+    /// Returns an array of recent project names.
+    func recentProjectNames() -> [String] {
+        if UserDefaults.standard.stringArray(forKey: recentProjectsKey) == nil {
+            // has never been set before, which means this user has never saved a project before
+            UserDefaults.standard.set(["My First Project"], forKey: recentProjectsKey)
+            UserDefaults.standard.synchronize()
+        }
+        
+        return UserDefaults.standard.stringArray(forKey: recentProjectsKey)!
+    }
+    
+    /// Places the given name into the array of recent project names.
+    /// Done through UserDefaults.
+    func addProjectNameToRecents(_ nameOfProject: String) {
+        if UserDefaults.standard.stringArray(forKey: recentProjectsKey) == nil {
+            // should not happen but including this for posterity
+            // has never been set before, which means this user has never saved a project before
+            UserDefaults.standard.set(["My First Project"], forKey: recentProjectsKey)
+            UserDefaults.standard.synchronize()
+        }
+        
+        var names = UserDefaults.standard.stringArray(forKey: recentProjectsKey)!
+        
+        // check if already in list, so we don't have the same entry twice
+        if names.contains(nameOfProject) {
+            // this project is already in the list
+            // just move it to the front if it isn't already there
+            let curIdx = names.index(of: nameOfProject)!
+            if curIdx != 0 {
+                // not already in front, move it there now
+                names.remove(at: curIdx)
+                names.insert(nameOfProject, at: 0)
+            }
+        }
+        
+        // ensure that we're not saving too many
+        if names.count >= maxRecentProjects {
+            // got too big, need to remove the last one
+            names.removeLast()
+        }
+        
+        // now save
+        UserDefaults.standard.set(names, forKey: recentProjectsKey)
+        UserDefaults.standard.synchronize()
+    }
+    
+    
+    
     func loadExample(text: String, ofType: PepFileType) {
         switch ofType {
         case .pep:
@@ -109,6 +165,7 @@ class ProjectModel {
     func saveExistingProject() {
         if p9FileSystem.updateProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
+            addProjectNameToRecents(name)
         } else {
             // project could not be updated in FS
         }
@@ -118,6 +175,7 @@ class ProjectModel {
         name = withName
         if p9FileSystem.saveNewProject(named: name, source: sourceStr, object: objectStr, listing: listingStr) {
             fsState = .SavedNamed
+            addProjectNameToRecents(name)
         }
     }
     
@@ -167,11 +225,14 @@ class ProjectModel {
     }
     
     
+    // MARK: Why is this here?
     // Post: Searces for the string ";ERROR: " on each line and removes the end of the line.
     // Post: Searces for the string ";WARNING: " on each line and removes the end of the line.
     func removeErrorMessages() {
         
     }
+    
+    
     
     
     
