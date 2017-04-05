@@ -8,7 +8,7 @@
 import UIKit
 import FontAwesome_swift
 import MessageUI
-import PKHUD
+//import PKHUD
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
 typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
@@ -700,11 +700,11 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 y.append(i.toHex2())
             }
             print(y)
-            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
+//            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
 
         } else {
             let error = assembler.assemblyFailureMessage.replacingOccurrences(of: ";ERROR: ", with: "")
-            HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
+//            HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
         }
         updateEditorsFromProjectModel() // in case there were any error messages in the assembly process
         

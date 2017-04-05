@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>PKHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods-pep9pad.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -52,12 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B08F20240E657ACF690BE31069C1DFA6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EF4F067C2D0E135B80299B089E168BDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EF676E81BB00BAB5E6E0F35C71CDD72D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6F0516F82D07656D12F1C0716898F73</key>
 		<dict>
 			<key>primary</key>
 			<true/>

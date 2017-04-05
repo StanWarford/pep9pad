@@ -11,6 +11,7 @@ import UIKit
 class RedefineMnemonics: NSObject, UITextFieldDelegate {
     
     // MARK: - Properties
+
     
     var unaryTextField1: UITextField! {
         didSet {
@@ -19,71 +20,11 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
             unaryTextField1.addLabel(text: "0010 0110")
         }
     }
-    
-    var unaryTextField2: UITextField! {
-        didSet {
-            unaryTextField2.delegate = self
-            unaryTextField2.tag = 1
-            unaryTextField2.addLabel(text: "0010 0111")
-        }
-    }
-    
-    var nonUnaryTextField1: UITextField! {
-        didSet {
-            nonUnaryTextField1.delegate = self
-            nonUnaryTextField1.tag = 2
-            nonUnaryTextField1.addLabel(text: "00101")
-        }
-    }
-    
-    var nonUnaryTextField2: UITextField! {
-        didSet {
-            nonUnaryTextField2.delegate = self
-            nonUnaryTextField2.tag = 3
-            nonUnaryTextField2.addLabel(text: "00110")
-        }
-    }
-    
-    var nonUnaryTextField3: UITextField! {
-        didSet {
-            nonUnaryTextField3.delegate = self
-            nonUnaryTextField3.tag = 4
-            nonUnaryTextField3.addLabel(text: "00111")
-        }
-    }
-    
-    var nonUnaryTextField4: UITextField! {
-        didSet {
-            nonUnaryTextField4.delegate = self
-            nonUnaryTextField4.tag = 5
-            nonUnaryTextField4.addLabel(text: "01000")
-        }
-    }
-    
-    var nonUnaryTextField5: UITextField! {
-        didSet {
-            nonUnaryTextField5.delegate = self
-            nonUnaryTextField5.tag = 6
-            nonUnaryTextField5.addLabel(text: "01001")
-        }
-    }
+ 
     
     // for assistance with tags...
     
     let unary1 = 0
-    let unary2 = 1
-    let nonunary1 = 2
-    let nonunary2 = 3
-    let nonunary3 = 4
-    let nonunary4 = 5
-    let nonunary5 = 6
-    
-    
-    
-    
-    
-    
-    
     
     // MARK: - Methods -
     func makeAlert() -> UIAlertController {
@@ -93,29 +34,15 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
             self.unaryTextField1 = unaryTextField1
         }
         
-        alertController.addTextField() { unaryTextField2 in
-            self.unaryTextField2 = unaryTextField2
-        }
+        let alertView: UIView! = UIView()
         
-        alertController.addTextField() { nonUnaryTextField1 in
-            self.nonUnaryTextField1 = nonUnaryTextField1
-        }
+        let unaryLabel: UILabel = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         
-        alertController.addTextField() { nonUnaryTextField2 in
-            self.nonUnaryTextField2 = nonUnaryTextField2
-        }
+        unaryLabel.text = "IT WORKED!"
         
-        alertController.addTextField() { nonUnaryTextField3 in
-            self.nonUnaryTextField3 = nonUnaryTextField3
-        }
+        alertView.addSubview(unaryLabel)
         
-        alertController.addTextField() { nonUnaryTextField4 in
-            self.nonUnaryTextField4 = nonUnaryTextField4
-        }
-        
-        alertController.addTextField() { nonUnaryTextField5 in
-            self.nonUnaryTextField5 = nonUnaryTextField5
-        }
+        alertController.view.addSubview(alertView)
         
         alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
         
@@ -131,12 +58,6 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
         if textToConvert.isEmpty {
             //clearAnyErrors()
             unaryTextField1.text = ""
-            unaryTextField2.text = ""
-            nonUnaryTextField1.text = ""
-            nonUnaryTextField2.text = ""
-            nonUnaryTextField3.text = ""
-            nonUnaryTextField4.text = ""
-            nonUnaryTextField5.text = ""
             return
         }
         
@@ -144,27 +65,6 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
         switch textField.tag {
         case unary1:
            // TODO
-            break
-        case unary2:
-            // TODO
-            break
-            
-        case nonunary1:
-            // TODO
-            break
-            
-        case nonunary2:
-            // TODO
-            break
-            
-        case nonunary3:
-            // TODO
-            break
-        case nonunary4:
-            // TODO
-            break
-        case nonunary5:
-            // TODO
             break
         default:
             break
