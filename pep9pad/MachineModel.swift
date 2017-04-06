@@ -234,8 +234,7 @@ class MachineModel {
         case .None, .All:
             break
         case .I:
-            // illegal
-            break
+            break // illegal
         case .D:
             writeByte(memAddr: operandSpecifier, value: value)
         case .N:
@@ -258,8 +257,7 @@ class MachineModel {
         case .None, .All:
             break
         case .I:
-            // illegal
-            break
+            break // illegal
         case .D:
             writeWord(memAddr: operandSpecifier, value: value)
         case .N:

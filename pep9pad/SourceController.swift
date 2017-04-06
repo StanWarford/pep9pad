@@ -34,7 +34,7 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     }
     
     
-    // MARK: - Conformance to ProjectM  odelEditor
+    // MARK: - Conformance to ProjectModelEditor
     
     /// Updates the contents of the `textView` with `projectModel.sourceStr`.
     func pullFromProjectModel() {

@@ -167,7 +167,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "\n\n\n\n", message: nil, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
         
         // TODO: add trace traps switch
         
