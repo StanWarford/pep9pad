@@ -198,16 +198,15 @@ extension NSRegularExpression {
         let results = matches(in: ns as String, range: NSRange(location: 0, length: ns.length))
         return results.map { ns.substring(with: $0.range)}
     }
-    
-    // MARK: NO IDEA IF THIS WORKS
-    func cap(section: Int) -> String {
-        var value: String = ""
-        let outline: [String] = [rxFormatTag.pattern]
-        for i in 0...3 {
-            value = outline[i]
-        }
-        return value
+
+    func numberOfMatchesIn(_ str: String) -> Int {
+        let ns = str as NSString
+        //return self.firstMatch(in: str, options: .reportCompletion, range: str.fullRange())?.components
+        let results = matches(in: ns as String, range: NSRange(location: 0, length: ns.length))
+        let m = results.map { ns.substring(with: $0.range)}
+        return m.count
     }
+
     
     func matchedLength() -> Int {
         return 0

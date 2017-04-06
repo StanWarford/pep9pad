@@ -108,7 +108,7 @@ class NonUnaryInstruction: Code {
             let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
             if pos > -1 {
                 var list: [String] = [""]
-                let formatTag: String = rxFormatTag.cap(section: 0)
+                let formatTag: String = rxFormatTag.matchesIn(comment)[0]
                 let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
                 let multiplier: Int = assembler.formatMultiplier(formatTag)
                 let symbolDef: String = memAddress.toHex2()
@@ -140,8 +140,11 @@ class NonUnaryInstruction: Code {
             var list: [String] = [""]
             var numBytesListed: Int = 0
             var pos: Int = rxSymbolTag.index(ofAccessibilityElement: comment)
-            while pos > -1 {
-                symbol = rxSymbolTag.cap(section: 1)
+            
+            let matches = rxSymbolTag.matchesIn(comment)
+            
+            for i in matches {
+                symbol = i.replacingOccurrences(of: "#", with: "")
                 if !maps.equateSymbols.contains(symbol) {
                     errorString = ";WARNING: " + symbol + " not specified in .EQUATE."
                     sourceLine = sourceCodeLine
@@ -149,8 +152,9 @@ class NonUnaryInstruction: Code {
                 }
                 numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
                 list.append(symbol)
-                pos += rxSymbolTag.matchedLength()
             }
+        
+            
             if numBytesAllocated != numBytesListed {
                 let message: String = (mnemonic == EMnemonic.ADDSP) ? "deallocated" : "allocated"
                 errorString = ";WARNING Number of bytes " + message + " (" + numBytesAllocated.toHex2() + ") not equal to number of bytes listed in trace tag (" + numBytesAllocated.toHex2() + ")."
@@ -164,13 +168,16 @@ class NonUnaryInstruction: Code {
             var symbol: String
             var list: [String] = [""]
             var pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
-            while pos > -1 {
-                symbol = rxSymbolTag.cap(section: 1)
+            
+            let matches = rxSymbolTag.matchesIn(comment)
+            
+            for i in matches {
+                symbol = i.replacingOccurrences(of: "#", with: "")
                 if !maps.equateSymbols.contains(symbol) && !maps.blockSymbols.contains(symbol) {
                     errorString = ";WARNING " + symbol + " not specified in .EQUATE."
                     sourceLine = sourceCodeLine
                     return false
-                }
+            }
                 list.append(symbol)
                 pos += rxSymbolTag.matchedLength()
             }

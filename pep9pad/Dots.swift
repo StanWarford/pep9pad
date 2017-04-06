@@ -239,7 +239,7 @@ class DotBlock: Code {
         }
         let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
         if pos > -1 {
-            let formatTag: String = rxFormatTag.cap(section: 0)
+            let formatTag: String = rxFormatTag.matchesIn(comment)[0]
             let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
             let multiplier: Int = assembler.formatMultiplier(formatTag)
             if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
@@ -263,19 +263,23 @@ class DotBlock: Code {
         }
         
         let numBytesAllocated: Int = argument.getArgumentValue()
-        var symbol: String
+        var symbol: String = ""
         var list: [String] = []
         var numBytesListed: Int = 0
-        while rxSymbolTag.appearsIn(comment) {  // UPDATE
-            symbol = rxSymbolTag.cap(section: 1)
+        
+        let matches = rxSymbolTag.matchesIn(comment)
+        
+        for i in matches {
+            symbol = i.replacingOccurrences(of: "#", with: "")
             if !(maps.equateSymbols.contains(symbol)) {
                 errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                 sourceLine = sourceCodeLine
                 return false
             }
+
+        }
             numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
             list.append(symbol)
-        }
         if (numBytesAllocated != numBytesListed) && (numBytesListed > 0) {
             errorString = ";WARNING: Number of bytes allocated (" //+  UPDATE
             sourceLine = sourceCodeLine
