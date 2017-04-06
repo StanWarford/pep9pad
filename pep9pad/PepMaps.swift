@@ -165,13 +165,17 @@ class PepMaps {
     var decodeAddrMode: [EAddrMode] = []
 
     
-    // .BURN and the ROM state
+    /// The number of bytes occupied by the assembled source.
     var byteCount: Int = 0
+    /// The number of .BURN directives found in the source.
     var burnCount: Int = 0
+    /// The argument of the .BURN command. Defaults to 0xFFFF (65535).
+    /// Can think of it as the end of ROM.
     var dotBurnArgument: Int = 65535
+    /// The beginning of ROM, equal to dotBurnArgument minus size of OS.
     var romStartAddress: Int = 0
     
-    // Memory trace state
+    /// This is true iff the assembled source contains an errant trace tag.
     var traceTagWarning: Bool = false
     
     
