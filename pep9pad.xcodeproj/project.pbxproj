@@ -178,11 +178,11 @@
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
-		7537805E1E8DCD47002E1968 /* CircularTransistion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780581E8DCD47002E1968 /* CircularTransistion.swift */; };
-		7537805F1E8DCD47002E1968 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 753780591E8DCD47002E1968 /* logo1.jpg */; };
-		753780601E8DCD47002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7537805A1E8DCD47002E1968 /* Main.storyboard */; };
-		753780611E8DCD47002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537805C1E8DCD47002E1968 /* SecondViewController.swift */; };
-		753780621E8DCD47002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537805D1E8DCD47002E1968 /* ViewController.swift */; };
+		753780641E96F80B002E1968 /* CircularTransistion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780631E96F80B002E1968 /* CircularTransistion.swift */; };
+		753780661E96F862002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780651E96F862002E1968 /* ViewController.swift */; };
+		753780681E96F873002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780671E96F873002E1968 /* SecondViewController.swift */; };
+		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
+		7537806C1E96FA4B002E1968 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7537806B1E96FA4B002E1968 /* logo1.jpg */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
 		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
@@ -396,11 +396,11 @@
 		46F5F26E1DCA626B002880FE /* ProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModel.swift; sourceTree = "<group>"; };
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
 		4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		753780581E8DCD47002E1968 /* CircularTransistion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularTransistion.swift; path = ../../Desktop/TestTransition/TestTransition/CircularTransistion.swift; sourceTree = "<group>"; };
-		753780591E8DCD47002E1968 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo1.jpg; path = ../../Desktop/TestTransition/logo1.jpg; sourceTree = "<group>"; };
-		7537805B1E8DCD47002E1968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Desktop/TestTransition/TestTransition/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7537805C1E8DCD47002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../../Desktop/TestTransition/TestTransition/SecondViewController.swift; sourceTree = "<group>"; };
-		7537805D1E8DCD47002E1968 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../Desktop/TestTransition/TestTransition/ViewController.swift; sourceTree = "<group>"; };
+		753780631E96F80B002E1968 /* CircularTransistion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularTransistion.swift; sourceTree = "<group>"; };
+		753780651E96F862002E1968 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		753780671E96F873002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		753780691E96F951002E1968 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7537806B1E96FA4B002E1968 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo1.jpg; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
@@ -727,11 +727,11 @@
 		46C608D41C8EADD700CC161A /* Launch */ = {
 			isa = PBXGroup;
 			children = (
-				753780581E8DCD47002E1968 /* CircularTransistion.swift */,
-				753780591E8DCD47002E1968 /* logo1.jpg */,
-				7537805A1E8DCD47002E1968 /* Main.storyboard */,
-				7537805C1E8DCD47002E1968 /* SecondViewController.swift */,
-				7537805D1E8DCD47002E1968 /* ViewController.swift */,
+				753780691E96F951002E1968 /* Main.storyboard */,
+				7537806B1E96FA4B002E1968 /* logo1.jpg */,
+				753780631E96F80B002E1968 /* CircularTransistion.swift */,
+				753780651E96F862002E1968 /* ViewController.swift */,
+				753780671E96F873002E1968 /* SecondViewController.swift */,
 				D2A9BCC81D77680E00C69724 /* Home.storyboard */,
 				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
@@ -1127,6 +1127,7 @@
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
 				D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */,
 				46EC8A601C989229001405CE /* fig0512.pep in Resources */,
+				7537806C1E96FA4B002E1968 /* logo1.jpg in Resources */,
 				46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */,
 				46EC8AC81C9895CC001405CE /* fig0514a.pep in Resources */,
 				46EC8AC91C9895CC001405CE /* fig0514b.pep in Resources */,
@@ -1200,7 +1201,6 @@
 				461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */,
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
 				461875AA1C900D740095B818 /* problems.html in Resources */,
-				7537805F1E8DCD47002E1968 /* logo1.jpg in Resources */,
 				462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */,
 				462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
@@ -1208,7 +1208,7 @@
 				D2B061641C7E62040088CEBE /* Images.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
 				462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */,
-				753780601E8DCD47002E1968 /* Main.storyboard in Resources */,
+				7537806A1E96F951002E1968 /* Main.storyboard in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
@@ -1289,7 +1289,6 @@
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
-				753780621E8DCD47002E1968 /* ViewController.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
@@ -1297,6 +1296,7 @@
 				464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */,
 				464DE4761E6A00AB00763503 /* FontMenuSizeCell.swift in Sources */,
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
+				753780681E96F873002E1968 /* SecondViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
@@ -1329,7 +1329,6 @@
 				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
-				7537805E1E8DCD47002E1968 /* CircularTransistion.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
@@ -1343,10 +1342,11 @@
 				46EC8A621C9892F6001405CE /* PepFileType.swift in Sources */,
 				46F46D391C8F70520092EF04 /* HelpMasterController.swift in Sources */,
 				46C76A5A1DA70BE20071C340 /* FSDetailController.swift in Sources */,
+				753780641E96F80B002E1968 /* CircularTransistion.swift in Sources */,
 				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
+				753780661E96F862002E1968 /* ViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
-				753780611E8DCD47002E1968 /* SecondViewController.swift in Sources */,
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
@@ -1397,14 +1397,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7537805A1E8DCD47002E1968 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7537805B1E8DCD47002E1968 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D2B0615D1C7E62040088CEBE /* Pep9Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
