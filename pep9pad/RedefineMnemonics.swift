@@ -20,6 +20,15 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
             unaryTextField1.addLabel(text: "0010 0110")
         }
     }
+    
+    var unaryLabel: UILabel = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+    
+    var alertView: UIView! {
+        didSet {
+            unaryLabel.text = "WORKED FAM!"
+            alertView.addSubview(unaryLabel)
+        }
+    }
  
     
     // for assistance with tags...
@@ -30,19 +39,28 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
     func makeAlert() -> UIAlertController {
         let alertController = UIAlertController(title: "Redefine Mnemonics", message: nil, preferredStyle: .alert)
         
+        
+        // Unary Label
+        let unaryLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        unaryLabel.text = "IT WORKED!"
+        
+        // Other Label
+        let otherLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 100, width: 100, height: 100))
+        otherLabel.text = "ROUND 2"
+    
+
+        
         alertController.addTextField() { unaryTextField1 in
             self.unaryTextField1 = unaryTextField1
         }
         
+        
+        // Overall View
         let alertView: UIView! = UIView()
-        
-        let unaryLabel: UILabel = UILabel(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
-        
-        unaryLabel.text = "IT WORKED!"
-        
         alertView.addSubview(unaryLabel)
-        
+        alertView.addSubview(otherLabel)
         alertController.view.addSubview(alertView)
+        
         
         alertController.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
         
