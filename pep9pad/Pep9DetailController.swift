@@ -30,7 +30,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     internal let byteCalc = ByteCalc()
     internal let fontMenu = FontMenu()
     internal let mailer = Pep9Mailer()
-    internal let redefineMnemonics = RedefineMnemonics()
+    internal let redefineUnaryMnemonics = RedefineUnaryMnemonics()
+    internal let redefineNonunaryMnemonics = RedefineNonunaryMnemonics()
 
     // Code Declaration
     let code = Code()
@@ -306,12 +307,19 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         alertController.addAction(clearMemAction)
         
-        let redefineMnemonicsAction = UIAlertAction(title: "Redefine Mnemonics", style: .default) { (action) in
-            let redefineMnemon = self.redefineMnemonics.makeAlert()
-            self.present(redefineMnemon, animated: true, completion: nil)
+        let redefineUnaryMnemonicsAction = UIAlertAction(title: "Redefine Unary Mnemonics", style: .default) { (action) in
+            let redefineUnaryMnemon = self.redefineUnaryMnemonics.makeAlert()
+            self.present(redefineUnaryMnemon, animated: true, completion: nil)
 
         }
-        alertController.addAction(redefineMnemonicsAction)
+        alertController.addAction(redefineUnaryMnemonicsAction)
+        
+        let redefineNonunaryMnemonicsAction = UIAlertAction(title: "Redefine Nonunary Mnemonics", style: .default) { (action) in
+            let redefineNonunaryMnemon = self.redefineNonunaryMnemonics.makeAlert()
+            self.present(redefineNonunaryMnemon, animated: true, completion: nil)
+            
+        }
+        alertController.addAction(redefineNonunaryMnemonicsAction)
         
         let installNewOSAction = UIAlertAction(title: "Install New OS", style: .default) { (action) in
             maps.burnCount = 0

@@ -178,6 +178,7 @@
 		46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F26E1DCA626B002880FE /* ProjectModel.swift */; };
 		46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */; };
 		7218032BDD75923C015F65BB /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */; };
+		868C80381E97089B005A0E45 /* RedefineNonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868C80371E97089B005A0E45 /* RedefineNonunaryMnemonics.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
 		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
@@ -199,7 +200,7 @@
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
 		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */; };
-		F613FD6F1E89D1F4003939C0 /* RedefineMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */; };
+		F613FD6F1E89D1F4003939C0 /* RedefineUnaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613FD6E1E89D1F4003939C0 /* RedefineUnaryMnemonics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -393,6 +394,7 @@
 		46F5F2701DCBB35F002880FE /* ProjectModelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectModelEditor.swift; sourceTree = "<group>"; };
 		4754CCD7487D1452FD4AFE17 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		868C80371E97089B005A0E45 /* RedefineNonunaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedefineNonunaryMnemonics.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepl; sourceTree = "<group>"; };
@@ -421,7 +423,7 @@
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
 		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailController.swift; sourceTree = "<group>"; };
-		F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RedefineMnemonics.swift; path = pep9pad/RedefineMnemonics.swift; sourceTree = "<group>"; };
+		F613FD6E1E89D1F4003939C0 /* RedefineUnaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RedefineUnaryMnemonics.swift; path = pep9pad/RedefineUnaryMnemonics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -532,7 +534,8 @@
 		4637EF8F1E5D843C007593E1 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */,
+				F613FD6E1E89D1F4003939C0 /* RedefineUnaryMnemonics.swift */,
+				868C80371E97089B005A0E45 /* RedefineNonunaryMnemonics.swift */,
 				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
 				4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */,
 				464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */,
@@ -1286,6 +1289,7 @@
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */,
+				868C80381E97089B005A0E45 /* RedefineNonunaryMnemonics.swift in Sources */,
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
@@ -1302,7 +1306,7 @@
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
-				F613FD6F1E89D1F4003939C0 /* RedefineMnemonics.swift in Sources */,
+				F613FD6F1E89D1F4003939C0 /* RedefineUnaryMnemonics.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
 				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,

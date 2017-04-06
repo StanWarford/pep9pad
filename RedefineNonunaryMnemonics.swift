@@ -1,17 +1,17 @@
 //
-//  RedefineMnemonics.swift
+//  RedefineNonunaryMnemonics.swift
 //  pep9pad
 //
-//  Created by paul haefele on 3/23/17.
+//  Created by Frank Garcia on 4/6/17.
 //  Copyright © 2017 Pepperdine University. All rights reserved.
 //
 
 import UIKit
 
-class RedefineMnemonics: NSObject, UITextFieldDelegate {
+class RedefineNonunaryMnemonics: NSObject, UITextFieldDelegate {
     
     // MARK: - Properties
-
+    
     
     var unaryTextField1: UITextField! {
         didSet {
@@ -29,7 +29,7 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
             alertView.addSubview(unaryLabel)
         }
     }
- 
+    
     
     // for assistance with tags...
     
@@ -47,8 +47,8 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
         // Other Label
         let otherLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 100, width: 100, height: 100))
         otherLabel.text = "ROUND 2"
-    
-
+        
+        
         
         alertController.addTextField() { unaryTextField1 in
             self.unaryTextField1 = unaryTextField1
@@ -82,7 +82,7 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
         
         switch textField.tag {
         case unary1:
-           // TODO
+            // TODO
             break
         default:
             break
@@ -98,41 +98,41 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
     }
     
     
-//    func errorInConverting(_ textField: UITextField, _ type: ConversionError) {
-//        
-//        let errorMessage = type.rawValue
-//        errorToClear = textField.tag
-//        let errorColor = appSettings.getColorFor(.errorText)
-//        
-//        switch textField.tag {
-//        case unary1: unaryTextField1.addLabel(text: "Unary 1 - \(errorMessage)", color: errorColor)
-//        case unary2: unaryTextField2.addLabel(text: "Unary 2 - \(errorMessage)", color: errorColor)
-//        case nonunary1: nonUnaryTextField1.addLabel(text: "NonUnary 1 - \(errorMessage)", color: errorColor)
-//        case nonunary2: nonUnaryTextField2.addLabel(text: "NonUnary 2 - \(errorMessage)", color: errorColor)
-//        case nonunary3: nonUnaryTextField3.addLabel(text: "NonUnary 3 - \(errorMessage)", color: errorColor)
-//        case nonunary4: nonUnaryTextField4.addLabel(text: "NonUnary 4 - \(errorMessage)", color: errorColor)
-//        case nonunary5: nonUnaryTextField5.addLabel(text: "NonUnary 5 - \(errorMessage)", color: errorColor)
-//        default: break
-//            // user can't edit assemblyField, so won't get an error
-//        }
-//    }
-//    
-//    
-//    func clearAnyErrors() {
-//        if errorToClear == nil {
-//            return
-//        }
-//        
-//        switch errorToClear {
-//        case dec: decimalField.addLabel(text: "Decimal")
-//        case bin: binaryField.addLabel(text: "Binary")
-//        case hex: hexField.addLabel(text: "Hex (0x)")
-//        case ascii: asciiField.addLabel(text: "Ascii")
-//        default: break
-//        }
-//        
-//        errorToClear = nil
-//    }
+    //    func errorInConverting(_ textField: UITextField, _ type: ConversionError) {
+    //
+    //        let errorMessage = type.rawValue
+    //        errorToClear = textField.tag
+    //        let errorColor = appSettings.getColorFor(.errorText)
+    //
+    //        switch textField.tag {
+    //        case unary1: unaryTextField1.addLabel(text: "Unary 1 - \(errorMessage)", color: errorColor)
+    //        case unary2: unaryTextField2.addLabel(text: "Unary 2 - \(errorMessage)", color: errorColor)
+    //        case nonunary1: nonUnaryTextField1.addLabel(text: "NonUnary 1 - \(errorMessage)", color: errorColor)
+    //        case nonunary2: nonUnaryTextField2.addLabel(text: "NonUnary 2 - \(errorMessage)", color: errorColor)
+    //        case nonunary3: nonUnaryTextField3.addLabel(text: "NonUnary 3 - \(errorMessage)", color: errorColor)
+    //        case nonunary4: nonUnaryTextField4.addLabel(text: "NonUnary 4 - \(errorMessage)", color: errorColor)
+    //        case nonunary5: nonUnaryTextField5.addLabel(text: "NonUnary 5 - \(errorMessage)", color: errorColor)
+    //        default: break
+    //            // user can't edit assemblyField, so won't get an error
+    //        }
+    //    }
+    //
+    //
+    //    func clearAnyErrors() {
+    //        if errorToClear == nil {
+    //            return
+    //        }
+    //
+    //        switch errorToClear {
+    //        case dec: decimalField.addLabel(text: "Decimal")
+    //        case bin: binaryField.addLabel(text: "Binary")
+    //        case hex: hexField.addLabel(text: "Hex (0x)")
+    //        case ascii: asciiField.addLabel(text: "Ascii")
+    //        default: break
+    //        }
+    //
+    //        errorToClear = nil
+    //    }
     
     
     // MARK: - Fulfilling Obligations as UITextFieldDelegate
@@ -161,3 +161,4 @@ class RedefineMnemonics: NSObject, UITextFieldDelegate {
     
     
 }
+
