@@ -13,6 +13,7 @@ class pep9padTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
     
     override func tearDown() {
@@ -23,7 +24,62 @@ class pep9padTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        assembler.installDefaultOS()
+        for i in Figures.allValues where !i.rawValue.contains("Figure 4") {
+            var name = i.rawValue
+            // change name to look like those in the filesystem
+            name = name.replacingOccurrences(of: "Figure ", with: "fig0")
+            name = name.replacingOccurrences(of: ".", with: "")
+            let pathToSource = Bundle.main.path(forResource: name, ofType: "pep")
+            let pathToObject = Bundle.main.path(forResource: name, ofType: "pepo")
+            
+            do {
+                print("Testing \(name)...")
+                var sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
+                var objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
+                var correctObject = objectStr.components(separatedBy: [" ", "\n"])
+                projectModel.sourceStr = sourceStr
+                if assembler.assemble() {
+                    var anObject: [Int] = []
+                    var toRet = ""
+                    var error = false
+                    for i in 0..<assembler.source.count {
+                        assembler.source[i].appendObjectCode(objectCode: &anObject)
+                    }
+                    
+                    // Notice the range: 1 to inclusive len of array.
+                    // If you don't do this then the mod won't work properly on first row.
+                    for j in 1...anObject.count {
+                        let hex = anObject[j-1].toHex2()
+                        if hex == correctObject[j-1] {
+                            toRet.append(hex)
+                        } else {
+                            toRet.append("[\(hex)]")
+                            error = true
+                        }
+                        if (j % 16) == 0 {
+                            toRet.append("\n")
+                        } else {
+                            toRet.append(" ")
+                        }
+                    }
+                    print(error ? "Error detected in \(name)." : "Correctly assembled \(name).")
+                    print(toRet)
+                } else {
+                    XCTAssert(false)
+                }
+                
+                
+                
+                
+            } catch _ as NSError {
+                print("Could not load project.")
+                continue
+            }
+            
+        }
     }
+    
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
