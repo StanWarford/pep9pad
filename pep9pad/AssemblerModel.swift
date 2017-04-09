@@ -12,7 +12,7 @@ var assembler = AssemblerModel()
 
 // MARK: Regular expressions for lexical analysis
 // NOTE: the following variables use the `try!` modifier to force a pattern-matching attempt. `NSRegularExpression` throws an error if the pattern is invalid. Our patterns are fixed and thus will never `throw` an error.
-let rxAddrMode = try! NSRegularExpression(pattern: "^((,)(\\s*)(i|d|x|n|s(?![fx])|sx(?![f])|sf|sfx){1}){1}", options: [.caseInsensitive])
+let rxAddrMode = try! NSRegularExpression(pattern: "^((,)(\\s*)(i|d|x|n|s(?![fx])|sx(?![f])|sfx|sf){1}){1}", options: [.caseInsensitive])
 let rxCharConst = try! NSRegularExpression(pattern: "^((\')(?![\'])(([^\'\\\\]){1}|((\\\\)([\'|b|f|n|r|t|v|\"|\\\\]))|((\\\\)(([x|X])([0-9|A-F|a-f]{2}))))(\'))", options: [.caseInsensitive])
 let rxComment = try! NSRegularExpression(pattern: "^((;{1})(.)*)", options: [.caseInsensitive])
 let rxDecConst = try! NSRegularExpression(pattern: "^((([+|-]{0,1})([0-9]+))|^(([1-9])([0-9]*)))", options: [.caseInsensitive])
@@ -30,7 +30,7 @@ let rxArrayMultiplier = try! NSRegularExpression(pattern: "((\\d)+)a", options: 
 
 
 
-/// The highest level of abstraction in Pep9Pad.
+/// The highest level of abstraction in Pep9Pad.  
 class AssemblerModel {
     
     // MARK: - Properties
@@ -46,12 +46,6 @@ class AssemblerModel {
     /// The number of times a .BURN directive is found in the current project.
     /// Should equal 0 unless installing an OS (in which case it should be equal to (not greater than) 1).
     var burnCount: Int = 0
-    /// The number of bytes occupied by the current line.
-    var byteCount: Int = 0
-    /// The end of the ROM, written in Asmb as .BURN 0xFFFF or whatever.
-    var dotBurnArgument: Int = 0
-    /// The beginning of ROM, which is the dotBurnArgument - the size of the OS.
-    var romStartAddress: Int = 0
     /// The list of all referenced symbols in the assembly program.
     /// Each element is a 2-touple with a `source` and `lineNumber` attribute.
     var referencedSymbols: [ReferencedSymbol] = []
@@ -425,16 +419,17 @@ class AssemblerModel {
     /// Post: If the source line is not valid, false is returned and errorString is set to the error message.
     func processSourceLine(_ sourceLine: inout String, lineNum: Int, code: inout Code, errorString: inout String, dotEndDetected: inout Bool) -> Bool {
         
-        let nonUnaryInstruction = NonUnaryInstruction()
-        let dotAddrss = DotAddress()
-        let dotAlign = DotAlign()
-        let dotBurn = DotBurn()
-        let dotAscii = DotAscii()
-        let dotBlock = DotBlock()
-        let dotByte = DotByte()
-        let dotEnd = DotEnd()
-        let dotEquate = DotEquate()
-        let dotWord = DotWord()
+        var unaryInstruction = UnaryInstruction()
+        var nonUnaryInstruction = NonUnaryInstruction()
+        var dotAddrss = DotAddress()
+        var dotAlign = DotAlign()
+        var dotBurn = DotBurn()
+        var dotAscii = DotAscii()
+        var dotBlock = DotBlock()
+        var dotByte = DotByte()
+        var dotEnd = DotEnd()
+        var dotEquate = DotEquate()
+        var dotWord = DotWord()
         
         var token: ELexicalToken = .lt_COMMENT // Passed to getToken.
         var tokenString: String = ""// Passed to getToken.
@@ -455,7 +450,7 @@ class AssemblerModel {
                     if (maps.mnemonToEnumMap.keys).contains(tokenString.uppercased()) {
                         localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
                         if maps.isUnaryMap[localEnumMnemonic]! {
-                            let unaryInstruction = UnaryInstruction()
+                            unaryInstruction = UnaryInstruction()
                             unaryInstruction.symbolDef = ""
                             unaryInstruction.mnemonic = localEnumMnemonic
                             code = unaryInstruction
@@ -478,14 +473,14 @@ class AssemblerModel {
                     tokenString.remove(0, 1) // Remove the period
                     tokenString = tokenString.uppercased()
                     if (tokenString == "ADDRSS") {
-                        let dotAddress = DotAddress()
-                        dotAddress.symbolDef = ""
-                        code = dotAddress
+                        dotAddrss = DotAddress()
+                        dotAddrss.symbolDef = ""
+                        code = dotAddrss
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_ADDRSS
                     }
                     else if (tokenString == "ALIGN") {
-                        let dotAlign = DotAlign()
+                        dotAlign = DotAlign()
                         dotAlign.symbolDef = ""
                         code = dotAlign
                         code.memAddress = maps.byteCount
@@ -493,35 +488,35 @@ class AssemblerModel {
                         
                     }
                     else if (tokenString == "ASCII") {
-                        let dotAscii = DotAscii()
+                        dotAscii = DotAscii()
                         dotAscii.symbolDef = ""
                         code = dotAscii
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_ASCII
                     }
                     else if (tokenString == "BLOCK") {
-                        let dotBlock = DotBlock()
+                        dotBlock = DotBlock()
                         dotBlock.symbolDef = ""
                         code = dotBlock
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BLOCK
                     }
                     else if (tokenString == "BURN") {
-                        let dotBurn = DotBurn()
+                        dotBurn = DotBurn()
                         dotBurn.symbolDef = ""
                         code = dotBurn
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BURN
                     }
                     else if (tokenString == "BYTE") {
-                        let dotByte = DotByte()
+                        dotByte = DotByte()
                         dotByte.symbolDef = ""
                         code = dotByte
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BYTE
                     }
                     else if (tokenString == "END") {
-                        let dotEnd = DotEnd()
+                        dotEnd = DotEnd()
                         dotEnd.symbolDef = ""
                         code = dotEnd
                         code.memAddress = maps.byteCount
@@ -529,14 +524,14 @@ class AssemblerModel {
                         state = ParseState.ps_DOT_END
                     }
                     else if (tokenString == "EQUATE") {
-                        let dotEquate = DotEquate()
+                        dotEquate = DotEquate()
                         dotEquate.symbolDef = ""
                         code = dotEquate
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_EQUATE
                     }
                     else if (tokenString == "WORD") {
-                        let dotWord = DotWord()
+                        dotWord = DotWord()
                         dotWord.symbolDef = ""
                         code = dotWord
                         code.memAddress = maps.byteCount
@@ -614,42 +609,42 @@ class AssemblerModel {
                     tokenString.remove(0, 1) // Remove the period
                     tokenString = tokenString.uppercased()
                     if (tokenString == "ADDRSS") {
-                        let dotAddress = DotAddress()
-                        dotAddress.symbolDef = localSymbolDef
-                        code = dotAddress
+                        dotAddrss = DotAddress()
+                        dotAddrss.symbolDef = localSymbolDef
+                        code = dotAddrss
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_ADDRSS
                     }
                     else if (tokenString == "ASCII") {
-                        let dotAscii = DotAscii()
+                        dotAscii = DotAscii()
                         dotAscii.symbolDef = localSymbolDef
                         code = dotAscii
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_ASCII
                     }
                     else if (tokenString == "BLOCK") {
-                        let dotBlock = DotBlock()
+                        dotBlock = DotBlock()
                         dotBlock.symbolDef = localSymbolDef
                         code = dotBlock
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BLOCK
                     }
                     else if (tokenString == "BURN") {
-                        let dotBurn = DotBurn()
+                        dotBurn = DotBurn()
                         dotBurn.symbolDef = localSymbolDef
                         code = dotBurn
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BURN
                     }
                     else if (tokenString == "BYTE") {
-                        let dotByte = DotByte()
+                        dotByte = DotByte()
                         dotByte.symbolDef = localSymbolDef
                         code = dotByte
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_BYTE
                     }
                     else if (tokenString == "END") {
-                        let dotEnd = DotEnd()
+                        dotEnd = DotEnd()
                         dotEnd.symbolDef = localSymbolDef
                         code = dotEnd
                         code.memAddress = maps.byteCount
@@ -657,14 +652,14 @@ class AssemblerModel {
                         state = ParseState.ps_DOT_END
                     }
                     else if (tokenString == "EQUATE") {
-                        let dotEquare = DotEquate()
-                        dotEquare.symbolDef = localSymbolDef
-                        code = dotEquare
+                        dotEquate = DotEquate()
+                        dotEquate.symbolDef = localSymbolDef
+                        code = dotEquate
                         code.memAddress = maps.byteCount
                         state = ParseState.ps_DOT_EQUATE
                     }
                     else if (tokenString == "WORD") {
-                        let dotWord = DotWord()
+                        dotWord = DotWord()
                         dotWord.symbolDef = localSymbolDef
                         code = dotWord
                         code.memAddress = maps.byteCount
@@ -1145,26 +1140,29 @@ class AssemblerModel {
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: The memAddress field of each code object is incremented by addressDelta.
     func adjustSourceCode(addressDelta: Int) {
-        for i in 0...source.count {
+        for i in 0..<source.count {
             source[i].adjustMemAddress(addressDelta: addressDelta)
         }
     }
     
     // Pre: self.object is populated with code from a complete correct Pep/9 OS source program.
-    // Post: self.object is loaded into OS rom of pep.mem
-    func installOS() {
-        for i in 0...65536 {
+    // Post: self.object is loaded into OS rom of `machine.mem`.
+    func loadOSIntoMem() {
+        // clear memory first
+        for i in 0..<65536 {
             machine.mem[i] = 0
         }
-        let j: Int = maps.romStartAddress
-        let z: Int = j + 1
-        for i in 0...object.count {        // MARK: might need to change this
-            machine.mem[z] = object[i]     // MARK: might need to change this
+        
+        var j: Int = maps.romStartAddress
+        for i in 0..<object.count {
+            machine.mem[j] = object[i]
+            j += 1
         }
+        print("OS loaded")
     }
     
-    // Post: the pep/9 operating system is installed into memory, and true is returned
-    // If assembly fails, false is returned
+    // Post: the pep/9 operating system is installed into memory, and true is returned.
+    // If assembly fails, false is returned.
     // This function should only be called on program startup once
     func installDefaultOS() -> Bool {
         var sourceLine: String
@@ -1218,9 +1216,9 @@ class AssemblerModel {
         
         //Adjust for .BURN
         
-        var addressDelta: Int = maps.dotBurnArgument - maps.burnCount + 1
+        var addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
         var symbolTableSize: Int = maps.symbolTable.count
-        for (kind, numbers) in maps.symbolTable {
+        for (kind, _) in maps.symbolTable {
             var valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
             if valueAtCurrentKey {
                 maps.symbolTable[kind] = maps.symbolTable[kind]! + addressDelta
@@ -1229,7 +1227,7 @@ class AssemblerModel {
         adjustSourceCode(addressDelta: addressDelta)
         maps.romStartAddress += addressDelta
         getObjectCode()
-        installOS()
+        loadOSIntoMem()
         return true
     }
     

@@ -12,7 +12,7 @@ class MachineModel {
     
     
     // MARK: - Properties
-    /// Main memory, pre-allocated
+    /// Main memory, pre-allocated to 64KiB (== 65536 bytes)
     var mem: [Int] = [Int](repeating: 0, count: 65536)
     
     // MARK: CPU
@@ -31,13 +31,6 @@ class MachineModel {
     var modifiedBytes: Set<Int>
     var trapped: Bool
     var tracingTraps: Bool
-    
-    
-    /// .BURN and the ROM State
-    var romStartAddress: Int
-    
-    /// State for keeping track of what actions are possible for user and machine.  Unused in Pep9.
-    //var executionState: EExecState
     
     
     // MARK: - Initializer
@@ -61,9 +54,7 @@ class MachineModel {
         modifiedBytes = Set()
         trapped = false
         tracingTraps = false
-        
-        romStartAddress = 0
-        
+                
     }
     
     /// Pre: 0 <= value < 65536
@@ -211,7 +202,7 @@ class MachineModel {
     /// Pre: 0 <= value < 256
     /// Post: Value is stored in mem[addr]
     func writeByte(memAddr: Int, value: Int) {
-        if (memAddr < romStartAddress) {
+        if (memAddr < maps.romStartAddress) {
             mem[memAddr & 0xffff] = value
             modifiedBytes.insert(memAddr & 0xffff)
         }
@@ -221,7 +212,7 @@ class MachineModel {
     /// Post: The high-end byte of value is stored in mem[memAddr]
     /// and the low-end byte of value is stored in mem[memAddr + 1]
     func writeWord(memAddr: Int, value: Int) {
-        if (memAddr < romStartAddress) {
+        if (memAddr < maps.romStartAddress) {
             mem[memAddr & 0xffff] = value / 256
             mem[(memAddr + 1) & 0xffff] = value % 256
             modifiedBytes.insert(memAddr & 0xffff)

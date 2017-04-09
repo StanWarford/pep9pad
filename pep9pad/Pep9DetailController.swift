@@ -343,7 +343,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     self.setObjectCode(objectCode: assembler.getObjectCode())
                     assembler.listing = assembler.getAssemblerListing()
                     assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
-                    assembler.installOS()
+                    assembler.loadOSIntoMem()
                     self.master.io.memoryView.refreshAll()
                     // MARK: ui bar subject to change
                     print("Assembly succeeded, OS installed")
@@ -364,8 +364,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             maps.listingRowChecked = maps.listingRowCheckedOS
             if assembler.installDefaultOS() {
                 assembler.getAssemblerListing()
-                assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
+                //assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                 print("OS Installed")
+                print(assembler.getObjectCode())
             } else {
                 print("OS assembly failed")
             }

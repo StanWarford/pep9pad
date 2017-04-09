@@ -171,7 +171,7 @@ class PepMaps {
     var burnCount: Int = 0
     /// The argument of the .BURN command. Defaults to 0xFFFF (65535).
     /// Can think of it as the end of ROM.
-    var dotBurnArgument: Int = 65535
+    var dotBurnArgument: Int = 0
     /// The beginning of ROM, equal to dotBurnArgument minus size of OS.
     var romStartAddress: Int = 0
     
