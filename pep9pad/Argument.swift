@@ -120,7 +120,11 @@ class SymbolRefArgument: Argument {
             if (maps.symbolTable.arrayOfKeys() as! [String]).contains("charIn") {
                 return maps.symbolTable[symbolRefValue]!
             } else {
-                return 256 * machine.mem[maps.dotBurnArgument-7] + machine.mem[maps.dotBurnArgument-6]
+                let a = machine.mem[maps.dotBurnArgument-7]
+                let b = machine.mem[maps.dotBurnArgument-6]
+                print("a=\(a)")
+                print("b=\(b)")
+                return 256*a+b
             }
         }
         else if (symbolRefValue == "charOut") {

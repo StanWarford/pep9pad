@@ -150,6 +150,14 @@ extension String {
             return 0
         }
     }
+    
+    func hexToInt() -> Int {
+        if let d = Int(self, radix: 16) {
+            return Int(d)
+        } else {
+            return 0
+        }
+    }
 }
 
 extension Dictionary where Key:Any {

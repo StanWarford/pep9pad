@@ -99,6 +99,7 @@
 		46539C901E9AF19F00718705 /* fig0644.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46539C871E9AF19F00718705 /* fig0644.pepo */; };
 		46539C911E9AF19F00718705 /* fig0646.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46539C881E9AF19F00718705 /* fig0646.pepo */; };
 		46539C921E9AF19F00718705 /* fig0648.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46539C891E9AF19F00718705 /* fig0648.pepo */; };
+		46539C941E9AF3A900718705 /* pep9os.pepo in Resources */ = {isa = PBXBuildFile; fileRef = 46539C931E9AF3A900718705 /* pep9os.pepo */; };
 		46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
 		4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */; };
@@ -354,6 +355,7 @@
 		46539C871E9AF19F00718705 /* fig0644.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig0644.pepo; sourceTree = "<group>"; };
 		46539C881E9AF19F00718705 /* fig0646.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig0646.pepo; sourceTree = "<group>"; };
 		46539C891E9AF19F00718705 /* fig0648.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig0648.pepo; sourceTree = "<group>"; };
+		46539C931E9AF3A900718705 /* pep9os.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pep9os.pepo; path = pep9pad/pep9os.pepo; sourceTree = "<group>"; };
 		46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencedSymbol.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
 		4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CHighlightingPatterns.plist; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 				46539C641E9AEED700718705 /* fig0629.pepo */,
 			);
 			name = ObjectCodeForExamples;
+			path = ../pep9padUITests;
 			sourceTree = "<group>";
 		};
 		465C76241C90DBF30029311F /* Help Documentation */ = {
@@ -964,6 +967,7 @@
 				46EC8A631C9895CC001405CE /* exer0804.pep */,
 				46EC8A641C9895CC001405CE /* fig0433.pepb */,
 				46EC8A651C9895CC001405CE /* fig0433.peph */,
+				46539C931E9AF3A900718705 /* pep9os.pepo */,
 				46EC8A661C9895CC001405CE /* fig0433.pepo */,
 				46EC8A671C9895CC001405CE /* fig0435.pepb */,
 				46EC8A681C9895CC001405CE /* fig0435.peph */,
@@ -1085,6 +1089,7 @@
 			children = (
 				D2B061711C7E62050088CEBE /* pep9padTests.swift */,
 				D2B061731C7E62050088CEBE /* Info.plist */,
+				46539C481E9AC31C00718705 /* ObjectCodeForExamples */,
 			);
 			path = pep9padTests;
 			sourceTree = "<group>";
@@ -1092,7 +1097,6 @@
 		D2B0617B1C7E62050088CEBE /* pep9padUITests */ = {
 			isa = PBXGroup;
 			children = (
-				46539C481E9AC31C00718705 /* ObjectCodeForExamples */,
 				D2B0617C1C7E62050088CEBE /* pep9padUITests.swift */,
 				D2B0617E1C7E62050088CEBE /* Info.plist */,
 			);
@@ -1252,6 +1256,7 @@
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
 				462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */,
+				46539C941E9AF3A900718705 /* pep9os.pepo in Resources */,
 				462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */,
 				46539C721E9AEED700718705 /* fig0527.pepo in Resources */,
 				462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */,

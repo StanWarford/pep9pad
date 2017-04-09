@@ -1254,6 +1254,23 @@ class AssemblerModel {
     }
     
 
+    /// Installs the default OS from the pep9os.pepo file. 
+    /// This is useful for debugging the assembler, as the os can be correctly
+    /// loaded into mem without having to actually assemble it.
+    func installDefaultOSFromObject() {
+        let pathToObject = Bundle.main.path(forResource: "pep9os", ofType: "pepo")
+        do {
+            var objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
+            var objectArr = objectStr.components(separatedBy: ["\n", " "])
+            object = objectArr.map { $0.hexToInt() }
+
+            maps.dotBurnArgument = 65536
+            maps.romStartAddress = maps.dotBurnArgument - objectArr.count
+            loadOSIntoMem()
+        } catch {
+            return
+        }
+    }
     
     
     

@@ -24,7 +24,7 @@ class pep9padTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        assembler.installDefaultOS()
+        assembler.installDefaultOSFromObject()
         for i in Figures.allValues where !i.rawValue.contains("Figure 4") {
             var name = i.rawValue
             // change name to look like those in the filesystem
@@ -35,8 +35,8 @@ class pep9padTests: XCTestCase {
             
             do {
                 print("Testing \(name)...")
-                var sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
-                var objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
+                let sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
+                let objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
                 var correctObject = objectStr.components(separatedBy: [" ", "\n"])
                 projectModel.sourceStr = sourceStr
                 if assembler.assemble() {
