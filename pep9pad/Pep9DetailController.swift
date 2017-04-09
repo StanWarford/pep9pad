@@ -366,7 +366,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 assembler.getAssemblerListing()
                 //assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                 print("OS Installed")
-                print(assembler.getObjectCode())
+                print(assembler.getReadableObjectCode())
             } else {
                 print("OS assembly failed")
             }
@@ -696,11 +696,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     func assembleSource() -> Bool {
         if assembler.assemble() {
             var x = assembler.getObjectCode()
-            var y: [String] = []
-            for i in x {
-                y.append(i.toHex2())
-            }
-            print(y)
+            print(assembler.getReadableObjectCode())
+
 //            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
 
         } else {

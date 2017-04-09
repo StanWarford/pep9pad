@@ -1106,6 +1106,28 @@ class AssemblerModel {
         return object
     }
     
+    
+    func getReadableObjectCode() -> String {
+        var anObject: [Int] = []
+        var toRet = ""
+        for i in 0..<source.count {
+            source[i].appendObjectCode(objectCode: &anObject)
+        }
+        
+        // Notice the range: 1 to inclusive len of array.
+        // If you don't do this then the mod won't work properly on first row.
+        for j in 1...anObject.count {
+            toRet.append(anObject[j-1].toHex2())
+            if (j % 16) == 0 {
+                toRet.append("\n")
+            } else {
+                toRet.append(" ")
+            }
+        }
+        
+        return toRet
+    }
+    
     // Pre: self.source is populated with code from a complete correct Pep/9 source program.
     // Post: self.listing is populated with the assembler listing.
     // Post: self.listingTrace is populated with the object code.
@@ -1236,9 +1258,7 @@ class AssemblerModel {
     
     
     // MARK: - Initializer
-    init() {
-        
-    }
+    init() {}
     
     func stringToAddrMode(_ rawStr: String) -> EAddrMode {
         var str = rawStr
