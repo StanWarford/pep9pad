@@ -124,11 +124,14 @@ class ProjectModel {
             // just move it to the front if it isn't already there
             let curIdx = names.index(of: nameOfProject)!
             if curIdx != 0 {
-                // not already in front, move it there now
+                // not already in front, so remove it and add it to the front later
                 names.remove(at: curIdx)
-                names.insert(nameOfProject, at: 0)
             }
         }
+        
+        // insert it at the front
+        names.insert(nameOfProject, at: 0)
+
         
         // ensure that we're not saving too many
         if names.count >= maxRecentProjects {

@@ -21,16 +21,16 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    var recents: [String] = []
+    
     override func viewDidLoad() {
+        recents = projectModel.recentProjectNames()
         super.viewDidLoad()
-        
         dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
     }
     
     @IBAction func dismissSecondVC(_ sender: AnyObject) {
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
     
     
@@ -42,19 +42,20 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selected at \(indexPath.row)")
+        projectModel.loadExistingProject(named: recents[indexPath.row])
+        newprojectbuttonpressed(dismissButton)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var c = UITableViewCell()
-        c.textLabel?.text = "savedcode\(indexPath.row)"
+        c.textLabel?.text = recents[indexPath.row]
         c.textLabel?.textColor = UIColor.white
         c.backgroundColor = UIColor.clear
         return c
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return recents.count
     }
     
     
