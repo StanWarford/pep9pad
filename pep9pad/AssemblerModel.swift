@@ -1175,7 +1175,7 @@ class AssemblerModel {
             machine.mem[i] = 0
         }
         
-        var j: Int = maps.romStartAddress
+        var j: Int = maps.romStartAddress+1
         for i in 0..<object.count {
             machine.mem[j] = object[i]
             j += 1
@@ -1262,10 +1262,17 @@ class AssemblerModel {
         do {
             var objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
             var objectArr = objectStr.components(separatedBy: ["\n", " "])
+            // remove any empty strings
+            while objectArr.contains("") {
+                let x = objectArr.index(of: "")
+                objectArr.remove(at: x!)
+            }
+            // now convert the array into hex and assign to `object`
             object = objectArr.map { $0.hexToInt() }
 
-            maps.dotBurnArgument = 65536
-            maps.romStartAddress = maps.dotBurnArgument - objectArr.count
+            maps.dotBurnArgument = 65535
+            maps.romStartAddress = maps.dotBurnArgument - object.count
+            print("object is counted at = \(object.count)")
             loadOSIntoMem()
         } catch {
             return

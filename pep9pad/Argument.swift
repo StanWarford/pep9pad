@@ -1,4 +1,4 @@
-//
+ //
 //  Argument.swift
 //  pep9pad
 //
@@ -121,9 +121,16 @@ class SymbolRefArgument: Argument {
                 return maps.symbolTable[symbolRefValue]!
             } else {
                 let a = machine.mem[maps.dotBurnArgument-7]
-                let b = machine.mem[maps.dotBurnArgument-6]
-                print("a=\(a)")
-                print("b=\(b)")
+                let b = machine.mem[maps.dotBurnArgument-6] 
+//                print("dotburn=\(maps.dotBurnArgument)")
+//                var lilmem = machine.mem[maps.dotBurnArgument-20..<machine.mem.count]
+//                var arr = "from \(maps.dotBurnArgument-20) to \(machine.mem.count):"
+//                for i in lilmem {
+//                    arr.append("\(i.toHex2()) ")
+//                }
+//                print(arr)
+//                print("a=\(a)")
+//                print("b=\(b)")
                 return 256*a+b
             }
         }
