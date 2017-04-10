@@ -228,11 +228,20 @@ class ProjectModel {
     }
     
     
-    // MARK: Why is this here?
     // Post: Searces for the string ";ERROR: " on each line and removes the end of the line.
     // Post: Searces for the string ";WARNING: " on each line and removes the end of the line.
     func removeErrorMessages() {
-        
+        let text : String = sourceStr
+        var textArr = text.components(separatedBy: "\n")
+        for var i in textArr {
+            if (i.contains(";ERROR") || i.contains(";WARNING")) {
+                for charIdx in i.characters.count...0 {
+                    i.char
+                }
+            }
+        }
+        sourceStr = textArr.joined(separator: "\n")
+
     }
     
     
@@ -246,7 +255,7 @@ class ProjectModel {
             lineArray.append(line)
         }
         // now alter the line in question
-        let lineIndex = atLine-1
+        let lineIndex = atLine // atLine-1
         if lineIndex < lineArray.count {
             lineArray[lineIndex].append(message)
             sourceStr = lineArray.joined(separator: "\n")

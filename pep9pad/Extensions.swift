@@ -114,6 +114,19 @@ extension String {
         return self.hasPrefix("0x") || self.hasPrefix("0X")
     }
     
+    
+    
+    func removeBackwards(untilFirstInstance  thing: String) -> String {
+        var charArr = thing.characters
+        var notFound = true
+        var idx = charArr.count
+        while notFound {
+            charArr.removeLast()
+            idx -= 1
+            
+        }
+    }
+    
     func trimmed() -> String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }

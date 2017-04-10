@@ -283,17 +283,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(formatFromListingAction)
         
         let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
-            let text : String = projectModel.sourceStr
-            var textArr = text.components(separatedBy: " ")
-            for var i in 0..<textArr.count{
-                if textArr[i] == ";ERROR" || textArr[i] == ";WARNING"{
-                    while textArr[i] != "\n"{
-                        textArr[i] = ""
-                        i += 1
-                    }
-                }
-            }
-            projectModel.sourceStr = textArr.joined(separator: " ")
+            projectModel.removeErrorMessages()
             self.updateEditorsFromProjectModel()
         }
         alertController.addAction(removeErrorMsgsAction)
@@ -695,6 +685,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
+        
         if assembler.assemble() {
 
             projectModel.objectStr = assembler.getReadableObjectCode()
