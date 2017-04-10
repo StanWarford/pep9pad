@@ -144,7 +144,7 @@ extension String {
     }
     
     func toInt(value: Int) -> Int {
-        if let d = UInt64(self, radix: value) {
+        if let d = Int(self, radix: value) {
             return Int(d)
         } else {
             return 0
