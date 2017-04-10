@@ -127,6 +127,12 @@ extension String {
         return paddedString
     }
     
+    func padAfterUntil(width: Int, spacer: String = " ", isNegative: Bool = true) -> String {
+        let paddedString = self.padding(toLength: width, withPad: spacer, startingAt: 0)
+        return paddedString
+    }
+    
+    
     func startsWith(input: String) -> Bool {
         let length: Int = input.length
         if input == String(self.characters.prefix(length)) {

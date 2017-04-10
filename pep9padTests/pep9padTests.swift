@@ -54,7 +54,7 @@ class pep9padTests: XCTestCase {
                         if hex == correctObject[j-1] {
                             toRet.append(hex)
                         } else {
-                            toRet.append("[\(hex)]")
+                            toRet.append("[\(hex) -> \(correctObject[j-1])]")
                             error = true
                         }
                         if (j % 16) == 0 {

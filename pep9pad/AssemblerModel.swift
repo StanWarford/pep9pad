@@ -1144,6 +1144,42 @@ class AssemblerModel {
         return listing
     }
     
+    
+    
+    func getReadableListing() -> String {
+        var readable = ""
+        getAssemblerListing()
+        readable.append("\n\n")
+        readable.append("Symbol table\n")
+        readable.append("-------------------------------------------------------------------------------\n")
+        readable.append("      Object\n")
+        readable.append("Addr  code   Symbol   Mnemon  Operand     Comment\n")
+        readable.append("-------------------------------------------------------------------------------\n")
+        readable.append(listing.joined(separator: "\n"))
+        readable.append("\n") // because `join` does not put a newline at the end
+        readable.append("-------------------------------------------------------------------------------\n")
+        
+        
+        // show symbol table if symbols exist
+        if (maps.symbolTable.count > 0) {
+            readable.append("\n\n")
+            readable.append("Symbol table\n")
+            readable.append("------------------\n")
+            readable.append("Symbol    Value   \n")
+            readable.append("------------------\n")
+            
+            var hexString = ""
+            let keys = maps.symbolTable.arrayOfKeys() as! [String]
+            for symbol in keys {
+                hexString = (maps.symbolTable[symbol]?.toHex4())!
+                readable.append(symbol.padAfterUntil(width: 10)+hexString+"\n")
+            }
+            readable.append("--------------------------------------");
+        }
+
+        return readable
+    }
+    
     // Pre: self.listingTrace is populated.
     // Post: self.listingTrace is returned.
     func getListingTrace() -> [String] {
@@ -1282,7 +1318,8 @@ class AssemblerModel {
     
     
     // MARK: - Initializer
-    init() {}
+    init() {
+    }
     
     func stringToAddrMode(_ rawStr: String) -> EAddrMode {
         var str = rawStr

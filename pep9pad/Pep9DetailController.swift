@@ -42,6 +42,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! Pep9MasterController
+        assembler.installDefaultOSFromObject()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -695,9 +696,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
     func assembleSource() -> Bool {
         if assembler.assemble() {
-            var x = assembler.getObjectCode()
-            print(assembler.getReadableObjectCode())
 
+            projectModel.objectStr = assembler.getReadableObjectCode()
+            projectModel.listingStr = assembler.getReadableListing()
 //            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
 
         } else {
