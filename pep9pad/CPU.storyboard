@@ -129,6 +129,14 @@
             </objects>
             <point key="canvasLocation" x="-858" y="-1032"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="nqf-1o-SrV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="INY-kT-Dit" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHZ-sU-Vx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-243" y="-1479"/>
+        </scene>
         <!--Master Controller-->
         <scene sceneID="MYh-m1-ahr">
             <objects>
@@ -165,7 +173,7 @@
                     <navigationItem key="navigationItem" id="qmU-cO-SYj">
                         <barButtonItem key="leftBarButtonItem" title="Home" id="9RR-2k-HcU">
                             <connections>
-                                <action selector="homeButtonPressed:" destination="nmb-1W-Fcm" id="tCN-ex-Bk4"/>
+                                <segue destination="INY-kT-Dit" kind="presentation" id="rl5-o1-5Ok"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Help" id="Cw6-9T-WKr"/>

@@ -10,15 +10,32 @@ import UIKit
 
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var newproject: UIButton!
     @IBOutlet weak var dismissButton: UIButton!
     @IBAction func newprojectbuttonpressed(_ sender: Any) {
-        print("Jo was here")
+        makePep9Main()
     }
+    @IBAction func newCPUprojectbuttonpressed(_ sender: Any) {
+        makeCPU()
+    }
+    
     @IBOutlet weak var tableOfProjects: UITableView! {
         didSet {
             self.tableOfProjects.dataSource = self
             self.tableOfProjects.delegate = self
         }
+    }
+    
+    func makePep9Main() {
+        let storyb = UIStoryboard(name: "Pep9Main", bundle: Bundle.main)
+        let vc = storyb.instantiateInitialViewController()
+        present(vc!, animated: true, completion: nil)
+    }
+    
+    func makeCPU() {
+        let storyb = UIStoryboard(name: "CPU", bundle: Bundle.main)
+        let vc = storyb.instantiateInitialViewController()
+        present(vc!, animated: true, completion: nil)
     }
     
     var recents: [String] = []

@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeY-R9-PI7">
-                                <rect key="frame" x="0.0" y="64" width="1045" height="911"/>
+                                <rect key="frame" x="0.0" y="64" width="1044.5" height="911"/>
                                 <connections>
                                     <segue destination="gvB-0F-Oxp" kind="embed" id="W9I-Sj-eXH"/>
                                 </connections>
@@ -63,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfF-gd-7K9" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1044.5" height="975"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1045" height="975"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -137,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGL-kS-c5j" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1045" height="975"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1044.5" height="975"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
