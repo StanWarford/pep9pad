@@ -123,10 +123,7 @@ class ProjectModel {
             // this project is already in the list
             // just move it to the front if it isn't already there
             let curIdx = names.index(of: nameOfProject)!
-            if curIdx != 0 {
-                // not already in front, so remove it and add it to the front later
-                names.remove(at: curIdx)
-            }
+            names.remove(at: curIdx)
         }
         
         // insert it at the front
