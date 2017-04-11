@@ -8,7 +8,7 @@
 import UIKit
 import FontAwesome_swift
 import MessageUI
-//import PKHUD
+import PKHUD
 
 /// A typealias consisting of all elements in the ASM Tab Bar.
 typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
@@ -42,7 +42,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! Pep9MasterController
-        //assembler.installDefaultOSFromObject()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +51,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if assembler.installDefaultOS() {
+            master.io.memoryView.refresh()
+            HUD.dimsBackground = false
+            HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
+
+        }
         
     }
     

@@ -554,7 +554,6 @@
 				46F46D341C8F661D0092EF04 /* Argument.swift */,
 				46F46D321C8F49340092EF04 /* Enums.swift */,
 				46E246B01DE0E24200611A18 /* Assembler */,
-				461279481E26116100212829 /* Machine */,
 				461279491E26116900212829 /* Project */,
 			);
 			name = Models;
@@ -585,13 +584,6 @@
 				46C76A6D1DB959680071C340 /* TraceController.swift */,
 			);
 			name = Detail;
-			sourceTree = "<group>";
-		};
-		461279481E26116100212829 /* Machine */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Machine;
 			sourceTree = "<group>";
 		};
 		461279491E26116900212829 /* Project */ = {
