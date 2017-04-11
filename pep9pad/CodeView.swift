@@ -35,6 +35,8 @@ class CodeView: UIView, UITextViewDelegate {
         self.addSubview(textView)
         textView.showsVerticalScrollIndicator = true
         textView.isScrollEnabled = true
+        textView.showsVerticalScrollIndicator = true
+        textView.showsHorizontalScrollIndicator = true // MARK: Not all the time, put in initializer
         textView.delegate = self
         textView.isSelectable = true
         textView.font = UIFont(name: Courier, size: appSettings.fontSize)

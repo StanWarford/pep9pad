@@ -26,10 +26,10 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         // below doesn't work as returned class name is normally in project module scope
         // let viewName = NSStringFromClass(self.classForCoder)
         
-        let view: UIView = Bundle.main.loadNibNamed("Memory", owner: self, options: nil)![0] as! UIView
-        self.addSubview(view)
-        view.frame = self.bounds
-        refreshAll()
+        //let view: UIView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView
+        //self.addSubview(view)
+        //view.frame = self.bounds
+        refresh()
     }
 
 
@@ -40,7 +40,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     
     
     /// Refreshes the whole memory pane.
-    func refreshAll() {
+    func refresh() {
         memoryDump.removeAll(keepingCapacity: true)
         var line: String = ""
         var ch: String
@@ -137,26 +137,27 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             self.table.delegate = self
         }
     }
-    @IBOutlet var toolbar: UIToolbar!
+    
     @IBOutlet var searchField: UITextField! {
         didSet {
             self.searchField.delegate = self
         }
     }
-    @IBOutlet var spBtn: UIBarButtonItem!
-    @IBOutlet var pcBtn: UIBarButtonItem!
+    @IBOutlet var spBtn: UIButton!
     
-    @IBAction func spBtnPressed(_ sender: UIBarButtonItem) {
+    @IBOutlet var pcBtn: UIButton!
+    
+    @IBAction func spBtnPressed(_ sender: UIButton) {
         scrollToByte(machine.stackPointer)
     }
     
-    
-    @IBAction func pcBtnPressed(_ sender: UIBarButtonItem) {
+    @IBAction func pcBtnPressed(_ sender: UIButton) {
         scrollToByte(machine.programCounter)
+        
+        
     }
     
-    
-    
+
     
     
 
@@ -188,9 +189,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     }
     
     
-    
-    
-    
+
     // MARK: - Conformance to UITextFieldDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -206,11 +205,9 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
                 scrollToByte(intVal)
             }
         }
-
+        
         return true
     }
-    
-    
     
     
 }

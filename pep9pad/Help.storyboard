@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dYo-E1-5MT">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dYo-E1-5MT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +16,7 @@
                         <viewControllerLayoutGuide type="bottom" id="STg-sO-rrW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yzo-cv-cPE">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -47,30 +44,32 @@
                         <viewControllerLayoutGuide type="bottom" id="Ick-Ug-fyu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WTw-yi-b44">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1045" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IPB-jb-fE7" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="4" y="64" width="695" height="350.5"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IPB-jb-fE7" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
+                                <frame key="frameInset" minY="64" width="1041" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES" adjustable="YES"/>
+                                </accessibility>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-YY-nga" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="4" y="417.5" width="695" height="350.5"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmi-YY-nga" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
+                                <frame key="frameInset" minX="4" minY="559" width="1037" height="465"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bmi-YY-nga" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leadingMargin" constant="-16" id="0sB-fr-M0C"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IPB-jb-fE7" secondAttribute="trailing" constant="-16" id="35C-Sg-62k"/>
-                            <constraint firstItem="IPB-jb-fE7" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leadingMargin" constant="-16" id="7Ha-4j-UlE"/>
-                            <constraint firstItem="bmi-YY-nga" firstAttribute="top" secondItem="IPB-jb-fE7" secondAttribute="bottom" constant="3" id="8Xi-bf-HS8"/>
+                            <constraint firstItem="IPB-jb-fE7" firstAttribute="top" secondItem="utr-zP-eeO" secondAttribute="bottom" id="HaK-iQ-gcL"/>
+                            <constraint firstItem="bmi-YY-nga" firstAttribute="height" secondItem="IPB-jb-fE7" secondAttribute="height" id="Jkw-LA-eTs"/>
                             <constraint firstItem="bmi-YY-nga" firstAttribute="centerX" secondItem="WTw-yi-b44" secondAttribute="centerX" id="Kx1-mb-fbj"/>
-                            <constraint firstItem="IPB-jb-fE7" firstAttribute="centerX" secondItem="WTw-yi-b44" secondAttribute="centerX" id="LtF-OG-zlc"/>
-                            <constraint firstItem="IPB-jb-fE7" firstAttribute="top" secondItem="utr-zP-eeO" secondAttribute="bottom" id="Xsx-DM-V8L"/>
+                            <constraint firstItem="bmi-YY-nga" firstAttribute="top" secondItem="IPB-jb-fE7" secondAttribute="bottom" constant="3" id="OGv-hv-zY1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bmi-YY-nga" secondAttribute="trailing" constant="-16" id="bF8-Bi-hGb"/>
                             <constraint firstItem="bmi-YY-nga" firstAttribute="bottom" secondItem="Ick-Ug-fyu" secondAttribute="top" id="ppk-au-O01"/>
-                            <constraint firstItem="IPB-jb-fE7" firstAttribute="height" secondItem="bmi-YY-nga" secondAttribute="height" id="tS3-Kh-fiO"/>
+                            <constraint firstItem="IPB-jb-fE7" firstAttribute="trailing" secondItem="bmi-YY-nga" secondAttribute="trailing" id="qAf-0q-6Zi"/>
+                            <constraint firstItem="IPB-jb-fE7" firstAttribute="leading" secondItem="WTw-yi-b44" secondAttribute="leading" id="rOO-Zf-njh"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -83,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Jc-8O-PWB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3488.8000000000002" y="-1441.529235382309"/>
+            <point key="canvasLocation" x="3487.9941434846264" y="-1442.578125"/>
         </scene>
         <!--Documentation View Controller-->
         <scene sceneID="L3t-9J-Yho">
@@ -94,11 +93,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Dq0-AC-xl6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fRp-pW-wZ7">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BLR-cN-Ycd">
-                                <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
+                                <frame key="frameInset" width="694" height="768"/>
                                 <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -139,32 +138,32 @@
             <objects>
                 <tableViewController id="6Ap-hx-byD" customClass="HelpMasterController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="WSa-Sl-3OV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="dWX-8r-W1w">
-                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dWX-8r-W1w" id="CZR-cd-M2v">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" tableViewCell="dWX-8r-W1w" id="CZR-cd-M2v">
+                                    <frame key="frameInset" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CcE-xY-jSL">
-                                <rect key="frame" x="0.0" y="100" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="164" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CcE-xY-jSL" id="Fto-Tf-Mtq">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <frame key="frameInset" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PVt-ZP-lvh">
-                                <rect key="frame" x="0.0" y="144" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="208" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PVt-ZP-lvh" id="tlA-6B-brM">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <frame key="frameInset" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

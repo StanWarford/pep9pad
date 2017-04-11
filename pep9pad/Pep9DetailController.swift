@@ -293,7 +293,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 machine.mem[i] = 0
             }
             self.master.cpu.clearCpu()
-            self.master.io.memoryView.refreshAll()
+            self.master.io.memoryView.refresh()
         }
         alertController.addAction(clearMemAction)
         
@@ -335,7 +335,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     assembler.listing = assembler.getAssemblerListing()
                     assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                     assembler.loadOSIntoMem()
-                    self.master.io.memoryView.refreshAll()
+                    self.master.io.memoryView.refresh()
                     // MARK: ui bar subject to change
                     print("Assembly succeeded, OS installed")
                 }

@@ -57,7 +57,15 @@ class IOMemController: UIViewController, UITextViewDelegate {
         terminalTextView.text = "Terminal I/O placeholder"
         view.addSubview(terminalTextView)
 
-        memoryView = MemoryView(frame: CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44))
+        
+        
+        memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
+        //self.addSubview(view)
+        memoryView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44)
+        
+
+        
+        ///memoryView = //MemoryView(frame: CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44))
         
         //memoryView.frame =
         memoryView.isHidden = true
