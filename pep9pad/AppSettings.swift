@@ -50,9 +50,11 @@ class AppSettings {
     func saveSettings() {
         UserDefaults.standard.setValue(darkModeOn, forKey: SavedSettings.darkModeOn.rawValue)
         //UserDefaults.standard.setValue(font.fontName, forKey: SavedSettings.fontName.rawValue)
-        UserDefaults.standard.setValue(font.pointSize, forKey: SavedSettings.fontSize.rawValue)
+        UserDefaults.standard.setValue(fontSize, forKey: SavedSettings.fontSize.rawValue)
         // Post notification
         NotificationCenter.default.post(name: .settingsChanged, object: nil)
+        
+        UserDefaults.standard.synchronize()
 
     }
     
@@ -62,6 +64,7 @@ class AppSettings {
         }
         if let val = UserDefaults.standard.value(forKey: SavedSettings.fontSize.rawValue) {
             fontSize = val as! CGFloat
+            font.withSize(val as! CGFloat)
         }
     }
 }

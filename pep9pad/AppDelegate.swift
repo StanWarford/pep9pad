@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         projectModel.loadDefaultProject()
+        appSettings.loadSettings()
         
         return true
     }
