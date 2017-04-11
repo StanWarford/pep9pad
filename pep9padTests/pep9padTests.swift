@@ -34,7 +34,6 @@ class pep9padTests: XCTestCase {
             let pathToObject = Bundle.main.path(forResource: name, ofType: "pepo")
             
             do {
-                print("Testing \(name)...")
                 let sourceStr = try String(contentsOfFile:pathToSource!, encoding: String.Encoding.ascii)
                 let objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
                 var correctObject = objectStr.components(separatedBy: [" ", "\n"])
@@ -42,6 +41,7 @@ class pep9padTests: XCTestCase {
                 if assembler.assemble() {
                     var anObject: [Int] = []
                     var toRet = ""
+                    var listing = ""
                     var error = false
                     for i in 0..<assembler.source.count {
                         assembler.source[i].appendObjectCode(objectCode: &anObject)
@@ -63,8 +63,13 @@ class pep9padTests: XCTestCase {
                             toRet.append(" ")
                         }
                     }
+                    
+                    if error {
+                        listing = assembler.getReadableListing()
+                    }
+                    
                     print(error ? "Error detected in \(name)." : "Correctly assembled \(name).")
-                    print(toRet)
+                    print(error ? toRet+"\n"+listing : "")
                 } else {
                     XCTAssert(false)
                 }

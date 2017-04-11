@@ -365,10 +365,10 @@ class AssemblerModel {
         string.chop() // Remove the rightmost double quote.
         var length: Int = 0
         while (string.length > 0) {
-            if (str.startsWith(input: "\\x") || str.startsWith(input: "\\X")) {
+            if (string.startsWith(input: "\\x") || string.startsWith(input: "\\X")) {
                 string.remove(0, 4) // Remove the \xFF
             }
-            else if (str.startsWith(input: "\\")) {
+            else if (string.startsWith(input: "\\")) {
                 string.remove(0, 2) // Remove the quoted character
             }
             else {
@@ -458,6 +458,7 @@ class AssemblerModel {
                             maps.byteCount += 1 // One byte generated for unary instruction.
                             state = ParseState.ps_CLOSE
                         } else {
+                            nonUnaryInstruction = NonUnaryInstruction()
                             nonUnaryInstruction.symbolDef = ""
                             nonUnaryInstruction.mnemonic = localEnumMnemonic
                             code = nonUnaryInstruction
@@ -578,11 +579,11 @@ class AssemblerModel {
                 break
                 
             case .ps_SYMBOL_DEF:
-                if (token == ELexicalToken.lt_IDENTIFIER){
-                    if (maps.mnemonToEnumMap[tokenString.uppercased()] != nil) {
+                if (token == ELexicalToken.lt_IDENTIFIER) {
+                    if ((maps.mnemonToEnumMap.arrayOfKeys() as! [String]).contains(tokenString.uppercased())) {
                         localEnumMnemonic = maps.mnemonToEnumMap[tokenString.uppercased()]!
                         if (maps.isUnaryMap[localEnumMnemonic]!) {
-                            let unaryInstruction = UnaryInstruction()
+                            unaryInstruction = UnaryInstruction()
                             unaryInstruction.symbolDef = localSymbolDef
                             unaryInstruction.mnemonic = localEnumMnemonic
                             code = unaryInstruction
@@ -591,12 +592,12 @@ class AssemblerModel {
                             state = ParseState.ps_CLOSE
                         }
                         else {
-                            let nonUnaryInstruction = NonUnaryInstruction()
+                            nonUnaryInstruction = NonUnaryInstruction()
                             nonUnaryInstruction.symbolDef = localSymbolDef
                             nonUnaryInstruction.mnemonic = localEnumMnemonic
                             code = nonUnaryInstruction
                             code.memAddress = maps.byteCount
-                            maps.byteCount += 3 // Three bytes generated for unary instruction.
+                            maps.byteCount += 3 // Three bytes generated for nonunary instruction.
                             state = ParseState.ps_INSTRUCTION
                         }
                     }
@@ -690,7 +691,7 @@ class AssemblerModel {
                         errorString = ";ERROR: String operands must have length at most two."
                         return false
                     }
-                    (code as! NonUnaryInstruction).argument = SymbolRefArgument(symbolRef: tokenString)
+                    (code as! NonUnaryInstruction).argument = StringArgument(str: tokenString)
                     state = ParseState.ps_ADDRESSING_MODE
                 }
                 else if (token == ELexicalToken.lt_HEX_CONSTANT) {
@@ -804,6 +805,7 @@ class AssemblerModel {
                 if (token == ELexicalToken.lt_STRING_CONSTANT) {
                     (code as! DotAscii).argument = StringArgument(str: tokenString)
                     maps.byteCount += byteStringLength(str: tokenString)
+                    
                     state = ParseState.ps_CLOSE
                 }
                 else {
@@ -1135,8 +1137,8 @@ class AssemblerModel {
     // Post: assemblerListing is returned.
     func getAssemblerListing() -> [String] {
         listing.removeAll()
-        var listingTrace = getListingTrace()
-        listingTrace.removeAll()
+        var listingTrace = getListingTrace() // why do this...
+        listingTrace.removeAll()             // then this?
         let hasCheckBox: [Bool] = []
         for i in 0..<assembler.source.count {
             assembler.source[i].appendSourceLine(assemblerListing: &listing, listingTrace: &listingTrace, hasCheckBox: hasCheckBox)
@@ -1172,7 +1174,7 @@ class AssemblerModel {
                 hexString = (maps.symbolTable[symbol]?.toHex4())!
                 readable.append(symbol.padAfter(width: 10)+hexString+"\n")
             }
-            readable.append("--------------------------------------");
+            readable.append("------------------\n");
         }
 
         return readable

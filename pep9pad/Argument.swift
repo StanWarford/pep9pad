@@ -85,8 +85,7 @@ class HexArgument: Argument {
     }
     
     func getArgumentString() -> String {
-        //return "0x" + QString("%1").arg(hexValue, 4, 16, QLatin1Char('0')).toUpper();
-        return "TODO"
+        return "0x\(hexValue.toHex4())"
 }
 }
     

@@ -63,8 +63,8 @@ class DotAlign: Code {
     }
     
     override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
-        var assemblerListing = assemblerListing
-        var listingTrace = listingTrace
+//        var assemblerListing = assemblerListing
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         var numBytes: Int = numBytesGenerated.getArgumentValue()
         let memStr: String = numBytes == 0 ? "       " : memAddress.toHex4()
@@ -113,7 +113,7 @@ class DotAscii: Code {
     
     var argument: Argument!
     
-    override func appendObjectCode(objectCode:inout [Int]) {
+    override func appendObjectCode(objectCode: inout [Int]) {
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             var value: Int = 0   // MARK
             var str: String = argument.getArgumentString()
@@ -126,9 +126,9 @@ class DotAscii: Code {
         }
     }
     
-    override func appendSourceLine(assemblerListing:inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
-        var assemblerListing = assemblerListing
-        var listingTrace = listingTrace
+    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+//        var assemblerListing = assemblerListing
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var str: String = argument.getArgumentString()
@@ -136,7 +136,7 @@ class DotAscii: Code {
         str.chop()
         var value: Int = 0
         var codeStr: String = ""
-        while str.length < 0 && codeStr.length < 6 {
+        while str.length > 0 && codeStr.length < 6 {
             assembler.unquotedStringToInt(str: &str, value: &value)
             codeStr.append(value.toHex2())
         }
@@ -165,7 +165,7 @@ class DotAscii: Code {
                     assembler.unquotedStringToInt(str: &str, value: &value)
                     codeStr.append(value.toHex2())
                 }
-                lineStr = (codeStr.padAfter(width: 7))
+                lineStr = "      \(codeStr)"
                 assemblerListing.append(lineStr)
                 listingTrace.append(lineStr)
                 hasCheckBox.append(false)
@@ -181,7 +181,7 @@ class DotBlock: Code {
     var argument: Argument!
     
     
-    override func appendObjectCode(objectCode:inout [Int]) {
+    override func appendObjectCode(objectCode: inout [Int]) {
         if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             for _ in 0..<argument.getArgumentValue() {
                 objectCode.append(0)
@@ -189,9 +189,9 @@ class DotBlock: Code {
         }
     }
     
-    override func appendSourceLine(assemblerListing: inout [String], listingTrace:inout [String], hasCheckBox: [Bool]) {
-        var assemblerListing = assemblerListing
-        var listingTrace = listingTrace
+    override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
+//        var assemblerListing = assemblerListing
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = (memAddress.toHex4())
         var numBytes: Int = argument.getArgumentValue()
@@ -233,7 +233,7 @@ class DotBlock: Code {
         }
     }
     
-    override func processFormatTraceTags(at sourceLine:inout Int, err errorString:inout String) -> Bool { // MARK
+    override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool { // MARK
         if symbolDef.isEmpty {
             return true
         }
@@ -254,7 +254,7 @@ class DotBlock: Code {
         return true
     }
     
-    override func processSymbolTraceTags(at sourceLine:inout Int, err errorString: inout String) -> Bool {
+    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         if symbolDef.isEmpty {
             return true
         }
@@ -297,7 +297,7 @@ class DotBurn: Code {
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        var listingTrace = listingTrace
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var symbolStr = symbolDef;
@@ -329,7 +329,7 @@ class DotByte: Code {
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        var listingTrace = listingTrace
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var codeStr: String = argument.getArgumentValue().toHex4()
@@ -363,7 +363,7 @@ class DotEnd: Code {
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        var listingTrace = listingTrace
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var symbolStr: String = symbolDef
@@ -372,6 +372,7 @@ class DotEnd: Code {
         }
         let dotStr = ".END"
         var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append("       ")
         lineStr.append(symbolStr.padAfter(width: 9))
         lineStr.append(dotStr.padAfter(width: 8))
         lineStr.append(comment)
@@ -398,7 +399,8 @@ class DotEquate: Code {
         }
         let dotStr: String = ".EQUATE"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = symbolStr.padAfter(width: 9)
+        var lineStr: String = "             "
+        lineStr.append(symbolStr.padAfter(width: 9))
         lineStr.append(dotStr.padAfter(width: 8))
         lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
@@ -425,7 +427,7 @@ class DotWord: Code {
     }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
-        var listingTrace = listingTrace
+//        var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var codeStr: String = argument.getArgumentValue().toHex4()
