@@ -118,12 +118,19 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         
         switch textField.tag {
         case dec:
-            if let d = UInt8(textToConvert) {
+            
+            if let d = UInt16(textToConvert) {
                 clearAnyErrors()
-                hexField.text = d.toHex2()
-                binaryField.text = d.toBin8()
-                asciiField.text = d.toASCII()
-                assemblyField.text = maps.getInstruction(Int(d))
+                hexField.text = d.toHex4()
+                if (d <= 255) {
+                    binaryField.text = d.toBin8()
+                    asciiField.text = d.toASCII()
+                    assemblyField.text = maps.getInstruction(Int(d))
+                } else {
+                    binaryField.text = ""
+                    asciiField.text = ""
+                    assemblyField.text = ""
+                }
             } else if let _ = Int(textToConvert) {
                 // can still be converted to an integer, but is out of bounds
                 errorInConverting(textField, .outOfBounds)
@@ -134,12 +141,18 @@ class ByteCalc: NSObject, UITextFieldDelegate {
             }
             
         case hex:
-            if let d = UInt8(textToConvert, radix: 16) {
+            if let d = UInt16(textToConvert, radix: 16) {
                 clearAnyErrors()
                 decimalField.text = String(d)
-                binaryField.text = d.toBin8()
-                asciiField.text = d.toASCII()
-                assemblyField.text = maps.getInstruction(Int(d))
+                if (d <= 255) {
+                    binaryField.text = d.toBin8()
+                    asciiField.text = d.toASCII()
+                    assemblyField.text = maps.getInstruction(Int(d))
+                } else {
+                    binaryField.text = ""
+                    asciiField.text = ""
+                    assemblyField.text = ""
+                }
             } else {
                 errorInConverting(textField, .badInput)
             }

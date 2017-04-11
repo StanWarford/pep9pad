@@ -233,7 +233,7 @@ class ProjectModel {
         for var i in textArr {
             if (i.contains(";ERROR") || i.contains(";WARNING")) {
                 for charIdx in i.characters.count...0 {
-                    i.char
+                    //i.char
                 }
             }
         }

@@ -69,6 +69,23 @@ extension UInt8 {
     }
 }
 
+extension UInt16 {
+    func toHex4() -> String {
+        return String(format:"%04X", self)
+    }
+    func toBin8() -> String {
+        var str = String(self, radix: 2)
+        let len = str.characters.count
+        if len > 8 {
+            return "EEEEEEEE"
+        }
+        return String(repeating: "0", count: 8-str.characters.count) + str
+    }
+    func toASCII() -> String {
+        return String(describing: UnicodeScalar(self))
+    }
+}
+
 extension UITextField {
     // A convenience function for input fields.
     func addLabel(text: String, color: UIColor = .black) {
