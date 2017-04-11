@@ -13,8 +13,8 @@ class DotAddress: Code {
     var argument: Argument!
     
     
-    override func appendObjectCode( objectCode:inout [Int]) {
-        if maps.byteCount == 0 || (maps.byteCount == 1 && memAddress >= maps.romStartAddress) {
+    override func appendObjectCode(objectCode: inout [Int]) {
+        if maps.burnCount == 0 || (maps.burnCount == 1 && memAddress >= maps.romStartAddress) {
             let symbolValue: Int = maps.symbolTable[argument.getArgumentString()]!
             objectCode.append(symbolValue / 256)
             objectCode.append(symbolValue % 256)

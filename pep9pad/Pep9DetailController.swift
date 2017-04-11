@@ -42,7 +42,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! Pep9MasterController
-        assembler.installDefaultOSFromObject()
+        //assembler.installDefaultOSFromObject()
     }
     
     override func viewWillAppear(_ animated: Bool) {

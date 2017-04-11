@@ -1211,12 +1211,12 @@ class AssemblerModel {
             machine.mem[i] = 0
         }
         
-        var j: Int = maps.romStartAddress+1
+        var j: Int = maps.romStartAddress //+1
         for i in 0..<object.count {
             machine.mem[j] = object[i]
             j += 1
         }
-        print("OS loaded")
+        print("OS loaded successfully.")
     }
     
     // Post: the pep/9 operating system is installed into memory, and true is returned.
