@@ -20,7 +20,7 @@ class UnaryInstruction: Code {
         var listingTrace = listingTrace
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
-        var codeStr: String = maps.opCodeMap[mnemonic]!.toHex4()
+        var codeStr: String = maps.opCodeMap[mnemonic]!.toHex2()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "  "
         }
@@ -29,10 +29,10 @@ class UnaryInstruction: Code {
             symbolStr.append(":")
         }
         let mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
-        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: " ", fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
-        lineStr.append(mnemonStr.stringFormatter(str: " ", fixLength: 8))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(mnemonStr.padAfter(width: 8))
         lineStr.append("           " + comment)
         maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
         maps.listingRowChecked[assemblerListing.count] = false
@@ -72,7 +72,7 @@ class NonUnaryInstruction: Code {
         let memStr: String = memAddress.toHex4()
         var temp: Int = maps.opCodeMap[mnemonic]!
         temp += maps.addrModeRequiredMap[mnemonic]! ? maps.aaaAddressField(addressMode: addressingMode) : maps.aAddressField(addressMode: addressingMode)
-        var codeStr: String = temp.toHex4()
+        var codeStr: String = temp.toHex2()
         var oprndNumStr: String = argument.getArgumentValue().toHex4()
         if maps.burnCount == 1 && memAddress < maps.romStartAddress {
             codeStr = "  "
@@ -89,12 +89,12 @@ class NonUnaryInstruction: Code {
         } else if addressingMode == EAddrMode.X {
             oprndStr.append("," + maps.stringForAddrMode(addressMode: addressingMode))
         }
-        var lineStr: String = memStr.stringFormatter(str: " ", fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: "", fixLength: 2))
-        lineStr.append(oprndNumStr.stringFormatter(str: " ", fixLength: 5))
-        lineStr.append(symbolStr.stringFormatter(str: " ", fixLength: 9))
-        lineStr.append(mnemonStr.stringFormatter(str: " ", fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: "", fixLength: 12))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 2))
+        lineStr.append(oprndNumStr.padAfter(width: 5))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(mnemonStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
         maps.listingRowChecked[assemblerListing.count] = false

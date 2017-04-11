@@ -26,6 +26,10 @@ extension Int {
         return String(format:"%02X", self)
     }
     
+    func toHex6() -> String {
+        return String(format:"%06X", self)
+    }
+    
     func toBin8() -> String {
         var str = String(self, radix: 2)
         let len = str.characters.count
@@ -152,12 +156,12 @@ extension String {
         self.characters.removeLast()
     }
     
-    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = true) -> String {
-        let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
-        return paddedString
-    }
+//    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = true) -> String {
+//        let paddedString = str.padding(toLength: fixLength, withPad: spacer, startingAt: 0)
+//        return paddedString
+//    }
     
-    func padAfterUntil(width: Int, spacer: String = " ", isNegative: Bool = true) -> String {
+    func padAfter(width: Int, spacer: String = " ", isNegative: Bool = true) -> String {
         let paddedString = self.padding(toLength: width, withPad: spacer, startingAt: 0)
         return paddedString
     }

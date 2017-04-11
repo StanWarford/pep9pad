@@ -1149,8 +1149,6 @@ class AssemblerModel {
     func getReadableListing() -> String {
         var readable = ""
         getAssemblerListing()
-        readable.append("\n\n")
-        readable.append("Symbol table\n")
         readable.append("-------------------------------------------------------------------------------\n")
         readable.append("      Object\n")
         readable.append("Addr  code   Symbol   Mnemon  Operand     Comment\n")
@@ -1172,7 +1170,7 @@ class AssemblerModel {
             let keys = maps.symbolTable.arrayOfKeys() as! [String]
             for symbol in keys {
                 hexString = (maps.symbolTable[symbol]?.toHex4())!
-                readable.append(symbol.padAfterUntil(width: 10)+hexString+"\n")
+                readable.append(symbol.padAfter(width: 10)+hexString+"\n")
             }
             readable.append("--------------------------------------");
         }

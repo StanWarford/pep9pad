@@ -35,11 +35,11 @@ class DotAddress: Code {
         }
         let dotStr: String = ".ADDRSS"
         let oprndStr: String = argument.getArgumentString();
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -82,11 +82,11 @@ class DotAlign: Code {
         }
         let dotStr: String = ".ALIGN"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -98,7 +98,7 @@ class DotAlign: Code {
                     codeStr.append("00")
                     numBytes = numBytes - 1
                 }
-                lineStr = codeStr.stringFormatter(str: codeStr, fixLength: 7)
+                lineStr = codeStr.padAfter(width: 7)
                 assemblerListing.append(lineStr)
                 listingTrace.append(lineStr)
                 hasCheckBox.append(false)
@@ -149,11 +149,11 @@ class DotAscii: Code {
         }
         let dotStr: String = ".ASCII"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -165,7 +165,7 @@ class DotAscii: Code {
                     assembler.unquotedStringToInt(str: &str, value: &value)
                     codeStr.append(value.toHex2())
                 }
-                lineStr = (codeStr.stringFormatter(str: codeStr, fixLength: 7))
+                lineStr = (codeStr.padAfter(width: 7))
                 assemblerListing.append(lineStr)
                 listingTrace.append(lineStr)
                 hasCheckBox.append(false)
@@ -209,11 +209,11 @@ class DotBlock: Code {
         }
         let dotStr: String = ".BLOCK"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -225,7 +225,7 @@ class DotBlock: Code {
                     codeStr.append("00")
                     numBytes = numBytes - 1
                 }
-                lineStr = (codeStr.stringFormatter(str: codeStr, fixLength: 7))
+                lineStr = (codeStr.padAfter(width: 7))
                 assemblerListing.append(lineStr)
                 listingTrace.append(lineStr)
                 hasCheckBox.append(false)
@@ -306,10 +306,10 @@ class DotBurn: Code {
         }
         let dotStr: String = ".BURN"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength:  8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -345,11 +345,11 @@ class DotByte: Code {
         if oprndStr.hasPrefix("0x") || oprndStr.hasPrefix("0X") {
             oprndStr = oprndStr.substring(from: oprndStr.index(oprndStr.endIndex, offsetBy: -2))
         }
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -371,9 +371,9 @@ class DotEnd: Code {
             symbolStr.append(":")
         }
         let dotStr = ".END"
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
@@ -398,9 +398,9 @@ class DotEquate: Code {
         }
         let dotStr: String = ".EQUATE"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = symbolStr.stringFormatter(str: symbolStr, fixLength: 9)
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = symbolStr.padAfter(width: 9)
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         hasCheckBox.append(false)
@@ -438,11 +438,11 @@ class DotWord: Code {
         }
         let dotStr: String = ".WORD"
         let oprndStr: String = argument.getArgumentString()
-        var lineStr: String = memStr.stringFormatter(str: memStr, fixLength: 6)
-        lineStr.append(codeStr.stringFormatter(str: codeStr, fixLength: 7))
-        lineStr.append(symbolStr.stringFormatter(str: symbolStr, fixLength: 9))
-        lineStr.append(dotStr.stringFormatter(str: dotStr, fixLength: 8))
-        lineStr.append(oprndStr.stringFormatter(str: oprndStr, fixLength: 12, spacer: " "))
+        var lineStr: String = memStr.padAfter(width: 6)
+        lineStr.append(codeStr.padAfter(width: 7))
+        lineStr.append(symbolStr.padAfter(width: 9))
+        lineStr.append(dotStr.padAfter(width: 8))
+        lineStr.append(oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         
         assemblerListing.append(lineStr)
