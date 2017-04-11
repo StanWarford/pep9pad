@@ -16,7 +16,7 @@ class FSDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.frame)
+        textView.setupTextView(textView.bounds, highlightAs: .pep)
         // get ref to master and save to local `master` property
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! FSMasterController
