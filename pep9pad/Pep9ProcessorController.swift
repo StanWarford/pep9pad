@@ -58,7 +58,8 @@ class Pep9ProcessorController: UIViewController {
     
     // MARK: - Methods
     
-    /// Pulls data from the registers in `machine`, decodes that data with `maps`, and inserts that data into the approprate `UITextField`.
+    /// Pulls data from the registers in `machine`, decodes that data with 
+    /// `maps`, and inserts that data into the approprate `UITextField`.
     func update() {
         let addrMode = maps.decodeAddrMode[machine.instructionSpecifier]
         

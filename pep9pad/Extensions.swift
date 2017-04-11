@@ -167,6 +167,7 @@ extension String {
     }
     
     
+    
     func startsWith(input: String) -> Bool {
         let length: Int = input.length
         if input == String(self.characters.prefix(length)) {

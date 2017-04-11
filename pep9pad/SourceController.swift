@@ -29,11 +29,6 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     // MARK: - Methods
     
     
-    // Post: Clears the textView.
-    func clear() {
-    }
-    
-    
     // MARK: - Conformance to ProjectModelEditor
     
     /// Updates the contents of the `textView` with `projectModel.sourceStr`.
