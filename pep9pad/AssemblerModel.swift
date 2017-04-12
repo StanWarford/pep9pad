@@ -1116,20 +1116,12 @@ class AssemblerModel {
             source[i].appendObjectCode(objectCode: &anObject)
         }
         
-        
-        // Notice the range: 1 to inclusive len of array.
-        // If you don't do this then the mod won't work properly on first row.
-        for j in 1...anObject.count {
-            toRet.append(anObject[j-1].toHex2())
-            if (j % 16) == 0 {
-                toRet.append("\n")
-            } else {
-                toRet.append(" ")
-            }
+        for j in 0..<anObject.count {
+            toRet.append(anObject[j].toHex2())
+            toRet.append((j % 16) == 15 ? "\n" : " ")
         }
         
         toRet.append("zz")
-        
         return toRet
     }
     

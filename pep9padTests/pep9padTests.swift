@@ -47,21 +47,15 @@ class pep9padTests: XCTestCase {
                         assembler.source[i].appendObjectCode(objectCode: &anObject)
                     }
                     
-                    // Notice the range: 1 to inclusive len of array.
-                    // If you don't do this then the mod won't work properly on first row.
-                    for j in 1...anObject.count {
-                        let hex = anObject[j-1].toHex2()
-                        if hex == correctObject[j-1] {
+                    for j in 0..<anObject.count {
+                        let hex = anObject[j].toHex2()
+                        if hex == correctObject[j] {
                             toRet.append(hex)
                         } else {
-                            toRet.append("[\(hex) -> \(correctObject[j-1])]")
+                            toRet.append("[\(hex) -> \(correctObject[j])]")
                             error = true
                         }
-                        if (j % 16) == 0 {
-                            toRet.append("\n")
-                        } else {
-                            toRet.append(" ")
-                        }
+                        toRet.append((j % 16) == 15 ? "\n" : " ")
                     }
                     
                     if error {
