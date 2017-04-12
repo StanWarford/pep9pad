@@ -307,6 +307,13 @@ public extension CGFloat {
     }
 }
 
+// This doesn't work, probably because of missized output textView
+//extension UITextView {
+//    func scrollToBottom() {
+//        let bottom = self.contentSize.height - self.bounds.size.height
+//        self.setContentOffset(CGPoint(x: 0, y: bottom), animated: true)
+//    }
+//}
 
 
 

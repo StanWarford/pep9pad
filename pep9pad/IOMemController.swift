@@ -93,6 +93,19 @@ class IOMemController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func appendOutput(_ thing: String) {
+        switch (currentMode) {
+        case .batchIO:
+            batchOutputTextView.text.append(thing)
+            //batchOutputTextView.scrollToBottom()
+        case .terminalIO:
+            terminalTextView.text.append(thing)
+            //terminalTextView.scrollToBottom()
+        default:
+            break
+        }
+    }
+    
     /// Changes the view to represent `requestedMode` and adjusts `currentMode` to match.
     /// Does nothing if `requestedMode == currentMode`.
     func setMode(to requestedMode: IOMemMode) {

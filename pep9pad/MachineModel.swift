@@ -59,9 +59,12 @@ class MachineModel {
     
     /// Pre: 0 <= value < 65536
     /// Post: -32768 <= value < 32768 is returned
+    /// Note that toUnsignedDecimal is not needed, as everything is stored
+    /// internally as unsigned Ints in the machine.
     func toSignedDecimal(_ value: Int) -> Int {
         return value > 32767 ? value - 65536 : value
     }
+
     
     /// Pre: -32768 <= value < 32768
     /// Post: 0 <= value < 65536 is returned
@@ -630,7 +633,7 @@ class MachineModel {
             operand = accumulator & 0x00ff
             if (addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 5] + mem[maps.dotBurnArgument - 4]) {
                 // Memory-mapped output
-                outputBuffer = operand.toBin8()
+                outputBuffer = operand.toASCII()
             } else {
                 writeByteOprnd(addrMode: addrMode, value: operand)
             }

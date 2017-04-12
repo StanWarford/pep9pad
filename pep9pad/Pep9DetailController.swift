@@ -789,8 +789,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             while true {
                 if machine.vonNeumannStep(errorString: &errorStr) {
                     // emit vonNeumannStepped
-                    if machine.outputBuffer.length == 1 {
-                        // emit appendOutput(machine.outputBuffer)
+                    if machine.outputBuffer.length > 0 {
+                        master.io.appendOutput(machine.outputBuffer)
                         machine.outputBuffer = ""
                     }
                 } else {
@@ -823,7 +823,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         } else {
             // the memory dump is what's visible, so switch to batch and try again
             master.io.setMode(to: .batchIO)
-            execute()
+            execute() // note: recursive call
         }
     }
     

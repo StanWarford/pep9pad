@@ -75,10 +75,10 @@ class Pep9ProcessorController: UIViewController {
         xDec.text = "\(machine.toSignedDecimal(machine.indexRegister))"
         
         spHex.text = "0x\(machine.stackPointer.toHex4())"
-        spDec.text = "\(machine.toSignedDecimal(machine.stackPointer))"
+        spDec.text = "\(machine.stackPointer)"
         
         pcHex.text = "0x\(machine.programCounter.toHex4())"
-        pcDec.text = "\(machine.toSignedDecimal(machine.programCounter))"
+        pcDec.text = "\(machine.programCounter)"
         
         instrSpecBin.text = machine.instructionSpecifier.toBin8()
         instrSpecMnemon.text = " " + maps.enumToMnemonMap[maps.decodeMnemonic[machine.instructionSpecifier]]! + maps.commaSpaceStringForAddrMode(addressMode: addrMode)
