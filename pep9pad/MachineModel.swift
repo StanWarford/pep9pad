@@ -473,6 +473,7 @@ class MachineModel {
             }
             return true
         case .DECI,.DECO,.HEXO,.STRO,.NOP,.NOP0,.NOP1:
+            // trap instructions
             temp = readWord(maps.dotBurnArgument - 9)
             // 9 is the vector offset from the last byte of the OS for the System stack pointer
             writeByte(memAddr: temp - 1, value: instructionSpecifier)
@@ -483,7 +484,7 @@ class MachineModel {
             writeByte(memAddr: temp - 10, value: nzvcToInt())
             stackPointer = temp - 10
             programCounter = readWord(maps.dotBurnArgument - 1)
-            indexRegister = 0 // compensating for bug in PEP9 OS=
+            indexRegister = 0 // compensating for bug in PEP9 OS, this is also done in the desktop version.
             return true
         // MARK: CASE SUBJECT TO CHANGE
         case .LDBA:
@@ -665,9 +666,11 @@ class MachineModel {
         case .SUBX:
             operand = readWordOprnd(addrMode: addrMode)
             indexRegister = addAndSetNZVC(indexRegister, (~operand + 1) & 0xffff)
+            return true
         case .SUBSP:
             operand = readWordOprnd(addrMode: addrMode)
             stackPointer = add(stackPointer, (~operand + 1) & 0xffff) // Might need to use different add function
+            return true
         }
         return false
     }

@@ -44,6 +44,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         self.master = masternc.viewControllers[0] as! Pep9MasterController
         
         if assembler.installDefaultOS() {
+            print(assembler.getReadableListing())
             master.io.memoryView.refresh()
             HUD.dimsBackground = false
             HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)

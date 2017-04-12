@@ -210,6 +210,10 @@ class PepMaps {
         addrModesMap[.ADDSP] = All
         addrModesMap[.ANDA] = All
         addrModesMap[.ANDX] = All
+        addrModesMap[.ASLA] = None
+        addrModesMap[.ASLX] = None
+        addrModesMap[.ASRA] = None
+        addrModesMap[.ASRX] = None
         addrModesMap[.BR] = I | X
         addrModesMap[.BRC] = I | X
         addrModesMap[.BREQ] = I | X
@@ -228,16 +232,29 @@ class PepMaps {
         addrModesMap[.LDBX] = All
         addrModesMap[.LDWA] = All
         addrModesMap[.LDWX] = All
+        addrModesMap[.MOVAFLG] = None
+        addrModesMap[.MOVFLGA] = None
+        addrModesMap[.MOVSPA] = None
+        addrModesMap[.NEGA] = None
+        addrModesMap[.NEGX] = None
+        addrModesMap[.NOTA] = None
+        addrModesMap[.NOTX] = None
         addrModesMap[.ORA] = All
         addrModesMap[.ORX] = All
+        addrModesMap[.RET] = None
+        addrModesMap[.RETTR] = None
+        addrModesMap[.ROLA] = None
+        addrModesMap[.ROLX] = None
+        addrModesMap[.RORA] = None
+        addrModesMap[.RORX] = None
         addrModesMap[.STBA] = D | N | S | SF | X | SX | SFX
         addrModesMap[.STBX] = D | N | S | SF | X | SX | SFX
         addrModesMap[.STWA] = D | N | S | SF | X | SX | SFX
         addrModesMap[.STWX] = D | N | S | SF | X | SX | SFX
+        addrModesMap[.STOP] = None
         addrModesMap[.SUBA] = All
         addrModesMap[.SUBX] = All
         addrModesMap[.SUBSP] = All
-        addrModesMap[.STOP] = None
         
         // Nonunary trap instructions
         var addrMode: Int = 0;
