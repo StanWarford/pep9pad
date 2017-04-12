@@ -7,10 +7,10 @@
 
 var machine = MachineModel()
 
-/// The simulated machine.
 class MachineModel {
     
-    
+    /// The simulated machine.
+
     // MARK: - Properties
     /// Main memory, pre-allocated to 64KiB (== 65536 bytes)
     var mem: [Int] = [Int](repeating: 0, count: 65536)
@@ -25,7 +25,7 @@ class MachineModel {
     var operandSpecifier: Int
     var operand: Int
     
-    var inputBuffer: [String]     // Made this an array for testing
+    var inputBuffer: String
     var outputBuffer: String
     
     var modifiedBytes: Set<Int>
@@ -48,7 +48,7 @@ class MachineModel {
         operandSpecifier = 0
         operand = 0
         
-        inputBuffer = [""]
+        inputBuffer = ""
         outputBuffer = ""
         
         modifiedBytes = Set()
@@ -285,7 +285,7 @@ class MachineModel {
         }
     }
     
-    func vonNeumannStep(errorString: String) -> Bool {
+    func vonNeumannStep(errorString: inout String) -> Bool {
         modifiedBytes.removeAll() // Assuming this is the correct implementation could be wrong
         var mnemonic: EMnemonic
         var addrMode: EAddrMode
@@ -294,18 +294,20 @@ class MachineModel {
         // Fetch
         instructionSpecifier = readByte(programCounter)
         // Increment
-        programCounter = add(programCounter, 1) // might need to use other add function
+        programCounter += 1//add(programCounter, 1) // might need to use other add function
         // Decode
         mnemonic = maps.decodeMnemonic[instructionSpecifier]
         addrMode = maps.decodeAddrMode[instructionSpecifier]
         if (!maps.isUnaryMap[mnemonic]!) {
             operandSpecifier = readWord(programCounter)
-            programCounter = add(programCounter, 2) // might need to use other add function
+            programCounter += 2 //add(programCounter, 2) // might need to use other add function
         }
         
         let isUnary = maps.isUnaryMap[mnemonic]!
         let isTrap = maps.isTrapMap[mnemonic]!
-        let hasCorrectAddrMode = (maps.addrModesMap[mnemonic]! & addrMode.rawValue).toBool()
+        let addr = maps.addrModesMap[mnemonic]!
+        let rawVal = addrMode.rawValue
+        let hasCorrectAddrMode = ( addr & rawVal ).toBool()
         
         if (!isUnary && !isTrap && !hasCorrectAddrMode) {
             print (errorString) // MARK: Return Tuple
@@ -484,10 +486,9 @@ class MachineModel {
         case .LDBA:
             if (addrMode != EAddrMode.I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
                 // Memory-mapped input
-                if inputBuffer != [""] {
-                    var ch: [String] = [inputBuffer[0]]
-                    inputBuffer.remove(at: 1)
-                    operand = ch[0].hashValue
+                if inputBuffer != "" {
+                    var ch: Character = inputBuffer.characters.removeFirst()
+                    operand = ch.hashValue
                     operand += operand < 0 ? 256 : 0
                 } else {
                     // Attempt to read past end of input
@@ -506,10 +507,9 @@ class MachineModel {
         case .LDBX:
             if (addrMode != EAddrMode.I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
                 // Memory-mapped input
-                if (inputBuffer != [""]) {
-                    var ch: [String] = [inputBuffer[0]]
-                    inputBuffer.remove(at: 1)
-                    operand = ch[0].hashValue
+                if (inputBuffer != "") {
+                    var ch: Character = inputBuffer.characters.removeFirst()
+                    operand = ch.hashValue
                     operand += operand < 0 ? 256 : 0
                 } else {
                     // Attempt to read past end of input

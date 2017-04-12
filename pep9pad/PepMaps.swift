@@ -193,7 +193,7 @@ class PepMaps {
     
     func initAddrModesMap() {
         
-        //let None = 0
+        let None = 0
         let I = 1
         let D = 2
         let N = 4
@@ -237,6 +237,7 @@ class PepMaps {
         addrModesMap[.SUBA] = All
         addrModesMap[.SUBX] = All
         addrModesMap[.SUBSP] = All
+        addrModesMap[.STOP] = None
         
         // Nonunary trap instructions
         var addrMode: Int = 0;

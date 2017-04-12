@@ -42,6 +42,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! Pep9MasterController
+        
+        if assembler.installDefaultOS() {
+            master.io.memoryView.refresh()
+            HUD.dimsBackground = false
+            HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
+            
+        }
 
     }
     
@@ -51,12 +58,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if assembler.installDefaultOS() {
-            master.io.memoryView.refresh()
-            HUD.dimsBackground = false
-            HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
-
-        }
         
     }
     
@@ -170,7 +171,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     // Corresponds to the "play button".
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
-        //TODO: Implement
+        if assembler.assemble() {
+            loadObject()
+            execute()
+        }
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
@@ -205,7 +209,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(assembleSourceAction)
         
         let loadObjectAction = UIAlertAction(title: "Load Object", style: .default) { (action) in
-            //TODO: Implement loadObjectAction
+            self.loadObject()
         }
         alertController.addAction(loadObjectAction)
         
@@ -215,7 +219,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(executeAction)
         
         let runObjectAction = UIAlertAction(title: "Run Object", style: .default) { (action) in
-            //TODO: Implement runObjectAction
+            self.execute()
         }
         alertController.addAction(runObjectAction)
         
@@ -228,7 +232,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let newAction = UIAlertAction(title: "New Project", style: .default) { (action) in
-            //TODO: Implement newAction
             self.newProjectBtnPressed()
         }
         newAction.isEnabled = (projectModel.fsState != .Blank)
@@ -751,13 +754,78 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     /// * refreshes the memory dump
     
     func loadObject() -> Bool {
-        // TODO
+        var obj = assembler.getObjectCode()
+        for i in 0..<obj.count {
+            machine.mem[i] = obj[i]
+        }
+        master.io.memoryView.refresh()
+        
         return true
     }
     
+    // TODO: move these
+    var currentlySimulating = false
+    var interruptExecution = false
     
-    
-    
+    func execute() {
+        master.cpu.clearCpu()
+        // 11 is the offset from the last byte of the OS to the stack pointer
+        // TODO: just make this a computed property in the machine
+        machine.stackPointer = machine.readWord(maps.dotBurnArgument-11)
+        machine.programCounter = 0
+        // set debugState to true
+        machine.trapped = false
+        // set source and object to read only, may not be necessary
+        if master.io.currentMode == .batchIO {
+            master.io.batchOutputTextView.text.removeAll()
+            if var input = master.io.batchInputTextView.text {
+                if !input.hasSuffix("\n") {
+                    input.append("\n")
+                }
+                machine.inputBuffer = input
+            }
+
+            var errorStr = ""
+            while true {
+                if machine.vonNeumannStep(errorString: &errorStr) {
+                    // emit vonNeumannStepped
+                    if machine.outputBuffer.length == 1 {
+                        // emit appendOutput(machine.outputBuffer)
+                        machine.outputBuffer = ""
+                    }
+                } else {
+                    // error ocurred in VonNeumann step
+                    HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                    master.cpu.update()
+                    // emit executionComplete()
+                    currentlySimulating = false
+                    return
+                }
+                
+                if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                    master.cpu.update()
+                    // emit executionComplete()
+                    currentlySimulating = false
+                    return
+                }
+                
+                if interruptExecution {
+                    master.cpu.update()
+                    currentlySimulating = false
+                    return
+                }
+            }
+
+        } else if master.io.currentMode == .terminalIO {
+            machine.inputBuffer = ""
+            master.io.terminalTextView.text.removeAll()
+            // cpu.runWithTerminal()
+        } else {
+            // the memory dump is what's visible, so switch to batch and try again
+            master.io.setMode(to: .batchIO)
+            execute()
+        }
+    }
     
     
     

@@ -44,7 +44,7 @@ extension Int {
     }
     
     func toBool() -> Bool {
-        return self == 1 ? true : false
+        return self != 0
     }
 }
 

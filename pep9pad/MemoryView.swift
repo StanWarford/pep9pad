@@ -97,6 +97,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         memoryDump[lineNum] = line
             
         }
+        table.reloadData()
 
     }
 
@@ -174,9 +175,8 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         if cell == nil {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellID)
         }
-        
-        cell?.textLabel?.attributedText = NSAttributedString(string: memoryDump[indexPath.row])
         cell?.textLabel?.font = UIFont(name: "Courier", size: 11.0)!
+        cell?.textLabel?.attributedText = NSAttributedString(string: memoryDump[indexPath.row])
         return cell!
     }
     

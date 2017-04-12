@@ -1116,6 +1116,7 @@ class AssemblerModel {
             source[i].appendObjectCode(objectCode: &anObject)
         }
         
+        
         // Notice the range: 1 to inclusive len of array.
         // If you don't do this then the mod won't work properly on first row.
         for j in 1...anObject.count {
@@ -1126,6 +1127,8 @@ class AssemblerModel {
                 toRet.append(" ")
             }
         }
+        
+        toRet.append("zz")
         
         return toRet
     }
