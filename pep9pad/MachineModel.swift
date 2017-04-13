@@ -504,7 +504,7 @@ class MachineModel {
                 // Memory-mapped input
                 if inputBuffer != "" {
                     var ch: Character = inputBuffer.characters.removeFirst()
-                    operand = ch.hashValue // TODO: Hash value? or toLatin1?
+                    operand = Int(ch.asciiValue!) // TODO: Hash value? or toLatin1?
                     operand += operand < 0 ? 256 : 0
                 } else {
                     // Attempt to read past end of input
@@ -524,7 +524,7 @@ class MachineModel {
                 // Memory-mapped input
                 if (inputBuffer != "") {
                     var ch: Character = inputBuffer.characters.removeFirst()
-                    operand = ch.hashValue // TODO: Hash value? or toLatin1?
+                    operand = Int(ch.asciiValue!) // TODO: Hash value? or toLatin1?
                     operand += operand < 0 ? 256 : 0
                 } else {
                     // Attempt to read past end of input
