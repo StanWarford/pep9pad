@@ -120,21 +120,21 @@ class PepTextStorage: BaseTextStorage {
 
             ]
         case "singleQuote", "doubleQuote", "string" :
-            // Text in quotes is red.
+            // Text in quotes is blue.
             attributes = [
-                NSForegroundColorAttributeName:redColor
+                NSForegroundColorAttributeName:blueColor
             ]
         case "warning":
-            // Warnings have a blue background.
-            attributes = [
-                NSForegroundColorAttributeName:whiteColor,
-                NSBackgroundColorAttributeName:blueColor
-            ]
-        case "error":
-            // Errors have an orange background.
+            // Warnings have an orange background.
             attributes = [
                 NSForegroundColorAttributeName:whiteColor,
                 NSBackgroundColorAttributeName:orangeColor
+            ]
+        case "error":
+            // Errors have a red background.
+            attributes = [
+                NSForegroundColorAttributeName:whiteColor,
+                NSBackgroundColorAttributeName:redColor
             ]
         default:
             attributes = [NSForegroundColorAttributeName:UIColor.orange]
