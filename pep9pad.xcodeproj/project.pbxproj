@@ -120,6 +120,9 @@
 		4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */; };
 		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
 		46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A71C0B1E563CAB00FCEFEA /* CPUView.swift */; };
+		46A911971E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A911961E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift */; };
+		46A911991E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A911981E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib */; };
+		46A9119B1E9F3736002C9DAE /* DebugMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A9119A1E9F3736002C9DAE /* DebugMenu.swift */; };
 		46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */; };
 		46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */; };
 		46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BB48DF1E7230D5001EF954 /* CPUColors.swift */; };
@@ -374,6 +377,9 @@
 		4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFileSystem.swift; sourceTree = "<group>"; };
 		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
 		46A71C0B1E563CAB00FCEFEA /* CPUView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUView.swift; sourceTree = "<group>"; };
+		46A911961E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMenuTraceTrapsCell.swift; sourceTree = "<group>"; };
+		46A911981E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugMenuTraceTrapsCell.xib; sourceTree = "<group>"; };
+		46A9119A1E9F3736002C9DAE /* DebugMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMenu.swift; sourceTree = "<group>"; };
 		46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelpExamples.swift; path = pep9pad/HelpExamples.swift; sourceTree = "<group>"; };
 		46BB48DD1E7227C6001EF954 /* CPU1ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteRenderer.swift; sourceTree = "<group>"; };
 		46BB48DF1E7230D5001EF954 /* CPUColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUColors.swift; sourceTree = "<group>"; };
@@ -608,8 +614,11 @@
 			children = (
 				F613FD6E1E89D1F4003939C0 /* RedefineMnemonics.swift */,
 				4637EF8D1E5D7CCB007593E1 /* FontMenu.swift */,
+				46A9119A1E9F3736002C9DAE /* DebugMenu.swift */,
 				4637EF951E5E72B7007593E1 /* FontMenuColorCell.xib */,
 				464DE4751E6A00AB00763503 /* FontMenuSizeCell.swift */,
+				46A911961E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift */,
+				46A911981E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib */,
 				464DE4771E6A00B400763503 /* FontMenuSizeCell.xib */,
 				464DE4711E69FD2C00763503 /* FontMenuColorCell.swift */,
 				4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */,
@@ -1319,6 +1328,7 @@
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
 				462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */,
 				462BA76E1E2B2A3B00BBABCD /* fig0636.txt in Resources */,
+				46A911991E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib in Resources */,
 				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
 				46539C711E9AEED700718705 /* fig0522.pepo in Resources */,
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
@@ -1439,6 +1449,8 @@
 				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
+				46A9119B1E9F3736002C9DAE /* DebugMenu.swift in Sources */,
+				46A911971E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift in Sources */,
 				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
 				464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */,

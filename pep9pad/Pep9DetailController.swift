@@ -29,6 +29,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     internal let byteCalc = ByteCalc()
     internal let fontMenu = FontMenu()
+    internal let debugMenu = DebugMenu()
     internal let mailer = Pep9Mailer()
     internal let redefineMnemonics = RedefineMnemonics()
 
@@ -173,27 +174,32 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
+//        let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
+//        
+//        // TODO: add trace traps switch
+//        
+//        let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
+//            //TODO: Implement debugSourceAction
+//        }
+//        alertController.addAction(debugSourceAction)
+//        let debugObjectAction = UIAlertAction(title: "Start Debugging Object", style: .default) { (action) in
+//            //TODO: Implement debugObjectAction
+//        }
+//        alertController.addAction(debugObjectAction)
+//        let debugLoaderAction = UIAlertAction(title: "Start Debugging Loader", style: .default) { (action) in
+//            //TODO: Implement debugLoaderAction
+//        }
+//        alertController.addAction(debugLoaderAction)
+//        
+//        
+//        
+//        alertController.popoverPresentationController?.barButtonItem = sender
+//        self.present(alertController, animated: true, completion: nil)
         
-        // TODO: add trace traps switch
         
-        let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
-            //TODO: Implement debugSourceAction
-        }
-        alertController.addAction(debugSourceAction)
-        let debugObjectAction = UIAlertAction(title: "Start Debugging Object", style: .default) { (action) in
-            //TODO: Implement debugObjectAction
-        }
-        alertController.addAction(debugObjectAction)
-        let debugLoaderAction = UIAlertAction(title: "Start Debugging Loader", style: .default) { (action) in
-            //TODO: Implement debugLoaderAction
-        }
-        alertController.addAction(debugLoaderAction)
-        
-        
-        
-        alertController.popoverPresentationController?.barButtonItem = sender
-        self.present(alertController, animated: true, completion: nil)
+        let menu = self.debugMenu.makeAlert(barButton: debugBtn)
+        self.present(menu, animated: true, completion: nil)
+
     }
     
     @IBAction func buildBtnPressed(_ sender: UIBarButtonItem) {

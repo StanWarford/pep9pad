@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="traceTraps" rowHeight="43" id="53J-z3-696" customClass="DebugMenuTraceTrapsCell" customModule="pep9pad" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53J-z3-696" id="Iyq-ly-o6M">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trace traps" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OR7-cG-BIP">
+                        <rect key="frame" x="21" y="8" width="124" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="124" id="8a5-Dv-1b9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fd4-6T-K6p">
+                        <rect key="frame" x="188" y="6" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchValueChanged:" destination="53J-z3-696" eventType="valueChanged" id="phU-di-Utu"/>
+                        </connections>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OR7-cG-BIP" firstAttribute="bottom" secondItem="Iyq-ly-o6M" secondAttribute="bottomMargin" id="14R-1m-MWS"/>
+                    <constraint firstItem="fd4-6T-K6p" firstAttribute="leading" secondItem="OR7-cG-BIP" secondAttribute="trailing" constant="43" id="8WK-wS-KJs"/>
+                    <constraint firstItem="fd4-6T-K6p" firstAttribute="centerY" secondItem="OR7-cG-BIP" secondAttribute="centerY" id="LFI-6z-ijd"/>
+                    <constraint firstItem="fd4-6T-K6p" firstAttribute="leading" secondItem="OR7-cG-BIP" secondAttribute="trailing" constant="43" id="kAj-By-gEL"/>
+                    <constraint firstItem="OR7-cG-BIP" firstAttribute="top" secondItem="Iyq-ly-o6M" secondAttribute="topMargin" id="mj8-QQ-hqm"/>
+                    <constraint firstItem="OR7-cG-BIP" firstAttribute="leading" secondItem="Iyq-ly-o6M" secondAttribute="leadingMargin" constant="13" id="v5K-DI-foM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="traceTraps" destination="fd4-6T-K6p" id="pdF-Ei-qDa"/>
+            </connections>
+            <point key="canvasLocation" x="199.5" y="37.5"/>
+        </tableViewCell>
+    </objects>
+</document>
