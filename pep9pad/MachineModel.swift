@@ -33,6 +33,8 @@ class MachineModel {
     var tracingTraps: Bool
     
     
+    let maxPositive = 32768
+    
     // MARK: - Initializer
     init() {
         nBit = false
@@ -96,10 +98,10 @@ class MachineModel {
             cBit = false
         }
         
-        nBit = result < 32768 ? false : true
+        nBit = result < maxPositive ? false : true
         zBit = result == 0 ? true : false
-        vBit = (lhs < 32768 && rhs < 32768 && result >= 32768) ||
-            (lhs >= 32768 && rhs >= 32768 && result < 32768)
+        vBit = (lhs < maxPositive && rhs < maxPositive && result >= maxPositive) ||
+            (lhs >= maxPositive && rhs >= maxPositive && result < maxPositive)
         return result
     }
     
@@ -297,13 +299,13 @@ class MachineModel {
         // Fetch
         instructionSpecifier = readByte(programCounter)
         // Increment
-        programCounter += 1//add(programCounter, 1) // might need to use other add function
+        programCounter = add(programCounter, 1)
         // Decode
         mnemonic = maps.decodeMnemonic[instructionSpecifier]
         addrMode = maps.decodeAddrMode[instructionSpecifier]
         if (!maps.isUnaryMap[mnemonic]!) {
             operandSpecifier = readWord(programCounter)
-            programCounter += 2 //add(programCounter, 2) // might need to use other add function
+            programCounter = add(programCounter, 2)
         }
         
         let isUnary = maps.isUnaryMap[mnemonic]!
@@ -325,63 +327,71 @@ class MachineModel {
             return true
         case .ADDX:
             operand = readWordOprnd(addrMode: addrMode)
-            indexRegister = addAndSetNZVC(accumulator, operand)
+            indexRegister = addAndSetNZVC(indexRegister, operand)
             return true
         case .ADDSP:
             operand = readWordOprnd(addrMode: addrMode)
             stackPointer = add(stackPointer, operand)
             return true
         case .ANDA:
+            operand = readWordOprnd(addrMode: addrMode)
+            accumulator = accumulator & operand
+            nBit = accumulator > maxPositive // TODO: why not >= ?
+            zBit = accumulator == 0
             return true
         case .ANDX:
             operand = readWordOprnd(addrMode: addrMode)
             indexRegister = indexRegister & operand
-            nBit = indexRegister > 32786
+            nBit = indexRegister > maxPositive
             zBit = indexRegister == 0
             return true
         case .ASLA:
-            vBit = (accumulator >= 0x4000 && accumulator < 0x8000) || (accumulator >= 0x8000 && accumulator < 0xC000)
-            accumulator *= 2
+            let hasPrefix01 = accumulator >= 0x4000 && accumulator < 0x8000
+            let hasPrefix10 = accumulator >= 0x8000 && accumulator < 0xC000
+            vBit = hasPrefix01 || hasPrefix10
+            accumulator *= 2 // shift left
             if accumulator >= 65536 {
-                cBit = true // subject to change
+                cBit = true
                 accumulator = accumulator & 0xffff
             } else {
-                cBit = true // subject to change
+                cBit = false
             }
-            nBit = accumulator >= 32768
+            nBit = accumulator >= maxPositive
             zBit = accumulator == 0
             return true
         case .ASLX:
-            vBit = (indexRegister >= 0x4000 && indexRegister < 0x8000) || (indexRegister >= 0x8000 && indexRegister < 0xC000)
-            indexRegister *= 2
+            let hasPrefix01 = indexRegister >= 0x4000 && indexRegister < 0x8000
+            let hasPrefix10 = indexRegister >= 0x8000 && indexRegister < 0xC000
+            vBit = hasPrefix01 || hasPrefix10
+            indexRegister *= 2 // shift left
             if (indexRegister >= 65536) {
-                cBit = true // subject to change
+                cBit = true
                 indexRegister = indexRegister & 0xffff
             }
             else {
-                cBit = false // subject to change
+                cBit = false
             }
-            nBit = indexRegister >= 32768
+            nBit = indexRegister >= maxPositive
             zBit = indexRegister == 0
             return true
         case .ASRA:
             cBit = (accumulator % 2) == 1
-            if accumulator < 32768 {
-                accumulator /= 2
+            if accumulator < maxPositive {
+                accumulator /= 2 // shift right
             } else {
-                accumulator = accumulator / 2 + 32768
+                accumulator = accumulator / 2 + maxPositive
             }
-            nBit = accumulator >= 32768
+            nBit = accumulator >= maxPositive
             zBit = accumulator == 0
             return true
         case .ASRX:
             cBit = (indexRegister % 2) == 1
-            if indexRegister < 32768 {
-                indexRegister /= 2
+            if indexRegister < maxPositive {
+                indexRegister /= 2 // shift right
             } else {
-                indexRegister = indexRegister / 2 + 32768
+                indexRegister = indexRegister / 2 + maxPositive
             }
-            nBit = indexRegister >= 32768
+            nBit = indexRegister >= maxPositive
             zBit = indexRegister == 0
             return true
         case .BR:
@@ -414,7 +424,7 @@ class MachineModel {
             return true
         case .BRLE:
             operand = readWordOprnd(addrMode: addrMode)
-            if !nBit && !zBit {
+            if nBit || zBit {
                 programCounter = operand
             }
             return true
@@ -438,12 +448,12 @@ class MachineModel {
             return true
         case .CALL:
             operand = readWordOprnd(addrMode: addrMode)
-            stackPointer = add(stackPointer, 65534) // may need to use different add function
-            writeWord(memAddr: stackPointer, value: programCounter)
-            programCounter = operand
+            stackPointer = add(stackPointer, 65534) // SP <- SP-2
+            writeWord(memAddr: stackPointer, value: programCounter) // Mem[SP] <- PC
+            programCounter = operand // PC <- Oprnd
             return true
         case .CPBA:
-            operand = readWordOprnd(addrMode: addrMode)
+            operand = readByteOprnd(addrMode: addrMode)
             temp = (accumulator & 0x00ff) - operand
             nBit = temp < 0
             zBit = temp == 0
@@ -451,7 +461,7 @@ class MachineModel {
             cBit = false
             return true
         case .CPBX:
-            operand = readWordOprnd(addrMode: addrMode)
+            operand = readByteOprnd(addrMode: addrMode)
             temp = (indexRegister & 0x00ff) - operand
             nBit = temp < 0
             zBit = temp == 0
@@ -462,6 +472,7 @@ class MachineModel {
             operand = readWordOprnd(addrMode: addrMode)
             addAndSetNZVC(accumulator, (~operand + 1) & 0xffff)
             if vBit {
+                // Extend compare range. nBit and zBit are not adjusted in subtract instructions.
                 nBit = !nBit
             }
             return true
@@ -469,12 +480,14 @@ class MachineModel {
             operand = readWordOprnd(addrMode: addrMode)
             addAndSetNZVC(indexRegister, (~operand + 1) & 0xffff)
             if vBit {
+                // Extend compare range. nBit and zBit are not adjusted in subtract instructions.
                 nBit = !nBit
             }
             return true
         case .DECI,.DECO,.HEXO,.STRO,.NOP,.NOP0,.NOP1:
             // trap instructions
-            temp = readWord(maps.dotBurnArgument - 9)
+            let loc = maps.dotBurnArgument - 9
+            temp = readWord(loc)
             // 9 is the vector offset from the last byte of the OS for the System stack pointer
             writeByte(memAddr: temp - 1, value: instructionSpecifier)
             writeWord(memAddr: temp - 3, value: stackPointer)
@@ -486,13 +499,12 @@ class MachineModel {
             programCounter = readWord(maps.dotBurnArgument - 1)
             indexRegister = 0 // compensating for bug in PEP9 OS, this is also done in the desktop version.
             return true
-        // MARK: CASE SUBJECT TO CHANGE
         case .LDBA:
-            if (addrMode != EAddrMode.I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
+            if (addrMode != .I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
                 // Memory-mapped input
                 if inputBuffer != "" {
                     var ch: Character = inputBuffer.characters.removeFirst()
-                    operand = ch.hashValue
+                    operand = ch.hashValue // TODO: Hash value? or toLatin1?
                     operand += operand < 0 ? 256 : 0
                 } else {
                     // Attempt to read past end of input
@@ -502,18 +514,17 @@ class MachineModel {
             } else {
                 operand = readByteOprnd(addrMode: addrMode)
             }
-            accumulator = accumulator & 0xff0
+            accumulator = accumulator & 0xff00
             accumulator |= operand & 255
             nBit = false
             zBit = operand == 0
             return true
-        // MARK: CASE SUBJECT TO CHANGE
         case .LDBX:
-            if (addrMode != EAddrMode.I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
+            if (addrMode != .I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
                 // Memory-mapped input
                 if (inputBuffer != "") {
                     var ch: Character = inputBuffer.characters.removeFirst()
-                    operand = ch.hashValue
+                    operand = ch.hashValue // TODO: Hash value? or toLatin1?
                     operand += operand < 0 ? 256 : 0
                 } else {
                     // Attempt to read past end of input
@@ -531,13 +542,13 @@ class MachineModel {
         case .LDWA:
             operand = readWordOprnd(addrMode: addrMode)
             accumulator = operand & 0xffff
-            nBit = accumulator >= 32768
+            nBit = accumulator >= maxPositive
             zBit = accumulator == 0
             return true
         case .LDWX:
             operand = readWordOprnd(addrMode: addrMode)
             indexRegister = operand & 0xffff
-            nBit = indexRegister >= 32768
+            nBit = indexRegister >= maxPositive
             zBit = indexRegister == 0
             return true
         case .MOVAFLG:
@@ -558,41 +569,41 @@ class MachineModel {
             return true
         case .NEGA:
             accumulator = (~accumulator + 1) & 0xffff
-            nBit = accumulator >= 32768
+            nBit = accumulator >= maxPositive
             zBit = accumulator == 0
-            vBit = accumulator == 32768
+            vBit = accumulator == maxPositive
             return true
         case .NEGX:
-            accumulator = (~accumulator + 1) & 0xffff
-            nBit = accumulator >= 32768
+            indexRegister = (~indexRegister + 1) & 0xffff
+            nBit = accumulator >= maxPositive
             zBit = accumulator == 0
-            vBit = accumulator == 32768
+            vBit = accumulator == maxPositive
             return true
         case .NOTA:
             accumulator = ~accumulator & 0xffff
-            nBit = accumulator >= 32768
+            nBit = accumulator >= maxPositive
             zBit = accumulator == 0
             return true
         case .NOTX:
             indexRegister = ~indexRegister & 0xffff
-            nBit = indexRegister >= 32768
+            nBit = indexRegister >= maxPositive
             zBit = indexRegister == 0
             return true
         case .ORA:
             operand = readWordOprnd(addrMode: addrMode)
             accumulator = accumulator | operand
-            nBit = accumulator > 32768
-            zBit = indexRegister == 0
+            nBit = accumulator > maxPositive
+            zBit = accumulator == 0
             return true
         case .ORX:
             operand = readWordOprnd(addrMode: addrMode)
             indexRegister = indexRegister | operand
-            nBit = indexRegister > 32768
+            nBit = indexRegister > maxPositive
             zBit = indexRegister == 0
             return true
         case .RET:
-            programCounter = readWord(stackPointer)
-            stackPointer = add(stackPointer, 2) // might need to use different add function
+            programCounter = readWord(stackPointer) // PC <- Mem[SP]
+            stackPointer = add(stackPointer, 2) // SP <- SP + 2
             return true
         case .RETTR:
             temp = readByte(stackPointer)
@@ -606,13 +617,13 @@ class MachineModel {
             stackPointer = readWord(stackPointer + 7)
             return true
         case .ROLA:
-            bTemp = accumulator >= 32768
+            bTemp = accumulator >= maxPositive
             accumulator = (accumulator * 2) & 0xffff
             accumulator |= cBit ? 1 : 0
             cBit = bTemp
             return true
         case .ROLX:
-            bTemp = indexRegister >= 32768
+            bTemp = indexRegister >= maxPositive
             indexRegister = (indexRegister * 2) & 0xffff
             indexRegister |= cBit ? 1 : 0
             cBit = bTemp
@@ -629,22 +640,20 @@ class MachineModel {
             indexRegister |= cBit ? 0x8000 : 0
             cBit = bTemp
             return true
-        // MARK: CASE SUBJECT TO CHANGE
         case .STBA:
             operand = accumulator & 0x00ff
             if (addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 5] + mem[maps.dotBurnArgument - 4]) {
                 // Memory-mapped output
-                outputBuffer = operand.toASCII()
+                outputBuffer.append(operand.toASCII())
             } else {
                 writeByteOprnd(addrMode: addrMode, value: operand)
             }
             return true
-        // MARK: CASE SUBJECT TO CHANGE
         case .STBX:
             operand = indexRegister & 0x00ff
             if (addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 5] + mem[maps.dotBurnArgument - 4]) {
                 // Memory-mapped output
-                outputBuffer = operand.toBin8()
+                outputBuffer.append(operand.toASCII())
             } else {
                 writeByteOprnd(addrMode: addrMode, value: operand)
             }
@@ -669,8 +678,11 @@ class MachineModel {
             return true
         case .SUBSP:
             operand = readWordOprnd(addrMode: addrMode)
-            stackPointer = add(stackPointer, (~operand + 1) & 0xffff) // Might need to use different add function
+            stackPointer = add(stackPointer, (~operand + 1) & 0xffff)
             return true
+        default:
+            // should not happen
+            return false
         }
         return false
     }
