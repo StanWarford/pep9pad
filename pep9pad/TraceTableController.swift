@@ -35,7 +35,8 @@ class TraceTableController: UITableViewController {
         
         // then fill it with the appropriate content
         if index < assembler.listing.count {
-            cell.textLabel?.text = assembler.listing[index]
+            //cell.textLabel?.text = assembler.listing[index]
+            cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
         } else {
             cell.textLabel?.text = "ERROR: Index \(index) out of bounds."
         }
