@@ -221,13 +221,11 @@
 		753780661E96F862002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780651E96F862002E1968 /* ViewController.swift */; };
 		753780681E96F873002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780671E96F873002E1968 /* SecondViewController.swift */; };
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
-		7537806C1E96FA4B002E1968 /* logo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7537806B1E96FA4B002E1968 /* logo1.jpg */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
 		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
 		D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */; };
 		D2A7D0AB1E4BC8D700A9CD37 /* CPUTraceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */; };
-		D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCC81D77680E00C69724 /* Home.storyboard */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
 		D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B061591C7E62040088CEBE /* AppDelegate.swift */; };
 		D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B0615B1C7E62040088CEBE /* Pep9MasterController.swift */; };
@@ -478,7 +476,6 @@
 		753780651E96F862002E1968 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		753780671E96F873002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		753780691E96F951002E1968 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		7537806B1E96FA4B002E1968 /* logo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo1.jpg; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
@@ -486,7 +483,6 @@
 		D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUSplitController.swift; sourceTree = "<group>"; };
 		D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUVisualController.swift; sourceTree = "<group>"; };
 		D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUTraceController.swift; sourceTree = "<group>"; };
-		D2A9BCC81D77680E00C69724 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
 		D2B061561C7E62040088CEBE /* pep9pad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pep9pad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B061591C7E62040088CEBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -843,13 +839,11 @@
 		46C608D41C8EADD700CC161A /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				753780691E96F951002E1968 /* Main.storyboard */,
-				7537806B1E96FA4B002E1968 /* logo1.jpg */,
 				753780631E96F80B002E1968 /* CircularTransistion.swift */,
 				753780651E96F862002E1968 /* ViewController.swift */,
 				753780671E96F873002E1968 /* SecondViewController.swift */,
-				D2A9BCC81D77680E00C69724 /* Home.storyboard */,
-				D2B061591C7E62040088CEBE /* AppDelegate.swift */,
 				D2B061651C7E62040088CEBE /* LaunchScreen.storyboard */,
 			);
 			name = Launch;
@@ -1256,7 +1250,6 @@
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
 				D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */,
 				46EC8A601C989229001405CE /* fig0512.pep in Resources */,
-				7537806C1E96FA4B002E1968 /* logo1.jpg in Resources */,
 				46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */,
 				46EC8AC81C9895CC001405CE /* fig0514a.pep in Resources */,
 				46539C791E9AEED700718705 /* fig0614.pepo in Resources */,
@@ -1290,7 +1283,6 @@
 				462BA75F1E2B2A3B00BBABCD /* fig0522.txt in Resources */,
 				46539C7A1E9AEED700718705 /* fig0616.pepo in Resources */,
 				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
-				D2A9BCC91D77680E00C69724 /* Home.storyboard in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
 				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
 				464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */,

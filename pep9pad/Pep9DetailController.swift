@@ -42,15 +42,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // get reference to master by going through the navigation controller
         let masternc = (self.splitViewController?.viewControllers[0])! as! UINavigationController
         self.master = masternc.viewControllers[0] as! Pep9MasterController
-        
-        if assembler.installDefaultOS() {
-            //print(assembler.getReadableListing())
-            master.io.memoryView.refresh()
-            HUD.dimsBackground = false
-            HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
-            
-        }
-
+        // customize heads up display
+        HUD.dimsBackground = false
+        HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -661,7 +655,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.present(alertController, animated: true)
             
             
-            
         case .SavedNamed, .Blank:
             // nothing more to do, proceed with loading example
             break
@@ -694,57 +687,34 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     ///   * the model parses the asmb and populates the `assembler.object` and `assembler.listing` fields
     ///   * the model then calls its `updateProjectModel()` method which sets `projectModel.sourceStr`, `.listingStr`, and `.objectStr`
     /// * this function asks the source, object, and listing viewcontrollers to pull changes from projectModel.
-    func assembleSource() -> Bool {
-        
-        if assembler.assemble() {
-
+    func assembleSource() {
+        if assembler.assemble() && maps.burnCount == 0 {
+            // no .BURN directive found, continue with assembly
             projectModel.objectStr = assembler.getReadableObjectCode()
             projectModel.listingStr = assembler.getReadableListing()
-//            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
-
+            // TODO: update trace stuff
+            HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
+            
+        } else if maps.burnCount > 0 {
+            // .BURN directive found, but not installing OS
+            let error = ";ERROR: .BURN not allowed in program unless installing OS."
+            projectModel.appendMessageInSource(atLine: 0, message: error)
+            projectModel.objectStr.removeAll()
+            projectModel.listingStr.removeAll()
+            switchToTab(atIndex: 0) // go to source editor
+            HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
+            
         } else {
+            // the assembly failed for another reason
             let error = assembler.assemblyFailureMessage.replacingOccurrences(of: ";ERROR: ", with: "")
-//            HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
-        }
-        updateEditorsFromProjectModel() // in case there were any error messages in the assembly process
-        
+            projectModel.objectStr.removeAll()
+            projectModel.listingStr.removeAll()
+            switchToTab(atIndex: 0) // go to source editor
+            HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
 
-        
-        // PLACEHOLDER
-        return true
-        
-        //        burnCount = 0
-        //        if assembler.assemble() {
-        //            // check for .BURN
-        //            if burnCount > 0 {
-        //                let error = ";ERROR: .BURN not allowed in program unless installing OS."
-        //                sourceVC.appendMessageAt(0, error)
-        //                listingVC.clear()
-        //                objectVC.clear()
-        //                traceVC.clear()
-        //                // TODO: make source code tab visible
-        //                return false
-        //            }
-        //
-        //            // no .BURN, proceed with assemble
-        //            objectVC.setObjectCode(assembler.getObjectCode())
-        //            listingVC.setListing(assembler.getListing())
-        //            traceVC.setListing(assembler.getListingForTrace())
-        //            traceVC.setMemoryTrace()
-        //            listingVC.showListing()
-        //
-        //            // TODO: update current object and listing files
-        //            // TODO: format from listing
-        //            return true
-        //
-        //        } else {
-        //            listingVC.clear()
-        //            objectVC.clear()
-        //            traceVC.clear()
-        //            // TODO: make source code tab visible
-        //            return false
-        //
-        //        }
+        }
+        // no matter what, update the editors from the projectModel
+        updateEditorsFromProjectModel()
     }
     
     

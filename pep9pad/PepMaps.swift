@@ -80,7 +80,6 @@ class PepMaps {
         return -1; // Should not occur
     }
     
-    
     func stringForAddrMode(addressMode: EAddrMode) -> String {
         if (addressMode == .None) { return "" }
         if (addressMode == .I) { return "i" }
@@ -94,7 +93,6 @@ class PepMaps {
         assert(false)
         return ""; // Should not occur
     }
-    
     
     func commaSpaceStringForAddrMode(addressMode: EAddrMode) -> String {
         if (addressMode == .None) { return "" }
@@ -168,16 +166,15 @@ class PepMaps {
     /// The number of bytes occupied by the assembled source.
     var byteCount: Int = 0
     /// The number of .BURN directives found in the source.
+    /// Should equal 1 iff installing an OS.
     var burnCount: Int = 0
     /// The argument of the .BURN command. Defaults to 0xFFFF (65535).
     /// Can think of it as the end of ROM.
     var dotBurnArgument: Int = 0
     /// The beginning of ROM, equal to dotBurnArgument minus size of OS.
     var romStartAddress: Int = 0
-    
     /// This is true iff the assembled source contains an errant trace tag.
     var traceTagWarning: Bool = false
-    
     
     
     // MARK: - Initializers

@@ -42,10 +42,6 @@ class AssemblerModel {
     /// The listing generated from the most recent assembler call.
     var listing: [String] = []
     
-    
-    /// The number of times a .BURN directive is found in the current project.
-    /// Should equal 0 unless installing an OS (in which case it should be equal to (not greater than) 1).
-    var burnCount: Int = 0
     /// The list of all referenced symbols in the assembly program.
     /// Each element is a 2-touple with a `source` and `lineNumber` attribute.
     var referencedSymbols: [ReferencedSymbol] = []
@@ -56,16 +52,16 @@ class AssemblerModel {
     // Pre: SourceController contains a Pep/9 source program.
     // Post: If the program assembles correctly, true is returned, and source is populated
     // with the code objects. Otherwise false is returned and codeList is partially populated.
-    // Post: pep.symbolTable is populated with values not adjusted for .BURN.
-    // Post: pep.byteCount is the byte count for the object code not adjusted for .BURN.
-    // Post: pep.burnCount is the number of .BURN instructions encountered in the source program.
+    // Post: maps.symbolTable is populated with values not adjusted for .BURN.
+    // Post: maps.byteCount is the byte count for the object code not adjusted for .BURN.
+    // Post: maps.burnCount is the number of .BURN instructions encountered in the source program.
     func assemble() -> Bool {
         maps.burnCount = 0
         
         // Initialize these here, otherwise the processSourceLine call later on complains that the passed-by-ref variables are not initialized.
         var sourceLine: String = ""
         var errorString: String = ""
-        var sourceCodeList: [String]
+        var sourceCodeList: [String] = []
         var code: Code = Code()
         var lineNum: Int = 0
         var dotEndDetected: Bool = false

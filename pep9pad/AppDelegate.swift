@@ -25,7 +25,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         projectModel.loadDefaultProject()
         appSettings.loadSettings()
         
+        DispatchQueue.global(qos: .userInitiated).async {
+            assembler.installDefaultOS()
+        }
+        
         return true
+        
     }
     
     
