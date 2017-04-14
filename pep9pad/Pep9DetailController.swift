@@ -18,6 +18,7 @@ typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?,
 
 /// Regular Expressions
 let rxRemoveError = try! NSRegularExpression(pattern: ";ERROR:[\\s].*$")
+let rxRemoveWarning = try! NSRegularExpression(pattern: ";WARNING:[\\s].*$")
 
 class Pep9DetailController: UIViewController, UITabBarDelegate {
 
@@ -281,17 +282,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(formatFromListingAction)
         
         let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
-            let text : String = projectModel.sourceStr
-            var textArr = text.components(separatedBy: " ")
-            for var i in 0..<textArr.count{
-                if textArr[i] == ";ERROR" || textArr[i] == ";WARNING"{
-                    while textArr[i] != "\n"{
-                        textArr[i] = ""
-                        i += 1
-                    }
+            var text: String = projectModel.sourceStr
+            var textArr: [String] = text.components(separatedBy: "\n")
+            do {
+                for var i in textArr {
+                    let results = rxRemoveError.matches(in: i, options: [], range: NSMakeRange(0, i.length))
+                    let matchRange = results[0].range
+                    let matchStr = (i as NSString).substring(with: matchRange) as String
+                    i = i.replacingOccurrences(of: matchStr, with: "")
                 }
             }
-            projectModel.sourceStr = textArr.joined(separator: " ")
+            
+            projectModel.sourceStr = textArr.joined(separator: "\n")
             self.updateEditorsFromProjectModel()
         }
         alertController.addAction(removeErrorMsgsAction)
