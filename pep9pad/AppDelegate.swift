@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         projectModel.loadDefaultProject()
         appSettings.loadSettings()
         
+        // concurrently assemble/install the default OS
         DispatchQueue.global(qos: .userInitiated).async {
             assembler.installDefaultOS()
         }

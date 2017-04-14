@@ -39,15 +39,19 @@ class IOMemController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         batchInputTextView = UITextView()
-        batchInputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: (view.frame.height-44)/3)
+        batchInputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.bounds.width, height: (view.frame.height-44)/3)
         batchInputTextView.font = UIFont(name: "Courier", size: 15)
         batchInputTextView.text = "Batch Input placeholder"
+        batchInputTextView.textContainer.lineBreakMode = .byWordWrapping
         view.addSubview(batchInputTextView)
 
+        print(view.bounds.width)
+        
         batchOutputTextView = UITextView()
         batchOutputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+22+(view.frame.height/3), width: view.frame.width, height: (view.frame.height-44)/3)
         batchOutputTextView.font = UIFont(name: "Courier", size: 15)
         batchOutputTextView.text = "Batch Output placeholder"
+        batchOutputTextView.textContainer.lineBreakMode = .byWordWrapping
         view.addSubview(batchOutputTextView)
 
         terminalTextView = UITextView()
@@ -55,6 +59,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
         terminalTextView.isHidden = true
         terminalTextView.font = UIFont(name: "Courier", size: 15)
         terminalTextView.text = "Terminal I/O placeholder"
+        terminalTextView.textContainer.lineBreakMode = .byWordWrapping
         view.addSubview(terminalTextView)
 
         

@@ -25,13 +25,16 @@ class MachineModel {
     var operandSpecifier: Int
     var operand: Int
     
+    
     var inputBuffer: String
     var outputBuffer: String
     
     var modifiedBytes: Set<Int>
     var trapped: Bool
     var tracingTraps: Bool
-    
+
+    var isSimulating: Bool
+    var interruptExecution: Bool
     
     let maxPositive = 32768
     
@@ -56,13 +59,24 @@ class MachineModel {
         modifiedBytes = Set()
         trapped = false
         tracingTraps = false
+        
+        isSimulating = false
+        interruptExecution = false
                 
+    }
+    
+    
+    func stopSimulating() {
+        isSimulating = false
+        
+    }
+    
+    func interrupt() {
+        // TODO
     }
     
     /// Pre: 0 <= value < 65536
     /// Post: -32768 <= value < 32768 is returned
-    /// Note that toUnsignedDecimal is not needed, as everything is stored
-    /// internally as unsigned Ints in the machine.
     func toSignedDecimal(_ value: Int) -> Int {
         return value > 32767 ? value - 65536 : value
     }
@@ -726,9 +740,65 @@ class MachineModel {
             
             
         }
-        
-        
     }
+    
+    /// Determines whether or not the charIn trap will be used.
+    func willAccessCharIn() -> Bool {
+        var instrSpecTemp = readByte(programCounter)
+        var mnemonTemp = maps.decodeMnemonic[instrSpecTemp]
+        
+        if (mnemonTemp != .LDBA && mnemonTemp != .LDBX) {
+            return false
+        }
+        var addrModeTemp = maps.decodeAddrMode[instrSpecTemp]
+        if addrModeTemp == .I {
+            return false
+        }
+        
+        var oprndSpecTemp = readWord(add(programCounter, 1))
+        var addrOfByteOprndTemp = 0
+        switch addrModeTemp {
+        case .None, .All, .I:
+            break
+        case .D:
+            addrOfByteOprndTemp = operandSpecifier
+        case .N:
+            addrOfByteOprndTemp = readWord(operandSpecifier)
+        case .S:
+            addrOfByteOprndTemp = add(stackPointer, operandSpecifier)
+        case .SF:
+            addrOfByteOprndTemp = readWord(add(stackPointer, operandSpecifier))
+        case .X:
+            addrOfByteOprndTemp = add(operandSpecifier, indexRegister)
+        case .SX:
+            addrOfByteOprndTemp = add(add(stackPointer, operandSpecifier), indexRegister)
+        case .SFX:
+            addrOfByteOprndTemp = add(readWord(add(stackPointer, operandSpecifier)), indexRegister)
+        }
+        
+        let val = 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]
+        return val == addrOfByteOprndTemp
+
+    }
+    
+    
+    
+    func trapLookahead() {
+        // if the instruction under the PC is a trap...
+        if maps.isTrapMap[maps.decodeMnemonic[readByte(programCounter)]]! {
+            trapped = true
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            maps.listingRowChecked = maps.listingRowCheckedOS
+        // otherwise if we are returning from a trap
+        } else if maps.decodeMnemonic[readByte(programCounter)] == .RETTR {
+            trapped = true
+            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingProg
+            maps.listingRowChecked = maps.listingRowCheckedProg
+        }
+    }
+    
+    
+    
     
     
 }

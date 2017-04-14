@@ -165,8 +165,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     //MARK: - IBActions
     
-    // Corresponds to the "play button".
+    /// Corresponds to the "play button". Assembles, loads, and executes.
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
+    
         if assembler.assemble() {
             loadObject()
             execute()
@@ -174,29 +175,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
-//        let alertController = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
-//        
-//        // TODO: add trace traps switch
-//        
-//        let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
-//            //TODO: Implement debugSourceAction
-//        }
-//        alertController.addAction(debugSourceAction)
-//        let debugObjectAction = UIAlertAction(title: "Start Debugging Object", style: .default) { (action) in
-//            //TODO: Implement debugObjectAction
-//        }
-//        alertController.addAction(debugObjectAction)
-//        let debugLoaderAction = UIAlertAction(title: "Start Debugging Loader", style: .default) { (action) in
-//            //TODO: Implement debugLoaderAction
-//        }
-//        alertController.addAction(debugLoaderAction)
-//        
-//        
-//        
-//        alertController.popoverPresentationController?.barButtonItem = sender
-//        self.present(alertController, animated: true, completion: nil)
-        
-        
         let menu = self.debugMenu.makeAlert(barButton: debugBtn)
         self.present(menu, animated: true, completion: nil)
 
@@ -215,7 +193,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(loadObjectAction)
         
         let executeAction = UIAlertAction(title: "Execute", style: .default) { (action) in
-            //TODO: Implement executeAction
+            self.execute()
         }
         alertController.addAction(executeAction)
         
@@ -740,17 +718,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         return true
     }
     
-    // TODO: move these
-    var currentlySimulating = false
-    var interruptExecution = false
     
+    /// Executes whatever's currently stored in the machine.
+    /// Begins at beginning of memory and follows the PC from there on out.
+    /// Iteratively asks the `machine` to perform a `vonNeumannStep`.
     func execute() {
         master.cpu.clearCpu()
         // 11 is the offset from the last byte of the OS to the stack pointer
         // TODO: just make this a computed property in the machine
         machine.stackPointer = machine.readWord(maps.dotBurnArgument-11)
+        // reset the program counter to the beginning of memory
         machine.programCounter = 0
-        // set debugState to true
+        // set debug state
         machine.trapped = false
         // set source and object to read only, may not be necessary
         if master.io.currentMode == .batchIO {
@@ -775,20 +754,21 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
                     master.cpu.update()
                     // emit executionComplete()
-                    currentlySimulating = false
+                    machine.isSimulating = false
                     return
                 }
                 
                 if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                     master.cpu.update()
                     // emit executionComplete()
-                    currentlySimulating = false
+                    machine.isSimulating = false
                     return
                 }
                 
-                if interruptExecution {
+                if machine.interruptExecution {
                     master.cpu.update()
-                    currentlySimulating = false
+                    // emit updateSimulationView
+                    machine.isSimulating = false
                     return
                 }
             }
@@ -796,7 +776,52 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         } else if master.io.currentMode == .terminalIO {
             machine.inputBuffer = ""
             master.io.terminalTextView.text.removeAll()
-            // cpu.runWithTerminal()
+            
+            machine.isSimulating = true
+            // set waiting
+            machine.interruptExecution = false
+            var errorStr = ""
+            while true {
+                if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
+                    // waiting for user input
+                    master.cpu.update()
+                    // emit waitingForInput()
+                    machine.isSimulating = false
+                    return
+                } else {
+                    if machine.vonNeumannStep(errorString: &errorStr) {
+                        // emit vonNeumannStepped
+                        if machine.outputBuffer.length > 0 {
+                            master.io.appendOutput(machine.outputBuffer)
+                            machine.outputBuffer = ""
+                        }
+                    } else {
+                        // error ocurred in VonNeumann step
+                        HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                        master.cpu.update()
+                        // emit executionComplete()
+                        machine.isSimulating = false
+                        return
+                    }
+                    
+                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                        master.cpu.update()
+                        // emit executionComplete()
+                        machine.isSimulating = false
+                        return
+                    }
+                    
+                    if machine.interruptExecution {
+                        master.cpu.update()
+                        // emit updateSimulationView
+                        machine.isSimulating = false
+                        return
+                    }
+
+                }
+            }
+            
+            
         } else {
             // the memory dump is what's visible, so switch to batch and try again
             master.io.setMode(to: .batchIO)
@@ -804,6 +829,20 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
+    
+    func stopDebugging() {
+        machine.interrupt()
+        master.cpu.update()
+        // update trace
+        switchToTab(atIndex: 3)
+        
+//        setDebugState(false);
+//        listingTracePane->setDebuggingState(false);
+//        cpuPane->setButtonsEnabled(false);
+//        memoryDumpPane->highlightMemory(false);
+        
+
+    }
     
     
     
