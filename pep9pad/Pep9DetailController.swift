@@ -923,6 +923,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     return
                 } else {
                     // instruction was a STOP instruction
+                    master.cpu.update()
+                    tabVCs.trace?.traceTable.update()
                     machine.isSimulating = false
                     stopDebugging()
                 }

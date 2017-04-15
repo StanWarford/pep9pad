@@ -28,7 +28,9 @@ class TraceTableController: UITableViewController {
             // populate table with listing for os
         } else { // we are in a user program
             // populate table ith litign for program
-            if let row = maps.memAddrssToAssemblerListingProg[machine.programCounter] {
+            
+            // TODO: prog?
+            if let row = maps.memAddrssToAssemblerListing[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0)
 , animated: true, scrollPosition: .top)
             }
@@ -57,10 +59,18 @@ class TraceTableController: UITableViewController {
             //cell.textLabel?.text = assembler.listing[index]
             cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
             cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+            
 
         } else {
-            cell.textLabel?.text = "ERROR: Index \(index) out of bounds."
+            // out of bounds!
+            // probably was not updated recently, so do that now
+            self.update()
         }
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = blueColor
+        cell.selectedBackgroundView = backgroundView
+        return cell
         
         return cell
     }
