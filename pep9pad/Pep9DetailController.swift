@@ -745,8 +745,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.isTrapped = false
         // set source and object to read only, may not be necessary
         if master.io.currentMode == .batchIO {
-            master.io.batchOutputTextView.text.removeAll()
-            if var input = master.io.batchInputTextView.text {
+            master.io.outputTextView.text.removeAll()
+            if var input = master.io.inputTextView.text {
                 if !input.hasSuffix("\n") {
                     input.append("\n")
                 }
@@ -1042,7 +1042,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.programCounter = 0
         // set debug state
         machine.isTrapped = false
+        // set source and object to read only, may not be necessary
+        if master.io.currentMode == .batchIO {
+            master.io.outputTextView.text.removeAll()
+            if var input = master.io.inputTextView.text {
+                if !input.hasSuffix("\n") {
+                    input.append("\n")
+                }
+                machine.inputBuffer = input
+            }
+            
 
+        }
     }
     
     
@@ -1051,7 +1062,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case stopDebugging
         case unBuilt
         case built
-        case waitingForInput
+        case waitingForInput // used in terminal io mode
     }
     
     func setState(_ forState: AppState) {

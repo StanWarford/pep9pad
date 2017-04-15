@@ -39,35 +39,45 @@ class IOMemController: UIViewController, UITextViewDelegate {
     
     
     
+    
+    
+    
+    // MARK: - Interface Builder
+    
+    var memoryView: MemoryView!
+    
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    
     @IBOutlet var inputTextView: UITextView!
     
     @IBOutlet var outputTextView: UITextView!
     
+    @IBOutlet var terminalTextView: UITextView!
     
     
+    @IBOutlet var inputLabel: UILabel!
     
+    @IBOutlet var outputLabel: UILabel!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        batchInputTextView = inputTextView
-        batchInputTextView.font = UIFont(name: "Courier", size: 15)
-        batchInputTextView.text = "Batch Input placeholder"
-        batchInputTextView.textContainer.lineBreakMode = .byWordWrapping
+        inputTextView.font = UIFont(name: "Courier", size: 15)
+        inputTextView.text = ""
+        inputTextView.textContainer.lineBreakMode = .byWordWrapping
 
         print(view.bounds.width)
         
-        batchOutputTextView = outputTextView
-        batchOutputTextView.font = UIFont(name: "Courier", size: 15)
-        batchOutputTextView.text = "Batch Output placeholder"
-        batchOutputTextView.textContainer.lineBreakMode = .byWordWrapping
+        outputTextView.font = UIFont(name: "Courier", size: 15)
+        outputTextView.text = ""
+        outputTextView.textContainer.lineBreakMode = .byWordWrapping
 
 //        terminalTextView = inputTextView
-//        terminalTextView.isHidden = true
-//        terminalTextView.font = UIFont(name: "Courier", size: 15)
-//        terminalTextView.text = "Terminal I/O placeholder"
-//        terminalTextView.textContainer.lineBreakMode = .byWordWrapping
+        terminalTextView.isHidden = true
+        terminalTextView.font = UIFont(name: "Courier", size: 15)
+        terminalTextView.text = ""
+        terminalTextView.textContainer.lineBreakMode = .byWordWrapping
 
         
         
@@ -81,8 +91,8 @@ class IOMemController: UIViewController, UITextViewDelegate {
         
         //memoryView.frame =
         memoryView.isHidden = true
+
         view.addSubview(memoryView)
-        
 
         view.clipsToBounds = true
     }
@@ -97,7 +107,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
     func setInput(_ to: String) {
         switch (currentMode) {
         case .batchIO:
-            batchInputTextView.text = to
+            inputTextView.text = to
         case .terminalIO:
             terminalTextView.text = to
         default:
@@ -108,8 +118,8 @@ class IOMemController: UIViewController, UITextViewDelegate {
     func appendOutput(_ thing: String) {
         switch (currentMode) {
         case .batchIO:
-            batchOutputTextView.text.append(thing)
-            //batchOutputTextView.scrollToBottom()
+            outputTextView.text.append(thing)
+            //outputTextView.scrollToBottom()
         case .terminalIO:
             terminalTextView.text.append(thing)
             //terminalTextView.scrollToBottom()
@@ -142,14 +152,17 @@ class IOMemController: UIViewController, UITextViewDelegate {
 //                let newRectForTerminal = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
 //                let newRectForMem = newRectForTerminal
                 UIView.animate(withDuration: animationDuration) {
-//                    self.batchInputTextView.frame = newRectForInput
-//                    self.batchOutputTextView.frame = newRectForOutput
+//                    self.inputTextView.frame = newRectForInput
+//                    self.outputTextView.frame = newRectForOutput
 //                    self.terminalTextView.frame = newRectForTerminal
 //                    self.memoryView.frame = newRectForMem
-                    self.batchInputTextView.isHidden = false
-                    self.batchOutputTextView.isHidden = false
+                    self.inputTextView.isHidden = false
+                    self.outputTextView.isHidden = false
                     self.terminalTextView.isHidden = true
                     self.memoryView.isHidden = true
+                    self.inputLabel.isHidden = false
+                    self.inputLabel.text = "Input"
+                    self.outputLabel.isHidden = false
                 }
 
                 
@@ -167,14 +180,17 @@ class IOMemController: UIViewController, UITextViewDelegate {
 //                let newRectForTerminal = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: viewHeight-44)
 //                let newRectForMem = newRectForInput
                 UIView.animate(withDuration: animationDuration) {
-//                    self.batchInputTextView.frame = newRectForInput
-//                    self.batchOutputTextView.frame = newRectForOutput
+//                    self.inputTextView.frame = newRectForInput
+//                    self.outputTextView.frame = newRectForOutput
 //                    self.terminalTextView.frame = newRectForTerminal
 //                    self.memoryView.frame = newRectForMem
-                    self.batchInputTextView.isHidden = true
-                    self.batchOutputTextView.isHidden = true
+                    self.inputTextView.isHidden = true
+                    self.outputTextView.isHidden = true
                     self.terminalTextView.isHidden = false
                     self.memoryView.isHidden = true
+                    self.inputLabel.isHidden = false
+                    self.inputLabel.text = "Terminal"
+                    self.outputLabel.isHidden = true
                 }
             case .memory:
                 // switch to memory mode
@@ -189,30 +205,22 @@ class IOMemController: UIViewController, UITextViewDelegate {
 //                let newRectForTerminal = newRectForInput
 //                let newRectForMem = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: viewWidth, height: viewHeight-44)
                 UIView.animate(withDuration: animationDuration) {
-//                    self.batchInputTextView.frame = newRectForInput
-//                    self.batchOutputTextView.frame = newRectForOutput
+//                    self.inputTextView.frame = newRectForInput
+//                    self.outputTextView.frame = newRectForOutput
 //                    self.terminalTextView.frame = newRectForTerminal
 //                    self.memoryView.frame = newRectForMem
-                    self.batchInputTextView.isHidden = true
-                    self.batchOutputTextView.isHidden = true
+                    self.inputTextView.isHidden = true
+                    self.outputTextView.isHidden = true
                     self.terminalTextView.isHidden = true
                     self.memoryView.isHidden = false
+                    self.inputLabel.isHidden = true
+                    self.outputLabel.isHidden = false
                 }
             }
         }
     }
     
     
-    
-    
-    // MARK: - Interface Builder
-    
-    var batchInputTextView: UITextView!
-    var batchOutputTextView: UITextView!
-    var terminalTextView: UITextView!
-    var memoryView: MemoryView!
-    
-    @IBOutlet var segmentedControl: UISegmentedControl!
     
     /// Segmented control index for the 'Batch I/O' option.
     var segIdxForBatchIO = 0
