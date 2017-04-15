@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JJ6-O3-kQD">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bue-Sl-zg8">
-                                <rect key="frame" x="0.0" y="64" width="702.5" height="655"/>
+                                <rect key="frame" x="0.0" y="64" width="703" height="655"/>
                                 <connections>
                                     <segue destination="JJ6-O3-kQD" kind="embed" id="Xuf-Am-13b"/>
                                 </connections>
@@ -51,15 +51,15 @@
             <objects>
                 <tableViewController id="JJ6-O3-kQD" customClass="TraceTableController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="61" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dq4-36-QWB">
-                        <rect key="frame" x="0.0" y="0.0" width="702.5" height="655"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703" height="655"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="sMG-NI-1ej">
-                                <rect key="frame" x="0.0" y="56" width="702.5" height="61"/>
+                                <rect key="frame" x="0.0" y="56" width="703" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMG-NI-1ej" id="Xk1-HE-Rbf">
-                                    <rect key="frame" x="0.0" y="0.0" width="702.5" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="703" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

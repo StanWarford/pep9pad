@@ -33,34 +33,41 @@ class IOMemController: UIViewController, UITextViewDelegate {
     /// * The `memory` mode corresponds to a single main memory panel
     var currentMode: IOMemMode = .batchIO
     
+    
     /// The duration (in seconds) of the animated transition between io modes.
     var animationDuration: Double = 0.18
     
+    
+    
+    @IBOutlet var inputTextView: UITextView!
+    
+    @IBOutlet var outputTextView: UITextView!
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        batchInputTextView = UITextView()
-        batchInputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.bounds.width, height: (view.frame.height-44)/3)
+        batchInputTextView = inputTextView
         batchInputTextView.font = UIFont(name: "Courier", size: 15)
         batchInputTextView.text = "Batch Input placeholder"
         batchInputTextView.textContainer.lineBreakMode = .byWordWrapping
-        view.addSubview(batchInputTextView)
 
         print(view.bounds.width)
         
-        batchOutputTextView = UITextView()
-        batchOutputTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+22+(view.frame.height/3), width: view.frame.width, height: (view.frame.height-44)/3)
+        batchOutputTextView = outputTextView
         batchOutputTextView.font = UIFont(name: "Courier", size: 15)
         batchOutputTextView.text = "Batch Output placeholder"
         batchOutputTextView.textContainer.lineBreakMode = .byWordWrapping
-        view.addSubview(batchOutputTextView)
 
-        terminalTextView = UITextView()
-        terminalTextView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44)
-        terminalTextView.isHidden = true
-        terminalTextView.font = UIFont(name: "Courier", size: 15)
-        terminalTextView.text = "Terminal I/O placeholder"
-        terminalTextView.textContainer.lineBreakMode = .byWordWrapping
-        view.addSubview(terminalTextView)
+//        terminalTextView = inputTextView
+//        terminalTextView.isHidden = true
+//        terminalTextView.font = UIFont(name: "Courier", size: 15)
+//        terminalTextView.text = "Terminal I/O placeholder"
+//        terminalTextView.textContainer.lineBreakMode = .byWordWrapping
 
         
         

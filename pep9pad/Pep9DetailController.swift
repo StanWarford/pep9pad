@@ -141,7 +141,11 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Bug, ofSize: 20)
         }
     }
-    @IBOutlet var buildBtn: UIBarButtonItem!
+    @IBOutlet var buildBtn: UIBarButtonItem! {
+        didSet {
+            self.buildBtn.image = UIImage(named: "ham")
+        }
+    }
     @IBOutlet var calcBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .Calculator, ofSize: 20)
@@ -681,7 +685,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             // no .BURN directive found, continue with assembly
             projectModel.objectStr = assembler.getReadableObjectCode()
             projectModel.listingStr = assembler.getReadableListing()
-            // TODO: update trace stuff
+            tabVCs.trace?.traceTable.loadFromListing()
             HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
             setState(.built)
             
@@ -843,8 +847,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         master.cpu.update()
         // update trace
         switchToTab(atIndex: 3)
-        // TODO: this is not totally safe but works for now
-        self.navigationItem.leftBarButtonItems?.removeLast(2)
+        
+        
+        // remove both of those buttons that were added at beginning of debug
+        if let a = self.navigationItem.leftBarButtonItems?.index(of: stepBtn) {
+            self.navigationItem.leftBarButtonItems?.remove(at: a)
+        }
+        if let b = self.navigationItem.leftBarButtonItems?.index(of: resBtn) {
+            self.navigationItem.leftBarButtonItems?.remove(at: b)
+        }
+
         // change icon back to a bug
         setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .Bug, ofSize: 20)
         setState(.stopDebugging)
@@ -861,7 +873,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.trapLookahead()
         if master.io.currentMode == .batchIO {
             if machine.isTrapped && !machine.shouldTraceTraps {
-                // not tracing traps
+                // not tracing traps, so just keep looping through these
                 while machine.isTrapped {
                     machine.trapLookahead()
                     if machine.vonNeumannStep(errorString: &errorStr) {
@@ -870,6 +882,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                             master.io.appendOutput(machine.outputBuffer)
                             machine.outputBuffer = ""
                         }
+                        tabVCs.trace?.traceTable.update()
                     } else {
                         // error ocurred in VonNeumann step
                         HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
@@ -895,15 +908,19 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 }
                 // refresh the cpu
                 master.cpu.update()
+                
             } else if machine.vonNeumannStep(errorString: &errorStr) {
-                // we are tracing traps
+                // we are tracing the program and traps
                 // emit vonNeumannStepped
+                
                 if machine.outputBuffer.length > 0 {
                     master.io.appendOutput(machine.outputBuffer)
                     machine.outputBuffer = ""
                 }
                 if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
                     master.cpu.update()
+                    tabVCs.trace?.traceTable.update()
+                    return
                 } else {
                     // instruction was a STOP instruction
                     machine.isSimulating = false
@@ -1015,6 +1032,15 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.setState(.startDebugging)
         }
         switchToTab(atIndex: 3)
+        master.cpu.clearCpu()
+        // 11 is the offset from the last byte of the OS to the stack pointer
+        // TODO: just make this a computed property in the machine
+        machine.stackPointer = machine.readWord(maps.dotBurnArgument-11)
+        // reset the program counter to the beginning of memory
+        machine.programCounter = 0
+        // set debug state
+        machine.isTrapped = false
+
     }
     
     
@@ -1029,7 +1055,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     func setState(_ forState: AppState) {
         switch forState {
         case .startDebugging:
-            // disable buildBtn, actionBtn, runBtn, settingsBtn
+            // disables buildBtn, actionBtn, runBtn, settingsBtn
             buildBtn.isEnabled = false
             actionBtn.isEnabled = false
             runBtn.isEnabled = false

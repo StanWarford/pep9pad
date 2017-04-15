@@ -17,6 +17,26 @@ class TraceTableController: UITableViewController {
     }
     
     
+    func loadFromListing() {
+        tableView.reloadData()
+    }
+    
+    
+    func update() {
+        // depends on whether we are in the OS or a program
+        if machine.isTrapped { // we are in the OS
+            // populate table with listing for os
+        } else { // we are in a user program
+            // populate table ith litign for program
+            if let row = maps.memAddrssToAssemblerListingProg[machine.programCounter] {
+                tableView.selectRow(at: IndexPath(row: row, section: 0)
+, animated: true, scrollPosition: .top)
+            }
+        }
+    }
+    
+    
+    
     // Conformance to UITableViewDataSource (subclass of UITableViewController)
     
     
