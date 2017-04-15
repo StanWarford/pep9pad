@@ -22,7 +22,6 @@ class TraceTableController: UITableViewController {
     
     let idForCell = "traceTableCellID"
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         var cell: UITableViewCell
         let index = indexPath.row
         
@@ -37,6 +36,8 @@ class TraceTableController: UITableViewController {
         if index < assembler.listing.count {
             //cell.textLabel?.text = assembler.listing[index]
             cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
+            cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+
         } else {
             cell.textLabel?.text = "ERROR: Index \(index) out of bounds."
         }
@@ -50,5 +51,9 @@ class TraceTableController: UITableViewController {
             return assembler.listing.count
         }
         return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
     }
 }

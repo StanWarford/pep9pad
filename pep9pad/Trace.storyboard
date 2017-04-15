@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tZX-13-5bn">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,14 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cT3-8r-TMA">
-                                <rect key="frame" x="0.0" y="392" width="703" height="328"/>
-                                <connections>
-                                    <segue destination="rLZ-kr-Eur" kind="embed" id="64A-R2-CgT"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bue-Sl-zg8">
-                                <rect key="frame" x="20" y="94" width="663" height="298"/>
+                                <rect key="frame" x="0.0" y="64" width="702.5" height="655"/>
                                 <connections>
                                     <segue destination="JJ6-O3-kQD" kind="embed" id="Xuf-Am-13b"/>
                                 </connections>
@@ -37,14 +30,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bue-Sl-zg8" firstAttribute="leading" secondItem="3ys-X8-Ru2" secondAttribute="leadingMargin" id="1cV-N9-2D5"/>
-                            <constraint firstAttribute="bottom" secondItem="bue-Sl-zg8" secondAttribute="bottom" constant="376" id="3Qm-6o-n1z"/>
-                            <constraint firstItem="cT3-8r-TMA" firstAttribute="top" secondItem="bue-Sl-zg8" secondAttribute="bottom" id="6K1-L0-Prg"/>
-                            <constraint firstItem="Yr9-A3-BXw" firstAttribute="top" secondItem="cT3-8r-TMA" secondAttribute="bottom" id="6sw-zH-LfK"/>
-                            <constraint firstItem="bue-Sl-zg8" firstAttribute="top" secondItem="eps-vd-qgn" secondAttribute="bottom" constant="30" id="Q85-nz-Znp"/>
-                            <constraint firstItem="cT3-8r-TMA" firstAttribute="centerX" secondItem="3ys-X8-Ru2" secondAttribute="centerX" id="T3D-L4-ggP"/>
-                            <constraint firstItem="cT3-8r-TMA" firstAttribute="leading" secondItem="3ys-X8-Ru2" secondAttribute="leadingMargin" constant="-20" id="bWH-BE-GDV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bue-Sl-zg8" secondAttribute="trailing" id="yTr-jf-sNk"/>
+                            <constraint firstAttribute="trailing" secondItem="bue-Sl-zg8" secondAttribute="trailing" id="Kwu-CF-4uP"/>
+                            <constraint firstItem="bue-Sl-zg8" firstAttribute="leading" secondItem="3ys-X8-Ru2" secondAttribute="leading" id="Oap-4K-UjR"/>
+                            <constraint firstItem="bue-Sl-zg8" firstAttribute="bottom" secondItem="Yr9-A3-BXw" secondAttribute="top" id="VRF-SY-bfy"/>
+                            <constraint firstItem="bue-Sl-zg8" firstAttribute="top" secondItem="eps-vd-qgn" secondAttribute="bottom" id="u5Q-6o-Ta6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="B2l-eB-Hfi"/>
@@ -62,15 +51,15 @@
             <objects>
                 <tableViewController id="JJ6-O3-kQD" customClass="TraceTableController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="61" sectionHeaderHeight="18" sectionFooterHeight="18" id="Dq4-36-QWB">
-                        <rect key="frame" x="0.0" y="0.0" width="663" height="298"/>
+                        <rect key="frame" x="0.0" y="0.0" width="702.5" height="655"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="61" id="sMG-NI-1ej">
-                                <rect key="frame" x="0.0" y="56" width="663" height="61"/>
+                                <rect key="frame" x="0.0" y="56" width="702.5" height="61"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMG-NI-1ej" id="Xk1-HE-Rbf">
-                                    <rect key="frame" x="0.0" y="0.0" width="663" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="702.5" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -94,11 +83,11 @@
                         <viewControllerLayoutGuide type="bottom" id="lK0-kv-pWK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hah-ao-oFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="703" height="328"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MemTrace" translatesAutoresizingMaskIntoConstraints="NO" id="3Sd-TE-Nc8">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="317.5"/>
+                                <rect key="frame" x="0.0" y="20" width="1024" height="738"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

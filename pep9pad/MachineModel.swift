@@ -30,11 +30,11 @@ class MachineModel {
     var outputBuffer: String
     
     var modifiedBytes: Set<Int>
-    var trapped: Bool
-    var tracingTraps: Bool
+    var isTrapped: Bool
+    var shouldTraceTraps: Bool
 
     var isSimulating: Bool
-    var interruptExecution: Bool
+    var shouldHalt: Bool
     
     let maxPositive = 32768
     
@@ -57,11 +57,11 @@ class MachineModel {
         outputBuffer = ""
         
         modifiedBytes = Set()
-        trapped = false
-        tracingTraps = false
+        isTrapped = false
+        shouldTraceTraps = false
         
         isSimulating = false
-        interruptExecution = false
+        shouldHalt = false
                 
     }
     
@@ -786,12 +786,12 @@ class MachineModel {
     func trapLookahead() {
         // if the instruction under the PC is a trap...
         if maps.isTrapMap[maps.decodeMnemonic[readByte(programCounter)]]! {
-            trapped = true
+            isTrapped = true
             maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
             maps.listingRowChecked = maps.listingRowCheckedOS
         // otherwise if we are returning from a trap
         } else if maps.decodeMnemonic[readByte(programCounter)] == .RETTR {
-            trapped = true
+            isTrapped = false
             maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingProg
             maps.listingRowChecked = maps.listingRowCheckedProg
         }

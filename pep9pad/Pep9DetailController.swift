@@ -10,9 +10,6 @@ import FontAwesome_swift
 import MessageUI
 import PKHUD
 
-/// A typealias consisting of all elements in the ASM Tab Bar.
-typealias Pep9TabBarVCs = (source: SourceController?, object: ObjectController?, listing: ListingController?, trace: TraceController?)
-
 
 /// A top-level controller that contains a `UITabBar` and serves as its delegate.
 /// This controller also handles all `UIBarButtonItem`s along the `UINavigationBar`.
@@ -32,9 +29,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     internal let debugMenu = DebugMenu()
     internal let mailer = Pep9Mailer()
     internal let redefineMnemonics = RedefineMnemonics()
-
-    // Code Declaration
-    let code = Code()
     
     // MARK: - ViewController Lifecycle
     
@@ -46,6 +40,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // customize heads up display
         HUD.dimsBackground = false
         HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
+        setState(.unBuilt)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,6 +158,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     @IBOutlet var actionBtn: UIBarButtonItem!
     
     
+    var stepBtn: UIBarButtonItem!
+    var resBtn: UIBarButtonItem!
+    
+    
     //MARK: - IBActions
     
     /// Corresponds to the "play button". Assembles, loads, and executes.
@@ -175,9 +174,14 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
-        let menu = self.debugMenu.makeAlert(barButton: debugBtn)
-        self.present(menu, animated: true, completion: nil)
-
+        // what we do here depends on the state of the app
+        // if debugging, this is a stop icon, and a press means stop debugging
+        if sender.title == String.fontAwesomeIconWithName(.Stop) {
+            stopDebugging()
+        } else {
+            let menu = self.debugMenu.makeAlert(barButton: debugBtn, detail: self)
+            self.present(menu, animated: true, completion: nil)
+        }
     }
     
     @IBAction func buildBtnPressed(_ sender: UIBarButtonItem) {
@@ -648,6 +652,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             projectModel.loadExample(text: text, ofType: ofType)
             updateEditorsFromProjectModel()
             switchToTab(atIndex: (ofType == .pep ? 0 : 1))
+            setState(.unBuilt)
         }
         
         return shouldLoad
@@ -678,6 +683,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             projectModel.listingStr = assembler.getReadableListing()
             // TODO: update trace stuff
             HUD.flash(.labeledSuccess(title: "Assembled", subtitle: ""), delay: 1.0)
+            setState(.built)
             
         } else if maps.burnCount > 0 {
             // .BURN directive found, but not installing OS
@@ -687,6 +693,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             projectModel.listingStr.removeAll()
             switchToTab(atIndex: 0) // go to source editor
             HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
+            setState(.unBuilt)
             
         } else {
             // the assembly failed for another reason
@@ -695,6 +702,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             projectModel.listingStr.removeAll()
             switchToTab(atIndex: 0) // go to source editor
             HUD.flash(.labeledError(title: "Error", subtitle: error), delay: 1.5)
+            setState(.unBuilt)
 
         }
         // no matter what, update the editors from the projectModel
@@ -730,7 +738,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // reset the program counter to the beginning of memory
         machine.programCounter = 0
         // set debug state
-        machine.trapped = false
+        machine.isTrapped = false
         // set source and object to read only, may not be necessary
         if master.io.currentMode == .batchIO {
             master.io.batchOutputTextView.text.removeAll()
@@ -753,19 +761,19 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     // error ocurred in VonNeumann step
                     HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
                     master.cpu.update()
-                    // emit executionComplete()
+                    stopDebugging()
                     machine.isSimulating = false
                     return
                 }
                 
                 if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                     master.cpu.update()
-                    // emit executionComplete()
+                    stopDebugging()
                     machine.isSimulating = false
                     return
                 }
                 
-                if machine.interruptExecution {
+                if machine.shouldHalt {
                     master.cpu.update()
                     // emit updateSimulationView
                     machine.isSimulating = false
@@ -779,13 +787,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             machine.isSimulating = true
             // set waiting
-            machine.interruptExecution = false
+            machine.shouldHalt = false
             var errorStr = ""
             while true {
                 if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
                     // waiting for user input
                     master.cpu.update()
-                    // emit waitingForInput()
+                    setState(.waitingForInput)
                     machine.isSimulating = false
                     return
                 } else {
@@ -799,19 +807,19 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                         // error ocurred in VonNeumann step
                         HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
                         master.cpu.update()
-                        // emit executionComplete()
+                        stopDebugging()
                         machine.isSimulating = false
                         return
                     }
                     
                     if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                         master.cpu.update()
-                        // emit executionComplete()
+                        stopDebugging()
                         machine.isSimulating = false
                         return
                     }
                     
-                    if machine.interruptExecution {
+                    if machine.shouldHalt {
                         master.cpu.update()
                         // emit updateSimulationView
                         machine.isSimulating = false
@@ -835,15 +843,213 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         master.cpu.update()
         // update trace
         switchToTab(atIndex: 3)
-        
-//        setDebugState(false);
-//        listingTracePane->setDebuggingState(false);
-//        cpuPane->setButtonsEnabled(false);
-//        memoryDumpPane->highlightMemory(false);
+        // TODO: this is not totally safe but works for now
+        self.navigationItem.leftBarButtonItems?.removeLast(2)
+        // change icon back to a bug
+        setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .Bug, ofSize: 20)
+        setState(.stopDebugging)
         
 
     }
     
+    
+    func singleStep() {
+        
+        machine.isSimulating = true
+        machine.shouldHalt = false
+        var errorStr = ""
+        machine.trapLookahead()
+        if master.io.currentMode == .batchIO {
+            if machine.isTrapped && !machine.shouldTraceTraps {
+                // not tracing traps
+                while machine.isTrapped {
+                    machine.trapLookahead()
+                    if machine.vonNeumannStep(errorString: &errorStr) {
+                        // emit vonNeumannStepped
+                        if machine.outputBuffer.length > 0 {
+                            master.io.appendOutput(machine.outputBuffer)
+                            machine.outputBuffer = ""
+                        }
+                    } else {
+                        // error ocurred in VonNeumann step
+                        HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                        master.cpu.update()
+                        stopDebugging()
+                        machine.isSimulating = false
+                        return
+                    }
+                    
+                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                        master.cpu.update()
+                        stopDebugging()
+                        machine.isSimulating = false
+                        return
+                    }
+                    
+                    if machine.shouldHalt {
+                        master.cpu.update()
+                        // emit updateSimulationView
+                        machine.isSimulating = false
+                        return
+                    }
+                }
+                // refresh the cpu
+                master.cpu.update()
+            } else if machine.vonNeumannStep(errorString: &errorStr) {
+                // we are tracing traps
+                // emit vonNeumannStepped
+                if machine.outputBuffer.length > 0 {
+                    master.io.appendOutput(machine.outputBuffer)
+                    machine.outputBuffer = ""
+                }
+                if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
+                    master.cpu.update()
+                } else {
+                    // instruction was a STOP instruction
+                    machine.isSimulating = false
+                    stopDebugging()
+                }
+            } else {
+                // error ocurred in VonNeumann step
+                HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                master.cpu.update()
+                stopDebugging()
+                machine.isSimulating = false
+                return
+            }
+        } else {
+            // terminal i/o mode
+            if machine.isTrapped && !machine.shouldTraceTraps {
+                master.cpu.update()
+                while machine.isTrapped {
+                    machine.trapLookahead()
+                    if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
+                        // waiting for input from user
+                        // emit waitingForinput
+                        setState(.waitingForInput)
+                        machine.isSimulating = false
+                        return
+                    } else {
+                        // not waiting for input, go ahead and simulate
+                        if machine.vonNeumannStep(errorString: &errorStr) {
+                            // emit vonNeumannStepped
+                            if machine.outputBuffer.length > 0 {
+                                master.io.appendOutput(machine.outputBuffer)
+                                machine.outputBuffer = ""
+                            }
+                        } else {
+                            // error ocurred in VonNeumann step
+                            HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                            master.cpu.update()
+                            stopDebugging()
+                            machine.isSimulating = false
+                            return
+                        }
+                        
+                        if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                            master.cpu.update()
+                            stopDebugging()
+                            machine.isSimulating = false
+                            return
+                        }
+                        
+                        if machine.shouldHalt {
+                            master.cpu.update()
+                            // emit updateSimulationView
+                            machine.isSimulating = false
+                            return
+                        }
+
+                    }
+                }
+            } else if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
+                setState(.waitingForInput)
+                machine.isSimulating = false
+            } else {
+                if machine.vonNeumannStep(errorString: &errorStr) {
+                    // emit vonNeumannStepped
+                    if machine.outputBuffer.length > 0 {
+                        master.io.appendOutput(machine.outputBuffer)
+                        machine.outputBuffer = ""
+                    }
+                } else {
+                    // error ocurred in VonNeumann step
+                    HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                    master.cpu.update()
+                    stopDebugging()
+                    machine.isSimulating = false
+                    return
+                }
+                
+                if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
+                    master.cpu.update()
+                    stopDebugging()
+                    machine.isSimulating = false
+                    return
+                }
+                
+                if machine.shouldHalt {
+                    master.cpu.update()
+                    stopDebugging()
+                    machine.isSimulating = false
+                    return
+                }
+
+            }
+        }
+        
+    }
+    
+    func resumeExecution() {
+        //
+    }
+    
+    func startDebuggingSource() {
+        stepBtn = UIBarButtonItem(title: "Step", style: .plain, target: self, action: #selector(self.singleStep))
+        resBtn = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(self.resumeExecution))
+        UIView.animate(withDuration: 0.25) {
+            self.navigationItem.leftBarButtonItems?.append(self.stepBtn)
+            self.navigationItem.leftBarButtonItems?.append(self.resBtn)
+            // change debugBtn to be a stop symbol
+            self.setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Stop, ofSize: 20)
+            self.setState(.startDebugging)
+        }
+        switchToTab(atIndex: 3)
+    }
+    
+    
+    enum AppState {
+        case startDebugging
+        case stopDebugging
+        case unBuilt
+        case built
+        case waitingForInput
+    }
+    
+    func setState(_ forState: AppState) {
+        switch forState {
+        case .startDebugging:
+            // disable buildBtn, actionBtn, runBtn, settingsBtn
+            buildBtn.isEnabled = false
+            actionBtn.isEnabled = false
+            runBtn.isEnabled = false
+            settingsBtn.isEnabled = false
+        case .stopDebugging:
+            buildBtn.isEnabled = true
+            actionBtn.isEnabled = true
+            runBtn.isEnabled = true
+            settingsBtn.isEnabled = true
+        case .unBuilt:
+            debugBtn.isEnabled = false
+        case .built:
+            debugBtn.isEnabled = true
+        case .waitingForInput:
+            stepBtn.isEnabled = false
+            resBtn.isEnabled = false
+            
+            
+        }
+    }
     
     
     

@@ -12,7 +12,7 @@ class DebugMenu: NSObject, UITableViewDataSource, UITableViewDelegate {
     override init() {
     }
     
-    func makeAlert(barButton: UIBarButtonItem) -> UIAlertController {
+    func makeAlert(barButton: UIBarButtonItem, detail: Pep9DetailController) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let controller = UIViewController()
         var tableView = UITableView()
@@ -45,7 +45,7 @@ class DebugMenu: NSObject, UITableViewDataSource, UITableViewDelegate {
         alertController.popoverPresentationController?.barButtonItem = barButton
         
         let debugSourceAction = UIAlertAction(title: "Start Debugging Source", style: .default) { (action) in
-            //TODO: Implement debugSourceAction
+            detail.startDebuggingSource()
         }
         alertController.addAction(debugSourceAction)
         let debugObjectAction = UIAlertAction(title: "Start Debugging Object", style: .default) { (action) in

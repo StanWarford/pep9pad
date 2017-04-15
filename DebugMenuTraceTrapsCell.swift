@@ -13,10 +13,10 @@ class DebugMenuTraceTrapsCell: UITableViewCell {
     
     @IBOutlet var traceTraps: UISwitch! {
         didSet {
-            traceTraps.isOn = machine.tracingTraps
+            traceTraps.isOn = machine.shouldTraceTraps
         }
     }
     @IBAction func switchValueChanged(_ sender: UISwitch) {
-        machine.tracingTraps = traceTraps.isOn
+        machine.shouldTraceTraps = traceTraps.isOn
     }
 }
