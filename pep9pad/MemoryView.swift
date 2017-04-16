@@ -29,7 +29,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         //let view: UIView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView
         //self.addSubview(view)
         //view.frame = self.bounds
-        refresh()
+        initialLoad()
     }
 
 
@@ -38,6 +38,31 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
 
     var memoryDump: [String] = [String](repeating: "", count: 8192)
     
+    
+    func initialLoad() {
+        memoryDump.removeAll(keepingCapacity: true)
+        var line: String = ""
+        var ch: String
+        
+        for byte in stride(from: 0, to: 65536, by: 8){
+            line = ""
+            // address column
+            line.append("\(byte.toHex4()) | ")
+            // hex column
+            for bit in 0..<8 {
+                line.append("\(machine.mem[byte+bit].toHex2()) ")
+            }
+            line.append("| ")
+            // ascii column
+            for bit in 0..<8 {
+                let val = machine.mem[byte+bit]
+                ch = val < 33 ? "." : val.toASCII()
+                line.append(ch)
+            }
+            
+            memoryDump.append(line)
+        }
+    }
     
     /// Refreshes the whole memory pane.
     func refresh() {
@@ -63,6 +88,8 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             
             memoryDump.append(line)
         }
+        table.reloadData()
+
     }
     
 
@@ -122,7 +149,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         } else {
             row = max(Int(byte/8), 1)
         }
-        table.scrollToRow(at: IndexPath(row: row, section: 0), at: .none, animated: true)
+        table.scrollToRow(at: IndexPath(row: row, section: 0), at: .top, animated: true)
         
     }
     

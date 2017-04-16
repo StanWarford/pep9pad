@@ -170,10 +170,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     /// Corresponds to the "play button". Assembles, loads, and executes.
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
-    
-        if assembler.assemble() {
+        // what we do here depends on the state of the app
+        // if debugging, this is a stop icon, and a press means stop debugging
+        if sender.title == String.fontAwesomeIconWithName(.Stop) {
+            machine.shouldHalt = true
+            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .Play, ofSize: 20)
+        } else if assembler.assemble() {
+            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .Stop, ofSize: 20)
             loadObject()
             execute()
+            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .Play, ofSize: 20)
         }
     }
     
@@ -197,6 +203,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
         let loadObjectAction = UIAlertAction(title: "Load Object", style: .default) { (action) in
             self.loadObject()
+            HUD.flash(.labeledImage(image: UIImage(named: "loaded"), title: "Loaded", subtitle: nil), delay: 0.5)
         }
         alertController.addAction(loadObjectAction)
         
@@ -276,6 +283,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let newStr = assemblerListingList.joined(separator: "\n")
         }
+
         alertController.addAction(formatFromListingAction)
         
         let removeErrorMsgsAction = UIAlertAction(title: "Remove Error Messages", style: .default) { (action) in
@@ -726,7 +734,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             machine.mem[i] = obj[i]
         }
         master.io.memoryView.refresh()
-        
         return true
     }
     
@@ -772,7 +779,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 
                 if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                     master.cpu.update()
-                    stopDebugging()
+                    //stopDebugging()
                     machine.isSimulating = false
                     return
                 }
@@ -944,7 +951,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     machine.trapLookahead()
                     if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
                         // waiting for input from user
-                        // emit waitingForinput
+                        //master.io.waitForInput()
                         setState(.waitingForInput)
                         machine.isSimulating = false
                         return
@@ -964,21 +971,18 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                             machine.isSimulating = false
                             return
                         }
-                        
                         if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                             master.cpu.update()
                             stopDebugging()
                             machine.isSimulating = false
                             return
                         }
-                        
                         if machine.shouldHalt {
                             master.cpu.update()
                             // emit updateSimulationView
                             machine.isSimulating = false
                             return
                         }
-
                     }
                 }
             } else if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
@@ -1051,11 +1055,11 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 }
                 machine.inputBuffer = input
             }
-            
-
         }
     }
     
+    
+    var state: AppState!
     
     enum AppState {
         case startDebugging
@@ -1065,8 +1069,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case waitingForInput // used in terminal io mode
     }
     
-    func setState(_ forState: AppState) {
-        switch forState {
+    func setState(_ newState: AppState) {
+        state = newState
+        switch newState {
         case .startDebugging:
             // disables buildBtn, actionBtn, runBtn, settingsBtn
             buildBtn.isEnabled = false

@@ -71,8 +71,6 @@ class TraceTableController: UITableViewController {
         backgroundView.backgroundColor = blueColor
         cell.selectedBackgroundView = backgroundView
         return cell
-        
-        return cell
     }
     
     
