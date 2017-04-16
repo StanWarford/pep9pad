@@ -85,9 +85,6 @@ extension UInt16 {
         }
         return String(repeating: "0", count: 8-str.characters.count) + str
     }
-    func toASCII() -> String {
-        return String(describing: UnicodeScalar(self))
-    }
 }
 
 extension UITextField {

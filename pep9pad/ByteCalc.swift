@@ -119,7 +119,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
         switch textField.tag {
         case dec:
             
-            if let d = UInt16(textToConvert) {
+            if let d = UInt8(textToConvert) {
                 clearAnyErrors()
                 hexField.text = d.toHex4()
                 if (d <= 255) {
@@ -141,7 +141,7 @@ class ByteCalc: NSObject, UITextFieldDelegate {
             }
             
         case hex:
-            if let d = UInt16(textToConvert, radix: 16) {
+            if let d = UInt8(textToConvert, radix: 16) {
                 clearAnyErrors()
                 decimalField.text = String(d)
                 if (d <= 255) {
