@@ -225,20 +225,22 @@ class ProjectModel {
     }
     
     
-    // Post: Searces for the string ";ERROR: " on each line and removes the end of the line.
-    // Post: Searces for the string ";WARNING: " on each line and removes the end of the line.
+    
+    let rxRemoveError = try! NSRegularExpression(pattern: ";ERROR:[\\s].*$", options: [.anchorsMatchLines])
+    let rxRemoveWarning = try! NSRegularExpression(pattern: ";WARNING:[\\s].*$", options: [.anchorsMatchLines])
+    
+   
     func removeErrorMessages() {
-        let text : String = sourceStr
-        var textArr = text.components(separatedBy: "\n")
-        for var i in textArr {
-            if (i.contains(";ERROR") || i.contains(";WARNING")) {
-                for charIdx in i.characters.count...0 {
-                    //i.char
-                }
-            }
-        }
-        sourceStr = textArr.joined(separator: "\n")
+        var text: NSMutableString = NSMutableString(string: sourceStr)
 
+        rxRemoveWarning.replaceMatches(in: text, options: .reportCompletion,
+                                       range: NSRange(location: 0, length: text.length),
+                                       withTemplate: "")
+        rxRemoveError.replaceMatches(in: text, options: .reportCompletion,
+                                     range: NSRange(location: 0, length: text.length),
+                                     withTemplate: "")
+        
+        sourceStr = text as String
     }
     
     

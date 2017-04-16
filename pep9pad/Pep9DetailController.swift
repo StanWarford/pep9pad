@@ -39,6 +39,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         self.master = masternc.viewControllers[0] as! Pep9MasterController
         // customize heads up display
         HUD.dimsBackground = false
+        HUD.allowsInteraction = true
         HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
         setState(.unBuilt)
     }
@@ -361,7 +362,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 assembler.getAssemblerListing()
                 //assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                 print("OS Installed")
-                print(assembler.getReadableObjectCode())
+                HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
             } else {
                 print("OS assembly failed")
             }
@@ -1056,6 +1057,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 machine.inputBuffer = input
             }
         }
+        master.cpu.update()
+        tabVCs.trace?.traceTable.update()
     }
     
     

@@ -75,7 +75,7 @@ class PepTextStorage: BaseTextStorage {
         for pat in patterns {
             do {
                 //print("Inputting: \(pat.key) : \(pat.value)")
-                regularExpressions.append(try NSRegularExpression(pattern: pat.value as! String, options: []))
+                regularExpressions.append(try NSRegularExpression(pattern: pat.value as! String, options: [.anchorsMatchLines]))
             } catch {
                 // useful for debugging syntax highlighting
                 // print("Not all syntax highlight patterns were set.")
@@ -108,7 +108,6 @@ class PepTextStorage: BaseTextStorage {
             ]
         case "singleLineComment", "comment", "documentation_comment":
             // Comments are green.
-            // TODO: Fix this green to match the green in Pep/9.
             attributes = [
                 NSForegroundColorAttributeName:greenColor
             ]
@@ -117,7 +116,6 @@ class PepTextStorage: BaseTextStorage {
             attributes = [
                 NSForegroundColorAttributeName:purpleColor,
                 NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
-
             ]
         case "singleQuote", "doubleQuote", "string" :
             // Text in quotes is red.
@@ -125,19 +123,19 @@ class PepTextStorage: BaseTextStorage {
                 NSForegroundColorAttributeName:redColor
             ]
         case "warning":
-            // Warnings have a blue background.
-            attributes = [
-                NSForegroundColorAttributeName:whiteColor,
-                NSBackgroundColorAttributeName:blueColor
-            ]
-        case "error":
-            // Errors have an orange background.
+            // Warnings have an orange background.
             attributes = [
                 NSForegroundColorAttributeName:whiteColor,
                 NSBackgroundColorAttributeName:orangeColor
             ]
+        case "error":
+            // Errors have a red background.
+            attributes = [
+                NSForegroundColorAttributeName:whiteColor,
+                NSBackgroundColorAttributeName:redColor
+            ]
         default:
-            attributes = [NSForegroundColorAttributeName:UIColor.orange]
+            attributes = [NSForegroundColorAttributeName:UIColor.black]
         }
         
         for instance in foundInstances {

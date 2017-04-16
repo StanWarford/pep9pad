@@ -42,6 +42,9 @@ class AssemblerModel {
     /// The listing generated from the most recent assembler call.
     var listing: [String] = []
     
+    
+    var osListing: [String] = []
+    
     /// The list of all referenced symbols in the assembly program.
     /// Each element is a 2-touple with a `source` and `lineNumber` attribute.
     var referencedSymbols: [ReferencedSymbol] = []
@@ -1134,6 +1137,7 @@ class AssemblerModel {
         for i in 0..<assembler.source.count {
             assembler.source[i].appendSourceLine(assemblerListing: &listing, listingTrace: &listingTrace, hasCheckBox: hasCheckBox)
         }
+        print(listing)
         return listing
     }
     
@@ -1277,6 +1281,9 @@ class AssemblerModel {
         maps.romStartAddress += addressDelta
         getObjectCode()
         loadOSIntoMem()
+        self.osListing = getAssemblerListing()
+        // assign this and then don't mess with it
+        maps.memAddrssToAssemblerListingOS = maps.memAddrssToAssemblerListing
         return true
     }
     

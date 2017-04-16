@@ -787,13 +787,13 @@ class MachineModel {
         // if the instruction under the PC is a trap...
         if maps.isTrapMap[maps.decodeMnemonic[readByte(programCounter)]]! {
             isTrapped = true
-            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
-            maps.listingRowChecked = maps.listingRowCheckedOS
+            //maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
+            //maps.listingRowChecked = maps.listingRowCheckedOS
         // otherwise if we are returning from a trap
         } else if maps.decodeMnemonic[readByte(programCounter)] == .RETTR {
             isTrapped = false
-            maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingProg
-            maps.listingRowChecked = maps.listingRowCheckedProg
+            //maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingProg
+            //maps.listingRowChecked = maps.listingRowCheckedProg
         }
     }
     

@@ -128,18 +128,18 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
 
     }
 
-    func cacheModifiedBytes() {
-    
-    }
-    /// If not b, whole table is unhighlighted. If b, current program counter is highlighted.
-    func shouldHighlight(_ b: Bool) {
-    
-    }
-
-    /// Highlights individual bytes.
-    func hightlightByte(atAddr: Int, foreground: UIColor, background: UIColor) {
-        
-    }
+//    func cacheModifiedBytes() {
+//    
+//    }
+//    /// If not b, whole table is unhighlighted. If b, current program counter is highlighted.
+//    func shouldHighlight(_ b: Bool) {
+//    
+//    }
+//
+//    /// Highlights individual bytes.
+//    func hightlightByte(atAddr: Int, foreground: UIColor, background: UIColor) {
+//        
+//    }
 
 
     func scrollToByte(_ byte: Int) {
@@ -149,7 +149,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
         } else {
             row = max(Int(byte/8), 1)
         }
-        table.scrollToRow(at: IndexPath(row: row, section: 0), at: .top, animated: true)
+        table.scrollToRow(at: IndexPath(row: row, section: 0), at: .none, animated: true)
         
     }
     

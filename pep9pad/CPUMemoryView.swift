@@ -95,18 +95,18 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
         
     }
     
-    func cacheModifiedBytes() {
-        
-    }
-    /// If not b, whole table is unhighlighted. If b, current program counter is highlighted.
-    func shouldHighlight(_ b: Bool) {
-        
-    }
-    
-    /// Highlights individual bytes.
-    func hightlightByte(atAddr: Int, foreground: UIColor, background: UIColor) {
-        
-    }
+//    func cacheModifiedBytes() {
+//        
+//    }
+//    /// If not b, whole table is unhighlighted. If b, current program counter is highlighted.
+//    func shouldHighlight(_ b: Bool) {
+//        
+//    }
+//    
+//    /// Highlights individual bytes.
+//    func hightlightByte(atAddr: Int, foreground: UIColor, background: UIColor) {
+//        
+//    }
     
     
     func scrollToByte(_ byte: Int) {

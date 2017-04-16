@@ -12,6 +12,9 @@ import UIKit
 
 class TraceTableController: UITableViewController {
     
+    
+    var traceOS: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,21 +27,43 @@ class TraceTableController: UITableViewController {
     
     func update() {
         // depends on whether we are in the OS or a program
-        if machine.isTrapped { // we are in the OS
-            // populate table with listing for os
-        } else { // we are in a user program
-            // populate table ith litign for program
-            
-            // TODO: prog?
-            if let row = maps.memAddrssToAssemblerListing[machine.programCounter] {
-                tableView.selectRow(at: IndexPath(row: row, section: 0)
-, animated: true, scrollPosition: .top)
+        if machine.isTrapped && machine.shouldTraceTraps { // we are in the OS
+            if !traceOS {
+                // this is the first we are hearing about the trapped state
+                traceOS = true
             }
+            tableView.reloadData()
+            // select a row corresponding to the current instruction
+            if let row = maps.memAddrssToAssemblerListingOS[machine.programCounter] {
+                tableView.selectRow(at: IndexPath(row: row, section: 0),
+                                    animated: true, scrollPosition: .middle)
+                //tableView.reloadData()
+            } else {
+                print("error for \(machine.programCounter) in OS")
+            }
+        } else { // we are in a user program
+            if traceOS {
+                // this is the first we are hearing about the untrapped state
+                traceOS = false
+                //tableView.reloadData()
+            }
+            tableView.reloadData()
+            // select a row corresponding to the current instruction
+            if let row = maps.memAddrssToAssemblerListing[machine.programCounter] {
+                tableView.selectRow(at: IndexPath(row: row, section: 0),
+                                    animated: true, scrollPosition: .middle)
+                //tableView.reloadData()
+            } else {
+                print("error for \(machine.programCounter) in prog")
+            }
+            // TODO: prog?
         }
+    
+
     }
-    
-    
-    
+
+
+
     // Conformance to UITableViewDataSource (subclass of UITableViewController)
     
     
@@ -54,17 +79,22 @@ class TraceTableController: UITableViewController {
             cell = UITableViewCell(style: .default, reuseIdentifier: idForCell)
         }
         
-        // then fill it with the appropriate content
-        if index < assembler.listing.count {
-            //cell.textLabel?.text = assembler.listing[index]
-            cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
-            cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
-            
-
+        if traceOS {
+            if index < assembler.osListing.count {
+                cell.textLabel?.attributedText = NSAttributedString(string: assembler.osListing[indexPath.row])
+                cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+            }
         } else {
-            // out of bounds!
-            // probably was not updated recently, so do that now
-            self.update()
+            // then fill it with the appropriate content
+            if index < assembler.listing.count {
+                //cell.textLabel?.text = assembler.listing[index]
+                cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
+                cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+            } else {
+                // out of bounds!
+                // probably was not updated recently, so do that now
+                self.update()
+            }
         }
         
         let backgroundView = UIView()
@@ -76,7 +106,7 @@ class TraceTableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return assembler.listing.count
+            return traceOS ? assembler.osListing.count : assembler.listing.count
         }
         return 0
     }

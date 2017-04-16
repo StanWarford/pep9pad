@@ -153,7 +153,7 @@ class DotAscii: Code {
         lineStr.append(codeStr.padAfter(width: 7))
         lineStr.append(symbolStr.padAfter(width: 9))
         lineStr.append(dotStr.padAfter(width: 8))
-        lineStr.append(oprndStr.padAfter(width: 12))
+        lineStr.append(oprndStr.length > 12 ? oprndStr : oprndStr.padAfter(width: 12))
         lineStr.append(comment)
         assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
