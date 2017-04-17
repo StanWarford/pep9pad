@@ -19,7 +19,10 @@ enum IOMemMode {
     case memory
 }
 
-
+enum IOMode {
+    case batch
+    case terminal
+}
 
 
 /// A `UIViewController` which handles batch and terminal input / output.
@@ -37,7 +40,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
     /// The duration (in seconds) of the animated transition between io modes.
     var animationDuration: Double = 0.18
     
-    
+    var simulatedIOMode: IOMode = .batch
     
     
     
@@ -128,6 +131,31 @@ class IOMemController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func startSimulation() {
+        // disable the non-selected io mode
+        // if mem is currently selected, default to batch
+        switch (currentMode) {
+        case .batchIO:
+            segmentedControl.setEnabled(false, forSegmentAt: 1)
+            simulatedIOMode = .batch
+        case .terminalIO:
+            segmentedControl.setEnabled(false, forSegmentAt: 0)
+            simulatedIOMode = .terminal
+        case .memory:
+            setMode(to: .batchIO) // go to batch by default
+            segmentedControl.setEnabled(false, forSegmentAt: 1)
+            simulatedIOMode = .batch
+        }
+    }
+    
+    func stopSimulation() {
+        // enable all segments
+        for i in 0..<3 {
+            segmentedControl.setEnabled(true, forSegmentAt: i)
+        }
+
+    }
+    
     /// Changes the view to represent `requestedMode` and adjusts `currentMode` to match.
     /// Does nothing if `requestedMode == currentMode`.
     func setMode(to requestedMode: IOMemMode) {
@@ -142,7 +170,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
                 // set `segmentedControl`'s `selectedSegmentIndex` just in case `setMode` is called from outside
                 segmentedControl.selectedSegmentIndex = segIdxForBatchIO
                 currentMode = .batchIO
-                
+                simulatedIOMode = .batch
 //                // grow bottomTextView to take up half of view, and shrink topTextView to take up other half
 //                let viewHeight = view.frame.height
 //                let viewWidth = view.frame.width
@@ -171,7 +199,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
                 // set `segmentedControl`'s `selectedSegmentIndex` just in case `setMode` is called from outside
                 segmentedControl.selectedSegmentIndex = segIdxForTerminalIO
                 currentMode = .terminalIO
-                
+                simulatedIOMode = .terminal
 //                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
 //                let viewHeight = view.frame.height
 //                let viewWidth = view.frame.width
@@ -197,6 +225,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
                 // set `segmentedControl`'s `selectedSegmentIndex` just in case `setMode` is called from outside
                 segmentedControl.selectedSegmentIndex = segIdxForMemory
                 currentMode = .memory
+                // don't set the simulatedIOMode
 //                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
 //                let viewHeight = view.frame.height
 //                let viewWidth = view.frame.width

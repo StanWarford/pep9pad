@@ -751,8 +751,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.programCounter = 0
         // set debug state
         machine.isTrapped = false
+        master.io.startSimulation()
         // set source and object to read only, may not be necessary
-        if master.io.currentMode == .batchIO {
+        if master.io.simulatedIOMode == .batch {
             master.io.outputTextView.text.removeAll()
             if var input = master.io.inputTextView.text {
                 if !input.hasSuffix("\n") {
@@ -775,6 +776,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     master.cpu.update()
                     stopDebugging()
                     machine.isSimulating = false
+                    master.io.stopSimulation()
                     return
                 }
                 
@@ -782,6 +784,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     master.cpu.update()
                     //stopDebugging()
                     machine.isSimulating = false
+                    master.io.stopSimulation()
                     return
                 }
                 
@@ -789,11 +792,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     master.cpu.update()
                     // emit updateSimulationView
                     machine.isSimulating = false
+                    master.io.stopSimulation()
                     return
                 }
             }
 
-        } else if master.io.currentMode == .terminalIO {
+        } else if master.io.simulatedIOMode == .terminal {
             machine.inputBuffer = ""
             master.io.terminalTextView.text.removeAll()
             
@@ -807,6 +811,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     master.cpu.update()
                     setState(.waitingForInput)
                     machine.isSimulating = false
+                    master.io.stopSimulation()
                     return
                 } else {
                     if machine.vonNeumannStep(errorString: &errorStr) {
@@ -821,6 +826,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                         master.cpu.update()
                         stopDebugging()
                         machine.isSimulating = false
+                        master.io.stopSimulation()
                         return
                     }
                     
@@ -828,6 +834,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                         master.cpu.update()
                         stopDebugging()
                         machine.isSimulating = false
+                        master.io.stopSimulation()
                         return
                     }
                     
@@ -835,6 +842,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                         master.cpu.update()
                         // emit updateSimulationView
                         machine.isSimulating = false
+                        master.io.stopSimulation()
                         return
                     }
 
@@ -842,10 +850,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
             
             
-        } else {
-            // the memory dump is what's visible, so switch to batch and try again
-            master.io.setMode(to: .batchIO)
-            execute() // note: recursive call
         }
     }
     
@@ -868,7 +872,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // change icon back to a bug
         setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .Bug, ofSize: 20)
         setState(.stopDebugging)
-        
+        master.io.stopSimulation()
 
     }
     
@@ -879,7 +883,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.shouldHalt = false
         var errorStr = ""
         machine.trapLookahead()
-        if master.io.currentMode == .batchIO {
+        
+        if master.io.simulatedIOMode == .batch {
             if machine.isTrapped && !machine.shouldTraceTraps {
                 // not tracing traps, so just keep looping through these
                 while machine.isTrapped {
@@ -1024,9 +1029,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
     }
     
+    
+    
+    
     func resumeExecution() {
-        //
+        // TODO
+        master.io.stopSimulation()
     }
+    
+    
+    
     
     func startDebuggingSource() {
         stepBtn = UIBarButtonItem(title: "Step", style: .plain, target: self, action: #selector(self.singleStep))
@@ -1047,8 +1059,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.programCounter = 0
         // set debug state
         machine.isTrapped = false
+        loadObject()
+        
         // set source and object to read only, may not be necessary
-        if master.io.currentMode == .batchIO {
+        
+        master.io.startSimulation()
+        if master.io.simulatedIOMode == .batch {
             master.io.outputTextView.text.removeAll()
             if var input = master.io.inputTextView.text {
                 if !input.hasSuffix("\n") {
