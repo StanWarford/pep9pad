@@ -64,7 +64,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
         // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
-        let icons: [FontAwesome] = [.FileText, .Code, .List, .Reorder]
+        let icons: [FontAwesome] = [.FileText, .FileCodeO, .List, .Compass]
         let defaultSize = CGSize(width: 30, height: 30)
         for idx in 0..<tabBarItems.count {
             tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)

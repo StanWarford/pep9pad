@@ -1137,7 +1137,6 @@ class AssemblerModel {
         for i in 0..<assembler.source.count {
             assembler.source[i].appendSourceLine(assemblerListing: &listing, listingTrace: &listingTrace, hasCheckBox: hasCheckBox)
         }
-        print(listing)
         return listing
     }
     

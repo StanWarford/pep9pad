@@ -107,20 +107,20 @@ class PepTextStorage: BaseTextStorage {
                 NSFontAttributeName:UIFont(name: CourierItalic, size: appSettings.fontSize)!
             ]
         case "singleLineComment", "comment", "documentation_comment":
-            // Comments are green.
+            // Comments are grey.
             attributes = [
-                NSForegroundColorAttributeName:greenColor
+                NSForegroundColorAttributeName:greyColor
             ]
         case "symbol":
-            // Symbols are purple and bold.
+            // Symbols are green and bold.
             attributes = [
-                NSForegroundColorAttributeName:purpleColor,
+                NSForegroundColorAttributeName:greenColor,
                 NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "singleQuote", "doubleQuote", "string" :
-            // Text in quotes is red.
+            // Text in quotes is cyan.
             attributes = [
-                NSForegroundColorAttributeName:redColor
+                NSForegroundColorAttributeName:cyanColor
             ]
         case "warning":
             // Warnings have an orange background.

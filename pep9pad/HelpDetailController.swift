@@ -74,6 +74,7 @@ class HelpDetailController: UIViewController {
     internal func loadDocumentation(_ doc: Documentation) {
         documentationVC.view.isHidden = false
         exampleVC.view.isHidden = true
+        
         let url = Bundle.main.url(forResource: doc.rawValue, withExtension:"html")
         let request = URLRequest(url: url!)
         documentationVC.doc.loadRequest(request)

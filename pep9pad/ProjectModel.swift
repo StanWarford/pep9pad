@@ -30,11 +30,7 @@ class ProjectModel {
     var objectStr: String = ""
     /// The assembler listing of the current project. Default is empty string.
     var listingStr: String = ""
-    
-//    // I think these belog in trace model.
-//    var listingTrace: [String] = []
-//    var hasCheckBox: [Bool] = []
-    
+
     
     
     // MARK: - Methods
