@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-sU-B9L">
-                                <rect key="frame" x="-1" y="0.0" width="1044.5" height="1023"/>
+                                <rect key="frame" x="-1" y="0.0" width="1045" height="1023"/>
                                 <connections>
                                     <segue destination="kVQ-1y-bjq" kind="embed" identifier="embedTagBar" id="YdT-uh-r17"/>
                                 </connections>
@@ -120,7 +120,9 @@
         <!--Main-->
         <scene sceneID="hoF-IF-dXW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="ovo-kI-vCK" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" id="ovo-kI-vCK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xQf-NL-fnJ"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1P-I3-3ei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1121" y="-686"/>
@@ -170,7 +172,7 @@
                     <navigationItem key="navigationItem" id="vTW-P4-Gly">
                         <barButtonItem key="leftBarButtonItem" title="Home" id="8hx-6u-OyY">
                             <connections>
-                                <segue destination="ovo-kI-vCK" kind="presentation" id="rf5-B1-LgD"/>
+                                <segue destination="ovo-kI-vCK" kind="presentation" id="oy8-ug-IM6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Help" id="6WH-e1-Hkh">
