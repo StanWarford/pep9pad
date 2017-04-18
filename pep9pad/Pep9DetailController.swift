@@ -845,27 +845,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
-    func stopDebugging() {
-        machine.interrupt()
-        // update trace
-        switchToTab(atIndex: 3)        
-        
-        // remove both of those buttons that were added at beginning of debug
-        if let a = self.navigationItem.leftBarButtonItems?.index(of: stepBtn) {
-            self.navigationItem.leftBarButtonItems?.remove(at: a)
-        }
-        if let b = self.navigationItem.leftBarButtonItems?.index(of: resBtn) {
-            self.navigationItem.leftBarButtonItems?.remove(at: b)
-        }
-
-        // change icon back to a bug
-        setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .Bug, ofSize: 20)
-        setState(.stopDebugging)
-        master.io.stopSimulation()
-
-    }
-    
-    
     func singleStep() {
         
         machine.isSimulating = true
@@ -1034,10 +1013,52 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     
-    
+    /// Called if the user would like to stop debugging and instead just finish executing the program.
     func resumeExecution() {
-        // TODO
-        master.io.stopSimulation()
+        if master.io.simulatedIOMode == .batch {
+            machine.isSimulating = true
+            machine.shouldHalt = false
+            var errorStr = ""
+            while true {
+                
+                // handle traps
+                if machine.shouldTraceTraps {
+                    machine.trapLookahead()
+                } else if maps.isTrapMap[maps.decodeMnemonic[machine.readByte(machine.programCounter)]]! {
+                    machine.isTrapped = true
+                } else if maps.decodeMnemonic[machine.readByte(machine.programCounter)] == .RETTR {
+                    machine.isTrapped = false
+                }
+                
+                
+                if machine.vonNeumannStep(errorString: &errorStr) {
+                    // emit VonNeumannStepped
+                    if machine.outputBuffer.length > 0 {
+                        master.io.appendOutput(machine.outputBuffer)
+                        machine.outputBuffer = ""
+                    }
+                    
+                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP || machine.shouldHalt {
+                        updateCPU()
+                        updateMemoryDump()
+                        stopDebugging()
+                        machine.isSimulating = false
+                        return
+                    }
+
+                } else {
+                    // error ocurred in VonNeumann step
+                    HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                    updateCPU()
+                    updateMemoryDump()
+                    updateTraceTable()
+                    stopDebugging()
+                    machine.isSimulating = false
+                    return
+                }
+                
+            }
+        }
     }
     
     
@@ -1097,6 +1118,27 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         master.cpu.update()
         updateTraceTable()
+    }
+    
+    
+    func stopDebugging() {
+        machine.interrupt()
+        // update trace
+        // don't need to do this: switchToTab(atIndex: 3)
+        
+        // remove both of those buttons that were added at beginning of debug
+        if let a = self.navigationItem.leftBarButtonItems?.index(of: stepBtn) {
+            self.navigationItem.leftBarButtonItems?.remove(at: a)
+        }
+        if let b = self.navigationItem.leftBarButtonItems?.index(of: resBtn) {
+            self.navigationItem.leftBarButtonItems?.remove(at: b)
+        }
+        
+        // change icon back to a bug
+        setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .Bug, ofSize: 20)
+        setState(.stopDebugging)
+        master.io.stopSimulation()
+        
     }
     
     
