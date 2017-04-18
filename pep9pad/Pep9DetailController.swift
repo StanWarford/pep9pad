@@ -847,10 +847,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     func stopDebugging() {
         machine.interrupt()
-//        updateCPU()
         // update trace
-        switchToTab(atIndex: 3)
-        
+        switchToTab(atIndex: 3)        
         
         // remove both of those buttons that were added at beginning of debug
         if let a = self.navigationItem.leftBarButtonItems?.index(of: stepBtn) {
