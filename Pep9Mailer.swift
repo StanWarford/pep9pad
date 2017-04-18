@@ -44,8 +44,8 @@ class Pep9Mailer: NSObject, MFMailComposeViewControllerDelegate {
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         mailComposerVC.setToRecipients([])
-        mailComposerVC.setSubject("Subject of you mail")
-        mailComposerVC.setMessageBody("Sending e-mail body", isHTML: false)
+        mailComposerVC.setSubject("A Pep/9 Project \(projectModel.name)")
+        mailComposerVC.setMessageBody("Here's a project from Pep/9.", isHTML: false)
         
         return mailComposerVC
     }

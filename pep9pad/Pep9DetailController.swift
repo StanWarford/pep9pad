@@ -1097,11 +1097,13 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             actionBtn.isEnabled = false
             runBtn.isEnabled = false
             settingsBtn.isEnabled = false
+            master.helpBtn.isEnabled = false
         case .stopDebugging:
             buildBtn.isEnabled = true
             actionBtn.isEnabled = true
             runBtn.isEnabled = true
             settingsBtn.isEnabled = true
+            master.helpBtn.isEnabled = true
         case .unBuilt:
             debugBtn.isEnabled = false
         case .built:

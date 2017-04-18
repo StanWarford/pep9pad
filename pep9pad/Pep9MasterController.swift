@@ -37,6 +37,9 @@ class Pep9MasterController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBOutlet var helpBtn: UIBarButtonItem!
+    
     @IBAction func helpBtnPressed(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
         self.present(vc!, animated: true) {
