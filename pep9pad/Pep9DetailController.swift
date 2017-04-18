@@ -165,6 +165,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     var stepBtn: UIBarButtonItem!
     var resBtn: UIBarButtonItem!
+    var flexibleSpace: UIBarButtonItem!
     
     
     //MARK: - IBActions
@@ -1086,9 +1087,14 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     func startDebuggingSource() {
         stepBtn = UIBarButtonItem(title: "Step", style: .plain, target: self, action: #selector(self.singleStep))
         resBtn = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(self.resumeExecution))
+        flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         UIView.animate(withDuration: 0.25) {
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
             self.navigationItem.leftBarButtonItems?.append(self.stepBtn)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
             self.navigationItem.leftBarButtonItems?.append(self.resBtn)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+
             // change debugBtn to be a stop symbol
             self.setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Stop, ofSize: 20)
             self.setState(.startDebugging)
@@ -1132,6 +1138,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         if let b = self.navigationItem.leftBarButtonItems?.index(of: resBtn) {
             self.navigationItem.leftBarButtonItems?.remove(at: b)
+        }
+        // multiple spaces were added, so they should all be removed, I guess
+        for i in 0..<3 {
+            if let c = self.navigationItem.leftBarButtonItems?.index(of: flexibleSpace) {
+                self.navigationItem.leftBarButtonItems?.remove(at: c)
+            }
         }
         
         // change icon back to a bug
