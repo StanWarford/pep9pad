@@ -33,7 +33,6 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     }
 
 
-
     // MARK: - Methods
 
     var memoryDump: [String] = [String](repeating: "", count: 8192)
@@ -65,7 +64,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
     }
     
     /// Refreshes the whole memory pane.
-    func refresh() {
+    func update() {
         memoryDump.removeAll(keepingCapacity: true)
         var line: String = ""
         var ch: String
@@ -96,7 +95,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
 
     
     /// Refreshes the memory in a given range.
-    func refresh(fromByte: Int, toByte: Int) {
+    func update(fromByte: Int, toByte: Int) {
         let fromLine = fromByte / 8
         let toLine = toByte / 8
         

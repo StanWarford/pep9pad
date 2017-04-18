@@ -92,7 +92,7 @@ class Pep9ProcessorController: UIViewController {
             oprndSpecHex.text = "0x\(machine.operandSpecifier.toHex4())"
             oprndSpecDec.text = "\(machine.toSignedDecimal(machine.operandSpecifier))"
             oprndHex.text = "0x\(machine.operand.toHex4())"
-            oprndSpecDec.text = "\(machine.toSignedDecimal(machine.operand))"
+            oprndDec.text = "\(machine.toSignedDecimal(machine.operand))"
         }
     }
 

@@ -23,13 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lBX-vL-Rhj">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lBX-vL-Rhj">
                                 <rect key="frame" x="139" y="121" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="sd6-VZ-2Gc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -37,13 +37,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gHx-50-X9K">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gHx-50-X9K">
                                 <rect key="frame" x="226" y="121" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="eZL-X1-9eY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -51,7 +51,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Index Register" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxE-Ma-p8A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Index Register" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxE-Ma-p8A">
                                 <rect key="frame" x="8" y="121" width="123" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="Ael-OX-Km8"/>
@@ -60,13 +60,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3L-T7-8sa">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M3L-T7-8sa">
                                 <rect key="frame" x="139" y="91" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="nSo-Vc-LuW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -74,13 +74,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3wn-pu-tA3">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3wn-pu-tA3">
                                 <rect key="frame" x="226" y="91" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="Iy0-de-Gix"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -88,19 +88,19 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Accumulator" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-wY-USk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accumulator" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhp-wY-USk">
                                 <rect key="frame" x="8" y="91" width="123" height="19"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-Nc-dcQ">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-Nc-dcQ">
                                 <rect key="frame" x="139" y="151" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="Qyd-iD-45D"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -108,13 +108,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRd-mD-saU">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRd-mD-saU">
                                 <rect key="frame" x="226" y="151" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="wVn-cm-Ce7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -122,7 +122,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stack Pointer" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-qO-WeL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stack Pointer" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcL-qO-WeL">
                                 <rect key="frame" x="8" y="151" width="123" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="vhO-2L-wGQ"/>
@@ -131,13 +131,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eFq-7j-c0E">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eFq-7j-c0E">
                                 <rect key="frame" x="139" y="181" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="N7o-lF-5A1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -145,13 +145,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEQ-kk-1WU">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEQ-kk-1WU">
                                 <rect key="frame" x="226" y="181" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="3MD-O2-eLZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -159,7 +159,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Program Counter" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-jO-gt1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program Counter" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-jO-gt1">
                                 <rect key="frame" x="8" y="181" width="123" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="62Z-ZW-9IQ"/>
@@ -168,14 +168,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-lX-JJi">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y8F-lX-JJi">
                                 <rect key="frame" x="139" y="211" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="86" id="Z60-Tb-13b"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="w7v-gA-hRL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -183,13 +183,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJk-hb-z6a">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gJk-hb-z6a">
                                 <rect key="frame" x="226" y="211" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="27H-SP-Wnr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -197,7 +197,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Instruction Specifier" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcI-Cj-uzh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instruction Specifier" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcI-Cj-uzh">
                                 <rect key="frame" x="8" y="211" width="123" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="it3-an-NQu"/>
@@ -206,13 +206,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfm-Jm-Jg6">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfm-Jm-Jg6">
                                 <rect key="frame" x="139" y="241" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="t6s-Yz-nRL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -220,13 +220,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtU-m0-FdO">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtU-m0-FdO">
                                 <rect key="frame" x="226" y="241" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="u1u-4Q-u4O"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -234,7 +234,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Operand Specifier" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="753-Kv-m3W">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operand Specifier" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="753-Kv-m3W">
                                 <rect key="frame" x="8" y="241" width="123" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="qFL-NF-Lls"/>
@@ -243,13 +243,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-FL-1Bj">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vne-FL-1Bj">
                                 <rect key="frame" x="139" y="271" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="H6J-YK-n0W"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -257,13 +257,13 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="00000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-PR-TCD">
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000000000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-PR-TCD">
                                 <rect key="frame" x="226" y="271" width="86" height="19"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="YON-UW-Gb5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -271,7 +271,7 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(Operand)" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q37-FN-pPc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Operand)" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q37-FN-pPc">
                                 <rect key="frame" x="8" y="271" width="123" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="FY9-FN-uQS"/>
@@ -293,7 +293,7 @@
                                     <constraint firstAttribute="width" constant="24" id="YmG-93-xwB"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="cj7-FB-lS7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -318,7 +318,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="czM-Yz-7q4"/>
                                     <constraint firstAttribute="width" constant="24" id="eaA-gD-UgZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -342,7 +342,7 @@
                                     <constraint firstAttribute="width" constant="24" id="Hom-Zr-uWK"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="syg-kH-UwF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -365,7 +365,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="103" id="2vW-j6-F52"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -399,11 +399,11 @@
                             <constraint firstItem="vJh-R7-8eg" firstAttribute="baseline" secondItem="RZc-aw-f0F" secondAttribute="baseline" id="6Fq-bk-Hzy"/>
                             <constraint firstItem="Rm5-hL-o1j" firstAttribute="top" secondItem="vJh-R7-8eg" secondAttribute="top" id="6bJ-wo-LGO"/>
                             <constraint firstItem="TEQ-kk-1WU" firstAttribute="leading" secondItem="gJk-hb-z6a" secondAttribute="leading" id="7OW-1O-pvi"/>
-                            <constraint firstItem="q37-FN-pPc" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="8FL-az-PYf"/>
+                            <constraint firstItem="q37-FN-pPc" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="8FL-az-PYf"/>
                             <constraint firstItem="RZc-aw-f0F" firstAttribute="baseline" secondItem="yRb-2y-6WS" secondAttribute="baseline" id="8IT-M1-RBc"/>
-                            <constraint firstItem="3wn-pu-tA3" firstAttribute="trailing" secondItem="nmP-H5-j8U" secondAttribute="trailingMargin" id="8Mg-RU-PJq"/>
+                            <constraint firstItem="3wn-pu-tA3" firstAttribute="trailing" secondItem="nmP-H5-j8U" secondAttribute="trailingMargin" constant="8" id="8Mg-RU-PJq"/>
                             <constraint firstItem="VHX-jO-gt1" firstAttribute="leading" secondItem="jcI-Cj-uzh" secondAttribute="leading" id="8Oe-ev-9nG"/>
-                            <constraint firstItem="753-Kv-m3W" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="8aE-k2-oPI"/>
+                            <constraint firstItem="753-Kv-m3W" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="8aE-k2-oPI"/>
                             <constraint firstItem="lBX-vL-Rhj" firstAttribute="top" secondItem="WxE-Ma-p8A" secondAttribute="top" id="9sZ-oS-ipn"/>
                             <constraint firstAttribute="trailing" secondItem="gqo-Ax-oCh" secondAttribute="trailing" id="Azk-cv-mcu"/>
                             <constraint firstItem="JRd-mD-saU" firstAttribute="bottom" secondItem="NbS-Nc-dcQ" secondAttribute="bottom" id="BbF-H2-XFO"/>
@@ -411,13 +411,13 @@
                             <constraint firstItem="gJk-hb-z6a" firstAttribute="leading" secondItem="TtU-m0-FdO" secondAttribute="leading" id="CPp-de-Nj1"/>
                             <constraint firstItem="yRb-2y-6WS" firstAttribute="baseline" secondItem="m6A-Bv-kNV" secondAttribute="baseline" id="CR2-RG-WhP"/>
                             <constraint firstItem="JK7-4Y-hgT" firstAttribute="bottom" secondItem="m6A-Bv-kNV" secondAttribute="bottom" id="CZ9-Yl-n5q"/>
-                            <constraint firstItem="gHx-50-X9K" firstAttribute="baseline" secondItem="WxE-Ma-p8A" secondAttribute="baseline" id="DMv-eq-qjP"/>
+                            <constraint firstItem="gHx-50-X9K" firstAttribute="baseline" secondItem="WxE-Ma-p8A" secondAttribute="baseline" constant="-1.5" id="DMv-eq-qjP"/>
                             <constraint firstItem="Vne-FL-1Bj" firstAttribute="bottom" secondItem="q37-FN-pPc" secondAttribute="bottom" id="EGD-ci-TFa"/>
                             <constraint firstItem="n4l-jx-S9A" firstAttribute="baseline" secondItem="JK7-4Y-hgT" secondAttribute="baseline" id="ENt-dI-bTq"/>
                             <constraint firstItem="yRb-2y-6WS" firstAttribute="leading" secondItem="n4l-jx-S9A" secondAttribute="trailing" constant="3" id="EUn-kv-zcl"/>
-                            <constraint firstItem="TEQ-kk-1WU" firstAttribute="baseline" secondItem="VHX-jO-gt1" secondAttribute="baseline" id="EnJ-ye-S1n"/>
+                            <constraint firstItem="TEQ-kk-1WU" firstAttribute="baseline" secondItem="VHX-jO-gt1" secondAttribute="baseline" constant="-1.5" id="EnJ-ye-S1n"/>
                             <constraint firstItem="eFq-7j-c0E" firstAttribute="top" secondItem="VHX-jO-gt1" secondAttribute="top" id="FXs-nG-vL3"/>
-                            <constraint firstItem="VHX-jO-gt1" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="Ff5-zJ-yab"/>
+                            <constraint firstItem="VHX-jO-gt1" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="Ff5-zJ-yab"/>
                             <constraint firstItem="VHX-jO-gt1" firstAttribute="top" secondItem="gcL-qO-WeL" secondAttribute="bottom" constant="11" id="HOJ-wB-t2a"/>
                             <constraint firstItem="JRd-mD-saU" firstAttribute="bottom" secondItem="gcL-qO-WeL" secondAttribute="bottom" id="Iih-B7-QF5"/>
                             <constraint firstItem="JRd-mD-saU" firstAttribute="leading" secondItem="TEQ-kk-1WU" secondAttribute="leading" id="JEE-ir-2Rg"/>
@@ -437,7 +437,7 @@
                             <constraint firstItem="dAp-Dj-IOh" firstAttribute="leading" secondItem="vJh-R7-8eg" secondAttribute="trailing" constant="29" id="Sev-Cr-w5r"/>
                             <constraint firstItem="TEQ-kk-1WU" firstAttribute="bottom" secondItem="VHX-jO-gt1" secondAttribute="bottom" id="Sn4-am-lKo"/>
                             <constraint firstItem="dAp-Dj-IOh" firstAttribute="baseline" secondItem="n4l-jx-S9A" secondAttribute="baseline" id="SyU-h4-IW6"/>
-                            <constraint firstItem="qhp-wY-USk" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="TW7-5d-iME"/>
+                            <constraint firstItem="qhp-wY-USk" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="TW7-5d-iME"/>
                             <constraint firstItem="753-Kv-m3W" firstAttribute="top" secondItem="jcI-Cj-uzh" secondAttribute="bottom" constant="11" id="UU4-tr-Fgd"/>
                             <constraint firstItem="vJh-R7-8eg" firstAttribute="width" secondItem="RZc-aw-f0F" secondAttribute="width" id="UZV-wt-exA"/>
                             <constraint firstItem="jcI-Cj-uzh" firstAttribute="leading" secondItem="753-Kv-m3W" secondAttribute="leading" id="WJa-bn-gGP"/>
@@ -453,7 +453,7 @@
                             <constraint firstItem="3wn-pu-tA3" firstAttribute="top" secondItem="nmP-H5-j8U" secondAttribute="top" constant="91" id="asq-K7-ttB"/>
                             <constraint firstItem="3wn-pu-tA3" firstAttribute="bottom" secondItem="qhp-wY-USk" secondAttribute="bottom" id="auq-cy-FiH"/>
                             <constraint firstItem="dZh-PR-TCD" firstAttribute="top" secondItem="Vne-FL-1Bj" secondAttribute="top" id="bYN-iI-be9"/>
-                            <constraint firstItem="gcL-qO-WeL" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="bZU-7d-uKp"/>
+                            <constraint firstItem="gcL-qO-WeL" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="bZU-7d-uKp"/>
                             <constraint firstItem="qhp-wY-USk" firstAttribute="trailing" secondItem="WxE-Ma-p8A" secondAttribute="trailing" id="bdc-JR-Q4H"/>
                             <constraint firstItem="qhp-wY-USk" firstAttribute="top" secondItem="Rm5-hL-o1j" secondAttribute="bottom" constant="15" id="bvL-J5-r1P"/>
                             <constraint firstItem="dZh-PR-TCD" firstAttribute="bottom" secondItem="Vne-FL-1Bj" secondAttribute="bottom" id="cvo-Je-3PL"/>
@@ -461,23 +461,23 @@
                             <constraint firstItem="753-Kv-m3W" firstAttribute="trailing" secondItem="q37-FN-pPc" secondAttribute="trailing" id="fER-NN-jXv"/>
                             <constraint firstItem="dAp-Dj-IOh" firstAttribute="firstBaseline" secondItem="n4l-jx-S9A" secondAttribute="firstBaseline" id="fv8-2g-bfo"/>
                             <constraint firstItem="xfm-Jm-Jg6" firstAttribute="top" secondItem="753-Kv-m3W" secondAttribute="top" id="fvo-LO-gIH"/>
-                            <constraint firstItem="WxE-Ma-p8A" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="g5i-Ig-fiy"/>
+                            <constraint firstItem="WxE-Ma-p8A" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="g5i-Ig-fiy"/>
                             <constraint firstItem="dAp-Dj-IOh" firstAttribute="bottom" secondItem="RZc-aw-f0F" secondAttribute="bottom" id="g9C-dF-8mL"/>
                             <constraint firstItem="M3L-T7-8sa" firstAttribute="top" secondItem="nmP-H5-j8U" secondAttribute="top" constant="91" id="hv9-Ox-Xgc"/>
                             <constraint firstItem="m6A-Bv-kNV" firstAttribute="height" secondItem="yRb-2y-6WS" secondAttribute="height" id="iGS-4q-yZy"/>
                             <constraint firstItem="Vne-FL-1Bj" firstAttribute="top" secondItem="q37-FN-pPc" secondAttribute="top" id="jEV-2S-8rp"/>
                             <constraint firstItem="M3L-T7-8sa" firstAttribute="top" secondItem="qhp-wY-USk" secondAttribute="top" id="jcp-xY-nO1"/>
                             <constraint firstItem="gcL-qO-WeL" firstAttribute="trailing" secondItem="VHX-jO-gt1" secondAttribute="trailing" id="jk5-gC-XK9"/>
-                            <constraint firstItem="TtU-m0-FdO" firstAttribute="baseline" secondItem="753-Kv-m3W" secondAttribute="baseline" id="jno-Ff-NYi"/>
+                            <constraint firstItem="TtU-m0-FdO" firstAttribute="baseline" secondItem="753-Kv-m3W" secondAttribute="baseline" constant="-1.5" id="jno-Ff-NYi"/>
                             <constraint firstItem="JK7-4Y-hgT" firstAttribute="leading" secondItem="yRb-2y-6WS" secondAttribute="trailing" constant="30" id="kFX-c2-Ue5"/>
                             <constraint firstItem="TEQ-kk-1WU" firstAttribute="top" secondItem="eFq-7j-c0E" secondAttribute="top" id="kRd-T2-CZs"/>
                             <constraint firstItem="TtU-m0-FdO" firstAttribute="bottom" secondItem="xfm-Jm-Jg6" secondAttribute="bottom" id="kVI-Ow-vlt"/>
                             <constraint firstItem="gHx-50-X9K" firstAttribute="top" secondItem="lBX-vL-Rhj" secondAttribute="top" id="lNc-mt-drH"/>
-                            <constraint firstItem="jcI-Cj-uzh" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-12" id="mdc-2W-vr3"/>
-                            <constraint firstItem="JRd-mD-saU" firstAttribute="baseline" secondItem="gcL-qO-WeL" secondAttribute="baseline" id="mxk-YJ-bQF"/>
+                            <constraint firstItem="jcI-Cj-uzh" firstAttribute="leading" secondItem="nmP-H5-j8U" secondAttribute="leadingMargin" constant="-8" id="mdc-2W-vr3"/>
+                            <constraint firstItem="JRd-mD-saU" firstAttribute="baseline" secondItem="gcL-qO-WeL" secondAttribute="baseline" constant="-1.5" id="mxk-YJ-bQF"/>
                             <constraint firstItem="gHx-50-X9K" firstAttribute="baseline" secondItem="lBX-vL-Rhj" secondAttribute="baseline" id="na4-HF-hs7"/>
                             <constraint firstItem="vJh-R7-8eg" firstAttribute="height" secondItem="RZc-aw-f0F" secondAttribute="height" id="nvZ-tH-bD8"/>
-                            <constraint firstItem="gJk-hb-z6a" firstAttribute="baseline" secondItem="jcI-Cj-uzh" secondAttribute="baseline" id="ov3-oy-grr"/>
+                            <constraint firstItem="gJk-hb-z6a" firstAttribute="baseline" secondItem="jcI-Cj-uzh" secondAttribute="baseline" constant="-1.5" id="ov3-oy-grr"/>
                             <constraint firstItem="gJk-hb-z6a" firstAttribute="top" secondItem="y8F-lX-JJi" secondAttribute="top" id="pAb-Bc-DwY"/>
                             <constraint firstItem="VHX-jO-gt1" firstAttribute="trailing" secondItem="jcI-Cj-uzh" secondAttribute="trailing" id="q0e-48-Jtw"/>
                             <constraint firstItem="n4l-jx-S9A" firstAttribute="firstBaseline" secondItem="JK7-4Y-hgT" secondAttribute="firstBaseline" id="qYi-ZI-jTc"/>

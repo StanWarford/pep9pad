@@ -298,7 +298,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 machine.mem[i] = 0
             }
             self.master.cpu.clearCpu()
-            self.master.io.memoryView.refresh()
+            self.master.io.memoryView.update()
         }
         alertController.addAction(clearMemAction)
         
@@ -340,7 +340,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     assembler.listing = assembler.getAssemblerListing()
                     assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                     assembler.loadOSIntoMem()
-                    self.master.io.memoryView.refresh()
+                    self.master.io.memoryView.update()
                     // MARK: ui bar subject to change
                     print("Assembly succeeded, OS installed")
                 }
@@ -734,7 +734,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         for i in 0..<obj.count {
             machine.mem[i] = obj[i]
         }
-        master.io.memoryView.refresh()
+        master.io.memoryView.update()
         return true
     }
     
@@ -773,23 +773,24 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 } else {
                     // error ocurred in VonNeumann step
                     HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                    master.cpu.update()
-                    stopDebugging()
+                    updateCPU()
+                    updateMemoryDump()
                     machine.isSimulating = false
                     master.io.stopSimulation()
                     return
                 }
                 
                 if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
-                    master.cpu.update()
-                    //stopDebugging()
+                    updateCPU()
+                    updateMemoryDump()
                     machine.isSimulating = false
                     master.io.stopSimulation()
                     return
                 }
                 
                 if machine.shouldHalt {
-                    master.cpu.update()
+                    updateCPU()
+                    updateMemoryDump()
                     // emit updateSimulationView
                     machine.isSimulating = false
                     master.io.stopSimulation()
@@ -808,7 +809,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             while true {
                 if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
                     // waiting for user input
-                    master.cpu.update()
+                    updateCPU()
+                    updateMemoryDump()
                     setState(.waitingForInput)
                     machine.isSimulating = false
                     master.io.stopSimulation()
@@ -823,40 +825,29 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     } else {
                         // error ocurred in VonNeumann step
                         HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                        master.cpu.update()
-                        stopDebugging()
+                        updateCPU()
+                        updateMemoryDump()
                         machine.isSimulating = false
                         master.io.stopSimulation()
                         return
                     }
                     
-                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
-                        master.cpu.update()
-                        stopDebugging()
+                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP || machine.shouldHalt {
+                        updateCPU()
+                        updateMemoryDump()
                         machine.isSimulating = false
                         master.io.stopSimulation()
                         return
                     }
-                    
-                    if machine.shouldHalt {
-                        master.cpu.update()
-                        // emit updateSimulationView
-                        machine.isSimulating = false
-                        master.io.stopSimulation()
-                        return
-                    }
-
                 }
             }
-            
-            
         }
     }
     
     
     func stopDebugging() {
         machine.interrupt()
-        master.cpu.update()
+//        updateCPU()
         // update trace
         switchToTab(atIndex: 3)
         
@@ -886,7 +877,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
         if master.io.simulatedIOMode == .batch {
             if machine.isTrapped && !machine.shouldTraceTraps {
-                // not tracing traps, so just keep looping through these
+                // If the simulation is executing a trap instruction and the
+                // user doesn't want to trace the trap, keep single stepping
+                // until the machine is no longer trapped.
                 while machine.isTrapped {
                     machine.trapLookahead()
                     if machine.vonNeumannStep(errorString: &errorStr) {
@@ -895,32 +888,28 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                             master.io.appendOutput(machine.outputBuffer)
                             machine.outputBuffer = ""
                         }
-                        tabVCs.trace?.traceTable.update()
-                    } else {
-                        // error ocurred in VonNeumann step
+                    } else {   // an error ocurred in VonNeumann step
                         HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                        master.cpu.update()
+                        updateCPU()
+                        updateMemoryDump()
+                        updateTraceTable()
                         stopDebugging()
                         machine.isSimulating = false
-                        return
+                        return // end of simulation due to error
                     }
-                    
-                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
-                        master.cpu.update()
+                
+                    if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                        updateCPU()
+                        updateTraceTable()
                         stopDebugging()
                         machine.isSimulating = false
-                        return
-                    }
-                    
-                    if machine.shouldHalt {
-                        master.cpu.update()
-                        // emit updateSimulationView
-                        machine.isSimulating = false
-                        return
+                        return // end of simulation due to stop instruction or user interference
                     }
                 }
-                // refresh the cpu
-                master.cpu.update()
+                // refresh the cpu / memory dump / trace table at the end of a successful trap sequence
+                updateCPU()
+                updateTraceTable()
+                updateMemoryDump()
                 
             } else if machine.vonNeumannStep(errorString: &errorStr) {
                 // we are tracing the program and traps
@@ -930,21 +919,25 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     master.io.appendOutput(machine.outputBuffer)
                     machine.outputBuffer = ""
                 }
+                
+                updateMemoryDump()
+                updateCPU()
+                updateTraceTable()
+                
                 if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
-                    master.cpu.update()
-                    tabVCs.trace?.traceTable.update()
-                    return
+                    return // step completed successfully
                 } else {
                     // instruction was a STOP instruction
-                    master.cpu.update()
-                    tabVCs.trace?.traceTable.update()
                     machine.isSimulating = false
                     stopDebugging()
+                    // already refreshed cpu and stuff, so no need to do it again
                 }
             } else {
                 // error ocurred in VonNeumann step
                 HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                master.cpu.update()
+                updateCPU()
+                updateMemoryDump()
+                updateTraceTable()
                 stopDebugging()
                 machine.isSimulating = false
                 return
@@ -972,19 +965,25 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                         } else {
                             // error ocurred in VonNeumann step
                             HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                            master.cpu.update()
+                            updateCPU()
+                            updateTraceTable()
+                            updateMemoryDump()
                             stopDebugging()
                             machine.isSimulating = false
                             return
                         }
                         if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
-                            master.cpu.update()
+                            updateCPU()
+                            updateTraceTable()
+                            updateMemoryDump()
                             stopDebugging()
                             machine.isSimulating = false
                             return
                         }
                         if machine.shouldHalt {
-                            master.cpu.update()
+                            updateCPU()
+                            updateTraceTable()
+                            updateMemoryDump()
                             // emit updateSimulationView
                             machine.isSimulating = false
                             return
@@ -1004,21 +1003,27 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 } else {
                     // error ocurred in VonNeumann step
                     HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                    master.cpu.update()
+                    updateCPU()
+                    updateTraceTable()
+                    updateMemoryDump()
                     stopDebugging()
                     machine.isSimulating = false
                     return
                 }
                 
                 if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
-                    master.cpu.update()
+                    updateCPU()
+                    updateTraceTable()
+                    updateMemoryDump()
                     stopDebugging()
                     machine.isSimulating = false
                     return
                 }
                 
                 if machine.shouldHalt {
-                    master.cpu.update()
+                    updateCPU()
+                    updateTraceTable()
+                    updateMemoryDump()
                     stopDebugging()
                     machine.isSimulating = false
                     return
@@ -1035,6 +1040,25 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     func resumeExecution() {
         // TODO
         master.io.stopSimulation()
+    }
+    
+    
+    func updateMemoryDump() {
+        if master.io.currentMode == .memory {
+            // need to update the memory view
+            master.io.memoryView.update()
+        } else {
+            // user isn't looking at memory right now, so don't bother
+            return
+        }
+    }
+    
+    func updateTraceTable() {
+        tabVCs.trace?.traceTable.update()
+    }
+    
+    func updateCPU() {
+        master.cpu.update()
     }
     
     
@@ -1074,7 +1098,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
         }
         master.cpu.update()
-        tabVCs.trace?.traceTable.update()
+        updateTraceTable()
     }
     
     

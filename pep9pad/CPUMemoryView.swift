@@ -39,7 +39,7 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
         let view: UIView = Bundle.main.loadNibNamed("Memory", owner: self, options: nil)![0] as! UIView
         self.addSubview(view)
         view.frame = self.bounds
-        refresh()
+        update()
     }
     
     
@@ -50,7 +50,7 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
     
     
     /// Refreshes the whole memory pane.
-    func refresh() {
+    func update() {
         memoryDump.removeAll(keepingCapacity: true)
         var line: String = ""
         
@@ -72,7 +72,7 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
     
     /// Refreshes the memory in a given range.
     /// This given range is inclusive at upper and lower bounds.
-    func refresh(fromByte: Int, toByte: Int) {
+    func update(fromByte: Int, toByte: Int) {
         let fromLine = fromByte / 8
         let toLine = toByte / 8
         
