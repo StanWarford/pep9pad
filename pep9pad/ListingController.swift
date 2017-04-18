@@ -23,7 +23,7 @@ class ListingController: UIViewController, ProjectModelEditor {
     func pullFromProjectModel() {
         textView.setText(projectModel.listingStr)
         // setting isScrollEnabled seems to fix the scrolling issues
-        textView.textView.isScrollEnabled = true
+        //textView.textView.isScrollEnabled = true
     }
     
     /// Updates `projectModel.listingStr` with the contents of `textView`.

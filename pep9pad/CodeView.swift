@@ -13,7 +13,7 @@ class CodeView: UIView, UITextViewDelegate {
     internal var textContainer: NSTextContainer!
     internal var textView: UITextView!
     internal var delegate: CodeViewDelegate!
-    
+
     // MARK: - Initializers and Set-up Functions
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,6 +84,7 @@ class CodeView: UIView, UITextViewDelegate {
     
     internal func setText(_ to: String) {
         self.textView.text = to
+        self.textView.isScrollEnabled = true
     }
     
     
@@ -106,7 +107,8 @@ class CodeView: UIView, UITextViewDelegate {
             let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
             print("Loaded file named \(fileName).\(ofType.rawValue)")
             self.textView.text.removeAll()
-            self.textView.insertText(content)
+            self.textView.text = content
+            self.textView.isScrollEnabled = true
         } catch _ as NSError {
             print("Could not load file named \(fileName).\(ofType.rawValue)")
             return

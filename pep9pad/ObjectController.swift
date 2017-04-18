@@ -47,7 +47,7 @@ class ObjectController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     func textViewDidChange() {
         pushToProjectModel()
         // setting isScrollEnabled seems to fix the scrolling issues
-        textView.textView.isScrollEnabled = true
+        //textView.textView.isScrollEnabled = true
     }
     
     
