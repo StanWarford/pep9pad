@@ -1153,22 +1153,24 @@ class AssemblerModel {
         readable.append("\n") // because `join` does not put a newline at the end
         readable.append("-------------------------------------------------------------------------------\n")
         
-        
         // show symbol table if symbols exist
         if (maps.symbolTable.count > 0) {
             readable.append("\n\n")
             readable.append("Symbol table\n")
-            readable.append("------------------\n")
-            readable.append("Symbol    Value   \n")
-            readable.append("------------------\n")
+            readable.append("--------------------------------------\n")
+            readable.append("Symbol    Value        Symbol    Value\n")
+            readable.append("--------------------------------------\n")
             
             var hexString = ""
             let keys = maps.symbolTable.arrayOfKeys() as! [String]
-            for symbol in keys {
+            for index in 0..<keys.count {
+                let symbol = keys[index]
                 hexString = (maps.symbolTable[symbol]?.toHex4())!
-                readable.append(symbol.padAfter(width: 10)+hexString+"\n")
+                readable.append(symbol.padAfter(width: 10)+hexString)
+                readable.append(index.odd() ? "\n" : "         ")
             }
-            readable.append("------------------\n");
+            if (keys.count.odd()) {readable.append("\n")}
+            readable.append("--------------------------------------\n")
         }
 
         return readable

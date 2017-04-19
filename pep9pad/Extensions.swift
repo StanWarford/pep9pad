@@ -46,6 +46,10 @@ extension Int {
     func toBool() -> Bool {
         return self != 0
     }
+    
+    func odd() -> Bool {
+        return self % 2 != 0
+    }
 }
 
 
