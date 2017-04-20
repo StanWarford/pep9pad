@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nno-9v-0o8">
-                                <rect key="frame" x="300" y="258" width="766" height="509"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="nno-9v-0o8">
+                                <rect key="frame" x="299" y="259" width="766" height="509"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2Y-Mr-NWV" userLabel="MenuPulse">
@@ -241,6 +241,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo1.jpg" width="2108" height="2108"/>
+        <image name="logo1" width="1111" height="1111"/>
     </resources>
 </document>
