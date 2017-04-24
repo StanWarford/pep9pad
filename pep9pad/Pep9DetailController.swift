@@ -344,14 +344,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     self.master.io.memoryView.update()
                     // MARK: ui bar subject to change
                     print("Assembly succeeded, OS installed")
+                    HUD.flash(.labeledSuccess(title: "OS installed", subtitle: ""), delay: 0.5)
                 }
             }
             else {
                 projectModel.listingStr = ""
                 projectModel.objectStr = ""
                 assembler.setListingTrace(listingTraceList: [""])
+                self.updateEditorsFromProjectModel()
                 // MARK: ui bar subject to change
-                print("Assembly failed")
+                HUD.flash(.labeledError(title: "Assembly failed", subtitle: ""), delay: 0.5)
             }
         }
         alertController.addAction(installNewOSAction)
@@ -365,7 +367,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 print("OS Installed")
                 HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
             } else {
-                print("OS assembly failed")
+                print("OS assembly failed") // should never happen
             }
         }
         alertController.addAction(reinstallDefaultOSAction)
