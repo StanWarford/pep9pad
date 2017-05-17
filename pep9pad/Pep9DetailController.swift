@@ -246,15 +246,74 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(saveAction)
         
         let shareAction = UIAlertAction(title: "Share Project", style: .default) { (action) in
-            self.shareProjectBtnPressed(sender: self.actionBtn)
+            let sourceFileURL = self.createTempFile(fileName: "\(projectModel.name).pep", data: projectModel.getData(ofType: .source))
+            let objectFileURL = self.createTempFile(fileName: "\(projectModel.name).pepo", data: projectModel.getData(ofType: .object))
+            let listingFileURL = self.createTempFile(fileName: "\(projectModel.name).pepl", data: projectModel.getData(ofType: .listing))
+            
+            let activityController = UIActivityViewController(activityItems: [sourceFileURL, objectFileURL, listingFileURL], applicationActivities: nil)
+            activityController.popoverPresentationController?.sourceView = self.view
+            activityController.popoverPresentationController?.barButtonItem = sender
+            activityController.popoverPresentationController?.permittedArrowDirections = .any
+            
+            activityController.setValue("A Pep/9 Project - \(projectModel.name)", forKey: "subject")
+            
+            activityController.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, items: [Any]?, error: Error?) in
+                self.deleteTempFiles(fileURLs: [sourceFileURL,objectFileURL,listingFileURL])
+            }
+            
+            self.present(activityController, animated: true, completion: nil)
+            
         }
+        
         shareAction.isEnabled = (projectModel.fsState != .Blank)
         alertController.addAction(shareAction)
-        
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // MARK: - temp files
+    
+    // Write the data to a temporary file in order to share it.
+    func createTempFile(fileName: String, data: Data) -> URL {
+        let directoryURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString, isDirectory: true)!
+        
+        do {
+            try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            let alert = UIAlertController(title: "Error", message: "Unable to create temporary directory for files.", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        }
+        
+        let fileURL = directoryURL.appendingPathComponent(fileName)
+        
+        do {
+            try data.write(to: fileURL, options: .atomicWrite)
+        } catch {
+            let alert = UIAlertController(title: "Error", message: "Unable to create file.", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+        }
+        
+        return fileURL
+    }
+    
+    // Delete the temporary file.
+    func deleteTempFiles(fileURLs: NSArray) {
+        var success = true
+        
+        for fileURL in fileURLs {
+            do {
+                try FileManager.default.removeItem(at: fileURL as! URL)
+            } catch {
+                success = false
+            }
+        }
+        
+        if !success {
+            // Opt for console output.
+            // User will not be concerned about this status.
+            print("Unable to delete temporary files.")
+        }
+    }
     
     
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
@@ -378,9 +437,47 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     // MARK: - Methods
-    
-    
-    func newProjectBtnPressed() {
+
+    // Handle the creation of a new project.
+    // If a file is provided from a service (e.g., from AirDrop, "Open in..."), project will be created from that data.
+    func newProjectBtnPressed(file: URL = URL(string: "file:///")!) {
+        
+        // Determine if opening from file.
+        let urlString = file.absoluteString
+        let fromFile = urlString != "file:///"
+        
+        var type: PepFileType?
+        
+        var name: String?
+        var sourceStr: String?
+        var objectStr: String?
+        var listingStr: String?
+        
+        if fromFile {
+            if urlString.hasSuffix(".pep") {
+                type = PepFileType.pep
+            } else if urlString.hasSuffix(".pepo") {
+                type = PepFileType.pepo
+            } else if urlString.hasSuffix(".pepl") {
+                type = PepFileType.pepl
+            }
+            
+            do {
+                let contents = try String(contentsOf: file, encoding: .utf8)
+                
+                name = ""
+                sourceStr = type == PepFileType.pep ? contents : ""
+                objectStr = type == PepFileType.pepo ? contents : ""
+                listingStr = type == PepFileType.pepl ? contents : ""
+                
+            } catch {
+                let alertController = UIAlertController(title: "Error", message: "Unable to open file.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
         switch projectModel.fsState {
         case .UnsavedNamed:
             // project was edited
@@ -390,7 +487,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                 print("saving changes and creating a new project")
                 projectModel.saveExistingProject()
-                projectModel.newBlankProject()
+                
+                if fromFile {
+                    projectModel.name = name!
+                    projectModel.sourceStr = sourceStr!
+                    projectModel.objectStr = objectStr!
+                    projectModel.listingStr = listingStr!
+                } else {
+                    projectModel.newBlankProject()
+                }
+                
                 self.updateEditorsFromProjectModel()
                 
             }
@@ -398,7 +504,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 print("discarding changes and creating a new project")
-                projectModel.newBlankProject()
+                
+                if fromFile {
+                    projectModel.name = name!
+                    projectModel.sourceStr = sourceStr!
+                    projectModel.objectStr = objectStr!
+                    projectModel.listingStr = listingStr!
+                } else {
+                    projectModel.newBlankProject()
+                }
+                
                 self.updateEditorsFromProjectModel()
             }
             alertController.addAction(noAction)
@@ -428,7 +543,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     let name = (alertController.textFields?.first?.text)!
                     if p9FileSystem.validNameForProject(name: name) {
                         projectModel.saveAsNewProject(withName: name)
-                        projectModel.newBlankProject()
+                        
+                        if fromFile {
+                            projectModel.name = name
+                            projectModel.sourceStr = sourceStr!
+                            projectModel.objectStr = objectStr!
+                            projectModel.listingStr = listingStr!
+                        } else {
+                            projectModel.newBlankProject()
+                        }
+                        
                         self.updateEditorsFromProjectModel()
                         print("saving current project with the given name and creating a new project")
                     } else {
@@ -444,7 +568,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             let noAction = UIAlertAction(title: "No", style: .destructive) { (action) in
                 // user wants to throw this unsaved project away and start anew
                 print("destroying current project and creating a new project")
-                projectModel.newBlankProject()
+                
+                if fromFile {
+                    projectModel.name = name!
+                    projectModel.sourceStr = sourceStr!
+                    projectModel.objectStr = objectStr!
+                    projectModel.listingStr = listingStr!
+                } else {
+                    projectModel.newBlankProject()
+                }
+                
                 self.updateEditorsFromProjectModel()
             }
             alertController.addAction(noAction)
@@ -457,21 +590,23 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .SavedNamed:
             // project is already saved
             print("creating new project")
-            projectModel.newBlankProject()
+            
+            if fromFile {
+                projectModel.name = name!
+                projectModel.sourceStr = sourceStr!
+                projectModel.objectStr = objectStr!
+                projectModel.listingStr = listingStr!
+            } else {
+                projectModel.newBlankProject()
+            }
+            
             self.updateEditorsFromProjectModel()
         case .Blank:
             // greyed-out buttons should've prevented you from getting here
             assert(false, "FSM for FS was not implemented correctly in code.")
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
     func openProjectBtnPressed() {
         switch projectModel.fsState {
         case .UnsavedNamed:
