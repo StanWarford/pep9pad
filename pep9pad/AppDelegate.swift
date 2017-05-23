@@ -34,9 +34,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
     
-    
-    
-    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        
+        // TODO: - Handle opening files
+        // Mechanics to load data from file work; just need to fix bug with view hierarchy.
+        
+        /*if let vc = ((window?.rootViewController?.presentedViewController?.presentedViewController as! UISplitViewController).childViewControllers[1] as! UINavigationController).visibleViewController  {
+            if vc is Pep9DetailController {
+                let detailVC = vc as! Pep9DetailController
+                detailVC.newProjectBtnPressed(file: url)
+            } else {
+                print(vc)
+            }
+        } else {
+            let storyb = UIStoryboard(name: "Pep9Main", bundle: Bundle.main)
+            let mainVC = storyb.instantiateInitialViewController()
+            
+            window?.rootViewController?.present(mainVC!, animated: true, completion: {
+                let detailVC = (mainVC?.childViewControllers[1] as! UINavigationController).viewControllers[0] as! Pep9DetailController
+                detailVC.newProjectBtnPressed(file: url)
+            })
+
+        }*/
+        
+        print("Importing files is not yet supported by Pep/9.")
+        
+        return true
+    }
     
     /// The name of the stored NSUserDefault value below.  Has to be super long to differentiate it from similar keys from other apps.
     let firstLaunchKey: String = "Pep9PadFirstLaunchDateSpecialKey"
