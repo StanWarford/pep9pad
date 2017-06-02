@@ -79,7 +79,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 // print("Embedding the tab bar")
                 tabBar = segue.destination as! UITabBarController
                 customizeTabBarImages((tabBar.tabBar.items)! as [UITabBarItem])
-                
+                heightOfTabBar = tabBar.tabBar.frame.height
+
                 // initialize all the tabBar's viewControllers by looping through the viewControllers...
                 if tabBar.viewControllers != nil {
                     for idx in tabBar.viewControllers! {
@@ -94,6 +95,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 tabVCs.object = tabBar.viewControllers?[1] as? ObjectController
                 tabVCs.listing = tabBar.viewControllers?[2] as? ListingController
                 tabVCs.trace = tabBar.viewControllers?[3] as? TraceController
+                
+                //tabVCs.source.heightOfTabBar = tabBarHeight
                 
             default:
                 break

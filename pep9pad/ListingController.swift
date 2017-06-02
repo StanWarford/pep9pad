@@ -3,7 +3,7 @@
 //  pep9pad
 //
 //  Copyright © 2016 Pepperdine University. All rights reserved.
-//
+//=
 
 import UIKit
 
@@ -11,7 +11,8 @@ class ListingController: UIViewController, ProjectModelEditor {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.bounds, highlightAs: .pep)
+        let rectForCode = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height-heightOfTabBar)
+        textView.setupTextView(rectForCode, highlightAs: .pep)
         textView.setEditable(false)
         pullFromProjectModel()
     }

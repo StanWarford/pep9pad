@@ -12,6 +12,9 @@ import UIKit
 /// On all iOS devices, it is 44 points high.
 let navBarHeight: CGFloat = 44
 
+var heightOfTabBar: CGFloat = 59
+
+
 /// The height of the status bar (the smaller one, that has the time and the network strength and whatnot).
 /// On all iOS devices, it is 20 points high.
 /// In the case of concurrent navigation or a concurrent phone call, it becomes 40 points high.

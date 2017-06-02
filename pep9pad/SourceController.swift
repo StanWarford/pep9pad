@@ -14,7 +14,8 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.setupTextView(textView.bounds, delegate: self, highlightAs: .pep)
+        let rectForCode = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height-heightOfTabBar)
+        textView.setupTextView(rectForCode, delegate: self, highlightAs: .pep)
         pullFromProjectModel()
     }
     
@@ -23,7 +24,6 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
     
     /// The primary view in this UIViewController.
     @IBOutlet var textView: CodeView!
-    
     
     
     // MARK: - Methods
