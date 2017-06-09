@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RedefineMnemonics: NSObject, UITextFieldDelegate {
+class UnaryMnemonics: NSObject, UITextFieldDelegate {
     
     // MARK: - Properties
 

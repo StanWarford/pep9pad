@@ -60,6 +60,10 @@ class PepMaps {
     let defaultMnemon4sfx: Bool = false
     
     
+    func restoreDefaultUnaryMnemonics() {
+        
+    }
+    
     // Functions for computing instruction specifiers
     func aaaAddressField(addressMode: EAddrMode) -> Int {
         if (addressMode == .I) { return 0 }
@@ -486,7 +490,6 @@ class PepMaps {
         decodeMnemonic[36] = .CALL; decodeAddrMode[36] = .I;
         decodeMnemonic[37] = .CALL; decodeAddrMode[37] = .X;
         
-        // Note that the trap instructions are all unary at the machine level
         decodeMnemonic[38] = .NOP0; decodeAddrMode[38] = .None;
         decodeMnemonic[39] = .NOP1; decodeAddrMode[39] = .None;
         

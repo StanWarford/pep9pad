@@ -28,7 +28,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     internal let fontMenu = FontMenu()
     internal let debugMenu = DebugMenu()
     internal let mailer = Pep9Mailer()
-    internal let redefineMnemonics = RedefineMnemonics()
+    internal let unaryMnemonics = UnaryMnemonics()
+    internal let nonunaryMnemonics = NonunaryMnemonics()
     
     // MARK: - ViewController Lifecycle
     
@@ -365,12 +366,19 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         alertController.addAction(clearMemAction)
         
-        let redefineMnemonicsAction = UIAlertAction(title: "Redefine Mnemonics", style: .default) { (action) in
-            let redefineMnemon = self.redefineMnemonics.makeAlert()
+        let unaryMnemonicsAction = UIAlertAction(title: "Unary Mnemonics", style: .default) { (action) in
+            let redefineMnemon = self.unaryMnemonics.makeAlert()
             self.present(redefineMnemon, animated: true, completion: nil)
 
         }
-        alertController.addAction(redefineMnemonicsAction)
+        alertController.addAction(unaryMnemonicsAction)
+        
+        let nonunaryMnemonicsAction = UIAlertAction(title: "Nonunary Mnemonics", style: .default) { (action) in
+            let redefineMnemon = self.nonunaryMnemonics.makeAlert()
+            self.present(redefineMnemon, animated: true, completion: nil)
+            
+        }
+        alertController.addAction(nonunaryMnemonicsAction)
         
         let installNewOSAction = UIAlertAction(title: "Install New OS", style: .default) { (action) in
             maps.burnCount = 0
