@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
         pulseAnimation.toValue = 0.5
         pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = FLT_MAX
+        pulseAnimation.repeatCount = .greatestFiniteMagnitude
         return pulseAnimation
     }
     
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
         pulseAnimation.toValue = 1.2
         pulseAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         pulseAnimation.autoreverses = true
-        pulseAnimation.repeatCount = FLT_MAX
+        pulseAnimation.repeatCount = .greatestFiniteMagnitude
         return pulseAnimation
     }
 

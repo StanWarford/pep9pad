@@ -25,7 +25,7 @@ class UnaryInstruction: Code {
             codeStr = "  "
         }
         var symbolStr = symbolDef
-        if symbolStr.characters.count > 0 {
+        if symbolStr.count > 0 {
             symbolStr.append(":")
         }
         let mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
@@ -36,7 +36,7 @@ class UnaryInstruction: Code {
         lineStr.append("           " + comment)
         maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
         maps.listingRowChecked[assemblerListing.count] = false
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(true)
     }
@@ -79,7 +79,7 @@ class NonUnaryInstruction: Code {
             oprndNumStr = "   "
         }
         var symbolStr: String = symbolDef
-        if symbolStr.characters.count > 0 {
+        if symbolStr.count > 0 {
             symbolStr.append(":")
         }
         let mnemonStr: String = maps.enumToMnemonMap[mnemonic]!
@@ -98,7 +98,7 @@ class NonUnaryInstruction: Code {
         lineStr.append(comment)
         maps.memAddrssToAssemblerListing[memAddress] = assemblerListing.count
         maps.listingRowChecked[assemblerListing.count] = false
-        assembler.listing.append(lineStr)
+        assemblerListing.append(lineStr)
         listingTrace.append(lineStr)
         hasCheckBox.append(true)
     }

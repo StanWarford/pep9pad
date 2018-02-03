@@ -13,15 +13,15 @@ target "pep9pad" do
 	## license: MIT
 	## license for FontAwesome.otf: SIL Open Font License
     ## Use v0.11.1 with this Swift version.
-	pod 'FontAwesome.swift', :git=>'https://github.com/thii/FontAwesome.swift.git', :tag=>'0.11.1'
+	pod 'FontAwesome.swift', :git=>'https://github.com/thii/FontAwesome.swift.git'
 
         ## heads up display
         ## license: MIT
-        pod 'PKHUD', '~> 4.0'
+        pod 'PKHUD', '~> 5.0'
 
         ## license: MIT
         ## Use v1.3.0 for this Swift version.
-	pod 'AMPopTip', '1.3.0'
+	pod 'AMPopTip'
 
 end
 

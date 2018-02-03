@@ -65,10 +65,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
         // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
-        let icons: [FontAwesome] = [.FileText, .FileCodeO, .List, .Compass]
+        let icons: [FontAwesome] = [.fileText, .fileCodeO, .list, .compass]
         let defaultSize = CGSize(width: 30, height: 30)
         for idx in 0..<tabBarItems.count {
-            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
+            tabBarItems[idx].image = UIImage.fontAwesomeIcon(name: icons[idx], textColor: .black, size: defaultSize)
         }
     }
     
@@ -130,20 +130,20 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSFontAttributeName: UIFont.fontAwesomeOfSize(ofSize)] as Dictionary!
+        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
         btn.setTitleTextAttributes(attrs, for: .normal)
-        btn.title = String.fontAwesomeIconWithName(nameOfIcon)
+        btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
     
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .Play, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .play, ofSize: 20)
         }
     }
     @IBOutlet var debugBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Bug, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .bug, ofSize: 20)
         }
     }
     @IBOutlet var buildBtn: UIBarButtonItem! {
@@ -153,12 +153,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     @IBOutlet var calcBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .Calculator, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .calculator, ofSize: 20)
         }
     }
     @IBOutlet var settingsBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .Cog, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .cog, ofSize: 20)
         }
     }
     
@@ -178,21 +178,21 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
         // what we do here depends on the state of the app
         // if debugging, this is a stop icon, and a press means stop debugging
-        if sender.title == String.fontAwesomeIconWithName(.Stop) {
+        if sender.title == String.fontAwesomeIcon(name: .stop) {
             machine.shouldHalt = true
-            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .Play, ofSize: 20)
+            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .play, ofSize: 20)
         } else if assembler.assemble() {
-            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .Stop, ofSize: 20)
+            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .stop, ofSize: 20)
             loadObject()
             execute()
-            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .Play, ofSize: 20)
+            setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .play, ofSize: 20)
         }
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {
         // what we do here depends on the state of the app
         // if debugging, this is a stop icon, and a press means stop debugging
-        if sender.title == String.fontAwesomeIconWithName(.Stop) {
+        if sender.title == String.fontAwesomeIcon(name: .stop) {
             stopDebugging()
         } else {
             let menu = self.debugMenu.makeAlert(barButton: debugBtn, detail: self)
@@ -994,7 +994,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
-    func singleStep() {
+    @objc func singleStep() {
         
         machine.isSimulating = true
         machine.shouldHalt = false
@@ -1163,7 +1163,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     
     /// Called if the user would like to stop debugging and instead just finish executing the program.
-    func resumeExecution() {
+    @objc func resumeExecution() {
         if master.io.simulatedIOMode == .batch {
             machine.isSimulating = true
             machine.shouldHalt = false
@@ -1244,7 +1244,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
 
             // change debugBtn to be a stop symbol
-            self.setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Stop, ofSize: 20)
+            self.setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .stop, ofSize: 20)
             self.setState(.startDebugging)
         }
         switchToTab(atIndex: 3)
@@ -1295,7 +1295,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         
         // change icon back to a bug
-        setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .Bug, ofSize: 20)
+        setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .bug, ofSize: 20)
         setState(.stopDebugging)
         master.io.stopSimulation()
         

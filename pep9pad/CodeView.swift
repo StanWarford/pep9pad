@@ -69,7 +69,7 @@ class CodeView: UIView, UITextViewDelegate {
         }
     }
     
-    func settingsChanged() {
+    @objc func settingsChanged() {
         
         textView.font = UIFont(name: Courier, size: appSettings.fontSize)
         textView.backgroundColor = appSettings.getColorFor(.background)
@@ -132,8 +132,8 @@ class CodeView: UIView, UITextViewDelegate {
             let utf16textViewText = textView.text.utf16
             
             let startIndex = utf16text.startIndex
-            let locationIndex = utf16textViewText.startIndex.advanced(by: range.location - 1)
-            
+            //let locationIndex = utf16textViewText.startIndex.advanced(by: range.location - 1)
+            let locationIndex = utf16textViewText.index(utf16textViewText.startIndex, offsetBy: range.location - 1)
             //Check if a space follows a space
             if whitespace.contains(UnicodeScalar(utf16text[startIndex])!) && whitespace.contains(UnicodeScalar(utf16textViewText[locationIndex])!) {
                 //Manually replace the space with your own space, programmatically
