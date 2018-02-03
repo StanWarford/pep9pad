@@ -132,6 +132,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
         let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
         btn.setTitleTextAttributes(attrs, for: .normal)
+        btn.setTitleTextAttributes(attrs, for: .disabled)
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
