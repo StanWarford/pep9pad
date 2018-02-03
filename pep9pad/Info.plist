@@ -43,6 +43,7 @@
 	<array>
 		<string>Inconsolata-Bold.ttf</string>
 		<string>Inconsolata-Regular.ttf</string>
+		<string>FontAwesome.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

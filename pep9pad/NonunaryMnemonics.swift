@@ -51,13 +51,12 @@ class NonunaryMnemonics: NSObject, UITextFieldDelegate {
         
         alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: nil)) // change mnemon stuff goes here
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Default", style: .default) {
+        
+        alertController.addAction(UIAlertAction(title: "Default", style: .default, handler: { (action) in
             // won't set textfields as this action dismisses the controller
             maps.restoreDefaultUnaryMnemonics()
-        })  // default stuff here
+        }))  // default stuff here
 
-
-        
         return alertController
         
     }
