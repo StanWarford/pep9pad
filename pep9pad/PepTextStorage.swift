@@ -15,9 +15,9 @@ class PepTextStorage: BaseTextStorage {
     
     override func processEditing() {
         let text = string as NSString
-        let attributes : [String:AnyObject]? = [
-            NSFontAttributeName : UIFont(name: Courier, size: appSettings.fontSize)!,
-            NSForegroundColorAttributeName: appSettings.darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.00, green:0.17, blue:0.21, alpha:1.0)
+        let attributes : [NSAttributedStringKey:AnyObject]? = [
+            NSAttributedStringKey.font : UIFont(name: Courier, size: appSettings.fontSize)!,
+            NSAttributedStringKey.foregroundColor: appSettings.darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.00, green:0.17, blue:0.21, alpha:1.0)
         ]
         
         setAttributes(attributes, range: NSRange(location: 0, length: length))
@@ -91,51 +91,51 @@ class PepTextStorage: BaseTextStorage {
     }
     
     internal func highlightSyntaxPattern(_ nameOfPattern: String, foundInstances: [NSTextCheckingResult]) {
-        let attributes: [String:AnyObject]
+        let attributes: [NSAttributedStringKey:AnyObject]
         
         switch nameOfPattern {
         case "operator":
             // Operators are blue, bold, and capitalized.
             attributes = [
-                NSForegroundColorAttributeName:blueColor,
-                NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
+                NSAttributedStringKey.foregroundColor:blueColor,
+                NSAttributedStringKey.font:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "dot", "keyword":
             // Dot commands are blue, italicized, and capitalized.
             attributes = [
-                NSForegroundColorAttributeName:blueColor,
-                NSFontAttributeName:UIFont(name: CourierItalic, size: appSettings.fontSize)!
+                NSAttributedStringKey.foregroundColor:blueColor,
+                NSAttributedStringKey.font:UIFont(name: CourierItalic, size: appSettings.fontSize)!
             ]
         case "singleLineComment", "comment", "documentation_comment":
             // Comments are grey.
             attributes = [
-                NSForegroundColorAttributeName:greyColor
+                NSAttributedStringKey.foregroundColor:greyColor
             ]
         case "symbol":
             // Symbols are green and bold.
             attributes = [
-                NSForegroundColorAttributeName:greenColor,
-                NSFontAttributeName:UIFont(name: CourierBold, size: appSettings.fontSize)!
+                NSAttributedStringKey.foregroundColor:greenColor,
+                NSAttributedStringKey.font:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "singleQuote", "doubleQuote", "string" :
             // Text in quotes is cyan.
             attributes = [
-                NSForegroundColorAttributeName:cyanColor
+                NSAttributedStringKey.foregroundColor:cyanColor
             ]
         case "warning":
             // Warnings have an orange background.
             attributes = [
-                NSForegroundColorAttributeName:whiteColor,
-                NSBackgroundColorAttributeName:orangeColor
+                NSAttributedStringKey.foregroundColor:whiteColor,
+                NSAttributedStringKey.backgroundColor:orangeColor
             ]
         case "error":
             // Errors have a red background.
             attributes = [
-                NSForegroundColorAttributeName:whiteColor,
-                NSBackgroundColorAttributeName:redColor
+                NSAttributedStringKey.foregroundColor:whiteColor,
+                NSAttributedStringKey.backgroundColor:redColor
             ]
         default:
-            attributes = [NSForegroundColorAttributeName:UIColor.black]
+            attributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
         }
         
         for instance in foundInstances {
