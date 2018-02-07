@@ -154,12 +154,12 @@ class AssemblerModel {
     func getToken(sourceLine: inout String, token: inout ELexicalToken, tokenString: inout String) -> Bool {
         
         sourceLine = sourceLine.trimmed()
-        if (sourceLine.characters.count == 0) {
+        if (sourceLine.count == 0) {
             token = .lt_EMPTY
             tokenString = ""
             return true
         }
-        let firstChar: Character = sourceLine.characters.first!
+        let firstChar: Character = sourceLine.first!
         if (firstChar == ",") {
             if !rxAddrMode.appearsIn(sourceLine) {
                 tokenString = ";ERROR: Malformed addressing mode."
@@ -228,7 +228,7 @@ class AssemblerModel {
                 return false
             }
             tokenString = rxIdentifier.matchesIn(sourceLine)[0]
-            token = tokenString.characters.last == ":" ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
+            token = tokenString.last == ":" ? .lt_SYMBOL_DEF : .lt_IDENTIFIER
             sourceLine.remove(0, tokenString.length)
             return true
         }
@@ -322,12 +322,12 @@ class AssemblerModel {
             case "v":       // vertical tab
                 value = 11
             default:
-                value = Int((thing.characters.first!).asciiValue!)
+                value = Int((thing.first!).asciiValue!)
             }
         } else {
             let otherThing = str.left(num: 1)
             str.remove(0, 1)
-            value = Int((otherThing.characters.first!).asciiValue!)
+            value = Int((otherThing.first!).asciiValue!)
         }
         value += value < 0 ? 256 : 0
     }
@@ -1270,10 +1270,10 @@ class AssemblerModel {
         
         //Adjust for .BURN
         
-        var addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
+        let addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
         var symbolTableSize: Int = maps.symbolTable.count
         for (kind, _) in maps.symbolTable {
-            var valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
+            let valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
             if valueAtCurrentKey {
                 maps.symbolTable[kind] = maps.symbolTable[kind]! + addressDelta
             }
@@ -1295,7 +1295,7 @@ class AssemblerModel {
     func installDefaultOSFromObject() {
         let pathToObject = Bundle.main.path(forResource: "pep9os", ofType: "pepo")
         do {
-            var objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
+            let objectStr = try String(contentsOfFile:pathToObject!, encoding: String.Encoding.ascii).replacingOccurrences(of: "zz", with: "")
             var objectArr = objectStr.components(separatedBy: ["\n", " "])
             // remove any empty strings
             while objectArr.contains("") {
@@ -1322,9 +1322,9 @@ class AssemblerModel {
     
     func stringToAddrMode(_ rawStr: String) -> EAddrMode {
         var str = rawStr
-        if str.characters.first == "," {
+        if str.first == "," {
             // remove the comma
-            str.characters.removeFirst()
+            str.removeFirst()
         }
         
         str = str.trimmed().uppercased()
@@ -1340,7 +1340,6 @@ class AssemblerModel {
         return .None
         
     }
-    
     
     // MARK: - Parser
     
@@ -1377,13 +1376,4 @@ class AssemblerModel {
         case ps_STRING
         case ps_SYMBOL_DEF
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
-

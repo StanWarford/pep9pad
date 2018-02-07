@@ -31,12 +31,12 @@ extension Int {
     }
     
     func toBin8() -> String {
-        var str = String(self, radix: 2)
-        let len = str.characters.count
+        let str = String(self, radix: 2)
+        let len = str.count
         if len > 8 {
             return "EEEEEEEE"
         }
-        return String(repeating: "0", count: 8-str.characters.count) + str
+        return String(repeating: "0", count: 8-str.count) + str
     }
     
     func toASCII() -> String {
@@ -64,12 +64,12 @@ extension UInt8 {
 
     
     func toBin8() -> String {
-        var str = String(self, radix: 2)
-        let len = str.characters.count
+        let str = String(self, radix: 2)
+        let len = str.count
         if len > 8 {
             return "EEEEEEEE"
         }
-        return String(repeating: "0", count: 8-str.characters.count) + str
+        return String(repeating: "0", count: 8-str.count) + str
     }
     
     func toASCII() -> String {
@@ -82,12 +82,12 @@ extension UInt16 {
         return String(format:"%04X", self)
     }
     func toBin8() -> String {
-        var str = String(self, radix: 2)
-        let len = str.characters.count
+        let str = String(self, radix: 2)
+        let len = str.count
         if len > 8 {
             return "EEEEEEEE"
         }
-        return String(repeating: "0", count: 8-str.characters.count) + str
+        return String(repeating: "0", count: 8-str.count) + str
     }
 }
 
@@ -119,11 +119,11 @@ extension String {
     }
     
     func fullRange() -> NSRange {
-        return NSMakeRange(0, self.characters.count)
+        return NSMakeRange(0, self.count)
     }
     
     var length: Int {
-        return self.characters.count
+        return self.count
     }
     
     mutating func remove(_ from: Int, _ to: Int) {
@@ -136,16 +136,13 @@ extension String {
         return self.hasPrefix("0x") || self.hasPrefix("0X")
     }
     
-    
-    
     func removeBackwards(untilFirstInstance  thing: String) -> String {
         var charArr = thing.characters
-        var notFound = true
+        let notFound = true
         var idx = charArr.count
         while notFound {
             charArr.removeLast()
             idx -= 1
-            
         }
     }
     
@@ -154,7 +151,7 @@ extension String {
     }
     
     mutating func chop() {
-        self.characters.removeLast()
+        self.removeLast()
     }
     
 //    func stringFormatter(str: String, fixLength: Int, spacer: String = " ", isNegative: Bool = true) -> String {

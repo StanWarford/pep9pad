@@ -80,10 +80,10 @@ class CPUDetailController : UIViewController {
     
     func customizeTabBarImages(_ tabBarItems: [UITabBarItem]) {
         // could also work: .Tasks, .TH List, .Server, .Dashboard, .FileText, .SiteMap, .Binoculars, .HDD, .Map, .Tachometer, .Table, .Stethoscope, .Terminal
-        let icons: [FontAwesome] = [.Columns, .Eye, .Stethoscope]
+        let icons: [FontAwesome] = [.columns, .eye, .stethoscope]
         let defaultSize = CGSize(width: 30, height: 30)
         for idx in 0..<tabBarItems.count {
-            tabBarItems[idx].image = UIImage.fontAwesomeIconWithName(icons[idx], textColor: .black, size: defaultSize)
+            tabBarItems[idx].image = UIImage.fontAwesomeIcon(name: icons[idx], textColor: .black, size: defaultSize)
         }
     }
     
@@ -93,19 +93,19 @@ class CPUDetailController : UIViewController {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSFontAttributeName: UIFont.fontAwesomeOfSize(ofSize)] as Dictionary!
+        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
         btn.setTitleTextAttributes(attrs, for: .normal)
-        btn.title = String.fontAwesomeIconWithName(nameOfIcon)
+        btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .Play, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .play, ofSize: 20)
         }
     }
     @IBOutlet var debugBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .Bug, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .bug, ofSize: 20)
         }
     }
     @IBOutlet weak var busBtn: UIBarButtonItem!
@@ -114,12 +114,12 @@ class CPUDetailController : UIViewController {
     
     @IBOutlet var calcBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .Calculator, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .calculator, ofSize: 20)
         }
     }
     @IBOutlet var settingsBtn: UIBarButtonItem! {
         didSet {
-            setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .Cog, ofSize: 20)
+            setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .cog, ofSize: 20)
         }
     }
     
