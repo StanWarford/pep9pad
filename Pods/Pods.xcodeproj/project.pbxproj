@@ -7,261 +7,268 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		056758E7070C1E9E57B8EB8B56944A48 /* PKHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BA769001C58ED6C0F55A5D9590D9F36 /* PKHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E3AD912FC3D2F5D10AF35A586F7B16B /* PKHUDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124B21C7075F7A7C78BCDEF005EE468 /* PKHUDErrorView.swift */; };
-		12D1D54665B1EDC301F4E9A900C42DC3 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5577767EE54356A5E7561A2C034A702 /* Enum.swift */; };
-		168FF3DA8C8DD1160D4B748C1A6F0058 /* AMPopTip+Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DCEAA6DE860FC9ED9F965B85DAB454 /* AMPopTip+Draw.m */; };
-		18265A2DF1210AE176A7EB58FA9259B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		23778FA7CEF4BE294C37CCD9E58BAFA5 /* PKHUDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AFD11E447C69D368BED18C373EE31F /* PKHUDTextView.swift */; };
-		27967FFAE1AD1B478141BDE32EF090CF /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7353B4383040312738617E91D36F0D1 /* FontAwesomeView.swift */; };
-		2B59A682DFEBA9841737A0FADFB0D67F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C23E16390F6F5920E271EBFB6A30A8 /* UIKit.framework */; };
-		2BC71894AA94F4A102F81448989913B1 /* PKHUDWideBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257BCAC322282D64976FAABD0C3BE459 /* PKHUDWideBaseView.swift */; };
-		31BD0C9241E08549B6864F0026EDF5DE /* AMPopTip.h in Headers */ = {isa = PBXBuildFile; fileRef = A8B3F364274F02C80013675B2B7E4698 /* AMPopTip.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		33EE7806A0AD0C0AFD362E1AD550EA6A /* AMPopTip+Draw.h in Headers */ = {isa = PBXBuildFile; fileRef = C13BEB4543B7967040AF7EBB73E5688B /* AMPopTip+Draw.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3DA5E0686E9DB1AC0AF68E3B4604EBEA /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D774319CEC723D509AEA732EE6D060 /* Window.swift */; };
-		3DDE96C1DBE8B94559B5F57A31D4C791 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59028C22CFAC9E91883D3686E0527C9E /* FontAwesome.swift */; };
-		3F9369B0E219E307FD1FC012DCAFCC8A /* AMPopTip+Entrance.m in Sources */ = {isa = PBXBuildFile; fileRef = 450028BF089C961A5020CA25500E1DEB /* AMPopTip+Entrance.m */; };
-		46B595ACDD8FECD01F86EC08CAA7BF30 /* Pods-pep9pad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E44D4E12E477A0D94C93C28404C664FB /* Pods-pep9pad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46C48FCA8DDE8C5F67659D5073587BA4 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06700CEFB9252B46BAEB092AB8257CED /* HUD.swift */; };
-		46DB3A4567C93ABFCCF0C984A162E2DB /* PKHUDRotatingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1E27F455BE6D77029C0F6AE6D4CBDD /* PKHUDRotatingImageView.swift */; };
-		4840363673A77EA4872989BAFF6936C8 /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9EC4B92FD071263E26F09605A3BE00 /* WindowRootViewController.swift */; };
-		4A7C34713DF69A22264F5E67B7A91B27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B41C72FB45EA2EB9932EBF6C4A58CF57 /* Images.xcassets */; };
-		4F59A7098B88C46360390D24179B6FCB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282E317D90744761F406E685BC46589A /* CoreText.framework */; };
-		4FFA6651790C1B6890BC8AF9BCE67AD4 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAC2969EE5DAECE0AA301AE19BA0F2DF /* FontAwesome.otf */; };
-		519C9BA9BE2137CBFC1D01FC20BA0111 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		594FC51BE92E0D6E9A912BC24AA01642 /* AMPopTip+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6353A8B2B5EEF02B82752705841CA243 /* AMPopTip+Animation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B57EDD73F570E140104FD76979456EB /* PKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEAEC804808C4E10F5144D3362EF73B /* PKHUD.swift */; };
-		5EC8062DF5448340835FC32EDEAE7A22 /* PKHUDSquareBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D033178ECA39F0D5586655DEB0398C8D /* PKHUDSquareBaseView.swift */; };
-		5FD80D7D551354826B7584746ECC5C06 /* PKHUDAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0961D1C8D620006A4EC60607B00B0F /* PKHUDAnimation.swift */; };
-		5FEE0A02C001742DFFBAF052985A194E /* AMPopTip+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 760B5FCE0DED254794DEF9E290DBD9C0 /* AMPopTip+Animation.m */; };
-		640535A1105D775A75C249A614B837D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		65E576CF91E64D83050AED9BDA91A480 /* PKHUDSystemActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E6AFA01EBD98256C38D40D4034098 /* PKHUDSystemActivityIndicatorView.swift */; };
-		666F80A9950EC0E559C982406C8E417A /* Pods-pep9pad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9603700F11CF0E8AEF744A269C5A8 /* Pods-pep9pad-dummy.m */; };
-		6FF3B618F62DD728DEDACB5BBE2AE524 /* PKHUDAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E95A7B4CED401EA789D5E89CBB19BB /* PKHUDAnimating.swift */; };
-		74D1F1D4C6A6F12E15FC6562A824E9E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */; };
-		7EF915FA08181452D59D4469A92D3EC4 /* AMPopTip+Exit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4945452E9CB7615757B1B777F972776D /* AMPopTip+Exit.m */; };
-		804FDEE59DBDFDA77509AE4F5B702922 /* PKHUDSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032A5979D45FFBD65DC23A924CAF4D7D /* PKHUDSuccessView.swift */; };
-		85E6D00D0715E22B12E82A35A1B3BBA6 /* AMPopTip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6218735E83CD2FD0AA2170BEBE88F0BC /* AMPopTip-dummy.m */; };
-		977893CD9D5483CEDEC34CC89B83CAA7 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 429BE05EDCFBC6A63A2FFF48D6B5E531 /* FontAwesome.swift.bundle */; };
-		9BA89E90D08F82EC682B2BC6622669E0 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CFAC01313FBD386BF631E1C3F8E91107 /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CC002B045DB71D973F710CC6012375D /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A8F21BC12E01B4748E07E92858CA33 /* FrameView.swift */; };
-		9CE774307DFBCC12DB227F2DEC7BD2EE /* PKHUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04081B9666703A05183F47E5D66161FA /* PKHUDAssets.swift */; };
-		9F8D87E945B7051D7A486B7FAF6576AA /* PKHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6150D44C54C41EE18B14D6E272207EA9 /* PKHUD-dummy.m */; };
-		A770B3E29C6A378A6BA9178ABE38B81B /* PKHUDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146A1AAF65BABF7389B7AF4FFA7D6F44 /* PKHUDProgressView.swift */; };
-		B0E524E526AEB46867FC321D7D452587 /* AMPopTip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E62481D0DA1527F8E4AB307CD2949A07 /* AMPopTip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CAD6335F8822646861904FF84F742A81 /* AMPopTipDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E04CEBDE379848E128450CE73D4483 /* AMPopTipDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF0F718C9F8E2818B98012CDDA4C6805 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CC3233439B78CE7BCF2D0ADB9162E /* FontAwesome.swift-dummy.m */; };
-		D084AE5876843A226CC40DA8EDFD9E24 /* AMPopTip.m in Sources */ = {isa = PBXBuildFile; fileRef = 60CB7BFC8026FA29FFB2C2C1174ECF4F /* AMPopTip.m */; };
-		E8EF4577F29F6F0E13017B6481136496 /* PKHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = ADAE03A8ABDB87453871DBE7B82ADEED /* PKHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F1C6E9895A6463F866EA04C2DCB5E3D3 /* AMPopTip+Entrance.h in Headers */ = {isa = PBXBuildFile; fileRef = 699C8E1DEFAC81355AE86E0FF5043280 /* AMPopTip+Entrance.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F830964FB4E54EA277AB5ED99920F5AA /* AMPopTip+Exit.h in Headers */ = {isa = PBXBuildFile; fileRef = 666CA6E042202D727E724DD79CBF70DF /* AMPopTip+Exit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03C0AEFEBE89F73FA827E7C416047D2C /* PopTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483EFD16456551041EBF1DE5058EAC90 /* PopTip.swift */; };
+		127E5015D838330AAD52E6DEA61526A5 /* PopTip+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246EFC0EBCB9189718FC8FE1DADF814 /* PopTip+Draw.swift */; };
+		17E7E62102D200AFE11B049F570C9397 /* PKHUDErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCDF90D7EB4D7424CD98EA9AD34D60D /* PKHUDErrorView.swift */; };
+		1929F91EB38B923FBFA0B2F53C0C4877 /* PKHUD-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 774F55B0DABC61A2C0281DEFF760052B /* PKHUD-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D074B9127FA5FC2639ADEABB5B3D2A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
+		1F34910B27A3B86966E07898A2B70AE6 /* FrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA95AA03963203F82C20AD5DC44B32CE /* FrameView.swift */; };
+		24065029085002EAC70A3422A7D39EC1 /* FontAwesome.swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C2CB1B3E9A50837E980DB0F8E43D2D6 /* FontAwesome.swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2AE0F58A0988D92438C1448C861A154C /* FontAwesomeImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9A33492607C7C4706CF6031D35925F /* FontAwesomeImageView.swift */; };
+		2DCA4225866D2445C444325589BD9744 /* PKHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = F308ED6DC0ED958FDF833EF24B39C5C1 /* PKHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3470186F176465D3CA04711D0D82DF38 /* PKHUDAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A0D71D5123FA80320E5F8BAC141C4 /* PKHUDAnimation.swift */; };
+		34D8AB5C8FA400C58D7CA084633DF744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891609FF9D17BE9CA0275A23A7194F52 /* Images.xcassets */; };
+		41FAD1CDCD9272883A6CF33FE8FF44E0 /* FontAwesomeSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9789986F2607031B35DF64C1FD3EEA9B /* FontAwesomeSegmentedControl.swift */; };
+		42AE99C0404D5DFD5FD7D8996247AB48 /* Pods-pep9pad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FEF015400926002BD8945727576733 /* Pods-pep9pad-dummy.m */; };
+		43A27513C0302163E0DB75246EE4B1CA /* PopTip+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A96965D5B2D9F3915147ED378541A56 /* PopTip+Transitions.swift */; };
+		463FC6126BC6393B3C2E23125868F3C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
+		522BEF444AEAA78D1747B62ED49C688E /* FontAwesomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473AB2089EA756DD4D2C583235D71DA0 /* FontAwesomeView.swift */; };
+		589D19F8FC8F1E9D6360D950D26A7138 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA105619ADD17DD4E1D368A29206E0C5 /* FontAwesome.swift */; };
+		59BB7C15DE2EFEFDE268E3D2BE58B161 /* FontAwesome.swift.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F78026FD7CF378971B5C1373CCDE54F5 /* FontAwesome.swift.bundle */; };
+		5AD3E160E28F5EFC4D17A8668CA322BD /* FontAwesomeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A3BCFAC4F28427FEA103C971BE6AED /* FontAwesomeBarButtonItem.swift */; };
+		645FEA9A9F281C87D27DBCAFCE1EB842 /* AMPopTip-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C74076678D7919C84CBED4B02BE4CB66 /* AMPopTip-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65D01C54FCF24BF6E6FBCD49F6E7CCB1 /* FontAwesomeTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67A0162F46E5CEB2F0F3A8DF1F3885 /* FontAwesomeTabBarItem.swift */; };
+		684E126B8E890761BBB1A4EB590EA1F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */; };
+		766750E7B98FF8495403D0C7B5064D6C /* PKHUDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF00E473094C0FD3C2EBB9633DC04AA /* PKHUDProgressView.swift */; };
+		7F09171ED8899C35E45511452323B3DF /* PKHUDSquareBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE6D701557C3FD9940EC2896DBB63 /* PKHUDSquareBaseView.swift */; };
+		869B25CDDA4D1BDA81A495A23D43E108 /* PKHUDAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17322E15086E7AE5BEE8EBD7A3E36F01 /* PKHUDAssets.swift */; };
+		89C4ADD534D41DF5442F67D799B8E12B /* PKHUDSystemActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502031E525B9940FD426968EA6BB3E /* PKHUDSystemActivityIndicatorView.swift */; };
+		A5A9F17A94A6CC0F7D4E9DE0FCAFE5AB /* PKHUDSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C423EE7A83E8B6050AF2412D1AB90E01 /* PKHUDSuccessView.swift */; };
+		A7BA7C4E4C047A5698A68CA76A453605 /* PKHUDTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD742964048913B6DD5084AF95BAF70 /* PKHUDTextView.swift */; };
+		AEA27A6C1523E5B1A1B3B74CA02FB67D /* PKHUDRotatingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D608A7277BFBFD0E931E682B69AD24D /* PKHUDRotatingImageView.swift */; };
+		B1DC643D39F725A5C89C8195B5C10A09 /* PKHUDAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158A4F783F770193A5159A967470D8BC /* PKHUDAnimating.swift */; };
+		BA0C7E7B2289423FC6EAA0D61B6C10FF /* AMPopTip-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B7BE1AF4E80B6F3B9BCC2B7549C898FF /* AMPopTip-dummy.m */; };
+		BA158509B4673EB6F8D0D12961169AB1 /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCEC93A3EE27E890A0751BA8157651F /* Enum.swift */; };
+		BA1B53BE85DE9BD789FE1C32FBA8C752 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B3B10299DCCF1AB7F48DDBFC25FC41 /* HUD.swift */; };
+		BF541FB658B81D55E6A960701BF0619E /* PKHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F4172C2EA92DE29F11EEE0B8D4650 /* PKHUD.swift */; };
+		C3079113A27F987B6889C2E9C05A10DD /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6F92BAF33BFB1DCAADD5D590F89E1EAA /* FontAwesome.otf */; };
+		C47483E53D51B0CD8681BF775DC4EA18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
+		C4EDDFD00880AD17F1BB7D66948F1D21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */; };
+		C879A43B7C8CC16E986D40441C2F2878 /* FontAwesomeImageRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F357E76BE5884CBD4236BFAC9C7E8D /* FontAwesomeImageRepresentable.swift */; };
+		CBD91B03AC387775166237F805EABC3A /* FontAwesomeStateRequirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC2C253BCD4EA1892F9D44E3AFBED6 /* FontAwesomeStateRequirement.swift */; };
+		D0F542D62E2AA523E0A3D28DC85D2012 /* PKHUDWideBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC3B20B5EEB6773F475C064DD2C18C /* PKHUDWideBaseView.swift */; };
+		DAC2CACA22AE100EB261D377EC6FBE3C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */; };
+		E57944FDD00D7F5F2674D4D52E0F52BA /* PKHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 497239E0D7ED00B467ECBFA016FFBA41 /* PKHUD-dummy.m */; };
+		F1CABF9B95D8B6B1B173C9C444A1673A /* Pods-pep9pad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BD25FA7DD1D1DB44EFD3A23C82887710 /* Pods-pep9pad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F4C22A07683E879CB3ECF7D6A73F667E /* WindowRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC677944EAB6705462D50A39A6A0960 /* WindowRootViewController.swift */; };
+		F61C2235825FE532417891978344385E /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769DF2B760A707B671535E4507DBD788 /* Window.swift */; };
+		FB64A64BD408EE7BBD70A4B048315C7D /* FontAwesomeTextRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB2911D0B2357030AF3B46AD674546C /* FontAwesomeTextRepresentable.swift */; };
+		FD8C615CEC6F1EBDB63BF3240583D2F3 /* FontAwesome.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAEABF833832CED83236AC6990DEFFA /* FontAwesome.swift-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0DA749366554579097220238E1CE7155 /* PBXContainerItemProxy */ = {
+		27789E852D5A14F59DBAC813B88558F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 586E40C0BEBAB01A075A5E60359FA09D;
+			remoteGlobalIDString = A406E78BB0A2D11548A4B5AB13C56142;
 			remoteInfo = AMPopTip;
 		};
-		192DAE8239CEDF28426AC10F45C42C62 /* PBXContainerItemProxy */ = {
+		59047A3A50A23CF1FF79088080F92C16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EF4F067C2D0E135B80299B089E168BDA;
-			remoteInfo = "FontAwesome.swift-FontAwesome.swift";
-		};
-		5B763A2CF6280A2073D0AC704DB92B65 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1FE2578FF0805299395CF2A0206BB671;
+			remoteGlobalIDString = CD11672B6619C297B6AEE3DFB8213C59;
 			remoteInfo = FontAwesome.swift;
 		};
-		91F5B4BA2D388FD189E1C8E11B69D756 /* PBXContainerItemProxy */ = {
+		A1E7ADA9414728070F39599079B02152 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F6F0516F82D07656D12F1C0716898F73;
+			remoteGlobalIDString = 6991F49AED797519343B1F4591001691;
+			remoteInfo = "FontAwesome.swift-FontAwesome.swift";
+		};
+		A393A597CAA99D67C1D9F7DECBCBE826 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D7A75F149082140741FC1E0B5B2863C8;
 			remoteInfo = PKHUD;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		001145D5DAA94933C8DC8F139E302490 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		004D0715D29817F99656AA99396EA5E1 /* PKHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKHUD-prefix.pch"; sourceTree = "<group>"; };
-		032A5979D45FFBD65DC23A924CAF4D7D /* PKHUDSuccessView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDSuccessView.swift; path = PKHUD/PKHUDSuccessView.swift; sourceTree = "<group>"; };
-		04081B9666703A05183F47E5D66161FA /* PKHUDAssets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDAssets.swift; path = PKHUD/PKHUDAssets.swift; sourceTree = "<group>"; };
-		06700CEFB9252B46BAEB092AB8257CED /* HUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HUD.swift; path = PKHUD/HUD.swift; sourceTree = "<group>"; };
-		09E95A7B4CED401EA789D5E89CBB19BB /* PKHUDAnimating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDAnimating.swift; path = PKHUD/PKHUDAnimating.swift; sourceTree = "<group>"; };
-		146A1AAF65BABF7389B7AF4FFA7D6F44 /* PKHUDProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDProgressView.swift; path = PKHUD/PKHUDProgressView.swift; sourceTree = "<group>"; };
-		1F0961D1C8D620006A4EC60607B00B0F /* PKHUDAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDAnimation.swift; path = PKHUD/PKHUDAnimation.swift; sourceTree = "<group>"; };
-		1FD9603700F11CF0E8AEF744A269C5A8 /* Pods-pep9pad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pep9pad-dummy.m"; sourceTree = "<group>"; };
-		257BCAC322282D64976FAABD0C3BE459 /* PKHUDWideBaseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDWideBaseView.swift; path = PKHUD/PKHUDWideBaseView.swift; sourceTree = "<group>"; };
-		27C23E16390F6F5920E271EBFB6A30A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		282E317D90744761F406E685BC46589A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		2A0CC3233439B78CE7BCF2D0ADB9162E /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
-		3457929DFA04E7A190938DC2F259D195 /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
-		35DCEAA6DE860FC9ED9F965B85DAB454 /* AMPopTip+Draw.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Draw.m"; path = "Source/AMPopTip+Draw.m"; sourceTree = "<group>"; };
-		429BE05EDCFBC6A63A2FFF48D6B5E531 /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FontAwesome.swift.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		4408C9457DD5FCB7232B711361D1EA9D /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
-		450028BF089C961A5020CA25500E1DEB /* AMPopTip+Entrance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Entrance.m"; path = "Source/AMPopTip+Entrance.m"; sourceTree = "<group>"; };
-		4945452E9CB7615757B1B777F972776D /* AMPopTip+Exit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Exit.m"; path = "Source/AMPopTip+Exit.m"; sourceTree = "<group>"; };
-		49EA2EAEC3E3E7847DDF0B824F484341 /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
-		4C6C80A26A3FD6D5A051294A4899D5E0 /* AMPopTip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMPopTip-prefix.pch"; sourceTree = "<group>"; };
-		4FF90C3725858F53021E4643F8E0C958 /* Pods-pep9pad-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pep9pad-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5091763DE5FB7D137599FB7910E87507 /* PKHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		59028C22CFAC9E91883D3686E0527C9E /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
-		5E1E27F455BE6D77029C0F6AE6D4CBDD /* PKHUDRotatingImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDRotatingImageView.swift; path = PKHUD/PKHUDRotatingImageView.swift; sourceTree = "<group>"; };
-		603E6AFA01EBD98256C38D40D4034098 /* PKHUDSystemActivityIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDSystemActivityIndicatorView.swift; path = PKHUD/PKHUDSystemActivityIndicatorView.swift; sourceTree = "<group>"; };
-		60CB7BFC8026FA29FFB2C2C1174ECF4F /* AMPopTip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AMPopTip.m; path = Source/AMPopTip.m; sourceTree = "<group>"; };
-		60E04CEBDE379848E128450CE73D4483 /* AMPopTipDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMPopTipDefaults.h; path = Source/AMPopTipDefaults.h; sourceTree = "<group>"; };
-		6150D44C54C41EE18B14D6E272207EA9 /* PKHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PKHUD-dummy.m"; sourceTree = "<group>"; };
-		6218735E83CD2FD0AA2170BEBE88F0BC /* AMPopTip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AMPopTip-dummy.m"; sourceTree = "<group>"; };
-		6353A8B2B5EEF02B82752705841CA243 /* AMPopTip+Animation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Animation.h"; path = "Source/AMPopTip+Animation.h"; sourceTree = "<group>"; };
-		666CA6E042202D727E724DD79CBF70DF /* AMPopTip+Exit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Exit.h"; path = "Source/AMPopTip+Exit.h"; sourceTree = "<group>"; };
-		6825C0E8DB8509C58053D430D4356EEA /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
-		68AFD11E447C69D368BED18C373EE31F /* PKHUDTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDTextView.swift; path = PKHUD/PKHUDTextView.swift; sourceTree = "<group>"; };
-		699C8E1DEFAC81355AE86E0FF5043280 /* AMPopTip+Entrance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Entrance.h"; path = "Source/AMPopTip+Entrance.h"; sourceTree = "<group>"; };
-		6BA769001C58ED6C0F55A5D9590D9F36 /* PKHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKHUD.h; path = PKHUD/PKHUD.h; sourceTree = "<group>"; };
-		6BC9E255A17BCB4F550317975AAB437E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		740EF12D723EF3DA3171BC15F5E72EC9 /* PKHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PKHUD.xcconfig; sourceTree = "<group>"; };
-		760B5FCE0DED254794DEF9E290DBD9C0 /* AMPopTip+Animation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "AMPopTip+Animation.m"; path = "Source/AMPopTip+Animation.m"; sourceTree = "<group>"; };
-		79AF1FD3B08503A87859AFB78ECCFE1C /* Pods-pep9pad-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pep9pad-frameworks.sh"; sourceTree = "<group>"; };
-		85D774319CEC723D509AEA732EE6D060 /* Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Window.swift; path = PKHUD/Window.swift; sourceTree = "<group>"; };
-		8683543FDD0912B64804047BAB5F92E0 /* PKHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PKHUD.modulemap; sourceTree = "<group>"; };
-		89C598E6C31BE25C06E1B5F7C73A8CC8 /* Pods-pep9pad-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pep9pad-resources.sh"; sourceTree = "<group>"; };
-		8CCB3C672DAF58C3D3983606A8C12709 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CE7265F647B852161AB7EA1D7BA6096 /* Pods-pep9pad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-pep9pad.modulemap"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97F62B17930BF1CD2C57E2327EDAB104 /* Pods-pep9pad-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pep9pad-acknowledgements.plist"; sourceTree = "<group>"; };
-		A124B21C7075F7A7C78BCDEF005EE468 /* PKHUDErrorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDErrorView.swift; path = PKHUD/PKHUDErrorView.swift; sourceTree = "<group>"; };
-		A7353B4383040312738617E91D36F0D1 /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
-		A8B3F364274F02C80013675B2B7E4698 /* AMPopTip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AMPopTip.h; path = Source/AMPopTip.h; sourceTree = "<group>"; };
-		ADAE03A8ABDB87453871DBE7B82ADEED /* PKHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKHUD-umbrella.h"; sourceTree = "<group>"; };
-		B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B38C2A10784399DCF643A97254967EB7 /* AMPopTip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AMPopTip.xcconfig; sourceTree = "<group>"; };
-		B41C72FB45EA2EB9932EBF6C4A58CF57 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PKHUD/Images.xcassets; sourceTree = "<group>"; };
-		B945E4A9452ECA741FB37A429E9B72C3 /* AMPopTip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AMPopTip.modulemap; sourceTree = "<group>"; };
-		BCE1A1B8DBF4C42C73934CD6461CABF5 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
-		BD9AB1E45CDAEAAC5CDD63FB5F184A26 /* AMPopTip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMPopTip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C13BEB4543B7967040AF7EBB73E5688B /* AMPopTip+Draw.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "AMPopTip+Draw.h"; path = "Source/AMPopTip+Draw.h"; sourceTree = "<group>"; };
-		CBE166BD4187FD1881FAF2825FD4ACCB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE7127F7E4B468AE19B68E84C85F6539 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
-		CFAC01313FBD386BF631E1C3F8E91107 /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
-		D033178ECA39F0D5586655DEB0398C8D /* PKHUDSquareBaseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDSquareBaseView.swift; path = PKHUD/PKHUDSquareBaseView.swift; sourceTree = "<group>"; };
-		D5577767EE54356A5E7561A2C034A702 /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
-		D96BB40604E9E132D85309A2E65E389F /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEEAEC804808C4E10F5144D3362EF73B /* PKHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUD.swift; path = PKHUD/PKHUD.swift; sourceTree = "<group>"; };
-		E3A8F21BC12E01B4748E07E92858CA33 /* FrameView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameView.swift; path = PKHUD/FrameView.swift; sourceTree = "<group>"; };
-		E44D4E12E477A0D94C93C28404C664FB /* Pods-pep9pad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pep9pad-umbrella.h"; sourceTree = "<group>"; };
-		E62481D0DA1527F8E4AB307CD2949A07 /* AMPopTip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMPopTip-umbrella.h"; sourceTree = "<group>"; };
-		EAC2969EE5DAECE0AA301AE19BA0F2DF /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
-		F0BCF7D056BFB3884B0BA2A6411893B3 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontAwesome_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD9EC4B92FD071263E26F09605A3BE00 /* WindowRootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WindowRootViewController.swift; path = PKHUD/WindowRootViewController.swift; sourceTree = "<group>"; };
+		0A96965D5B2D9F3915147ED378541A56 /* PopTip+Transitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PopTip+Transitions.swift"; path = "Source/PopTip+Transitions.swift"; sourceTree = "<group>"; };
+		158A4F783F770193A5159A967470D8BC /* PKHUDAnimating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDAnimating.swift; path = PKHUD/PKHUDAnimating.swift; sourceTree = "<group>"; };
+		15D8A316E38BA7B5ED701110F95A3635 /* ResourceBundle-FontAwesome.swift-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FontAwesome.swift-Info.plist"; sourceTree = "<group>"; };
+		17322E15086E7AE5BEE8EBD7A3E36F01 /* PKHUDAssets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDAssets.swift; path = PKHUD/PKHUDAssets.swift; sourceTree = "<group>"; };
+		18FA96E5B4C4112E04A29329F931FD83 /* FontAwesome.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-prefix.pch"; sourceTree = "<group>"; };
+		1C22642C2E63C60619215B2515F3F347 /* Pods-pep9pad-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-pep9pad-acknowledgements.plist"; sourceTree = "<group>"; };
+		21458825D7C26D1EAB4D746B1BB52D34 /* FontAwesome.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FontAwesome.swift.modulemap; sourceTree = "<group>"; };
+		249CE3F5E9100D61845C9598678C9A44 /* PKHUD-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKHUD-prefix.pch"; sourceTree = "<group>"; };
+		27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		289A0D71D5123FA80320E5F8BAC141C4 /* PKHUDAnimation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDAnimation.swift; path = PKHUD/PKHUDAnimation.swift; sourceTree = "<group>"; };
+		2BE0F7CC801847F2908A0BA3BBE2AB9A /* AMPopTip.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AMPopTip.modulemap; sourceTree = "<group>"; };
+		2CCC3B20B5EEB6773F475C064DD2C18C /* PKHUDWideBaseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDWideBaseView.swift; path = PKHUD/PKHUDWideBaseView.swift; sourceTree = "<group>"; };
+		31A3BCFAC4F28427FEA103C971BE6AED /* FontAwesomeBarButtonItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeBarButtonItem.swift; path = FontAwesome/FontAwesomeBarButtonItem.swift; sourceTree = "<group>"; };
+		32F357E76BE5884CBD4236BFAC9C7E8D /* FontAwesomeImageRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageRepresentable.swift; path = FontAwesome/FontAwesomeImageRepresentable.swift; sourceTree = "<group>"; };
+		42F60388C27C0A5BAE1888C0854BE3CB /* Pods-pep9pad-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-pep9pad-acknowledgements.markdown"; sourceTree = "<group>"; };
+		473AB2089EA756DD4D2C583235D71DA0 /* FontAwesomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeView.swift; path = FontAwesome/FontAwesomeView.swift; sourceTree = "<group>"; };
+		483EFD16456551041EBF1DE5058EAC90 /* PopTip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PopTip.swift; path = Source/PopTip.swift; sourceTree = "<group>"; };
+		48FE6332D272EA0927CF9BA728A42075 /* Pods-pep9pad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-pep9pad.modulemap"; sourceTree = "<group>"; };
+		497239E0D7ED00B467ECBFA016FFBA41 /* PKHUD-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PKHUD-dummy.m"; sourceTree = "<group>"; };
+		4D608A7277BFBFD0E931E682B69AD24D /* PKHUDRotatingImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDRotatingImageView.swift; path = PKHUD/PKHUDRotatingImageView.swift; sourceTree = "<group>"; };
+		52317A93D722D090593551F4B1CA548F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57DBD7C65B320617BD2589D8C1798E76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AAEABF833832CED83236AC6990DEFFA /* FontAwesome.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FontAwesome.swift-dummy.m"; sourceTree = "<group>"; };
+		5FCDF90D7EB4D7424CD98EA9AD34D60D /* PKHUDErrorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDErrorView.swift; path = PKHUD/PKHUDErrorView.swift; sourceTree = "<group>"; };
+		61A1051C10E646E6695BC93F7E098E01 /* Pods-pep9pad-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pep9pad-resources.sh"; sourceTree = "<group>"; };
+		6F92BAF33BFB1DCAADD5D590F89E1EAA /* FontAwesome.otf */ = {isa = PBXFileReference; includeInIndex = 1; name = FontAwesome.otf; path = FontAwesome/FontAwesome.otf; sourceTree = "<group>"; };
+		769DF2B760A707B671535E4507DBD788 /* Window.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Window.swift; path = PKHUD/Window.swift; sourceTree = "<group>"; };
+		76E97880A514FDB71DC042E3050E3656 /* PKHUD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PKHUD.xcconfig; sourceTree = "<group>"; };
+		774F55B0DABC61A2C0281DEFF760052B /* PKHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKHUD-umbrella.h"; sourceTree = "<group>"; };
+		7D67A0162F46E5CEB2F0F3A8DF1F3885 /* FontAwesomeTabBarItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTabBarItem.swift; path = FontAwesome/FontAwesomeTabBarItem.swift; sourceTree = "<group>"; };
+		7D809A28E5835904A08D5EDCA8904ABF /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
+		7D9A33492607C7C4706CF6031D35925F /* FontAwesomeImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeImageView.swift; path = FontAwesome/FontAwesomeImageView.swift; sourceTree = "<group>"; };
+		86430EF74A1D792DB1C8AA1F40E92A58 /* AMPopTip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AMPopTip.framework; path = AMPopTip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		891609FF9D17BE9CA0275A23A7194F52 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = PKHUD/Images.xcassets; sourceTree = "<group>"; };
+		8C2CB1B3E9A50837E980DB0F8E43D2D6 /* FontAwesome.swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FontAwesome.swift-umbrella.h"; sourceTree = "<group>"; };
+		8CF0BF6BA2E03A6EA2250390EAA47420 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FontAwesome_swift.framework; path = FontAwesome.swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EC4602A3ECFC12E0372654DFF480C71 /* Pods-pep9pad-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-pep9pad-frameworks.sh"; sourceTree = "<group>"; };
+		8FD742964048913B6DD5084AF95BAF70 /* PKHUDTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDTextView.swift; path = PKHUD/PKHUDTextView.swift; sourceTree = "<group>"; };
+		8FF452DAE9F703D4048FD01258585AA7 /* PKHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PKHUD.framework; path = PKHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92FEF015400926002BD8945727576733 /* Pods-pep9pad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-pep9pad-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9789986F2607031B35DF64C1FD3EEA9B /* FontAwesomeSegmentedControl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeSegmentedControl.swift; path = FontAwesome/FontAwesomeSegmentedControl.swift; sourceTree = "<group>"; };
+		9895D1E88F925BB69C76507FF0AF91D1 /* PKHUD.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PKHUD.modulemap; sourceTree = "<group>"; };
+		A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		ABF00E473094C0FD3C2EBB9633DC04AA /* PKHUDProgressView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDProgressView.swift; path = PKHUD/PKHUDProgressView.swift; sourceTree = "<group>"; };
+		B06191FE0727A21301D7CD446485D2C7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5BC2C253BCD4EA1892F9D44E3AFBED6 /* FontAwesomeStateRequirement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeStateRequirement.swift; path = FontAwesome/FontAwesomeStateRequirement.swift; sourceTree = "<group>"; };
+		B7BE1AF4E80B6F3B9BCC2B7549C898FF /* AMPopTip-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AMPopTip-dummy.m"; sourceTree = "<group>"; };
+		BBCEC93A3EE27E890A0751BA8157651F /* Enum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Enum.swift; path = FontAwesome/Enum.swift; sourceTree = "<group>"; };
+		BD25FA7DD1D1DB44EFD3A23C82887710 /* Pods-pep9pad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-pep9pad-umbrella.h"; sourceTree = "<group>"; };
+		BDB2911D0B2357030AF3B46AD674546C /* FontAwesomeTextRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesomeTextRepresentable.swift; path = FontAwesome/FontAwesomeTextRepresentable.swift; sourceTree = "<group>"; };
+		C423EE7A83E8B6050AF2412D1AB90E01 /* PKHUDSuccessView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDSuccessView.swift; path = PKHUD/PKHUDSuccessView.swift; sourceTree = "<group>"; };
+		C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
+		C74076678D7919C84CBED4B02BE4CB66 /* AMPopTip-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMPopTip-umbrella.h"; sourceTree = "<group>"; };
+		CA105619ADD17DD4E1D368A29206E0C5 /* FontAwesome.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FontAwesome.swift; path = FontAwesome/FontAwesome.swift; sourceTree = "<group>"; };
+		D246EFC0EBCB9189718FC8FE1DADF814 /* PopTip+Draw.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PopTip+Draw.swift"; path = "Source/PopTip+Draw.swift"; sourceTree = "<group>"; };
+		D2AD9218E9BC6D196CD8E94D604EE192 /* FontAwesome.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FontAwesome.swift.xcconfig; sourceTree = "<group>"; };
+		DBE25D8FCF56819EC54CBDDDB04DD74D /* AMPopTip-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AMPopTip-prefix.pch"; sourceTree = "<group>"; };
+		DCA5EF36C67104C8F90D370D8342DBF9 /* AMPopTip.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AMPopTip.xcconfig; sourceTree = "<group>"; };
+		E0B3B10299DCCF1AB7F48DDBFC25FC41 /* HUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HUD.swift; path = PKHUD/HUD.swift; sourceTree = "<group>"; };
+		E2CB8741FFBF3B49AFF9D8548A28BA41 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6BB8804EDFB45F41C195BE16A3498FE /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_pep9pad.framework; path = "Pods-pep9pad.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8A25E2439A75C0A0708EBAFB59BDD6B /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		EA95AA03963203F82C20AD5DC44B32CE /* FrameView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameView.swift; path = PKHUD/FrameView.swift; sourceTree = "<group>"; };
+		F10CE6D701557C3FD9940EC2896DBB63 /* PKHUDSquareBaseView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDSquareBaseView.swift; path = PKHUD/PKHUDSquareBaseView.swift; sourceTree = "<group>"; };
+		F11F4172C2EA92DE29F11EEE0B8D4650 /* PKHUD.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUD.swift; path = PKHUD/PKHUD.swift; sourceTree = "<group>"; };
+		F308ED6DC0ED958FDF833EF24B39C5C1 /* PKHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKHUD.h; path = PKHUD/PKHUD.h; sourceTree = "<group>"; };
+		F78026FD7CF378971B5C1373CCDE54F5 /* FontAwesome.swift.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = FontAwesome.swift.bundle; path = "FontAwesome.swift-FontAwesome.swift.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8502031E525B9940FD426968EA6BB3E /* PKHUDSystemActivityIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PKHUDSystemActivityIndicatorView.swift; path = PKHUD/PKHUDSystemActivityIndicatorView.swift; sourceTree = "<group>"; };
+		FEC677944EAB6705462D50A39A6A0960 /* WindowRootViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WindowRootViewController.swift; path = PKHUD/WindowRootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A85F7291A690C887E3989987E861DEA /* Frameworks */ = {
+		09097AE0247A71FADE9AE4A13E3E0C55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74D1F1D4C6A6F12E15FC6562A824E9E8 /* Foundation.framework in Frameworks */,
+				1D074B9127FA5FC2639ADEABB5B3D2A2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		213B420CEB9593A37FAD4B28450E31E0 /* Frameworks */ = {
+		213C825EFE0D0541D1524D5F3FAA8A6F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				519C9BA9BE2137CBFC1D01FC20BA0111 /* Foundation.framework in Frameworks */,
+				C47483E53D51B0CD8681BF775DC4EA18 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5578ABFFBCB65D3EBF4D0CD1D5A77EB2 /* Frameworks */ = {
+		3E2C6A0F90BF390C659288AF7E5C9CA1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463FC6126BC6393B3C2E23125868F3C4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		64C453246D699CE32E442EF218D5F915 /* Frameworks */ = {
+		6384E4C1DBDFE6DB82E1EAD08B3F044A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				640535A1105D775A75C249A614B837D2 /* Foundation.framework in Frameworks */,
+				DAC2CACA22AE100EB261D377EC6FBE3C /* CoreText.framework in Frameworks */,
+				C4EDDFD00880AD17F1BB7D66948F1D21 /* Foundation.framework in Frameworks */,
+				684E126B8E890761BBB1A4EB590EA1F3 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		86EBEB7A5BC84E3C24D67ADD82B00EA6 /* Frameworks */ = {
+		D4E54942A2F6AE6BC8FF8B5031C56AFF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F59A7098B88C46360390D24179B6FCB /* CoreText.framework in Frameworks */,
-				18265A2DF1210AE176A7EB58FA9259B0 /* Foundation.framework in Frameworks */,
-				2B59A682DFEBA9841737A0FADFB0D67F /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0CD5415A6C2090372E30EC54B45956EC /* Resources */ = {
+		0399A6763A06D51BFF536964BD148FB7 /* Pods-pep9pad */ = {
 			isa = PBXGroup;
 			children = (
-				EAC2969EE5DAECE0AA301AE19BA0F2DF /* FontAwesome.otf */,
+				57DBD7C65B320617BD2589D8C1798E76 /* Info.plist */,
+				48FE6332D272EA0927CF9BA728A42075 /* Pods-pep9pad.modulemap */,
+				42F60388C27C0A5BAE1888C0854BE3CB /* Pods-pep9pad-acknowledgements.markdown */,
+				1C22642C2E63C60619215B2515F3F347 /* Pods-pep9pad-acknowledgements.plist */,
+				92FEF015400926002BD8945727576733 /* Pods-pep9pad-dummy.m */,
+				8EC4602A3ECFC12E0372654DFF480C71 /* Pods-pep9pad-frameworks.sh */,
+				61A1051C10E646E6695BC93F7E098E01 /* Pods-pep9pad-resources.sh */,
+				BD25FA7DD1D1DB44EFD3A23C82887710 /* Pods-pep9pad-umbrella.h */,
+				E8A25E2439A75C0A0708EBAFB59BDD6B /* Pods-pep9pad.debug.xcconfig */,
+				7D809A28E5835904A08D5EDCA8904ABF /* Pods-pep9pad.release.xcconfig */,
 			);
-			name = Resources;
+			name = "Pods-pep9pad";
+			path = "Target Support Files/Pods-pep9pad";
 			sourceTree = "<group>";
 		};
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3587588751A8A6B53D9C05B2DC18428D /* iOS */,
+				FF1CA95E532A8F990E19506982FA04EE /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		126FF4161C64D3EB2051E308F0B067EE /* Resources */ = {
+		3AE39D003C0734A296D8844C485FA288 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B41C72FB45EA2EB9932EBF6C4A58CF57 /* Images.xcassets */,
+				891609FF9D17BE9CA0275A23A7194F52 /* Images.xcassets */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		3587588751A8A6B53D9C05B2DC18428D /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				282E317D90744761F406E685BC46589A /* CoreText.framework */,
-				B32431FA5524F12225B1B779AF3E4A6D /* Foundation.framework */,
-				27C23E16390F6F5920E271EBFB6A30A8 /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		3C942D3674C19A8D100134EC3712569E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				49EA2EAEC3E3E7847DDF0B824F484341 /* FontAwesome.swift.modulemap */,
-				CE7127F7E4B468AE19B68E84C85F6539 /* FontAwesome.swift.xcconfig */,
-				2A0CC3233439B78CE7BCF2D0ADB9162E /* FontAwesome.swift-dummy.m */,
-				6825C0E8DB8509C58053D430D4356EEA /* FontAwesome.swift-prefix.pch */,
-				CFAC01313FBD386BF631E1C3F8E91107 /* FontAwesome.swift-umbrella.h */,
-				6BC9E255A17BCB4F550317975AAB437E /* Info.plist */,
-				BCE1A1B8DBF4C42C73934CD6461CABF5 /* ResourceBundle-FontAwesome.swift-Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/FontAwesome.swift";
 			sourceTree = "<group>";
 		};
 		73235CFDA5EABBA9C64C9AC3D4C154AF /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				80B4A69CBE695CC62B28424339643E6F /* Pods-pep9pad */,
+				0399A6763A06D51BFF536964BD148FB7 /* Pods-pep9pad */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		748A4C692A55507604B1AABEE7F64F9C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86430EF74A1D792DB1C8AA1F40E92A58 /* AMPopTip.framework */,
+				F78026FD7CF378971B5C1373CCDE54F5 /* FontAwesome.swift.bundle */,
+				8CF0BF6BA2E03A6EA2250390EAA47420 /* FontAwesome_swift.framework */,
+				8FF452DAE9F703D4048FD01258585AA7 /* PKHUD.framework */,
+				E6BB8804EDFB45F41C195BE16A3498FE /* Pods_pep9pad.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BF513228A9343A8E7D863B7CBB1726B /* AMPopTip */ = {
+			isa = PBXGroup;
+			children = (
+				483EFD16456551041EBF1DE5058EAC90 /* PopTip.swift */,
+				D246EFC0EBCB9189718FC8FE1DADF814 /* PopTip+Draw.swift */,
+				0A96965D5B2D9F3915147ED378541A56 /* PopTip+Transitions.swift */,
+				FE4D03513F81AB94AEDACB6B75F0C306 /* Support Files */,
+			);
+			name = AMPopTip;
+			path = AMPopTip;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -269,245 +276,176 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				FD540866266BD42CC2AA4EB49AF96F00 /* Pods */,
-				BEA5C2F7E8DC08FD8461B8492A015A3E /* Products */,
+				C385B359B1B2F1EA614704515B490BEB /* Pods */,
+				748A4C692A55507604B1AABEE7F64F9C /* Products */,
 				73235CFDA5EABBA9C64C9AC3D4C154AF /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		80B4A69CBE695CC62B28424339643E6F /* Pods-pep9pad */ = {
+		BB78E2DF493BA5B67D210E9E6602E07C /* PKHUD */ = {
 			isa = PBXGroup;
 			children = (
-				8CCB3C672DAF58C3D3983606A8C12709 /* Info.plist */,
-				8CE7265F647B852161AB7EA1D7BA6096 /* Pods-pep9pad.modulemap */,
-				4FF90C3725858F53021E4643F8E0C958 /* Pods-pep9pad-acknowledgements.markdown */,
-				97F62B17930BF1CD2C57E2327EDAB104 /* Pods-pep9pad-acknowledgements.plist */,
-				1FD9603700F11CF0E8AEF744A269C5A8 /* Pods-pep9pad-dummy.m */,
-				79AF1FD3B08503A87859AFB78ECCFE1C /* Pods-pep9pad-frameworks.sh */,
-				89C598E6C31BE25C06E1B5F7C73A8CC8 /* Pods-pep9pad-resources.sh */,
-				E44D4E12E477A0D94C93C28404C664FB /* Pods-pep9pad-umbrella.h */,
-				3457929DFA04E7A190938DC2F259D195 /* Pods-pep9pad.debug.xcconfig */,
-				4408C9457DD5FCB7232B711361D1EA9D /* Pods-pep9pad.release.xcconfig */,
+				EA95AA03963203F82C20AD5DC44B32CE /* FrameView.swift */,
+				E0B3B10299DCCF1AB7F48DDBFC25FC41 /* HUD.swift */,
+				F308ED6DC0ED958FDF833EF24B39C5C1 /* PKHUD.h */,
+				F11F4172C2EA92DE29F11EEE0B8D4650 /* PKHUD.swift */,
+				158A4F783F770193A5159A967470D8BC /* PKHUDAnimating.swift */,
+				289A0D71D5123FA80320E5F8BAC141C4 /* PKHUDAnimation.swift */,
+				17322E15086E7AE5BEE8EBD7A3E36F01 /* PKHUDAssets.swift */,
+				5FCDF90D7EB4D7424CD98EA9AD34D60D /* PKHUDErrorView.swift */,
+				ABF00E473094C0FD3C2EBB9633DC04AA /* PKHUDProgressView.swift */,
+				4D608A7277BFBFD0E931E682B69AD24D /* PKHUDRotatingImageView.swift */,
+				F10CE6D701557C3FD9940EC2896DBB63 /* PKHUDSquareBaseView.swift */,
+				C423EE7A83E8B6050AF2412D1AB90E01 /* PKHUDSuccessView.swift */,
+				F8502031E525B9940FD426968EA6BB3E /* PKHUDSystemActivityIndicatorView.swift */,
+				8FD742964048913B6DD5084AF95BAF70 /* PKHUDTextView.swift */,
+				2CCC3B20B5EEB6773F475C064DD2C18C /* PKHUDWideBaseView.swift */,
+				769DF2B760A707B671535E4507DBD788 /* Window.swift */,
+				FEC677944EAB6705462D50A39A6A0960 /* WindowRootViewController.swift */,
+				3AE39D003C0734A296D8844C485FA288 /* Resources */,
+				FD439053AC0C8E3DDF4211251D4E8F7D /* Support Files */,
 			);
-			name = "Pods-pep9pad";
-			path = "Target Support Files/Pods-pep9pad";
+			name = PKHUD;
+			path = PKHUD;
 			sourceTree = "<group>";
 		};
-		8D6F5D7613545ECD35ABBEA60925B1DF /* AMPopTip */ = {
+		C385B359B1B2F1EA614704515B490BEB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A8B3F364274F02C80013675B2B7E4698 /* AMPopTip.h */,
-				60CB7BFC8026FA29FFB2C2C1174ECF4F /* AMPopTip.m */,
-				6353A8B2B5EEF02B82752705841CA243 /* AMPopTip+Animation.h */,
-				760B5FCE0DED254794DEF9E290DBD9C0 /* AMPopTip+Animation.m */,
-				C13BEB4543B7967040AF7EBB73E5688B /* AMPopTip+Draw.h */,
-				35DCEAA6DE860FC9ED9F965B85DAB454 /* AMPopTip+Draw.m */,
-				699C8E1DEFAC81355AE86E0FF5043280 /* AMPopTip+Entrance.h */,
-				450028BF089C961A5020CA25500E1DEB /* AMPopTip+Entrance.m */,
-				666CA6E042202D727E724DD79CBF70DF /* AMPopTip+Exit.h */,
-				4945452E9CB7615757B1B777F972776D /* AMPopTip+Exit.m */,
-				60E04CEBDE379848E128450CE73D4483 /* AMPopTipDefaults.h */,
-				F4282756856F2FE416A702122A256BFE /* Support Files */,
+				7BF513228A9343A8E7D863B7CBB1726B /* AMPopTip */,
+				FC44C682D4CC0BBD237A6C93DC607DCF /* FontAwesome.swift */,
+				BB78E2DF493BA5B67D210E9E6602E07C /* PKHUD */,
 			);
-			path = AMPopTip;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		AF9CB6A83EDE692B035122C56683C275 /* FontAwesome.swift */ = {
+		DE71B31CDD6D709D2D35D768387D6A52 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D5577767EE54356A5E7561A2C034A702 /* Enum.swift */,
-				59028C22CFAC9E91883D3686E0527C9E /* FontAwesome.swift */,
-				A7353B4383040312738617E91D36F0D1 /* FontAwesomeView.swift */,
-				0CD5415A6C2090372E30EC54B45956EC /* Resources */,
-				3C942D3674C19A8D100134EC3712569E /* Support Files */,
+				6F92BAF33BFB1DCAADD5D590F89E1EAA /* FontAwesome.otf */,
 			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F9193D52F16A8B9047A2549B2DC89DA2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				21458825D7C26D1EAB4D746B1BB52D34 /* FontAwesome.swift.modulemap */,
+				D2AD9218E9BC6D196CD8E94D604EE192 /* FontAwesome.swift.xcconfig */,
+				5AAEABF833832CED83236AC6990DEFFA /* FontAwesome.swift-dummy.m */,
+				18FA96E5B4C4112E04A29329F931FD83 /* FontAwesome.swift-prefix.pch */,
+				8C2CB1B3E9A50837E980DB0F8E43D2D6 /* FontAwesome.swift-umbrella.h */,
+				B06191FE0727A21301D7CD446485D2C7 /* Info.plist */,
+				15D8A316E38BA7B5ED701110F95A3635 /* ResourceBundle-FontAwesome.swift-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FontAwesome.swift";
+			sourceTree = "<group>";
+		};
+		FC44C682D4CC0BBD237A6C93DC607DCF /* FontAwesome.swift */ = {
+			isa = PBXGroup;
+			children = (
+				BBCEC93A3EE27E890A0751BA8157651F /* Enum.swift */,
+				CA105619ADD17DD4E1D368A29206E0C5 /* FontAwesome.swift */,
+				31A3BCFAC4F28427FEA103C971BE6AED /* FontAwesomeBarButtonItem.swift */,
+				32F357E76BE5884CBD4236BFAC9C7E8D /* FontAwesomeImageRepresentable.swift */,
+				7D9A33492607C7C4706CF6031D35925F /* FontAwesomeImageView.swift */,
+				9789986F2607031B35DF64C1FD3EEA9B /* FontAwesomeSegmentedControl.swift */,
+				B5BC2C253BCD4EA1892F9D44E3AFBED6 /* FontAwesomeStateRequirement.swift */,
+				7D67A0162F46E5CEB2F0F3A8DF1F3885 /* FontAwesomeTabBarItem.swift */,
+				BDB2911D0B2357030AF3B46AD674546C /* FontAwesomeTextRepresentable.swift */,
+				473AB2089EA756DD4D2C583235D71DA0 /* FontAwesomeView.swift */,
+				DE71B31CDD6D709D2D35D768387D6A52 /* Resources */,
+				F9193D52F16A8B9047A2549B2DC89DA2 /* Support Files */,
+			);
+			name = FontAwesome.swift;
 			path = FontAwesome.swift;
 			sourceTree = "<group>";
 		};
-		BEA5C2F7E8DC08FD8461B8492A015A3E /* Products */ = {
+		FD439053AC0C8E3DDF4211251D4E8F7D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				BD9AB1E45CDAEAAC5CDD63FB5F184A26 /* AMPopTip.framework */,
-				429BE05EDCFBC6A63A2FFF48D6B5E531 /* FontAwesome.swift.bundle */,
-				F0BCF7D056BFB3884B0BA2A6411893B3 /* FontAwesome_swift.framework */,
-				5091763DE5FB7D137599FB7910E87507 /* PKHUD.framework */,
-				D96BB40604E9E132D85309A2E65E389F /* Pods_pep9pad.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C3FB1E480B8F3A15593A282D58BF920E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CBE166BD4187FD1881FAF2825FD4ACCB /* Info.plist */,
-				8683543FDD0912B64804047BAB5F92E0 /* PKHUD.modulemap */,
-				740EF12D723EF3DA3171BC15F5E72EC9 /* PKHUD.xcconfig */,
-				6150D44C54C41EE18B14D6E272207EA9 /* PKHUD-dummy.m */,
-				004D0715D29817F99656AA99396EA5E1 /* PKHUD-prefix.pch */,
-				ADAE03A8ABDB87453871DBE7B82ADEED /* PKHUD-umbrella.h */,
+				52317A93D722D090593551F4B1CA548F /* Info.plist */,
+				9895D1E88F925BB69C76507FF0AF91D1 /* PKHUD.modulemap */,
+				76E97880A514FDB71DC042E3050E3656 /* PKHUD.xcconfig */,
+				497239E0D7ED00B467ECBFA016FFBA41 /* PKHUD-dummy.m */,
+				249CE3F5E9100D61845C9598678C9A44 /* PKHUD-prefix.pch */,
+				774F55B0DABC61A2C0281DEFF760052B /* PKHUD-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/PKHUD";
 			sourceTree = "<group>";
 		};
-		EE9A8FFE10735BB4FC2A323667E4B011 /* PKHUD */ = {
+		FE4D03513F81AB94AEDACB6B75F0C306 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				E3A8F21BC12E01B4748E07E92858CA33 /* FrameView.swift */,
-				06700CEFB9252B46BAEB092AB8257CED /* HUD.swift */,
-				6BA769001C58ED6C0F55A5D9590D9F36 /* PKHUD.h */,
-				DEEAEC804808C4E10F5144D3362EF73B /* PKHUD.swift */,
-				09E95A7B4CED401EA789D5E89CBB19BB /* PKHUDAnimating.swift */,
-				1F0961D1C8D620006A4EC60607B00B0F /* PKHUDAnimation.swift */,
-				04081B9666703A05183F47E5D66161FA /* PKHUDAssets.swift */,
-				A124B21C7075F7A7C78BCDEF005EE468 /* PKHUDErrorView.swift */,
-				146A1AAF65BABF7389B7AF4FFA7D6F44 /* PKHUDProgressView.swift */,
-				5E1E27F455BE6D77029C0F6AE6D4CBDD /* PKHUDRotatingImageView.swift */,
-				D033178ECA39F0D5586655DEB0398C8D /* PKHUDSquareBaseView.swift */,
-				032A5979D45FFBD65DC23A924CAF4D7D /* PKHUDSuccessView.swift */,
-				603E6AFA01EBD98256C38D40D4034098 /* PKHUDSystemActivityIndicatorView.swift */,
-				68AFD11E447C69D368BED18C373EE31F /* PKHUDTextView.swift */,
-				257BCAC322282D64976FAABD0C3BE459 /* PKHUDWideBaseView.swift */,
-				85D774319CEC723D509AEA732EE6D060 /* Window.swift */,
-				FD9EC4B92FD071263E26F09605A3BE00 /* WindowRootViewController.swift */,
-				126FF4161C64D3EB2051E308F0B067EE /* Resources */,
-				C3FB1E480B8F3A15593A282D58BF920E /* Support Files */,
-			);
-			path = PKHUD;
-			sourceTree = "<group>";
-		};
-		F4282756856F2FE416A702122A256BFE /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B945E4A9452ECA741FB37A429E9B72C3 /* AMPopTip.modulemap */,
-				B38C2A10784399DCF643A97254967EB7 /* AMPopTip.xcconfig */,
-				6218735E83CD2FD0AA2170BEBE88F0BC /* AMPopTip-dummy.m */,
-				4C6C80A26A3FD6D5A051294A4899D5E0 /* AMPopTip-prefix.pch */,
-				E62481D0DA1527F8E4AB307CD2949A07 /* AMPopTip-umbrella.h */,
-				001145D5DAA94933C8DC8F139E302490 /* Info.plist */,
+				2BE0F7CC801847F2908A0BA3BBE2AB9A /* AMPopTip.modulemap */,
+				DCA5EF36C67104C8F90D370D8342DBF9 /* AMPopTip.xcconfig */,
+				B7BE1AF4E80B6F3B9BCC2B7549C898FF /* AMPopTip-dummy.m */,
+				DBE25D8FCF56819EC54CBDDDB04DD74D /* AMPopTip-prefix.pch */,
+				C74076678D7919C84CBED4B02BE4CB66 /* AMPopTip-umbrella.h */,
+				E2CB8741FFBF3B49AFF9D8548A28BA41 /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/AMPopTip";
 			sourceTree = "<group>";
 		};
-		FD540866266BD42CC2AA4EB49AF96F00 /* Pods */ = {
+		FF1CA95E532A8F990E19506982FA04EE /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8D6F5D7613545ECD35ABBEA60925B1DF /* AMPopTip */,
-				AF9CB6A83EDE692B035122C56683C275 /* FontAwesome.swift */,
-				EE9A8FFE10735BB4FC2A323667E4B011 /* PKHUD */,
+				C55C580E1FC5B6E9F442FE42A9553FEA /* CoreText.framework */,
+				A7AF639F48630A369AAB591B5B339CC8 /* Foundation.framework */,
+				27BE1AF8CEE8818CBCFD0010AE8BEE51 /* UIKit.framework */,
 			);
-			name = Pods;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		13777D85DF4CD6678BD632B70F670E28 /* Headers */ = {
+		103A290D70315882B79B3B86F653DD44 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BA89E90D08F82EC682B2BC6622669E0 /* FontAwesome.swift-umbrella.h in Headers */,
+				645FEA9A9F281C87D27DBCAFCE1EB842 /* AMPopTip-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		903200455BDD0FEA923BFFA9D48F1D94 /* Headers */ = {
+		25E0772F87878D34BE9C9F522910F6B2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8EF4577F29F6F0E13017B6481136496 /* PKHUD-umbrella.h in Headers */,
-				056758E7070C1E9E57B8EB8B56944A48 /* PKHUD.h in Headers */,
+				24065029085002EAC70A3422A7D39EC1 /* FontAwesome.swift-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E38F59A0DDBD004FD7EC74E848711C73 /* Headers */ = {
+		8FEEFA622DA1498A5C7A3FE7721748C5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46B595ACDD8FECD01F86EC08CAA7BF30 /* Pods-pep9pad-umbrella.h in Headers */,
+				F1CABF9B95D8B6B1B173C9C444A1673A /* Pods-pep9pad-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F16A1E4FACFBA78961D97165C020BF4F /* Headers */ = {
+		CEEFB59308D9874EDAA446AD0659FA29 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				594FC51BE92E0D6E9A912BC24AA01642 /* AMPopTip+Animation.h in Headers */,
-				33EE7806A0AD0C0AFD362E1AD550EA6A /* AMPopTip+Draw.h in Headers */,
-				F1C6E9895A6463F866EA04C2DCB5E3D3 /* AMPopTip+Entrance.h in Headers */,
-				F830964FB4E54EA277AB5ED99920F5AA /* AMPopTip+Exit.h in Headers */,
-				B0E524E526AEB46867FC321D7D452587 /* AMPopTip-umbrella.h in Headers */,
-				31BD0C9241E08549B6864F0026EDF5DE /* AMPopTip.h in Headers */,
-				CAD6335F8822646861904FF84F742A81 /* AMPopTipDefaults.h in Headers */,
+				1929F91EB38B923FBFA0B2F53C0C4877 /* PKHUD-umbrella.h in Headers */,
+				2DCA4225866D2445C444325589BD9744 /* PKHUD.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1FE2578FF0805299395CF2A0206BB671 /* FontAwesome.swift */ = {
+		6991F49AED797519343B1F4591001691 /* FontAwesome.swift-FontAwesome.swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F38BD62EC04F59923F9724EE5CEF993B /* Build configuration list for PBXNativeTarget "FontAwesome.swift" */;
+			buildConfigurationList = A91ACF4D4E342DEB04B7C57FA8EA6CC1 /* Build configuration list for PBXNativeTarget "FontAwesome.swift-FontAwesome.swift" */;
 			buildPhases = (
-				09814B1C51ECFF2DBBA94B61CEAB2E19 /* Sources */,
-				86EBEB7A5BC84E3C24D67ADD82B00EA6 /* Frameworks */,
-				E4D30328F854BCE3F55C358DF822523A /* Resources */,
-				13777D85DF4CD6678BD632B70F670E28 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5044CA3A48D08FC86E1A3B1F860FAE01 /* PBXTargetDependency */,
-			);
-			name = FontAwesome.swift;
-			productName = FontAwesome.swift;
-			productReference = F0BCF7D056BFB3884B0BA2A6411893B3 /* FontAwesome_swift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		586E40C0BEBAB01A075A5E60359FA09D /* AMPopTip */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1684A00001C501B45A4F7685ACA48634 /* Build configuration list for PBXNativeTarget "AMPopTip" */;
-			buildPhases = (
-				B5B4FAC6B10660B82FEB7231127D8786 /* Sources */,
-				0A85F7291A690C887E3989987E861DEA /* Frameworks */,
-				F16A1E4FACFBA78961D97165C020BF4F /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AMPopTip;
-			productName = AMPopTip;
-			productReference = BD9AB1E45CDAEAAC5CDD63FB5F184A26 /* AMPopTip.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B08F20240E657ACF690BE31069C1DFA6 /* Pods-pep9pad */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3AAA21AEDCFCA27C050D5E5019E9C282 /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */;
-			buildPhases = (
-				B48FF50DB3A7753201E419FF5DBAEB61 /* Sources */,
-				64C453246D699CE32E442EF218D5F915 /* Frameworks */,
-				E38F59A0DDBD004FD7EC74E848711C73 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A61680B659532E2905D8E32B8B9B0EEB /* PBXTargetDependency */,
-				DD6066F1160DA9FC2AE44573E89D4CC2 /* PBXTargetDependency */,
-				648165F0E712FEA3C63D3D57B08C9461 /* PBXTargetDependency */,
-			);
-			name = "Pods-pep9pad";
-			productName = "Pods-pep9pad";
-			productReference = D96BB40604E9E132D85309A2E65E389F /* Pods_pep9pad.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		EF4F067C2D0E135B80299B089E168BDA /* FontAwesome.swift-FontAwesome.swift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C7B375BC6286A9E3DE2F46F4B52CBA3F /* Build configuration list for PBXNativeTarget "FontAwesome.swift-FontAwesome.swift" */;
-			buildPhases = (
-				619EA0F427AF8584A7B03876241916DE /* Sources */,
-				5578ABFFBCB65D3EBF4D0CD1D5A77EB2 /* Frameworks */,
-				56ECBAFBCBB76303F03696DA1E059127 /* Resources */,
+				EFDD05B792A1A2DB330508032AD5AC07 /* Sources */,
+				D4E54942A2F6AE6BC8FF8B5031C56AFF /* Frameworks */,
+				F276D87ECE642BAF9150EB9FD4E7269A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -515,17 +453,53 @@
 			);
 			name = "FontAwesome.swift-FontAwesome.swift";
 			productName = "FontAwesome.swift-FontAwesome.swift";
-			productReference = 429BE05EDCFBC6A63A2FFF48D6B5E531 /* FontAwesome.swift.bundle */;
+			productReference = F78026FD7CF378971B5C1373CCDE54F5 /* FontAwesome.swift.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		F6F0516F82D07656D12F1C0716898F73 /* PKHUD */ = {
+		A406E78BB0A2D11548A4B5AB13C56142 /* AMPopTip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0AE7E0F743300724B8F0364F51693C2C /* Build configuration list for PBXNativeTarget "PKHUD" */;
+			buildConfigurationList = 35B00C6E9B949BFAFD120FB9CE4602A9 /* Build configuration list for PBXNativeTarget "AMPopTip" */;
 			buildPhases = (
-				A6A20874F928F2C4B0A886AFE18F63EA /* Sources */,
-				213B420CEB9593A37FAD4B28450E31E0 /* Frameworks */,
-				903200455BDD0FEA923BFFA9D48F1D94 /* Headers */,
-				0658BE7D2A3A2BDCA00F3A18E7FE6B5A /* Resources */,
+				BE28B1C60F5778DFD5971F1BB237F4DB /* Sources */,
+				213C825EFE0D0541D1524D5F3FAA8A6F /* Frameworks */,
+				103A290D70315882B79B3B86F653DD44 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AMPopTip;
+			productName = AMPopTip;
+			productReference = 86430EF74A1D792DB1C8AA1F40E92A58 /* AMPopTip.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D647550AC543F36CDA7093F28F22389 /* Build configuration list for PBXNativeTarget "FontAwesome.swift" */;
+			buildPhases = (
+				30237CD8FFC618019ADDBFF6AF503934 /* Sources */,
+				6384E4C1DBDFE6DB82E1EAD08B3F044A /* Frameworks */,
+				1B380E02C8EEA8102FF78E1D9AC756E8 /* Resources */,
+				25E0772F87878D34BE9C9F522910F6B2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0ABF2DD2892B1D79E33237954FE96C29 /* PBXTargetDependency */,
+			);
+			name = FontAwesome.swift;
+			productName = FontAwesome.swift;
+			productReference = 8CF0BF6BA2E03A6EA2250390EAA47420 /* FontAwesome_swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D7A75F149082140741FC1E0B5B2863C8 /* PKHUD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9306D49004A2A30AC52787A7B1C9C87A /* Build configuration list for PBXNativeTarget "PKHUD" */;
+			buildPhases = (
+				64C2A244B5B13B1D5FBAAA42BFE1724F /* Sources */,
+				09097AE0247A71FADE9AE4A13E3E0C55 /* Frameworks */,
+				CEEFB59308D9874EDAA446AD0659FA29 /* Headers */,
+				A6E5CC81DF41A96AA2FC861070D8146A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -533,7 +507,27 @@
 			);
 			name = PKHUD;
 			productName = PKHUD;
-			productReference = 5091763DE5FB7D137599FB7910E87507 /* PKHUD.framework */;
+			productReference = 8FF452DAE9F703D4048FD01258585AA7 /* PKHUD.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FA8A078B7CF22C17317B47E901D3A66D /* Pods-pep9pad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1675A753390D78E4520D064E7C5385D5 /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */;
+			buildPhases = (
+				6EB2DE975C917E5571B9758C480AA2F4 /* Sources */,
+				3E2C6A0F90BF390C659288AF7E5C9CA1 /* Frameworks */,
+				8FEEFA622DA1498A5C7A3FE7721748C5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5AA26BB25373EAE4EE1C2277CA5482BA /* PBXTargetDependency */,
+				39FC121FA2A3ECABF78B42B4125AD4F2 /* PBXTargetDependency */,
+				79651A7C80BF655BAE4E5A1350845F86 /* PBXTargetDependency */,
+			);
+			name = "Pods-pep9pad";
+			productName = "Pods-pep9pad";
+			productReference = E6BB8804EDFB45F41C195BE16A3498FE /* Pods_pep9pad.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -542,8 +536,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -553,378 +547,545 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = BEA5C2F7E8DC08FD8461B8492A015A3E /* Products */;
+			productRefGroup = 748A4C692A55507604B1AABEE7F64F9C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				586E40C0BEBAB01A075A5E60359FA09D /* AMPopTip */,
-				1FE2578FF0805299395CF2A0206BB671 /* FontAwesome.swift */,
-				EF4F067C2D0E135B80299B089E168BDA /* FontAwesome.swift-FontAwesome.swift */,
-				F6F0516F82D07656D12F1C0716898F73 /* PKHUD */,
-				B08F20240E657ACF690BE31069C1DFA6 /* Pods-pep9pad */,
+				A406E78BB0A2D11548A4B5AB13C56142 /* AMPopTip */,
+				CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */,
+				6991F49AED797519343B1F4591001691 /* FontAwesome.swift-FontAwesome.swift */,
+				D7A75F149082140741FC1E0B5B2863C8 /* PKHUD */,
+				FA8A078B7CF22C17317B47E901D3A66D /* Pods-pep9pad */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0658BE7D2A3A2BDCA00F3A18E7FE6B5A /* Resources */ = {
+		1B380E02C8EEA8102FF78E1D9AC756E8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7C34713DF69A22264F5E67B7A91B27 /* Images.xcassets in Resources */,
+				59BB7C15DE2EFEFDE268E3D2BE58B161 /* FontAwesome.swift.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		56ECBAFBCBB76303F03696DA1E059127 /* Resources */ = {
+		A6E5CC81DF41A96AA2FC861070D8146A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FFA6651790C1B6890BC8AF9BCE67AD4 /* FontAwesome.otf in Resources */,
+				34D8AB5C8FA400C58D7CA084633DF744 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4D30328F854BCE3F55C358DF822523A /* Resources */ = {
+		F276D87ECE642BAF9150EB9FD4E7269A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				977893CD9D5483CEDEC34CC89B83CAA7 /* FontAwesome.swift.bundle in Resources */,
+				C3079113A27F987B6889C2E9C05A10DD /* FontAwesome.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		09814B1C51ECFF2DBBA94B61CEAB2E19 /* Sources */ = {
+		30237CD8FFC618019ADDBFF6AF503934 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D1D54665B1EDC301F4E9A900C42DC3 /* Enum.swift in Sources */,
-				3DDE96C1DBE8B94559B5F57A31D4C791 /* FontAwesome.swift in Sources */,
-				CF0F718C9F8E2818B98012CDDA4C6805 /* FontAwesome.swift-dummy.m in Sources */,
-				27967FFAE1AD1B478141BDE32EF090CF /* FontAwesomeView.swift in Sources */,
+				BA158509B4673EB6F8D0D12961169AB1 /* Enum.swift in Sources */,
+				589D19F8FC8F1E9D6360D950D26A7138 /* FontAwesome.swift in Sources */,
+				FD8C615CEC6F1EBDB63BF3240583D2F3 /* FontAwesome.swift-dummy.m in Sources */,
+				5AD3E160E28F5EFC4D17A8668CA322BD /* FontAwesomeBarButtonItem.swift in Sources */,
+				C879A43B7C8CC16E986D40441C2F2878 /* FontAwesomeImageRepresentable.swift in Sources */,
+				2AE0F58A0988D92438C1448C861A154C /* FontAwesomeImageView.swift in Sources */,
+				41FAD1CDCD9272883A6CF33FE8FF44E0 /* FontAwesomeSegmentedControl.swift in Sources */,
+				CBD91B03AC387775166237F805EABC3A /* FontAwesomeStateRequirement.swift in Sources */,
+				65D01C54FCF24BF6E6FBCD49F6E7CCB1 /* FontAwesomeTabBarItem.swift in Sources */,
+				FB64A64BD408EE7BBD70A4B048315C7D /* FontAwesomeTextRepresentable.swift in Sources */,
+				522BEF444AEAA78D1747B62ED49C688E /* FontAwesomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		619EA0F427AF8584A7B03876241916DE /* Sources */ = {
+		64C2A244B5B13B1D5FBAAA42BFE1724F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F34910B27A3B86966E07898A2B70AE6 /* FrameView.swift in Sources */,
+				BA1B53BE85DE9BD789FE1C32FBA8C752 /* HUD.swift in Sources */,
+				E57944FDD00D7F5F2674D4D52E0F52BA /* PKHUD-dummy.m in Sources */,
+				BF541FB658B81D55E6A960701BF0619E /* PKHUD.swift in Sources */,
+				B1DC643D39F725A5C89C8195B5C10A09 /* PKHUDAnimating.swift in Sources */,
+				3470186F176465D3CA04711D0D82DF38 /* PKHUDAnimation.swift in Sources */,
+				869B25CDDA4D1BDA81A495A23D43E108 /* PKHUDAssets.swift in Sources */,
+				17E7E62102D200AFE11B049F570C9397 /* PKHUDErrorView.swift in Sources */,
+				766750E7B98FF8495403D0C7B5064D6C /* PKHUDProgressView.swift in Sources */,
+				AEA27A6C1523E5B1A1B3B74CA02FB67D /* PKHUDRotatingImageView.swift in Sources */,
+				7F09171ED8899C35E45511452323B3DF /* PKHUDSquareBaseView.swift in Sources */,
+				A5A9F17A94A6CC0F7D4E9DE0FCAFE5AB /* PKHUDSuccessView.swift in Sources */,
+				89C4ADD534D41DF5442F67D799B8E12B /* PKHUDSystemActivityIndicatorView.swift in Sources */,
+				A7BA7C4E4C047A5698A68CA76A453605 /* PKHUDTextView.swift in Sources */,
+				D0F542D62E2AA523E0A3D28DC85D2012 /* PKHUDWideBaseView.swift in Sources */,
+				F61C2235825FE532417891978344385E /* Window.swift in Sources */,
+				F4C22A07683E879CB3ECF7D6A73F667E /* WindowRootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A6A20874F928F2C4B0A886AFE18F63EA /* Sources */ = {
+		6EB2DE975C917E5571B9758C480AA2F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CC002B045DB71D973F710CC6012375D /* FrameView.swift in Sources */,
-				46C48FCA8DDE8C5F67659D5073587BA4 /* HUD.swift in Sources */,
-				9F8D87E945B7051D7A486B7FAF6576AA /* PKHUD-dummy.m in Sources */,
-				5B57EDD73F570E140104FD76979456EB /* PKHUD.swift in Sources */,
-				6FF3B618F62DD728DEDACB5BBE2AE524 /* PKHUDAnimating.swift in Sources */,
-				5FD80D7D551354826B7584746ECC5C06 /* PKHUDAnimation.swift in Sources */,
-				9CE774307DFBCC12DB227F2DEC7BD2EE /* PKHUDAssets.swift in Sources */,
-				0E3AD912FC3D2F5D10AF35A586F7B16B /* PKHUDErrorView.swift in Sources */,
-				A770B3E29C6A378A6BA9178ABE38B81B /* PKHUDProgressView.swift in Sources */,
-				46DB3A4567C93ABFCCF0C984A162E2DB /* PKHUDRotatingImageView.swift in Sources */,
-				5EC8062DF5448340835FC32EDEAE7A22 /* PKHUDSquareBaseView.swift in Sources */,
-				804FDEE59DBDFDA77509AE4F5B702922 /* PKHUDSuccessView.swift in Sources */,
-				65E576CF91E64D83050AED9BDA91A480 /* PKHUDSystemActivityIndicatorView.swift in Sources */,
-				23778FA7CEF4BE294C37CCD9E58BAFA5 /* PKHUDTextView.swift in Sources */,
-				2BC71894AA94F4A102F81448989913B1 /* PKHUDWideBaseView.swift in Sources */,
-				3DA5E0686E9DB1AC0AF68E3B4604EBEA /* Window.swift in Sources */,
-				4840363673A77EA4872989BAFF6936C8 /* WindowRootViewController.swift in Sources */,
+				42AE99C0404D5DFD5FD7D8996247AB48 /* Pods-pep9pad-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B48FF50DB3A7753201E419FF5DBAEB61 /* Sources */ = {
+		BE28B1C60F5778DFD5971F1BB237F4DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				666F80A9950EC0E559C982406C8E417A /* Pods-pep9pad-dummy.m in Sources */,
+				BA0C7E7B2289423FC6EAA0D61B6C10FF /* AMPopTip-dummy.m in Sources */,
+				127E5015D838330AAD52E6DEA61526A5 /* PopTip+Draw.swift in Sources */,
+				43A27513C0302163E0DB75246EE4B1CA /* PopTip+Transitions.swift in Sources */,
+				03C0AEFEBE89F73FA827E7C416047D2C /* PopTip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B5B4FAC6B10660B82FEB7231127D8786 /* Sources */ = {
+		EFDD05B792A1A2DB330508032AD5AC07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FEE0A02C001742DFFBAF052985A194E /* AMPopTip+Animation.m in Sources */,
-				168FF3DA8C8DD1160D4B748C1A6F0058 /* AMPopTip+Draw.m in Sources */,
-				3F9369B0E219E307FD1FC012DCAFCC8A /* AMPopTip+Entrance.m in Sources */,
-				7EF915FA08181452D59D4469A92D3EC4 /* AMPopTip+Exit.m in Sources */,
-				85E6D00D0715E22B12E82A35A1B3BBA6 /* AMPopTip-dummy.m in Sources */,
-				D084AE5876843A226CC40DA8EDFD9E24 /* AMPopTip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5044CA3A48D08FC86E1A3B1F860FAE01 /* PBXTargetDependency */ = {
+		0ABF2DD2892B1D79E33237954FE96C29 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "FontAwesome.swift-FontAwesome.swift";
-			target = EF4F067C2D0E135B80299B089E168BDA /* FontAwesome.swift-FontAwesome.swift */;
-			targetProxy = 192DAE8239CEDF28426AC10F45C42C62 /* PBXContainerItemProxy */;
+			target = 6991F49AED797519343B1F4591001691 /* FontAwesome.swift-FontAwesome.swift */;
+			targetProxy = A1E7ADA9414728070F39599079B02152 /* PBXContainerItemProxy */;
 		};
-		648165F0E712FEA3C63D3D57B08C9461 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PKHUD;
-			target = F6F0516F82D07656D12F1C0716898F73 /* PKHUD */;
-			targetProxy = 91F5B4BA2D388FD189E1C8E11B69D756 /* PBXContainerItemProxy */;
-		};
-		A61680B659532E2905D8E32B8B9B0EEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = AMPopTip;
-			target = 586E40C0BEBAB01A075A5E60359FA09D /* AMPopTip */;
-			targetProxy = 0DA749366554579097220238E1CE7155 /* PBXContainerItemProxy */;
-		};
-		DD6066F1160DA9FC2AE44573E89D4CC2 /* PBXTargetDependency */ = {
+		39FC121FA2A3ECABF78B42B4125AD4F2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FontAwesome.swift;
-			target = 1FE2578FF0805299395CF2A0206BB671 /* FontAwesome.swift */;
-			targetProxy = 5B763A2CF6280A2073D0AC704DB92B65 /* PBXContainerItemProxy */;
+			target = CD11672B6619C297B6AEE3DFB8213C59 /* FontAwesome.swift */;
+			targetProxy = 59047A3A50A23CF1FF79088080F92C16 /* PBXContainerItemProxy */;
+		};
+		5AA26BB25373EAE4EE1C2277CA5482BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AMPopTip;
+			target = A406E78BB0A2D11548A4B5AB13C56142 /* AMPopTip */;
+			targetProxy = 27789E852D5A14F59DBAC813B88558F3 /* PBXContainerItemProxy */;
+		};
+		79651A7C80BF655BAE4E5A1350845F86 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PKHUD;
+			target = D7A75F149082140741FC1E0B5B2863C8 /* PKHUD */;
+			targetProxy = A393A597CAA99D67C1D9F7DECBCBE826 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		015A368F878AC3E2CEAE21DDE8026304 /* Debug */ = {
+		222A5960BDD29DEB20B10F4A8DFAF46E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2AD9218E9BC6D196CD8E94D604EE192 /* FontAwesome.swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
+				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/ResourceBundle-FontAwesome.swift-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = FontAwesome.swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		4181C58E1B926984BF5B8C4567FD18EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2AD9218E9BC6D196CD8E94D604EE192 /* FontAwesome.swift.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FontAwesome.swift/FontAwesome.swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FontAwesome.swift/FontAwesome.swift.modulemap";
+				PRODUCT_NAME = FontAwesome_swift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		421ECFBBE5BAFE987812318495B3B6EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCA5EF36C67104C8F90D370D8342DBF9 /* AMPopTip.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AMPopTip/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
+				PRODUCT_NAME = AMPopTip;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64C2D07D9403B50A8AA59AA7B1D09C3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76E97880A514FDB71DC042E3050E3656 /* PKHUD.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PKHUD/PKHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PKHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PKHUD/PKHUD.modulemap";
+				PRODUCT_NAME = PKHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B917F4EC1238C86189D5AC304804949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76E97880A514FDB71DC042E3050E3656 /* PKHUD.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/PKHUD/PKHUD-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PKHUD/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PKHUD/PKHUD.modulemap";
+				PRODUCT_NAME = PKHUD;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C3E37FB098AE76440E29106ADBF00CEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		0A377CDE9B27653F98E0692049B8DE19 /* Release */ = {
+		D6EE27F3DEF0DCD54A3411368103C46F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE7127F7E4B468AE19B68E84C85F6539 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = D2AD9218E9BC6D196CD8E94D604EE192 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/ResourceBundle-FontAwesome.swift-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = FontAwesome.swift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		3E269280F57ED846C56EF7E16E8D4328 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 740EF12D723EF3DA3171BC15F5E72EC9 /* PKHUD.xcconfig */;
-			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PKHUD/PKHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PKHUD/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PKHUD/PKHUD.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PKHUD;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		408DB3413398B29EE089C0212414F9F3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE7127F7E4B468AE19B68E84C85F6539 /* FontAwesome.swift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/FontAwesome.swift/FontAwesome.swift-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/FontAwesome.swift/FontAwesome.swift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = FontAwesome_swift;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
+		D85161EBFC9B733752335D5AC0D412C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D809A28E5835904A08D5EDCA8904ABF /* Pods-pep9pad.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-pep9pad/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pep9pad/Pods-pep9pad.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pep9pad;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DA03565BE765DB55C6448FB363A44481 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		64147827621B355A1E4C20FC21082C86 /* Debug */ = {
+		EC27459F07227FC7E12C61BDF52F4DE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE7127F7E4B468AE19B68E84C85F6539 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = E8A25E2439A75C0A0708EBAFB59BDD6B /* Pods-pep9pad.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/FontAwesome.swift/FontAwesome.swift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-pep9pad/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FontAwesome.swift/FontAwesome.swift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = FontAwesome_swift;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-pep9pad/Pods-pep9pad.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_pep9pad;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		86B93E443B243531CE4CBDFB127BA8A2 /* Debug */ = {
+		F42A371910AD49F95586044202D7EC01 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 740EF12D723EF3DA3171BC15F5E72EC9 /* PKHUD.xcconfig */;
+			baseConfigurationReference = DCA5EF36C67104C8F90D370D8342DBF9 /* AMPopTip.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PKHUD/PKHUD-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PKHUD/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AMPopTip/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PKHUD/PKHUD.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PKHUD;
+				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
+				PRODUCT_NAME = AMPopTip;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		A5CDEF4896424916421E96580C2BC61F /* Debug */ = {
+		FEE81985885E3F6B115EFBC0EB182EA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE7127F7E4B468AE19B68E84C85F6539 /* FontAwesome.swift.xcconfig */;
+			baseConfigurationReference = D2AD9218E9BC6D196CD8E94D604EE192 /* FontAwesome.swift.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FontAwesome.swift";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/FontAwesome.swift/ResourceBundle-FontAwesome.swift-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = FontAwesome.swift;
@@ -933,160 +1094,16 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Debug;
-		};
-		A82E0F5EB03193C01202A5851A466D64 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4408C9457DD5FCB7232B711361D1EA9D /* Pods-pep9pad.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pep9pad/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pep9pad/Pods-pep9pad.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pep9pad;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
 			name = Release;
-		};
-		B002CAB47D4ACC8955ECD25025017788 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B38C2A10784399DCF643A97254967EB7 /* AMPopTip.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AMPopTip/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = AMPopTip;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E8735D10969C367453305EE68C29FB64 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3457929DFA04E7A190938DC2F259D195 /* Pods-pep9pad.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-pep9pad/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-pep9pad/Pods-pep9pad.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_pep9pad;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E88BB306536FB3D966B70096EC9A503F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B38C2A10784399DCF643A97254967EB7 /* AMPopTip.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/AMPopTip/AMPopTip-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/AMPopTip/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/AMPopTip/AMPopTip.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = AMPopTip;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0AE7E0F743300724B8F0364F51693C2C /* Build configuration list for PBXNativeTarget "PKHUD" */ = {
+		1675A753390D78E4520D064E7C5385D5 /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				86B93E443B243531CE4CBDFB127BA8A2 /* Debug */,
-				3E269280F57ED846C56EF7E16E8D4328 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1684A00001C501B45A4F7685ACA48634 /* Build configuration list for PBXNativeTarget "AMPopTip" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E88BB306536FB3D966B70096EC9A503F /* Debug */,
-				B002CAB47D4ACC8955ECD25025017788 /* Release */,
+				EC27459F07227FC7E12C61BDF52F4DE1 /* Debug */,
+				D85161EBFC9B733752335D5AC0D412C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1094,35 +1111,44 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				015A368F878AC3E2CEAE21DDE8026304 /* Debug */,
-				44CDBB6D11DE06DB64D6268622BDC47E /* Release */,
+				C3E37FB098AE76440E29106ADBF00CEB /* Debug */,
+				DA03565BE765DB55C6448FB363A44481 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3AAA21AEDCFCA27C050D5E5019E9C282 /* Build configuration list for PBXNativeTarget "Pods-pep9pad" */ = {
+		35B00C6E9B949BFAFD120FB9CE4602A9 /* Build configuration list for PBXNativeTarget "AMPopTip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E8735D10969C367453305EE68C29FB64 /* Debug */,
-				A82E0F5EB03193C01202A5851A466D64 /* Release */,
+				F42A371910AD49F95586044202D7EC01 /* Debug */,
+				421ECFBBE5BAFE987812318495B3B6EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7B375BC6286A9E3DE2F46F4B52CBA3F /* Build configuration list for PBXNativeTarget "FontAwesome.swift-FontAwesome.swift" */ = {
+		8D647550AC543F36CDA7093F28F22389 /* Build configuration list for PBXNativeTarget "FontAwesome.swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A5CDEF4896424916421E96580C2BC61F /* Debug */,
-				0A377CDE9B27653F98E0692049B8DE19 /* Release */,
+				4181C58E1B926984BF5B8C4567FD18EE /* Debug */,
+				D6EE27F3DEF0DCD54A3411368103C46F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F38BD62EC04F59923F9724EE5CEF993B /* Build configuration list for PBXNativeTarget "FontAwesome.swift" */ = {
+		9306D49004A2A30AC52787A7B1C9C87A /* Build configuration list for PBXNativeTarget "PKHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				64147827621B355A1E4C20FC21082C86 /* Debug */,
-				408DB3413398B29EE089C0212414F9F3 /* Release */,
+				8B917F4EC1238C86189D5AC304804949 /* Debug */,
+				64C2D07D9403B50A8AA59AA7B1D09C3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A91ACF4D4E342DEB04B7C57FA8EA6CC1 /* Build configuration list for PBXNativeTarget "FontAwesome.swift-FontAwesome.swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				222A5960BDD29DEB20B10F4A8DFAF46E /* Debug */,
+				FEE81985885E3F6B115EFBC0EB182EA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
