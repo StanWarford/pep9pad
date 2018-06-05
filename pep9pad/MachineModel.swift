@@ -694,11 +694,7 @@ class MachineModel {
             operand = readWordOprnd(addrMode: addrMode)
             stackPointer = add(stackPointer, (~operand + 1) & 0xffff)
             return true
-        default:
-            // should not happen
-            return false
         }
-        return false
     }
     
     
