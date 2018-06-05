@@ -50,13 +50,14 @@ class PepTextStorage: BaseTextStorage {
                     }
                     // useful for debugging syntax highlighting
                     // print("Check for \(patternName) produced \(arrayOfResults.count) results with text len == \(text.length).")
-                } catch let error as NSError {
-                    // useful for debugging syntax highlighting
-                    // print("Invalid regex: \(error.localizedDescription)")
-                } catch {
-                    // useful for debugging syntax highlighting
-                    // print("Unknown regex error in PepTextStorage.")
                 }
+                //catch _ as NSError {
+                //                    // useful for debugging syntax highlighting
+                //                    // print("Invalid regex: \(error.localizedDescription)")
+                //                } catch {
+                //                    // useful for debugging syntax highlighting
+                //                    // print("Unknown regex error in PepTextStorage.")
+                //                }
 
                 if arrayOfResults.count > 0 {
                     self.highlightSyntaxPattern(patternName, foundInstances: arrayOfResults)
