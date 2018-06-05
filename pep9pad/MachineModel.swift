@@ -744,18 +744,18 @@ class MachineModel {
     
     /// Determines whether or not the charIn trap will be used.
     func willAccessCharIn() -> Bool {
-        var instrSpecTemp = readByte(programCounter)
-        var mnemonTemp = maps.decodeMnemonic[instrSpecTemp]
+        let instrSpecTemp = readByte(programCounter)
+        let mnemonTemp = maps.decodeMnemonic[instrSpecTemp]
         
         if (mnemonTemp != .LDBA && mnemonTemp != .LDBX) {
             return false
         }
-        var addrModeTemp = maps.decodeAddrMode[instrSpecTemp]
+        let addrModeTemp = maps.decodeAddrMode[instrSpecTemp]
         if addrModeTemp == .I {
             return false
         }
         
-        var oprndSpecTemp = readWord(add(programCounter, 1))
+        _  = readWord(add(programCounter, 1)) // _ was 'var oprndSpecTemp'
         var addrOfByteOprndTemp = 0
         switch addrModeTemp {
         case .None, .All, .I:
