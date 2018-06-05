@@ -484,7 +484,7 @@ class MachineModel {
             return true
         case .CPWA:
             operand = readWordOprnd(addrMode: addrMode)
-            addAndSetNZVC(accumulator, (~operand + 1) & 0xffff)
+            let _  = addAndSetNZVC(accumulator, (~operand + 1) & 0xffff)
             if vBit {
                 // Extend compare range. nBit and zBit are not adjusted in subtract instructions.
                 nBit = !nBit
@@ -492,7 +492,7 @@ class MachineModel {
             return true
         case .CPWX:
             operand = readWordOprnd(addrMode: addrMode)
-            addAndSetNZVC(indexRegister, (~operand + 1) & 0xffff)
+            let _  = addAndSetNZVC(indexRegister, (~operand + 1) & 0xffff)
             if vBit {
                 // Extend compare range. nBit and zBit are not adjusted in subtract instructions.
                 nBit = !nBit
