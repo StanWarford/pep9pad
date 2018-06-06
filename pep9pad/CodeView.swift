@@ -126,7 +126,7 @@ class CodeView: UIView, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         //Ensure we're not at the start of the text field and we are inserting text -- this is only to disable the ``double space adds perio`` shortcut that Apple enabled.
-        if range.location > 0 && text.characters.count > 0 {
+        if range.location > 0 && text.count > 0 {
             let whitespace = NSCharacterSet.whitespaces
             let utf16text = text.utf16
             let utf16textViewText = textView.text.utf16
