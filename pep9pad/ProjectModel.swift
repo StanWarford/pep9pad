@@ -227,7 +227,7 @@ class ProjectModel {
     
    
     func removeErrorMessages() {
-        var text: NSMutableString = NSMutableString(string: sourceStr)
+        let text: NSMutableString = NSMutableString(string: sourceStr)
 
         rxRemoveWarning.replaceMatches(in: text, options: .reportCompletion,
                                        range: NSRange(location: 0, length: text.length),

@@ -292,8 +292,6 @@ class AssemblerModel {
             return 2
         case ESymbolFormat.F_NONE:
             return 0
-        default:
-            return -1
         }
     }
     
@@ -1271,7 +1269,7 @@ class AssemblerModel {
         //Adjust for .BURN
         
         let addressDelta: Int = maps.dotBurnArgument - maps.byteCount + 1
-        var symbolTableSize: Int = maps.symbolTable.count
+        var _: Int = maps.symbolTable.count // MARK: - CAN WE REMOVE THIS
         for (kind, _) in maps.symbolTable {
             let valueAtCurrentKey: Bool = maps.adjustSymbolValueForBurn[kind]!
             if valueAtCurrentKey {
@@ -1280,7 +1278,7 @@ class AssemblerModel {
         }
         adjustSourceCode(addressDelta: addressDelta)
         maps.romStartAddress += addressDelta
-        getObjectCode()
+        _ = getObjectCode()
         loadOSIntoMem()
         self.osListing = getAssemblerListing()
         // assign this and then don't mess with it

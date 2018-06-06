@@ -93,7 +93,7 @@ class CPUDetailController : UIViewController {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
+        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary?
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }

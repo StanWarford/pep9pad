@@ -83,7 +83,7 @@ class CPUAssemblerModel {
     }
     
     func microAssemble() -> Bool {
-        var sourceCode:String = cpuProjectModel.sourceStr
+        let sourceCode:String = cpuProjectModel.sourceStr
         print(sourceCode)
         return true
     }

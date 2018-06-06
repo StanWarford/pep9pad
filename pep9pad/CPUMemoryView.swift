@@ -77,7 +77,8 @@ class CPUMemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextF
         let toLine = toByte / 8
         
         var line: String
-        var ch: String
+        //var ch: String
+        //MARK: - CH is unused... Delete?
         var byteNum: Int
         
         for lineNum in fromLine...toLine {

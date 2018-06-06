@@ -78,7 +78,7 @@ class NonunaryMnemonics: NSObject, UITextFieldDelegate {
         
         // Rather than convert `range` from an `NSRange` to a `Range<String.Index>`, just make the text an NSString.
         let oldText = textField.text! as NSString
-        let newText = oldText.replacingCharacters(in: range, with: string) as String
+        let _ = oldText.replacingCharacters(in: range, with: string) as String //Used to be oldText
         // limit to length of 8 chars
         
         return true
