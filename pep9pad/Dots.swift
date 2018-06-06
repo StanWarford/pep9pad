@@ -337,7 +337,7 @@ class DotByte: Code {
             codeStr = "  "
         }
         var symbolStr: String = symbolDef
-        if symbolStr.characters.count > 0 {
+        if symbolStr.count > 0 {
             symbolStr.append(":")
         }
         let dotStr: String = ".BYTE"
@@ -367,7 +367,7 @@ class DotEnd: Code {
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var symbolStr: String = symbolDef
-        if symbolStr.characters.count >  0 {
+        if symbolStr.count >  0 {
             symbolStr.append(":")
         }
         let dotStr = ".END"
@@ -394,7 +394,7 @@ class DotEquate: Code {
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
         var hasCheckBox = hasCheckBox
         var symbolStr: String = symbolDef
-        if symbolStr.characters.count > 0 {
+        if symbolStr.count > 0 {
             symbolStr.append(":")
         }
         let dotStr: String = ".EQUATE"
@@ -435,7 +435,7 @@ class DotWord: Code {
             codeStr = "   "
         }
         var symbolStr: String = symbolDef
-        if symbolStr.characters.count > 0 {
+        if symbolStr.count > 0 {
             symbolStr.append(":")
         }
         let dotStr: String = ".WORD"

@@ -268,7 +268,7 @@ class P9FileSystem {
     }
     
     func validNameForProject(name: String) -> Bool {
-        if name.characters.count >= 3 && !loadProjectNames().contains(name) {
+        if name.count >= 3 && !loadProjectNames().contains(name) {
             return true
         }
         return false
