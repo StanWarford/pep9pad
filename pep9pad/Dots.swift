@@ -301,7 +301,7 @@ class DotBurn: Code {
         var hasCheckBox = hasCheckBox
         let memStr: String = memAddress.toHex4()
         var symbolStr = symbolDef;
-        if (symbolStr.characters.count > 0) {
+        if (symbolStr.count > 0) {
             symbolStr.append(":")
         }
         let dotStr: String = ".BURN"
