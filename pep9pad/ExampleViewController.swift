@@ -55,6 +55,7 @@ class ExampleViewController: UIViewController {
                 currentExampleText = content
                 currentExampleType = exampleType(ofType)
             case .Bottom:
+                //Displays Regardless, only want if bottom exists
                 tempCodeView = bottomTextView
             }
             
@@ -104,6 +105,7 @@ class ExampleViewController: UIViewController {
                 let heightOfEach = (viewHeight-navAndStatBarHeight)/2
                 let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: heightOfEach)
                 let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight/2+navAndStatBarHeight/2, width: viewWidth, height: heightOfEach)
+                //Displays Regardless, only want for bottom
                 UIView.animate(withDuration: 0.25) {
                     self.topTextView.frame = newRectForTop
                     self.bottomTextView.frame = newRectForBottom
@@ -142,6 +144,15 @@ class ExampleViewController: UIViewController {
             return type
         }
     }
+    
+    func makeBoarder() {
+        topTextView!.layer.borderWidth = 1
+        bottomTextView!.layer.borderColor = UIColor.black.cgColor
+        bottomTextView!.layer.borderWidth = 1
+        bottomTextView!.layer.borderColor = UIColor.black.cgColor
+        
+    }
+    
     
 
 
