@@ -1142,7 +1142,7 @@ class AssemblerModel {
     
     func getReadableListing() -> String {
         var readable = ""
-        getAssemblerListing()
+        _ = getAssemblerListing()
         readable.append("-------------------------------------------------------------------------------\n")
         readable.append("      Object\n")
         readable.append("Addr  code   Symbol   Mnemon  Operand     Comment\n")

@@ -130,7 +130,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
+        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary?
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.setTitleTextAttributes(attrs, for: .disabled)
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
@@ -184,7 +184,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .play, ofSize: 20)
         } else if assembler.assemble() {
             setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .stop, ofSize: 20)
-            loadObject()
+            _ = loadObject()
             execute()
             setButtonIcon(forBarBtnItem: runBtn, nameOfIcon: .play, ofSize: 20)
         }
@@ -347,7 +347,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 regex.replaceMatches(in: NSMutableString(string: str), options: NSRegularExpression.MatchingOptions.reportCompletion, range: str.fullRange(), withTemplate: "")
             }
             
-            let newStr = assemblerListingList.joined(separator: "\n")
+            let _ = assemblerListingList.joined(separator: "\n") // was newStr
         }
 
         alertController.addAction(formatFromListingAction)
@@ -433,7 +433,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             maps.memAddrssToAssemblerListing = maps.memAddrssToAssemblerListingOS
             maps.listingRowChecked = maps.listingRowCheckedOS
             if assembler.installDefaultOS() {
-                assembler.getAssemblerListing()
+                _ = assembler.getAssemblerListing()
                 //assembler.setListingTrace(listingTraceList: assembler.getAssemblerListing())
                 print("OS Installed")
                 HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
@@ -1289,7 +1289,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.navigationItem.leftBarButtonItems?.remove(at: b)
         }
         // multiple spaces were added, so they should all be removed, I guess
-        for i in 0..<3 {
+        for _ in 0..<3 {
             if let c = self.navigationItem.leftBarButtonItems?.index(of: flexibleSpace) {
                 self.navigationItem.leftBarButtonItems?.remove(at: c)
             }

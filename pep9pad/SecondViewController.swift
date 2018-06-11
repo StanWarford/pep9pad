@@ -59,12 +59,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        projectModel.loadExistingProject(named: recents[indexPath.row])
+       _ = projectModel.loadExistingProject(named: recents[indexPath.row])
         newprojectbuttonpressed(dismissButton)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var c = UITableViewCell()
+        let c = UITableViewCell()
         c.textLabel?.text = recents[indexPath.row]
         c.textLabel?.textColor = UIColor.white
         c.backgroundColor = UIColor.clear
