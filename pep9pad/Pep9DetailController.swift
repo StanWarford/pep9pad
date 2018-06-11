@@ -209,7 +209,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         alertController.addAction(assembleSourceAction)
         
         let loadObjectAction = UIAlertAction(title: "Load Object", style: .default) { (action) in
-            self.loadObject()
+            _ = self.loadObject()
             HUD.flash(.labeledImage(image: UIImage(named: "loaded"), title: "Loaded", subtitle: nil), delay: 0.5)
         }
         alertController.addAction(loadObjectAction)
@@ -1257,7 +1257,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.programCounter = 0
         // set debug state
         machine.isTrapped = false
-        loadObject()
+        _ = loadObject()
         
         // set source and object to read only, may not be necessary
         
