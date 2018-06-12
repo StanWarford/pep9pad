@@ -10,7 +10,7 @@ import UIKit
 class TraceController: UIViewController {
     
     
-    var traceTable: TraceTableController!
+    var traceTable: SplitTraceViewController!
 
     
     
@@ -22,12 +22,14 @@ class TraceController: UIViewController {
         if let id = segue.identifier {
             switch id {
             case "embedTraceTable":
-                traceTable = segue.destination as! TraceTableController
+                traceTable = segue.destination as! SplitTraceViewController
+                
             default:
                 break
-                
+
             }
         }
     }
-    
+
 }
+

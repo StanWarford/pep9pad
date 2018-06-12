@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */; };
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
@@ -266,6 +267,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pep9pad-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTraceViewController.swift; sourceTree = "<group>"; };
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblerModel.swift; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
@@ -605,11 +608,13 @@
 		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
+				0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */,
 				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				46278CC81E076CFA009D6371 /* StackController.swift */,
 				468FB3111E0CB50D001F154A /* TraceTableController.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
+				0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */,
 			);
 			name = Trace;
 			sourceTree = "<group>";
@@ -1186,7 +1191,7 @@
 					D2B061551C7E62040088CEBE = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 4D624RRDMS;
-						LastSwiftMigration = 0920;
+						LastSwiftMigration = 0940;
 					};
 					D2B0616C1C7E62050088CEBE = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1494,6 +1499,7 @@
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
+				0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
@@ -1685,11 +1691,14 @@
 			baseConfigurationReference = 86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9pad.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "pep9pad/pep9pad-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1700,11 +1709,13 @@
 			baseConfigurationReference = 119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9pad.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "pep9pad/pep9pad-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
