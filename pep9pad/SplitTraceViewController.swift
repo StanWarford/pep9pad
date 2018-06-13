@@ -17,6 +17,14 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var stackView: UIView!
+    
+    func makeDivider() {
+    tableView!.layer.borderWidth = 1
+    tableView!.layer.borderColor = UIColor.black.cgColor
+    stackView!.layer.borderWidth = 1
+    stackView!.layer.borderColor = UIColor.black.cgColor
+    }
     
     func loadFromListing() {
         tableView.reloadData()
@@ -24,6 +32,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func update() {
+        makeDivider()
         // depends on whether we are in the OS or a program
         if machine.isTrapped && machine.shouldTraceTraps { // we are in the OS
             if !traceOS {
