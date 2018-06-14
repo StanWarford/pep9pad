@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */; };
+		0AC85E6420D2FB3800B9BC40 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC85E6320D2FB3800B9BC40 /* Stack.swift */; };
+		0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC85E6520D2FC3700B9BC40 /* StackVC.swift */; };
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */; };
 		4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */; };
@@ -269,6 +271,8 @@
 /* Begin PBXFileReference section */
 		0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pep9pad-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTraceViewController.swift; sourceTree = "<group>"; };
+		0AC85E6320D2FB3800B9BC40 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = ../../Stack.swift; sourceTree = "<group>"; };
+		0AC85E6520D2FC3700B9BC40 /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblerModel.swift; sourceTree = "<group>"; };
 		4612397C1CF28A8800EF0C18 /* PepSyntaxColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepSyntaxColors.swift; sourceTree = "<group>"; };
@@ -608,6 +612,7 @@
 		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
+				0AC85E6320D2FB3800B9BC40 /* Stack.swift */,
 				0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */,
 				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
@@ -615,6 +620,7 @@
 				468FB3111E0CB50D001F154A /* TraceTableController.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 				0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */,
+				0AC85E6520D2FC3700B9BC40 /* StackVC.swift */,
 			);
 			name = Trace;
 			sourceTree = "<group>";
@@ -1482,6 +1488,7 @@
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
 				753780681E96F873002E1968 /* SecondViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
+				0AC85E6420D2FB3800B9BC40 /* Stack.swift in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46D639FD1EA1BE0C00C44632 /* Pep9TabBarVCs.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
@@ -1539,6 +1546,7 @@
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
 				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
+				0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */,
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,

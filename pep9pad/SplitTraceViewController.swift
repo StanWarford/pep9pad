@@ -20,11 +20,14 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var stackView: UIView!
     
     func makeDivider() {
+        //Called in Update, TODO: Make only Bottom Boarder on TableView
     tableView!.layer.borderWidth = 1
     tableView!.layer.borderColor = UIColor.black.cgColor
-    stackView!.layer.borderWidth = 1
-    stackView!.layer.borderColor = UIColor.black.cgColor
+        // TODO: Why Broken?
+//    stackView!.layer.borderWidth = 1
+//    stackView!.layer.borderColor = UIColor.black.cgColor
     }
+
     
     func loadFromListing() {
         tableView.reloadData()

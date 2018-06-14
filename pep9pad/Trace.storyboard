@@ -94,8 +94,8 @@
                                     <outlet property="delegate" destination="Okv-9E-w9U" id="qpW-1R-b4M"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ro6-Bs-Da4">
-                                <rect key="frame" x="0.0" y="178" width="1024" height="582"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-yS-b3y" customClass="StackVC" customModule="pep9pad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="193" width="1024" height="575"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -103,7 +103,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
-                        <outlet property="stackView" destination="Ro6-Bs-Da4" id="VXa-6l-U9r"/>
                         <outlet property="tableView" destination="RrO-ji-W2P" id="PKW-Xo-M32"/>
                     </connections>
                 </viewController>
