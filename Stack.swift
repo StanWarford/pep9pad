@@ -26,15 +26,20 @@ public class Stack : NSObject {
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 768, height: 1024), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 768, y: resizedFrame.height / 1024)
+        
+        let screenWidth = SplitTraceViewController().windowWidth()
+        let screenHeight = SplitTraceViewController().windowHeight()
 
+        print(screenWidth)
+        print(screenHeight)
+        
+//        //// localRect Drawing
+//        let localRectPath = UIBezierPath(rect: CGRect(x: 344, y: 459, width: 74, height: 23))
+//        UIColor.black.setStroke()
+//        localRectPath.lineWidth = 2
+//        //localRectPath.stroke()
 
-        //// localRect Drawing
-        let localRectPath = UIBezierPath(rect: CGRect(x: 344, y: 459, width: 74, height: 23))
-        UIColor.black.setStroke()
-        localRectPath.lineWidth = 2
-        localRectPath.stroke()
-
-
+        
         //// stage Drawing
         let stagePath = UIBezierPath()
         stagePath.move(to: CGPoint(x: 320.02, y: 482.5))

@@ -13,6 +13,4 @@ class StackVC: UIView {
     override func draw(_ rect: CGRect) {
         Stack.drawCanvas2()
     }
-
-
 }
