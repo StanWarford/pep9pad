@@ -19,15 +19,6 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var stackView: UIView!
     
-    func windowHeight() -> CGFloat {
-        let screen = stackView.self.bounds
-        return screen.size.height
-    }
-    
-    func windowWidth() -> CGFloat { //TODO: value of nil returned for width
-        let screen = stackView.self.bounds
-        return screen.size.width
-    }
     
     func makeDivider() {
         //Called in Update, TODO: Make only Bottom Boarder on TableView

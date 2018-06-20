@@ -20,19 +20,31 @@ public class Stack : NSObject {
     @objc dynamic public class func drawCanvas2(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 768, height: 1024), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
+        print("CONTEXT")
+        print(context)
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 768, height: 1024), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 768, y: resizedFrame.height / 1024)
         
-        let screenWidth = SplitTraceViewController().windowWidth()
-        let screenHeight = SplitTraceViewController().windowHeight()
-
+        print("SCALED CONTEXT")
+        print(context)
+        
+        let screenWidth = resizedFrame.width
+        let screenHeight = resizedFrame.height
+        
+        print("DIMENSIONS")
         print(screenWidth)
         print(screenHeight)
         
+        let x0 = 0.41669271*Double(screenWidth)
+        let y0 = 0.47119141*Double(screenHeight)
+        
+        print("VARS")
+        print(x0)
+        print(y0)
+
 //        //// localRect Drawing
 //        let localRectPath = UIBezierPath(rect: CGRect(x: 344, y: 459, width: 74, height: 23))
 //        UIColor.black.setStroke()
@@ -42,24 +54,24 @@ public class Stack : NSObject {
         
         //// stage Drawing
         let stagePath = UIBezierPath()
-        stagePath.move(to: CGPoint(x: 320.02, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 442, y: 482.5))
-        stagePath.move(to: CGPoint(x: 335.58, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 315.5, y: 497.5))
-        stagePath.move(to: CGPoint(x: 350.64, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 330.56, y: 497.5))
-        stagePath.move(to: CGPoint(x: 365.7, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 345.62, y: 497.5))
-        stagePath.move(to: CGPoint(x: 395.82, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 375.74, y: 497.5))
-        stagePath.move(to: CGPoint(x: 380.76, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 360.68, y: 497.5))
-        stagePath.move(to: CGPoint(x: 410.88, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 390.8, y: 497.5))
-        stagePath.move(to: CGPoint(x: 425.94, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 405.86, y: 497.5))
-        stagePath.move(to: CGPoint(x: 441, y: 482.5))
-        stagePath.addLine(to: CGPoint(x: 420.92, y: 497.5))
+        stagePath.move(to: CGPoint(x: x0, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 121.98,y: y0))
+        stagePath.move(to: CGPoint(x: x0 + 15.56, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 - 4.52, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 30.62, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 10.54, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 45.68, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 25.6, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 60.74, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 40.66, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 75.8, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 55.72, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 90.86, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 70.78, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 105.92, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 85.84, y: y0 + 15.0))
+        stagePath.move(to: CGPoint(x: x0 + 120.98, y: y0))
+        stagePath.addLine(to: CGPoint(x: x0 + 100.9, y: y0 + 15.0))
         UIColor.black.setStroke()
         stagePath.lineWidth = 2
         stagePath.stroke()
