@@ -13,44 +13,32 @@
 
 import UIKit
 
-public class Stack : NSObject {
+public class Stack : UIView {
 
     //// Drawing Methods
 
     @objc dynamic public class func drawCanvas2(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 768, height: 1024), resizing: ResizingBehavior = .aspectFit) {
-        //// General Declarations
+        //// General Declaration
         let context = UIGraphicsGetCurrentContext()!
-        print("CONTEXT")
-        print(context)
+
         //// Resize to Target Frame
         context.saveGState()
         let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 768, height: 1024), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
         context.scaleBy(x: resizedFrame.width / 768, y: resizedFrame.height / 1024)
         
-        print("SCALED CONTEXT")
-        print(context)
         
         let screenWidth = resizedFrame.width
         let screenHeight = resizedFrame.height
         
-        print("DIMENSIONS")
-        print(screenWidth)
-        print(screenHeight)
-        
         let x0 = 0.41669271*Double(screenWidth)
         let y0 = 0.47119141*Double(screenHeight)
-        
-        print("VARS")
-        print(x0)
-        print(y0)
-
-//        //// localRect Drawing
-//        let localRectPath = UIBezierPath(rect: CGRect(x: 344, y: 459, width: 74, height: 23))
+     
+        //// localRect Drawing
+//        let localRectPath = UIBezierPath(rect: CGRect(x: 344, y: 859, wid`th: 74, height: 23))
 //        UIColor.black.setStroke()
 //        localRectPath.lineWidth = 2
-//        //localRectPath.stroke()
-
+//        localRectPath.stroke()
         
         //// stage Drawing
         let stagePath = UIBezierPath()
@@ -75,6 +63,183 @@ public class Stack : NSObject {
         UIColor.black.setStroke()
         stagePath.lineWidth = 2
         stagePath.stroke()
+        
+//        //// localData Drawing
+//        let localDataRect = CGRect(x: 361, y: 861, width: 40, height: 19)
+//        let localDataTextContent = "TEXT"
+//        let localDataStyle = NSMutableParagraphStyle()
+//        localDataStyle.alignment = .center
+//        let localDataFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: localDataStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let localDataTextHeight: CGFloat = localDataTextContent.boundingRect(with: CGSize(width: localDataRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: localDataFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: localDataRect)
+//        localDataTextContent.draw(in: CGRect(x: localDataRect.minX, y: localDataRect.minY + (localDataRect.height - localDataTextHeight) / 2, width: localDataRect.width, height: localDataTextHeight), withAttributes: localDataFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// localAddr Drawing
+//        let localAddrRect = CGRect(x: 281, y: 861, width: 39, height: 19)
+//        let localAddrTextContent = "TEXT"
+//        let localAddrStyle = NSMutableParagraphStyle()
+//        localAddrStyle.alignment = .left
+//        let localAddrFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: localAddrStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let localAddrTextHeight: CGFloat = localAddrTextContent.boundingRect(with: CGSize(width: localAddrRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: localAddrFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: localAddrRect)
+//        localAddrTextContent.draw(in: CGRect(x: localAddrRect.minX, y: localAddrRect.minY + (localAddrRect.height - localAddrTextHeight) / 2, width: localAddrRect.width, height: localAddrTextHeight), withAttributes: localAddrFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// localIdentifier Drawing
+//        let localIdentifierRect = CGRect(x: 442, y: 861, width: 42, height: 19)
+//        let localIdentifierTextContent = "TEXT"
+//        let localIdentifierStyle = NSMutableParagraphStyle()
+//        localIdentifierStyle.alignment = .left
+//        let localIdentifierFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: localIdentifierStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let localIdentifierTextHeight: CGFloat = localIdentifierTextContent.boundingRect(with: CGSize(width: localIdentifierRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: localIdentifierFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: localIdentifierRect)
+//        localIdentifierTextContent.draw(in: CGRect(x: localIdentifierRect.minX, y: localIdentifierRect.minY + (localIdentifierRect.height - localIdentifierTextHeight) / 2, width: localIdentifierRect.width, height: localIdentifierTextHeight), withAttributes: localIdentifierFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// globalRect Drawing
+//        let globalRectPath = UIBezierPath(rect: CGRect(x: 605, y: 859, width: 74, height: 23))
+//        UIColor.black.setStroke()
+//        globalRectPath.lineWidth = 2
+//        globalRectPath.stroke()
+//
+//
+//        //// globalData Drawing
+//        let globalDataRect = CGRect(x: 615, y: 861, width: 54, height: 19)
+//        let globalDataTextContent = "TEXT"
+//        let globalDataStyle = NSMutableParagraphStyle()
+//        globalDataStyle.alignment = .center
+//        let globalDataFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: globalDataStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let globalDataTextHeight: CGFloat = globalDataTextContent.boundingRect(with: CGSize(width: globalDataRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: globalDataFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: globalDataRect)
+//        globalDataTextContent.draw(in: CGRect(x: globalDataRect.minX, y: globalDataRect.minY + (globalDataRect.height - globalDataTextHeight) / 2, width: globalDataRect.width, height: globalDataTextHeight), withAttributes: globalDataFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// globalAddr Drawing
+//        let globalAddrRect = CGRect(x: 545, y: 861, width: 39, height: 19)
+//        let globalAddrTextContent = "TEXT"
+//        let globalAddrStyle = NSMutableParagraphStyle()
+//        globalAddrStyle.alignment = .left
+//        let globalAddrFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: globalAddrStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let globalAddrTextHeight: CGFloat = globalAddrTextContent.boundingRect(with: CGSize(width: globalAddrRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: globalAddrFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: globalAddrRect)
+//        globalAddrTextContent.draw(in: CGRect(x: globalAddrRect.minX, y: globalAddrRect.minY + (globalAddrRect.height - globalAddrTextHeight) / 2, width: globalAddrRect.width, height: globalAddrTextHeight), withAttributes: globalAddrFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// mainRect Drawing
+//        let mainRectPath = UIBezierPath(rect: CGRect(x: 93, y: 859, width: 74, height: 23))
+//        UIColor.black.setStroke()
+//        mainRectPath.lineWidth = 2
+//        mainRectPath.stroke()
+//
+//
+//        //// mainData Drawing
+//        let mainDataRect = CGRect(x: 103, y: 861, width: 54, height: 19)
+//        let mainDataTextContent = "TEXT"
+//        let mainDataStyle = NSMutableParagraphStyle()
+//        mainDataStyle.alignment = .center
+//        let mainDataFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: mainDataStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let mainDataTextHeight: CGFloat = mainDataTextContent.boundingRect(with: CGSize(width: mainDataRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mainDataFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: mainDataRect)
+//        mainDataTextContent.draw(in: CGRect(x: mainDataRect.minX, y: mainDataRect.minY + (mainDataRect.height - mainDataTextHeight) / 2, width: mainDataRect.width, height: mainDataTextHeight), withAttributes: mainDataFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// mainAddr Drawing
+//        let mainAddrRect = CGRect(x: 30, y: 861, width: 39, height: 19)
+//        let mainAddrTextContent = "TEXT"
+//        let mainAddrStyle = NSMutableParagraphStyle()
+//        mainAddrStyle.alignment = .left
+//        let mainAddrFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: mainAddrStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let mainAddrTextHeight: CGFloat = mainAddrTextContent.boundingRect(with: CGSize(width: mainAddrRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mainAddrFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: mainAddrRect)
+//        mainAddrTextContent.draw(in: CGRect(x: mainAddrRect.minX, y: mainAddrRect.minY + (mainAddrRect.height - mainAddrTextHeight) / 2, width: mainAddrRect.width, height: mainAddrTextHeight), withAttributes: mainAddrFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// mainIdentifier Drawing
+//        let mainIdentifierRect = CGRect(x: 191, y: 861, width: 39, height: 19)
+//        let mainIdentifierTextContent = "TEXT"
+//        let mainIdentifierStyle = NSMutableParagraphStyle()
+//        mainIdentifierStyle.alignment = .left
+//        let mainIdentifierFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: mainIdentifierStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let mainIdentifierTextHeight: CGFloat = mainIdentifierTextContent.boundingRect(with: CGSize(width: mainIdentifierRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mainIdentifierFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: mainIdentifierRect)
+//        mainIdentifierTextContent.draw(in: CGRect(x: mainIdentifierRect.minX, y: mainIdentifierRect.minY + (mainIdentifierRect.height - mainIdentifierTextHeight) / 2, width: mainIdentifierRect.width, height: mainIdentifierTextHeight), withAttributes: mainIdentifierFontAttributes)
+//        context.restoreGState()
+//
+//
+//        //// globalIdentifier Drawing
+//        let globalIdentifierRect = CGRect(x: 700, y: 861, width: 39, height: 19)
+//        let globalIdentifierTextContent = "TEXT"
+//        let globalIdentifierStyle = NSMutableParagraphStyle()
+//        globalIdentifierStyle.alignment = .left
+//        let globalIdentifierFontAttributes = [
+//            .font: UIFont.systemFont(ofSize: 15),
+//            .foregroundColor: UIColor.black,
+//            .paragraphStyle: globalIdentifierStyle,
+//            ] as [NSAttributedStringKey: Any]
+//
+//        let globalIdentifierTextHeight: CGFloat = globalIdentifierTextContent.boundingRect(with: CGSize(width: globalIdentifierRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: globalIdentifierFontAttributes, context: nil).height
+//        context.saveGState()
+//        context.clip(to: globalIdentifierRect)
+//        globalIdentifierTextContent.draw(in: CGRect(x: globalIdentifierRect.minX, y: globalIdentifierRect.minY + (globalIdentifierRect.height - globalIdentifierTextHeight) / 2, width: globalIdentifierRect.width, height: globalIdentifierTextHeight), withAttributes: globalIdentifierFontAttributes)
+//        context.restoreGState()
+//
+//        context.restoreGState()
     }
 
 
