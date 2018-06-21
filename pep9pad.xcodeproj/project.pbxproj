@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */; };
-		0AC1EB1920D31C8300BEDEDD /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1EB1820D31C8300BEDEDD /* Stack.swift */; };
 		0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC85E6520D2FC3700B9BC40 /* StackVC.swift */; };
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */; };
@@ -248,6 +247,7 @@
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
 		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
 		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */; };
+		D2DDC5C920DC2F05006ABF0E /* Ref in Resources */ = {isa = PBXBuildFile; fileRef = D2DDC5C820DC2F05006ABF0E /* Ref */; };
 		F613FD6F1E89D1F4003939C0 /* UnaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613FD6E1E89D1F4003939C0 /* UnaryMnemonics.swift */; };
 /* End PBXBuildFile section */
 
@@ -271,7 +271,6 @@
 /* Begin PBXFileReference section */
 		0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pep9pad-Bridging-Header.h"; sourceTree = "<group>"; };
 		0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTraceViewController.swift; sourceTree = "<group>"; };
-		0AC1EB1820D31C8300BEDEDD /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = SOURCE_ROOT; };
 		0AC85E6520D2FC3700B9BC40 /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblerModel.swift; sourceTree = "<group>"; };
@@ -520,6 +519,7 @@
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
 		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
 		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailController.swift; sourceTree = "<group>"; };
+		D2DDC5C820DC2F05006ABF0E /* Ref */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Ref; sourceTree = "<group>"; };
 		F613FD6E1E89D1F4003939C0 /* UnaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnaryMnemonics.swift; path = pep9pad/UnaryMnemonics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -612,7 +612,6 @@
 		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
-				0AC1EB1820D31C8300BEDEDD /* Stack.swift */,
 				0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */,
 				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
@@ -1068,6 +1067,7 @@
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
+				D2DDC5C820DC2F05006ABF0E /* Ref */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
 				46B58BD31C8FD872006E46B4 /* Help */,
@@ -1308,6 +1308,7 @@
 				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
 				46539C7F1E9AEED700718705 /* fig0627.pepo in Resources */,
 				462BA75F1E2B2A3B00BBABCD /* fig0522.txt in Resources */,
+				D2DDC5C920DC2F05006ABF0E /* Ref in Resources */,
 				46539C7A1E9AEED700718705 /* fig0616.pepo in Resources */,
 				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
@@ -1542,7 +1543,6 @@
 				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
-				0AC1EB1920D31C8300BEDEDD /* Stack.swift in Sources */,
 				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
 				0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */,
