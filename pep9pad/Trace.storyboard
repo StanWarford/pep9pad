@@ -57,15 +57,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-yS-b3y" customClass="StackVC" customModule="pep9pad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-yS-b3y" customClass="StackVC" customModule="pep9pad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="193" width="1024" height="575"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RrO-ji-W2P">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RrO-ji-W2P">
                                 <rect key="frame" x="0.0" y="20" width="1024" height="165"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1024" id="FGF-Y6-Dff"/>
+                                    <constraint firstAttribute="height" constant="165" id="Tei-0d-JS2"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="Okv-9E-w9U" id="S4i-Qj-w12"/>
                                     <outlet property="delegate" destination="Okv-9E-w9U" id="qpW-1R-b4M"/>
@@ -73,6 +75,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qEg-Fj-TiB" firstAttribute="top" secondItem="kjE-yS-b3y" secondAttribute="bottom" id="Cbe-4P-fUX"/>
+                            <constraint firstItem="RrO-ji-W2P" firstAttribute="top" secondItem="QPx-lW-YQ7" secondAttribute="bottom" id="Cx5-XU-ZNH"/>
+                            <constraint firstAttribute="trailing" secondItem="kjE-yS-b3y" secondAttribute="trailing" id="WXD-PS-ynr"/>
+                            <constraint firstItem="kjE-yS-b3y" firstAttribute="top" secondItem="RrO-ji-W2P" secondAttribute="bottom" id="asz-Sj-l1V"/>
+                            <constraint firstItem="kjE-yS-b3y" firstAttribute="leading" secondItem="5sk-xW-1hV" secondAttribute="leading" id="iaj-D4-96z"/>
+                            <constraint firstItem="RrO-ji-W2P" firstAttribute="leading" secondItem="5sk-xW-1hV" secondAttribute="leading" id="lI0-bd-rfv"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="stackView" destination="kjE-yS-b3y" id="UpN-bK-b2c"/>

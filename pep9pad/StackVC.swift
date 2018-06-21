@@ -16,7 +16,7 @@ class StackVC: UIView {
     
     override func draw(_ rect: CGRect) {
         let x0 = rect.width/2.0 - 50.0
-        let y0 = rect.height - 400.0
+        let y0 = rect.height - 25.0
 
         let stagePath = UIBezierPath()
         stagePath.move(to: CGPoint(x: x0, y: y0))
