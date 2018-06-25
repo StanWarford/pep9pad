@@ -19,17 +19,17 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var stackView: UIView!
     
+    let screenHeight = UIScreen.main.bounds.height
     
-//    func draw(_ rect: CGRect) {
-//        Stack.drawCanvas2(frame: stackView.frame, resizing: .aspectFit)
-//    }
-//    func getWidth() -> Double {
-//        return Double(stackView.bounds.width)
-//    }
-//
-//    func getHeight() -> Double {
-//        return Double(stackView.bounds.height)
-//    }
+    func hideorShow() {
+        let boolToFind = true
+        if boolToFind == false {
+            stackView.isHidden = true
+          //  tableView.frame.height = screenHeight
+        }
+    }
+    
+    
     func makeDivider() {
         //Called in Update, TODO: Make only Bottom Boarder on TableView
     tableView!.layer.borderWidth = 1
@@ -44,6 +44,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func update() {
         makeDivider()
+        hideorShow()
         // depends on whether we are in the OS or a program
         if machine.isTrapped && machine.shouldTraceTraps { // we are in the OS
             if !traceOS {
