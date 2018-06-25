@@ -123,7 +123,7 @@ class AssemblerModel {
         }
         
         
-        maps.traceTagWarning = true //Bool to use
+        maps.traceTagWarning = false //Bool to use in SplitTraceViewController.Swift
         
 //        // check format trace tags
 //        for i in 0..<source.count {

@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="stackView" destination="kjE-yS-b3y" id="ucb-mR-lfX"/>
                         <outlet property="tableView" destination="RrO-ji-W2P" id="PKW-Xo-M32"/>
+                        <outlet property="tableViewHeight" destination="Tei-0d-JS2" id="U2j-WC-gy3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0a6-FB-7wE" userLabel="First Responder" sceneMemberID="firstResponder"/>

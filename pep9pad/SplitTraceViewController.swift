@@ -19,12 +19,14 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBOutlet weak var stackView: UIView!
     
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
     let screenHeight = UIScreen.main.bounds.height
     
     func hideorShow() {
         if maps.traceTagWarning {
             stackView.isHidden = true
-            //  tableView.frame.height = screenHeight
+            tableView.removeConstraint(tableViewHeight)
         }
     }
 

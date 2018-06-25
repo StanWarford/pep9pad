@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Ref">
-   </FileRef>
-   <FileRef
       location = "group:pep9pad.xcodeproj">
    </FileRef>
    <FileRef
