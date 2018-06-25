@@ -22,14 +22,12 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     let screenHeight = UIScreen.main.bounds.height
     
     func hideorShow() {
-        let boolToFind = true
-        if boolToFind == false {
+        if maps.traceTagWarning {
             stackView.isHidden = true
-          //  tableView.frame.height = screenHeight
+            //  tableView.frame.height = screenHeight
         }
     }
-    
-    
+
     func makeDivider() {
         //Called in Update, TODO: Make only Bottom Boarder on TableView
     tableView!.layer.borderWidth = 1

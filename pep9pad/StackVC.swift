@@ -17,7 +17,7 @@ class StackVC: UIView {
     override func draw(_ rect: CGRect) {
         let x0 = rect.width/2.0 - 50.0
         let y0 = rect.height - 25.0
-
+        
         let stagePath = UIBezierPath()
         stagePath.move(to: CGPoint(x: x0, y: y0))
         stagePath.addLine(to: CGPoint(x: x0 + 121.98,y: y0))
@@ -40,6 +40,5 @@ class StackVC: UIView {
         UIColor.black.setStroke()
         stagePath.lineWidth = 2
         stagePath.stroke()
-        
     }
 }

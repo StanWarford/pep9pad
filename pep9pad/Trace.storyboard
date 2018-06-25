@@ -85,7 +85,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="stackView" destination="kjE-yS-b3y" id="UpN-bK-b2c"/>
+                        <outlet property="stackView" destination="kjE-yS-b3y" id="ucb-mR-lfX"/>
                         <outlet property="tableView" destination="RrO-ji-W2P" id="PKW-Xo-M32"/>
                     </connections>
                 </viewController>

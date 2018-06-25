@@ -123,7 +123,7 @@ class AssemblerModel {
         }
         
         
-        maps.traceTagWarning = false
+        maps.traceTagWarning = true //Bool to use
         
 //        // check format trace tags
 //        for i in 0..<source.count {

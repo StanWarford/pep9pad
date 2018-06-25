@@ -1196,6 +1196,7 @@
 				TargetAttributes = {
 					D2B061551C7E62040088CEBE = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 4D624RRDMS;
 						LastSwiftMigration = 0940;
 					};
 					D2B0616C1C7E62050088CEBE = {
@@ -1699,7 +1700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9pad.2;
@@ -1717,7 +1718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.pepperdine.iosworkshop.warford.pep9pad.2;
