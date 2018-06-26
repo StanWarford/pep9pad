@@ -237,11 +237,12 @@ class DotBlock: Code {
         if symbolDef.isEmpty {
             return true
         }
-        let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
-        if pos > -1 {
-            let formatTag: String = rxFormatTag.cap(section: 0)
-            let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
-            let multiplier: Int = assembler.formatMultiplier(formatTag)
+        if rxFormatTag.appearsIn(comment) {
+            //To Do: Want an array of matching trace tags
+            let formatTag: [String] = rxFormatTag.matchesIn(comment)
+            //let formatTag: string = rxFormatTag.cap(0)
+            let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
+            let multiplier: Int = assembler.formatMultiplier(formatTag[0])
             if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
                 errorString = ";WARNING: Format tag does not match number of bytes allocated by .BLOCK."
                 sourceLine = sourceCodeLine

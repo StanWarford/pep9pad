@@ -125,23 +125,23 @@ class AssemblerModel {
         
         maps.traceTagWarning = false //Bool to use in SplitTraceViewController.Swift
         
-//        // check format trace tags
-//        for i in 0..<source.count {
-//            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
-//                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
-//                maps.traceTagWarning = true
-//            }
-//        }
-//        
-//        // check symbol trace tags
-//        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
-//            for i in 0..<source.count {
-//                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
-//                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
-//                    maps.traceTagWarning = true
-//                }
-//            }
-//        }
+        // check format trace tags
+        for i in 0..<source.count {
+            if (!source[i].processFormatTraceTags(at: &lineNum, err: &errorString)) {
+                projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                maps.traceTagWarning = true
+            }
+        }
+        
+        // check symbol trace tags
+        if !maps.traceTagWarning && !(maps.blockSymbols.isEmpty && maps.equateSymbols.isEmpty) {
+            for i in 0..<source.count {
+                if !(source[i].processSymbolTraceTags(at: &lineNum, err: &errorString)) {
+                    projectModel.appendMessageInSource(atLine: lineNum, message: errorString)
+                    maps.traceTagWarning = true
+                }
+            }
+        }
         
         // these have been moved to the assembleSource function in the Pep9DetailController
         //traceVC.setMemoryTrace()
