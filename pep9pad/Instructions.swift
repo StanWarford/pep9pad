@@ -61,9 +61,6 @@ class NonUnaryInstruction: Code {
             objectCode.append(operandSpecifier / 256)
             objectCode.append(operandSpecifier % 256)
         }
-    
-    
-    
 }
     
     override func appendSourceLine(assemblerListing: inout [String], listingTrace: inout [String], hasCheckBox: [Bool]) {
@@ -105,12 +102,11 @@ class NonUnaryInstruction: Code {
     
     override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
-            let pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
-            if pos > -1 {
+            if rxFormatTag.appearsIn(comment) {
                 var list: [String] = [""]
-                let formatTag: String = rxFormatTag.cap(section: 0)
-                let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag)
-                let multiplier: Int = assembler.formatMultiplier(formatTag)
+                let formatTag: [String] = rxFormatTag.matchesIn(comment)
+                let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
+                let multiplier: Int = assembler.formatMultiplier(formatTag[0])
                 let symbolDef: String = memAddress.toHex2()
                 if !maps.equateSymbols.contains(symbolDef) {
                     // Limitation: only one dummy format per program
@@ -139,17 +135,15 @@ class NonUnaryInstruction: Code {
             var symbol: String
             var list: [String] = [""]
             var numBytesListed: Int = 0
-            var pos: Int = rxSymbolTag.index(ofAccessibilityElement: comment)
-            while pos > -1 {
-                symbol = rxSymbolTag.cap(section: 1)
-                if !maps.equateSymbols.contains(symbol) {
-                    errorString = ";WARNING: " + symbol + " not specified in .EQUATE."
+            let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
+            for symbol in symbolTag {
+                if !(maps.equateSymbols.contains(symbol)) {
+                    errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                     sourceLine = sourceCodeLine
                     return false
                 }
                 numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
                 list.append(symbol)
-                pos += rxSymbolTag.matchedLength()
             }
             if numBytesAllocated != numBytesListed {
                 let message: String = (mnemonic == EMnemonic.ADDSP) ? "deallocated" : "allocated"
@@ -163,16 +157,14 @@ class NonUnaryInstruction: Code {
         else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
             var symbol: String
             var list: [String] = [""]
-            var pos: Int = rxFormatTag.index(ofAccessibilityElement: comment)
-            while pos > -1 {
-                symbol = rxSymbolTag.cap(section: 1)
+            let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
+            for symbol in symbolTag {
                 if !maps.equateSymbols.contains(symbol) && !maps.blockSymbols.contains(symbol) {
                     errorString = ";WARNING " + symbol + " not specified in .EQUATE."
                     sourceLine = sourceCodeLine
                     return false
                 }
                 list.append(symbol)
-                pos += rxSymbolTag.matchedLength()
             }
             if !list.isEmpty {
                 maps.symbolTraceList[memAddress] = list

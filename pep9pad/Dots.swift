@@ -238,9 +238,7 @@ class DotBlock: Code {
             return true
         }
         if rxFormatTag.appearsIn(comment) {
-            //To Do: Want an array of matching trace tags
-            let formatTag: [String] = rxFormatTag.matchesIn(comment)
-            //let formatTag: string = rxFormatTag.cap(0)
+            let formatTag: [String] = rxFormatTag.matchesIn(comment) //Array of Trace Tags
             let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
             let multiplier: Int = assembler.formatMultiplier(formatTag[0])
             if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
@@ -255,7 +253,7 @@ class DotBlock: Code {
         return true
     }
     
-    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
+    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool { //TODO: Not recognized for Fig 6.46 Not Called in Code when should be
         if symbolDef.isEmpty {
             return true
         }
@@ -265,14 +263,15 @@ class DotBlock: Code {
         
         let numBytesAllocated: Int = argument.getArgumentValue()
         var symbol: String
+        let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
         var list: [String] = []
         var numBytesListed: Int = 0
-        while rxSymbolTag.appearsIn(comment) {  // UPDATE
-            symbol = rxSymbolTag.cap(section: 1)
+        for symbol in symbolTag {
             if !(maps.equateSymbols.contains(symbol)) {
                 errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                 sourceLine = sourceCodeLine
                 return false
+
             }
             numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
             list.append(symbol)
@@ -410,9 +409,26 @@ class DotEquate: Code {
     }
     
     override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
+        if symbolDef.isEmpty {
+            return true
+        }
+        if rxFormatTag.appearsIn(comment) {
+            let formatTag: [String] = rxFormatTag.matchesIn(comment) //Array of Trace Tags
+            let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
+            let multiplier: Int = assembler.formatMultiplier(formatTag[0])
+            if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
+                errorString = ";WARNING: Format tag does not match number of bytes allocated by .BLOCK."
+                sourceLine = sourceCodeLine
+                return false
+            }
+            maps.symbolFormat[symbolDef] = tagType
+            maps.symbolFormatMultiplier[symbolDef] = multiplier
+            maps.blockSymbols.append(symbolDef)
+        }
         return true
+        }
     }
-}
+
 
 
 class DotWord: Code {

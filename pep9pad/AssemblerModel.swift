@@ -244,9 +244,6 @@ class AssemblerModel {
         }
         tokenString = ";ERROR: Syntax error."
         return false
-        
-        
-        
     }
     
     func formatMultiplier(_ formatTag: String) -> Int {
