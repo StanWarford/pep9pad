@@ -244,15 +244,6 @@ extension NSRegularExpression {
         return results.map { ns.substring(with: $0.range)}
     }
     
-    // MARK: NO IDEA IF THIS WORKS
-    func cap(section: Int) -> String {
-        var value: String = ""
-        let outline: [String] = [rxFormatTag.pattern]
-        for i in 0...3 {
-            value = outline[i]
-        }
-        return value
-    }
     
     func matchedLength() -> Int {
         return 0

@@ -247,10 +247,10 @@ class AssemblerModel {
     }
     
     func formatMultiplier(_ formatTag: String) -> Int {
-        let pos: Int = rxArrayMultiplier.index(ofAccessibilityElement: formatTag)
-        if pos > -1 {
-            var multiplierTag: String = rxArrayMultiplier.cap(section: 0)
-            multiplierTag.chop()
+        if rxArrayMultiplier.appearsIn(formatTag) {
+            var multiplierTagArray : [String] = rxArrayMultiplier.matchesIn(formatTag)
+            var multiplierTag : String = multiplierTagArray[0]
+            multiplierTag.removeLast() //Remove 'a' from formatTag
             return Int(multiplierTag)!
         }
         return 1

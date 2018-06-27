@@ -239,6 +239,7 @@ class DotBlock: Code {
         }
         if rxFormatTag.appearsIn(comment) {
             let formatTag: [String] = rxFormatTag.matchesIn(comment) //Array of Trace Tags
+            //let formatTag: string = rxFormatTag.cap(0)
             let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
             let multiplier: Int = assembler.formatMultiplier(formatTag[0])
             if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
@@ -416,11 +417,6 @@ class DotEquate: Code {
             let formatTag: [String] = rxFormatTag.matchesIn(comment) //Array of Trace Tags
             let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
             let multiplier: Int = assembler.formatMultiplier(formatTag[0])
-            if argument.getArgumentValue() != (assembler.tagNumBytes(symbolFormat: tagType) * multiplier) {
-                errorString = ";WARNING: Format tag does not match number of bytes allocated by .BLOCK."
-                sourceLine = sourceCodeLine
-                return false
-            }
             maps.symbolFormat[symbolDef] = tagType
             maps.symbolFormatMultiplier[symbolDef] = multiplier
             maps.blockSymbols.append(symbolDef)
