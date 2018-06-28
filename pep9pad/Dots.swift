@@ -419,7 +419,8 @@ class DotEquate: Code {
             let multiplier: Int = assembler.formatMultiplier(formatTag[0])
             maps.symbolFormat[symbolDef] = tagType
             maps.symbolFormatMultiplier[symbolDef] = multiplier
-            maps.blockSymbols.append(symbolDef)
+            maps.equateSymbols.append(symbolDef)
+            print(maps.equateSymbols)
         }
         return true
         }

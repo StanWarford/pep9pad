@@ -132,11 +132,11 @@ class NonUnaryInstruction: Code {
                 return false
             }
             numBytesAllocated = argument.getArgumentValue()
-            var symbol: String
             var list: [String] = [""]
             var numBytesListed: Int = 0
             let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
-            for symbol in symbolTag {
+            for (var symbol) in symbolTag {
+                symbol.removeFirst()
                 if !(maps.equateSymbols.contains(symbol)) {
                     errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                     sourceLine = sourceCodeLine
