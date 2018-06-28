@@ -122,8 +122,6 @@ class NonUnaryInstruction: Code {
     }
     
     override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
-        var sourceLine = sourceLine
-        var errorString = errorString
         if mnemonic == EMnemonic.ADDSP || mnemonic == EMnemonic.SUBSP {
             var numBytesAllocated: Int
             if addressingMode != EAddrMode.I {
