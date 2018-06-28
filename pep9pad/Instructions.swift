@@ -155,10 +155,10 @@ class NonUnaryInstruction: Code {
             return true
         }
         else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
-            var symbol: String
             var list: [String] = [""]
             let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
-            for symbol in symbolTag {
+            for (var symbol) in symbolTag {
+                symbol.removeFirst()
                 if !maps.equateSymbols.contains(symbol) && !maps.blockSymbols.contains(symbol) {
                     errorString = ";WARNING " + symbol + " not specified in .EQUATE."
                     sourceLine = sourceCodeLine
