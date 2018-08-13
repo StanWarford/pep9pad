@@ -49,7 +49,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         let v: StackCell = (Bundle.main.loadNibNamed(
             "StackCell", owner: nil, options: nil)?.first as? UIView) as! StackCell
         
-        v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -40)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -24)))
+        v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -23)))
         
         stack.append(v)
 
@@ -72,8 +72,21 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    var cachedListing: [String] = []
     
-    
+    func reloadIfNeeded() {
+        if traceOS {
+            if assembler.osListing != cachedListing {
+                cachedListing = assembler.osListing
+                tableView.reloadData()
+            }
+        } else {
+            if assembler.listing != cachedListing {
+                cachedListing = assembler.listing
+                tableView.reloadData()
+            }
+        }
+    }
     
     func update() {
         //makeDivider()
@@ -87,7 +100,8 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
                 // this is the first we are hearing about the trapped state
                 traceOS = true
             }
-            tableView.reloadData()
+            reloadIfNeeded()
+            //tableView.reloadData()
             // select a row corresponding to the current instruction
             if let row = maps.memAddrssToAssemblerListingOS[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0),
@@ -102,7 +116,8 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
                 traceOS = false
                 //tableView.reloadData()
             }
-            tableView.reloadData()
+            reloadIfNeeded()
+            //tableView.reloadData()
             // select a row corresponding to the current instruction
             if let row = maps.memAddrssToAssemblerListing[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0),
