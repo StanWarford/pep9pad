@@ -15,6 +15,10 @@ class TraceTableController: UITableViewController {
     
     var traceOS: Bool = false
     
+    
+    var shouldUpdate: Bool = true
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -26,18 +30,15 @@ class TraceTableController: UITableViewController {
     
     
     func update() {
+        
+        /* THIS BLOCK SHOULD BE SIMPLIFIED */
         // depends on whether we are in the OS or a program
         if machine.isTrapped && machine.shouldTraceTraps { // we are in the OS
-            if !traceOS {
-                // this is the first we are hearing about the trapped state
-                traceOS = true
-            }
-            tableView.reloadData()
+
             // select a row corresponding to the current instruction
             if let row = maps.memAddrssToAssemblerListingOS[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0),
                                     animated: true, scrollPosition: .middle)
-                //tableView.reloadData()
             } else {
                 print("error for \(machine.programCounter) in OS")
             }
@@ -45,18 +46,20 @@ class TraceTableController: UITableViewController {
             if traceOS {
                 // this is the first we are hearing about the untrapped state
                 traceOS = false
-                //tableView.reloadData()
             }
-            tableView.reloadData()
+            
+            // reloadData is called _before_ selectRow
+            if shouldUpdate {
+                tableView.reloadData()
+            }
+            
             // select a row corresponding to the current instruction
             if let row = maps.memAddrssToAssemblerListing[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0),
                                     animated: true, scrollPosition: .middle)
-                //tableView.reloadData()
             } else {
                 print("error for \(machine.programCounter) in prog")
             }
-            // TODO: prog?
         }
     
 
@@ -82,14 +85,14 @@ class TraceTableController: UITableViewController {
         if traceOS {
             if index < assembler.osListing.count {
                 cell.textLabel?.attributedText = NSAttributedString(string: assembler.osListing[indexPath.row])
-                cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+                cell.textLabel?.font = UIFont(name: "Courier", size: 10.0)!
             }
         } else {
             // then fill it with the appropriate content
             if index < assembler.listing.count {
                 //cell.textLabel?.text = assembler.listing[index]
                 cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
-                cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+                cell.textLabel?.font = UIFont(name: "Courier", size: 10.0)!
             } else {
                 // out of bounds!
                 // probably was not updated recently, so do that now
@@ -98,7 +101,7 @@ class TraceTableController: UITableViewController {
         }
         
         let backgroundView = UIView()
-        backgroundView.backgroundColor = blueColor
+        backgroundView.backgroundColor = lighterBlueColor
         cell.selectedBackgroundView = backgroundView
         return cell
     }

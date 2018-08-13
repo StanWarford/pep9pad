@@ -17,6 +17,13 @@ extension Bool {
     }
 }
 
+extension CGRect {
+    func getCenter() -> CGPoint {
+        return CGPoint(x: self.origin.x+0.5*self.width,
+                       y: self.origin.y+0.5*self.height)
+    }
+}
+
 extension Int {
     func toHex4() -> String {
         return String(format:"%04X", self)

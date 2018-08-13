@@ -10,14 +10,10 @@ import UIKit
 
 class StackVC: UIView {
     
-    // Put data structures from memorytracepane.h here from Pep9 desktop
-    
-    // Implement methods from memorytracepane.cpp here from Pep9 desktop
-    
-    override func draw(_ rect: CGRect) {
+    func drawBottomOfStack(_ rect: CGRect) {
         let x0 = rect.width/2.0 - 50.0
         let y0 = rect.height - 25.0
-        
+
         let stagePath = UIBezierPath()
         stagePath.move(to: CGPoint(x: x0, y: y0))
         stagePath.addLine(to: CGPoint(x: x0 + 121.98,y: y0))
@@ -41,4 +37,37 @@ class StackVC: UIView {
         stagePath.lineWidth = 2
         stagePath.stroke()
     }
+    
+    
+
 }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+// MARK: JUNK
+    
+    // Put data structures from memorytracepane.h here from Pep9 desktop
+    
+    // Implement methods from memorytracepane.cpp here from Pep9 desktop
+
+    
+    
+    
+

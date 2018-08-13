@@ -24,7 +24,6 @@
 		461875AB1C900D740095B818 /* writingprograms.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A21C900D740095B818 /* writingprograms.html */; };
 		461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */ = {isa = PBXBuildFile; fileRef = 461875A31C900D740095B818 /* writingtraphandlers.html */; };
 		46202E261DE95EBB00F8B70B /* PepMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46202E251DE95EBB00F8B70B /* PepMaps.swift */; };
-		46278CC91E076CFA009D6371 /* StackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46278CC81E076CFA009D6371 /* StackController.swift */; };
 		462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7471E2B2A3B00BBABCD /* fig0519.txt */; };
 		462BA75F1E2B2A3B00BBABCD /* fig0522.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7481E2B2A3B00BBABCD /* fig0522.txt */; };
 		462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA7491E2B2A3B00BBABCD /* fig0527.txt */; };
@@ -105,6 +104,8 @@
 		46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */; };
 		4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */; };
 		4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */; };
+		4668AA752121322F0055A088 /* StackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4668AA742121322F0055A088 /* StackCell.xib */; };
+		4668AA79212138090055A088 /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4668AA78212138090055A088 /* StackCell.swift */; };
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
 		4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4670DDC41E30762500293BFA /* HighlightableLanguage.swift */; };
@@ -287,7 +288,6 @@
 		461875A21C900D740095B818 /* writingprograms.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingprograms.html; sourceTree = "<group>"; };
 		461875A31C900D740095B818 /* writingtraphandlers.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = writingtraphandlers.html; sourceTree = "<group>"; };
 		46202E251DE95EBB00F8B70B /* PepMaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepMaps.swift; sourceTree = "<group>"; };
-		46278CC81E076CFA009D6371 /* StackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackController.swift; sourceTree = "<group>"; };
 		462BA7471E2B2A3B00BBABCD /* fig0519.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0519.txt; path = pep9pad/figures/fig0519.txt; sourceTree = "<group>"; };
 		462BA7481E2B2A3B00BBABCD /* fig0522.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0522.txt; path = pep9pad/figures/fig0522.txt; sourceTree = "<group>"; };
 		462BA7491E2B2A3B00BBABCD /* fig0527.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0527.txt; path = pep9pad/figures/fig0527.txt; sourceTree = "<group>"; };
@@ -368,6 +368,8 @@
 		46557C0C1E77A00C00DDC7A0 /* ReferencedSymbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencedSymbol.swift; sourceTree = "<group>"; };
 		4656E11D1CE9329B0091AF6E /* PepHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PepHighlightingPatterns.plist; sourceTree = "<group>"; };
 		4656E11F1CE9352B0091AF6E /* CHighlightingPatterns.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CHighlightingPatterns.plist; sourceTree = "<group>"; };
+		4668AA742121322F0055A088 /* StackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCell.xib; sourceTree = "<group>"; };
+		4668AA78212138090055A088 /* StackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCell.swift; sourceTree = "<group>"; };
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		4670DDC41E30762500293BFA /* HighlightableLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightableLanguage.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		468A95D51DDCEF2600916BE7 /* Instructions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instructions.swift; sourceTree = "<group>"; };
 		468BC12D1DC27220000AE01A /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		468C85B5212038A40003E09B /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		468FB3111E0CB50D001F154A /* TraceTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TraceTableController.swift; sourceTree = "<group>"; };
 		468FB3131E0CF0EB001F154A /* Trace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trace.storyboard; sourceTree = "<group>"; };
 		4694F3D01DBABC0300F0E822 /* IOMem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOMem.storyboard; sourceTree = "<group>"; };
@@ -615,7 +618,8 @@
 				0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */,
 				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
-				46278CC81E076CFA009D6371 /* StackController.swift */,
+				4668AA742121322F0055A088 /* StackCell.xib */,
+				4668AA78212138090055A088 /* StackCell.swift */,
 				468FB3111E0CB50D001F154A /* TraceTableController.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 				0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */,
@@ -1067,6 +1071,7 @@
 		D2B0614D1C7E62040088CEBE = {
 			isa = PBXGroup;
 			children = (
+				468C85B5212038A40003E09B /* TODO.md */,
 				D2DDC5C820DC2F05006ABF0E /* Ref */,
 				46C608D41C8EADD700CC161A /* Launch */,
 				46C7EEE71D80BF1100F74B6E /* Pep9 */,
@@ -1317,6 +1322,7 @@
 				464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
+				4668AA752121322F0055A088 /* StackCell.xib in Resources */,
 				46539C6E1E9AEED700718705 /* fig0515.pepo in Resources */,
 				4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */,
 				468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */,
@@ -1481,7 +1487,6 @@
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				46A9119B1E9F3736002C9DAE /* DebugMenu.swift in Sources */,
 				46A911971E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift in Sources */,
-				46278CC91E076CFA009D6371 /* StackController.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
 				464D143B1E5273F300C7FCBE /* CPUAssemblerModel.swift in Sources */,
 				D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */,
@@ -1505,6 +1510,7 @@
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
+				4668AA79212138090055A088 /* StackCell.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,

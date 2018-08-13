@@ -13,28 +13,58 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stackView.drawBottomOfStack(stackView.frame)
+
     }
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var stackView: UIView!
+    @IBOutlet weak var stackView: StackVC!
+    
+    // to get a CGRect for the root
+    @IBOutlet var stackRootLabel: UILabel!
     
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     let screenHeight = UIScreen.main.bounds.height
     
-    func hideorShow() {
-        if maps.traceTagWarning {
-            stackView.isHidden = true
-            tableView.removeConstraint(tableViewHeight)
-        }
-    }
+    
+    
+//    func hideorShow() {
+//        if maps.traceTagWarning {
+//            stackView.isHidden = true
+//            tableView.removeConstraint(tableViewHeight)
+//        }
+//    }
+    
+    
+    
+    var stack: [StackCell] = []
+    
+    
+    
+    
+    // MARK: - Interface Builder
+    func addCell() {
+        let v: StackCell = (Bundle.main.loadNibNamed(
+            "StackCell", owner: nil, options: nil)?.first as? UIView) as! StackCell
+        
+        v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -40)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -24)))
+        
+        stack.append(v)
 
-    func makeDivider() {
-        //Called in Update, TODO: Make only Bottom Boarder on TableView
-    tableView!.layer.borderWidth = 1
-    tableView!.layer.borderColor = UIColor.black.cgColor
+
+        stackView.addSubview(stack.last as! UIView)
+        print("added cell at \(v.center)")
     }
+    
+    
+
+//    func makeDivider() {
+//        //Called in Update, TODO: Make only Bottom Boarder on TableView
+//    tableView!.layer.borderWidth = 1
+//    tableView!.layer.borderColor = UIColor.black.cgColor
+//    }
     
     
     func loadFromListing() {
@@ -42,9 +72,15 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
+    
+    
+    
     func update() {
-        makeDivider()
-        hideorShow()
+        //makeDivider()
+        //hideorShow()
+        //drawStack()
+        
+        addCell()
         // depends on whether we are in the OS or a program
         if machine.isTrapped && machine.shouldTraceTraps { // we are in the OS
             if !traceOS {
@@ -101,14 +137,14 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         if traceOS {
             if index < assembler.osListing.count {
                 cell.textLabel?.attributedText = NSAttributedString(string: assembler.osListing[indexPath.row])
-                cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+                cell.textLabel?.font = UIFont(name: "Courier", size: 12.0)!
             }
         } else {
             // then fill it with the appropriate content
             if index < assembler.listing.count {
                 //cell.textLabel?.text = assembler.listing[index]
                 cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
-                cell.textLabel?.font = UIFont(name: "Courier", size: 15.0)!
+                cell.textLabel?.font = UIFont(name: "Courier", size: 12.0)!
             } else {
                 // out of bounds!
                 // probably was not updated recently, so do that now
