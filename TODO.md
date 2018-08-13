@@ -1,8 +1,6 @@
 #  To-Do for Josh
 
 * Hook stack up
-* Remove the horribly inefficient drawing code for SplitTraceViewController
-* 
 
 
 ## Wish List
@@ -10,4 +8,5 @@
 * Better borders between regions
 * Examples in the recent projects menu
 * Output changes size when error occurs?
+* Add indicator for trap trace
 

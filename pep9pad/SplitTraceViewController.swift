@@ -9,8 +9,11 @@
 import UIKit
 
 class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var traceOS: Bool = false
     
+    var traceOS: Bool = false
+    /// Keeps track of the listing as represented in `assembler.listing`.
+    var cachedListing: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         stackView.drawBottomOfStack(stackView.frame)
@@ -28,15 +31,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let screenHeight = UIScreen.main.bounds.height
     
-    
-    
-//    func hideorShow() {
-//        if maps.traceTagWarning {
-//            stackView.isHidden = true
-//            tableView.removeConstraint(tableViewHeight)
-//        }
-//    }
-    
+
     
     
     var stack: [StackCell] = []
@@ -58,13 +53,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         print("added cell at \(v.center)")
     }
     
-    
 
-//    func makeDivider() {
-//        //Called in Update, TODO: Make only Bottom Boarder on TableView
-//    tableView!.layer.borderWidth = 1
-//    tableView!.layer.borderColor = UIColor.black.cgColor
-//    }
     
     
     func loadFromListing() {
@@ -72,7 +61,6 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    var cachedListing: [String] = []
     
     func reloadIfNeeded() {
         if traceOS {
@@ -89,20 +77,17 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func update() {
-        //makeDivider()
-        //hideorShow()
-        //drawStack()
         
         addCell()
-        // depends on whether we are in the OS or a program
-        if machine.isTrapped && machine.shouldTraceTraps { // we are in the OS
-            if !traceOS {
-                // this is the first we are hearing about the trapped state
-                traceOS = true
-            }
-            reloadIfNeeded()
-            //tableView.reloadData()
-            // select a row corresponding to the current instruction
+        
+        traceOS = machine.isTrapped && machine.shouldTraceTraps
+        
+        
+        reloadIfNeeded()
+        
+        // select a row corresponding to the current instruction
+        if traceOS {
+            // we are tracing the operating system...
             if let row = maps.memAddrssToAssemblerListingOS[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0),
                                     animated: true, scrollPosition: .middle)
@@ -110,14 +95,8 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 print("error for \(machine.programCounter) in OS")
             }
-        } else { // we are in a user program
-            if traceOS {
-                // this is the first we are hearing about the untrapped state
-                traceOS = false
-                //tableView.reloadData()
-            }
-            reloadIfNeeded()
-            //tableView.reloadData()
+        } else {
+            // we are tracing a user program...
             // select a row corresponding to the current instruction
             if let row = maps.memAddrssToAssemblerListing[machine.programCounter] {
                 tableView.selectRow(at: IndexPath(row: row, section: 0),
@@ -126,10 +105,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
             } else {
                 print("error for \(machine.programCounter) in prog")
             }
-            // TODO: prog?
         }
-        
-        
     }
     
     

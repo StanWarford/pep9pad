@@ -41,7 +41,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         // customize heads up display
         HUD.dimsBackground = false
         HUD.allowsInteraction = true
-        HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
+        //HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
         setState(.unBuilt)
     }
     
