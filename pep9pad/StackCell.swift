@@ -21,9 +21,9 @@ class StackCell: UIView {
     var fmt: ESymbolFormat!
     var addr: Int!
     
-    @IBOutlet var value: UILabel!
-    @IBOutlet var name: UILabel!
-    @IBOutlet var address: UILabel!
+    @IBOutlet var valueLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
     
     
     
@@ -41,32 +41,32 @@ class StackCell: UIView {
     
     
     func updateValue() {
-        var oldVal = value.text
+        var oldVal = valueLabel.text
         
         switch (fmt!) {
         case .F_1C:
-            value.text = "\(machine.mem[addr].toASCII())"
+            valueLabel.text = "\(machine.mem[addr].toASCII())"
         case .F_1D:
-            value.text = "\(machine.mem[addr])"
+            valueLabel.text = "\(machine.mem[addr])"
         case .F_2D:
-            value.text = "\(machine.toSignedDecimal(machine.mem[addr]*256+machine.mem[addr+1]))"
+            valueLabel.text = "\(machine.toSignedDecimal(machine.mem[addr]*256+machine.mem[addr+1]))"
         case .F_1H:
-            value.text = machine.mem[addr].toHex2()
+            valueLabel.text = machine.mem[addr].toHex2()
         case .F_2H:
-            value.text = (machine.mem[addr]*256 + machine.mem[addr+1]).toHex4()
+            valueLabel.text = (machine.mem[addr]*256 + machine.mem[addr+1]).toHex4()
         case .F_NONE:
             print("ERROR in updateValue")
-            value.text = ""
+            valueLabel.text = ""
             break
         }
         
         // if the value is changing, make the cell red
-        if oldVal != value.text {
+        if oldVal != valueLabel.text {
             //UIView.animate(withDuration: 0.3) {
-            self.value.backgroundColor = .red
+            self.valueLabel.backgroundColor = .red
             //}
         } else {
-            self.value.backgroundColor = .clear
+            self.valueLabel.backgroundColor = .clear
         }
     }
     

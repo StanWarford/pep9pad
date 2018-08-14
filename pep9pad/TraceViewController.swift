@@ -29,17 +29,16 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var stackView: StackVC!
     
-    // Used to get a CGRect for the root of the stack.
+    /// Used to get a CGRect for the root of the stack.
     @IBOutlet var stackRootLabel: UILabel!
     
+    /// Used to get a CGRect for the root of the globals.
     @IBOutlet var globalRootLabel: UILabel!
     
+    /// Used to get a CGRect for the root of the heap.
     @IBOutlet var heapRootLabel: UILabel!
     
-    let screenHeight = UIScreen.main.bounds.height
-    
 
-    
     /// The stack of cells.
     var stack: [StackCell] = []
     
@@ -50,7 +49,8 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /// This is used to give us what we're pushing onto the stack before we get there
     var lookAheadSymbols: [String] = []
     
-    var modifiedBytes: Set<Int> = Set()
+//    var modifiedBytes: Set<Int> = Set()
+    
     
     /// This function should be called at the beginning of a debug session
     func loadGlobals() {
@@ -76,7 +76,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 }
             }
                 
-            // otherwise it's either a single global or a global array
+            // otherwise it's either a single global or a global array...
             else {
                 if multiplier == 1 {
                     // a single global variable
@@ -85,7 +85,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 } else {
                     // an array
                     var offset = 0
-                    var bytesPerCell = machine.cellSize(symbolFormat: maps.symbolFormat[blockSymbol]!)
+                    let bytesPerCell = machine.cellSize(symbolFormat: maps.symbolFormat[blockSymbol]!)
                     for j in 0..<multiplier! {
                         addCell(to: .global, address: address!+offset, value: 0.toHex4(), name: blockSymbol+"[\(j)]", fmt: maps.symbolFormat[blockSymbol]!)
                         offset += bytesPerCell
@@ -96,6 +96,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
        
         }
+        // reset the stack frame
         stackFrameFSM.reset()
     }
     
@@ -121,6 +122,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        } else {
 //
 //        }
+        
         
         switch (maps.decodeMnemonic[machine.readByte(machine.programCounter)]) {
         case .ADDSP, .CALL, .RET, .SUBSP:
@@ -160,6 +162,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         globals.removeAll()
         heap.removeAll()
     }
+    
+    
+    
+    var stackFrames: [UIView] = []
     
     
     func updateStack() {
@@ -215,18 +221,46 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             break
         }
         
-        if frameSizeToAdd != 0 {
+        // TODO: fixme, this is close to working
+        // may need to convert theFrame as it is being unioned
+        // add a stack frame if necessary
+        if frameSizeToAdd != 0 && stack.count >= frameSizeToAdd {
             // need to add a stack frame
             print("adding stack frame of size \(frameSizeToAdd)")
-//            for i in 0..<frameSizeToAdd {
-//                stack[i]
-//            }
+
+            // the CGRect of the stack frame
+            var theFrame = stack[0].valueLabel.frame //CGRect.zero
+            
+            // repeatedly take the union of stack cells to get the frame
+            for i in 1..<frameSizeToAdd {
+                theFrame = theFrame.union(stack[i].valueLabel.frame)
+            }
+            
+            // make a uiview with just a box
+            var theView = UIView(frame: theFrame)
+            theView.backgroundColor = .clear
+            theView.layer.borderColor = UIColor.orange.cgColor
+            theView.layer.borderWidth = 13.0
+            
+            
+            // add it to the StackView
+            theView.frame.origin = stack[frameSizeToAdd-1].convert(stack[frameSizeToAdd-1].valueLabel.frame.origin, to: view)
+            stackView.addSubview(theView)
+
+            print(stack[frameSizeToAdd-1].valueLabel.frame.origin)
+            print(theView.frame.origin)
+
+
+            
+            // and add it to the list of frames
+            stackFrames.append(theView)
         }
     }
     
     
     
-    /// Update the values of all cells
+    /// Update the values of all cells.
+    /// Cells will automatically change color if their value was changed.
     func updateCells() {
         for cell in stack {
             cell.updateValue()
@@ -253,11 +287,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let v: StackCell = (Bundle.main.loadNibNamed(
             "StackCell", owner: nil, options: nil)?.first as? UIView) as! StackCell
         
-        // store the
+        
         v.addr = address
-        v.address.text = address.toHex4()
-        v.value.text = value
-        v.name.text = name
+        v.addressLabel.text = address.toHex4()
+        v.valueLabel.text = value
+        v.nameLabel.text = name
         v.fmt = fmt
         
         switch (to) {
@@ -283,11 +317,13 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func loadFromListing() {
         tableView.reloadData()
+        cachedListing = assembler.listing
     }
     
     
-    
+    /// Checks to see if the listing is different, and updates if so.
     func reloadTableIfNeeded() {
+        /// TODO: Compute hash of text rather than elementwise comparison?
         if traceOS {
             if assembler.osListing != cachedListing {
                 cachedListing = assembler.osListing
