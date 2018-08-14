@@ -41,6 +41,8 @@ class StackCell: UIView {
     
     
     func updateValue() {
+        var oldVal = value.text
+        
         switch (fmt!) {
         case .F_1C:
             value.text = "\(machine.mem[addr].toASCII())"
@@ -56,6 +58,15 @@ class StackCell: UIView {
             print("ERROR in updateValue")
             value.text = ""
             break
+        }
+        
+        // if the value is changing, make the cell red
+        if oldVal != value.text {
+            //UIView.animate(withDuration: 0.3) {
+            self.value.backgroundColor = .red
+            //}
+        } else {
+            self.value.backgroundColor = .clear
         }
     }
     

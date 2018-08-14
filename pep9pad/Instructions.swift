@@ -103,7 +103,7 @@ class NonUnaryInstruction: Code {
     override func processFormatTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
             if rxFormatTag.appearsIn(comment) {
-                var list: [String] = [""]
+                var list: [String] = []
                 let formatTag: [String] = rxFormatTag.matchesIn(comment)
                 let tagType: ESymbolFormat = assembler.formatTagType(formatTag: formatTag[0])
                 let multiplier: Int = assembler.formatMultiplier(formatTag[0])
@@ -130,7 +130,7 @@ class NonUnaryInstruction: Code {
                 return false
             }
             numBytesAllocated = argument.getArgumentValue()
-            var list: [String] = [""]
+            var list: [String] = []
             var numBytesListed: Int = 0
             let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
             for (var symbol) in symbolTag {
@@ -153,7 +153,7 @@ class NonUnaryInstruction: Code {
             return true
         }
         else if mnemonic == EMnemonic.CALL && argument.getArgumentString() == "malloc" {
-            var list: [String] = [""]
+            var list: [String] = []
             let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
             for (var symbol) in symbolTag {
                 symbol.removeFirst()

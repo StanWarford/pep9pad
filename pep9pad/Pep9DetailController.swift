@@ -1261,6 +1261,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
         switchToTab(atIndex: 3)
         master.cpu.clearCpu()
+
         // 11 is the offset from the last byte of the OS to the stack pointer
         // TODO: just make this a computed property in the machine
         machine.stackPointer = machine.readWord(maps.dotBurnArgument-11)
@@ -1268,6 +1269,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.programCounter = 0
         // set debug state
         machine.isTrapped = false
+        
         loadObject()
         
         // set source and object to read only, may not be necessary
@@ -1283,7 +1285,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
         }
         master.cpu.update()
-        tabVCs.trace?.traceTable.updateGlobals()
+        // clear the stack trace if anything is there
+        tabVCs.trace?.traceTable.removeAllCells()
+        // and load the globals
+        tabVCs.trace?.traceTable.loadGlobals()
         updateTraceTable()
     }
     
@@ -1311,6 +1316,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         setButtonIcon(forBarBtnItem: debugBtn, nameOfIcon: .bug, ofSize: 20)
         setState(.stopDebugging)
         master.io.stopSimulation()
+        
+        // update the stack trace
+        tabVCs.trace?.traceTable.removeAllCells()
         
     }
     

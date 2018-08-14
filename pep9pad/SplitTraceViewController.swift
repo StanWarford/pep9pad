@@ -14,6 +14,8 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     var traceOS: Bool = false
     /// Keeps track of the listing as represented in `assembler.listing`.
     var cachedListing: [String] = []
+    
+    var stackFrameFSM = StackFrameFSM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +44,13 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var heap: [StackCell] = []
     
+    /// This is used to give us what we're pushing onto the stack before we get there
+    var lookAheadSymbols: [String] = []
+    
+    var modifiedBytes: Set<Int> = Set()
+    
     /// This function should be called at the beginning of a debug session
-    func updateGlobals() {
+    func loadGlobals() {
         // loop through the .BLOCK symbols
         for i in 0..<maps.blockSymbols.count {
             let blockSymbol = maps.blockSymbols[i]
@@ -81,16 +88,150 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
                         offset += bytesPerCell
                     }
                     
+                }
+            
             }
-            
-            
-        }
        
-    }
+        }
+        stackFrameFSM.reset()
     }
     
-    func updateStack() {
+    
+    
+ //   var bytesWrittenLastStep: [Int] = []
+ //   var delayLastStepClear: Bool = false
+    
+    func cacheChanges() {
+//        modifiedBytes = modifiedBytes.union(machine.modifiedBytes)
+//        if machine.shouldTraceTraps {
+//            bytesWrittenLastStep.removeAll()
+//            bytesWrittenLastStep = Array(machine.modifiedBytes)
+//        } else if machine.isTrapped {
+//            // We delay for a single vonNeumann step so that we preserve the
+        //modified bytes until we leave the trap - this allows for
+//            // recoloring of cells modified by a trap instruction.
+//            delayLastStepClear = true
+//            bytesWrittenLastStep.append(contentsOf: Array(machine.modifiedBytes))
+//        } else if delayLastStepClear {
+//            // Phew! We can now update (in updateMemoryTrace). If we don't, no harm done - they didn't want to see what happened in the trap
+//            delayLastStepClear = false
+//        } else {
+//
+//        }
         
+        switch (maps.decodeMnemonic[machine.readByte(machine.programCounter)]) {
+        case .ADDSP, .CALL, .RET, .SUBSP:
+            if maps.symbolTraceList.keys.contains(where: {$0 == machine.programCounter}) {
+                lookAheadSymbols = maps.symbolTraceList[machine.programCounter]!
+            }
+        default:
+            break
+        }
+    }
+    
+    /// Remove n bytes from the stack.
+    func popBytes(n: Int) {
+        var numBytes = n
+        while numBytes > 0 && stack.count > 0 {
+            stack.last?.removeFromSuperview()
+            numBytes -= machine.cellSize(symbolFormat: stack.last!.fmt)
+            stack.removeLast()
+        }
+    }
+    
+    
+    func removeAllCells() {
+        for i in stack {
+            i.removeFromSuperview()
+        }
+        
+        for i in globals {
+            i.removeFromSuperview()
+        }
+        
+        for i in heap {
+            i.removeFromSuperview()
+        }
+        
+        stack.removeAll()
+        globals.removeAll()
+        heap.removeAll()
+    }
+    
+    
+    func updateStack() {
+        if machine.isTrapped {
+            return
+        }
+        
+        var multiplier = 0
+        var bytesPerCell = 0
+        var offset = 0
+        var numCellsToAdd = 0
+        var frameSizeToAdd = 0
+        var stackSymbol = ""
+        var fmt: ESymbolFormat = .F_NONE
+        
+        switch (maps.decodeMnemonic[machine.instructionSpecifier]) {
+        case .CALL:
+            addCell(to: .stack, address: machine.stackPointer, value: "0",
+                    name: "retAddr", fmt: .F_2H)
+            frameSizeToAdd = stackFrameFSM.makeTransition(numCellsToAdd: 1)
+        case .SUBSP:
+            for i in 0..<lookAheadSymbols.count {
+                stackSymbol = lookAheadSymbols[i]
+                multiplier = maps.symbolFormatMultiplier[stackSymbol]!
+                fmt = maps.symbolFormat[stackSymbol]!
+                
+                if multiplier == 1 { // single cell
+                    offset += machine.cellSize(symbolFormat: fmt)
+                    addCell(to: .stack, address: machine.stackPointer-offset+machine.operandSpecifier, value: "0",
+                            name: stackSymbol, fmt: fmt)
+                    stack.last?.updateValue()
+                    numCellsToAdd += 1
+                    
+                } else { //array on the stack
+                    bytesPerCell = machine.cellSize(symbolFormat: fmt)
+                    for j in multiplier-1...0 {
+                        offset += bytesPerCell
+                        addCell(to: .stack, address: machine.stackPointer-offset+machine.operandSpecifier, value: "0", name: stackSymbol+"[\(j)]", fmt: fmt)
+                        stack.last?.updateValue()
+                        numCellsToAdd += 1
+                    }
+                }
+            }
+            frameSizeToAdd = stackFrameFSM.makeTransition(numCellsToAdd: numCellsToAdd)
+        case .RET:
+            popBytes(n: 2)
+            frameSizeToAdd = stackFrameFSM.makeTransition(numCellsToAdd: 0)
+        case .ADDSP:
+            popBytes(n: machine.operandSpecifier)
+            frameSizeToAdd = stackFrameFSM.makeTransition(numCellsToAdd: 0)
+        default:
+            frameSizeToAdd = stackFrameFSM.makeTransition(numCellsToAdd: 0)
+            break
+        }
+        
+        if frameSizeToAdd != 0 {
+            // need to add a stack frame
+            print("add stack frame of size \(frameSizeToAdd)")
+        }
+    }
+    
+    
+    /// Update the values of all cells
+    func updateCells() {
+        for i in stack {
+            i.updateValue()
+        }
+        
+        for i in globals {
+            i.updateValue()
+        }
+        
+        for i in heap {
+            i.updateValue()
+        }
     }
     
     enum CellLocation {
@@ -154,6 +295,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         //addCell()
         traceOS = machine.isTrapped && machine.shouldTraceTraps
         reloadTableIfNeeded()
+        updateCells()
         
         // select a row corresponding to the current instruction
         if traceOS {
@@ -177,6 +319,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         // now update the stack
+        cacheChanges()
         updateStack()
         
     }
