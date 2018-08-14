@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     /// Updated in `self.update()`
     /// Set to `machine.isTrapped && machine.shouldTraceTraps`
     var traceOS: Bool = false
     /// Keeps track of the listing as represented in `assembler.listing`.
+    /// When this changes,
     var cachedListing: [String] = []
     
     var stackFrameFSM = StackFrameFSM()
@@ -20,6 +21,8 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         stackView.drawBottomOfStack(stackView.frame)
+        stackView.layer.borderColor = UIColor.orange.cgColor
+        stackView.layer.borderWidth = 3.0
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -214,23 +217,27 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         if frameSizeToAdd != 0 {
             // need to add a stack frame
-            print("add stack frame of size \(frameSizeToAdd)")
+            print("adding stack frame of size \(frameSizeToAdd)")
+//            for i in 0..<frameSizeToAdd {
+//                stack[i]
+//            }
         }
     }
     
     
+    
     /// Update the values of all cells
     func updateCells() {
-        for i in stack {
-            i.updateValue()
+        for cell in stack {
+            cell.updateValue()
         }
         
-        for i in globals {
-            i.updateValue()
+        for cell in globals {
+            cell.updateValue()
         }
         
-        for i in heap {
-            i.updateValue()
+        for cell in heap {
+            cell.updateValue()
         }
     }
     
@@ -246,25 +253,28 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
         let v: StackCell = (Bundle.main.loadNibNamed(
             "StackCell", owner: nil, options: nil)?.first as? UIView) as! StackCell
         
-        v.address.text = address.toHex4()
+        // store the
         v.addr = address
+        v.address.text = address.toHex4()
         v.value.text = value
         v.name.text = name
         v.fmt = fmt
         
-        switch to {
+        switch (to) {
         case .stack:
             v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -23)))
             stack.append(v)
-            stackView.addSubview(stack.last as! UIView)
+            stackView.addSubview(stack.last! as UIView)
+            
         case .heap:
             v.center = (heap.isEmpty ? self.heapRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : heap.last!.center.applying(CGAffineTransform(translationX: 0, y: -23)))
             heap.append(v)
-            stackView.addSubview(heap.last as! UIView)
+            stackView.addSubview(heap.last! as UIView)
+            
         case .global:
             v.center = (globals.isEmpty ? self.globalRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : globals.last!.center.applying(CGAffineTransform(translationX: 0, y: -23)))
             globals.append(v)
-            stackView.addSubview(globals.last as! UIView)
+            stackView.addSubview(globals.last! as UIView)
         }
     }
     
@@ -314,6 +324,7 @@ class SplitTraceViewController: UIViewController, UITableViewDelegate, UITableVi
                                     animated: true, scrollPosition: .middle)
             } else {
                 print("error for \(machine.programCounter) in prog")
+                
             }
         }
         

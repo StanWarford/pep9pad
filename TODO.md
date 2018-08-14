@@ -1,6 +1,7 @@
 #  To-Do for Josh
 
-* Hook stack up
+* Heap
+* Add stack frames
 * Globals should be in descending address order?
 * Adding format capabilities to StackCell
 * Boxes do not appear in StackCells sometimes

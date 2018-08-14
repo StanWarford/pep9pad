@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */; };
+		0A15E02D20D0601500FFE446 /* TraceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A15E02C20D0601500FFE446 /* TraceViewController.swift */; };
 		0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC85E6520D2FC3700B9BC40 /* StackVC.swift */; };
 		3902681417D133EB66985C5A /* Pods_pep9pad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */; };
 		460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */; };
@@ -271,7 +271,7 @@
 
 /* Begin PBXFileReference section */
 		0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pep9pad-Bridging-Header.h"; sourceTree = "<group>"; };
-		0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTraceViewController.swift; sourceTree = "<group>"; };
+		0A15E02C20D0601500FFE446 /* TraceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceViewController.swift; sourceTree = "<group>"; };
 		0AC85E6520D2FC3700B9BC40 /* StackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackVC.swift; sourceTree = "<group>"; };
 		119CC93E0865A1AA04B527C6 /* Pods-pep9pad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.release.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.release.xcconfig"; sourceTree = "<group>"; };
 		460BD9F21DEA5F8500BE58B9 /* AssemblerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblerModel.swift; sourceTree = "<group>"; };
@@ -615,7 +615,7 @@
 		46278CC61E075834009D6371 /* Trace */ = {
 			isa = PBXGroup;
 			children = (
-				0A15E02C20D0601500FFE446 /* SplitTraceViewController.swift */,
+				0A15E02C20D0601500FFE446 /* TraceViewController.swift */,
 				468FB3131E0CF0EB001F154A /* Trace.storyboard */,
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				4668AA742121322F0055A088 /* StackCell.xib */,
@@ -1512,7 +1512,7 @@
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4668AA79212138090055A088 /* StackCell.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
-				0A15E02D20D0601500FFE446 /* SplitTraceViewController.swift in Sources */,
+				0A15E02D20D0601500FFE446 /* TraceViewController.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
