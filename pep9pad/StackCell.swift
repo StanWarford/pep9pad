@@ -18,10 +18,15 @@ class StackCell: UIView {
     }
     */
     
+    var fmt: ESymbolFormat!
+    var addr: Int!
     
     @IBOutlet var value: UILabel!
     @IBOutlet var name: UILabel!
     @IBOutlet var address: UILabel!
+    
+    
+    
     
     
     
@@ -31,6 +36,27 @@ class StackCell: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    
+    
+    func updateValue() {
+        switch (fmt!) {
+        case .F_1C:
+            value.text = "\(machine.mem[addr].toASCII())"
+        case .F_1D:
+            value.text = "\(machine.mem[addr])"
+        case .F_2D:
+            value.text = "\(machine.toSignedDecimal(machine.mem[addr]*256+machine.mem[addr+1]))"
+        case .F_1H:
+            value.text = machine.mem[addr].toHex2()
+        case .F_2H:
+            value.text = (machine.mem[addr]*256 + machine.mem[addr+1]).toHex4()
+        case .F_NONE:
+            print("ERROR in updateValue")
+            value.text = ""
+            break
+        }
     }
     
     

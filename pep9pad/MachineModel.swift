@@ -305,7 +305,7 @@ class MachineModel {
     }
     
     func vonNeumannStep(errorString: inout String) -> Bool {
-        modifiedBytes.removeAll() // Assuming this is the correct implementation could be wrong
+        modifiedBytes.removeAll()
         var mnemonic: EMnemonic
         var addrMode: EAddrMode
         var temp: Int

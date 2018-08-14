@@ -916,6 +916,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             while true {
                 if machine.vonNeumannStep(errorString: &errorStr) {
                     // emit vonNeumannStepped
+                    //vonNeumannStepped()
                     if machine.outputBuffer.length > 0 {
                         master.io.appendOutput(machine.outputBuffer)
                         machine.outputBuffer = ""
@@ -968,6 +969,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 } else {
                     if machine.vonNeumannStep(errorString: &errorStr) {
                         // emit vonNeumannStepped
+                        //vonNeumannStepped()
                         if machine.outputBuffer.length > 0 {
                             master.io.appendOutput(machine.outputBuffer)
                             machine.outputBuffer = ""
@@ -995,6 +997,14 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
+//    /// Called after a single step when debugging.
+//    func vonNeumannStepped() {
+//        tabVCs.trace?.traceTable.update()
+//    }
+//
+    
+    
+    /// Performs one step, or multiple if trap trace is disabled.
     @objc func singleStep() {
         
         machine.isSimulating = true
@@ -1011,6 +1021,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     machine.trapLookahead()
                     if machine.vonNeumannStep(errorString: &errorStr) {
                         // emit vonNeumannStepped
+                        
                         if machine.outputBuffer.length > 0 {
                             master.io.appendOutput(machine.outputBuffer)
                             machine.outputBuffer = ""
@@ -1182,7 +1193,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 
                 
                 if machine.vonNeumannStep(errorString: &errorStr) {
-                    // emit VonNeumannStepped
+                    // emit VonNeumannStepped?
                     if machine.outputBuffer.length > 0 {
                         master.io.appendOutput(machine.outputBuffer)
                         machine.outputBuffer = ""
@@ -1272,6 +1283,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             }
         }
         master.cpu.update()
+        tabVCs.trace?.traceTable.updateGlobals()
         updateTraceTable()
     }
     
