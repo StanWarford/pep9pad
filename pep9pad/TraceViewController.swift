@@ -175,15 +175,29 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func moveHeapUpOneCell() {
-        //UIView.animate(withDuration: 0.25) {
-        for i in 0..<self.heap.count {
-            // change the center location
-            self.heap[i].center.y -= self.CELL_HEIGHT
+    /// Moves the heap up by one cell.
+    func moveUpOneCell(target: CellLocation) {
+        if target == .heap {
+            for i in 0..<heap.count {
+                // change the center location
+                heap[i].center.y -= CELL_HEIGHT
+            }
+            // if moving the heap, must move the heap frames too
+            for i in 0..<heapFrames.count {
+                heapFrames[i].center.y -= CELL_HEIGHT
+            }
+            
+        } else if target == .global {
+            for i in 0..<globals.count {
+                globals[i].center.y -= CELL_HEIGHT
+            }
+            
+        } else {
+            // this is unsupported behavior
+            print("Why are you moving the stack up one cell?")
+            return
         }
-        //}
     }
-    
     
  //   var bytesWrittenLastStep: [Int] = []
  //   var delayLastStepClear: Bool = false
@@ -404,18 +418,43 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         switch (to) {
         case .stack:
-            v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -25)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)))
+            if stack.isEmpty {
+                v.center = self.stackRootLabel.center.applying(
+                    CGAffineTransform(translationX: -25, y: -25)
+                )
+            } else {
+                stack.last!.center.applying(
+                    CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)
+                )
+            }
             stack.append(v)
             stackView.addSubview(stack.last! as UIView)
             
         case .heap:
-            moveHeapUpOneCell()
-            v.center = (heap.isEmpty ? self.heapRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -25)) : heap.last!.center.applying(CGAffineTransform(translationX: 0, y: CELL_HEIGHT)))
+            if heap.isEmpty {
+                v.center = self.heapRootLabel.center.applying(
+                    CGAffineTransform(translationX: 25, y: -25)
+                )
+            } else {
+                moveUpOneCell(target: .heap)
+                v.center = heap.last!.center.applying(
+                    CGAffineTransform(translationX: 0, y: CELL_HEIGHT)
+                )
+            }
             heap.append(v)
             stackView.addSubview(heap.last! as UIView)
             
         case .global:
-            v.center = (globals.isEmpty ? self.globalRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -25)) : globals.last!.center.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)))
+            if globals.isEmpty {
+                v.center = self.globalRootLabel.center.applying(
+                    CGAffineTransform(translationX: 25, y: -25)
+                )
+            } else {
+                moveUpOneCell(target: .global)
+                v.center = globals.last!.center.applying(
+                    CGAffineTransform(translationX: 0, y: CELL_HEIGHT)
+                )
+            }
             globals.append(v)
             stackView.addSubview(globals.last! as UIView)
         }

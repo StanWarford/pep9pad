@@ -1,13 +1,13 @@
 ##  To-Do for Josh
-* Globals should be in descending address order?
 * Add scrolling for large stacks/heaps
-
+* Fig0629 does not work
 
 ## Wish List
 * Add persistence for input
 * Better borders between regions
+* Help menu better scrolling
 * Examples in the recent projects menu
-* Output changes size when error occurs?
+* Size of IOMem
 * Add indicator for trap trace
 * Inconsistent grey-outs while debugging
 

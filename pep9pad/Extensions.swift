@@ -305,8 +305,8 @@ public extension CGFloat {
 
 extension UIView {
     func addBorder() {
-        self.layer.borderColor = UIColor.orange.cgColor
-        self.layer.borderWidth = 3.0
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 2.0
     }
     
     func removeBorder() {

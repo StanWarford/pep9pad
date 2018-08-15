@@ -134,7 +134,7 @@ class NonUnaryInstruction: Code {
             var numBytesListed: Int = 0
             let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
             for (var symbol) in symbolTag {
-                symbol.removeFirst()
+                symbol.removeFirst() // remove the # at the beginning
                 if !(maps.equateSymbols.contains(symbol)) {
                     errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                     sourceLine = sourceCodeLine
@@ -156,7 +156,7 @@ class NonUnaryInstruction: Code {
             var list: [String] = []
             let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
             for (var symbol) in symbolTag {
-                symbol.removeFirst()
+                symbol.removeFirst() // remove the # at the beginning
                 if !maps.equateSymbols.contains(symbol) && !maps.blockSymbols.contains(symbol) {
                     errorString = ";WARNING " + symbol + " not specified in .EQUATE."
                     sourceLine = sourceCodeLine

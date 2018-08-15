@@ -254,7 +254,7 @@ class DotBlock: Code {
         return true
     }
     
-    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool { //TODO: Not recognized for Fig 6.46 Not Called in Code when should be
+    override func processSymbolTraceTags(at sourceLine: inout Int, err errorString: inout String) -> Bool {
         if symbolDef.isEmpty {
             return true
         }
@@ -267,12 +267,12 @@ class DotBlock: Code {
         let symbolTag: [String] = rxSymbolTag.matchesIn(comment)
         var list: [String] = []
         var numBytesListed: Int = 0
-        for symbol in symbolTag {
+        for (var symbol) in symbolTag {
+            symbol.removeFirst() // remove the # at the beginning
             if !(maps.equateSymbols.contains(symbol)) {
                 errorString = ";WARNING: " + symbol + " not specified in .EQUATE"
                 sourceLine = sourceCodeLine
                 return false
-
             }
             numBytesListed += assembler.tagNumBytes(symbolFormat: maps.symbolFormat[symbol]!) * maps.symbolFormatMultiplier[symbol]!
             list.append(symbol)
