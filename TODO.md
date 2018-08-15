@@ -1,6 +1,7 @@
 ##  To-Do for Josh
 * Add scrolling for large stacks/heaps
 * Fig0629 does not work
+* Global cells do not show up for some reason...?
 
 ## Wish List
 * Add persistence for input

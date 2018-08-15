@@ -423,7 +423,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     CGAffineTransform(translationX: -25, y: -25)
                 )
             } else {
-                stack.last!.center.applying(
+                v.center = stack.last!.center.applying(
                     CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)
                 )
             }

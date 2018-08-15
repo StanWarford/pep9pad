@@ -1091,7 +1091,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                         //master.io.waitForInput()
                         setState(.waitingForInput)
                         machine.isSimulating = false
-                        return
+                        return // TODO: trying this out
                     } else {
                         // not waiting for input, go ahead and simulate
                         if machine.vonNeumannStep(errorString: &errorStr) {
@@ -1110,7 +1110,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                             machine.isSimulating = false
                             return
                         }
-                        if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                        // no error occurred in vonNeumann step, check if we should terminate
+                        if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                             updateCPU()
                             updateTraceTable()
                             updateMemoryDump()
@@ -1118,14 +1119,14 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                             machine.isSimulating = false
                             return
                         }
-                        if machine.shouldHalt {
-                            updateCPU()
-                            updateTraceTable()
-                            updateMemoryDump()
-                            // emit updateSimulationView
-                            machine.isSimulating = false
-                            return
-                        }
+//                        if  {
+//                            updateCPU()
+//                            updateTraceTable()
+//                            updateMemoryDump()
+//                            // emit updateSimulationView
+//                            machine.isSimulating = false
+//                            return
+//                        }
                     }
                 }
             } else if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
@@ -1149,7 +1150,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     return
                 }
                 
-                if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
+                // no error occurred in vonNeumann step, check if we should terminate
+                if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                     updateCPU()
                     updateTraceTable()
                     updateMemoryDump()
@@ -1158,14 +1160,14 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     return
                 }
                 
-                if machine.shouldHalt {
-                    updateCPU()
-                    updateTraceTable()
-                    updateMemoryDump()
-                    stopDebugging()
-                    machine.isSimulating = false
-                    return
-                }
+//                if  {
+//                    updateCPU()
+//                    updateTraceTable()
+//                    updateMemoryDump()
+//                    stopDebugging()
+//                    machine.isSimulating = false
+//                    return
+//                }
 
             }
         }
