@@ -15,6 +15,8 @@ class StackVC: UIView {
         let y0 = rect.height - 25.0
 
         let stagePath = UIBezierPath()
+        UIColor.black.setStroke()
+
         stagePath.move(to: CGPoint(x: x0, y: y0))
         stagePath.addLine(to: CGPoint(x: x0 + 121.98,y: y0))
         stagePath.move(to: CGPoint(x: x0 + 15.56, y: y0))
@@ -33,8 +35,7 @@ class StackVC: UIView {
         stagePath.addLine(to: CGPoint(x: x0 + 85.84, y: y0 + 15.0))
         stagePath.move(to: CGPoint(x: x0 + 120.98, y: y0))
         stagePath.addLine(to: CGPoint(x: x0 + 100.9, y: y0 + 15.0))
-        UIColor.black.setStroke()
-        stagePath.lineWidth = 2
+        stagePath.lineWidth = 20
         stagePath.stroke()
     }
     

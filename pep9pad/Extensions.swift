@@ -303,6 +303,19 @@ public extension CGFloat {
     }
 }
 
+extension UIView {
+    func addBorder() {
+        self.layer.borderColor = UIColor.orange.cgColor
+        self.layer.borderWidth = 3.0
+    }
+    
+    func removeBorder() {
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.borderWidth = 0.0
+    }
+
+}
+
 // This doesn't work, probably because of missized output textView
 //extension UITextView {
 //    func scrollToBottom() {

@@ -13,4 +13,5 @@
 * Examples in the recent projects menu
 * Output changes size when error occurs?
 * Add indicator for trap trace
+* Inconsistent grey-outs while debugging
 

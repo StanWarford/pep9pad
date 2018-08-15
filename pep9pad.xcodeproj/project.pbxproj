@@ -109,6 +109,7 @@
 		466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */; };
 		466C7A501CE42DAF00014D62 /* BaseTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */; };
 		4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4670DDC41E30762500293BFA /* HighlightableLanguage.swift */; };
+		467F35B72123B28E00E117AA /* FrameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467F35B62123B28E00E117AA /* FrameCell.swift */; };
 		468124181DE81B27003D807A /* MachineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468124171DE81B27003D807A /* MachineModel.swift */; };
 		4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */; };
 		468A95D41DDCECF400916BE7 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468A95D31DDCECF400916BE7 /* Code.swift */; };
@@ -372,6 +373,7 @@
 		466C7A4D1CE4266B00014D62 /* PepTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PepTextStorage.swift; sourceTree = "<group>"; };
 		466C7A4F1CE42DAF00014D62 /* BaseTextStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTextStorage.swift; sourceTree = "<group>"; };
 		4670DDC41E30762500293BFA /* HighlightableLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightableLanguage.swift; sourceTree = "<group>"; };
+		467F35B62123B28E00E117AA /* FrameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCell.swift; sourceTree = "<group>"; };
 		468124171DE81B27003D807A /* MachineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MachineModel.swift; sourceTree = "<group>"; };
 		4689E6DC1E219BA6001AEA05 /* ByteCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ByteCalc.swift; path = pep9pad/ByteCalc.swift; sourceTree = "<group>"; };
 		468A95D31DDCECF400916BE7 /* Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				4642A16D1DFE1DB700D072F0 /* StackFrameFSM.swift */,
 				4668AA742121322F0055A088 /* StackCell.xib */,
 				4668AA78212138090055A088 /* StackCell.swift */,
+				467F35B62123B28E00E117AA /* FrameCell.swift */,
 				4642A16F1DFE1DFF00D072F0 /* StackState.swift */,
 				0A15E02820D05FE700FFE446 /* pep9pad-Bridging-Header.h */,
 				0AC85E6520D2FC3700B9BC40 /* StackVC.swift */,
@@ -1193,7 +1196,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Pepperdine University";
 				TargetAttributes = {
 					D2B061551C7E62040088CEBE = {
@@ -1549,6 +1552,7 @@
 				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
 				0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */,
+				467F35B72123B28E00E117AA /* FrameCell.swift in Sources */,
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
@@ -1621,13 +1625,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1666,13 +1680,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1691,6 +1715,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
