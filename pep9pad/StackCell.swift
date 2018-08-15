@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// This StackCell is actually used for Globals and Heap cells.
 class StackCell: UIView {
 
     /*
@@ -62,9 +63,7 @@ class StackCell: UIView {
         
         // if the value is changing, make the cell red
         if oldVal != valueLabel.text {
-            //UIView.animate(withDuration: 0.3) {
             self.valueLabel.backgroundColor = .red
-            //}
         } else {
             self.valueLabel.backgroundColor = .clear
         }

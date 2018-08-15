@@ -1,10 +1,6 @@
-#  To-Do for Josh
-
-* Heap
-* Add stack frames
+##  To-Do for Josh
 * Globals should be in descending address order?
-* Adding format capabilities to StackCell
-* Boxes do not appear in StackCells sometimes
+* Add scrolling for large stacks/heaps
 
 
 ## Wish List

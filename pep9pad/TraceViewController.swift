@@ -24,7 +24,9 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
-            tableView.separatorStyle = .none
+            //tableView.separatorStyle = .none
+            tableView.addBorder()
+
         }
     }
     
@@ -49,8 +51,6 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     /// This is used to give us what we're pushing onto the stack before we get there
     var lookAheadSymbols: [String] = []
-    
-//    var modifiedBytes: Set<Int> = Set()
     
     
     /// This function should be called at the beginning of a debug session
@@ -331,11 +331,13 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     
                 } else { //array on the stack
                     bytesPerCell = machine.cellSize(symbolFormat: fmt)
-                    for j in multiplier-1...0 {
+                    var k = multiplier-1
+                    for j in 0..<multiplier {
                         offset += bytesPerCell
-                        addCell(to: .stack, address: machine.stackPointer-offset+machine.operandSpecifier, value: "0", name: stackSymbol+"[\(j)]", fmt: fmt)
+                        addCell(to: .stack, address: machine.stackPointer-offset+machine.operandSpecifier, value: "0", name: stackSymbol+"[\(k)]", fmt: fmt)
                         stack.last?.updateValue()
                         numCellsToAdd += 1
+                        k -= 1
                     }
                 }
             }
@@ -402,18 +404,18 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         switch (to) {
         case .stack:
-            v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)))
+            v.center = (stack.isEmpty ? self.stackRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -25)) : stack.last!.center.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)))
             stack.append(v)
             stackView.addSubview(stack.last! as UIView)
             
         case .heap:
             moveHeapUpOneCell()
-            v.center = (heap.isEmpty ? self.heapRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : heap.last!.center.applying(CGAffineTransform(translationX: 0, y: CELL_HEIGHT)))
+            v.center = (heap.isEmpty ? self.heapRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -25)) : heap.last!.center.applying(CGAffineTransform(translationX: 0, y: CELL_HEIGHT)))
             heap.append(v)
             stackView.addSubview(heap.last! as UIView)
             
         case .global:
-            v.center = (globals.isEmpty ? self.globalRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -45)) : globals.last!.center.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)))
+            v.center = (globals.isEmpty ? self.globalRootLabel.center.applying(CGAffineTransform(translationX: 0, y: -25)) : globals.last!.center.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT)))
             globals.append(v)
             stackView.addSubview(globals.last! as UIView)
         }
