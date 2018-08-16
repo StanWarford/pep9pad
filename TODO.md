@@ -2,6 +2,7 @@
 * Add scrolling for large stacks/heaps
 * Fig0629 does not work
 * Global cells do not show up for some reason...?
+* Remove assert(false)
 
 ## Wish List
 * Add persistence for input

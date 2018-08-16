@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     /// Updated in `self.update()`
     /// Set to `machine.isTrapped && machine.shouldTraceTraps`
@@ -272,7 +273,6 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var stackFrames: [FrameCell] = []
     var heapFrames: [FrameCell] = []
     
-    
     /// Adds a `FrameCell` to `stackFrames` or `heapFrames`.
     func addFrame(target: CellLocation, size: Int) {
     
@@ -290,13 +290,14 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell!.layer.borderWidth = 3.0
             cell!.frame.origin = stack.last!.convert(stack.last!.valueLabel.frame.origin, to: stackView)
         } else {
-           let theFrame = heap.last!.valueLabel.frame.applying(CGAffineTransform(scaleX: 1.0, y: CGFloat(size)))
+            // we are dealing with a heap frame
+            let theFrame = heap.last!.valueLabel.frame.applying(CGAffineTransform(scaleX: 1.0, y: CGFloat(size)))
             cell = FrameCell(frame: theFrame)
             cell!.size = size
             cell!.backgroundColor = .clear
             cell!.layer.borderColor = UIColor.black.cgColor
             cell!.layer.borderWidth = 3.0
-            cell!.frame.origin = heap[size-1].convert(heap[size-1].valueLabel.frame.origin, to: stackView).applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT))
+            cell!.frame.origin = heap[heap.count-size].convert(heap[heap.count-size].valueLabel.frame.origin, to: stackView)//.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT))
         }
         
         // add it to the StackView
@@ -309,7 +310,6 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             heapFrames.append(cell!)
         }
     }
-    
     
     
     func updateStack() {
@@ -326,10 +326,12 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         var fmt: ESymbolFormat = .F_NONE
         
         switch (maps.decodeMnemonic[machine.instructionSpecifier]) {
+            
         case .CALL:
             addCell(to: .stack, address: machine.stackPointer, value: "0",
                     name: "retAddr", fmt: .F_2H)
             frameSizeToAdd = stackFrameFSM.makeTransition(numCellsToAdd: 1)
+            
         case .SUBSP:
             for i in 0..<lookAheadSymbols.count {
                 stackSymbol = lookAheadSymbols[i]
@@ -406,9 +408,8 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func addCell(to: CellLocation, address: Int,
                  value: String, name: String, fmt: ESymbolFormat) {
         
-        let v: StackCell = (Bundle.main.loadNibNamed(
-            "StackCell", owner: nil, options: nil)?.first as? UIView) as! StackCell
-        
+        let v: StackCell = (Bundle.main.loadNibNamed("StackCell",
+               owner: nil, options: nil)?.first as? UIView) as! StackCell
         
         v.addr = address
         v.addressLabel.text = address.toHex4()
@@ -486,7 +487,6 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func update() {
-        //addCell()
         traceOS = machine.isTrapped && machine.shouldTraceTraps
         reloadTableIfNeeded()
         updateCells()

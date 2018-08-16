@@ -420,7 +420,7 @@ class DotEquate: Code {
             maps.symbolFormat[symbolDef] = tagType
             maps.symbolFormatMultiplier[symbolDef] = multiplier
             maps.equateSymbols.append(symbolDef)
-            print(maps.equateSymbols)
+            //print(maps.equateSymbols)
         }
         return true
         }

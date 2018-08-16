@@ -889,31 +889,101 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
-    /// Executes whatever's currently stored in the machine.
-    /// Begins at beginning of memory and follows the PC from there on out.
-    /// Iteratively asks the `machine` to perform a `vonNeumannStep`.
-    func execute() {
-        master.cpu.clearCpu()
-        // 11 is the offset from the last byte of the OS to the stack pointer
-        // TODO: just make this a computed property in the machine
-        machine.stackPointer = machine.readWord(maps.dotBurnArgument-11)
-        // reset the program counter to the beginning of memory
-        machine.programCounter = 0
-        // set debug state
-        machine.isTrapped = false
-        master.io.startSimulation()
-        // set source and object to read only, may not be necessary
-        if master.io.simulatedIOMode == .batch {
-            master.io.outputTextView.text.removeAll()
-            if var input = master.io.inputTextView.text {
-                if !input.hasSuffix("\n") {
-                    input.append("\n")
-                }
-                machine.inputBuffer = input
+    
+    /// Assumes the user has tapped "run" while in batch i/o mode.
+    func runWithBatch() {
+        // clear the output text from any previous run
+        master.io.outputTextView.text.removeAll()
+        
+        // format the input to include a newline char at the end
+        if var input = master.io.inputTextView.text {
+            if !input.hasSuffix("\n") {
+                input.append("\n")
             }
+            machine.inputBuffer = input
+        }
+        
+        var errorStr = ""
+        while true {
+            if machine.vonNeumannStep(errorString: &errorStr) {
+                // emit vonNeumannStepped
+                //vonNeumannStepped()
+                if machine.outputBuffer.length > 0 {
+                    master.io.appendOutput(machine.outputBuffer)
+                    machine.outputBuffer = ""
+                }
+            } else {
+                // error ocurred in VonNeumann step
+                HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                updateCPU()
+                updateMemoryDump()
+                machine.isSimulating = false
+                master.io.stopSimulation()
+                return
+            }
+            
+            if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                updateCPU()
+                updateMemoryDump()
+                machine.isSimulating = false
+                master.io.stopSimulation()
+                return
+            }
+            
+            if machine.shouldHalt {
+                updateCPU()
+                updateMemoryDump()
+                // emit updateSimulationView
+                machine.isSimulating = false
+                master.io.stopSimulation()
+                return
+            }
+        }
 
-            var errorStr = ""
-            while true {
+    }
+    
+    
+    /// Assumes the user has tapped "run" while in terminal i/o mode.
+    func runWithTerminal() {
+        
+        machine.inputBuffer = ""
+        // clear the output from any previous runs
+        master.io.terminalTextView.text.removeAll()
+        
+        machine.isSimulating = true
+        machine.shouldHalt = false
+        
+        var errorStr = ""
+        
+        while true {
+            
+            print("\(master.io.terminalInput == "") and \(machine.willAccessCharIn())")
+            
+            // master.io.terminalInput is set once the user has finished editing
+            // finish editing is triggered by return key
+            if master.io.terminalInput == "" && machine.willAccessCharIn() {
+                // TODO: the issue here is that machine.willAccessCharIn
+                // is not being triggered for some reason
+                
+                // waiting for user input
+                updateCPU()
+                updateMemoryDump()
+                setState(.waitingForInput)
+                machine.isSimulating = false
+                //master.io.stopSimulation()
+                
+                // wait for input
+                while (master.io.terminalInput == "") {
+                    print("waiting")
+                    continue
+                }
+                
+                machine.inputBuffer = master.io.terminalInput
+                
+                
+                continue
+            } else {
+                
                 if machine.vonNeumannStep(errorString: &errorStr) {
                     // emit vonNeumannStepped
                     //vonNeumannStepped()
@@ -931,247 +1001,229 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     return
                 }
                 
-                if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP || machine.shouldHalt {
                     updateCPU()
                     updateMemoryDump()
                     machine.isSimulating = false
                     master.io.stopSimulation()
                     return
-                }
-                
-                if machine.shouldHalt {
-                    updateCPU()
-                    updateMemoryDump()
-                    // emit updateSimulationView
-                    machine.isSimulating = false
-                    master.io.stopSimulation()
-                    return
-                }
-            }
-
-        } else if master.io.simulatedIOMode == .terminal {
-            machine.inputBuffer = ""
-            master.io.terminalTextView.text.removeAll()
-            
-            machine.isSimulating = true
-            // set waiting
-            machine.shouldHalt = false
-            var errorStr = ""
-            while true {
-                if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
-                    // waiting for user input
-                    updateCPU()
-                    updateMemoryDump()
-                    setState(.waitingForInput)
-                    machine.isSimulating = false
-                    master.io.stopSimulation()
-                    return
-                } else {
-                    if machine.vonNeumannStep(errorString: &errorStr) {
-                        // emit vonNeumannStepped
-                        //vonNeumannStepped()
-                        if machine.outputBuffer.length > 0 {
-                            master.io.appendOutput(machine.outputBuffer)
-                            machine.outputBuffer = ""
-                        }
-                    } else {
-                        // error ocurred in VonNeumann step
-                        HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                        updateCPU()
-                        updateMemoryDump()
-                        machine.isSimulating = false
-                        master.io.stopSimulation()
-                        return
-                    }
-                    
-                    if maps.decodeMnemonic[machine.instructionSpecifier] == .STOP || machine.shouldHalt {
-                        updateCPU()
-                        updateMemoryDump()
-                        machine.isSimulating = false
-                        master.io.stopSimulation()
-                        return
-                    }
                 }
             }
         }
     }
     
     
-//    /// Called after a single step when debugging.
-//    func vonNeumannStepped() {
-//        tabVCs.trace?.traceTable.update()
-//    }
-//
-    
-    
-    /// Performs one step, or multiple if trap trace is disabled.
-    @objc func singleStep() {
+    /// Assumes the user has tapped "step" while debugging in batch i/o mode.
+    func singleStepWithBatch() {
         
-        machine.isSimulating = true
-        machine.shouldHalt = false
         var errorStr = ""
-        machine.trapLookahead()
         
-        if master.io.simulatedIOMode == .batch {
-            if machine.isTrapped && !machine.shouldTraceTraps {
-                // If the simulation is executing a trap instruction and the
-                // user doesn't want to trace the trap, keep single stepping
-                // until the machine is no longer trapped.
-                while machine.isTrapped {
-                    machine.trapLookahead()
+        if machine.isTrapped && !machine.shouldTraceTraps {
+            // If the simulation is executing a trap instruction and the
+            // user doesn't want to trace the trap, keep single stepping
+            // until the machine is no longer trapped.
+            while machine.isTrapped {
+                machine.trapLookahead()
+                if machine.vonNeumannStep(errorString: &errorStr) {
+                    // emit vonNeumannStepped
+                    
+                    if machine.outputBuffer.length > 0 {
+                        master.io.appendOutput(machine.outputBuffer)
+                        machine.outputBuffer = ""
+                    }
+                } else {   // an error ocurred in VonNeumann step
+                    HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                    updateCPU()
+                    updateMemoryDump()
+                    updateTraceTable()
+                    stopDebugging()
+                    machine.isSimulating = false
+                    return // end of simulation due to error
+                }
+                
+                if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                    updateCPU()
+                    updateTraceTable()
+                    stopDebugging()
+                    machine.isSimulating = false
+                    return // end of simulation due to stop instruction or user interference
+                }
+            }
+            // refresh the cpu / memory dump / trace table at the end of a successful trap sequence
+            updateCPU()
+            updateTraceTable()
+            updateMemoryDump()
+          
+        // if you get here that means we are tracing traps as well
+        } else if machine.vonNeumannStep(errorString: &errorStr) {
+            
+            if machine.outputBuffer.length > 0 {
+                master.io.appendOutput(machine.outputBuffer)
+                machine.outputBuffer = ""
+            }
+            
+            updateMemoryDump()
+            updateCPU()
+            updateTraceTable()
+            
+            if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
+                return // step completed successfully
+            } else {
+                // instruction was a STOP instruction
+                machine.isSimulating = false
+                stopDebugging()
+                // already refreshed cpu and stuff, so no need to do it again
+            }
+        } else {
+            // error ocurred in VonNeumann step
+            HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+            updateCPU()
+            updateMemoryDump()
+            updateTraceTable()
+            stopDebugging()
+            machine.isSimulating = false
+            return
+        }
+    }
+    
+    
+    
+    /// Assumes the user has tapped "step" while debugging in terminal i/o mode.
+    func singleStepWithTerminal() {
+        
+        var errorStr = ""
+        
+        if machine.isTrapped && !machine.shouldTraceTraps {
+            // If the simulation is executing a trap instruction and the
+            // user doesn't want to trace the trap, keep single stepping
+            // until the machine is no longer trapped.
+            master.cpu.update()
+            while machine.isTrapped {
+                machine.trapLookahead()
+                if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
+                    // waiting for input from user
+                    //master.io.waitForInput()
+                    setState(.waitingForInput)
+                    machine.isSimulating = false
+                    return // TODO: trying this out
+                } else {
+                    machine.inputBuffer = master.io.terminalInput
+                    master.io.terminalInput = ""
+                    // not waiting for input, go ahead and step
                     if machine.vonNeumannStep(errorString: &errorStr) {
                         // emit vonNeumannStepped
-                        
                         if machine.outputBuffer.length > 0 {
                             master.io.appendOutput(machine.outputBuffer)
                             machine.outputBuffer = ""
                         }
-                    } else {   // an error ocurred in VonNeumann step
-                        HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
+                    } else {
+                        // error ocurred in VonNeumann step
+                        HUD.flash(.labeledError(title: "Simulation Failed",
+                                                subtitle: errorStr), delay: 0.5)
                         updateCPU()
-                        updateMemoryDump()
                         updateTraceTable()
+                        updateMemoryDump()
                         stopDebugging()
                         machine.isSimulating = false
-                        return // end of simulation due to error
+                        return
                     }
-                
+                    
+                    // no error occurred in vonNeumann step, check if we should terminate
                     if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
                         updateCPU()
                         updateTraceTable()
+                        updateMemoryDump()
                         stopDebugging()
                         machine.isSimulating = false
-                        return // end of simulation due to stop instruction or user interference
+                        return
                     }
                 }
-                // refresh the cpu / memory dump / trace table at the end of a successful trap sequence
-                updateCPU()
-                updateTraceTable()
-                updateMemoryDump()
-                
-            } else if machine.vonNeumannStep(errorString: &errorStr) {
-                // we are tracing the program and traps
+            }
+            // if you're here that means we're using terminal i/o and user
+            // is tracing traps
+        } else if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
+            setState(.waitingForInput)
+            machine.isSimulating = false
+        } else {
+            if machine.vonNeumannStep(errorString: &errorStr) {
                 // emit vonNeumannStepped
-                
                 if machine.outputBuffer.length > 0 {
                     master.io.appendOutput(machine.outputBuffer)
                     machine.outputBuffer = ""
-                }
-                
-                updateMemoryDump()
-                updateCPU()
-                updateTraceTable()
-                
-                if maps.decodeMnemonic[machine.instructionSpecifier] != .STOP {
-                    return // step completed successfully
-                } else {
-                    // instruction was a STOP instruction
-                    machine.isSimulating = false
-                    stopDebugging()
-                    // already refreshed cpu and stuff, so no need to do it again
                 }
             } else {
                 // error ocurred in VonNeumann step
                 HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
                 updateCPU()
-                updateMemoryDump()
                 updateTraceTable()
+                updateMemoryDump()
                 stopDebugging()
                 machine.isSimulating = false
                 return
             }
-        } else {
-            // terminal i/o mode
-            if machine.isTrapped && !machine.shouldTraceTraps {
-                master.cpu.update()
-                while machine.isTrapped {
-                    machine.trapLookahead()
-                    if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
-                        // waiting for input from user
-                        //master.io.waitForInput()
-                        setState(.waitingForInput)
-                        machine.isSimulating = false
-                        return // TODO: trying this out
-                    } else {
-                        // not waiting for input, go ahead and simulate
-                        if machine.vonNeumannStep(errorString: &errorStr) {
-                            // emit vonNeumannStepped
-                            if machine.outputBuffer.length > 0 {
-                                master.io.appendOutput(machine.outputBuffer)
-                                machine.outputBuffer = ""
-                            }
-                        } else {
-                            // error ocurred in VonNeumann step
-                            HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                            updateCPU()
-                            updateTraceTable()
-                            updateMemoryDump()
-                            stopDebugging()
-                            machine.isSimulating = false
-                            return
-                        }
-                        // no error occurred in vonNeumann step, check if we should terminate
-                        if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
-                            updateCPU()
-                            updateTraceTable()
-                            updateMemoryDump()
-                            stopDebugging()
-                            machine.isSimulating = false
-                            return
-                        }
-//                        if  {
-//                            updateCPU()
-//                            updateTraceTable()
-//                            updateMemoryDump()
-//                            // emit updateSimulationView
-//                            machine.isSimulating = false
-//                            return
-//                        }
-                    }
-                }
-            } else if machine.inputBuffer.isEmpty && machine.willAccessCharIn() {
-                setState(.waitingForInput)
+            
+            // no error occurred in vonNeumann step, check if we should terminate
+            if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
+                updateCPU()
+                updateTraceTable()
+                updateMemoryDump()
+                stopDebugging()
                 machine.isSimulating = false
-            } else {
-                if machine.vonNeumannStep(errorString: &errorStr) {
-                    // emit vonNeumannStepped
-                    if machine.outputBuffer.length > 0 {
-                        master.io.appendOutput(machine.outputBuffer)
-                        machine.outputBuffer = ""
-                    }
-                } else {
-                    // error ocurred in VonNeumann step
-                    HUD.flash(.labeledError(title: "Simulation Failed", subtitle: errorStr), delay: 0.5)
-                    updateCPU()
-                    updateTraceTable()
-                    updateMemoryDump()
-                    stopDebugging()
-                    machine.isSimulating = false
-                    return
-                }
-                
-                // no error occurred in vonNeumann step, check if we should terminate
-                if machine.shouldHalt || maps.decodeMnemonic[machine.instructionSpecifier] == .STOP {
-                    updateCPU()
-                    updateTraceTable()
-                    updateMemoryDump()
-                    stopDebugging()
-                    machine.isSimulating = false
-                    return
-                }
-                
-//                if  {
-//                    updateCPU()
-//                    updateTraceTable()
-//                    updateMemoryDump()
-//                    stopDebugging()
-//                    machine.isSimulating = false
-//                    return
-//                }
-
+                return
             }
+            
+            //                if  {
+            //                    updateCPU()
+            //                    updateTraceTable()
+            //                    updateMemoryDump()
+            //                    stopDebugging()
+            //                    machine.isSimulating = false
+            //                    return
+            //                }
+            
         }
+    }
+    
+    
+    
+    
+    
+    /// Executes whatever's currently stored in the machine.
+    /// Begins at beginning of memory and follows the PC from there on out.
+    /// Iteratively asks the `machine` to perform a `vonNeumannStep`.
+    func execute() {
+        master.cpu.clearCpu()
+        // 11 is the offset from the last byte of the OS to the stack pointer
+        // TODO: just make this a computed property in the machine
+        machine.stackPointer = machine.readWord(maps.dotBurnArgument-11)
+        // reset the program counter to the beginning of memory
+        machine.programCounter = 0
+        // set debug state
+        machine.isTrapped = false
+        master.io.startSimulation()
+        // set source and object to read only, may not be necessary
+        if master.io.simulatedIOMode == .batch {
+           runWithBatch()
+        } else if master.io.simulatedIOMode == .terminal {
+           runWithTerminal()
+        }
+    }
+    
+    
+
+    
+    
+    /// Performs one step, or multiple if trap trace is disabled.
+    @objc func singleStep() {
+        machine.isSimulating = true
+        machine.shouldHalt = false
+        machine.trapLookahead()
         
+        if master.io.simulatedIOMode == .batch {
+            singleStepWithBatch()
+        } else {
+            singleStepWithTerminal()
+        }
     }
     
     

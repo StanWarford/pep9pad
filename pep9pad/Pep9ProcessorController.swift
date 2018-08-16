@@ -56,6 +56,13 @@ class Pep9ProcessorController: UIViewController {
     
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //self.view.addBorder()
+    }
+    
+    
+    
     // MARK: - Methods
     
     /// Pulls data from the registers in `machine`, decodes that data with 

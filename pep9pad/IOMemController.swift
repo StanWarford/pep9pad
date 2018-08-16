@@ -57,7 +57,6 @@ class IOMemController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var terminalTextView: UITextView!
     
-    
     @IBOutlet var inputLabel: UILabel!
     
     @IBOutlet var outputLabel: UILabel!
@@ -69,24 +68,30 @@ class IOMemController: UIViewController, UITextViewDelegate {
         inputTextView.font = UIFont(name: "Courier", size: 15)
         inputTextView.text = ""
         inputTextView.textContainer.lineBreakMode = .byWordWrapping
-
-        print(view.bounds.width)
         
         outputTextView.font = UIFont(name: "Courier", size: 15)
         outputTextView.text = ""
         outputTextView.textContainer.lineBreakMode = .byWordWrapping
 
-//        terminalTextView = inputTextView
         terminalTextView.isHidden = true
+        terminalTextView.delegate = self
         terminalTextView.font = UIFont(name: "Courier", size: 15)
         terminalTextView.text = ""
         terminalTextView.textContainer.lineBreakMode = .byWordWrapping
+        // TODO: is this the correct place to set this?
+        terminalTextView.enablesReturnKeyAutomatically = true
 
         
+
+        print(view.frame.height)
+        print(terminalTextView.frame.height)
         
         memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
         //self.addSubview(view)
-        memoryView.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+44, width: view.frame.width, height: view.frame.height-44)
+        memoryView.frame = CGRect(x: view.frame.origin.x,
+                                  y: view.frame.origin.y+44,
+                                  width: view.frame.width,
+                                  height: view.frame.height-44)
         
 
         
@@ -94,18 +99,22 @@ class IOMemController: UIViewController, UITextViewDelegate {
         
         //memoryView.frame =
         memoryView.isHidden = true
-
         view.addSubview(memoryView)
-
         view.clipsToBounds = true
     }
     
     override func viewWillLayoutSubviews() {
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    
+    
+    
+    var terminalInput = ""
+    var terminalOutputChars = 0
     
     func setInput(_ to: String) {
         switch (currentMode) {
@@ -125,11 +134,32 @@ class IOMemController: UIViewController, UITextViewDelegate {
             //outputTextView.scrollToBottom()
         case .terminalIO:
             terminalTextView.text.append(thing)
+            terminalOutputChars += thing.length
+            print(thing)
+            //print("thing length is \(thing.length)")
             //terminalTextView.scrollToBottom()
         default:
             break
         }
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView == terminalTextView {
+            let len = terminalTextView.text.length
+            var txt = terminalTextView.text!
+            if len > terminalOutputChars {
+                // save the user input at this point
+                txt.remove(0, terminalOutputChars-1)
+                terminalInput = txt
+            } else {
+                // they must have deleted some output text,
+                // or switched to another view or something
+                terminalInput = ""
+            }
+            
+        }
+    }
+    
     
     func startSimulation() {
         // disable the non-selected io mode
@@ -191,9 +221,17 @@ class IOMemController: UIViewController, UITextViewDelegate {
                     self.outputTextView.isHidden = true
                     self.terminalTextView.isHidden = false
                     self.memoryView.isHidden = true
-                    self.inputLabel.isHidden = false
-                    self.inputLabel.text = "Terminal"
+                    
+                    //self.inputLabel.isHidden = false
+                    //self.inputLabel.text = "Terminal"
+                    self.inputLabel.isHidden = true
                     self.outputLabel.isHidden = true
+                    self.terminalTextView.frame = CGRect(x: self.view.frame.origin.x,
+                                                    y: self.view.frame.origin.y+44,
+                                                    width: self.view.frame.width,
+                                                    height: self.view.frame.height-44)
+                    
+
                 }
             case .memory:
                 // switch to memory mode
@@ -238,6 +276,8 @@ class IOMemController: UIViewController, UITextViewDelegate {
             
         }
     }
+    
+    
     
     
 }
