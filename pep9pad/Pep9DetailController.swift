@@ -97,7 +97,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                 tabVCs.listing = tabBar.viewControllers?[2] as? ListingController
                 tabVCs.trace = tabBar.viewControllers?[3] as? TraceController
                 
-                //tabVCs.source.heightOfTabBar = tabBarHeight
+                // give the TraceViewController a reference to `self`
+                // this is because it may need to present errors
+                tabVCs.trace?.traceTable.detail = self
                 
             default:
                 break

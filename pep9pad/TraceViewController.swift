@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 
 class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -15,6 +16,8 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var traceOS: Bool = false
     /// Keeps track of the listing as represented in `assembler.listing`.
     var cachedListing: [String] = []
+    
+    var detail: Pep9DetailController!
     
     var stackFrameFSM = StackFrameFSM()
 
@@ -27,7 +30,6 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         didSet {
             //tableView.separatorStyle = .none
             tableView.addBorder()
-
         }
     }
     
@@ -122,8 +124,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 heapPointer = maps.symbolTable["hpPtr"]!
             } else {
                 // ERROR, we have no idea where the heap pointer is.
-                // TODO: put halt here
-                assert(false)
+                detail.stopDebugging()
+                HUD.flash(.labeledError(title: "ERROR",
+                    subtitle: "Heap pointer cannot be found"), delay: 0.5)
+                return
             }
             
             var numBytes = 0
@@ -141,10 +145,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             // verify that this is indeed the number in the accumulator...
             if numBytes != machine.accumulator {
-                // TODO implement this error
-                assert(false)
-                //"Warning: The accumulator doesn't match the number of bytes in the trace tags"
-                //return
+                detail.stopDebugging()
+                HUD.flash(.labeledError(title: "ERROR",
+                subtitle: "Accumulator doesn't match the number of bytes in the trace tags."), delay: 0.5)
+                return
             }
             
             for i in 0..<lookAheadSymbols.count {
@@ -154,9 +158,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     multiplier = maps.symbolFormatMultiplier[heapSymbol]!
                 }
                 else {
-                    assert(false)
-                    //ui->warningLabel->setText("Warning: Symbol \"" + heapSymbol + "\" not found in .equates, unknown size.");
-                    //return;
+                    detail.stopDebugging()
+                    HUD.flash(.labeledError(title: "ERROR",
+                              subtitle: "Symbol \(heapSymbol) not found in .EQUATEs, unknown size"),
+                              delay: 0.5)
+                    return
                 }
                 
                 
@@ -200,10 +206,8 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
- //   var bytesWrittenLastStep: [Int] = []
- //   var delayLastStepClear: Bool = false
     
-    func cacheChanges() {
+    func cacheLookaheadSymbols() {
         switch (maps.decodeMnemonic[machine.readByte(machine.programCounter)]) {
         case .ADDSP, .CALL, .RET, .SUBSP:
             if maps.symbolTraceList.keys.contains(where: {$0 == machine.programCounter}) {
@@ -217,7 +221,6 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     /// Remove n bytes from the stack.
     func popBytes(n: Int) {
         var numBytes = n
-        
         var frameSizes: [Int] = []
         
         // figure out the frames
@@ -395,9 +398,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    
+    /// Magic number corresponding to the height of `StackCell.xib`
     let CELL_HEIGHT: CGFloat = 23.0
     
+    /// Used to simplify function calls.
     enum CellLocation {
         case global
         case heap
@@ -486,6 +490,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    
+    
+    /// Updates the cells and table as needed.
+    /// Called periodically by Pep9DetailController.
     func update() {
         traceOS = machine.isTrapped && machine.shouldTraceTraps
         reloadTableIfNeeded()
@@ -513,8 +521,8 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         
-        // now update the stack
-        cacheChanges()
+        // now update the stack/heap
+        cacheLookaheadSymbols()
         updateStack()
         updateHeap()
         
