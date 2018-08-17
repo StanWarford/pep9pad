@@ -72,6 +72,8 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
+    /// This is where the tabVC items have to be assigned.
+    /// This function is called automatically by the OS.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let id = segue.identifier {
             switch id {
@@ -135,6 +137,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.setTitleTextAttributes(attrs, for: .disabled)
+        btn.setTitleTextAttributes(attrs, for: .highlighted)
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
@@ -1247,7 +1250,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
                     machine.isTrapped = false
                 }
                 
-                
+                // now step
                 if machine.vonNeumannStep(errorString: &errorStr) {
                     // emit VonNeumannStepped?
                     if machine.outputBuffer.length > 0 {
@@ -1278,7 +1281,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         }
     }
     
-    
+    /// Reloads the entire memory dump (if it's visisble).
     func updateMemoryDump() {
         if master.io.currentMode == .memory {
             // need to update the memory view
@@ -1298,9 +1301,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     }
     
     
-    
-    
+    /// Starts the debugging procedure.
     func startDebuggingSource() {
+
         stepBtn = UIBarButtonItem(title: "Step", style: .plain, target: self, action: #selector(self.singleStep))
         resBtn = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(self.resumeExecution))
         flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -1315,8 +1318,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             self.setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .stop, ofSize: 20)
             self.setState(.startDebugging)
         }
-        switchToTab(atIndex: 3)
         master.cpu.clearCpu()
+        switchToTab(atIndex: 3)
+
 
         // 11 is the offset from the last byte of the OS to the stack pointer
         // TODO: just make this a computed property in the machine
@@ -1378,10 +1382,10 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         
     }
     
+    var state: UIState!
     
-    var state: AppState!
     
-    enum AppState {
+    enum UIState {
         case startDebugging
         case stopDebugging
         case unBuilt
@@ -1389,7 +1393,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case waitingForInput // used in terminal io mode
     }
     
-    func setState(_ newState: AppState) {
+    
+    // The UIState of the app is used to enable/disable buttons and UI elements
+    func setState(_ newState: UIState) {
         state = newState
         switch newState {
         case .startDebugging:
@@ -1412,7 +1418,6 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         case .waitingForInput:
             stepBtn.isEnabled = false
             resBtn.isEnabled = false
-            
             
         }
     }

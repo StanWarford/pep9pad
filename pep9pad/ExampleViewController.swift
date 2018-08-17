@@ -60,7 +60,8 @@ class ExampleViewController: UIViewController {
             }
             
             tempCodeView.setHighlight(ofType)
-            tempCodeView.removeAllText()
+            // tempCodeView.removeAllText()
+            //
             tempCodeView.setText(content)
         
             
@@ -81,44 +82,57 @@ class ExampleViewController: UIViewController {
         if (n > 2 || n < 1) {
             // illegal number of textViews requested
             return
-        } else {
-            switch n {
-            case 1:
-                // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
-                let viewHeight = view.frame.height
-                let viewWidth = view.frame.width
-                let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: viewHeight-navAndStatBarHeight)
-                //let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
-                UIView.animate(withDuration: 0.25) {
-                    self.topTextView.frame = newRectForTop
-                    self.bottomTextView.isHidden = true
-                }
-                // scroll the textViews back to top
-                topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
-                bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+        }
+        
+        switch n {
+        case 1:
+            // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
+            let viewHeight = view.frame.height
+            let viewWidth = view.frame.width
+            let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: viewHeight-navAndStatBarHeight)
+            let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
+            // disable the bottom text view
+            self.bottomTextView.isUserInteractionEnabled = false
+            UIView.animate(withDuration: 0.25) {
                 
+                self.topTextView.frame = newRectForTop
+                self.topTextView.resize()
                 
-            case 2:
-                // grow bottomTextView to take up half of view, and shrink topTextView to take up other half
-                let viewHeight = view.frame.height
-                let viewWidth = view.frame.width
-                let heightOfEach = (viewHeight-navAndStatBarHeight)/2
-                let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: heightOfEach)
-                let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight/2+navAndStatBarHeight/2, width: viewWidth, height: heightOfEach)
-                //Displays Regardless, only want for bottom
-                UIView.animate(withDuration: 0.25) {
-                    self.topTextView.frame = newRectForTop
-                    self.bottomTextView.frame = newRectForBottom
-                    self.bottomTextView.isHidden = false
-                }
-                // scroll the textViews back to top
-                topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
-                bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
-
-            default:
-                // should not get here
-                break
+                // set isHidden for bottom AFTER top has covered it
+                self.bottomTextView.isHidden = true
+                self.bottomTextView.frame = newRectForBottom
+                //self.bottomTextView.resize()
             }
+
+            // scroll the textViews back to top
+            topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+            bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+            
+            
+        case 2:
+            // grow bottomTextView to take up half of view, and shrink topTextView to take up other half
+            let viewHeight = self.view.frame.height
+            let viewWidth = self.view.frame.width
+            let heightOfEach = (viewHeight-navAndStatBarHeight)/2
+            let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: heightOfEach)
+            let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight/2+navAndStatBarHeight/2, width: viewWidth, height: heightOfEach)
+            // disable the bottom text view
+            self.bottomTextView.isUserInteractionEnabled = true
+            //Displays Regardless, only want for bottom
+            UIView.animate(withDuration: 0.25) {
+                self.topTextView.frame = newRectForTop
+                self.bottomTextView.frame = newRectForBottom
+                self.bottomTextView.isHidden = false
+                self.topTextView.resize()
+                self.bottomTextView.resize()
+            }
+            // scroll the textViews back to top
+            topTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+            bottomTextView.textView.setContentOffset(CGPoint.zero, animated: false)
+
+        default:
+            // should not get here
+            break
         }
     }
     

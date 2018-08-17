@@ -60,12 +60,10 @@ class HelpDetailController: UIViewController {
     
     @IBAction func copyToBtnPressed(_ sender: UIBarButtonItem) {
         // if pressed, load the current object or source into the project
-        
         master.loadExample(self.exampleVC.currentExampleText,
                            ofType: self.exampleVC.currentExampleType,
                            io: self.exampleVC.currentExampleIO,
                            usesTerminal: self.exampleVC.currentExampleRequiresTerminal)
-
     }
 
     
@@ -81,9 +79,6 @@ class HelpDetailController: UIViewController {
         copyToBtn.isEnabled = false
         exampleVC.topTextView.setEditable(false)
         exampleVC.bottomTextView.setEditable(false)
-        
-        
-        
     }
     
     internal func loadExample(_ named: String) {

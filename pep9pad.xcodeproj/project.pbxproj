@@ -789,14 +789,6 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
-		46A304E21C992BC600CDCD1A /* ExampleVC */ = {
-			isa = PBXGroup;
-			children = (
-				46EC8B091C98AA6E001405CE /* ExampleViewController.swift */,
-			);
-			name = ExampleVC;
-			sourceTree = "<group>";
-		};
 		46A304E31C992BE100CDCD1A /* Help Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,7 +828,7 @@
 				46F46D381C8F70520092EF04 /* HelpMasterController.swift */,
 				46F46D3A1C8F70650092EF04 /* HelpDetailController.swift */,
 				46A304DF1C992AAE00CDCD1A /* Documentation */,
-				46A304E21C992BC600CDCD1A /* ExampleVC */,
+				46EC8B091C98AA6E001405CE /* ExampleViewController.swift */,
 				46A304E31C992BE100CDCD1A /* Help Resources */,
 			);
 			name = Help;

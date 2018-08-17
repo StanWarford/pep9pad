@@ -135,7 +135,7 @@ class PepTextStorage: BaseTextStorage {
                 NSAttributedStringKey.backgroundColor:redColor
             ]
         default:
-            attributes = [NSAttributedStringKey.foregroundColor:UIColor.black]
+            attributes = [NSAttributedStringKey.foregroundColor:appSettings.getColorFor(.text)]
         }
         
         for instance in foundInstances {

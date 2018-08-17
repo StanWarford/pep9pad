@@ -32,6 +32,8 @@ class CodeView: UIView, UITextViewDelegate {
         textView = UITextView(frame: rect, textContainer: textContainer)
         textView.autocorrectionType = .no
         textView.isScrollEnabled = false
+        textView.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleRightMargin, .flexibleBottomMargin]
+
         self.addSubview(textView)
         textView.showsVerticalScrollIndicator = true
         textView.isScrollEnabled = true
@@ -83,13 +85,25 @@ class CodeView: UIView, UITextViewDelegate {
     // MARK: - Text-Handling Functions
     
     internal func setText(_ to: String) {
-        self.textView.text = to
         self.textView.isScrollEnabled = true
+        UIView.animate(withDuration: 0.1) {
+            self.textView.text = to
+        }
+    }
+    
+    func resize() {
+        print(self.textView.frame.height, self.frame.height)
+        //textView.frame = CGRect(textView.f)
+
+//        UIView.animate(withDuration: 0.1) {
+//        }
     }
     
     
     func removeAllText() {
-        textView.text.removeAll()
+        UIView.animate(withDuration: 0.1) {
+            self.textView.text.removeAll()
+        }
     }
     
     func getText() -> String {
