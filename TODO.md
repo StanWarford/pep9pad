@@ -1,7 +1,10 @@
 ##  To-Do for Josh
 * Add scrolling for large stacks/heaps
+- [ ] Fix help system to remove NZVC in add and subs
+- [ ] Warning remove
+- [ ] Fix highlighting bugs
+
 * Fig0629 does not work (terminal bug)
-* Global cells do not show up for some reason...?
 * Remove assert(false)
 * Add green highlight for new cells on heap?
 

@@ -23,7 +23,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackView.drawBottomOfStack(stackView.frame)
+        //visualVC.drawBottomOfStack(visualVC.frame)
     }
     
     @IBOutlet weak var tableView: UITableView! {
@@ -33,7 +33,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBOutlet weak var stackView: StackVC!
+    @IBOutlet weak var visualVC: StackVC! {
+        didSet {
+            visualVC.addBorder()
+        }
+    }
     
     /// Used to get a CGRect for the root of the stack.
     @IBOutlet var stackRootLabel: UILabel!
@@ -291,7 +295,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell!.backgroundColor = .clear
             cell!.layer.borderColor = UIColor.black.cgColor
             cell!.layer.borderWidth = 3.0
-            cell!.frame.origin = stack.last!.convert(stack.last!.valueLabel.frame.origin, to: stackView)
+            cell!.frame.origin = stack.last!.convert(stack.last!.valueLabel.frame.origin, to: visualVC)
         } else {
             // we are dealing with a heap frame
             let theFrame = heap.last!.valueLabel.frame.applying(CGAffineTransform(scaleX: 1.0, y: CGFloat(size)))
@@ -300,11 +304,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell!.backgroundColor = .clear
             cell!.layer.borderColor = UIColor.black.cgColor
             cell!.layer.borderWidth = 3.0
-            cell!.frame.origin = heap[heap.count-size].convert(heap[heap.count-size].valueLabel.frame.origin, to: stackView)//.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT))
+            cell!.frame.origin = heap[heap.count-size].convert(heap[heap.count-size].valueLabel.frame.origin, to: visualVC)//.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT))
         }
         
         // add it to the StackView
-        stackView.addSubview(cell!)
+        visualVC.addSubview(cell!)
         
         // and add it to the list of frames
         if (target == .stack) {
@@ -433,7 +437,9 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
             }
             stack.append(v)
-            stackView.addSubview(stack.last! as UIView)
+            UIView.animate(withDuration: 0.1) {
+                self.visualVC.addSubview(self.stack.last! as UIView)
+            }
             
         case .heap:
             if heap.isEmpty {
@@ -447,8 +453,9 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
             }
             heap.append(v)
-            stackView.addSubview(heap.last! as UIView)
-            
+            UIView.animate(withDuration: 0.1) {
+                self.visualVC.addSubview(self.heap.last! as UIView)
+            }
         case .global:
             if globals.isEmpty {
                 v.center = self.globalRootLabel.center.applying(
@@ -461,7 +468,9 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
             }
             globals.append(v)
-            stackView.addSubview(globals.last! as UIView)
+            UIView.animate(withDuration: 0.1) {
+                self.visualVC.addSubview(self.globals.last! as UIView)
+            }
         }
     }
     

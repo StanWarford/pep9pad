@@ -11,7 +11,6 @@ import UIKit
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var newproject: UIButton!
-    @IBOutlet weak var dismissButton: UIButton!
     @IBAction func newprojectbuttonpressed(_ sender: Any) {
         makePep9Main()
     }
@@ -43,13 +42,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         recents = projectModel.recentProjectNames()
         super.viewDidLoad()
-        dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
     }
-    
-    @IBAction func dismissSecondVC(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,10 +50,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         projectModel.loadExistingProject(named: recents[indexPath.row])
-        newprojectbuttonpressed(dismissButton)
+        newprojectbuttonpressed(newproject)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

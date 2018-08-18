@@ -22,6 +22,8 @@ class StackCell: UIView {
     var fmt: ESymbolFormat!
     var addr: Int!
     
+    var initialized: Bool = false
+    
     @IBOutlet var valueLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
@@ -57,8 +59,18 @@ class StackCell: UIView {
             valueLabel.text = (machine.mem[addr]*256 + machine.mem[addr+1]).toHex4()
         case .F_NONE:
             print("ERROR in updateValue")
-            valueLabel.text = ""
+            valueLabel.text = "err"
             break
+        }
+        
+        if valueLabel.text == "" {
+            valueLabel.text = "none"
+        }
+        
+        // stop here if this is the cell's creation
+        if !initialized {
+            initialized = true
+            return
         }
         
         // if the value is changing, make the cell red

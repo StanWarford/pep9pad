@@ -43,6 +43,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         HUD.allowsInteraction = true
         //HUD.flash(.labeledSuccess(title: "Installed OS", subtitle: ""), delay: 0.5)
         setState(.unBuilt)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -828,7 +829,9 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     /// Switches the tabBar to the appropriate index.
     func switchToTab(atIndex i: Int) {
-        tabBar.selectedIndex = i
+        UIView.animate(withDuration: 0.35) {
+            self.tabBar.selectedIndex = i
+        }
     }
     
     
@@ -1300,26 +1303,42 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         master.cpu.update()
     }
     
+    var numNavbarIndicesForDebugging = 0
     
     /// Starts the debugging procedure.
     func startDebuggingSource() {
-
+        self.switchToTab(atIndex: 3)
         stepBtn = UIBarButtonItem(title: "Step", style: .plain, target: self, action: #selector(self.singleStep))
         resBtn = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(self.resumeExecution))
         flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         UIView.animate(withDuration: 0.25) {
             self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
-            self.navigationItem.leftBarButtonItems?.append(self.stepBtn)
             self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
-            self.navigationItem.leftBarButtonItems?.append(self.resBtn)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
             self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
 
+            self.navigationItem.leftBarButtonItems?.append(self.stepBtn)
+            
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+
+            self.navigationItem.leftBarButtonItems?.append(self.resBtn)
+            // I don't think we need flexible space AFTER the buttons...
+//            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+//            self.navigationItem.leftBarButtonItems?.append(self.flexibleSpace)
+
+            self.numNavbarIndicesForDebugging = 12
+            
+            
             // change debugBtn to be a stop symbol
             self.setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .stop, ofSize: 20)
             self.setState(.startDebugging)
         }
         master.cpu.clearCpu()
-        switchToTab(atIndex: 3)
 
 
         // 11 is the offset from the last byte of the OS to the stack pointer
@@ -1357,19 +1376,16 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         machine.interrupt()
         // update trace
         // don't need to do this: switchToTab(atIndex: 3)
+
+        // sanity check
+        if (self.navigationItem.leftBarButtonItems?.count)! < numNavbarIndicesForDebugging {
+            // something went wrong with the navigation bar buttons....
+            assert(false)
+        }
         
-        // remove both of those buttons that were added at beginning of debug
-        if let a = self.navigationItem.leftBarButtonItems?.index(of: stepBtn) {
-            self.navigationItem.leftBarButtonItems?.remove(at: a)
-        }
-        if let b = self.navigationItem.leftBarButtonItems?.index(of: resBtn) {
-            self.navigationItem.leftBarButtonItems?.remove(at: b)
-        }
-        // multiple spaces were added, so they should all be removed, I guess
-        for i in 0..<3 {
-            if let c = self.navigationItem.leftBarButtonItems?.index(of: flexibleSpace) {
-                self.navigationItem.leftBarButtonItems?.remove(at: c)
-            }
+        // remove the bar button items added to the navbar
+        for _ in 0..<numNavbarIndicesForDebugging {
+            self.navigationItem.leftBarButtonItems?.removeLast()
         }
         
         // change icon back to a bug

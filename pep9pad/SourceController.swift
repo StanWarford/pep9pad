@@ -17,6 +17,9 @@ class SourceController: UIViewController, ProjectModelEditor, CodeViewDelegate {
         let rectForCode = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height-heightOfTabBar)
         textView.setupTextView(rectForCode, delegate: self, highlightAs: .pep)
         pullFromProjectModel()
+        // scrolls the textview to the top...?
+        textView.textView.scrollRectToVisible(CGRect.zero, animated: true)
+
     }
     
     
