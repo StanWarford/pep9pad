@@ -1,8 +1,8 @@
 ##  To-Do for Josh
 * Add scrolling for large stacks/heaps
-- [ ] Fix help system to remove NZVC in add and subs
 - [ ] Warning remove
-- [ ] Fix highlighting bugs
+- [ ] Fix highlighting bugs in stack/heap/globals
+- Add fast-forward (just calling singleStepBtnPressed over and over again)
 
 * Fig0629 does not work (terminal bug)
 * Remove assert(false)

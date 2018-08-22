@@ -23,6 +23,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(TraceViewController.settingsChanged), name: .settingsChanged, object: nil)
+        
+        
         //visualVC.drawBottomOfStack(visualVC.frame)
     }
     
@@ -500,6 +504,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     
+
+
+    
+    
     
     /// Updates the cells and table as needed.
     /// Called periodically by Pep9DetailController.
@@ -539,6 +547,38 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     
+    
+    
+    
+    
+    /// This function is called in response to a Notification that the
+    /// app settings (colors/fonts in particular) have changed.
+    @objc func settingsChanged() {
+        
+        //font = UIFont(name: Courier, size: appSettings.fontSize)
+        let c = appSettings.getColorFor(.background)
+        tableView.backgroundColor = c
+        visualVC.backgroundColor = c
+
+        self.view.backgroundColor = c
+        
+        // reload the table view to apply changes to the individual cells
+        tableView.reloadData()
+        
+        
+        //visualVC.textColor = appSettings.getColorFor(.text)
+        //textView.font = textView.font?.withSize(appSettings.fontSize)
+        // TODO: change foreground and background color to match the scheme in appSettings
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // Conformance to UITableViewDataSource (subclass of UITableViewController)
     
     
@@ -554,9 +594,12 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell = UITableViewCell(style: .default, reuseIdentifier: idForCell)
         }
         
+        cell.backgroundColor = appSettings.getColorFor(.background)
+        
         if traceOS {
             if index < assembler.osListing.count {
                 cell.textLabel?.attributedText = NSAttributedString(string: assembler.osListing[indexPath.row])
+                cell.textLabel?.textColor = appSettings.getColorFor(.text)
                 cell.textLabel?.font = UIFont(name: "Courier", size: 12.0)!
             }
         } else {
@@ -564,6 +607,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if index < assembler.listing.count {
                 //cell.textLabel?.text = assembler.listing[index]
                 cell.textLabel?.attributedText = NSAttributedString(string: assembler.listing[indexPath.row])
+                cell.textLabel?.textColor = appSettings.getColorFor(.text)
                 cell.textLabel?.font = UIFont(name: "Courier", size: 12.0)!
             } else {
                 // out of bounds!

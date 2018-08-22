@@ -202,6 +202,12 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
         if sender.title == String.fontAwesomeIcon(name: .stop) {
             stopDebugging()
         } else {
+            // There is a bizarre bug that has forced this UI behavior:
+            switchToTab(atIndex: 3)
+            // The Bug:
+            // The global `valueLabel`s don't show up on the first time you debug
+            // something, so long as you haven't *viewed* the trace tab before.
+            // The behavior is actually not bad, so I think we should keep it.
             let menu = self.debugMenu.makeAlert(barButton: debugBtn, detail: self)
             self.present(menu, animated: true, completion: nil)
         }

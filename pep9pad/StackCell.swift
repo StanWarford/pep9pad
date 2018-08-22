@@ -73,6 +73,13 @@ class StackCell: UIView {
             return
         }
         
+        let c = appSettings.getColorFor(.text)
+        self.valueLabel.textColor = c
+        self.addressLabel.textColor = c
+        self.nameLabel.textColor = c
+        self.valueLabel.layer.borderColor = c.cgColor
+        
+        
         // if the value is changing, make the cell red
         if oldVal != valueLabel.text {
             self.valueLabel.backgroundColor = .red
