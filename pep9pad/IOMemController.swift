@@ -208,6 +208,8 @@ class IOMemController: UIViewController, UITextViewDelegate {
                     self.inputLabel.isHidden = false
                     self.inputLabel.text = "Input"
                     self.outputLabel.isHidden = false
+                    
+                    self.view.layoutSubviews()
                 }
 
                 
@@ -222,15 +224,16 @@ class IOMemController: UIViewController, UITextViewDelegate {
                     self.terminalTextView.isHidden = false
                     self.memoryView.isHidden = true
                     
-                    //self.inputLabel.isHidden = false
-                    //self.inputLabel.text = "Terminal"
-                    self.inputLabel.isHidden = true
+                    self.inputLabel.isHidden = false
+                    self.inputLabel.text = "Terminal"
                     self.outputLabel.isHidden = true
-                    self.terminalTextView.frame = CGRect(x: self.view.frame.origin.x,
-                                                    y: self.view.frame.origin.y+44,
-                                                    width: self.view.frame.width,
-                                                    height: self.view.frame.height-44)
-                    
+                    self.view.layoutSubviews()
+
+//                    self.terminalTextView.frame = CGRect(x: self.view.frame.origin.x,
+//                                                    y: self.view.frame.origin.y+44,
+//                                                    width: self.view.frame.width,
+//                                                    height: self.view.frame.height-44)
+//
 
                 }
             case .memory:
@@ -248,6 +251,7 @@ class IOMemController: UIViewController, UITextViewDelegate {
                     self.memoryView.isHidden = false
                     self.inputLabel.isHidden = true
                     self.outputLabel.isHidden = false
+                    self.view.layoutSubviews()
                 }
             }
         }

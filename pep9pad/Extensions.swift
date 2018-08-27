@@ -305,7 +305,7 @@ public extension CGFloat {
 
 extension UIView {
     func addBorder() {
-        self.layer.borderColor = UIColor.gray.cgColor
+        self.layer.borderColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
         self.layer.borderWidth = 1.0
     }
     
