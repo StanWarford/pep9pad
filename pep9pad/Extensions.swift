@@ -313,8 +313,44 @@ extension UIView {
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.borderWidth = 0.0
     }
+    
+    
+//    func resizeHeightUp() {
+//        var contentRect = CGRect.zero
+//        for v in self.subviews {
+//            contentRect = contentRect.union(v.frame)
+//            //print(v.frame)
+//        }
+//
+//        self.frame = CGRect(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.width, height: contentRect.height)
+//    }
 
 }
+
+
+
+
+
+extension UIScrollView {
+    
+    func resizeScrollViewContentSize() {
+        var contentRect = CGRect.zero
+        for view in self.subviews {
+            contentRect = contentRect.union(view.frame)
+            print(view.frame)
+        }
+        let oldHeight = self.contentSize.height
+        let newHeight = contentRect.size.height
+        self.contentSize.height = contentRect.size.height
+        
+        //self.subviews.first!.frame.origin.y += newHeight-oldHeight
+    }
+    
+}
+
+
+
+
 
 // This doesn't work, probably because of missized output textView
 //extension UITextView {

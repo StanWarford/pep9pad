@@ -73,7 +73,8 @@ class StackCell: UIView {
             return
         }
         
-        let c = appSettings.getColorFor(.text)
+        //let c = appSettings.getColorFor(.text)
+        let c = UIColor.black
         self.valueLabel.textColor = c
         self.addressLabel.textColor = c
         self.nameLabel.textColor = c

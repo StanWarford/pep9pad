@@ -18,8 +18,8 @@ Debugging Programs
 </td></tr>
 </table>
 <p>
- The Pep/9 system provides debugging tools to help you locate errors in the programs you write.
- The tools include a memory dump, break points, and a symbolic trace feature.
+ This app has debugging tools, like a memory dumpto help you locate errors in the programs you write.
+ The tools include a memory dump and a symbolic trace feature.
  If you are debugging a machine language program that you wrote you can use the memory dump feature
  but you cannot set break points or use the symbolic trace feature.
  You can use all the debugging features if you are debugging an assembly language program.
@@ -33,7 +33,6 @@ Debugging Programs
 
 <h3><a name="Memory">The memory dump</a></h3>
 
-View the Memory Dump pane by selecting View->Code/CPU/Memory from the menu or by clicking the corresponding icon in the tool bar.
 <p>
 <img src="images/codecpumemory.png" alt="codecpumemory" hspace=10 vspace=10>
 <img src="images/codecpumemoryicon.png" alt="codecpumemoryicon" hspace=10 vspace=10>
@@ -165,8 +164,6 @@ The <code>LDWA</code> instruction has just executed, and the <code>ADDA</code> i
 <p>
 <img src="images/fig0515breakpoint.png" alt="fig0515breakpoint" hspace=10 vspace=10>
 <p>
- When the programmer clicks the Resume button, the program resumes executing until it gets to an instruction with a breakpoint
- or until completion if no breakpoint is encountered.
  The following screenshots show what happens when the Resume button is clicked.
  Note that the <code>STWA</code> instruction will execute next if the programmer clicks the Single Step button at this point.
  <p>
