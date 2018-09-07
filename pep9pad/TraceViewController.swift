@@ -37,11 +37,10 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    @IBOutlet weak var visualVC: StackVC! {
-        didSet {
-            visualVC.addBorder()
-        }
-    }
+    @IBOutlet weak var contentView: UIView!
+    
+    // The scrollView that contains the visualVC.
+    @IBOutlet var scrollView: UIScrollView!
     
     /// Used to get a CGRect for the root of the stack.
     @IBOutlet var stackRootLabel: UILabel!
@@ -226,6 +225,24 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    /// Calculates the content height of the scrollview
+//    func adjustScrollViewHeight() {
+//
+//        // figure out which has more and use it
+//        if stack.count > heap.count {
+//            height
+//            for i in stack {
+//
+//            }
+//        } else {
+//
+//        }
+//
+//        //int y = CGRectGetMaxY(((UIView*)[_scrollView.subviews lastObject]).frame); [_scrollView setContentSize:(CGSizeMake(CGRectGetWidth(_scrollView.frame), y))];
+//    }
+//
+    
+    
     /// Remove n bytes from the stack.
     func popBytes(n: Int) {
         var numBytes = n
@@ -248,6 +265,9 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 frameSizes.removeLast()
             }
         }
+        
+        //contentView.resizeHeight()
+        scrollView.resizeScrollViewContentSize()
     }
     
     
@@ -299,7 +319,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell!.backgroundColor = .clear
             cell!.layer.borderColor = UIColor.black.cgColor
             cell!.layer.borderWidth = 3.0
-            cell!.frame.origin = stack.last!.convert(stack.last!.valueLabel.frame.origin, to: visualVC)
+            cell!.frame.origin = stack.last!.convert(stack.last!.valueLabel.frame.origin, to: contentView)
         } else {
             // we are dealing with a heap frame
             let theFrame = heap.last!.valueLabel.frame.applying(CGAffineTransform(scaleX: 1.0, y: CGFloat(size)))
@@ -308,11 +328,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell!.backgroundColor = .clear
             cell!.layer.borderColor = UIColor.black.cgColor
             cell!.layer.borderWidth = 3.0
-            cell!.frame.origin = heap[heap.count-size].convert(heap[heap.count-size].valueLabel.frame.origin, to: visualVC)//.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT))
+            cell!.frame.origin = heap[heap.count-size].convert(heap[heap.count-size].valueLabel.frame.origin, to: contentView)//.applying(CGAffineTransform(translationX: 0, y: -CELL_HEIGHT))
         }
         
         // add it to the StackView
-        visualVC.addSubview(cell!)
+        contentView.addSubview(cell!)
         
         // and add it to the list of frames
         if (target == .stack) {
@@ -320,6 +340,9 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             heapFrames.append(cell!)
         }
+        
+        scrollView.resizeScrollViewContentSize()
+        
     }
     
     
@@ -441,8 +464,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
             }
             stack.append(v)
+            
+            self.addRoomForCells(1)
+            
             UIView.animate(withDuration: 0.1) {
-                self.visualVC.addSubview(self.stack.last! as UIView)
+                self.contentView.addSubview(self.stack.last! as UIView)
             }
             
         case .heap:
@@ -457,8 +483,11 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
             }
             heap.append(v)
+            
+            self.addRoomForCells(1)
+
             UIView.animate(withDuration: 0.1) {
-                self.visualVC.addSubview(self.heap.last! as UIView)
+                self.contentView.addSubview(self.heap.last! as UIView)
             }
         case .global:
             if globals.isEmpty {
@@ -472,11 +501,38 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 )
             }
             globals.append(v)
+            
+            // adjust the contentView
+            self.addRoomForCells(1)
+            
             UIView.animate(withDuration: 0.1) {
-                self.visualVC.addSubview(self.globals.last! as UIView)
+                self.contentView.addSubview(self.globals.last! as UIView)
             }
         }
+        
+        //contentView.resizeHeight()
+        //contentView.heightAncho
+        
     }
+    
+    
+    /// If numCells < 0, remove from height.  Otherwise add to height
+    func addRoomForCells(_ numCells: Int = 0) {
+
+        let oldOrigin = contentView.frame.origin
+        let oldHeight = contentView.frame.height
+        let width = contentView.frame.width // does not change
+        let yDisplace = CELL_HEIGHT*CGFloat(numCells)
+        
+//        contentView.frame = CGRect(x: oldOrigin.x,
+//                                   y: oldOrigin.y + yDisplace,
+//                                   width: width,
+//                                   height: oldHeight + yDisplace)
+        
+        scrollView.resizeScrollViewContentSize()
+
+    }
+    
     
 
     
@@ -558,7 +614,7 @@ class TraceViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //font = UIFont(name: Courier, size: appSettings.fontSize)
         let c = appSettings.getColorFor(.background)
         tableView.backgroundColor = c
-        visualVC.backgroundColor = c
+        //visualVC.backgroundColor = c
 
         self.view.backgroundColor = c
         
