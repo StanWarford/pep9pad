@@ -200,7 +200,7 @@
         <!--View Controller-->
         <scene sceneID="2RT-H9-u4u">
             <objects>
-                <viewController id="Crp-0P-M8w" sceneMemberID="viewController">
+                <viewController id="Crp-0P-M8w" customClass="CPUViewController" customModule="pep9pad" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jmD-Ih-6aP"/>
                         <viewControllerLayoutGuide type="bottom" id="y7X-om-hTN"/>
@@ -213,11 +213,11 @@
                                 <rect key="frame" x="512" y="0.0" width="512" height="768"/>
                                 <color key="backgroundColor" red="0.62833820399999996" green="0.73527302250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS" customClass="CodeView" customModule="pep9pad">
                                 <rect key="frame" x="0.0" y="0.0" width="512" height="384"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1" customClass="MemoryView" customModule="pep9pad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="384" width="512" height="384"/>
                                 <color key="backgroundColor" red="0.96655136350000004" green="0.78115693360000005" blue="0.61053179719999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -238,6 +238,9 @@
                             <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" id="jZE-M8-EGN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationItem id="vQM-J1-q8d">

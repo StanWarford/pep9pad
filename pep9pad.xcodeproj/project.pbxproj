@@ -228,6 +228,7 @@
 		753780661E96F862002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780651E96F862002E1968 /* ViewController.swift */; };
 		753780681E96F873002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780671E96F873002E1968 /* SecondViewController.swift */; };
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
+		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
@@ -495,6 +496,7 @@
 		753780671E96F873002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		753780691E96F951002E1968 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonunaryMnemonics.swift; path = pep9pad/NonunaryMnemonics.swift; sourceTree = "<group>"; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
@@ -910,6 +912,7 @@
 			isa = PBXGroup;
 			children = (
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
+				A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */,
 				46D674DB1E56057B00AE1B8F /* Master */,
 				46D674DC1E5605A200AE1B8F /* Detail */,
 				46A71C0D1E563DC500FCEFEA /* CPUModels */,
@@ -1523,6 +1526,7 @@
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
+				A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */,
 				46D7A0A51E36F63900BA14A7 /* ColoredObject.swift in Sources */,
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* Pep9DetailController.swift in Sources */,
