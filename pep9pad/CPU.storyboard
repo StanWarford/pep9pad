@@ -240,6 +240,8 @@
                     </view>
                     <connections>
                         <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
+                        <outlet property="codeView" destination="zwR-yE-CAS" id="Xbi-NY-1Ib"/>
+                        <outlet property="memoryView" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>

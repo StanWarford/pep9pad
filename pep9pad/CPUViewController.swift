@@ -17,7 +17,8 @@ class CPUViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCPU()
-        
+        setupCodeView()
+        setupMemView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +26,26 @@ class CPUViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var memoryView: MemoryView!
+    @IBOutlet weak var codeView: CodeView!
     @IBOutlet weak var CPUScrollView: UIScrollView!
     
     func setupCPU(){
         CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
         CPUScrollView.addSubview(currentCPUDisplay)
+    }
+    
+    func setupCodeView(){
+        let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
+        codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
+        //codeView.setupTextView(codeViewRect)
+    }
+    func setupMemView(){
+        let memViewRect = CGRect(x: 0.0, y: 0.0, width: memoryView.frame.width, height: memoryView.frame.height)
+        let memView = MemoryView(frame: memViewRect)
+        
+        memoryView.addSubview(memView)
+        
     }
     
     /*
@@ -42,4 +58,11 @@ class CPUViewController: UIViewController {
     }
     */
 
+}
+
+extension CPUViewController : CodeViewDelegate{
+    func textViewDidChange() {
+        // Add Later
+        return
+    }
 }
