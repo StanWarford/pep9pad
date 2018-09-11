@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8MR-lD-wdI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Crp-0P-M8w">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,6 +196,93 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="waC-VJ-UNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1636" y="-668"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2RT-H9-u4u">
+            <objects>
+                <viewController id="Crp-0P-M8w" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jmD-Ih-6aP"/>
+                        <viewControllerLayoutGuide type="bottom" id="y7X-om-hTN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="23h-pM-lfg">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdJ-Ke-L4q">
+                                <rect key="frame" x="512" y="0.0" width="512" height="768"/>
+                                <color key="backgroundColor" red="0.62833820399999996" green="0.73527302250000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS">
+                                <rect key="frame" x="0.0" y="0.0" width="512" height="384"/>
+                                <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1">
+                                <rect key="frame" x="0.0" y="384" width="512" height="384"/>
+                                <color key="backgroundColor" red="0.96655136350000004" green="0.78115693360000005" blue="0.61053179719999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MI6-iK-UP1" firstAttribute="top" secondItem="zwR-yE-CAS" secondAttribute="bottom" id="0IY-B8-po5"/>
+                            <constraint firstItem="zwR-yE-CAS" firstAttribute="top" secondItem="23h-pM-lfg" secondAttribute="top" id="1Iy-oD-rui"/>
+                            <constraint firstItem="MI6-iK-UP1" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="6LS-cL-Q0C"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="zwR-yE-CAS" secondAttribute="trailing" id="BvI-2Y-yaY"/>
+                            <constraint firstItem="zwR-yE-CAS" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="FB5-Kt-o5C"/>
+                            <constraint firstItem="zwR-yE-CAS" firstAttribute="bottom" secondItem="23h-pM-lfg" secondAttribute="centerY" id="LJU-hm-e48"/>
+                            <constraint firstItem="y7X-om-hTN" firstAttribute="top" secondItem="MI6-iK-UP1" secondAttribute="bottom" id="PJ3-g5-T0B"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="top" secondItem="23h-pM-lfg" secondAttribute="top" id="U51-ia-fks"/>
+                            <constraint firstAttribute="trailing" secondItem="QdJ-Ke-L4q" secondAttribute="trailing" id="fsn-Nx-ied"/>
+                            <constraint firstItem="y7X-om-hTN" firstAttribute="top" secondItem="QdJ-Ke-L4q" secondAttribute="bottom" id="gZp-4T-FKz"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="MI6-iK-UP1" secondAttribute="trailing" id="j2l-Ut-y5P"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" id="jZE-M8-EGN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem id="vQM-J1-q8d">
+                    <leftBarButtonItems>
+                        <barButtonItem title="▶️" id="7NC-aw-WXd">
+                            <connections>
+                                <action selector="runBtnPressed:" destination="H8P-5l-Sdd" id="1dw-nF-hVU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="🐛" id="U1A-Rj-Xxb">
+                            <connections>
+                                <action selector="debugBtnPressed:" destination="H8P-5l-Sdd" id="r2p-xH-glN"/>
+                            </connections>
+                        </barButtonItem>
+                    </leftBarButtonItems>
+                    <rightBarButtonItems>
+                        <barButtonItem systemItem="action" id="wH7-Tv-IVt">
+                            <connections>
+                                <action selector="actionBtnPressed:" destination="H8P-5l-Sdd" id="XAM-uT-vc9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="⚙" id="suz-os-May">
+                            <connections>
+                                <action selector="settingsBtnPressed:" destination="H8P-5l-Sdd" id="JSd-d7-a6Q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="calc" id="wE1-Sa-9WE">
+                            <connections>
+                                <action selector="calcBtnPressed:" destination="H8P-5l-Sdd" id="jdb-YH-JTT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Aa" id="1DF-GI-g21">
+                            <connections>
+                                <action selector="fontBtnPressed:" destination="H8P-5l-Sdd" id="yMa-iV-8ei"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Bus" id="ili-6h-Va9">
+                            <connections>
+                                <action selector="busBtnPressed:" destination="H8P-5l-Sdd" id="sBM-7R-88e"/>
+                            </connections>
+                        </barButtonItem>
+                    </rightBarButtonItems>
+                </navigationItem>
+            </objects>
+            <point key="canvasLocation" x="-1637.109375" y="739.84375"/>
         </scene>
     </scenes>
 </document>
