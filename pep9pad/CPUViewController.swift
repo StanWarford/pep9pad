@@ -34,11 +34,23 @@ class CPUViewController: UIViewController {
         CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
         CPUScrollView.addSubview(currentCPUDisplay)
     }
+    func pullFromProjectModel() {
+        codeView.setText(projectModel.sourceStr)
+    }
     
     func setupCodeView(){
         let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
         codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
+        pullFromProjectModel()
+        codeView.textView.scrollRectToVisible(CGRect.zero, animated: true)
         //codeView.setupTextView(codeViewRect)
+        
+//        let rectForCode = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height-heightOfTabBar)
+//        textView.setupTextView(rectForCode, delegate: self, highlightAs: .pep)
+//        pullFromProjectModel()
+//        // scrolls the textview to the top...?
+//        textView.textView.scrollRectToVisible(CGRect.zero, animated: true)
+        
     }
     func setupMemView(){
         memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
