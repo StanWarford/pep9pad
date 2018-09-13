@@ -216,9 +216,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="512" height="384"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1" customClass="MemoryView" customModule="pep9pad" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1">
                                 <rect key="frame" x="0.0" y="384" width="512" height="384"/>
-                                <color key="backgroundColor" red="0.96655136350000004" green="0.78115693360000005" blue="0.61053179719999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-ce-SFd">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
@@ -247,7 +246,7 @@
                     <connections>
                         <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
                         <outlet property="codeView" destination="zwR-yE-CAS" id="Xbi-NY-1Ib"/>
-                        <outlet property="memoryView" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
+                        <outlet property="memory" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>

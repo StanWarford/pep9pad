@@ -25,8 +25,8 @@ class CPUViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBOutlet weak var memoryView: MemoryView!
+    var memoryView : MemoryView!
+    @IBOutlet weak var memory: UIView!
     @IBOutlet weak var codeView: CodeView!
     @IBOutlet weak var CPUScrollView: UIScrollView!
     
@@ -41,10 +41,13 @@ class CPUViewController: UIViewController {
         //codeView.setupTextView(codeViewRect)
     }
     func setupMemView(){
-        let memViewRect = CGRect(x: 0.0, y: 0.0, width: memoryView.frame.width, height: memoryView.frame.height)
-        let memView = MemoryView(frame: memViewRect)
-        
-        memoryView.addSubview(memView)
+        memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
+        memoryView.frame = CGRect(x: memory.frame.origin.x, y: 0.0, width: memory.frame.width,
+            height: memory.frame.height-10)
+
+        memoryView.pcBtn.isHidden = true
+        memoryView.spBtn.isHidden = true
+        memory.addSubview(memoryView)
         
     }
     
