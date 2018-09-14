@@ -202,7 +202,7 @@ class MemoryView: UIView, UITableViewDataSource, UITableViewDelegate, UITextFiel
             cell = UITableViewCell(style: .default, reuseIdentifier: cellID)
         }
         cell?.textLabel?.font = UIFont(name: "Courier", size: 11.0)!
-        cell?.textLabel?.attributedText = NSAttributedString(string: memoryDump[indexPath.row])
+        cell?.textLabel?.attributedText = NSAttributedString(string: "0x" + memoryDump[indexPath.row])
         return cell!
     }
     
