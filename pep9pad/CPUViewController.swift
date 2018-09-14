@@ -20,7 +20,21 @@ class CPUViewController: UIViewController {
         setupCodeView()
         setupMemView()
     }
+    
+    fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
+        let widthScale = size.width / currentCPUDisplay.bounds.width
+        let heightScale = size.height / currentCPUDisplay.bounds.height
+        let minScale = min(widthScale, heightScale)
 
+        CPUScrollView.minimumZoomScale = minScale
+        CPUScrollView.zoomScale = minScale
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateMinZoomScaleForSize(CPUScrollView.bounds.size)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,6 +46,9 @@ class CPUViewController: UIViewController {
     
     func setupCPU(){
         CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
+//        CPUScrollView.maximumZoomScale = 2.0
+//        CPUScrollView.minimumZoomScale = 0.25
+        CPUScrollView.delegate = self
         CPUScrollView.addSubview(currentCPUDisplay)
     }
     func pullFromProjectModel() {
@@ -79,5 +96,12 @@ extension CPUViewController : CodeViewDelegate{
     func textViewDidChange() {
         // Add Later
         return
+    }
+}
+
+extension CPUViewController : UIScrollViewDelegate {
+    //viewForZoomingInScrollView
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return currentCPUDisplay
     }
 }
