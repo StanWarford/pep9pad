@@ -14,11 +14,42 @@ class CPUViewController: UIViewController {
     
     lazy var currentCPUDisplay = CPU1ByteView(frame: drawingSize)
     
+    var testBtn: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavBar()
         setupCPU()
         setupCodeView()
         setupMemView()
+    }
+    
+    
+    // Button added in storyboard
+    @IBOutlet var storyboardBtn: UIBarButtonItem!
+    
+    // Called when storyboardBtn senses a touch up inside.
+    @IBAction func testNavbarBtnPressed(_ sender: Any) {
+        print("storyboard button pressed")
+    }
+    
+    
+    /// This function adds a title and another button to the navigationItem.
+    func setupNavBar() {
+        self.navigationItem.title = "Test Title"
+        
+        
+        // dynamically create and add a button
+        self.testBtn = UIBarButtonItem(title: "DynamicallyAddedButton", style: .plain, target: self, action: #selector(self.btnPressed))
+        
+        UIView.animate(withDuration: 2.0) {
+            self.navigationItem.leftBarButtonItems?.append(self.testBtn)
+        }
+    }
+    
+    // Called when the dynamically added button is pressed.
+    @objc func btnPressed() {
+        print("test button pressed")
     }
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {

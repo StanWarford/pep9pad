@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Crp-0P-M8w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MPr-1x-Fwb">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -243,54 +243,39 @@
                             <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" id="jZE-M8-EGN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="L1L-kS-QnU">
+                        <barButtonItem key="leftBarButtonItem" title="ButtonFromStoryboard" id="MfD-ks-mUk">
+                            <connections>
+                                <action selector="testNavbarBtnPressed:" destination="Crp-0P-M8w" id="tLC-Pz-X1S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
                         <outlet property="codeView" destination="zwR-yE-CAS" id="Xbi-NY-1Ib"/>
                         <outlet property="memory" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
+                        <outlet property="storyboardBtn" destination="MfD-ks-mUk" id="tvy-Zl-TFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationItem id="vQM-J1-q8d">
-                    <leftBarButtonItems>
-                        <barButtonItem title="▶️" id="7NC-aw-WXd">
-                            <connections>
-                                <action selector="runBtnPressed:" destination="H8P-5l-Sdd" id="1dw-nF-hVU"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="🐛" id="U1A-Rj-Xxb">
-                            <connections>
-                                <action selector="debugBtnPressed:" destination="H8P-5l-Sdd" id="r2p-xH-glN"/>
-                            </connections>
-                        </barButtonItem>
-                    </leftBarButtonItems>
-                    <rightBarButtonItems>
-                        <barButtonItem systemItem="action" id="wH7-Tv-IVt">
-                            <connections>
-                                <action selector="actionBtnPressed:" destination="H8P-5l-Sdd" id="XAM-uT-vc9"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="⚙" id="suz-os-May">
-                            <connections>
-                                <action selector="settingsBtnPressed:" destination="H8P-5l-Sdd" id="JSd-d7-a6Q"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="calc" id="wE1-Sa-9WE">
-                            <connections>
-                                <action selector="calcBtnPressed:" destination="H8P-5l-Sdd" id="jdb-YH-JTT"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Aa" id="1DF-GI-g21">
-                            <connections>
-                                <action selector="fontBtnPressed:" destination="H8P-5l-Sdd" id="yMa-iV-8ei"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="Bus" id="ili-6h-Va9">
-                            <connections>
-                                <action selector="busBtnPressed:" destination="H8P-5l-Sdd" id="sBM-7R-88e"/>
-                            </connections>
-                        </barButtonItem>
-                    </rightBarButtonItems>
-                </navigationItem>
+            </objects>
+            <point key="canvasLocation" x="-912.89062499999989" y="739.84375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pap-52-UHS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MPr-1x-Fwb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H5k-Gj-HP8">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Crp-0P-M8w" kind="relationship" relationship="rootViewController" id="k2J-9W-jRK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dOa-8O-zNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1637.109375" y="739.84375"/>
         </scene>
