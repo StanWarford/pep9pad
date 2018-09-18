@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class CPUViewController: UIViewController {
 
@@ -24,9 +25,45 @@ class CPUViewController: UIViewController {
         setupMemView()
     }
     
+    /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
+    func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
+        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
+        btn.setTitleTextAttributes(attrs, for: .normal)
+        btn.setTitleTextAttributes(attrs, for: .disabled)
+        btn.setTitleTextAttributes(attrs, for: .highlighted)
+        btn.title = String.fontAwesomeIcon(name: nameOfIcon)
+    }
     
     // Button added in storyboard
     @IBOutlet var storyboardBtn: UIBarButtonItem!
+   
+    
+    
+    @IBOutlet var runBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .play, ofSize: 20)
+        }
+    }
+    @IBOutlet var debugBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .bug, ofSize: 20)
+        }
+    }
+    @IBOutlet var stop: UIBarButtonItem! {
+        didSet {
+            self.stop.image = UIImage(named: "ham")
+        }
+    }
+    @IBOutlet var calcBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .calculator, ofSize: 20)
+        }
+    }
+    @IBOutlet var settingsBtn: UIBarButtonItem! {
+        didSet {
+            setButtonIcon(forBarBtnItem: self.settingsBtn, nameOfIcon: .cog, ofSize: 20)
+        }
+    }
     
     // Called when storyboardBtn senses a touch up inside.
     @IBAction func testNavbarBtnPressed(_ sender: Any) {

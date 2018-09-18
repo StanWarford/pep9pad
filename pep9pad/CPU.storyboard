@@ -243,18 +243,28 @@
                             <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" id="jZE-M8-EGN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="L1L-kS-QnU">
-                        <barButtonItem key="leftBarButtonItem" title="ButtonFromStoryboard" id="MfD-ks-mUk">
-                            <connections>
-                                <action selector="testNavbarBtnPressed:" destination="Crp-0P-M8w" id="tLC-Pz-X1S"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" id="j52-Qd-Cqf">
+                        <leftBarButtonItems>
+                            <barButtonItem title="run" id="7xb-aH-y0v"/>
+                            <barButtonItem title="debug" id="mXk-Xv-l0w"/>
+                            <barButtonItem title="stop" id="kEf-co-yiJ"/>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="fgy-hD-moK"/>
+                            <barButtonItem title="settings" id="0Vy-IZ-wVk"/>
+                            <barButtonItem title="calc" id="TQj-sn-Q08"/>
+                            <barButtonItem title="Aa" id="sEi-ip-UHE"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
+                        <outlet property="calcBtn" destination="TQj-sn-Q08" id="Ou6-GI-nge"/>
                         <outlet property="codeView" destination="zwR-yE-CAS" id="Xbi-NY-1Ib"/>
+                        <outlet property="debugBtn" destination="mXk-Xv-l0w" id="SlE-Zu-xp4"/>
                         <outlet property="memory" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
-                        <outlet property="storyboardBtn" destination="MfD-ks-mUk" id="tvy-Zl-TFe"/>
+                        <outlet property="runBtn" destination="7xb-aH-y0v" id="JOr-HF-lxH"/>
+                        <outlet property="settingsBtn" destination="0Vy-IZ-wVk" id="tSp-qU-lZV"/>
+                        <outlet property="stop" destination="kEf-co-yiJ" id="gYS-Up-Zdm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>
