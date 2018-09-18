@@ -256,9 +256,21 @@
                         </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="fgy-hD-moK"/>
-                            <barButtonItem title="settings" id="0Vy-IZ-wVk"/>
-                            <barButtonItem title="calc" id="TQj-sn-Q08"/>
-                            <barButtonItem title="Aa" id="sEi-ip-UHE"/>
+                            <barButtonItem title="settings" id="0Vy-IZ-wVk">
+                                <connections>
+                                    <action selector="settingsBtnPressed:" destination="Crp-0P-M8w" id="xkw-HT-hm0"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="calc" id="TQj-sn-Q08">
+                                <connections>
+                                    <action selector="calcBtnPressed:" destination="Crp-0P-M8w" id="wPW-6b-Jd5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Aa" id="sEi-ip-UHE">
+                                <connections>
+                                    <action selector="fontBtnPressed:" destination="Crp-0P-M8w" id="pKS-Fq-ijK"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -266,6 +278,7 @@
                         <outlet property="calcBtn" destination="TQj-sn-Q08" id="Ou6-GI-nge"/>
                         <outlet property="codeView" destination="zwR-yE-CAS" id="Xbi-NY-1Ib"/>
                         <outlet property="debugBtn" destination="mXk-Xv-l0w" id="SlE-Zu-xp4"/>
+                        <outlet property="fontBtn" destination="sEi-ip-UHE" id="jKj-hx-fsU"/>
                         <outlet property="memory" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
                         <outlet property="runBtn" destination="7xb-aH-y0v" id="JOr-HF-lxH"/>
                         <outlet property="settingsBtn" destination="0Vy-IZ-wVk" id="tSp-qU-lZV"/>

@@ -15,6 +15,12 @@ class CPUViewController: UIViewController {
     
     lazy var currentCPUDisplay = CPU1ByteView(frame: drawingSize)
     
+    internal let byteCalc = ByteCalc()
+    internal let fontMenu = FontMenu()
+    internal let debugMenu = DebugMenu()
+    internal let mailer = Pep9Mailer()
+    internal let unaryMnemonics = UnaryMnemonics()
+    internal let nonunaryMnemonics = NonunaryMnemonics()
     var testBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -65,6 +71,25 @@ class CPUViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var fontBtn: UIBarButtonItem!
+    
+    @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
+        let fontMenu = self.fontMenu.makeAlert(barButton: sender)
+        self.present(fontMenu, animated: true, completion: nil)
+    }
+    
+    @IBAction func calcBtnPressed(_ sender: UIBarButtonItem) {
+        let calcAlert = byteCalc.makeAlert()
+        self.present(calcAlert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     // Called when storyboardBtn senses a touch up inside.
     @IBAction func testNavbarBtnPressed(_ sender: Any) {
         print("storyboard button pressed")
@@ -77,7 +102,7 @@ class CPUViewController: UIViewController {
         
         
         // dynamically create and add a button
-        self.testBtn = UIBarButtonItem(title: "DynamicallyAddedButton", style: .plain, target: self, action: #selector(self.btnPressed))
+        self.testBtn = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(self.btnPressed))
         
         UIView.animate(withDuration: 2.0) {
             self.navigationItem.leftBarButtonItems?.append(self.testBtn)
@@ -86,7 +111,8 @@ class CPUViewController: UIViewController {
     
     // Called when the dynamically added button is pressed.
     @objc func btnPressed() {
-        print("test button pressed")
+            //self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
     }
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
