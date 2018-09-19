@@ -210,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1">
-                                <rect key="frame" x="0.0" y="384" width="512" height="384"/>
+                                <rect key="frame" x="0.0" y="384" width="512" height="340"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-ce-SFd">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
@@ -222,7 +222,7 @@
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdJ-Ke-L4q">
-                                <rect key="frame" x="512" y="64" width="512" height="704"/>
+                                <rect key="frame" x="512" y="64" width="512" height="660"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS" customClass="CodeView" customModule="pep9pad">
                                 <rect key="frame" x="0.0" y="64" width="512" height="320"/>
@@ -248,6 +248,7 @@
                             <constraint firstItem="MI6-iK-UP1" firstAttribute="top" secondItem="zwR-yE-CAS" secondAttribute="bottom" id="lw0-wr-aYU"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="j52-Qd-Cqf">
                         <leftBarButtonItems>
                             <barButtonItem title="run" id="7xb-aH-y0v"/>
@@ -271,8 +272,14 @@
                                     <action selector="fontBtnPressed:" destination="Crp-0P-M8w" id="pKS-Fq-ijK"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Bus" id="3gN-Xr-Fpa">
+                                <connections>
+                                    <action selector="busBtnPressed:" destination="Crp-0P-M8w" id="LcV-4N-AtG"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
                         <outlet property="calcBtn" destination="TQj-sn-Q08" id="Ou6-GI-nge"/>

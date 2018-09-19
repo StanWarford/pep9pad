@@ -11,9 +11,12 @@ import FontAwesome_swift
 
 class CPUViewController: UIViewController {
 
-    let drawingSize = CGRect(x: 0.0, y: 0.0, width: 840, height: 1024)
+    let drawingOneByteSize = CGRect(x: 0.0, y: 0.0, width: 840, height: 1024)
+    let drawingTwoByteSize = CGRect(x: 0.0, y: 0.0, width: 2000, height: 2000)
     
-    lazy var currentCPUDisplay = CPU1ByteView(frame: drawingSize)
+    lazy var oneByteCPUDisplay = CPU1ByteView(frame: drawingOneByteSize)
+    lazy var twoByteCPUDisplay = CPU2ByteView(frame: drawingTwoByteSize)
+    var currentCPUSize = CPUBusSize.oneByte // default bus view
     
     internal let byteCalc = ByteCalc()
     internal let fontMenu = FontMenu()
@@ -84,7 +87,79 @@ class CPUViewController: UIViewController {
         
     }
     
+    @IBAction func busBtnPressed(_ sender: UIBarButtonItem) {
+        
+        var alertController: UIAlertController
+        
+        switch currentCPUSize {
+        case .oneByte:
+            alertController = UIAlertController(title: nil, message: "You're using the one-byte bus.", preferredStyle: .actionSheet)
+            let twoByteAction = UIAlertAction(title: "Switch to two-byte bus", style: .default) { (action) in self.switchToBus(.twoByte) }
+            
+            alertController.addAction(twoByteAction)
+        case .twoByte:
+            alertController = UIAlertController(title: nil, message: "You're using the two-byte bus.", preferredStyle: .actionSheet)
+            let oneByteAction = UIAlertAction(title: "Switch to one-byte bus", style: .default) { (action) in self.switchToBus(.oneByte)}
+            
+            alertController.addAction(oneByteAction)
+        }
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.present(alertController, animated: true, completion: nil)
+        
+//        if cpuView.busSize == .oneByte {
+//            alertController = UIAlertController(title: nil, message: "You're using the one-byte bus.", preferredStyle: .actionSheet)
+//
+//            let twoByteAction = UIAlertAction(title: "Switch to two-byte bus", style: .default) { (action) in
+//                self.switchToBus(.twoByte)
+//            }
+//            alertController.addAction(twoByteAction)
+//        } else {
+//            alertController = UIAlertController(title: nil, message: "You're using the two-byte bus.", preferredStyle: .actionSheet)
+//            let oneByteAction = UIAlertAction(title: "Switch to one-byte bus", style: .default) { (action) in
+//                self.switchToBus(.oneByte)
+//            }
+//            alertController.addAction(oneByteAction)
+//
+//        }
+//
+//
+//        alertController.popoverPresentationController?.barButtonItem = sender
+//        self.present(alertController, animated: true, completion: nil)
+        
+        
+    }
     
+    func switchToBus(_ size: CPUBusSize) {
+        if size != currentCPUSize {
+            // change the global instance
+            //changeBusInstance(toSize: ofSize)
+            let subViews = CPUScrollView.subviews
+            for subview in subViews{
+                subview.removeFromSuperview()
+            }
+            
+            //        CPUScrollView.maximumZoomScale = 2.0
+            //        CPUScrollView.minimumZoomScale = 0.25
+            CPUScrollView.delegate = self
+            
+            switch currentCPUSize{
+            case .oneByte:
+               // CPUScrollView.willRemoveSubview(oneByteCPUDisplay)
+                CPUScrollView.contentSize = CGSize(width: 2000, height: 2000)
+                CPUScrollView.addSubview(twoByteCPUDisplay)
+                currentCPUSize = .twoByte
+            case .twoByte:
+               // CPUScrollView.willRemoveSubview(twoByteCPUDisplay)
+                CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
+                CPUScrollView.addSubview(oneByteCPUDisplay)
+                currentCPUSize = .oneByte
+            }
+            
+        } else {
+            print("no CPU change necessary")
+        }
+    }
     
     
     
@@ -116,9 +191,24 @@ class CPUViewController: UIViewController {
     }
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
-        let widthScale = size.width / currentCPUDisplay.bounds.width
-        let heightScale = size.height / currentCPUDisplay.bounds.height
-        let minScale = min(widthScale, heightScale)
+        
+        var widthScale : CGFloat
+        var heightScale : CGFloat
+        var minScale : CGFloat
+        
+        switch currentCPUSize {
+        case .oneByte:
+                widthScale = size.width / oneByteCPUDisplay.bounds.width
+                heightScale = size.height / oneByteCPUDisplay.bounds.height
+                minScale = min(widthScale, heightScale)
+        case .twoByte:
+                widthScale = size.width / twoByteCPUDisplay.bounds.width
+                heightScale = size.height / twoByteCPUDisplay.bounds.height
+                minScale = min(widthScale, heightScale)
+        }
+//        let widthScale = size.width / oneByteCPUDisplay.bounds.width
+//        let heightScale = size.height / oneByteCPUDisplay.bounds.height
+//        let minScale = min(widthScale, heightScale)
 
         CPUScrollView.minimumZoomScale = minScale
         CPUScrollView.zoomScale = minScale
@@ -143,7 +233,7 @@ class CPUViewController: UIViewController {
 //        CPUScrollView.maximumZoomScale = 2.0
 //        CPUScrollView.minimumZoomScale = 0.25
         CPUScrollView.delegate = self
-        CPUScrollView.addSubview(currentCPUDisplay)
+        CPUScrollView.addSubview(oneByteCPUDisplay)
     }
     func pullFromProjectModel() {
         codeView.setText(projectModel.sourceStr)
@@ -196,6 +286,6 @@ extension CPUViewController : CodeViewDelegate{
 extension CPUViewController : UIScrollViewDelegate {
     //viewForZoomingInScrollView
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return currentCPUDisplay
+        return currentCPUSize == .oneByte ? oneByteCPUDisplay : twoByteCPUDisplay
     }
 }
