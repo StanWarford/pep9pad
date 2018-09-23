@@ -34,6 +34,61 @@ class CPUViewController: UIViewController {
         setupMemView()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateMinZoomScaleForSize(CPUScrollView.bounds.size)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    // Mark:- Vars for Views
+    var memoryView : MemoryView!
+    @IBOutlet weak var memory: UIView!
+    @IBOutlet weak var codeView: CodeView!
+    @IBOutlet weak var CPUScrollView: UIScrollView!
+    
+    //Mark :- Set Up Funcs
+    /// This function adds a title and another button to the navigationItem.
+    func setupNavBar() {
+        self.navigationItem.title = "Pep9 CPU"
+        
+        
+        // dynamically create and add a button
+        self.testBtn = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(self.btnPressed))
+        
+        UIView.animate(withDuration: 2.0) {
+            self.navigationItem.leftBarButtonItems?.append(self.testBtn)
+        }
+    }
+    func setupCPU(){
+        CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
+        CPUScrollView.delegate = self
+        CPUScrollView.addSubview(oneByteCPUDisplay)
+    }
+    func pullFromProjectModel() {
+        codeView.setText(cpuProjectModel.sourceStr)
+    }
+    
+    func setupCodeView(){
+        let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
+        codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
+        pullFromProjectModel()
+        codeView.textView.scrollRectToVisible(CGRect.zero, animated: true)
+    }
+    func setupMemView(){
+        memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
+        memoryView.frame = CGRect(x: memory.frame.origin.x, y: 0.0, width: memory.frame.width,
+                                  height: memory.frame.height-10)
+        
+        memoryView.pcBtn.isHidden = true
+        memoryView.spBtn.isHidden = true
+        memory.addSubview(memoryView)
+        
+    }
+    
+    
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
         let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
@@ -43,11 +98,7 @@ class CPUViewController: UIViewController {
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
-    // Button added in storyboard
-    @IBOutlet var storyboardBtn: UIBarButtonItem!
-   
-    
-    
+    // Mark:- Nav bar buttons
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.runBtn, nameOfIcon: .play, ofSize: 20)
@@ -76,6 +127,7 @@ class CPUViewController: UIViewController {
     
     @IBOutlet weak var fontBtn: UIBarButtonItem!
     
+    // Mark:- Button Funcs
     @IBAction func fontBtnPressed(_ sender: UIBarButtonItem) {
         let fontMenu = self.fontMenu.makeAlert(barButton: sender)
         self.present(fontMenu, animated: true, completion: nil)
@@ -106,41 +158,22 @@ class CPUViewController: UIViewController {
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
-        
-//        if cpuView.busSize == .oneByte {
-//            alertController = UIAlertController(title: nil, message: "You're using the one-byte bus.", preferredStyle: .actionSheet)
-//
-//            let twoByteAction = UIAlertAction(title: "Switch to two-byte bus", style: .default) { (action) in
-//                self.switchToBus(.twoByte)
-//            }
-//            alertController.addAction(twoByteAction)
-//        } else {
-//            alertController = UIAlertController(title: nil, message: "You're using the two-byte bus.", preferredStyle: .actionSheet)
-//            let oneByteAction = UIAlertAction(title: "Switch to one-byte bus", style: .default) { (action) in
-//                self.switchToBus(.oneByte)
-//            }
-//            alertController.addAction(oneByteAction)
-//
-//        }
-//
-//
-//        alertController.popoverPresentationController?.barButtonItem = sender
-//        self.present(alertController, animated: true, completion: nil)
-        
-        
     }
+    
     @IBAction func runBtnPressed(_ sender: Any) {
         cpuProjectModel.sourceStr = codeView.textView.text
         cpuAssembler.microAssemble()
     }
     
-//    func loadObject(){
-//        var obj = cpuAssembler.getObjectCode()
-//        for i in 0..<obj.count {
-//            machine.mem[i] = obj[i]
-//        }
-//    }
-    func switchToBus(_ size: CPUBusSize) {
+    // Called when the dynamically added button is pressed.
+    @objc func btnPressed() {
+            //self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+    }
+    
+    // Mark: - File Private Funcs
+    
+    fileprivate func switchToBus(_ size: CPUBusSize) {
         if size != currentCPUSize {
             // change the global instance
             //changeBusInstance(toSize: ofSize)
@@ -155,12 +188,12 @@ class CPUViewController: UIViewController {
             
             switch currentCPUSize{
             case .oneByte:
-               // CPUScrollView.willRemoveSubview(oneByteCPUDisplay)
+                // CPUScrollView.willRemoveSubview(oneByteCPUDisplay)
                 CPUScrollView.contentSize = CGSize(width: 2000, height: 2000)
                 CPUScrollView.addSubview(twoByteCPUDisplay)
                 currentCPUSize = .twoByte
             case .twoByte:
-               // CPUScrollView.willRemoveSubview(twoByteCPUDisplay)
+                // CPUScrollView.willRemoveSubview(twoByteCPUDisplay)
                 CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
                 CPUScrollView.addSubview(oneByteCPUDisplay)
                 currentCPUSize = .oneByte
@@ -169,35 +202,6 @@ class CPUViewController: UIViewController {
         } else {
             print("no CPU change necessary")
         }
-    }
-    
-    
-    
-    
-    
-    // Called when storyboardBtn senses a touch up inside.
-    @IBAction func testNavbarBtnPressed(_ sender: Any) {
-        print("storyboard button pressed")
-    }
-    
-    
-    /// This function adds a title and another button to the navigationItem.
-    func setupNavBar() {
-        self.navigationItem.title = "Test Title"
-        
-        
-        // dynamically create and add a button
-        self.testBtn = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(self.btnPressed))
-        
-        UIView.animate(withDuration: 2.0) {
-            self.navigationItem.leftBarButtonItems?.append(self.testBtn)
-        }
-    }
-    
-    // Called when the dynamically added button is pressed.
-    @objc func btnPressed() {
-            //self.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
     }
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
@@ -216,74 +220,10 @@ class CPUViewController: UIViewController {
                 heightScale = size.height / twoByteCPUDisplay.bounds.height
                 minScale = min(widthScale, heightScale)
         }
-//        let widthScale = size.width / oneByteCPUDisplay.bounds.width
-//        let heightScale = size.height / oneByteCPUDisplay.bounds.height
-//        let minScale = min(widthScale, heightScale)
 
         CPUScrollView.minimumZoomScale = minScale
         CPUScrollView.zoomScale = minScale
     }
-   
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        updateMinZoomScaleForSize(CPUScrollView.bounds.size)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    var memoryView : MemoryView!
-    @IBOutlet weak var memory: UIView!
-    @IBOutlet weak var codeView: CodeView!
-    @IBOutlet weak var CPUScrollView: UIScrollView!
-    
-    func setupCPU(){
-        CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
-//        CPUScrollView.maximumZoomScale = 2.0
-//        CPUScrollView.minimumZoomScale = 0.25
-        CPUScrollView.delegate = self
-        CPUScrollView.addSubview(oneByteCPUDisplay)
-    }
-    func pullFromProjectModel() {
-        codeView.setText(cpuProjectModel.sourceStr)
-    }
-    
-    func setupCodeView(){
-        let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
-        codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
-        pullFromProjectModel()
-        codeView.textView.scrollRectToVisible(CGRect.zero, animated: true)
-        //codeView.setupTextView(codeViewRect)
-        
-//        let rectForCode = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height-heightOfTabBar)
-//        textView.setupTextView(rectForCode, delegate: self, highlightAs: .pep)
-//        pullFromProjectModel()
-//        // scrolls the textview to the top...?
-//        textView.textView.scrollRectToVisible(CGRect.zero, animated: true)
-        
-    }
-    func setupMemView(){
-        memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
-        memoryView.frame = CGRect(x: memory.frame.origin.x, y: 0.0, width: memory.frame.width,
-            height: memory.frame.height-10)
-
-        memoryView.pcBtn.isHidden = true
-        memoryView.spBtn.isHidden = true
-        memory.addSubview(memoryView)
-        
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
