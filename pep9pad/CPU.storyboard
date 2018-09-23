@@ -251,7 +251,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="j52-Qd-Cqf">
                         <leftBarButtonItems>
-                            <barButtonItem title="run" id="7xb-aH-y0v"/>
+                            <barButtonItem title="run" id="7xb-aH-y0v">
+                                <connections>
+                                    <action selector="runBtnPressed:" destination="Crp-0P-M8w" id="KM5-lf-TKQ"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="debug" id="mXk-Xv-l0w"/>
                             <barButtonItem title="stop" id="kEf-co-yiJ"/>
                         </leftBarButtonItems>

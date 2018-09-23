@@ -129,7 +129,17 @@ class CPUViewController: UIViewController {
         
         
     }
+    @IBAction func runBtnPressed(_ sender: Any) {
+        cpuProjectModel.sourceStr = codeView.textView.text
+        cpuAssembler.microAssemble()
+    }
     
+//    func loadObject(){
+//        var obj = cpuAssembler.getObjectCode()
+//        for i in 0..<obj.count {
+//            machine.mem[i] = obj[i]
+//        }
+//    }
     func switchToBus(_ size: CPUBusSize) {
         if size != currentCPUSize {
             // change the global instance
@@ -213,7 +223,8 @@ class CPUViewController: UIViewController {
         CPUScrollView.minimumZoomScale = minScale
         CPUScrollView.zoomScale = minScale
     }
-
+   
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         updateMinZoomScaleForSize(CPUScrollView.bounds.size)
@@ -236,7 +247,7 @@ class CPUViewController: UIViewController {
         CPUScrollView.addSubview(oneByteCPUDisplay)
     }
     func pullFromProjectModel() {
-        codeView.setText(projectModel.sourceStr)
+        codeView.setText(cpuProjectModel.sourceStr)
     }
     
     func setupCodeView(){
