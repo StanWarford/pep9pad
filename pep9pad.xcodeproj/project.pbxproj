@@ -228,6 +228,7 @@
 		753780661E96F862002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780651E96F862002E1968 /* ViewController.swift */; };
 		753780681E96F873002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780671E96F873002E1968 /* SecondViewController.swift */; };
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
+		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
@@ -496,6 +497,7 @@
 		753780671E96F873002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		753780691E96F951002E1968 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonunaryMnemonics.swift; path = pep9pad/NonunaryMnemonics.swift; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
+				A0DE5D9F2159A6C600DF78D9 /* OneByteModel */,
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
 				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
 			);
@@ -1061,6 +1064,14 @@
 			);
 			name = Examples;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A0DE5D9F2159A6C600DF78D9 /* OneByteModel */ = {
+			isa = PBXGroup;
+			children = (
+				A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */,
+			);
+			name = OneByteModel;
 			sourceTree = "<group>";
 		};
 		D2B0614D1C7E62040088CEBE = {
@@ -1480,6 +1491,7 @@
 				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
+				A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */,
 				46A9119B1E9F3736002C9DAE /* DebugMenu.swift in Sources */,
 				46A911971E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
