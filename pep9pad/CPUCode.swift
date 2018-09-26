@@ -8,12 +8,111 @@
 
 import Foundation
 
-//class CPUCode {
-//    func isMicrocode() -> Bool { return false }
-//    func setCpuLabels(items: inout CpuGraphicsItems) {}
-//    func getObjectCode() -> String { return "" }
-//    func getSourceCode() -> String { return "" }
-//    func hasUnitPre() -> Bool { return false }
-//    func setUnitPre(mem: inout MainMemory, cpu: inout CPUPane) {}
-//    func testPostCondition(mem: inout MainMemory, )
-//}
+protocol CPUCode {
+    func isMicrocode() -> Bool
+    //func setCpuLabels(items: inout CpuGraphicsItems)
+    func getObjectCode() -> String
+    func getSourceCode() -> String
+    func hasUnitPre() -> Bool
+    //func setUnitPre(mem: inout MainMemory, cpu: inout CPUPane)
+    //func testPostCondition(mem: inout MainMemory, )
+}
+
+
+// Concrete code classes
+// Code is the union of the elements of the one-byte bus model and two-byte bus model
+class MicroCode: CPUCode {
+    func isMicrocode() -> Bool {
+        return false
+    }
+    
+    func getObjectCode() -> String {
+        return " "
+    }
+    
+    func getSourceCode() -> String {
+        return " "
+    }
+    
+    func hasUnitPre() -> Bool {
+        return false
+    }
+}
+
+class CommentOnlyCode:  CPUCode
+{
+    func isMicrocode() -> Bool {
+        return false
+    }
+    
+    func getObjectCode() -> String {
+        return " "
+    }
+    
+    func getSourceCode() -> String {
+        return " "
+    }
+    
+    func hasUnitPre() -> Bool {
+        return false
+    }
+}
+
+class UnitPostCode: CPUCode
+{
+    func isMicrocode() -> Bool {
+        return false
+    }
+    
+    func getObjectCode() -> String {
+        return " "
+    }
+    
+    func getSourceCode() -> String {
+        return " "
+    }
+    
+    func hasUnitPre() -> Bool {
+        return false
+    }
+}
+
+class UnitPreCode: CPUCode
+{
+    func isMicrocode() -> Bool {
+        return false
+    }
+    
+    func getObjectCode() -> String {
+        return " "
+    }
+    
+    func getSourceCode() -> String {
+        return " "
+    }
+    
+    func hasUnitPre() -> Bool {
+        return false
+    }
+}
+
+class BlankLineCode: CPUCode
+{
+    func isMicrocode() -> Bool {
+        return false
+    }
+    
+    func getObjectCode() -> String {
+        return " "
+    }
+    
+    func getSourceCode() -> String {
+        return " "
+    }
+    
+    func hasUnitPre() -> Bool {
+        return false
+    }
+}
+
+
