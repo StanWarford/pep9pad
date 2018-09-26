@@ -65,7 +65,86 @@ class CPUAssemblerModel {
     // beginning of sourceLine and returned in tokenString, true is returned, and token is set to the token type.
     // Post: If false is returned, then tokenString is set to the lexical error message.
     func getToken(sourceLine: inout String, token: inout ELexicalToken, tokenString: inout String) -> Bool {
-        //placeholder
+      
+        sourceLine = sourceLine.trimmed()
+        if sourceLine.length == 0 {
+            token = ELexicalToken.lt_EMPTY
+            tokenString = ""
+            return true
+        }
+        let firstChar = sourceLine.first
+        if firstChar == "," {
+            token = ELexicalToken.lt_COMMA
+            tokenString = ","
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if firstChar == "[" {
+            token = ELexicalToken.lt_LEFT_BRACKET
+            tokenString = "["
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if firstChar == "]" {
+            token = ELexicalToken.lt_RIGHT_BRACKET
+            tokenString = "]"
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if firstChar == "/" {
+            
+            if rxComment.index(ofAccessibilityElement: sourceLine) == -1 { //not sure this is it
+                tokenString = "// ERROR: Malformed comment" // Should occur with single "/".
+                return false
+            }
+            token = ELexicalToken.lt_COMMENT
+            tokenString = rxComment.matchesIn(sourceLine)[0] // CHECK THIS ONE TOO
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if startsWithHexPrefix(str: sourceLine) {
+            if (rxHexConst.index(ofAccessibilityElement: sourceLine) == -1) { /// here
+                tokenString = "// ERROR: Malformed hex constant."
+                return false
+            }
+            token = ELexicalToken.lt_HEX_CONSTANT
+            tokenString = rxHexConst.matchesIn(sourceLine)[0] // here
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if (firstChar?.isDigit())! {
+            if rxDigit.index(ofAccessibilityElement: sourceLine) == -1 { ///here
+                tokenString = "// ERROR: Malformed integer" // Should not occur.
+                return false
+            }
+            token = ELexicalToken.lt_DIGIT;
+            tokenString = rxDigit.matchesIn(sourceLine)[0] /// here
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if firstChar == "=" {
+            token = ELexicalToken.lt_EQUALS
+            tokenString = "="
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if (firstChar?.isLetter())! {
+            if rxIdentifier.index(ofAccessibilityElement: sourceLine) == -1  { ///here
+                tokenString = "// ERROR: Malformed identifier" // Should not occur
+                return false
+            }
+            tokenString = rxIdentifier.matchesIn(sourceLine)[0] /// here
+            token = tokenString[tokenString.endIndex] == ":" ? ELexicalToken.lt_PRE_POST : ELexicalToken.lt_IDENTIFIER /// here
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        if firstChar == ";" {
+            token = ELexicalToken.lt_SEMICOLON;
+            tokenString = ";"
+            sourceLine.remove(0, tokenString.length)
+            return true
+        }
+        tokenString = "// ERROR: Syntax error starting with " + String(firstChar!)
         return false
     }
     
@@ -87,5 +166,18 @@ class CPUAssemblerModel {
         print(sourceCode)
         return true
     }
+
+func startsWithHexPrefix(str : String) -> Bool {
+    if str.length < 2 {
+        return false
+    }
+    if str[0] != "0"{
+        return false
+    }
+    if str[1] == "x" || str[1] == "X"{
+        return true
+    }
+    return false
+}
     
 }
