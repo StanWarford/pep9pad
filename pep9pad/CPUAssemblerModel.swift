@@ -156,9 +156,9 @@ class CPUAssemblerModel {
     // Post: If the source line is not valid, false is returned and errorString is set to the error message.
     // Checks for out of range integer values.
     // The only detected resource conflict checked is for duplicated fields.
-    func processSourceLine(sourceLine: String, code: inout Code, errorString: inout String) -> Bool {
-        var token : ELexicalToken
-        var tokenString : String // Passed to getToken.
+    func processSourceLine(sourceLine: inout String, code: inout CPUCode, errorString: inout String) -> Bool {
+        var token = ELexicalToken.lt_COMMA // initialized just to be able to pass it
+        var tokenString = "" // Passed to getToken.
         var localIdentifier  = "" // Saves identifier for processing in the following state.
         var localValue : Int
         var localAddressValue = 0 // = 0 to suppress compiler warning
@@ -166,88 +166,96 @@ class CPUAssemblerModel {
         var processingPrecondition = false // To distinguish between a precondition and a postcondition. = false to suppress compiler warning
         
         // The concrete code objects asssigned to code.
-        var microCode : MicroCode?  = nil
-        var commentOnlyCode : CommentOnlyCode? = nil
-        var preconditionCode : UnitPreCode? = nil
-        var postconditionCode : UnitPostCode? = nil
-        var blankLineCode : BlankLineCode? = nil
+        var microCode : MicroCode
+        var commentOnlyCode : CommentOnlyCode
+        var preconditionCode : UnitPreCode
+        var postconditionCode : UnitPostCode
+        var blankLineCode : BlankLineCode
         
         var state : ParseState = .ps_START
-        repeat {
-//            if !getToken(sourceLine: sourceLine, token: token, tokenString: tokenString){
+    
+//        initEnumMnemonMaps() // might not need this
+//        repeat {
+//            if !getToken(sourceLine: &sourceLine, token: &token, tokenString: &tokenString){
 //                errorString = tokenString
 //                return false
 //            }
-        }
-            while true
         
             //        qDebug() << "tokenString: " << tokenString;
 //            switch (state) {
 //            case ParseState.ps_START:
 //                if token == ELexicalToken.lt_IDENTIFIER {
-//                if (Pep::mnemonToDecControlMap.contains(tokenString.toUpper())) {
-//                    microCode = new MicroCode();
-//                    code = microCode;
-//                    localEnumMnemonic = Pep::mnemonToDecControlMap.value(tokenString.toUpper());
-//                    localIdentifier = tokenString;
-//                    state = Asm::PS_EQUAL_DEC;
-//                }
-//                else if (Pep::mnemonToMemControlMap.contains(tokenString.toUpper())) {
-//                    microCode = new MicroCode;
-//                    code = microCode;
-//                    localEnumMnemonic = Pep::mnemonToMemControlMap.value(tokenString.toUpper());
-//                    microCode->set(localEnumMnemonic, 1);
-//                    state = Asm::PS_CONTINUE_PRE_SEMICOLON;
-//                }
-//                else if (Pep::mnemonToClockControlMap.contains(tokenString.toUpper())) {
-//                    errorString = "// ERROR: Clock signal " + tokenString + " must appear after semicolon";
-//                    return false;
-//                }
-//                else {
-//                    errorString = "// ERROR: Unrecognized control signal: " + tokenString;
-//                    return false;
-//                }
-//            }
-//            else if (token == Asm::LT_SEMICOLON) {
-//                errorString = "// ERROR: No control signals before semicolon.";
-//                return false;
-//            }
-//            else if (token == Asm::LT_COMMENT) {
-//                commentOnlyCode = new CommentOnlyCode(tokenString);
-//                code = commentOnlyCode;
-//                state = Asm::PS_COMMENT;
-//            }
-//            else if (token == Asm::LT_PRE_POST) {
-//                if (Pep::mnemonToSpecificationMap.contains(tokenString.toUpper())) {
-//                    if (Pep::mnemonToSpecificationMap.value(tokenString.toUpper()) == Enu::Pre) {
-//                        processingPrecondition = true;
-//                        preconditionCode = new UnitPreCode();
-//                        code = preconditionCode;
-//                        state = PS_START_SPECIFICATION;
+//                    if mnemonToDecControlMap.keys.contains(tokenString.uppercased()) {
+//                        microCode = MicroCode()
+//                        code = microCode
+//                        localEnumMnemonic = mnemonToDecControlMap[tokenString.uppercased()]!
+//                        localIdentifier = tokenString
+//                        state = .ps_EQUAL_DEC
 //                    }
-//                    else { // E_Post
-//                        processingPrecondition = false;
-//                        postconditionCode = new UnitPostCode();
-//                        code = postconditionCode;
-//                        state = PS_START_SPECIFICATION;
+//                    else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()) {
+//                        microCode = MicroCode()
+//                        code = microCode
+//                        localEnumMnemonic = mnemonToMemControlMap[tokenString.uppercased()]!
+//                        microCode.set(field: localEnumMnemonic, value: 1)
+//                        state = .ps_CONTINUE_PRE_SEMICOLON
+//                    }
+//                    else if mnemonToClockControlMap.keys.contains(tokenString.uppercased()){
+//                        errorString = "// ERROR: Clock signal " + tokenString + " must appear after semicolon"
+//                        return false
+//                    }
+//                    else {
+//                        errorString = "// ERROR: Unrecognized control signal: " + tokenString
+//                        return false
 //                    }
 //                }
-//                else {
-//                    errorString = "// ERROR: Illegal specification symbol " + tokenString;
-//                    return false;
+//                else if token == .lt_SEMICOLON {
+//                    errorString = "// ERROR: No control signals before semicolon."
+//                    return false
 //                }
+//                else if token == .lt_COMMENT {
+//                    commentOnlyCode = CommentOnlyCode(comment: tokenString)
+//                    code = commentOnlyCode
+//                    state = .ps_COMMENT
+//                }
+//                else if (token == .lt_PRE_POST) {
+//                    if mnemonToSpecificationMap.keys.contains(tokenString.uppercased()){
+//                        if mnemonToSpecificationMap[tokenString.uppercased()] == .Pre {
+//                            processingPrecondition = true
+//                            preconditionCode = UnitPreCode()
+//                            code = preconditionCode
+//                            state = .ps_START_SPECIFICATION
+//                        }
+//                        else { // E_Post
+//                            processingPrecondition = false
+//                            postconditionCode = UnitPostCode()
+//                            code = postconditionCode
+//                            state = .ps_START_SPECIFICATION
+//                        }
+//                    }
+//                    else {
+//                        errorString = "// ERROR: Illegal specification symbol " + tokenString
+//                        return false
+//                    }
+//                }
+//                else if token == .lt_EMPTY {
+//                    blankLineCode = BlankLineCode()
+//                    code = blankLineCode
+//                    state = .ps_FINISH
+//                }
+//                else {
+//                    errorString = "// ERROR: Syntax error where control signal or comment expected"
+//                    return false
+//                }
+//                break
 //            }
-//            else if (token == Asm::LT_EMPTY) {
-//                blankLineCode = new BlankLineCode();
-//                code = blankLineCode;
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                errorString = "// ERROR: Syntax error where control signal or comment expected";
-//                return false;
-//            }
-//            break;
+//        } while state != ParseState.ps_FINISH
 //
+//
+            
+            
+            
+            ///STOPPED HERE
+
 //            case Asm::PS_EQUAL_DEC:
 //                if (token == Asm::LT_EQUALS) {
 //                state = Asm::PS_DEC_CONTROL;
@@ -675,6 +683,7 @@ class CPUAssemblerModel {
 //            while state != ParseState.ps_FINISH
 //        return true
 //        }
+        return false
     }
     
     func microAssemble() -> Bool {
