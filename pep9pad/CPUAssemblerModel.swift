@@ -157,31 +157,31 @@ class CPUAssemblerModel {
     // Checks for out of range integer values.
     // The only detected resource conflict checked is for duplicated fields.
     func processSourceLine(sourceLine: inout String, code: inout CPUCode, errorString: inout String) -> Bool {
-        var token = ELexicalToken.lt_COMMA // initialized just to be able to pass it
-        var tokenString = "" // Passed to getToken.
-        var localIdentifier  = "" // Saves identifier for processing in the following state.
-        var localValue : Int
-        var localAddressValue = 0 // = 0 to suppress compiler warning
-        var localEnumMnemonic = CPUEMnemonic.LoadCk // Key to Pep:: table lookups. = Enu::LoadCk to suppress compiler warning
-        var processingPrecondition = false // To distinguish between a precondition and a postcondition. = false to suppress compiler warning
-        
-        // The concrete code objects asssigned to code.
-        var microCode : MicroCode
-        var commentOnlyCode : CommentOnlyCode
-        var preconditionCode : UnitPreCode
-        var postconditionCode : UnitPostCode
-        var blankLineCode : BlankLineCode
-        
-        var state : ParseState = .ps_START
-    
+//        var token = ELexicalToken.lt_COMMA // initialized just to be able to pass it
+//        var tokenString = "" // Passed to getToken.
+//        var localIdentifier  = "" // Saves identifier for processing in the following state.
+//        var localValue : Int
+//        var localAddressValue = 0 // = 0 to suppress compiler warning
+//        var localEnumMnemonic = CPUEMnemonic.LoadCk // Key to Pep:: table lookups. = Enu::LoadCk to suppress compiler warning
+//        var processingPrecondition = false // To distinguish between a precondition and a postcondition. = false to suppress compiler warning
+//        
+//        // The concrete code objects asssigned to code.
+//        var microCode : MicroCode
+//        var commentOnlyCode : CommentOnlyCode
+//        var preconditionCode : UnitPreCode
+//        var postconditionCode : UnitPostCode
+//        var blankLineCode : BlankLineCode
+//        
+//        var state : ParseState = .ps_START
+//    
 //        initEnumMnemonMaps() // might not need this
 //        repeat {
 //            if !getToken(sourceLine: &sourceLine, token: &token, tokenString: &tokenString){
 //                errorString = tokenString
 //                return false
 //            }
-        
-            //        qDebug() << "tokenString: " << tokenString;
+//        
+//                    //qDebug() << "tokenString: " << tokenString;
 //            switch (state) {
 //            case ParseState.ps_START:
 //                if token == ELexicalToken.lt_IDENTIFIER {
@@ -246,134 +246,117 @@ class CPUAssemblerModel {
 //                    errorString = "// ERROR: Syntax error where control signal or comment expected"
 //                    return false
 //                }
-//                break
+//                
+//            case .ps_EQUAL_DEC:
+//                if token == .lt_EQUALS {
+//                state = .ps_DEC_CONTROL
+//            }else {
+//                errorString = "// ERROR: Expected = after " + localIdentifier
+//                return false
 //            }
-//        } while state != ParseState.ps_FINISH
-//
-//
-            
-            
-            
-            ///STOPPED HERE
-
-//            case Asm::PS_EQUAL_DEC:
-//                if (token == Asm::LT_EQUALS) {
-//                state = Asm::PS_DEC_CONTROL;
+//                
+//            case .ps_DEC_CONTROL:
+//                if token == .lt_DIGIT {
+//                    if microCode.has(field: localEnumMnemonic) {
+//                    errorString = "// ERROR: Duplicate control signal, " + localIdentifier
+//                    return false
+//                }
+//                //bool ok;
+//                //localValue = tokenString.toInt(&ok);
+//                    if !microCode.inRange(field: localEnumMnemonic, value: localValue){
+//                    errorString = "// ERROR: Value " + String(localValue) + " is out of range for " + localIdentifier
+//                    return false
+//                }
+//                    microCode.set(field: localEnumMnemonic, value: localValue)
+//                state = .ps_CONTINUE_PRE_SEMICOLON
 //            }
 //            else {
-//                errorString = "// ERROR: Expected = after " + localIdentifier;
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_DEC_CONTROL:
-//                if (token == Asm::LT_DIGIT) {
-//                if (microCode->has(localEnumMnemonic)) {
-//                    errorString = "// ERROR: Duplicate control signal, " + localIdentifier;
-//                    delete code;
-//                    return false;
+//                errorString = "// ERROR: Expected decimal number after " + localIdentifier + "="
+//                return false
 //                }
-//                bool ok;
-//                localValue = tokenString.toInt(&ok);
-//                if (!microCode->inRange(localEnumMnemonic, localValue)) {
-//                    errorString = "// ERROR: Value " + QString("%1").arg(localValue) + " is out of range for " + localIdentifier;
-//                    delete code;
-//                    return false;
+//            case .ps_CONTINUE_PRE_SEMICOLON:
+//                if token == .lt_COMMA {
+//                    state = .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA
 //                }
-//                microCode->set(localEnumMnemonic, localValue);
-//                state = Asm::PS_CONTINUE_PRE_SEMICOLON;
-//            }
+//            else if token == .lt_SEMICOLON {
+//                    state = .ps_START_POST_SEMICOLON
+//                }
+//            else if token == .lt_COMMENT{
+//                    microCode.cComment = tokenString
+//                    state = .ps_COMMENT
+//                }
+//            else if token == .lt_EMPTY {
+//                    state = .ps_FINISH
+//                }
 //            else {
-//                errorString = "// ERROR: Expected decimal number after " + localIdentifier + "=";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_CONTINUE_PRE_SEMICOLON:
-//                if (token == Asm::LT_COMMA) {
-//                state = Asm::PS_CONTINUE_PRE_SEMICOLON_POST_COMMA;
-//            }
-//            else if (token == Asm::LT_SEMICOLON) {
-//                state = Asm::PS_START_POST_SEMICOLON;
-//            }
-//            else if (token == Asm::LT_COMMENT) {
-//                microCode->cComment = tokenString;
-//                state = Asm::PS_COMMENT;
-//            }
-//            else if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected ',' or ';' after control signal";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_CONTINUE_PRE_SEMICOLON_POST_COMMA:
-//                if (token == Asm::LT_IDENTIFIER) {
-//                if (Pep::mnemonToDecControlMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToDecControlMap.value(tokenString.toUpper());
-//                    if (microCode->has(localEnumMnemonic)) {
-//                        errorString = "// ERROR: Duplicate control signal, " + tokenString;
-//                        delete code;
-//                        return false;
-//                    }
-//                    localIdentifier = tokenString;
-//                    state = Asm::PS_EQUAL_DEC;
+//                    errorString = "// ERROR: Expected ',' or ';' after control signal"
+//                    return false
 //                }
-//                else if (Pep::mnemonToMemControlMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToMemControlMap.value(tokenString.toUpper());
-//                    if (microCode->has(localEnumMnemonic)) {
-//                        errorString = "// ERROR: Duplicate control signal, " + tokenString;
-//                        delete code;
-//                        return false;
+//                
+//            case .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA:
+//                if token == .lt_IDENTIFIER {
+//                if mnemonToDecControlMap.keys.contains(tokenString.uppercased()){
+//                    localEnumMnemonic = mnemonToDecControlMap[tokenString.uppercased()]!
+//                    if microCode.has(field: localEnumMnemonic){
+//                        errorString = "// ERROR: Duplicate control signal, " + tokenString
+//                        return false
 //                    }
-//                    if (localEnumMnemonic == Enu::MemRead && microCode->has(Enu::MemWrite)) {
-//                        errorString = "// ERROR: MemRead not allowed with MemWrite";
-//                        delete code;
-//                        return false;
-//                    }
-//                    if (localEnumMnemonic == Enu::MemWrite && microCode->has(Enu::MemRead)) {
-//                        errorString = "// ERROR: MemWrite not allowed with MemRead";
-//                        delete code;
-//                        return false;
-//                    }
-//                    microCode->set(localEnumMnemonic, 1);
-//                    state = Asm::PS_CONTINUE_PRE_SEMICOLON;
+//                    localIdentifier = tokenString
+//                    state = .ps_EQUAL_DEC
 //                }
-//                else if (Pep::mnemonToClockControlMap.contains(tokenString.toUpper())) {
-//                    errorString = "// ERROR: Clock signal (" + tokenString + ") must appear after semicolon";
-//                    delete code;
-//                    return false;
+//                else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()){
+//                    localEnumMnemonic = mnemonToMemControlMap[tokenString.uppercased()]!
+//                    if microCode.has(field: localEnumMnemonic) {
+//                        errorString = "// ERROR: Duplicate control signal, " + tokenString
+//                        return false
+//                    }
+//                    if localEnumMnemonic == .MemRead && microCode.has(field: .MemWrite) {
+//                        errorString = "// ERROR: MemRead not allowed with MemWrite"
+//                        return false
+//                    }
+//                    if localEnumMnemonic == .MemWrite && microCode.has(field: .MemRead) {
+//                        errorString = "// ERROR: MemWrite not allowed with MemRead"
+//                        return false
+//                    }
+//                    microCode.set(field: localEnumMnemonic, value: 1)
+//                    state = .ps_CONTINUE_PRE_SEMICOLON
+//                }
+//                else if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
+//                    errorString = "// ERROR: Clock signal (" + tokenString + ") must appear after semicolon"
+//                    return false
 //                }
 //                else {
-//                    errorString = "// ERROR: Unrecognized control signal: " + tokenString;
-//                    delete code;
-//                    return false;
+//                    errorString = "// ERROR: Unrecognized control signal: " + tokenString
+//                    return false
 //                }
 //            }
-//            else if (token == Asm::LT_SEMICOLON) {
-//                errorString = "// ERROR: Control signal expected after comma.";
-//                delete code;
-//                return false;
+//            else if token == .lt_SEMICOLON {
+//                errorString = "// ERROR: Control signal expected after comma."
+//                return false
 //            }
-//            else if (token == Asm::LT_COMMENT) {
-//                microCode->cComment = tokenString;
-//                state = Asm::PS_COMMENT;
+//            else if token == .lt_COMMENT {
+//                microCode.cComment = tokenString
+//                state = .ps_COMMENT
 //            }
-//            else if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
+//            else if token == .lt_EMPTY {
+//                state = .ps_FINISH
 //            }
 //            else {
-//                errorString = "// ERROR: Syntax error where control signal or comment expected";
-//                delete code;
-//                return false;
+//                errorString = "// ERROR: Syntax error where control signal or comment expected"
+//                return false
 //            }
-//            break;
+//            
+//                
+//                
+//            }
+//        } while state != ParseState.ps_FINISH
+//        return true
+/// STOPPED HERE
+
+        
 //
+
+
 //            case Asm::PS_START_POST_SEMICOLON:
 //                if (token == Asm::LT_IDENTIFIER) {
 //                if (Pep::mnemonToClockControlMap.contains(tokenString.toUpper())) {

@@ -54,11 +54,51 @@ class MicroCode: CPUCode {
     func hasUnitPre() -> Bool {
         return false
     }
-    func set(field : CPUEMnemonic , value : Int) {
-        mnemonicMap[field]=value
-    }
-
     
+    func set(field : CPUEMnemonic , value : Int) {
+        mnemonicMap[field] = value
+    }
+    func has(field : CPUEMnemonic) -> Bool {
+        return mnemonicMap[field] != -1
+    }
+    
+    func get(field: CPUEMnemonic) -> Int{
+        return mnemonicMap[field]!
+    }
+    
+    // inRange tests the union of the elements in Pep::mnemonToDecControlMap
+    func inRange(field : CPUEMnemonic ,value : Int) -> Bool {
+    switch (field) {
+    case .C:
+        return 0 <= value && value <= 31
+    case .B:
+        return 0 <= value && value <= 31
+    case .A:
+        return 0 <= value && value <= 31
+    case .AMux:
+        return 0 <= value && value <= 1
+    case.MDRMux:
+        return 0 <= value && value <= 1
+    case .CMux:
+        return 0 <= value && value <= 1
+    case .ALU:
+        return 0 <= value && value <= 15
+    case .CSMux:
+        return 0 <= value && value <= 1
+    case .AndZ:
+        return 0 <= value && value <= 1
+    case .MARMux:
+        return 0 <= value && value <= 1
+    case .MDROMux:
+        return 0 <= value && value <= 1
+    case .MDREMux:
+        return 0 <= value && value <= 1
+    case .EOMux:
+        return 0 <= value && value <= 1
+    default:
+        return true
+        }
+    }  
 }
 
 class CommentOnlyCode:  CPUCode
