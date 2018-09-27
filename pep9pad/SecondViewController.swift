@@ -11,11 +11,19 @@ import UIKit
 class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var newproject: UIButton!
+    
+    @IBOutlet weak var dismissButton: UIButton!
+
     @IBAction func newprojectbuttonpressed(_ sender: Any) {
         makePep9Main()
     }
     @IBAction func newCPUprojectbuttonpressed(_ sender: Any) {
         makeCPU()
+    }
+    
+    
+    @IBAction func dismissSecondVC(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var tableOfProjects: UITableView! {
@@ -41,6 +49,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         recents = projectModel.recentProjectNames()
+        dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
         super.viewDidLoad()
     }
     

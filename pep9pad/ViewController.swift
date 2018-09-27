@@ -49,7 +49,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        pressed = segue.identifier == "mainSegue" ? menuButton: cpuButton
+        pressed = segue.identifier == "pep9Segue" ? menuButton: cpuButton
         let secondVC = segue.destination as! SecondViewController
         secondVC.transitioningDelegate = self
         secondVC.modalPresentationStyle = .custom
