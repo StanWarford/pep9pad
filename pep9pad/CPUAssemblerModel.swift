@@ -261,8 +261,7 @@ class CPUAssemblerModel {
 //                    errorString = "// ERROR: Duplicate control signal, " + localIdentifier
 //                    return false
 //                }
-//                //bool ok;
-//                //localValue = tokenString.toInt(&ok);
+//                    localValue = Int(tokenString)!
 //                    if !microCode.inRange(field: localEnumMnemonic, value: localValue){
 //                    errorString = "// ERROR: Value " + String(localValue) + " is out of range for " + localIdentifier
 //                    return false
@@ -345,7 +344,101 @@ class CPUAssemblerModel {
 //                errorString = "// ERROR: Syntax error where control signal or comment expected"
 //                return false
 //            }
-//            
+//            case .ps_START_POST_SEMICOLON:
+//                if token == .lt_IDENTIFIER {
+//                        if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
+//                            localEnumMnemonic = mnemonToClockControlMap[tokenString.uppercased()]!
+//                            if microCode.has(field: localEnumMnemonic) {
+//                                errorString = "// ERROR: Duplicate clock signal, " + tokenString
+//                                return false
+//                            }
+//                            microCode.set(field: localEnumMnemonic, value: 1)
+//                            state = .ps_CONTINUE_POST_SEMICOLON
+//                    }
+//                    else if mnemonToDecControlMap.keys.contains(tokenString.uppercased()){
+//                        errorString = "// ERROR: Control signal " + tokenString + " after ';'"
+//                        return false
+//                    }
+//                    else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()) {
+//                        errorString = "// ERROR: Memory control signal " + tokenString + " after ';'"
+//                        return false
+//                    }
+//                    else {
+//                        errorString = "// ERROR: Unrecognized clock signal: " + tokenString
+//                        return false
+//                    }
+//                }
+//                else if token == .lt_SEMICOLON {
+//                    errorString = "// ERROR: Multiple semicolons."
+//                    return false
+//                }
+//                else if token == .lt_COMMENT {
+//                    microCode.cComment = tokenString
+//                    state = .ps_COMMENT
+//                }
+//                else if token == .lt_EMPTY {
+//                    state = .ps_FINISH
+//                }
+//                else {
+//                    errorString = "// ERROR: Syntax error where clock signal or comment expected."
+//                    return false
+//                }
+//                
+//            case .ps_CONTINUE_POST_SEMICOLON:
+//                if token == .lt_COMMA {
+//                state = .ps_START_POST_SEMICOLON
+//                }
+//                else if token == .lt_SEMICOLON {
+//                    errorString = "// ERROR: Multiple semcolons ';'"
+//                    return false
+//                }
+//                else if token == .lt_COMMENT {
+//                    microCode.cComment = tokenString
+//                    state = .ps_COMMENT
+//                }
+//                else if token == .lt_EMPTY {
+//                    state = .ps_FINISH
+//                }
+//                else {
+//                    errorString = "// ERROR: Expected ',' after clock signal"
+//                    return false
+//                }
+//            case.ps_START_SPECIFICATION:
+//                if token == .lt_IDENTIFIER {
+//                    if mnemonToMemSpecMap.keys.contains(tokenString.uppercased()) {
+//                        localEnumMnemonic = mnemonToMemSpecMap[tokenString.uppercased()]!
+//                        state = .ps_EXPECT_LEFT_BRACKET
+//                    }
+//                    else if mnemonToRegSpecMap.keys.contains(tokenString.uppercased()) {
+//                        localEnumMnemonic = mnemonToRegSpecMap[tokenString.uppercased()]!
+//                        state = .ps_EXPECT_REG_EQUALS
+//                    }
+//                    else if mnemonToStatusSpecMap.keys.contains(tokenString.uppercased()) {
+//                        localEnumMnemonic = mnemonToStatusSpecMap[tokenString.uppercased()]!
+//                        state = .ps_EXPECT_STATUS_EQUALS;
+//                    }
+//                    else {
+//                        errorString = "// ERROR: Unrecognized specification symbol: " + tokenString
+//                        return false
+//                    }
+//            }
+//            else if token == .lt_COMMENT {
+//                if processingPrecondition {
+//                    preconditionCode.setComment(tokenString)
+//                }
+//                else {
+//                    postconditionCode.setComment(tokenString)
+//                }
+//                state = .ps_COMMENT
+//            }
+//            else if (token == .lt_EMPTY) {
+//                state = .ps_FINISH
+//            }
+//            else {
+//                errorString = "// ERROR: Syntax error starting with: " + tokenString
+//                return false
+//            }
+//
 //                
 //                
 //            }
@@ -357,114 +450,10 @@ class CPUAssemblerModel {
 //
 
 
-//            case Asm::PS_START_POST_SEMICOLON:
-//                if (token == Asm::LT_IDENTIFIER) {
-//                if (Pep::mnemonToClockControlMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToClockControlMap.value(tokenString.toUpper());
-//                    if (microCode->has(localEnumMnemonic)) {
-//                        errorString = "// ERROR: Duplicate clock signal, " + tokenString;
-//                        delete code;
-//                        return false;
-//                    }
-//                    microCode->set(localEnumMnemonic, 1);
-//                    state = Asm::PS_CONTINUE_POST_SEMICOLON;
-//                }
-//                else if (Pep::mnemonToDecControlMap.contains(tokenString.toUpper())) {
-//                    errorString = "// ERROR: Control signal " + tokenString + " after ';'";
-//                    delete code;
-//                    return false;
-//                }
-//                else if (Pep::mnemonToMemControlMap.contains(tokenString.toUpper())) {
-//                    errorString = "// ERROR: Memory control signal " + tokenString + " after ';'";
-//                    delete code;
-//                    return false;
-//                }
-//                else {
-//                    errorString = "// ERROR: Unrecognized clock signal: " + tokenString;
-//                    delete code;
-//                    return false;
-//                }
-//            }
-//            else if (token == Asm::LT_SEMICOLON) {
-//                errorString = "// ERROR: Multiple semicolons.";
-//                delete code;
-//                return false;
-//            }
-//            else if (token == Asm::LT_COMMENT) {
-//                microCode->cComment = tokenString;
-//                state = Asm::PS_COMMENT;
-//            }
-//            else if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                errorString = "// ERROR: Syntax error where clock signal or comment expected.";
-//                delete code;
-//                return false;
-//            }
-//            break;
+
+
 //
-//            case Asm::PS_CONTINUE_POST_SEMICOLON:
-//                if (token == Asm::LT_COMMA) {
-//                state = Asm::PS_START_POST_SEMICOLON;
-//            }
-//            else if (token == Asm::LT_SEMICOLON) {
-//                errorString = "// ERROR: Multiple semcolons ';'";
-//                delete code;
-//                return false;
-//            }
-//            else if (token == Asm::LT_COMMENT) {
-//                microCode->cComment = tokenString;
-//                state = Asm::PS_COMMENT;
-//            }
-//            else if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected ',' after clock signal";
-//                delete code;
-//                return false;
-//            }
-//            break;
 //
-//            case Asm::PS_START_SPECIFICATION:
-//                if (token == Asm::LT_IDENTIFIER) {
-//                if (Pep::mnemonToMemSpecMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToMemSpecMap.value(tokenString.toUpper());
-//                    state = Asm::PS_EXPECT_LEFT_BRACKET;
-//                }
-//                else if (Pep::mnemonToRegSpecMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToRegSpecMap.value(tokenString.toUpper());
-//                    state = Asm::PS_EXPECT_REG_EQUALS;
-//                }
-//                else if (Pep::mnemonToStatusSpecMap.contains(tokenString.toUpper())) {
-//                    localEnumMnemonic = Pep::mnemonToStatusSpecMap.value(tokenString.toUpper());
-//                    state = Asm::PS_EXPECT_STATUS_EQUALS;
-//                }
-//                else {
-//                    errorString = "// ERROR: Unrecognized specification symbol: " + tokenString;
-//                    delete code;
-//                    return false;
-//                }
-//            }
-//            else if (token == Asm::LT_COMMENT) {
-//                if (processingPrecondition) {
-//                    preconditionCode->setComment(tokenString);
-//                }
-//                else {
-//                    postconditionCode->setComment(tokenString);
-//                }
-//                state = Asm::PS_COMMENT;
-//            }
-//            else if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                errorString = "// ERROR: Syntax error starting with: " + tokenString;
-//                delete code;
-//                return false;
-//            }
-//            break;
 //
 //            case Asm::PS_EXPECT_LEFT_BRACKET:
 //                if (token == Asm::LT_LEFT_BRACKET) {
