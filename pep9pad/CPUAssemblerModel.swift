@@ -611,8 +611,39 @@ class CPUAssemblerModel {
     }
     
     func microAssemble() -> Bool {
-        var sourceCode:String = cpuProjectModel.sourceStr
-        print(sourceCode)
+//        var sourceCode:String = cpuProjectModel.sourceStr
+//        print(sourceCode)
+//        return true
+        
+        var sourceLine : String
+        var errorString : String = ""
+        
+        var code : CPUCode = MicroCode() //Initialized to pass
+        var lineNum = 0
+//        removeErrorMessages();
+//        Sim::codeList.clear();
+        
+        let sourceCode = cpuProjectModel.sourceStr
+        var sourceCodeList = sourceCode.split(separator: "\n")
+        
+        while lineNum < sourceCodeList.count {
+            sourceLine = String(sourceCodeList[lineNum])
+            if !processSourceLine(sourceLine: &sourceLine, code: &code, errorString: &errorString) {
+                //appendMessageInSourceCodePaneAt(lineNum, errorString)
+                print("assemble failed")
+                return false
+            }
+//            Sim::codeList.append(code);
+//            if (code->isMicrocode()) {
+//                Sim::cycleCount++;
+//            }
+            lineNum = lineNum + 1
+        }
+//        // we guarantee a \n at the end of our document for single step highlighting
+//        if (!sourceCode.endsWith("\n")) {
+//            editor->appendPlainText("\n");
+//        }
+        print("Asseble Success")
         return true
     }
 
