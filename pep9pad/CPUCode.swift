@@ -129,6 +129,7 @@ class CommentOnlyCode:  CPUCode
 
 class UnitPostCode: CPUCode
 {
+    var cComment : String = ""
     func isMicrocode() -> Bool {
         return false
     }
@@ -143,11 +144,23 @@ class UnitPostCode: CPUCode
     
     func hasUnitPre() -> Bool {
         return false
+    }
+    
+    func setComment(comment : String) {
+        cComment = comment
     }
 }
 
 class UnitPreCode: CPUCode
 {
+    var cComment : String = ""
+    var unitPreList : [Specification]
+    
+    init(){
+       cComment = ""
+        unitPreList = [Specification]()
+    }
+    
     func isMicrocode() -> Bool {
         return false
     }
@@ -162,6 +175,13 @@ class UnitPreCode: CPUCode
     
     func hasUnitPre() -> Bool {
         return false
+    }
+    
+    func setComment(comment : String) {
+        cComment = comment
+    }
+    func appendSpecification(specification : Specification) {
+        unitPreList.append(specification)
     }
 }
 

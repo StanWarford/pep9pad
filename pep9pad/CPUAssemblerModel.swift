@@ -268,29 +268,29 @@ class CPUAssemblerModel {
 //                }
 //                    microCode.set(field: localEnumMnemonic, value: localValue)
 //                state = .ps_CONTINUE_PRE_SEMICOLON
-//            }
-//            else {
-//                errorString = "// ERROR: Expected decimal number after " + localIdentifier + "="
-//                return false
 //                }
-//            case .ps_CONTINUE_PRE_SEMICOLON:
-//                if token == .lt_COMMA {
-//                    state = .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA
-//                }
-//            else if token == .lt_SEMICOLON {
-//                    state = .ps_START_POST_SEMICOLON
-//                }
-//            else if token == .lt_COMMENT{
-//                    microCode.cComment = tokenString
-//                    state = .ps_COMMENT
-//                }
-//            else if token == .lt_EMPTY {
-//                    state = .ps_FINISH
-//                }
-//            else {
-//                    errorString = "// ERROR: Expected ',' or ';' after control signal"
+//                else {
+//                    errorString = "// ERROR: Expected decimal number after " + localIdentifier + "="
 //                    return false
-//                }
+//                    }
+//                case .ps_CONTINUE_PRE_SEMICOLON:
+//                    if token == .lt_COMMA {
+//                        state = .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA
+//                    }
+//                else if token == .lt_SEMICOLON {
+//                        state = .ps_START_POST_SEMICOLON
+//                    }
+//                else if token == .lt_COMMENT{
+//                        microCode.cComment = tokenString
+//                        state = .ps_COMMENT
+//                    }
+//                else if token == .lt_EMPTY {
+//                        state = .ps_FINISH
+//                    }
+//                else {
+//                        errorString = "// ERROR: Expected ',' or ';' after control signal"
+//                        return false
+//                    }
 //                
 //            case .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA:
 //                if token == .lt_IDENTIFIER {
@@ -328,22 +328,23 @@ class CPUAssemblerModel {
 //                    errorString = "// ERROR: Unrecognized control signal: " + tokenString
 //                    return false
 //                }
-//            }
-//            else if token == .lt_SEMICOLON {
-//                errorString = "// ERROR: Control signal expected after comma."
-//                return false
-//            }
-//            else if token == .lt_COMMENT {
-//                microCode.cComment = tokenString
-//                state = .ps_COMMENT
-//            }
-//            else if token == .lt_EMPTY {
-//                state = .ps_FINISH
-//            }
-//            else {
-//                errorString = "// ERROR: Syntax error where control signal or comment expected"
-//                return false
-//            }
+//                }
+//                else if token == .lt_SEMICOLON {
+//                    errorString = "// ERROR: Control signal expected after comma."
+//                    return false
+//                }
+//                else if token == .lt_COMMENT {
+//                    microCode.cComment = tokenString
+//                    state = .ps_COMMENT
+//                }
+//                else if token == .lt_EMPTY {
+//                    state = .ps_FINISH
+//                }
+//                else {
+//                    errorString = "// ERROR: Syntax error where control signal or comment expected"
+//                    return false
+//                }
+//                
 //            case .ps_START_POST_SEMICOLON:
 //                if token == .lt_IDENTIFIER {
 //                        if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
@@ -421,109 +422,79 @@ class CPUAssemblerModel {
 //                        errorString = "// ERROR: Unrecognized specification symbol: " + tokenString
 //                        return false
 //                    }
-//            }
-//            else if token == .lt_COMMENT {
-//                if processingPrecondition {
-//                    preconditionCode.setComment(tokenString)
+//                }
+//                else if token == .lt_COMMENT {
+//                    if processingPrecondition {
+//                        preconditionCode.setComment(comment: tokenString)
+//                    }
+//                    else {
+//                        postconditionCode.setComment(comment: tokenString)
+//                    }
+//                    state = .ps_COMMENT
+//                }
+//                else if (token == .lt_EMPTY) {
+//                    state = .ps_FINISH
 //                }
 //                else {
-//                    postconditionCode.setComment(tokenString)
+//                    errorString = "// ERROR: Syntax error starting with: " + tokenString
+//                    return false
 //                }
-//                state = .ps_COMMENT
-//            }
-//            else if (token == .lt_EMPTY) {
-//                state = .ps_FINISH
-//            }
-//            else {
-//                errorString = "// ERROR: Syntax error starting with: " + tokenString
-//                return false
-//            }
-//
+//            case .ps_EXPECT_LEFT_BRACKET:
+//                if token == .lt_LEFT_BRACKET {
+//                    state = .ps_EXPECT_MEM_ADDRESS
+//                }
+//                else {
+//                    errorString = "// ERROR: Expected [ after Mem."
+//                    return false
+//                }
 //                
+//            case .ps_EXPECT_MEM_ADDRESS:
+//                if token == .lt_HEX_CONSTANT {
+//                    tokenString.remove(0, 2) // Remove "0x" prefix.
+//                    localAddressValue = tokenString.toInt(value: 16) // CHECK THIS
+//                    if localAddressValue >= 65536 {
+//                            errorString = "// ERROR: Hexidecimal address is out of range (0x0000..0xFFFF)."
+//                            return false
+//                    }
+//                    state = .ps_EXPECT_RIGHT_BRACKET
+//                }
+//                else {
+//                    errorString = "// ERROR: Expected hex memory address after [."
+//                    return false
+//                }
 //                
-//            }
-//        } while state != ParseState.ps_FINISH
-//        return true
-/// STOPPED HERE
-
-        
-//
-
-
-
-
-//
-//
-//
-//            case Asm::PS_EXPECT_LEFT_BRACKET:
-//                if (token == Asm::LT_LEFT_BRACKET) {
-//                state = Asm::PS_EXPECT_MEM_ADDRESS;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected [ after Mem.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_EXPECT_MEM_ADDRESS:
-//                if (token == Asm::LT_HEX_CONSTANT) {
-//                tokenString.remove(0, 2); // Remove "0x" prefix.
-//                bool ok;
-//                localAddressValue = tokenString.toInt(&ok, 16);
-//                if (localAddressValue >= 65536) {
-//                    errorString = "// ERROR: Hexidecimal address is out of range (0x0000..0xFFFF).";
-//                    delete code;
-//                    return false;
+//            case .ps_EXPECT_RIGHT_BRACKET:
+//                if token == .lt_RIGHT_BRACKET {
+//                state = .ps_EXPECT_MEM_EQUALS
 //                }
-//                state = Asm::PS_EXPECT_RIGHT_BRACKET;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected hex memory address after [.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_EXPECT_RIGHT_BRACKET:
-//                if (token == Asm::LT_RIGHT_BRACKET) {
-//                state = Asm::PS_EXPECT_MEM_EQUALS;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected ] after memory address.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_EXPECT_MEM_EQUALS:
-//                if (token == Asm::LT_EQUALS) {
-//                state = Asm::PS_EXPECT_MEM_VALUE;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected = after ].";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_EXPECT_MEM_VALUE:
-//                if (token == Asm::LT_HEX_CONSTANT) {
-//                tokenString.remove(0, 2); // Remove "0x" prefix.
-//                bool ok;
-//                localValue = tokenString.toInt(&ok, 16);
-//                if (localValue >= 65536) {
-//                    errorString = "// ERROR: Hexidecimal memory value is out of range (0x0000..0xFFFF).";
-//                    delete code;
-//                    return false;
+//                else {
+//                    errorString = "// ERROR: Expected ] after memory address."
+//                    return false
 //                }
-//                if (processingPrecondition) {
+//                
+//            case .ps_EXPECT_MEM_EQUALS:
+//                if token == .lt_EQUALS {
+//                    state = .ps_EXPECT_MEM_VALUE
+//                }
+//                else {
+//                    errorString = "// ERROR: Expected = after ]."
+//                    return false
+//                }
+//            case .ps_EXPECT_MEM_VALUE:
+//                if token == .lt_HEX_CONSTANT {
+//                tokenString.remove(0, 2) // Remove "0x" prefix.
+//                    localValue = tokenString.toInt(value: 16) // CHECK THIS
+//                if localValue >= 65536 {
+//                        errorString = "// ERROR: Hexidecimal memory value is out of range (0x0000..0xFFFF)."
+//                        return false
+//                }
+//                if processingPrecondition {
 //                    preconditionCode->appendSpecification(new MemSpecification(localAddressValue, localValue, tokenString.length() > 2 ? 2 : 1));
 //                }
 //                else {
 //                    postconditionCode->appendSpecification(new MemSpecification(localAddressValue, localValue, tokenString.length() > 2 ? 2 : 1));
 //                }
-//                state = Asm::PS_EXPECT_SPEC_COMMA;
+//                state = .ps_EXPECT_SPEC_COMMA;
 //            }
 //            else {
 //                errorString = "// ERROR: Expected hex constant after =.";
@@ -531,7 +502,7 @@ class CPUAssemblerModel {
 //                return false;
 //            }
 //            break;
-//
+//                
 //            case Asm::PS_EXPECT_REG_EQUALS:
 //                if (token == Asm::LT_EQUALS) {
 //                state = Asm::PS_EXPECT_REG_VALUE;
@@ -542,7 +513,7 @@ class CPUAssemblerModel {
 //                return false;
 //            }
 //            break;
-//
+//                
 //            case Asm::PS_EXPECT_REG_VALUE:
 //                if (token == Asm::LT_HEX_CONSTANT) {
 //                tokenString.remove(0, 2); // Remove "0x" prefix.
@@ -577,6 +548,24 @@ class CPUAssemblerModel {
 //                return false;
 //            }
 //            break;
+//                
+//            }
+//        } while state != ParseState.ps_FINISH
+//        return true
+/// STOPPED HERE
+
+        
+//
+
+
+
+
+//
+//
+//
+
+//
+
 //
 //            case Asm::PS_EXPECT_STATUS_EQUALS:
 //                if (token == Asm::LT_EQUALS) {
