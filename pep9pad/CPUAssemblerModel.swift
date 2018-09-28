@@ -157,494 +157,457 @@ class CPUAssemblerModel {
     // Checks for out of range integer values.
     // The only detected resource conflict checked is for duplicated fields.
     func processSourceLine(sourceLine: inout String, code: inout CPUCode, errorString: inout String) -> Bool {
-//        var token = ELexicalToken.lt_COMMA // initialized just to be able to pass it
-//        var tokenString = "" // Passed to getToken.
-//        var localIdentifier  = "" // Saves identifier for processing in the following state.
-//        var localValue : Int
-//        var localAddressValue = 0 // = 0 to suppress compiler warning
-//        var localEnumMnemonic = CPUEMnemonic.LoadCk // Key to Pep:: table lookups. = Enu::LoadCk to suppress compiler warning
-//        var processingPrecondition = false // To distinguish between a precondition and a postcondition. = false to suppress compiler warning
-//        
-//        // The concrete code objects asssigned to code.
-//        var microCode : MicroCode
-//        var commentOnlyCode : CommentOnlyCode
-//        var preconditionCode : UnitPreCode
-//        var postconditionCode : UnitPostCode
-//        var blankLineCode : BlankLineCode
-//        
-//        var state : ParseState = .ps_START
-//    
-//        initEnumMnemonMaps() // might not need this
-//        repeat {
-//            if !getToken(sourceLine: &sourceLine, token: &token, tokenString: &tokenString){
-//                errorString = tokenString
-//                return false
-//            }
-//        
-//                    //qDebug() << "tokenString: " << tokenString;
-//            switch (state) {
-//            case ParseState.ps_START:
-//                if token == ELexicalToken.lt_IDENTIFIER {
-//                    if mnemonToDecControlMap.keys.contains(tokenString.uppercased()) {
-//                        microCode = MicroCode()
-//                        code = microCode
-//                        localEnumMnemonic = mnemonToDecControlMap[tokenString.uppercased()]!
-//                        localIdentifier = tokenString
-//                        state = .ps_EQUAL_DEC
-//                    }
-//                    else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()) {
-//                        microCode = MicroCode()
-//                        code = microCode
-//                        localEnumMnemonic = mnemonToMemControlMap[tokenString.uppercased()]!
-//                        microCode.set(field: localEnumMnemonic, value: 1)
-//                        state = .ps_CONTINUE_PRE_SEMICOLON
-//                    }
-//                    else if mnemonToClockControlMap.keys.contains(tokenString.uppercased()){
-//                        errorString = "// ERROR: Clock signal " + tokenString + " must appear after semicolon"
-//                        return false
-//                    }
-//                    else {
-//                        errorString = "// ERROR: Unrecognized control signal: " + tokenString
-//                        return false
-//                    }
-//                }
-//                else if token == .lt_SEMICOLON {
-//                    errorString = "// ERROR: No control signals before semicolon."
-//                    return false
-//                }
-//                else if token == .lt_COMMENT {
-//                    commentOnlyCode = CommentOnlyCode(comment: tokenString)
-//                    code = commentOnlyCode
-//                    state = .ps_COMMENT
-//                }
-//                else if (token == .lt_PRE_POST) {
-//                    if mnemonToSpecificationMap.keys.contains(tokenString.uppercased()){
-//                        if mnemonToSpecificationMap[tokenString.uppercased()] == .Pre {
-//                            processingPrecondition = true
-//                            preconditionCode = UnitPreCode()
-//                            code = preconditionCode
-//                            state = .ps_START_SPECIFICATION
-//                        }
-//                        else { // E_Post
-//                            processingPrecondition = false
-//                            postconditionCode = UnitPostCode()
-//                            code = postconditionCode
-//                            state = .ps_START_SPECIFICATION
-//                        }
-//                    }
-//                    else {
-//                        errorString = "// ERROR: Illegal specification symbol " + tokenString
-//                        return false
-//                    }
-//                }
-//                else if token == .lt_EMPTY {
-//                    blankLineCode = BlankLineCode()
-//                    code = blankLineCode
-//                    state = .ps_FINISH
-//                }
-//                else {
-//                    errorString = "// ERROR: Syntax error where control signal or comment expected"
-//                    return false
-//                }
-//                
-//            case .ps_EQUAL_DEC:
-//                if token == .lt_EQUALS {
-//                state = .ps_DEC_CONTROL
-//            }else {
-//                errorString = "// ERROR: Expected = after " + localIdentifier
-//                return false
-//            }
-//                
-//            case .ps_DEC_CONTROL:
-//                if token == .lt_DIGIT {
-//                    if microCode.has(field: localEnumMnemonic) {
-//                    errorString = "// ERROR: Duplicate control signal, " + localIdentifier
-//                    return false
-//                }
-//                    localValue = Int(tokenString)!
-//                    if !microCode.inRange(field: localEnumMnemonic, value: localValue){
-//                    errorString = "// ERROR: Value " + String(localValue) + " is out of range for " + localIdentifier
-//                    return false
-//                }
-//                    microCode.set(field: localEnumMnemonic, value: localValue)
-//                state = .ps_CONTINUE_PRE_SEMICOLON
-//                }
-//                else {
-//                    errorString = "// ERROR: Expected decimal number after " + localIdentifier + "="
-//                    return false
-//                    }
-//                case .ps_CONTINUE_PRE_SEMICOLON:
-//                    if token == .lt_COMMA {
-//                        state = .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA
-//                    }
-//                else if token == .lt_SEMICOLON {
-//                        state = .ps_START_POST_SEMICOLON
-//                    }
-//                else if token == .lt_COMMENT{
-//                        microCode.cComment = tokenString
-//                        state = .ps_COMMENT
-//                    }
-//                else if token == .lt_EMPTY {
-//                        state = .ps_FINISH
-//                    }
-//                else {
-//                        errorString = "// ERROR: Expected ',' or ';' after control signal"
-//                        return false
-//                    }
-//                
-//            case .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA:
-//                if token == .lt_IDENTIFIER {
-//                if mnemonToDecControlMap.keys.contains(tokenString.uppercased()){
-//                    localEnumMnemonic = mnemonToDecControlMap[tokenString.uppercased()]!
-//                    if microCode.has(field: localEnumMnemonic){
-//                        errorString = "// ERROR: Duplicate control signal, " + tokenString
-//                        return false
-//                    }
-//                    localIdentifier = tokenString
-//                    state = .ps_EQUAL_DEC
-//                }
-//                else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()){
-//                    localEnumMnemonic = mnemonToMemControlMap[tokenString.uppercased()]!
-//                    if microCode.has(field: localEnumMnemonic) {
-//                        errorString = "// ERROR: Duplicate control signal, " + tokenString
-//                        return false
-//                    }
-//                    if localEnumMnemonic == .MemRead && microCode.has(field: .MemWrite) {
-//                        errorString = "// ERROR: MemRead not allowed with MemWrite"
-//                        return false
-//                    }
-//                    if localEnumMnemonic == .MemWrite && microCode.has(field: .MemRead) {
-//                        errorString = "// ERROR: MemWrite not allowed with MemRead"
-//                        return false
-//                    }
-//                    microCode.set(field: localEnumMnemonic, value: 1)
-//                    state = .ps_CONTINUE_PRE_SEMICOLON
-//                }
-//                else if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
-//                    errorString = "// ERROR: Clock signal (" + tokenString + ") must appear after semicolon"
-//                    return false
-//                }
-//                else {
-//                    errorString = "// ERROR: Unrecognized control signal: " + tokenString
-//                    return false
-//                }
-//                }
-//                else if token == .lt_SEMICOLON {
-//                    errorString = "// ERROR: Control signal expected after comma."
-//                    return false
-//                }
-//                else if token == .lt_COMMENT {
-//                    microCode.cComment = tokenString
-//                    state = .ps_COMMENT
-//                }
-//                else if token == .lt_EMPTY {
-//                    state = .ps_FINISH
-//                }
-//                else {
-//                    errorString = "// ERROR: Syntax error where control signal or comment expected"
-//                    return false
-//                }
-//                
-//            case .ps_START_POST_SEMICOLON:
-//                if token == .lt_IDENTIFIER {
-//                        if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
-//                            localEnumMnemonic = mnemonToClockControlMap[tokenString.uppercased()]!
-//                            if microCode.has(field: localEnumMnemonic) {
-//                                errorString = "// ERROR: Duplicate clock signal, " + tokenString
-//                                return false
-//                            }
-//                            microCode.set(field: localEnumMnemonic, value: 1)
-//                            state = .ps_CONTINUE_POST_SEMICOLON
-//                    }
-//                    else if mnemonToDecControlMap.keys.contains(tokenString.uppercased()){
-//                        errorString = "// ERROR: Control signal " + tokenString + " after ';'"
-//                        return false
-//                    }
-//                    else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()) {
-//                        errorString = "// ERROR: Memory control signal " + tokenString + " after ';'"
-//                        return false
-//                    }
-//                    else {
-//                        errorString = "// ERROR: Unrecognized clock signal: " + tokenString
-//                        return false
-//                    }
-//                }
-//                else if token == .lt_SEMICOLON {
-//                    errorString = "// ERROR: Multiple semicolons."
-//                    return false
-//                }
-//                else if token == .lt_COMMENT {
-//                    microCode.cComment = tokenString
-//                    state = .ps_COMMENT
-//                }
-//                else if token == .lt_EMPTY {
-//                    state = .ps_FINISH
-//                }
-//                else {
-//                    errorString = "// ERROR: Syntax error where clock signal or comment expected."
-//                    return false
-//                }
-//                
-//            case .ps_CONTINUE_POST_SEMICOLON:
-//                if token == .lt_COMMA {
-//                state = .ps_START_POST_SEMICOLON
-//                }
-//                else if token == .lt_SEMICOLON {
-//                    errorString = "// ERROR: Multiple semcolons ';'"
-//                    return false
-//                }
-//                else if token == .lt_COMMENT {
-//                    microCode.cComment = tokenString
-//                    state = .ps_COMMENT
-//                }
-//                else if token == .lt_EMPTY {
-//                    state = .ps_FINISH
-//                }
-//                else {
-//                    errorString = "// ERROR: Expected ',' after clock signal"
-//                    return false
-//                }
-//            case.ps_START_SPECIFICATION:
-//                if token == .lt_IDENTIFIER {
-//                    if mnemonToMemSpecMap.keys.contains(tokenString.uppercased()) {
-//                        localEnumMnemonic = mnemonToMemSpecMap[tokenString.uppercased()]!
-//                        state = .ps_EXPECT_LEFT_BRACKET
-//                    }
-//                    else if mnemonToRegSpecMap.keys.contains(tokenString.uppercased()) {
-//                        localEnumMnemonic = mnemonToRegSpecMap[tokenString.uppercased()]!
-//                        state = .ps_EXPECT_REG_EQUALS
-//                    }
-//                    else if mnemonToStatusSpecMap.keys.contains(tokenString.uppercased()) {
-//                        localEnumMnemonic = mnemonToStatusSpecMap[tokenString.uppercased()]!
-//                        state = .ps_EXPECT_STATUS_EQUALS;
-//                    }
-//                    else {
-//                        errorString = "// ERROR: Unrecognized specification symbol: " + tokenString
-//                        return false
-//                    }
-//                }
-//                else if token == .lt_COMMENT {
-//                    if processingPrecondition {
-//                        preconditionCode.setComment(comment: tokenString)
-//                    }
-//                    else {
-//                        postconditionCode.setComment(comment: tokenString)
-//                    }
-//                    state = .ps_COMMENT
-//                }
-//                else if (token == .lt_EMPTY) {
-//                    state = .ps_FINISH
-//                }
-//                else {
-//                    errorString = "// ERROR: Syntax error starting with: " + tokenString
-//                    return false
-//                }
-//            case .ps_EXPECT_LEFT_BRACKET:
-//                if token == .lt_LEFT_BRACKET {
-//                    state = .ps_EXPECT_MEM_ADDRESS
-//                }
-//                else {
-//                    errorString = "// ERROR: Expected [ after Mem."
-//                    return false
-//                }
-//                
-//            case .ps_EXPECT_MEM_ADDRESS:
-//                if token == .lt_HEX_CONSTANT {
-//                    tokenString.remove(0, 2) // Remove "0x" prefix.
-//                    localAddressValue = tokenString.toInt(value: 16) // CHECK THIS
-//                    if localAddressValue >= 65536 {
-//                            errorString = "// ERROR: Hexidecimal address is out of range (0x0000..0xFFFF)."
-//                            return false
-//                    }
-//                    state = .ps_EXPECT_RIGHT_BRACKET
-//                }
-//                else {
-//                    errorString = "// ERROR: Expected hex memory address after [."
-//                    return false
-//                }
-//                
-//            case .ps_EXPECT_RIGHT_BRACKET:
-//                if token == .lt_RIGHT_BRACKET {
-//                state = .ps_EXPECT_MEM_EQUALS
-//                }
-//                else {
-//                    errorString = "// ERROR: Expected ] after memory address."
-//                    return false
-//                }
-//                
-//            case .ps_EXPECT_MEM_EQUALS:
-//                if token == .lt_EQUALS {
-//                    state = .ps_EXPECT_MEM_VALUE
-//                }
-//                else {
-//                    errorString = "// ERROR: Expected = after ]."
-//                    return false
-//                }
-//            case .ps_EXPECT_MEM_VALUE:
-//                if token == .lt_HEX_CONSTANT {
-//                tokenString.remove(0, 2) // Remove "0x" prefix.
-//                    localValue = tokenString.toInt(value: 16) // CHECK THIS
-//                if localValue >= 65536 {
-//                        errorString = "// ERROR: Hexidecimal memory value is out of range (0x0000..0xFFFF)."
-//                        return false
-//                }
-//                if processingPrecondition {
-//                    preconditionCode->appendSpecification(new MemSpecification(localAddressValue, localValue, tokenString.length() > 2 ? 2 : 1));
-//                }
-//                else {
-//                    postconditionCode->appendSpecification(new MemSpecification(localAddressValue, localValue, tokenString.length() > 2 ? 2 : 1));
-//                }
-//                state = .ps_EXPECT_SPEC_COMMA;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected hex constant after =.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//                
-//            case Asm::PS_EXPECT_REG_EQUALS:
-//                if (token == Asm::LT_EQUALS) {
-//                state = Asm::PS_EXPECT_REG_VALUE;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected = after " + Pep::regSpecToMnemonMap.value(localEnumMnemonic);
-//                delete code;
-//                return false;
-//            }
-//            break;
-//                
-//            case Asm::PS_EXPECT_REG_VALUE:
-//                if (token == Asm::LT_HEX_CONSTANT) {
-//                tokenString.remove(0, 2); // Remove "0x" prefix.
-//                bool ok;
-//                localValue = tokenString.toInt(&ok, 16);
-//                if (localEnumMnemonic == Enu::IR && localValue >= 16777216) {
-//                    errorString = "// ERROR: Hexidecimal register value is out of range (0x000000..0xFFFFFF).";
-//                    delete code;
-//                    return false;
-//                }
-//                if (localEnumMnemonic == Enu::T1 && localValue >= 256) {
-//                    errorString = "// ERROR: Hexidecimal register value is out of range (0x00..0xFF).";
-//                    delete code;
-//                    return false;
-//                }
-//                if (localEnumMnemonic != Enu::IR && localEnumMnemonic != Enu::T1 && localValue >= 65536) {
-//                    errorString = "// ERROR: Hexidecimal register value is out of range (0x0000..0xFFFF).";
-//                    delete code;
-//                    return false;
-//                }
-//                if (processingPrecondition) {
-//                    preconditionCode->appendSpecification(new RegSpecification(localEnumMnemonic, localValue));
-//                }
-//                else {
-//                    postconditionCode->appendSpecification(new RegSpecification(localEnumMnemonic, localValue));
-//                }
-//                state = Asm::PS_EXPECT_SPEC_COMMA;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected hex constant after =.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//                
-//            }
-//        } while state != ParseState.ps_FINISH
-//        return true
-/// STOPPED HERE
-
+        var token = ELexicalToken.lt_COMMA // initialized just to be able to pass it
+        var tokenString = "" // Passed to getToken.
+        var localIdentifier  = "" // Saves identifier for processing in the following state.
+        var localValue : Int
+        var localAddressValue = 0 // = 0 to suppress compiler warning
+        var localEnumMnemonic = CPUEMnemonic.LoadCk // Key to Pep:: table lookups. = Enu::LoadCk to suppress compiler warning
+        var processingPrecondition = false // To distinguish between a precondition and a postcondition. = false to suppress compiler warning
         
-//
-
-
-
-
-//
-//
-//
-
-//
-
-//
-//            case Asm::PS_EXPECT_STATUS_EQUALS:
-//                if (token == Asm::LT_EQUALS) {
-//                state = Asm::PS_EXPECT_STATUS_VALUE;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected = after " + Pep::statusSpecToMnemonMap.value(localEnumMnemonic);
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_EXPECT_STATUS_VALUE:
-//                if (token == Asm::LT_DIGIT) {
-//                bool ok;
-//                localValue = tokenString.toInt(&ok);
-//                if (localValue > 1) {
-//                    errorString = "// ERROR: Status bit value is out of range (0..1).";
-//                    delete code;
-//                    return false;
-//                }
-//                if (processingPrecondition) {
-//                    preconditionCode->appendSpecification(new StatusBitSpecification(localEnumMnemonic, localValue == 1));
-//                }
-//                else {
-//                    postconditionCode->appendSpecification(new StatusBitSpecification(localEnumMnemonic, localValue == 1));
-//                }
-//                state = Asm::PS_EXPECT_SPEC_COMMA;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected '1' or '0' after =.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_EXPECT_SPEC_COMMA:
-//                if (token == Asm::LT_COMMA) {
-//                state = Asm::PS_START_SPECIFICATION;
-//            }
-//            else if (token == Asm::LT_COMMENT) {
-//                if (processingPrecondition) {
-//                    preconditionCode->setComment(tokenString);
-//                }
-//                else {
-//                    postconditionCode->setComment(tokenString);
-//                }
-//                state = Asm::PS_COMMENT;
-//            }
-//            else if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                errorString = "// ERROR: Expected ',' comment, or end of line.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            case Asm::PS_COMMENT:
-//                if (token == Asm::LT_EMPTY) {
-//                state = Asm::PS_FINISH;
-//            }
-//            else {
-//                // This error should not occur, as all characters are allowed in comments.
-//                errorString = "// ERROR: Problem detected after comment.";
-//                delete code;
-//                return false;
-//            }
-//            break;
-//
-//            default:
-//                break;
-//            }
-//        }
-//            while state != ParseState.ps_FINISH
-//        return true
-//        }
-        return false
+        // The concrete code objects asssigned to code.
+        
+        // IS THERE A WAY AROUND THIS ERROR
+        var microCode : MicroCode = MicroCode()
+        var commentOnlyCode : CommentOnlyCode = CommentOnlyCode(comment: "")
+        var preconditionCode : UnitPreCode = UnitPreCode()
+        var postconditionCode : UnitPostCode = UnitPostCode()
+        var blankLineCode : BlankLineCode = BlankLineCode()
+        
+        var state : ParseState = .ps_START
+    
+        initEnumMnemonMaps() // might not need this
+        repeat {
+            if !getToken(sourceLine: &sourceLine, token: &token, tokenString: &tokenString){
+                errorString = tokenString
+                return false
+            }
+        
+                    //qDebug() << "tokenString: " << tokenString;
+            switch (state) {
+            case ParseState.ps_START:
+                if token == ELexicalToken.lt_IDENTIFIER {
+                    if mnemonToDecControlMap.keys.contains(tokenString.uppercased()) {
+                        microCode = MicroCode()
+                        code = microCode
+                        localEnumMnemonic = mnemonToDecControlMap[tokenString.uppercased()]!
+                        localIdentifier = tokenString
+                        state = .ps_EQUAL_DEC
+                    }
+                    else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()) {
+                        microCode = MicroCode()
+                        code = microCode
+                        localEnumMnemonic = mnemonToMemControlMap[tokenString.uppercased()]!
+                        microCode.set(field: localEnumMnemonic, value: 1)
+                        state = .ps_CONTINUE_PRE_SEMICOLON
+                    }
+                    else if mnemonToClockControlMap.keys.contains(tokenString.uppercased()){
+                        errorString = "// ERROR: Clock signal " + tokenString + " must appear after semicolon"
+                        return false
+                    }
+                    else {
+                        errorString = "// ERROR: Unrecognized control signal: " + tokenString
+                        return false
+                    }
+                }
+                else if token == .lt_SEMICOLON {
+                    errorString = "// ERROR: No control signals before semicolon."
+                    return false
+                }
+                else if token == .lt_COMMENT {
+                    commentOnlyCode = CommentOnlyCode(comment: tokenString)
+                    code = commentOnlyCode
+                    state = .ps_COMMENT
+                }
+                else if (token == .lt_PRE_POST) {
+                    if mnemonToSpecificationMap.keys.contains(tokenString.uppercased()){
+                        if mnemonToSpecificationMap[tokenString.uppercased()] == .Pre {
+                            processingPrecondition = true
+                            preconditionCode = UnitPreCode()
+                            code = preconditionCode
+                            state = .ps_START_SPECIFICATION
+                        }
+                        else { // E_Post
+                            processingPrecondition = false
+                            postconditionCode = UnitPostCode()
+                            code = postconditionCode
+                            state = .ps_START_SPECIFICATION
+                        }
+                    }
+                    else {
+                        errorString = "// ERROR: Illegal specification symbol " + tokenString
+                        return false
+                    }
+                }
+                else if token == .lt_EMPTY {
+                    blankLineCode = BlankLineCode()
+                    code = blankLineCode
+                    state = .ps_FINISH
+                }
+                else {
+                    errorString = "// ERROR: Syntax error where control signal or comment expected"
+                    return false
+                }
+                
+            case .ps_EQUAL_DEC:
+                if token == .lt_EQUALS {
+                state = .ps_DEC_CONTROL
+            }else {
+                errorString = "// ERROR: Expected = after " + localIdentifier
+                return false
+            }
+                
+            case .ps_DEC_CONTROL:
+                if token == .lt_DIGIT {
+                    if microCode.has(field: localEnumMnemonic) {
+                    errorString = "// ERROR: Duplicate control signal, " + localIdentifier
+                    return false
+                }
+                    localValue = Int(tokenString)!
+                    if !microCode.inRange(field: localEnumMnemonic, value: localValue){
+                    errorString = "// ERROR: Value " + String(localValue) + " is out of range for " + localIdentifier
+                    return false
+                }
+                    microCode.set(field: localEnumMnemonic, value: localValue)
+                state = .ps_CONTINUE_PRE_SEMICOLON
+                }
+                else {
+                    errorString = "// ERROR: Expected decimal number after " + localIdentifier + "="
+                    return false
+                    }
+                case .ps_CONTINUE_PRE_SEMICOLON:
+                    if token == .lt_COMMA {
+                        state = .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA
+                    }
+                else if token == .lt_SEMICOLON {
+                        state = .ps_START_POST_SEMICOLON
+                    }
+                else if token == .lt_COMMENT{
+                        microCode.cComment = tokenString
+                        state = .ps_COMMENT
+                    }
+                else if token == .lt_EMPTY {
+                        state = .ps_FINISH
+                    }
+                else {
+                        errorString = "// ERROR: Expected ',' or ';' after control signal"
+                        return false
+                    }
+                
+            case .ps_CONTINUE_PRE_SEMICOLON_POST_COMMA:
+                if token == .lt_IDENTIFIER {
+                if mnemonToDecControlMap.keys.contains(tokenString.uppercased()){
+                    localEnumMnemonic = mnemonToDecControlMap[tokenString.uppercased()]!
+                    if microCode.has(field: localEnumMnemonic){
+                        errorString = "// ERROR: Duplicate control signal, " + tokenString
+                        return false
+                    }
+                    localIdentifier = tokenString
+                    state = .ps_EQUAL_DEC
+                }
+                else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()){
+                    localEnumMnemonic = mnemonToMemControlMap[tokenString.uppercased()]!
+                    if microCode.has(field: localEnumMnemonic) {
+                        errorString = "// ERROR: Duplicate control signal, " + tokenString
+                        return false
+                    }
+                    if localEnumMnemonic == .MemRead && microCode.has(field: .MemWrite) {
+                        errorString = "// ERROR: MemRead not allowed with MemWrite"
+                        return false
+                    }
+                    if localEnumMnemonic == .MemWrite && microCode.has(field: .MemRead) {
+                        errorString = "// ERROR: MemWrite not allowed with MemRead"
+                        return false
+                    }
+                    microCode.set(field: localEnumMnemonic, value: 1)
+                    state = .ps_CONTINUE_PRE_SEMICOLON
+                }
+                else if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
+                    errorString = "// ERROR: Clock signal (" + tokenString + ") must appear after semicolon"
+                    return false
+                }
+                else {
+                    errorString = "// ERROR: Unrecognized control signal: " + tokenString
+                    return false
+                }
+                }
+                else if token == .lt_SEMICOLON {
+                    errorString = "// ERROR: Control signal expected after comma."
+                    return false
+                }
+                else if token == .lt_COMMENT {
+                    microCode.cComment = tokenString
+                    state = .ps_COMMENT
+                }
+                else if token == .lt_EMPTY {
+                    state = .ps_FINISH
+                }
+                else {
+                    errorString = "// ERROR: Syntax error where control signal or comment expected"
+                    return false
+                }
+                
+            case .ps_START_POST_SEMICOLON:
+                if token == .lt_IDENTIFIER {
+                        if mnemonToClockControlMap.keys.contains(tokenString.uppercased()) {
+                            localEnumMnemonic = mnemonToClockControlMap[tokenString.uppercased()]!
+                            if microCode.has(field: localEnumMnemonic) {
+                                errorString = "// ERROR: Duplicate clock signal, " + tokenString
+                                return false
+                            }
+                            microCode.set(field: localEnumMnemonic, value: 1)
+                            state = .ps_CONTINUE_POST_SEMICOLON
+                    }
+                    else if mnemonToDecControlMap.keys.contains(tokenString.uppercased()){
+                        errorString = "// ERROR: Control signal " + tokenString + " after ';'"
+                        return false
+                    }
+                    else if mnemonToMemControlMap.keys.contains(tokenString.uppercased()) {
+                        errorString = "// ERROR: Memory control signal " + tokenString + " after ';'"
+                        return false
+                    }
+                    else {
+                        errorString = "// ERROR: Unrecognized clock signal: " + tokenString
+                        return false
+                    }
+                }
+                else if token == .lt_SEMICOLON {
+                    errorString = "// ERROR: Multiple semicolons."
+                    return false
+                }
+                else if token == .lt_COMMENT {
+                    microCode.cComment = tokenString
+                    state = .ps_COMMENT
+                }
+                else if token == .lt_EMPTY {
+                    state = .ps_FINISH
+                }
+                else {
+                    errorString = "// ERROR: Syntax error where clock signal or comment expected."
+                    return false
+                }
+                
+            case .ps_CONTINUE_POST_SEMICOLON:
+                if token == .lt_COMMA {
+                state = .ps_START_POST_SEMICOLON
+                }
+                else if token == .lt_SEMICOLON {
+                    errorString = "// ERROR: Multiple semcolons ';'"
+                    return false
+                }
+                else if token == .lt_COMMENT {
+                    microCode.cComment = tokenString
+                    state = .ps_COMMENT
+                }
+                else if token == .lt_EMPTY {
+                    state = .ps_FINISH
+                }
+                else {
+                    errorString = "// ERROR: Expected ',' after clock signal"
+                    return false
+                }
+            case.ps_START_SPECIFICATION:
+                if token == .lt_IDENTIFIER {
+                    if mnemonToMemSpecMap.keys.contains(tokenString.uppercased()) {
+                        localEnumMnemonic = mnemonToMemSpecMap[tokenString.uppercased()]!
+                        state = .ps_EXPECT_LEFT_BRACKET
+                    }
+                    else if mnemonToRegSpecMap.keys.contains(tokenString.uppercased()) {
+                        localEnumMnemonic = mnemonToRegSpecMap[tokenString.uppercased()]!
+                        state = .ps_EXPECT_REG_EQUALS
+                    }
+                    else if mnemonToStatusSpecMap.keys.contains(tokenString.uppercased()) {
+                        localEnumMnemonic = mnemonToStatusSpecMap[tokenString.uppercased()]!
+                        state = .ps_EXPECT_STATUS_EQUALS;
+                    }
+                    else {
+                        errorString = "// ERROR: Unrecognized specification symbol: " + tokenString
+                        return false
+                    }
+                }
+                else if token == .lt_COMMENT {
+                    if processingPrecondition {
+                        preconditionCode.setComment(comment: tokenString)
+                    }
+                    else {
+                        postconditionCode.setComment(comment: tokenString)
+                    }
+                    state = .ps_COMMENT
+                }
+                else if (token == .lt_EMPTY) {
+                    state = .ps_FINISH
+                }
+                else {
+                    errorString = "// ERROR: Syntax error starting with: " + tokenString
+                    return false
+                }
+            case .ps_EXPECT_LEFT_BRACKET:
+                if token == .lt_LEFT_BRACKET {
+                    state = .ps_EXPECT_MEM_ADDRESS
+                }
+                else {
+                    errorString = "// ERROR: Expected [ after Mem."
+                    return false
+                }
+                
+            case .ps_EXPECT_MEM_ADDRESS:
+                if token == .lt_HEX_CONSTANT {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    localAddressValue = tokenString.toInt(value: 16) // CHECK THIS
+                    if localAddressValue >= 65536 {
+                            errorString = "// ERROR: Hexidecimal address is out of range (0x0000..0xFFFF)."
+                            return false
+                    }
+                    state = .ps_EXPECT_RIGHT_BRACKET
+                }
+                else {
+                    errorString = "// ERROR: Expected hex memory address after [."
+                    return false
+                }
+                
+            case .ps_EXPECT_RIGHT_BRACKET:
+                if token == .lt_RIGHT_BRACKET {
+                state = .ps_EXPECT_MEM_EQUALS
+                }
+                else {
+                    errorString = "// ERROR: Expected ] after memory address."
+                    return false
+                }
+                
+            case .ps_EXPECT_MEM_EQUALS:
+                if token == .lt_EQUALS {
+                    state = .ps_EXPECT_MEM_VALUE
+                }
+                else {
+                    errorString = "// ERROR: Expected = after ]."
+                    return false
+                }
+                
+            case .ps_EXPECT_MEM_VALUE:
+                if token == .lt_HEX_CONSTANT {
+                tokenString.remove(0, 2) // Remove "0x" prefix.
+                    localValue = tokenString.toInt(value: 16) // CHECK THIS
+                if localValue >= 65536 {
+                        errorString = "// ERROR: Hexidecimal memory value is out of range (0x0000..0xFFFF)."
+                        return false
+                }
+                if processingPrecondition {
+                    preconditionCode.appendSpecification(specification: MemSpecification(memoryAddress: localAddressValue, memoryValue: localValue, numberBytes: tokenString.length > 2 ? 2 : 1))
+                }
+                else {
+                    postconditionCode.appendSpecification(specification: MemSpecification(memoryAddress: localAddressValue, memoryValue: localValue, numberBytes: tokenString.length > 2 ? 2 : 1))
+                }
+                state = .ps_EXPECT_SPEC_COMMA
+                }
+                else {
+                    errorString = "// ERROR: Expected hex constant after =."
+                    return false
+                }
+                
+            case .ps_EXPECT_REG_EQUALS:
+                    if token == .lt_EQUALS {
+                        state = .ps_EXPECT_REG_VALUE
+                    }
+                    else {
+                        errorString = "// ERROR: Expected = after " + regSpecToMnemonMap[localEnumMnemonic]!
+                        return false
+                    }
+                
+            case .ps_EXPECT_REG_VALUE:
+                if token == .lt_HEX_CONSTANT {
+                    tokenString.remove(0, 2) // Remove "0x" prefix.
+                    localValue = tokenString.toInt(value: 16)
+                    if localEnumMnemonic == .IR && localValue >= 16777216 {
+                        errorString = "// ERROR: Hexidecimal register value is out of range (0x000000..0xFFFFFF)."
+                        return false
+                    }
+                    if localEnumMnemonic == .T1 && localValue >= 256 {
+                        errorString = "// ERROR: Hexidecimal register value is out of range (0x00..0xFF)."
+                        return false
+                    }
+                    if localEnumMnemonic != .IR && localEnumMnemonic != .T1 && localValue >= 65536 {
+                        errorString = "// ERROR: Hexidecimal register value is out of range (0x0000..0xFFFF)."
+                        return false
+                    }
+                    if processingPrecondition {
+                        preconditionCode.appendSpecification(specification: RegSpecification(registerAddress: localEnumMnemonic, registerValue: localValue))
+                    }
+                    else {
+                        postconditionCode.appendSpecification(specification: RegSpecification(registerAddress: localEnumMnemonic, registerValue: localValue))
+                    }
+                state = .ps_EXPECT_SPEC_COMMA
+                }
+                else {
+                    errorString = "// ERROR: Expected hex constant after =."
+                    return false
+                }
+                
+            case .ps_EXPECT_STATUS_EQUALS:
+                if token == .lt_EQUALS {
+                state = .ps_EXPECT_STATUS_VALUE
+                }
+                else {
+                    errorString = "// ERROR: Expected = after " + statusSpecToMnemonMap[localEnumMnemonic]!
+                    return false
+                }
+                
+            case .ps_EXPECT_STATUS_VALUE:
+                if token == .lt_DIGIT {
+                        localValue = Int(tokenString)!
+                    if (localValue > 1) {
+                        errorString = "// ERROR: Status bit value is out of range (0..1)."
+                        return false
+                    }
+                    if processingPrecondition {
+                        preconditionCode.appendSpecification(specification: StatusBitSpecification(statusBitAddress: localEnumMnemonic, statusBitValue: localValue == 1))
+                    }
+                    else {
+                        postconditionCode.appendSpecification(specification: StatusBitSpecification(statusBitAddress: localEnumMnemonic, statusBitValue: localValue == 1))
+                    }
+                    state = .ps_EXPECT_SPEC_COMMA
+                }
+                else {
+                    errorString = "// ERROR: Expected '1' or '0' after =."
+                    return false
+                }
+                
+            case .ps_EXPECT_SPEC_COMMA:
+                if token == .lt_COMMA {
+                state = .ps_START_SPECIFICATION
+                }
+                else if token == .lt_COMMENT {
+                    if processingPrecondition {
+                        preconditionCode.setComment(comment: tokenString)
+                    }
+                    else {
+                        postconditionCode.setComment(comment: tokenString)
+                    }
+                    state = .ps_COMMENT
+                }
+                else if token == .lt_EMPTY {
+                    state = .ps_FINISH
+                }
+                else {
+                    errorString = "// ERROR: Expected ',' comment, or end of line."
+                    return false
+                }
+                
+            case .ps_COMMENT:
+                if token == .lt_EMPTY {
+                state = .ps_FINISH
+                }
+                else {
+                    // This error should not occur, as all characters are allowed in comments.
+                    errorString = "// ERROR: Problem detected after comment."
+                    return false
+                }
+                
+            default:
+                break;
+                
+            }
+        } while state != ParseState.ps_FINISH
+        return true
     }
     
     func microAssemble() -> Bool {
