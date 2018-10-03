@@ -134,7 +134,7 @@ class CPUAssemblerModel {
                 return false
             }
             tokenString = rxIdentifier.matchesIn(sourceLine)[0] /// here
-            token = tokenString[tokenString.endIndex] == ":" ? ELexicalToken.lt_PRE_POST : ELexicalToken.lt_IDENTIFIER /// here
+            token = tokenString.last == ":" ? ELexicalToken.lt_PRE_POST : ELexicalToken.lt_IDENTIFIER /// here
             sourceLine.remove(0, tokenString.length)
             return true
         }

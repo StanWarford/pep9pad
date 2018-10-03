@@ -104,10 +104,11 @@ func initEnumMnemonMaps(){
         mnemonToSpecificationMap["UNITPRE:"] = .Pre
         mnemonToSpecificationMap["UNITPOST:"] =  .Post
     
-        memSpecToMnemonMap.removeAll()
+        mnemonToMemSpecMap.removeAll()
         mnemonToMemSpecMap["MEM"] = .Mem
     
-        mnemonToMemSpecMap.removeAll()
+    
+        memSpecToMnemonMap.removeAll()
         memSpecToMnemonMap[.Mem] = "Mem"
     
         regSpecToMnemonMap.removeAll()
