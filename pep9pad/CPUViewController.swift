@@ -163,6 +163,15 @@ class CPUViewController: UIViewController {
     @IBAction func runBtnPressed(_ sender: Any) {
         cpuProjectModel.sourceStr = codeView.textView.text
         cpuAssembler.microAssemble()
+        oneByteCPUDisplay.testColor()
+        CPUScrollView.subviews[0].setNeedsDisplay()
+//        let subViews = CPUScrollView.subviews
+//        for subview in subViews{
+//            subview.removeFromSuperview()
+//        }
+//        oneByteCPUDisplay.re
+//        CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
+//        CPUScrollView.addSubview(oneByteCPUDisplay)
     }
     
     // Called when the dynamically added button is pressed.

@@ -34,6 +34,10 @@ class CPU1ByteView: CPUView {
         CPU1ByteRenderer.drawIpad()
     }
     
+    func testColor(){
+        CPU1ByteRenderer.aLUColor = UIColor.red
+    }
+    
     func singleStep(errorMessage: inout String) -> Bool {
         
         

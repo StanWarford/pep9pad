@@ -230,6 +230,7 @@
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
 		A013EB15215C0551008CF1A6 /* CPUEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB14215C0551008CF1A6 /* CPUEnum.swift */; };
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
+		A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07500B72166A95B009BB75A /* CPUSimulator.swift */; };
 		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
 		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
@@ -502,6 +503,7 @@
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		A013EB14215C0551008CF1A6 /* CPUEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUEnum.swift; sourceTree = "<group>"; };
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
+		A07500B72166A95B009BB75A /* CPUSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUSimulator.swift; sourceTree = "<group>"; };
 		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
 		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
@@ -1087,6 +1089,7 @@
 			children = (
 				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
 				A0C385C5215DC36700303E28 /* Specification.swift */,
+				A07500B72166A95B009BB75A /* CPUSimulator.swift */,
 			);
 			name = CPUCode;
 			sourceTree = "<group>";
@@ -1557,6 +1560,7 @@
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
+				A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
 				4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */,
 				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,

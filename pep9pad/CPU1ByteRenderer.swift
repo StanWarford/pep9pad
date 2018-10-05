@@ -64,6 +64,8 @@ public class CPU1ByteRenderer : NSObject {
     static var bitstoCMuxColor = UIColor(red: 0.048, green: 1.000, blue: 0.000, alpha: 1.000)
     static var checkBoxFill = UIColor(red: 0.920, green: 0.920, blue: 0.920, alpha: 1.000)
     
+    // Text
+    
 
     //// Drawing Methods
 
@@ -82,8 +84,6 @@ public class CPU1ByteRenderer : NSObject {
         context.saveGState()
         context.translateBy(x: 618, y: 60)
         context.scaleBy(x: 1.01, y: 1)
-
-
 
         //// Bezier 89 Drawing
         let bezier89Path = UIBezierPath()
@@ -2100,6 +2100,9 @@ public class CPU1ByteRenderer : NSObject {
         aLUstrokeblack.setStroke()
         rectangle4Path.lineWidth = 1
         rectangle4Path.stroke()
+        
+        
+        "Hello".draw(in: CGRect(x: 86.87, y: 93, width: 45, height: 17), withAttributes: text5FontAttributes)
 
 
         //// Rectangle 5 Drawing
