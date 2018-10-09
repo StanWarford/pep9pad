@@ -15,4074 +15,3537 @@ import UIKit
 
 public class CPU1ByteRenderer : NSObject {
     
-    
-    static var registerBankColor = UIColor(red: 0.764, green: 0.706, blue: 0.762, alpha: 1.000)
-    static var bitsBoxColor = UIColor(red: 0.851, green: 0.802, blue: 0.759, alpha: 1.000)
-    static var aLUColor = UIColor(red: 0.615, green: 0.975, blue: 1.000, alpha: 1.000)
-    static var arrowBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var aLUstrokeblack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+
+    static var registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
     static var labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var aLUvalgrey = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1.000)
-    static var mWhite = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-    static var loadCkArrowColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var cArrowColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var bArrowColor = UIColor(red: 0.000, green: 0.003, blue: 1.000, alpha: 1.000)
-    static var aArrowColor = UIColor(red: 0.303, green: 0.430, blue: 0.273, alpha: 1.000)
-    static var bBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var aBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var cBusPipeColor = UIColor(red: 1.000, green: 0.963, blue: 0.585, alpha: 1.000)
-    static var mARCkArrowColor = UIColor(red: 0.709, green: 0.709, blue: 0.709, alpha: 1.000)
-    static var mDRCkArrowColor = UIColor(red: 0.482, green: 0.268, blue: 0.268, alpha: 1.000)
-    static var aMUXArrowColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var mDRMuxArrowColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var cMuxArrowColor = UIColor(red: 0.565, green: 0.905, blue: 0.741, alpha: 1.000)
-    static var aMuxComboColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var aLULArrowsColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var cBitArrowColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var vBitArrowColor = UIColor(red: 0.493, green: 0.493, blue: 0.493, alpha: 1.000)
-    static var zBitArrowColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var nBitArrowColor = UIColor(red: 0.104, green: 0.282, blue: 0.601, alpha: 1.000)
-    static var memWriteArrowColor = UIColor(red: 0.050, green: 0.405, blue: 0.483, alpha: 1.000)
-    static var memReadArrowColor = UIColor(red: 0.454, green: 0.114, blue: 0.114, alpha: 1.000)
-    static var cSMuxInArrowColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var sCkArrowColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var cCkArrowInColor = UIColor(red: 0.096, green: 0.193, blue: 0.564, alpha: 1.000)
-    static var vCkArrowColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var andZArrowInColor = UIColor(red: 0.639, green: 0.230, blue: 0.724, alpha: 1.000)
-    static var nCkArrowColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var andZArrowOutColor = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var mARBColor = UIColor(red: 0.000, green: 0.287, blue: 1.000, alpha: 1.000)
-    static var mARAColor = UIColor(red: 0.037, green: 1.000, blue: 0.000, alpha: 1.000)
-    static var mARArrowColor = UIColor(red: 0.345, green: 0.596, blue: 0.849, alpha: 1.000)
-    static var systemBusColor = UIColor(red: 0.413, green: 0.722, blue: 0.296, alpha: 1.000)
-    static var memWriteColor = UIColor(red: 0.889, green: 0.373, blue: 0.373, alpha: 1.000)
-    static var mDRCktoAMuxColor = UIColor(red: 0.583, green: 0.644, blue: 0.361, alpha: 1.000)
-    static var mDRMuxColor = UIColor(red: 0.758, green: 0.564, blue: 0.789, alpha: 1.000)
-    static var bustoMDRMuxColor = UIColor(red: 0.000, green: 0.840, blue: 1.000, alpha: 1.000)
-    static var aLUtoCMuxColor = UIColor(red: 0.528, green: 0.350, blue: 0.913, alpha: 1.000)
-    static var cSMuxColor = UIColor(red: 0.672, green: 0.599, blue: 0.599, alpha: 1.000)
-    static var bitstoCMuxColor = UIColor(red: 0.048, green: 1.000, blue: 0.000, alpha: 1.000)
-    static var checkBoxFill = UIColor(red: 0.920, green: 0.920, blue: 0.920, alpha: 1.000)
+    static var black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+    static var noFillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
     
-    // Text
+    static var addressBusColor = UIColor.CPUColors.noFillColor
+    static var dataBusColor = UIColor.CPUColors.noFillColor
+    static var mDRColor = UIColor.CPUColors.noFillColor
+    static var cBusColor = UIColor.CPUColors.noFillColor
+    static var aBusPipeColor = UIColor.CPUColors.noFillColor
+    static var bBusPipeColor = UIColor.CPUColors.noFillColor
+    static var blackArrow = UIColor.CPUColors.grayArrow
+    static var grayArrow = UIColor.CPUColors.grayArrow
+   
     
+//    static var registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
+//    static var addressBusColor = UIColor(red: 1.000, green: 0.845, blue: 0.000, alpha: 1.000)
+//    static var dataBusColor = UIColor(red: 1.000, green: 0.252, blue: 0.131, alpha: 1.000)
+//    static var labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+//    static var mDRColor = UIColor(red: 0.649, green: 0.906, blue: 0.000, alpha: 1.000)
+//    static var cBusColor = UIColor(red: 0.295, green: 0.495, blue: 1.000, alpha: 1.000)
+//    static var aBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+//    static var bBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+//    static var blackArrow = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+//    static var grayArrow = UIColor(red: 0.709, green: 0.709, blue: 0.709, alpha: 1.000)
+//    static var black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+//    static var noFillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
 
     //// Drawing Methods
 
-    @objc public dynamic class func drawIpad(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 840, height: 1024), resizing: ResizingBehavior = .aspectFit) {
+    @objc public dynamic class func drawIpad(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 950, height: 1024), resizing: ResizingBehavior = .aspectFit) {
+        // This code was generated by Trial version of PaintCode, therefore cannot be used for commercial purposes.
+        // http://www.paintcodeapp.com
+        
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
-        //// Resize to Target Frame
-        context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 840, height: 1024), target: targetFrame)
-        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 840, y: resizedFrame.height / 1024)
-
-        //// Lines
-        //// LoadCKArrow
-        context.saveGState()
-        context.translateBy(x: 618, y: 60)
-        context.scaleBy(x: 1.01, y: 1)
-
-        //// Bezier 89 Drawing
-        let bezier89Path = UIBezierPath()
-        bezier89Path.move(to: CGPoint(x: -0, y: 4.5))
-        bezier89Path.addLine(to: CGPoint(x: 16.45, y: 0.5))
-        bezier89Path.addLine(to: CGPoint(x: 16.45, y: 3.5))
-        bezier89Path.addLine(to: CGPoint(x: 16.45, y: 5.5))
-        bezier89Path.addLine(to: CGPoint(x: 16.45, y: 8.5))
-        bezier89Path.addLine(to: CGPoint(x: -0, y: 4.5))
-        bezier89Path.close()
-        loadCkArrowColor.setFill()
-        bezier89Path.fill()
-
-
-        //// Bezier 91 Drawing
-        let bezier91Path = UIBezierPath()
-        bezier91Path.move(to: CGPoint(x: 13.93, y: 4.5))
-        bezier91Path.addLine(to: CGPoint(x: 101, y: 4.5))
-        loadCkArrowColor.setStroke()
-        bezier91Path.lineWidth = 1
-        bezier91Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// CArrow
-        context.saveGState()
-        context.translateBy(x: 618, y: 92)
-
-
-
-        //// Bezier 92 Drawing
-        let bezier92Path = UIBezierPath()
-        bezier92Path.move(to: CGPoint(x: 0, y: 23.5))
-        bezier92Path.addLine(to: CGPoint(x: 9.44, y: 19.5))
-        bezier92Path.addLine(to: CGPoint(x: 9.44, y: 22.5))
-        bezier92Path.addLine(to: CGPoint(x: 9.44, y: 24.5))
-        bezier92Path.addLine(to: CGPoint(x: 9.44, y: 27.5))
-        bezier92Path.addLine(to: CGPoint(x: 0, y: 23.5))
-        bezier92Path.close()
-        cArrowColor.setFill()
-        bezier92Path.fill()
-
-
-        //// Bezier 93 Drawing
-        let bezier93Path = UIBezierPath()
-        bezier93Path.move(to: CGPoint(x: 8, y: 23.43))
-        bezier93Path.addLine(to: CGPoint(x: 102, y: 23.43))
-        cArrowColor.setStroke()
-        bezier93Path.lineWidth = 1
-        bezier93Path.stroke()
-
-
-        //// Bezier 94 Drawing
-        let bezier94Path = UIBezierPath()
-        bezier94Path.move(to: CGPoint(x: 22.14, y: 15.5))
-        bezier94Path.addLine(to: CGPoint(x: 36.79, y: 31.36))
-        cArrowColor.setStroke()
-        bezier94Path.lineWidth = 1
-        bezier94Path.stroke()
-
-
-        //// Text 57 Drawing
-        let text57Rect = CGRect(x: 30, y: 8.43, width: 14, height: 15)
-        let text57TextContent = "5"
-        let text57Style = NSMutableParagraphStyle()
-        text57Style.alignment = .left
-        let text57FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: cArrowColor, NSAttributedStringKey.paragraphStyle: text57Style] as [NSAttributedStringKey : Any]
-
-        let text57TextHeight: CGFloat = text57TextContent.boundingRect(with: CGSize(width: text57Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text57FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text57Rect)
-        text57TextContent.draw(in: CGRect(x: text57Rect.minX, y: text57Rect.minY + (text57Rect.height - text57TextHeight) / 2, width: text57Rect.width, height: text57TextHeight), withAttributes: text57FontAttributes)
-        context.restoreGState()
-
-
-
-        context.restoreGState()
-
-
-        //// BArrow
-        context.saveGState()
-        context.translateBy(x: 618, y: 122)
-
-
-
-        //// Bezier 95 Drawing
-        let bezier95Path = UIBezierPath()
-        bezier95Path.move(to: CGPoint(x: 0, y: 23.5))
-        bezier95Path.addLine(to: CGPoint(x: 9.44, y: 19.5))
-        bezier95Path.addLine(to: CGPoint(x: 9.44, y: 22.5))
-        bezier95Path.addLine(to: CGPoint(x: 9.44, y: 24.5))
-        bezier95Path.addLine(to: CGPoint(x: 9.44, y: 27.5))
-        bezier95Path.addLine(to: CGPoint(x: 0, y: 23.5))
-        bezier95Path.close()
-        bArrowColor.setFill()
-        bezier95Path.fill()
-
-
-        //// Bezier 96 Drawing
-        let bezier96Path = UIBezierPath()
-        bezier96Path.move(to: CGPoint(x: 8, y: 23.43))
-        bezier96Path.addLine(to: CGPoint(x: 102, y: 23.43))
-        bArrowColor.setStroke()
-        bezier96Path.lineWidth = 1
-        bezier96Path.stroke()
-
-
-        //// Bezier 97 Drawing
-        let bezier97Path = UIBezierPath()
-        bezier97Path.move(to: CGPoint(x: 22.14, y: 15.5))
-        bezier97Path.addLine(to: CGPoint(x: 36.79, y: 31.36))
-        bArrowColor.setStroke()
-        bezier97Path.lineWidth = 1
-        bezier97Path.stroke()
-
-
-        //// Text 58 Drawing
-        let text58Rect = CGRect(x: 30, y: 8.43, width: 14, height: 15)
-        let text58TextContent = "5"
-        let text58Style = NSMutableParagraphStyle()
-        text58Style.alignment = .left
-        let text58FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: bArrowColor, NSAttributedStringKey.paragraphStyle: text58Style] as [NSAttributedStringKey : Any]
-
-        let text58TextHeight: CGFloat = text58TextContent.boundingRect(with: CGSize(width: text58Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text58FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text58Rect)
-        text58TextContent.draw(in: CGRect(x: text58Rect.minX, y: text58Rect.minY + (text58Rect.height - text58TextHeight) / 2, width: text58Rect.width, height: text58TextHeight), withAttributes: text58FontAttributes)
-        context.restoreGState()
-
-
-
-        context.restoreGState()
-
-
-        //// AArrow
-        context.saveGState()
-        context.translateBy(x: 618, y: 152)
-
-
-
-        //// Bezier 98 Drawing
-        let bezier98Path = UIBezierPath()
-        bezier98Path.move(to: CGPoint(x: 0, y: 23.5))
-        bezier98Path.addLine(to: CGPoint(x: 9.44, y: 19.5))
-        bezier98Path.addLine(to: CGPoint(x: 9.44, y: 22.5))
-        bezier98Path.addLine(to: CGPoint(x: 9.44, y: 24.5))
-        bezier98Path.addLine(to: CGPoint(x: 9.44, y: 27.5))
-        bezier98Path.addLine(to: CGPoint(x: 0, y: 23.5))
-        bezier98Path.close()
-        aArrowColor.setFill()
-        bezier98Path.fill()
-
-
-        //// Bezier 99 Drawing
-        let bezier99Path = UIBezierPath()
-        bezier99Path.move(to: CGPoint(x: 8, y: 23.43))
-        bezier99Path.addLine(to: CGPoint(x: 102, y: 23.43))
-        aArrowColor.setStroke()
-        bezier99Path.lineWidth = 1
-        bezier99Path.stroke()
-
-
-        //// Bezier 100 Drawing
-        let bezier100Path = UIBezierPath()
-        bezier100Path.move(to: CGPoint(x: 22.14, y: 15.5))
-        bezier100Path.addLine(to: CGPoint(x: 36.79, y: 31.36))
-        aArrowColor.setStroke()
-        bezier100Path.lineWidth = 1
-        bezier100Path.stroke()
-
-
-        //// Text 59 Drawing
-        let text59Rect = CGRect(x: 30, y: 8.43, width: 14, height: 15)
-        let text59TextContent = "5"
-        let text59Style = NSMutableParagraphStyle()
-        text59Style.alignment = .left
-        let text59FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: aArrowColor, NSAttributedStringKey.paragraphStyle: text59Style] as [NSAttributedStringKey : Any]
-
-        let text59TextHeight: CGFloat = text59TextContent.boundingRect(with: CGSize(width: text59Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text59FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text59Rect)
-        text59TextContent.draw(in: CGRect(x: text59Rect.minX, y: text59Rect.minY + (text59Rect.height - text59TextHeight) / 2, width: text59Rect.width, height: text59TextHeight), withAttributes: text59FontAttributes)
-        context.restoreGState()
-
-
-
-        context.restoreGState()
-
-
-        //// AMUXArrow
-        context.saveGState()
-        context.translateBy(x: 492, y: 456)
-
-
-
-        //// Bezier 2 Drawing
-        let bezier2Path = UIBezierPath()
-        bezier2Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier2Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier2Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier2Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier2Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier2Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier2Path.close()
-        aMUXArrowColor.setFill()
-        bezier2Path.fill()
-
-
-        //// Bezier 3 Drawing
-        let bezier3Path = UIBezierPath()
-        bezier3Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier3Path.addLine(to: CGPoint(x: 228.13, y: 4.5))
-        aMUXArrowColor.setStroke()
-        bezier3Path.lineWidth = 1
-        bezier3Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// CSMuxInArrow
-        context.saveGState()
-        context.translateBy(x: 692, y: 648)
-
-
-
-        //// Bezier 4 Drawing
-        let bezier4Path = UIBezierPath()
-        bezier4Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier4Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier4Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier4Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier4Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier4Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier4Path.close()
-        cSMuxInArrowColor.setFill()
-        bezier4Path.fill()
-
-
-        //// Bezier 5 Drawing
-        let bezier5Path = UIBezierPath()
-        bezier5Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier5Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        cSMuxInArrowColor.setStroke()
-        bezier5Path.lineWidth = 1
-        bezier5Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// SCkArrow
-        context.saveGState()
-        context.translateBy(x: 692, y: 698)
-
-
-
-        //// Bezier 6 Drawing
-        let bezier6Path = UIBezierPath()
-        bezier6Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier6Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier6Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier6Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier6Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier6Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier6Path.close()
-        sCkArrowColor.setFill()
-        bezier6Path.fill()
-
-
-        //// Bezier 7 Drawing
-        let bezier7Path = UIBezierPath()
-        bezier7Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier7Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        sCkArrowColor.setStroke()
-        bezier7Path.lineWidth = 1
-        bezier7Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// CCkArrowColor
-        context.saveGState()
-        context.translateBy(x: 692, y: 733)
-
-
-
-        //// Bezier 8 Drawing
-        let bezier8Path = UIBezierPath()
-        bezier8Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier8Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier8Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier8Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier8Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier8Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier8Path.close()
-        cCkArrowInColor.setFill()
-        bezier8Path.fill()
-
-
-        //// Bezier 9 Drawing
-        let bezier9Path = UIBezierPath()
-        bezier9Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier9Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        cCkArrowInColor.setStroke()
-        bezier9Path.lineWidth = 1
-        bezier9Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// VCkArrow
-        context.saveGState()
-        context.translateBy(x: 692, y: 768)
-
-
-
-        //// Bezier 10 Drawing
-        let bezier10Path = UIBezierPath()
-        bezier10Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier10Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier10Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier10Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier10Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier10Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier10Path.close()
-        vCkArrowColor.setFill()
-        bezier10Path.fill()
-
-
-        //// Bezier 11 Drawing
-        let bezier11Path = UIBezierPath()
-        bezier11Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier11Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        vCkArrowColor.setStroke()
-        bezier11Path.lineWidth = 1
-        bezier11Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// ZCkArrow
-        context.saveGState()
-        context.translateBy(x: 692, y: 853)
-
-
-
-        //// Bezier 12 Drawing
-        let bezier12Path = UIBezierPath()
-        bezier12Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier12Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier12Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier12Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier12Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier12Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier12Path.close()
-        arrowBlack.setFill()
-        bezier12Path.fill()
-
-
-        //// Bezier 13 Drawing
-        let bezier13Path = UIBezierPath()
-        bezier13Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier13Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        arrowBlack.setStroke()
-        bezier13Path.lineWidth = 1
-        bezier13Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// NCkArrow
-        context.saveGState()
-        context.translateBy(x: 692, y: 923)
-
-
-
-        //// Bezier 14 Drawing
-        let bezier14Path = UIBezierPath()
-        bezier14Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier14Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier14Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier14Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier14Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier14Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier14Path.close()
-        nCkArrowColor.setFill()
-        bezier14Path.fill()
-
-
-        //// Bezier 15 Drawing
-        let bezier15Path = UIBezierPath()
-        bezier15Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier15Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        nCkArrowColor.setStroke()
-        bezier15Path.lineWidth = 1
-        bezier15Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// MemReadArrow
-        context.saveGState()
-        context.translateBy(x: 102, y: 983)
-
-
-
-        //// Bezier 18 Drawing
-        let bezier18Path = UIBezierPath()
-        bezier18Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier18Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier18Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier18Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier18Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier18Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier18Path.close()
-        memReadArrowColor.setFill()
-        bezier18Path.fill()
-
-
-        //// Bezier 19 Drawing
-        let bezier19Path = UIBezierPath()
-        bezier19Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier19Path.addLine(to: CGPoint(x: 618, y: 4.5))
-        memReadArrowColor.setStroke()
-        bezier19Path.lineWidth = 1
-        bezier19Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// MemWriteArrow
-        context.saveGState()
-        context.translateBy(x: 102, y: 963)
-
-
-
-        //// Bezier 16 Drawing
-        let bezier16Path = UIBezierPath()
-        bezier16Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier16Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier16Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier16Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier16Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier16Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier16Path.close()
-        memWriteArrowColor.setFill()
-        bezier16Path.fill()
-
-
-        //// Bezier 20 Drawing
-        context.saveGState()
-        context.translateBy(x: 58.23, y: -539.53)
-        context.rotate(by: 90 * CGFloat.pi/180)
-
-        let bezier20Path = UIBezierPath()
-        bezier20Path.move(to: CGPoint(x: 0, y: 4))
-        bezier20Path.addLine(to: CGPoint(x: 10.11, y: 0))
-        bezier20Path.addLine(to: CGPoint(x: 10.11, y: 3))
-        bezier20Path.addLine(to: CGPoint(x: 10.11, y: 5))
-        bezier20Path.addLine(to: CGPoint(x: 10.11, y: 8))
-        bezier20Path.addLine(to: CGPoint(x: 0, y: 4))
-        bezier20Path.close()
-        memWriteArrowColor.setFill()
-        bezier20Path.fill()
-
-        context.restoreGState()
-
-
-        //// Bezier 21 Drawing
-        context.saveGState()
-        context.translateBy(x: 54.23, y: -530.97)
-        context.rotate(by: 90 * CGFloat.pi/180)
-
-        let bezier21Path = UIBezierPath()
-        bezier21Path.move(to: CGPoint(x: 0, y: 0))
-        bezier21Path.addLine(to: CGPoint(x: 535.89, y: 0))
-        memWriteArrowColor.setStroke()
-        bezier21Path.lineWidth = 1
-        bezier21Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Oval 8 Drawing
-        let oval8Path = UIBezierPath(ovalIn: CGRect(x: 52, y: 2, width: 5, height: 5))
-        memWriteArrowColor.setFill()
-        oval8Path.fill()
-
-
-        //// Bezier 17 Drawing
-        let bezier17Path = UIBezierPath()
-        bezier17Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier17Path.addLine(to: CGPoint(x: 618, y: 4.5))
-        memWriteArrowColor.setStroke()
-        bezier17Path.lineWidth = 1
-        bezier17Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// MARCkArrow
-        context.saveGState()
-        context.translateBy(x: 262, y: 276)
-
-
-
-        //// Bezier 22 Drawing
-        context.saveGState()
-        context.translateBy(x: -0, y: 29.5)
-        context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier22Path = UIBezierPath()
-        bezier22Path.move(to: CGPoint(x: 0, y: 4))
-        bezier22Path.addLine(to: CGPoint(x: 10.11, y: 0))
-        bezier22Path.addLine(to: CGPoint(x: 10.11, y: 3))
-        bezier22Path.addLine(to: CGPoint(x: 10.11, y: 5))
-        bezier22Path.addLine(to: CGPoint(x: 10.11, y: 8))
-        bezier22Path.addLine(to: CGPoint(x: 0, y: 4))
-        bezier22Path.close()
-        mARCkArrowColor.setFill()
-        bezier22Path.fill()
-
-        context.restoreGState()
-
-
-        //// Bezier 23 Drawing
-        let bezier23Path = UIBezierPath()
-        bezier23Path.move(to: CGPoint(x: 4.34, y: 4.5))
-        bezier23Path.addLine(to: CGPoint(x: 458, y: 4.5))
-        mARCkArrowColor.setStroke()
-        bezier23Path.lineWidth = 1
-        bezier23Path.stroke()
-
-
-        //// Bezier 24 Drawing
-        context.saveGState()
-        context.translateBy(x: 8, y: -21)
-        context.rotate(by: 90 * CGFloat.pi/180)
-
-        let bezier24Path = UIBezierPath()
-        bezier24Path.move(to: CGPoint(x: 0, y: 4))
-        bezier24Path.addLine(to: CGPoint(x: 10.11, y: 0))
-        bezier24Path.addLine(to: CGPoint(x: 10.11, y: 3))
-        bezier24Path.addLine(to: CGPoint(x: 10.11, y: 5))
-        bezier24Path.addLine(to: CGPoint(x: 10.11, y: 8))
-        bezier24Path.addLine(to: CGPoint(x: 0, y: 4))
-        bezier24Path.close()
-        mARCkArrowColor.setFill()
-        bezier24Path.fill()
-
-        context.restoreGState()
-
-
-        //// Bezier 25 Drawing
-        let bezier25Path = UIBezierPath()
-        bezier25Path.move(to: CGPoint(x: 4, y: -13))
-        bezier25Path.addLine(to: CGPoint(x: 4, y: 20.24))
-        mARCkArrowColor.setStroke()
-        bezier25Path.lineWidth = 1
-        bezier25Path.stroke()
-
-
-        //// Group 11
-        //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 1.5, y: 2, width: 5, height: 5))
-        mARCkArrowColor.setFill()
-        ovalPath.fill()
-
-
-
-
-
-        context.restoreGState()
-
-
-        //// MDRCkArrow
-        context.saveGState()
-        context.translateBy(x: 222, y: 356)
-
-
-
-        //// Bezier 26 Drawing
-        context.saveGState()
-        context.translateBy(x: -0, y: 29.5)
-        context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier26Path = UIBezierPath()
-        bezier26Path.move(to: CGPoint(x: 0, y: 4))
-        bezier26Path.addLine(to: CGPoint(x: 10.11, y: 0))
-        bezier26Path.addLine(to: CGPoint(x: 10.11, y: 3))
-        bezier26Path.addLine(to: CGPoint(x: 10.11, y: 5))
-        bezier26Path.addLine(to: CGPoint(x: 10.11, y: 8))
-        bezier26Path.addLine(to: CGPoint(x: 0, y: 4))
-        bezier26Path.close()
-        mDRCkArrowColor.setFill()
-        bezier26Path.fill()
-
-        context.restoreGState()
-
-
-        //// Bezier 27 Drawing
-        let bezier27Path = UIBezierPath()
-        bezier27Path.move(to: CGPoint(x: 3.5, y: 12.5))
-        bezier27Path.addLine(to: CGPoint(x: 9.5, y: 12.5))
-        bezier27Path.addLine(to: CGPoint(x: 498, y: 12.5))
-        mDRCkArrowColor.setStroke()
-        bezier27Path.lineWidth = 1
-        bezier27Path.stroke()
-
-
-        //// Bezier 29 Drawing
-        let bezier29Path = UIBezierPath()
-        bezier29Path.move(to: CGPoint(x: 4, y: 12.5))
-        bezier29Path.addLine(to: CGPoint(x: 4, y: 19.39))
-        mDRCkArrowColor.setStroke()
-        bezier29Path.lineWidth = 1
-        bezier29Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// MDRMuxArrow
-        context.saveGState()
-        context.translateBy(x: 303.83, y: 500.38)
-
-
-
-        //// Bezier 30 Drawing
-        let bezier30Path = UIBezierPath()
-        bezier30Path.move(to: CGPoint(x: 4.34, y: 4.75))
-        bezier30Path.addLine(to: CGPoint(x: 416.17, y: 4.75))
-        mDRMuxArrowColor.setStroke()
-        bezier30Path.lineWidth = 1
-        bezier30Path.stroke()
-
-
-        //// Bezier 31 Drawing
-        let bezier31Path = UIBezierPath()
-        bezier31Path.move(to: CGPoint(x: -20.86, y: -28))
-        bezier31Path.addLine(to: CGPoint(x: -10.75, y: -32))
-        bezier31Path.addLine(to: CGPoint(x: -10.75, y: -29))
-        bezier31Path.addLine(to: CGPoint(x: -10.75, y: -27))
-        bezier31Path.addLine(to: CGPoint(x: -10.75, y: -24))
-        bezier31Path.addLine(to: CGPoint(x: -20.86, y: -28))
-        bezier31Path.close()
-        mDRMuxArrowColor.setFill()
-        bezier31Path.fill()
-
-
-        //// Bezier 32 Drawing
-        let bezier32Path = UIBezierPath()
-        bezier32Path.move(to: CGPoint(x: 4, y: -28))
-        bezier32Path.addLine(to: CGPoint(x: 4, y: 5.24))
-        mDRMuxArrowColor.setStroke()
-        bezier32Path.lineWidth = 1
-        bezier32Path.stroke()
-
-
-        //// Bezier 28 Drawing
-        let bezier28Path = UIBezierPath()
-        bezier28Path.move(to: CGPoint(x: -11.5, y: -28))
-        bezier28Path.addLine(to: CGPoint(x: 4.5, y: -28))
-        mDRMuxArrowColor.setStroke()
-        bezier28Path.lineWidth = 1
-        bezier28Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// CMuxArrow
-        context.saveGState()
-        context.translateBy(x: 370, y: 562)
-
-
-
-        //// Bezier 33 Drawing
-        context.saveGState()
-        context.translateBy(x: -0, y: 29.5)
-        context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier33Path = UIBezierPath()
-        bezier33Path.move(to: CGPoint(x: 0, y: 4))
-        bezier33Path.addLine(to: CGPoint(x: 10.11, y: 0))
-        bezier33Path.addLine(to: CGPoint(x: 10.11, y: 3))
-        bezier33Path.addLine(to: CGPoint(x: 10.11, y: 5))
-        bezier33Path.addLine(to: CGPoint(x: 10.11, y: 8))
-        bezier33Path.addLine(to: CGPoint(x: 0, y: 4))
-        bezier33Path.close()
-        cMuxArrowColor.setFill()
-        bezier33Path.fill()
-
-        context.restoreGState()
-
-
-        //// Bezier 34 Drawing
-        let bezier34Path = UIBezierPath()
-        bezier34Path.move(to: CGPoint(x: 3.5, y: 12.5))
-        bezier34Path.addLine(to: CGPoint(x: 7.7, y: 12.5))
-        bezier34Path.addLine(to: CGPoint(x: 350, y: 12.5))
-        cMuxArrowColor.setStroke()
-        bezier34Path.lineWidth = 1
-        bezier34Path.stroke()
-
-
-        //// Bezier 35 Drawing
-        let bezier35Path = UIBezierPath()
-        bezier35Path.move(to: CGPoint(x: 4, y: 12.5))
-        bezier35Path.addLine(to: CGPoint(x: 4, y: 19.39))
-        cMuxArrowColor.setStroke()
-        bezier35Path.lineWidth = 1
-        bezier35Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// Group 15
-        context.saveGState()
-        context.translateBy(x: 593, y: 572)
-
-
-
-        //// Bezier 36 Drawing
-        let bezier36Path = UIBezierPath()
-        bezier36Path.move(to: CGPoint(x: 0, y: 23.5))
-        bezier36Path.addLine(to: CGPoint(x: 9.44, y: 19.5))
-        bezier36Path.addLine(to: CGPoint(x: 9.44, y: 22.5))
-        bezier36Path.addLine(to: CGPoint(x: 9.44, y: 24.5))
-        bezier36Path.addLine(to: CGPoint(x: 9.44, y: 27.5))
-        bezier36Path.addLine(to: CGPoint(x: 0, y: 23.5))
-        bezier36Path.close()
-        UIColor.black.setFill()
-        bezier36Path.fill()
-
-
-        //// Bezier 37 Drawing
-        let bezier37Path = UIBezierPath()
-        bezier37Path.move(to: CGPoint(x: 8, y: 23.43))
-        bezier37Path.addLine(to: CGPoint(x: 127, y: 23.43))
-        UIColor.black.setStroke()
-        bezier37Path.lineWidth = 1
-        bezier37Path.stroke()
-
-
-        //// Bezier 38 Drawing
-        let bezier38Path = UIBezierPath()
-        bezier38Path.move(to: CGPoint(x: 92.14, y: 15.5))
-        bezier38Path.addLine(to: CGPoint(x: 106.79, y: 31.36))
-        UIColor.black.setStroke()
-        bezier38Path.lineWidth = 1
-        bezier38Path.stroke()
-
-
+      
+        //// TextColumn
         //// Text Drawing
-        let textRect = CGRect(x: 100, y: 8.43, width: 14, height: 15)
-        let textTextContent = "4"
+        let textRect = CGRect(x: 852, y: 41, width: 85, height: 31)
+        let textTextContent = "LoadCk"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
-        let textFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.paragraphStyle: textStyle]
-
+        let textFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: textStyle,
+            ] as [NSAttributedString.Key: Any]
+        
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
         context.saveGState()
         context.clip(to: textRect)
         textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
         context.restoreGState()
-
-
-
-        context.restoreGState()
-
-
-        //// Group 16
+        
+        
+        //// Text 2 Drawing
+        let text2Rect = CGRect(x: 852, y: 104, width: 19, height: 25)
+        let text2TextContent = "C"
+        let text2Style = NSMutableParagraphStyle()
+        text2Style.alignment = .left
+        let text2FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text2Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 638.86, y: 645.26)
-
-
-
-        //// Bezier 40 Drawing
-        let bezier40Path = UIBezierPath()
-        bezier40Path.move(to: CGPoint(x: -52.86, y: -28))
-        bezier40Path.addLine(to: CGPoint(x: -42.75, y: -32))
-        bezier40Path.addLine(to: CGPoint(x: -42.75, y: -29))
-        bezier40Path.addLine(to: CGPoint(x: -42.75, y: -27))
-        bezier40Path.addLine(to: CGPoint(x: -42.75, y: -24))
-        bezier40Path.addLine(to: CGPoint(x: -52.86, y: -28))
-        bezier40Path.close()
-        arrowBlack.setFill()
-        bezier40Path.fill()
-
-
-        //// Bezier 41 Drawing
-        let bezier41Path = UIBezierPath()
-        bezier41Path.move(to: CGPoint(x: 4, y: -28))
-        bezier41Path.addLine(to: CGPoint(x: 4, y: -5.86))
-        arrowBlack.setStroke()
-        bezier41Path.lineWidth = 1
-        bezier41Path.stroke()
-
-
-        //// Bezier 42 Drawing
-        let bezier42Path = UIBezierPath()
-        bezier42Path.move(to: CGPoint(x: -42.98, y: -28))
-        bezier42Path.addLine(to: CGPoint(x: 4.5, y: -28))
-        arrowBlack.setStroke()
-        bezier42Path.lineWidth = 1
-        bezier42Path.stroke()
-
-
-
+        context.clip(to: text2Rect)
+        text2TextContent.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
         context.restoreGState()
-
-
-        //// ALUArrows
-        //// Group 17
+        
+        
+        //// Text 3 Drawing
+        let text3Rect = CGRect(x: 852, y: 134, width: 19, height: 25)
+        let text3TextContent = "B"
+        let text3Style = NSMutableParagraphStyle()
+        text3Style.alignment = .left
+        let text3FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text3Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 617.5, y: 652.6)
-
-
-
-        //// Bezier 39 Drawing
-        let bezier39Path = UIBezierPath()
-        bezier39Path.move(to: CGPoint(x: 43.11, y: 85.14))
-        bezier39Path.addLine(to: CGPoint(x: 33, y: 89.14))
-        bezier39Path.addLine(to: CGPoint(x: 33, y: 86.14))
-        bezier39Path.addLine(to: CGPoint(x: 33, y: 84.14))
-        bezier39Path.addLine(to: CGPoint(x: 33, y: 81.14))
-        bezier39Path.addLine(to: CGPoint(x: 43.11, y: 85.14))
-        bezier39Path.close()
-        aLULArrowsColor.setFill()
-        bezier39Path.fill()
-
-
-        //// Bezier 43 Drawing
-        let bezier43Path = UIBezierPath()
-        bezier43Path.move(to: CGPoint(x: -52.36, y: 85.37))
-        bezier43Path.addLine(to: CGPoint(x: -52.36, y: -32))
-        aLULArrowsColor.setStroke()
-        bezier43Path.lineWidth = 1
-        bezier43Path.stroke()
-
-
-        //// Bezier 44 Drawing
-        let bezier44Path = UIBezierPath()
-        bezier44Path.move(to: CGPoint(x: 33.57, y: 85.14))
-        bezier44Path.addLine(to: CGPoint(x: -52.86, y: 85.14))
-        aLULArrowsColor.setStroke()
-        bezier44Path.lineWidth = 1
-        bezier44Path.stroke()
-
-
-        //// Bezier 54 Drawing
-        let bezier54Path = UIBezierPath()
-        bezier54Path.move(to: CGPoint(x: 43.11, y: 50.14))
-        bezier54Path.addLine(to: CGPoint(x: 33, y: 54.14))
-        bezier54Path.addLine(to: CGPoint(x: 33, y: 51.14))
-        bezier54Path.addLine(to: CGPoint(x: 33, y: 49.14))
-        bezier54Path.addLine(to: CGPoint(x: 33, y: 46.14))
-        bezier54Path.addLine(to: CGPoint(x: 43.11, y: 50.14))
-        bezier54Path.close()
-        aLULArrowsColor.setFill()
-        bezier54Path.fill()
-
-
-        //// Bezier 55 Drawing
-        let bezier55Path = UIBezierPath()
-        bezier55Path.move(to: CGPoint(x: 33.57, y: 50.14))
-        bezier55Path.addLine(to: CGPoint(x: -52.86, y: 50.14))
-        aLULArrowsColor.setStroke()
-        bezier55Path.lineWidth = 1
-        bezier55Path.stroke()
-
-
-        //// Group
-        //// Oval 2 Drawing
-        let oval2Path = UIBezierPath(ovalIn: CGRect(x: -55, y: 47.4, width: 5, height: 5))
-        aLULArrowsColor.setFill()
-        oval2Path.fill()
-
-
-
-
-
+        context.clip(to: text3Rect)
+        text3TextContent.draw(in: CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
         context.restoreGState()
-
-
-        //// Group 18
+        
+        
+        //// Text 4 Drawing
+        let text4Rect = CGRect(x: 852, y: 163, width: 19, height: 25)
+        let text4TextContent = "A"
+        let text4Style = NSMutableParagraphStyle()
+        text4Style.alignment = .left
+        let text4FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text4Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text4TextHeight: CGFloat = text4TextContent.boundingRect(with: CGSize(width: text4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text4FontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 587.5, y: 687.6)
-
-
-
-        //// Bezier 45 Drawing
-        let bezier45Path = UIBezierPath()
-        bezier45Path.move(to: CGPoint(x: 73.11, y: 85.14))
-        bezier45Path.addLine(to: CGPoint(x: 63, y: 89.14))
-        bezier45Path.addLine(to: CGPoint(x: 63, y: 86.14))
-        bezier45Path.addLine(to: CGPoint(x: 63, y: 84.14))
-        bezier45Path.addLine(to: CGPoint(x: 63, y: 81.14))
-        bezier45Path.addLine(to: CGPoint(x: 73.11, y: 85.14))
-        bezier45Path.close()
-        aLULArrowsColor.setFill()
-        bezier45Path.fill()
-
-
-        //// Bezier 46 Drawing
-        let bezier46Path = UIBezierPath()
-        bezier46Path.move(to: CGPoint(x: -52.36, y: 85.37))
-        bezier46Path.addLine(to: CGPoint(x: -52.36, y: -67.18))
-        aLULArrowsColor.setStroke()
-        bezier46Path.lineWidth = 1
-        bezier46Path.stroke()
-
-
-        //// Bezier 47 Drawing
-        let bezier47Path = UIBezierPath()
-        bezier47Path.move(to: CGPoint(x: 63.21, y: 85.14))
-        bezier47Path.addLine(to: CGPoint(x: -52.86, y: 85.14))
-        aLULArrowsColor.setStroke()
-        bezier47Path.lineWidth = 1
-        bezier47Path.stroke()
-
-
-
+        context.clip(to: text4Rect)
+        text4TextContent.draw(in: CGRect(x: text4Rect.minX, y: text4Rect.minY + (text4Rect.height - text4TextHeight) / 2, width: text4Rect.width, height: text4TextHeight), withAttributes: text4FontAttributes)
         context.restoreGState()
-
-
-        //// Group 19
+        
+        
+        //// Text 5 Drawing
+        let text5Rect = CGRect(x: 852, y: 272, width: 85, height: 31)
+        let text5TextContent = "MARCk"
+        let text5Style = NSMutableParagraphStyle()
+        text5Style.alignment = .left
+        let text5FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text5Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text5TextHeight: CGFloat = text5TextContent.boundingRect(with: CGSize(width: text5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text5FontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 557.5, y: 772.6)
-
-
-
-        //// Bezier 48 Drawing
-        let bezier48Path = UIBezierPath()
-        bezier48Path.move(to: CGPoint(x: 23.11, y: 85.14))
-        bezier48Path.addLine(to: CGPoint(x: 13, y: 89.14))
-        bezier48Path.addLine(to: CGPoint(x: 13, y: 86.14))
-        bezier48Path.addLine(to: CGPoint(x: 13, y: 84.14))
-        bezier48Path.addLine(to: CGPoint(x: 13, y: 81.14))
-        bezier48Path.addLine(to: CGPoint(x: 23.11, y: 85.14))
-        bezier48Path.close()
-        aLULArrowsColor.setFill()
-        bezier48Path.fill()
-
-
-        //// Bezier 49 Drawing
-        let bezier49Path = UIBezierPath()
-        bezier49Path.move(to: CGPoint(x: -52.36, y: 85.37))
-        bezier49Path.addLine(to: CGPoint(x: -52.36, y: -152.23))
-        aLULArrowsColor.setStroke()
-        bezier49Path.lineWidth = 1
-        bezier49Path.stroke()
-
-
-        //// Bezier 50 Drawing
-        let bezier50Path = UIBezierPath()
-        bezier50Path.move(to: CGPoint(x: 19.87, y: 85.14))
-        bezier50Path.addLine(to: CGPoint(x: -52.86, y: 85.14))
-        aLULArrowsColor.setStroke()
-        bezier50Path.lineWidth = 1
-        bezier50Path.stroke()
-
-
-
+        context.clip(to: text5Rect)
+        text5TextContent.draw(in: CGRect(x: text5Rect.minX, y: text5Rect.minY + (text5Rect.height - text5TextHeight) / 2, width: text5Rect.width, height: text5TextHeight), withAttributes: text5FontAttributes)
         context.restoreGState()
-
-
-        //// Group 20
+        
+        
+        //// Text 6 Drawing
+        let text6Rect = CGRect(x: 852, y: 349, width: 85, height: 31)
+        let text6TextContent = "MDRCk"
+        let text6Style = NSMutableParagraphStyle()
+        text6Style.alignment = .left
+        let text6FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text6Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text6TextHeight: CGFloat = text6TextContent.boundingRect(with: CGSize(width: text6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text6FontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 527.5, y: 842.6)
-
-
-
-        //// Bezier 51 Drawing
-        let bezier51Path = UIBezierPath()
-        bezier51Path.move(to: CGPoint(x: 133.11, y: 85.14))
-        bezier51Path.addLine(to: CGPoint(x: 123, y: 89.14))
-        bezier51Path.addLine(to: CGPoint(x: 123, y: 86.14))
-        bezier51Path.addLine(to: CGPoint(x: 123, y: 84.14))
-        bezier51Path.addLine(to: CGPoint(x: 123, y: 81.14))
-        bezier51Path.addLine(to: CGPoint(x: 133.11, y: 85.14))
-        bezier51Path.close()
-        aLULArrowsColor.setFill()
-        bezier51Path.fill()
-
-
-        //// Bezier 52 Drawing
-        let bezier52Path = UIBezierPath()
-        bezier52Path.move(to: CGPoint(x: -52.36, y: 85.37))
-        bezier52Path.addLine(to: CGPoint(x: -52.36, y: -222.62))
-        aLULArrowsColor.setStroke()
-        bezier52Path.lineWidth = 1
-        bezier52Path.stroke()
-
-
-        //// Bezier 53 Drawing
-        let bezier53Path = UIBezierPath()
-        bezier53Path.move(to: CGPoint(x: 123.76, y: 85.14))
-        bezier53Path.addLine(to: CGPoint(x: -52.86, y: 85.14))
-        aLULArrowsColor.setStroke()
-        bezier53Path.lineWidth = 1
-        bezier53Path.stroke()
-
-
-
+        context.clip(to: text6Rect)
+        text6TextContent.draw(in: CGRect(x: text6Rect.minX, y: text6Rect.minY + (text6Rect.height - text6TextHeight) / 2, width: text6Rect.width, height: text6TextHeight), withAttributes: text6FontAttributes)
         context.restoreGState()
-
-
-
-
-        //// Group 21
+        
+        
+        //// Text 7 Drawing
+        let text7Rect = CGRect(x: 852, y: 454, width: 85, height: 24)
+        let text7TextContent = "AMux"
+        let text7Style = NSMutableParagraphStyle()
+        text7Style.alignment = .left
+        let text7FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text7Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text7TextHeight: CGFloat = text7TextContent.boundingRect(with: CGSize(width: text7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text7FontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 682, y: 668)
+        context.clip(to: text7Rect)
+        text7TextContent.draw(in: CGRect(x: text7Rect.minX, y: text7Rect.minY + (text7Rect.height - text7TextHeight) / 2, width: text7Rect.width, height: text7TextHeight), withAttributes: text7FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 8 Drawing
+        let text8Rect = CGRect(x: 852, y: 478, width: 85, height: 24)
+        let text8TextContent = "MDRMux"
+        let text8Style = NSMutableParagraphStyle()
+        text8Style.alignment = .left
+        let text8FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text8Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text8TextHeight: CGFloat = text8TextContent.boundingRect(with: CGSize(width: text8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text8FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text8Rect)
+        text8TextContent.draw(in: CGRect(x: text8Rect.minX, y: text8Rect.minY + (text8Rect.height - text8TextHeight) / 2, width: text8Rect.width, height: text8TextHeight), withAttributes: text8FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 9 Drawing
+        let text9Rect = CGRect(x: 852, y: 540, width: 85, height: 24)
+        let text9TextContent = "CMux"
+        let text9Style = NSMutableParagraphStyle()
+        text9Style.alignment = .left
+        let text9FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text9Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text9TextHeight: CGFloat = text9TextContent.boundingRect(with: CGSize(width: text9Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text9FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text9Rect)
+        text9TextContent.draw(in: CGRect(x: text9Rect.minX, y: text9Rect.minY + (text9Rect.height - text9TextHeight) / 2, width: text9Rect.width, height: text9TextHeight), withAttributes: text9FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 10 Drawing
+        let text10Rect = CGRect(x: 852, y: 565, width: 85, height: 24)
+        let text10TextContent = "ALU"
+        let text10Style = NSMutableParagraphStyle()
+        text10Style.alignment = .left
+        let text10FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text10Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text10TextHeight: CGFloat = text10TextContent.boundingRect(with: CGSize(width: text10Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text10FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text10Rect)
+        text10TextContent.draw(in: CGRect(x: text10Rect.minX, y: text10Rect.minY + (text10Rect.height - text10TextHeight) / 2, width: text10Rect.width, height: text10TextHeight), withAttributes: text10FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 11 Drawing
+        let text11Rect = CGRect(x: 852, y: 620, width: 85, height: 24)
+        let text11TextContent = "CSMux"
+        let text11Style = NSMutableParagraphStyle()
+        text11Style.alignment = .left
+        let text11FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text11Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text11TextHeight: CGFloat = text11TextContent.boundingRect(with: CGSize(width: text11Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text11FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text11Rect)
+        text11TextContent.draw(in: CGRect(x: text11Rect.minX, y: text11Rect.minY + (text11Rect.height - text11TextHeight) / 2, width: text11Rect.width, height: text11TextHeight), withAttributes: text11FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 12 Drawing
+        let text12Rect = CGRect(x: 852, y: 684, width: 85, height: 24)
+        let text12TextContent = "SCk"
+        let text12Style = NSMutableParagraphStyle()
+        text12Style.alignment = .left
+        let text12FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text12Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text12TextHeight: CGFloat = text12TextContent.boundingRect(with: CGSize(width: text12Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text12FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text12Rect)
+        text12TextContent.draw(in: CGRect(x: text12Rect.minX, y: text12Rect.minY + (text12Rect.height - text12TextHeight) / 2, width: text12Rect.width, height: text12TextHeight), withAttributes: text12FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 13 Drawing
+        let text13Rect = CGRect(x: 852, y: 722, width: 85, height: 24)
+        let text13TextContent = "CCk"
+        let text13Style = NSMutableParagraphStyle()
+        text13Style.alignment = .left
+        let text13FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text13Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text13TextHeight: CGFloat = text13TextContent.boundingRect(with: CGSize(width: text13Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text13FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text13Rect)
+        text13TextContent.draw(in: CGRect(x: text13Rect.minX, y: text13Rect.minY + (text13Rect.height - text13TextHeight) / 2, width: text13Rect.width, height: text13TextHeight), withAttributes: text13FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 14 Drawing
+        let text14Rect = CGRect(x: 852, y: 759, width: 85, height: 24)
+        let text14TextContent = "VCk"
+        let text14Style = NSMutableParagraphStyle()
+        text14Style.alignment = .left
+        let text14FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text14Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text14TextHeight: CGFloat = text14TextContent.boundingRect(with: CGSize(width: text14Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text14FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text14Rect)
+        text14TextContent.draw(in: CGRect(x: text14Rect.minX, y: text14Rect.minY + (text14Rect.height - text14TextHeight) / 2, width: text14Rect.width, height: text14TextHeight), withAttributes: text14FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 15 Drawing
+        let text15Rect = CGRect(x: 852, y: 807, width: 85, height: 24)
+        let text15TextContent = "AndZ"
+        let text15Style = NSMutableParagraphStyle()
+        text15Style.alignment = .left
+        let text15FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text15Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text15TextHeight: CGFloat = text15TextContent.boundingRect(with: CGSize(width: text15Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text15FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text15Rect)
+        text15TextContent.draw(in: CGRect(x: text15Rect.minX, y: text15Rect.minY + (text15Rect.height - text15TextHeight) / 2, width: text15Rect.width, height: text15TextHeight), withAttributes: text15FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 16 Drawing
+        let text16Rect = CGRect(x: 852, y: 838, width: 85, height: 24)
+        let text16TextContent = "ZCk"
+        let text16Style = NSMutableParagraphStyle()
+        text16Style.alignment = .left
+        let text16FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text16Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text16TextHeight: CGFloat = text16TextContent.boundingRect(with: CGSize(width: text16Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text16FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text16Rect)
+        text16TextContent.draw(in: CGRect(x: text16Rect.minX, y: text16Rect.minY + (text16Rect.height - text16TextHeight) / 2, width: text16Rect.width, height: text16TextHeight), withAttributes: text16FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 17 Drawing
+        let text17Rect = CGRect(x: 852, y: 907, width: 85, height: 24)
+        let text17TextContent = "NCk"
+        let text17Style = NSMutableParagraphStyle()
+        text17Style.alignment = .left
+        let text17FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text17Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text17TextHeight: CGFloat = text17TextContent.boundingRect(with: CGSize(width: text17Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text17FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text17Rect)
+        text17TextContent.draw(in: CGRect(x: text17Rect.minX, y: text17Rect.minY + (text17Rect.height - text17TextHeight) / 2, width: text17Rect.width, height: text17TextHeight), withAttributes: text17FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 18 Drawing
+        let text18Rect = CGRect(x: 852, y: 955, width: 85, height: 24)
+        let text18TextContent = "MemRead"
+        let text18Style = NSMutableParagraphStyle()
+        text18Style.alignment = .left
+        let text18FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text18Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text18TextHeight: CGFloat = text18TextContent.boundingRect(with: CGSize(width: text18Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text18FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text18Rect)
+        text18TextContent.draw(in: CGRect(x: text18Rect.minX, y: text18Rect.minY + (text18Rect.height - text18TextHeight) / 2, width: text18Rect.width, height: text18TextHeight), withAttributes: text18FontAttributes)
+        context.restoreGState()
+        
+        
+        //// Text 19 Drawing
+        let text19Rect = CGRect(x: 852, y: 979, width: 85, height: 24)
+        let text19TextContent = "MemWrite"
+        let text19Style = NSMutableParagraphStyle()
+        text19Style.alignment = .left
+        let text19FontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: text19Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let text19TextHeight: CGFloat = text19TextContent.boundingRect(with: CGSize(width: text19Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text19FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text19Rect)
+        text19TextContent.draw(in: CGRect(x: text19Rect.minX, y: text19Rect.minY + (text19Rect.height - text19TextHeight) / 2, width: text19Rect.width, height: text19TextHeight), withAttributes: text19FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// Lines
+        //// MemWriteLine
+        //// MemWrLn Drawing
+        let memWrLnPath = UIBezierPath()
+        memWrLnPath.move(to: CGPoint(x: 809.5, y: 966.5))
+        memWrLnPath.addLine(to: CGPoint(x: 171.5, y: 966.5))
+        memWrLnPath.addLine(to: CGPoint(x: 171.5, y: 422.5))
+        memWrLnPath.move(to: CGPoint(x: 138.5, y: 966.5))
+        memWrLnPath.addCurve(to: CGPoint(x: 171.5, y: 966.5), controlPoint1: CGPoint(x: 166.5, y: 966.5), controlPoint2: CGPoint(x: 171.5, y: 966.5))
+        blackArrow.setStroke()
+        memWrLnPath.lineWidth = 1
+        memWrLnPath.stroke()
+        
+        
+        //// MemWrConnector Drawing
+        let memWrConnectorPath = UIBezierPath(ovalIn: CGRect(x: 169, y: 964, width: 5, height: 5))
+        blackArrow.setFill()
+        memWrConnectorPath.fill()
+        blackArrow.setStroke()
+        memWrConnectorPath.lineWidth = 1
+        memWrConnectorPath.lineJoinStyle = .bevel
+        memWrConnectorPath.stroke()
+        
+        
+        //// MemWrArrow Drawing
+        let memWrArrowPath = UIBezierPath()
+        memWrArrowPath.move(to: CGPoint(x: 129.97, y: 966.38))
+        memWrArrowPath.addLine(to: CGPoint(x: 140.28, y: 962.38))
+        memWrArrowPath.addLine(to: CGPoint(x: 140.28, y: 965.38))
+        memWrArrowPath.addLine(to: CGPoint(x: 140.28, y: 967.38))
+        memWrArrowPath.addLine(to: CGPoint(x: 140.28, y: 970.38))
+        memWrArrowPath.addLine(to: CGPoint(x: 129.97, y: 966.38))
+        memWrArrowPath.close()
+        blackArrow.setFill()
+        memWrArrowPath.fill()
+        blackArrow.setStroke()
+        memWrArrowPath.lineWidth = 1
+        memWrArrowPath.stroke()
+        
+        
+        //// MemReadTopArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 175.97, y: 415.38)
         context.rotate(by: 90 * CGFloat.pi/180)
-
-
-
-        //// Bezier 56 Drawing
-        let bezier56Path = UIBezierPath()
-        bezier56Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier56Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier56Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier56Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier56Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier56Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier56Path.close()
-        UIColor.black.setFill()
-        bezier56Path.fill()
-
-
-        //// Bezier 57 Drawing
-        let bezier57Path = UIBezierPath()
-        bezier57Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier57Path.addLine(to: CGPoint(x: 22.36, y: 4.5))
+        
+        let memReadTopArrowPath = UIBezierPath()
+        memReadTopArrowPath.move(to: CGPoint(x: 0, y: 4))
+        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        memReadTopArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        memReadTopArrowPath.close()
+        blackArrow.setFill()
+        memReadTopArrowPath.fill()
+        blackArrow.setStroke()
+        memReadTopArrowPath.lineWidth = 1
+        memReadTopArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        //// MemWriteval Drawing
+        let memWritevalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 979.5, width: 30, height: 24))
+        noFillColor.setFill()
+        memWritevalPath.fill()
+        black.setStroke()
+        memWritevalPath.lineWidth = 1
+        memWritevalPath.stroke()
+        
+        
+        
+        
+        //// AMuxLine
+        //// AMuxLnArrow Drawing
+        let aMuxLnArrowPath = UIBezierPath()
+        aMuxLnArrowPath.move(to: CGPoint(x: 519.97, y: 465.38))
+        aMuxLnArrowPath.addLine(to: CGPoint(x: 530.28, y: 461.38))
+        aMuxLnArrowPath.addLine(to: CGPoint(x: 530.28, y: 464.38))
+        aMuxLnArrowPath.addLine(to: CGPoint(x: 530.28, y: 466.38))
+        aMuxLnArrowPath.addLine(to: CGPoint(x: 530.28, y: 469.38))
+        aMuxLnArrowPath.addLine(to: CGPoint(x: 519.97, y: 465.38))
+        aMuxLnArrowPath.close()
+        blackArrow.setFill()
+        aMuxLnArrowPath.fill()
+        blackArrow.setStroke()
+        aMuxLnArrowPath.lineWidth = 1
+        aMuxLnArrowPath.stroke()
+        
+        
+        //// AMuxLn Drawing
+        let aMuxLnPath = UIBezierPath()
+        aMuxLnPath.move(to: CGPoint(x: 809.5, y: 465.5))
+        aMuxLnPath.addLine(to: CGPoint(x: 528.5, y: 465.5))
+        blackArrow.setStroke()
+        aMuxLnPath.lineWidth = 1
+        aMuxLnPath.stroke()
+        
+        
+        //// AMuxval Drawing
+        let aMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 453.5, width: 30, height: 24))
+        noFillColor.setFill()
+        aMuxvalPath.fill()
+        black.setStroke()
+        aMuxvalPath.lineWidth = 1
+        aMuxvalPath.stroke()
+        
+        
+        
+        
+        //// MARCkLine
+        //// MARCkLn Drawing
+        let mARCkLnPath = UIBezierPath()
+        mARCkLnPath.move(to: CGPoint(x: 809.5, y: 286.5))
+        mARCkLnPath.addLine(to: CGPoint(x: 314.5, y: 286.5))
+        mARCkLnPath.addLine(to: CGPoint(x: 314.5, y: 271.5))
+        mARCkLnPath.addLine(to: CGPoint(x: 314.5, y: 304.5))
+        blackArrow.setStroke()
+        mARCkLnPath.lineWidth = 1
+        mARCkLnPath.stroke()
+        
+        
+        //// MARBConnector Drawing
+        context.saveGState()
+        context.translateBy(x: 318.5, y: 261.38)
+        context.rotate(by: 90 * CGFloat.pi/180)
+        
+        let mARBConnectorPath = UIBezierPath()
+        mARBConnectorPath.move(to: CGPoint(x: 0, y: 4))
+        mARBConnectorPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        mARBConnectorPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        mARBConnectorPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        mARBConnectorPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        mARBConnectorPath.addLine(to: CGPoint(x: 0, y: 4))
+        mARBConnectorPath.close()
+        blackArrow.setFill()
+        mARBConnectorPath.fill()
+        blackArrow.setStroke()
+        mARBConnectorPath.lineWidth = 1
+        mARBConnectorPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        //// MARAArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 310.5, y: 314.38)
+        context.rotate(by: -90 * CGFloat.pi/180)
+        
+        let mARAArrowPath = UIBezierPath()
+        mARAArrowPath.move(to: CGPoint(x: 0, y: 4))
+        mARAArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        mARAArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        mARAArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        mARAArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        mARAArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        mARAArrowPath.close()
+        blackArrow.setFill()
+        mARAArrowPath.fill()
+        blackArrow.setStroke()
+        mARAArrowPath.lineWidth = 1
+        mARAArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        //// MARConnector Drawing
+        let mARConnectorPath = UIBezierPath(ovalIn: CGRect(x: 312, y: 284, width: 5, height: 5))
+        blackArrow.setFill()
+        mARConnectorPath.fill()
+        blackArrow.setStroke()
+        mARConnectorPath.lineWidth = 1
+        mARConnectorPath.lineJoinStyle = .bevel
+        mARConnectorPath.stroke()
+        
+        
+        //// MARCkval Drawing
+        let mARCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 274.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        mARCkvalPath.fill()
+        black.setStroke()
+        mARCkvalPath.lineWidth = 1
+        mARCkvalPath.stroke()
+        
+        
+        
+        
+        //// ALUToCBit
+        //// ALUToCLn Drawing
+        let aLUToCLnPath = UIBezierPath()
+        aLUToCLnPath.move(to: CGPoint(x: 576.5, y: 604.5))
+        aLUToCLnPath.addLine(to: CGPoint(x: 576.5, y: 685.5))
+        aLUToCLnPath.addLine(to: CGPoint(x: 576.5, y: 696.5))
+        aLUToCLnPath.addLine(to: CGPoint(x: 576.5, y: 734.5))
+        aLUToCLnPath.addLine(to: CGPoint(x: 671.5, y: 734.5))
+        aLUToCLnPath.move(to: CGPoint(x: 672.5, y: 694.5))
+        aLUToCLnPath.addLine(to: CGPoint(x: 576.5, y: 694.5))
+        blackArrow.setStroke()
+        aLUToCLnPath.lineWidth = 1
+        aLUToCLnPath.stroke()
+        
+        
+        //// CArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 674.97, y: 738.38)
+        context.rotate(by: -180 * CGFloat.pi/180)
+        
+        let cArrowPath = UIBezierPath()
+        cArrowPath.move(to: CGPoint(x: 0, y: 4))
+        cArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        cArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        cArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        cArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        cArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        cArrowPath.close()
+        blackArrow.setFill()
+        cArrowPath.fill()
+        blackArrow.setStroke()
+        cArrowPath.lineWidth = 1
+        cArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        //// SArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 674.97, y: 698.38)
+        context.rotate(by: -180 * CGFloat.pi/180)
+        
+        let sArrowPath = UIBezierPath()
+        sArrowPath.move(to: CGPoint(x: 0, y: 4))
+        sArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        sArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        sArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        sArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        sArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        sArrowPath.close()
+        blackArrow.setFill()
+        sArrowPath.fill()
+        blackArrow.setStroke()
+        sArrowPath.lineWidth = 1
+        sArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        //// CBitConnector Drawing
+        let cBitConnectorPath = UIBezierPath(ovalIn: CGRect(x: 574, y: 692, width: 5, height: 5))
+        blackArrow.setFill()
+        cBitConnectorPath.fill()
+        blackArrow.setStroke()
+        cBitConnectorPath.lineWidth = 1
+        cBitConnectorPath.lineJoinStyle = .bevel
+        cBitConnectorPath.stroke()
+        
+        
+        
+        
+        //// ALUToZBit
+        //// ALUToANDZLn Drawing
+        let aLUToANDZLnPath = UIBezierPath()
+        aLUToANDZLnPath.move(to: CGPoint(x: 534.5, y: 604.5))
+        aLUToANDZLnPath.addLine(to: CGPoint(x: 534.5, y: 851.5))
+        aLUToANDZLnPath.addLine(to: CGPoint(x: 588.5, y: 851.5))
+        blackArrow.setStroke()
+        aLUToANDZLnPath.lineWidth = 1
+        aLUToANDZLnPath.stroke()
+        
+        
+        //// LeftANDZArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 591.97, y: 855.38)
+        context.rotate(by: -180 * CGFloat.pi/180)
+        
+        let leftANDZArrowPath = UIBezierPath()
+        leftANDZArrowPath.move(to: CGPoint(x: 0, y: 4))
+        leftANDZArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        leftANDZArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        leftANDZArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        leftANDZArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        leftANDZArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        leftANDZArrowPath.close()
+        blackArrow.setFill()
+        leftANDZArrowPath.fill()
+        blackArrow.setStroke()
+        leftANDZArrowPath.lineWidth = 1
+        leftANDZArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        //// ANDZToZLn Drawing
+        let aNDZToZLnPath = UIBezierPath()
+        aNDZToZLnPath.move(to: CGPoint(x: 650.5, y: 850.5))
+        aNDZToZLnPath.addLine(to: CGPoint(x: 665.5, y: 850.5))
         UIColor.black.setStroke()
-        bezier57Path.lineWidth = 1
-        bezier57Path.stroke()
-
-
-
+        aNDZToZLnPath.lineWidth = 1
+        aNDZToZLnPath.stroke()
+        
+        
+        //// ANDZToZArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 674.97, y: 854.38)
+        context.rotate(by: -180 * CGFloat.pi/180)
+        
+        let aNDZToZArrowPath = UIBezierPath()
+        aNDZToZArrowPath.move(to: CGPoint(x: 0, y: 4))
+        aNDZToZArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        aNDZToZArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        aNDZToZArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        aNDZToZArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        aNDZToZArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        aNDZToZArrowPath.close()
+        blackArrow.setFill()
+        aNDZToZArrowPath.fill()
+        blackArrow.setStroke()
+        aNDZToZArrowPath.lineWidth = 1
+        aNDZToZArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// CBitArrow
+        
+        
+        
+        
+        //// ALUToVBit
+        //// ALUToVLn Drawing
+        let aLUToVLnPath = UIBezierPath()
+        aLUToVLnPath.move(to: CGPoint(x: 554.5, y: 604.5))
+        aLUToVLnPath.addLine(to: CGPoint(x: 554.5, y: 772.5))
+        aLUToVLnPath.addLine(to: CGPoint(x: 670.5, y: 772.5))
+        blackArrow.setStroke()
+        aLUToVLnPath.lineWidth = 1
+        aLUToVLnPath.stroke()
+        
+        
+        //// VArrow Drawing
         context.saveGState()
-        context.translateBy(x: 362, y: 750)
-
-
-
-        //// Bezier 58 Drawing
-        let bezier58Path = UIBezierPath()
-        bezier58Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier58Path.addLine(to: CGPoint(x: 10.11, y: 0.5))
-        bezier58Path.addLine(to: CGPoint(x: 10.11, y: 3.5))
-        bezier58Path.addLine(to: CGPoint(x: 10.11, y: 5.5))
-        bezier58Path.addLine(to: CGPoint(x: 10.11, y: 8.5))
-        bezier58Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier58Path.close()
-        cBitArrowColor.setFill()
-        bezier58Path.fill()
-
-
-        //// Bezier 59 Drawing
-        let bezier59Path = UIBezierPath()
-        bezier59Path.move(to: CGPoint(x: 8.56, y: 4.5))
-        bezier59Path.addLine(to: CGPoint(x: 349.14, y: 4.5))
-        cBitArrowColor.setStroke()
-        bezier59Path.lineWidth = 1
-        bezier59Path.stroke()
-
-
-        //// Bezier 61 Drawing
+        context.translateBy(x: 674.97, y: 776.38)
+        context.rotate(by: -180 * CGFloat.pi/180)
+        
+        let vArrowPath = UIBezierPath()
+        vArrowPath.move(to: CGPoint(x: 0, y: 4))
+        vArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        vArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        vArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        vArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        vArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        vArrowPath.close()
+        blackArrow.setFill()
+        vArrowPath.fill()
+        blackArrow.setStroke()
+        vArrowPath.lineWidth = 1
+        vArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        
+        
+        //// ALUToNBit
+        //// ALUToNBitLn Drawing
+        let aLUToNBitLnPath = UIBezierPath()
+        aLUToNBitLnPath.move(to: CGPoint(x: 512.5, y: 604.5))
+        aLUToNBitLnPath.addLine(to: CGPoint(x: 512.5, y: 919.5))
+        aLUToNBitLnPath.addLine(to: CGPoint(x: 669.5, y: 919.5))
+        blackArrow.setStroke()
+        aLUToNBitLnPath.lineWidth = 1
+        aLUToNBitLnPath.stroke()
+        
+        
+        //// ALUToNBitArrow Drawing
         context.saveGState()
-        context.translateBy(x: 315.63, y: 3.87)
+        context.translateBy(x: 674.97, y: 923.38)
+        context.rotate(by: -180 * CGFloat.pi/180)
+        
+        let aLUToNBitArrowPath = UIBezierPath()
+        aLUToNBitArrowPath.move(to: CGPoint(x: 0, y: 4))
+        aLUToNBitArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        aLUToNBitArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        aLUToNBitArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        aLUToNBitArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        aLUToNBitArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        aLUToNBitArrowPath.close()
+        blackArrow.setFill()
+        aLUToNBitArrowPath.fill()
+        blackArrow.setStroke()
+        aLUToNBitArrowPath.lineWidth = 1
+        aLUToNBitArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        
+        
+        //// ZBitLine
+        //// ZInLnArrow Drawing
+        let zInLnArrowPath = UIBezierPath()
+        zInLnArrowPath.move(to: CGPoint(x: 409.97, y: 799.38))
+        zInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 795.38))
+        zInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 798.38))
+        zInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 800.38))
+        zInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 803.38))
+        zInLnArrowPath.addLine(to: CGPoint(x: 409.97, y: 799.38))
+        zInLnArrowPath.close()
+        blackArrow.setFill()
+        zInLnArrowPath.fill()
+        blackArrow.setStroke()
+        zInLnArrowPath.lineWidth = 1
+        zInLnArrowPath.stroke()
+        
+        
+        //// AndZInBottomArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 619.07, y: 875.88)
         context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier61Path = UIBezierPath()
-        bezier61Path.move(to: CGPoint(x: 34.72, y: 0))
-        bezier61Path.addLine(to: CGPoint(x: 0, y: 0))
-        cBitArrowColor.setStroke()
-        bezier61Path.lineWidth = 1
-        bezier61Path.stroke()
-
+        
+        let andZInBottomArrowPath = UIBezierPath()
+        andZInBottomArrowPath.move(to: CGPoint(x: 11.11, y: 4))
+        andZInBottomArrowPath.addLine(to: CGPoint(x: 1, y: 0))
+        andZInBottomArrowPath.addLine(to: CGPoint(x: 1, y: 3))
+        andZInBottomArrowPath.addLine(to: CGPoint(x: 1, y: 5))
+        andZInBottomArrowPath.addLine(to: CGPoint(x: 1, y: 8))
+        andZInBottomArrowPath.addLine(to: CGPoint(x: 11.11, y: 4))
+        andZInBottomArrowPath.close()
+        blackArrow.setFill()
+        andZInBottomArrowPath.fill()
+        blackArrow.setStroke()
+        andZInBottomArrowPath.lineWidth = 1
+        andZInBottomArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// Bezier 62 Drawing
+        
+        
+        //// AndZConnector Drawing
+        let andZConnectorPath = UIBezierPath(ovalIn: CGRect(x: 620.68, y: 878.13, width: 5, height: 5))
+        blackArrow.setFill()
+        andZConnectorPath.fill()
+        blackArrow.setStroke()
+        andZConnectorPath.lineWidth = 1
+        andZConnectorPath.stroke()
+        
+        
+        //// ZBitLn Drawing
+        let zBitLnPath = UIBezierPath()
+        zBitLnPath.move(to: CGPoint(x: 623.18, y: 873.19))
+        zBitLnPath.addLine(to: CGPoint(x: 623.18, y: 880.44))
+        zBitLnPath.addLine(to: CGPoint(x: 623.18, y: 873.19))
+        zBitLnPath.close()
+        zBitLnPath.move(to: CGPoint(x: 690.5, y: 862.5))
+        zBitLnPath.addLine(to: CGPoint(x: 690.5, y: 880.5))
+        zBitLnPath.addLine(to: CGPoint(x: 450.5, y: 880.5))
+        zBitLnPath.addLine(to: CGPoint(x: 450.5, y: 799.5))
+        zBitLnPath.addLine(to: CGPoint(x: 414.5, y: 799.5))
+        blackArrow.setStroke()
+        zBitLnPath.lineWidth = 1
+        zBitLnPath.stroke()
+        
+        
+        
+        
+        //// VBitLine
+        //// VBitLn Drawing
+        let vBitLnPath = UIBezierPath()
+        vBitLnPath.move(to: CGPoint(x: 689.5, y: 784.5))
+        vBitLnPath.addLine(to: CGPoint(x: 689.5, y: 804.5))
+        vBitLnPath.addLine(to: CGPoint(x: 473.5, y: 804.5))
+        vBitLnPath.addLine(to: CGPoint(x: 473.5, y: 776.5))
+        vBitLnPath.addLine(to: CGPoint(x: 416.5, y: 776.5))
+        blackArrow.setStroke()
+        vBitLnPath.lineWidth = 1
+        vBitLnPath.stroke()
+        
+        
+        //// VInLnArrow Drawing
+        let vInLnArrowPath = UIBezierPath()
+        vInLnArrowPath.move(to: CGPoint(x: 409.97, y: 776.38))
+        vInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 772.38))
+        vInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 775.38))
+        vInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 777.38))
+        vInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 780.38))
+        vInLnArrowPath.addLine(to: CGPoint(x: 409.97, y: 776.38))
+        vInLnArrowPath.close()
+        blackArrow.setFill()
+        vInLnArrowPath.fill()
+        blackArrow.setStroke()
+        vInLnArrowPath.lineWidth = 1
+        vInLnArrowPath.stroke()
+        
+        
+        
+        
+        //// CBitLine
+        //// CIBitLn Drawing
+        let cIBitLnPath = UIBezierPath()
+        cIBitLnPath.move(to: CGPoint(x: 690.5, y: 745.5))
+        cIBitLnPath.addLine(to: CGPoint(x: 690.5, y: 753.5))
+        cIBitLnPath.addLine(to: CGPoint(x: 414.5, y: 753.5))
+        blackArrow.setStroke()
+        cIBitLnPath.lineWidth = 1
+        cIBitLnPath.stroke()
+        
+        
+        //// CInLnArrow Drawing
+        let cInLnArrowPath = UIBezierPath()
+        cInLnArrowPath.move(to: CGPoint(x: 409.97, y: 753.38))
+        cInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 749.38))
+        cInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 752.38))
+        cInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 754.38))
+        cInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 757.38))
+        cInLnArrowPath.addLine(to: CGPoint(x: 409.97, y: 753.38))
+        cInLnArrowPath.close()
+        blackArrow.setFill()
+        cInLnArrowPath.fill()
+        blackArrow.setStroke()
+        cInLnArrowPath.lineWidth = 1
+        cInLnArrowPath.stroke()
+        
+        
+        
+        
+        //// NBitLine
         context.saveGState()
-        context.translateBy(x: 258.88, y: -73.01)
+        context.translateBy(x: 437.83, y: 885.38)
+        
+        
+        
+        //// NBitInArrow Drawing
+        let nBitInArrowPath = UIBezierPath()
+        nBitInArrowPath.move(to: CGPoint(x: -27.86, y: -64))
+        nBitInArrowPath.addLine(to: CGPoint(x: -17.55, y: -68))
+        nBitInArrowPath.addLine(to: CGPoint(x: -17.55, y: -65))
+        nBitInArrowPath.addLine(to: CGPoint(x: -17.55, y: -63))
+        nBitInArrowPath.addLine(to: CGPoint(x: -17.55, y: -60))
+        nBitInArrowPath.addLine(to: CGPoint(x: -27.86, y: -64))
+        nBitInArrowPath.close()
+        blackArrow.setFill()
+        nBitInArrowPath.fill()
+        blackArrow.setStroke()
+        nBitInArrowPath.lineWidth = 1
+        nBitInArrowPath.stroke()
+        
+        
+        //// NBitLn Drawing
+        let nBitLnPath = UIBezierPath()
+        nBitLnPath.move(to: CGPoint(x: 252.67, y: 55.12))
+        nBitLnPath.addLine(to: CGPoint(x: -5.33, y: 55.12))
+        nBitLnPath.addLine(to: CGPoint(x: -5.33, y: -63.88))
+        nBitLnPath.addLine(to: CGPoint(x: -23.33, y: -63.88))
+        nBitLnPath.move(to: CGPoint(x: 252.67, y: 55.12))
+        nBitLnPath.addLine(to: CGPoint(x: 252.67, y: 47.12))
+        blackArrow.setStroke()
+        nBitLnPath.lineWidth = 1
+        nBitLnPath.lineCapStyle = .square
+        nBitLnPath.stroke()
+        
+        
+        
+        context.restoreGState()
+        
+        
+        //// MemReadLine
+        context.saveGState()
+        context.translateBy(x: 131.13, y: 987)
+        
+        
+        
+        //// MemRdLn Drawing
+        let memRdLnPath = UIBezierPath()
+        memRdLnPath.move(to: CGPoint(x: 8.56, y: 4.5))
+        memRdLnPath.addLine(to: CGPoint(x: 678.37, y: 4.5))
+        grayArrow.setStroke()
+        memRdLnPath.lineWidth = 1
+        memRdLnPath.stroke()
+        
+        
+        //// MemRdArrow Drawing
+        let memRdArrowPath = UIBezierPath()
+        memRdArrowPath.move(to: CGPoint(x: 0.87, y: 4.5))
+        memRdArrowPath.addLine(to: CGPoint(x: 10.98, y: 0.5))
+        memRdArrowPath.addLine(to: CGPoint(x: 10.98, y: 3.5))
+        memRdArrowPath.addLine(to: CGPoint(x: 10.98, y: 5.5))
+        memRdArrowPath.addLine(to: CGPoint(x: 10.98, y: 8.5))
+        memRdArrowPath.addLine(to: CGPoint(x: 0.87, y: 4.5))
+        memRdArrowPath.close()
+        grayArrow.setFill()
+        memRdArrowPath.fill()
+        grayArrow.setStroke()
+        memRdArrowPath.lineWidth = 1
+        memRdArrowPath.stroke()
+        
+        
+        //// MemReadval Drawing
+        let memReadvalPath = UIBezierPath(rect: CGRect(x: 684.37, y: -32.5, width: 30, height: 24))
+        noFillColor.setFill()
+        memReadvalPath.fill()
+        black.setStroke()
+        memReadvalPath.lineWidth = 1
+        memReadvalPath.stroke()
+        
+        
+        
+        context.restoreGState()
+        
+        
+        //// MDRCkLine
+        //// MDRCkval Drawing
+        let mDRCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 352.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        mDRCkvalPath.fill()
+        black.setStroke()
+        mDRCkvalPath.lineWidth = 1
+        mDRCkvalPath.stroke()
+        
+        
+        //// MDRCkLn Drawing
+        let mDRCkLnPath = UIBezierPath()
+        mDRCkLnPath.move(to: CGPoint(x: 282.5, y: 386.5))
+        mDRCkLnPath.addLine(to: CGPoint(x: 282.5, y: 364.5))
+        mDRCkLnPath.addLine(to: CGPoint(x: 809.5, y: 364.5))
+        blackArrow.setStroke()
+        mDRCkLnPath.lineWidth = 1
+        mDRCkLnPath.stroke()
+        
+        
+        //// MDRCkArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 278.5, y: 389.38)
         context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier62Path = UIBezierPath()
-        bezier62Path.move(to: CGPoint(x: 10.11, y: 4))
-        bezier62Path.addLine(to: CGPoint(x: 0, y: 0))
-        bezier62Path.addLine(to: CGPoint(x: 0, y: 3))
-        bezier62Path.addLine(to: CGPoint(x: 0, y: 5))
-        bezier62Path.addLine(to: CGPoint(x: 0, y: 8))
-        bezier62Path.addLine(to: CGPoint(x: 10.11, y: 4))
-        bezier62Path.close()
-        cBitArrowColor.setFill()
-        bezier62Path.fill()
-
+        
+        let mDRCkArrowPath = UIBezierPath()
+        mDRCkArrowPath.move(to: CGPoint(x: 0, y: 4))
+        mDRCkArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        mDRCkArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        mDRCkArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        mDRCkArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        mDRCkArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        mDRCkArrowPath.close()
+        blackArrow.setFill()
+        mDRCkArrowPath.fill()
+        blackArrow.setStroke()
+        mDRCkArrowPath.lineWidth = 1
+        mDRCkArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// Bezier 63 Drawing
+        
+        
+        
+        
+        //// CLine
+        //// CLn Drawing
+        let cLnPath = UIBezierPath()
+        cLnPath.move(to: CGPoint(x: 729.5, y: 115.5))
+        cLnPath.addLine(to: CGPoint(x: 809.5, y: 115.5))
+        cLnPath.move(to: CGPoint(x: 764.5, y: 105.5))
+        cLnPath.addLine(to: CGPoint(x: 785.5, y: 126.5))
+        blackArrow.setStroke()
+        cLnPath.lineWidth = 1
+        cLnPath.stroke()
+        
+        
+        //// CArr Drawing
+        let cArrPath = UIBezierPath()
+        cArrPath.move(to: CGPoint(x: 719.97, y: 115.38))
+        cArrPath.addLine(to: CGPoint(x: 730.28, y: 111.38))
+        cArrPath.addLine(to: CGPoint(x: 730.28, y: 114.38))
+        cArrPath.addLine(to: CGPoint(x: 730.28, y: 116.38))
+        cArrPath.addLine(to: CGPoint(x: 730.28, y: 119.38))
+        cArrPath.addLine(to: CGPoint(x: 719.97, y: 115.38))
+        cArrPath.close()
+        blackArrow.setFill()
+        cArrPath.fill()
+        blackArrow.setStroke()
+        cArrPath.lineWidth = 1
+        cArrPath.stroke()
+        
+        
+        //// CText Drawing
+        let cTextRect = CGRect(x: 773, y: 102, width: 8, height: 11)
+        let cTextTextContent = "5"
+        let cTextStyle = NSMutableParagraphStyle()
+        cTextStyle.alignment = .left
+        let cTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: 11),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cTextTextHeight: CGFloat = cTextTextContent.boundingRect(with: CGSize(width: cTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cTextFontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 262.88, y: -31.19)
+        context.clip(to: cTextRect)
+        cTextTextContent.draw(in: CGRect(x: cTextRect.minX, y: cTextRect.minY + (cTextRect.height - cTextTextHeight) / 2, width: cTextRect.width, height: cTextTextHeight), withAttributes: cTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// C Drawing
+        let cPath = UIBezierPath(rect: CGRect(x: 815, y: 104, width: 30, height: 24))
+        noFillColor.setFill()
+        cPath.fill()
+        black.setStroke()
+        cPath.lineWidth = 1
+        cPath.stroke()
+        
+        
+        
+        
+        //// BLine
+        //// BLn Drawing
+        let bLnPath = UIBezierPath()
+        bLnPath.move(to: CGPoint(x: 729.5, y: 145.5))
+        bLnPath.addLine(to: CGPoint(x: 809.5, y: 145.5))
+        bLnPath.move(to: CGPoint(x: 764.5, y: 135.5))
+        bLnPath.addLine(to: CGPoint(x: 785.5, y: 156.5))
+        blackArrow.setStroke()
+        bLnPath.lineWidth = 1
+        bLnPath.stroke()
+        
+        
+        //// BArr Drawing
+        let bArrPath = UIBezierPath()
+        bArrPath.move(to: CGPoint(x: 719.97, y: 145.38))
+        bArrPath.addLine(to: CGPoint(x: 730.28, y: 141.38))
+        bArrPath.addLine(to: CGPoint(x: 730.28, y: 144.38))
+        bArrPath.addLine(to: CGPoint(x: 730.28, y: 146.38))
+        bArrPath.addLine(to: CGPoint(x: 730.28, y: 149.38))
+        bArrPath.addLine(to: CGPoint(x: 719.97, y: 145.38))
+        bArrPath.close()
+        blackArrow.setFill()
+        bArrPath.fill()
+        blackArrow.setStroke()
+        bArrPath.lineWidth = 1
+        bArrPath.stroke()
+        
+        
+        //// BText Drawing
+        let bTextRect = CGRect(x: 773, y: 132, width: 8, height: 11)
+        let bTextTextContent = "5"
+        let bTextStyle = NSMutableParagraphStyle()
+        bTextStyle.alignment = .left
+        let bTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: 11),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: bTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let bTextTextHeight: CGFloat = bTextTextContent.boundingRect(with: CGSize(width: bTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: bTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: bTextRect)
+        bTextTextContent.draw(in: CGRect(x: bTextRect.minX, y: bTextRect.minY + (bTextRect.height - bTextTextHeight) / 2, width: bTextRect.width, height: bTextTextHeight), withAttributes: bTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// B Drawing
+        let bPath = UIBezierPath(rect: CGRect(x: 815, y: 133.5, width: 30, height: 24))
+        noFillColor.setFill()
+        bPath.fill()
+        black.setStroke()
+        bPath.lineWidth = 1
+        bPath.stroke()
+        
+        
+        
+        
+        //// AndZLine
+        //// AndZLn Drawing
+        let andZLnPath = UIBezierPath()
+        andZLnPath.move(to: CGPoint(x: 809.5, y: 818.5))
+        andZLnPath.addLine(to: CGPoint(x: 622.5, y: 818.5))
+        andZLnPath.addLine(to: CGPoint(x: 622.5, y: 825.5))
+        blackArrow.setStroke()
+        andZLnPath.lineWidth = 1
+        andZLnPath.stroke()
+        
+        
+        //// AndZArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 618.5, y: 834.38)
         context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier63Path = UIBezierPath()
-        bezier63Path.move(to: CGPoint(x: 0, y: 0))
-        bezier63Path.addLine(to: CGPoint(x: 0, y: 53.24))
-        cBitArrowColor.setStroke()
-        bezier63Path.lineWidth = 1
-        bezier63Path.stroke()
-
+        
+        let andZArrowPath = UIBezierPath()
+        andZArrowPath.move(to: CGPoint(x: 0, y: 4))
+        andZArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        andZArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        andZArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        andZArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        andZArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        andZArrowPath.close()
+        blackArrow.setFill()
+        andZArrowPath.fill()
+        blackArrow.setStroke()
+        andZArrowPath.lineWidth = 1
+        andZArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// Bezier 64 Drawing
+        
+        
+        //// AndZval Drawing
+        let andZvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 806.5, width: 30, height: 24))
+        noFillColor.setFill()
+        andZvalPath.fill()
+        black.setStroke()
+        andZvalPath.lineWidth = 1
+        andZvalPath.stroke()
+        
+        
+        
+        
+        //// ALine
+        //// ALn Drawing
+        let aLnPath = UIBezierPath()
+        aLnPath.move(to: CGPoint(x: 729.5, y: 175.5))
+        aLnPath.addLine(to: CGPoint(x: 809.5, y: 175.5))
+        aLnPath.move(to: CGPoint(x: 764.5, y: 165.5))
+        aLnPath.addLine(to: CGPoint(x: 785.5, y: 186.5))
+        blackArrow.setStroke()
+        aLnPath.lineWidth = 1
+        aLnPath.stroke()
+        
+        
+        //// AArr Drawing
+        let aArrPath = UIBezierPath()
+        aArrPath.move(to: CGPoint(x: 719.97, y: 175.38))
+        aArrPath.addLine(to: CGPoint(x: 730.28, y: 171.38))
+        aArrPath.addLine(to: CGPoint(x: 730.28, y: 174.38))
+        aArrPath.addLine(to: CGPoint(x: 730.28, y: 176.38))
+        aArrPath.addLine(to: CGPoint(x: 730.28, y: 179.38))
+        aArrPath.addLine(to: CGPoint(x: 719.97, y: 175.38))
+        aArrPath.close()
+        blackArrow.setFill()
+        aArrPath.fill()
+        blackArrow.setStroke()
+        aArrPath.lineWidth = 1
+        aArrPath.stroke()
+        
+        
+        //// AText Drawing
+        let aTextRect = CGRect(x: 773, y: 162, width: 8, height: 11)
+        let aTextTextContent = "5"
+        let aTextStyle = NSMutableParagraphStyle()
+        aTextStyle.alignment = .left
+        let aTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: 11),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: aTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aTextTextHeight: CGFloat = aTextTextContent.boundingRect(with: CGSize(width: aTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aTextFontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 262.88, y: -30.69)
+        context.clip(to: aTextRect)
+        aTextTextContent.draw(in: CGRect(x: aTextRect.minX, y: aTextRect.minY + (aTextRect.height - aTextTextHeight) / 2, width: aTextRect.width, height: aTextTextHeight), withAttributes: aTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// Aval Drawing
+        let avalPath = UIBezierPath(rect: CGRect(x: 815, y: 163.5, width: 30, height: 24))
+        noFillColor.setFill()
+        avalPath.fill()
+        black.setStroke()
+        avalPath.lineWidth = 1
+        avalPath.stroke()
+        
+        
+        
+        
+        //// LoadCkLine
+        //// LoadCkArrow Drawing
+        let loadCkArrowPath = UIBezierPath()
+        loadCkArrowPath.move(to: CGPoint(x: 718.97, y: 54.38))
+        loadCkArrowPath.addLine(to: CGPoint(x: 729.28, y: 50.38))
+        loadCkArrowPath.addLine(to: CGPoint(x: 729.28, y: 53.38))
+        loadCkArrowPath.addLine(to: CGPoint(x: 729.28, y: 55.38))
+        loadCkArrowPath.addLine(to: CGPoint(x: 729.28, y: 58.38))
+        loadCkArrowPath.addLine(to: CGPoint(x: 718.97, y: 54.38))
+        loadCkArrowPath.close()
+        blackArrow.setFill()
+        loadCkArrowPath.fill()
+        blackArrow.setStroke()
+        loadCkArrowPath.lineWidth = 1
+        loadCkArrowPath.stroke()
+        
+        
+        //// LoadCkLn Drawing
+        let loadCkLnPath = UIBezierPath()
+        loadCkLnPath.move(to: CGPoint(x: 809.5, y: 54.5))
+        loadCkLnPath.addLine(to: CGPoint(x: 729.5, y: 54.5))
+        blackArrow.setStroke()
+        loadCkLnPath.lineWidth = 1
+        loadCkLnPath.stroke()
+        
+        
+        //// LoadCkval Drawing
+        let loadCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 43, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        loadCkvalPath.fill()
+        black.setStroke()
+        loadCkvalPath.lineWidth = 1
+        loadCkvalPath.stroke()
+        
+        
+        
+        
+        //// MDRMuxLine
+        //// MDRMuxLn Drawing
+        let mDRMuxLnPath = UIBezierPath()
+        mDRMuxLnPath.move(to: CGPoint(x: 336.5, y: 456.5))
+        mDRMuxLnPath.addLine(to: CGPoint(x: 364.5, y: 456.5))
+        mDRMuxLnPath.addLine(to: CGPoint(x: 364.5, y: 490.5))
+        mDRMuxLnPath.addLine(to: CGPoint(x: 809.5, y: 490.5))
+        blackArrow.setStroke()
+        mDRMuxLnPath.lineWidth = 1
+        mDRMuxLnPath.stroke()
+        
+        
+        //// MDRMuxLnArrow Drawing
+        let mDRMuxLnArrowPath = UIBezierPath()
+        mDRMuxLnArrowPath.move(to: CGPoint(x: 333.97, y: 456.38))
+        mDRMuxLnArrowPath.addLine(to: CGPoint(x: 344.28, y: 452.38))
+        mDRMuxLnArrowPath.addLine(to: CGPoint(x: 344.28, y: 455.38))
+        mDRMuxLnArrowPath.addLine(to: CGPoint(x: 344.28, y: 457.38))
+        mDRMuxLnArrowPath.addLine(to: CGPoint(x: 344.28, y: 460.38))
+        mDRMuxLnArrowPath.addLine(to: CGPoint(x: 333.97, y: 456.38))
+        mDRMuxLnArrowPath.close()
+        blackArrow.setFill()
+        mDRMuxLnArrowPath.fill()
+        blackArrow.setStroke()
+        mDRMuxLnArrowPath.lineWidth = 1
+        mDRMuxLnArrowPath.stroke()
+        
+        
+        //// MDRMuxval Drawing
+        let mDRMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 478.5, width: 30, height: 24))
+        noFillColor.setFill()
+        mDRMuxvalPath.fill()
+        black.setStroke()
+        mDRMuxvalPath.lineWidth = 1
+        mDRMuxvalPath.stroke()
+        
+        
+        
+        
+        //// ALULine
+        //// ALULines Drawing
+        let aLULinesPath = UIBezierPath()
+        aLULinesPath.move(to: CGPoint(x: 615.5, y: 577.5))
+        aLULinesPath.addLine(to: CGPoint(x: 809.5, y: 577.5))
+        aLULinesPath.move(to: CGPoint(x: 730.5, y: 567.5))
+        aLULinesPath.addLine(to: CGPoint(x: 751.5, y: 588.5))
+        blackArrow.setStroke()
+        aLULinesPath.lineWidth = 1
+        aLULinesPath.stroke()
+        
+        
+        //// ALUArrow Drawing
+        let aLUArrowPath = UIBezierPath()
+        aLUArrowPath.move(to: CGPoint(x: 604.97, y: 577.38))
+        aLUArrowPath.addLine(to: CGPoint(x: 615.28, y: 573.38))
+        aLUArrowPath.addLine(to: CGPoint(x: 615.28, y: 576.38))
+        aLUArrowPath.addLine(to: CGPoint(x: 615.28, y: 578.38))
+        aLUArrowPath.addLine(to: CGPoint(x: 615.28, y: 581.38))
+        aLUArrowPath.addLine(to: CGPoint(x: 604.97, y: 577.38))
+        aLUArrowPath.close()
+        blackArrow.setFill()
+        aLUArrowPath.fill()
+        blackArrow.setStroke()
+        aLUArrowPath.lineWidth = 1
+        aLUArrowPath.stroke()
+        
+        
+        //// ALULinesText Drawing
+        let aLULinesTextRect = CGRect(x: 739, y: 566, width: 8, height: 9)
+        let aLULinesTextTextContent = "4"
+        let aLULinesTextStyle = NSMutableParagraphStyle()
+        aLULinesTextStyle.alignment = .left
+        let aLULinesTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: 11),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: aLULinesTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aLULinesTextTextHeight: CGFloat = aLULinesTextTextContent.boundingRect(with: CGSize(width: aLULinesTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aLULinesTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: aLULinesTextRect)
+        aLULinesTextTextContent.draw(in: CGRect(x: aLULinesTextRect.minX, y: aLULinesTextRect.minY + (aLULinesTextRect.height - aLULinesTextTextHeight) / 2, width: aLULinesTextRect.width, height: aLULinesTextTextHeight), withAttributes: aLULinesTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// ALUval Drawing
+        let aLUvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 565.5, width: 30, height: 24))
+        noFillColor.setFill()
+        aLUvalPath.fill()
+        black.setStroke()
+        aLUvalPath.lineWidth = 1
+        aLUvalPath.stroke()
+        
+        
+        
+        
+        //// CMuxLine
+        //// CMuxLn Drawing
+        let cMuxLnPath = UIBezierPath()
+        cMuxLnPath.move(to: CGPoint(x: 360.5, y: 578.5))
+        cMuxLnPath.addLine(to: CGPoint(x: 360.5, y: 552.5))
+        cMuxLnPath.addLine(to: CGPoint(x: 809.5, y: 552.5))
+        blackArrow.setStroke()
+        cMuxLnPath.lineWidth = 1
+        cMuxLnPath.stroke()
+        
+        
+        //// CMuxArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 356.25, y: 587.38)
         context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier64Path = UIBezierPath()
-        bezier64Path.move(to: CGPoint(x: 44.12, y: 0))
-        bezier64Path.addLine(to: CGPoint(x: 0, y: 0))
-        cBitArrowColor.setStroke()
-        bezier64Path.lineWidth = 1
-        bezier64Path.stroke()
-
+        
+        let cMuxArrowPath = UIBezierPath()
+        cMuxArrowPath.move(to: CGPoint(x: 0, y: 4))
+        cMuxArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        cMuxArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        cMuxArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        cMuxArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        cMuxArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        cMuxArrowPath.close()
+        blackArrow.setFill()
+        cMuxArrowPath.fill()
+        blackArrow.setStroke()
+        cMuxArrowPath.lineWidth = 1
+        cMuxArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// Oval 3 Drawing
-        let oval3Path = UIBezierPath(ovalIn: CGRect(x: 313, y: 2, width: 5, height: 5))
-        cBitArrowColor.setFill()
-        oval3Path.fill()
-
-
-        //// Bezier 60 Drawing
-        let bezier60Path = UIBezierPath()
-        bezier60Path.move(to: CGPoint(x: 358, y: 4.5))
-        bezier60Path.addLine(to: CGPoint(x: 347.89, y: 0.5))
-        bezier60Path.addLine(to: CGPoint(x: 347.89, y: 3.5))
-        bezier60Path.addLine(to: CGPoint(x: 347.89, y: 5.5))
-        bezier60Path.addLine(to: CGPoint(x: 347.89, y: 8.5))
-        bezier60Path.addLine(to: CGPoint(x: 358, y: 4.5))
-        bezier60Path.close()
-        cBitArrowColor.setFill()
-        bezier60Path.fill()
-
-
-
-        context.restoreGState()
-
-
-        //// VBitArrow
+        
+        
+        //// CMuxval Drawing
+        let cMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 540.5, width: 30, height: 24))
+        noFillColor.setFill()
+        cMuxvalPath.fill()
+        black.setStroke()
+        cMuxvalPath.lineWidth = 1
+        cMuxvalPath.stroke()
+        
+        
+        
+        
+        //// CSMuxLines
+        //// CSMuxArrow Drawing
+        let cSMuxArrowPath = UIBezierPath()
+        cSMuxArrowPath.move(to: CGPoint(x: 704.97, y: 631.38))
+        cSMuxArrowPath.addLine(to: CGPoint(x: 715.28, y: 627.38))
+        cSMuxArrowPath.addLine(to: CGPoint(x: 715.28, y: 630.38))
+        cSMuxArrowPath.addLine(to: CGPoint(x: 715.28, y: 632.38))
+        cSMuxArrowPath.addLine(to: CGPoint(x: 715.28, y: 635.38))
+        cSMuxArrowPath.addLine(to: CGPoint(x: 704.97, y: 631.38))
+        cSMuxArrowPath.close()
+        blackArrow.setFill()
+        cSMuxArrowPath.fill()
+        blackArrow.setStroke()
+        cSMuxArrowPath.lineWidth = 1
+        cSMuxArrowPath.stroke()
+        
+        
+        //// CSMuxLine Drawing
+        let cSMuxLinePath = UIBezierPath()
+        cSMuxLinePath.move(to: CGPoint(x: 809.5, y: 631.5))
+        cSMuxLinePath.addLine(to: CGPoint(x: 715.5, y: 631.5))
+        blackArrow.setStroke()
+        cSMuxLinePath.lineWidth = 1
+        cSMuxLinePath.stroke()
+        
+        
+        //// CSMuxToALULn Drawing
+        let cSMuxToALULnPath = UIBezierPath()
+        cSMuxToALULnPath.move(to: CGPoint(x: 651.5, y: 618.5))
+        cSMuxToALULnPath.addLine(to: CGPoint(x: 651.5, y: 597.5))
+        cSMuxToALULnPath.addLine(to: CGPoint(x: 600.5, y: 597.5))
+        blackArrow.setStroke()
+        cSMuxToALULnPath.lineWidth = 1
+        cSMuxToALULnPath.stroke()
+        
+        
+        //// CSMuxToALUArrow Drawing
+        let cSMuxToALUArrowPath = UIBezierPath()
+        cSMuxToALUArrowPath.move(to: CGPoint(x: 589.97, y: 597.38))
+        cSMuxToALUArrowPath.addLine(to: CGPoint(x: 600.28, y: 593.38))
+        cSMuxToALUArrowPath.addLine(to: CGPoint(x: 600.28, y: 596.38))
+        cSMuxToALUArrowPath.addLine(to: CGPoint(x: 600.28, y: 598.38))
+        cSMuxToALUArrowPath.addLine(to: CGPoint(x: 600.28, y: 601.38))
+        cSMuxToALUArrowPath.addLine(to: CGPoint(x: 589.97, y: 597.38))
+        cSMuxToALUArrowPath.close()
+        blackArrow.setFill()
+        cSMuxToALUArrowPath.fill()
+        blackArrow.setStroke()
+        cSMuxToALUArrowPath.lineWidth = 1
+        cSMuxToALUArrowPath.stroke()
+        
+        
+        //// CCkToCSMuxLn Drawing
+        let cCkToCSMuxLnPath = UIBezierPath()
+        cCkToCSMuxLnPath.move(to: CGPoint(x: 690, y: 726.5))
+        cCkToCSMuxLnPath.addLine(to: CGPoint(x: 690, y: 714.5))
+        cCkToCSMuxLnPath.addLine(to: CGPoint(x: 613, y: 714.5))
+        cCkToCSMuxLnPath.addLine(to: CGPoint(x: 613, y: 648.5))
+        blackArrow.setStroke()
+        cCkToCSMuxLnPath.lineWidth = 1
+        cCkToCSMuxLnPath.stroke()
+        
+        
+        //// SCkToCSMuxLn Drawing
+        let sCkToCSMuxLnPath = UIBezierPath()
+        sCkToCSMuxLnPath.move(to: CGPoint(x: 690.5, y: 682.5))
+        sCkToCSMuxLnPath.addLine(to: CGPoint(x: 690.5, y: 648.5))
+        blackArrow.setStroke()
+        sCkToCSMuxLnPath.lineWidth = 1
+        sCkToCSMuxLnPath.stroke()
+        
+        
+        //// SCkToCSMuxArrow Drawing
         context.saveGState()
-        context.translateBy(x: 382.83, y: 807.38)
-
-
-
-        //// Bezier 65 Drawing
-        let bezier65Path = UIBezierPath()
-        bezier65Path.move(to: CGPoint(x: 63.34, y: -10.25))
-        bezier65Path.addLine(to: CGPoint(x: 331.52, y: -10.25))
-        vBitArrowColor.setStroke()
-        bezier65Path.lineWidth = 1
-        bezier65Path.stroke()
-
-
-        //// Oval 4 Drawing
-        let oval4Path = UIBezierPath(ovalIn: CGRect(x: 292.5, y: -13, width: 5, height: 5))
-        vBitArrowColor.setFill()
-        oval4Path.fill()
-
-
-        //// Bezier 66 Drawing
-        let bezier66Path = UIBezierPath()
-        bezier66Path.move(to: CGPoint(x: -20.86, y: -28))
-        bezier66Path.addLine(to: CGPoint(x: -10.75, y: -32))
-        bezier66Path.addLine(to: CGPoint(x: -10.75, y: -29))
-        bezier66Path.addLine(to: CGPoint(x: -10.75, y: -27))
-        bezier66Path.addLine(to: CGPoint(x: -10.75, y: -24))
-        bezier66Path.addLine(to: CGPoint(x: -20.86, y: -28))
-        bezier66Path.close()
-        vBitArrowColor.setFill()
-        bezier66Path.fill()
-
-
-        //// Bezier 67 Drawing
-        let bezier67Path = UIBezierPath()
-        bezier67Path.move(to: CGPoint(x: 64, y: -28))
-        bezier67Path.addLine(to: CGPoint(x: 64, y: -9.69))
-        vBitArrowColor.setStroke()
-        bezier67Path.lineWidth = 1
-        bezier67Path.stroke()
-
-
-        //// Bezier 68 Drawing
-        let bezier68Path = UIBezierPath()
-        bezier68Path.move(to: CGPoint(x: -12.03, y: -28))
-        bezier68Path.addLine(to: CGPoint(x: 64.56, y: -28))
-        vBitArrowColor.setStroke()
-        bezier68Path.lineWidth = 1
-        bezier68Path.stroke()
-
-
-        //// Bezier 69 Drawing
-        let bezier69Path = UIBezierPath()
-        bezier69Path.move(to: CGPoint(x: 295, y: -21.91))
-        bezier69Path.addLine(to: CGPoint(x: 295, y: -9.69))
-        vBitArrowColor.setStroke()
-        bezier69Path.lineWidth = 1
-        bezier69Path.stroke()
-
-
-        //// Bezier 70 Drawing
-        let bezier70Path = UIBezierPath()
-        bezier70Path.move(to: CGPoint(x: 337.17, y: -10.25))
-        bezier70Path.addLine(to: CGPoint(x: 327.06, y: -14.25))
-        bezier70Path.addLine(to: CGPoint(x: 327.06, y: -11.25))
-        bezier70Path.addLine(to: CGPoint(x: 327.06, y: -9.25))
-        bezier70Path.addLine(to: CGPoint(x: 327.06, y: -6.25))
-        bezier70Path.addLine(to: CGPoint(x: 337.17, y: -10.25))
-        bezier70Path.close()
-        vBitArrowColor.setFill()
-        bezier70Path.fill()
-
-
-
-        context.restoreGState()
-
-
-        //// ZBitArrow
-        context.saveGState()
-        context.translateBy(x: 383.18, y: 833.13)
-
-
-
-        //// Bezier 71 Drawing
-        let bezier71Path = UIBezierPath()
-        bezier71Path.move(to: CGPoint(x: 34.34, y: 54.75))
-        bezier71Path.addLine(to: CGPoint(x: 331.56, y: 54.75))
-        zBitArrowColor.setStroke()
-        bezier71Path.lineWidth = 1
-        bezier71Path.stroke()
-
-
-        //// Bezier 72 Drawing
-        let bezier72Path = UIBezierPath()
-        bezier72Path.move(to: CGPoint(x: -20.86, y: -28))
-        bezier72Path.addLine(to: CGPoint(x: -10.75, y: -32))
-        bezier72Path.addLine(to: CGPoint(x: -10.75, y: -29))
-        bezier72Path.addLine(to: CGPoint(x: -10.75, y: -27))
-        bezier72Path.addLine(to: CGPoint(x: -10.75, y: -24))
-        bezier72Path.addLine(to: CGPoint(x: -20.86, y: -28))
-        bezier72Path.close()
-        zBitArrowColor.setFill()
-        bezier72Path.fill()
-
-
-        //// Bezier 73 Drawing
-        let bezier73Path = UIBezierPath()
-        bezier73Path.move(to: CGPoint(x: 34, y: -28))
-        bezier73Path.addLine(to: CGPoint(x: 34, y: 55.31))
-        zBitArrowColor.setStroke()
-        bezier73Path.lineWidth = 1
-        bezier73Path.stroke()
-
-
-        //// Bezier 74 Drawing
-        let bezier74Path = UIBezierPath()
-        bezier74Path.move(to: CGPoint(x: -13.02, y: -28))
-        bezier74Path.addLine(to: CGPoint(x: 34.5, y: -28))
-        zBitArrowColor.setStroke()
-        bezier74Path.lineWidth = 1
-        bezier74Path.stroke()
-
-
-        //// Bezier 75 Drawing
-        let bezier75Path = UIBezierPath()
-        bezier75Path.move(to: CGPoint(x: 295, y: 37.09))
-        bezier75Path.addLine(to: CGPoint(x: 295, y: 55.31))
-        zBitArrowColor.setStroke()
-        bezier75Path.lineWidth = 1
-        bezier75Path.stroke()
-
-
-        //// Bezier 76 Drawing
-        context.saveGState()
-        context.translateBy(x: 224.89, y: 49.75)
+        context.translateBy(x: 686.5, y: 656.88)
         context.rotate(by: -90 * CGFloat.pi/180)
-
-        let bezier76Path = UIBezierPath()
-        bezier76Path.move(to: CGPoint(x: 10.11, y: 4))
-        bezier76Path.addLine(to: CGPoint(x: 0, y: 0))
-        bezier76Path.addLine(to: CGPoint(x: 0, y: 3))
-        bezier76Path.addLine(to: CGPoint(x: 0, y: 5))
-        bezier76Path.addLine(to: CGPoint(x: 0, y: 8))
-        bezier76Path.addLine(to: CGPoint(x: 10.11, y: 4))
-        bezier76Path.close()
-        zBitArrowColor.setFill()
-        bezier76Path.fill()
-
+        
+        let sCkToCSMuxArrowPath = UIBezierPath()
+        sCkToCSMuxArrowPath.move(to: CGPoint(x: 11.11, y: 4))
+        sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 0))
+        sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 3))
+        sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 5))
+        sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 8))
+        sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 11.11, y: 4))
+        sCkToCSMuxArrowPath.close()
+        blackArrow.setFill()
+        sCkToCSMuxArrowPath.fill()
+        blackArrow.setStroke()
+        sCkToCSMuxArrowPath.lineWidth = 1
+        sCkToCSMuxArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// Bezier 77 Drawing
-        let bezier77Path = UIBezierPath()
-        bezier77Path.move(to: CGPoint(x: 337.17, y: 54.75))
-        bezier77Path.addLine(to: CGPoint(x: 327.06, y: 50.75))
-        bezier77Path.addLine(to: CGPoint(x: 327.06, y: 53.75))
-        bezier77Path.addLine(to: CGPoint(x: 327.06, y: 55.75))
-        bezier77Path.addLine(to: CGPoint(x: 327.06, y: 58.75))
-        bezier77Path.addLine(to: CGPoint(x: 337.17, y: 54.75))
-        bezier77Path.close()
-        zBitArrowColor.setFill()
-        bezier77Path.fill()
-
-
-        //// Bezier 78 Drawing
-        let bezier78Path = UIBezierPath()
-        bezier78Path.move(to: CGPoint(x: 229, y: 47.06))
-        bezier78Path.addLine(to: CGPoint(x: 229, y: 55.31))
-        zBitArrowColor.setStroke()
-        bezier78Path.lineWidth = 1
-        bezier78Path.stroke()
-
-
-        //// Oval 6 Drawing
-        let oval6Path = UIBezierPath(ovalIn: CGRect(x: 292.5, y: 52, width: 5, height: 5))
-        zBitArrowColor.setFill()
-        oval6Path.fill()
-
-
-        //// Oval 5 Drawing
-        let oval5Path = UIBezierPath(ovalIn: CGRect(x: 226.5, y: 52, width: 5, height: 5))
-        zBitArrowColor.setFill()
-        oval5Path.fill()
-
-
-
-        context.restoreGState()
-
-
-        //// AndZArrowOut
+        
+        
+        //// CCkToCSMuxArrow Drawing
         context.saveGState()
-        context.translateBy(x: 635, y: 853)
-
-
-
-        //// Bezier 79 Drawing
-        let bezier79Path = UIBezierPath()
-        bezier79Path.move(to: CGPoint(x: 28, y: 4.5))
-        bezier79Path.addLine(to: CGPoint(x: 17.89, y: 0.5))
-        bezier79Path.addLine(to: CGPoint(x: 17.89, y: 3.5))
-        bezier79Path.addLine(to: CGPoint(x: 17.89, y: 5.5))
-        bezier79Path.addLine(to: CGPoint(x: 17.89, y: 8.5))
-        bezier79Path.addLine(to: CGPoint(x: 28, y: 4.5))
-        bezier79Path.close()
-        andZArrowOutColor.setFill()
-        bezier79Path.fill()
-
-
-        //// Bezier 80 Drawing
-        let bezier80Path = UIBezierPath()
-        bezier80Path.move(to: CGPoint(x: 19.44, y: 4.5))
-        bezier80Path.addLine(to: CGPoint(x: 5.3, y: 4.5))
-        andZArrowOutColor.setStroke()
-        bezier80Path.lineWidth = 1
-        bezier80Path.stroke()
-
-
-
-        context.restoreGState()
-
-
-        //// AndZArrowColor
-        context.saveGState()
-        context.translateBy(x: 640, y: 789.5)
+        context.translateBy(x: 609, y: 656.88)
         context.rotate(by: -90 * CGFloat.pi/180)
-
-
-
-        //// Bezier 81 Drawing
-        let bezier81Path = UIBezierPath()
-        bezier81Path.move(to: CGPoint(x: -52.86, y: -28))
-        bezier81Path.addLine(to: CGPoint(x: -42.75, y: -32))
-        bezier81Path.addLine(to: CGPoint(x: -42.75, y: -29))
-        bezier81Path.addLine(to: CGPoint(x: -42.75, y: -27))
-        bezier81Path.addLine(to: CGPoint(x: -42.75, y: -24))
-        bezier81Path.addLine(to: CGPoint(x: -52.86, y: -28))
-        bezier81Path.close()
-        andZArrowInColor.setFill()
-        bezier81Path.fill()
-
-
-        //// Bezier 82 Drawing
-        let bezier82Path = UIBezierPath()
-        bezier82Path.move(to: CGPoint(x: -33, y: -28))
-        bezier82Path.addLine(to: CGPoint(x: -33, y: 80))
-        andZArrowInColor.setStroke()
-        bezier82Path.lineWidth = 1
-        bezier82Path.stroke()
-
-
-        //// Bezier 83 Drawing
-        let bezier83Path = UIBezierPath()
-        bezier83Path.move(to: CGPoint(x: -44.11, y: -28))
-        bezier83Path.addLine(to: CGPoint(x: -32.5, y: -28))
-        andZArrowInColor.setStroke()
-        bezier83Path.lineWidth = 1
-        bezier83Path.stroke()
-
-
-
+        
+        let cCkToCSMuxArrowPath = UIBezierPath()
+        cCkToCSMuxArrowPath.move(to: CGPoint(x: 11.11, y: 4))
+        cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 0))
+        cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 3))
+        cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 5))
+        cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 8))
+        cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 11.11, y: 4))
+        cCkToCSMuxArrowPath.close()
+        blackArrow.setFill()
+        cCkToCSMuxArrowPath.fill()
+        blackArrow.setStroke()
+        cCkToCSMuxArrowPath.lineWidth = 1
+        cCkToCSMuxArrowPath.stroke()
+        
         context.restoreGState()
-
-
-        //// NBitArrow
-        context.saveGState()
-        context.translateBy(x: 382.83, y: 893.38)
-
-
-
-        //// Bezier 84 Drawing
-        let bezier84Path = UIBezierPath()
-        bezier84Path.move(to: CGPoint(x: 4.34, y: 54.75))
-        bezier84Path.addLine(to: CGPoint(x: 330.15, y: 54.75))
-        nBitArrowColor.setStroke()
-        bezier84Path.lineWidth = 1
-        bezier84Path.stroke()
-
-
-        //// Bezier 85 Drawing
-        let bezier85Path = UIBezierPath()
-        bezier85Path.move(to: CGPoint(x: -20.86, y: -64))
-        bezier85Path.addLine(to: CGPoint(x: -10.75, y: -68))
-        bezier85Path.addLine(to: CGPoint(x: -10.75, y: -65))
-        bezier85Path.addLine(to: CGPoint(x: -10.75, y: -63))
-        bezier85Path.addLine(to: CGPoint(x: -10.75, y: -60))
-        bezier85Path.addLine(to: CGPoint(x: -20.86, y: -64))
-        bezier85Path.close()
-        nBitArrowColor.setFill()
-        bezier85Path.fill()
-
-
-        //// Bezier 86 Drawing
-        let bezier86Path = UIBezierPath()
-        bezier86Path.move(to: CGPoint(x: 4, y: -64.61))
-        bezier86Path.addLine(to: CGPoint(x: 4, y: 55.31))
-        nBitArrowColor.setStroke()
-        bezier86Path.lineWidth = 1
-        bezier86Path.stroke()
-
-
-        //// Bezier 87 Drawing
-        let bezier87Path = UIBezierPath()
-        bezier87Path.move(to: CGPoint(x: -11.5, y: -64))
-        bezier87Path.addLine(to: CGPoint(x: 4.5, y: -64))
-        nBitArrowColor.setStroke()
-        bezier87Path.lineWidth = 1
-        bezier87Path.stroke()
-
-
-        //// Bezier 88 Drawing
-        let bezier88Path = UIBezierPath()
-        bezier88Path.move(to: CGPoint(x: 295, y: 46.91))
-        bezier88Path.addLine(to: CGPoint(x: 295, y: 55.31))
-        nBitArrowColor.setStroke()
-        bezier88Path.lineWidth = 1
-        bezier88Path.stroke()
-
-
-        //// Oval 7 Drawing
-        let oval7Path = UIBezierPath(ovalIn: CGRect(x: 292.5, y: 52, width: 5, height: 5))
-        nBitArrowColor.setFill()
-        oval7Path.fill()
-
-
-        //// Bezier 90 Drawing
-        let bezier90Path = UIBezierPath()
-        bezier90Path.move(to: CGPoint(x: 337.17, y: 54.75))
-        bezier90Path.addLine(to: CGPoint(x: 327.06, y: 50.75))
-        bezier90Path.addLine(to: CGPoint(x: 327.06, y: 53.75))
-        bezier90Path.addLine(to: CGPoint(x: 327.06, y: 55.75))
-        bezier90Path.addLine(to: CGPoint(x: 327.06, y: 58.75))
-        bezier90Path.addLine(to: CGPoint(x: 337.17, y: 54.75))
-        bezier90Path.close()
-        nBitArrowColor.setFill()
-        bezier90Path.fill()
-
-
-
-        context.restoreGState()
-
-
-
-
-        //// RegisterBank Drawing
-        let registerBankPath = UIBezierPath(rect: CGRect(x: 55, y: 9.51, width: 553, height: 175.49))
-        registerBankColor.setFill()
-        registerBankPath.fill()
-        UIColor.black.setStroke()
-        registerBankPath.lineWidth = 1
-        registerBankPath.stroke()
-
-
+        
+        
+        //// CSMuxval Drawing
+        let cSMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 619.5, width: 30, height: 24))
+        noFillColor.setFill()
+        cSMuxvalPath.fill()
+        black.setStroke()
+        cSMuxvalPath.lineWidth = 1
+        cSMuxvalPath.stroke()
+        
+        
+        
+        
+        //// SCkLine
+        //// SCkArrow Drawing
+        let sCkArrowPath = UIBezierPath()
+        sCkArrowPath.move(to: CGPoint(x: 704.97, y: 695.38))
+        sCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 691.38))
+        sCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 694.38))
+        sCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 696.38))
+        sCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 699.38))
+        sCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 695.38))
+        sCkArrowPath.close()
+        blackArrow.setFill()
+        sCkArrowPath.fill()
+        blackArrow.setStroke()
+        sCkArrowPath.lineWidth = 1
+        sCkArrowPath.stroke()
+        
+        
+        //// SCkLn Drawing
+        let sCkLnPath = UIBezierPath()
+        sCkLnPath.move(to: CGPoint(x: 809.5, y: 695.5))
+        sCkLnPath.addLine(to: CGPoint(x: 715.5, y: 695.5))
+        blackArrow.setStroke()
+        sCkLnPath.lineWidth = 1
+        sCkLnPath.stroke()
+        
+        
+        //// SCkval Drawing
+        let sCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 683.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        sCkvalPath.fill()
+        black.setStroke()
+        sCkvalPath.lineWidth = 1
+        sCkvalPath.stroke()
+        
+        
+        
+        
+        //// CCkLine
+        //// CCkArrow Drawing
+        let cCkArrowPath = UIBezierPath()
+        cCkArrowPath.move(to: CGPoint(x: 704.97, y: 734.38))
+        cCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 730.38))
+        cCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 733.38))
+        cCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 735.38))
+        cCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 738.38))
+        cCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 734.38))
+        cCkArrowPath.close()
+        blackArrow.setFill()
+        cCkArrowPath.fill()
+        blackArrow.setStroke()
+        cCkArrowPath.lineWidth = 1
+        cCkArrowPath.stroke()
+        
+        
+        //// CCkLn Drawing
+        let cCkLnPath = UIBezierPath()
+        cCkLnPath.move(to: CGPoint(x: 809.5, y: 734.5))
+        cCkLnPath.addLine(to: CGPoint(x: 715.5, y: 734.5))
+        blackArrow.setStroke()
+        cCkLnPath.lineWidth = 1
+        cCkLnPath.stroke()
+        
+        
+        //// CCkval Drawing
+        let cCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 722.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        cCkvalPath.fill()
+        black.setStroke()
+        cCkvalPath.lineWidth = 1
+        cCkvalPath.stroke()
+        
+        
+        
+        
+        //// VCkLine
+        //// VCkArrow Drawing
+        let vCkArrowPath = UIBezierPath()
+        vCkArrowPath.move(to: CGPoint(x: 704.97, y: 771.38))
+        vCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 767.38))
+        vCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 770.38))
+        vCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 772.38))
+        vCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 775.38))
+        vCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 771.38))
+        vCkArrowPath.close()
+        blackArrow.setFill()
+        vCkArrowPath.fill()
+        blackArrow.setStroke()
+        vCkArrowPath.lineWidth = 1
+        vCkArrowPath.stroke()
+        
+        
+        //// VCkLn Drawing
+        let vCkLnPath = UIBezierPath()
+        vCkLnPath.move(to: CGPoint(x: 809.5, y: 771.5))
+        vCkLnPath.addLine(to: CGPoint(x: 715.5, y: 771.5))
+        blackArrow.setStroke()
+        vCkLnPath.lineWidth = 1
+        vCkLnPath.stroke()
+        
+        
+        //// VCkval Drawing
+        let vCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 759.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        vCkvalPath.fill()
+        black.setStroke()
+        vCkvalPath.lineWidth = 1
+        vCkvalPath.stroke()
+        
+        
+        
+        
+        //// ZCkLine
+        //// ZCkArrow Drawing
+        let zCkArrowPath = UIBezierPath()
+        zCkArrowPath.move(to: CGPoint(x: 704.97, y: 850.38))
+        zCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 846.38))
+        zCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 849.38))
+        zCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 851.38))
+        zCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 854.38))
+        zCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 850.38))
+        zCkArrowPath.close()
+        blackArrow.setFill()
+        zCkArrowPath.fill()
+        blackArrow.setStroke()
+        zCkArrowPath.lineWidth = 1
+        zCkArrowPath.stroke()
+        
+        
+        //// ZCkLn Drawing
+        let zCkLnPath = UIBezierPath()
+        zCkLnPath.move(to: CGPoint(x: 809.5, y: 850.5))
+        zCkLnPath.addLine(to: CGPoint(x: 715.5, y: 850.5))
+        blackArrow.setStroke()
+        zCkLnPath.lineWidth = 1
+        zCkLnPath.stroke()
+        
+        
+        //// ZCkval Drawing
+        let zCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 838.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        zCkvalPath.fill()
+        black.setStroke()
+        zCkvalPath.lineWidth = 1
+        zCkvalPath.stroke()
+        
+        
+        
+        
+        //// NCkLine
+        //// NCkArrow Drawing
+        let nCkArrowPath = UIBezierPath()
+        nCkArrowPath.move(to: CGPoint(x: 704.97, y: 919.38))
+        nCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 915.38))
+        nCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 918.38))
+        nCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 920.38))
+        nCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 923.38))
+        nCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 919.38))
+        nCkArrowPath.close()
+        blackArrow.setFill()
+        nCkArrowPath.fill()
+        blackArrow.setStroke()
+        nCkArrowPath.lineWidth = 1
+        nCkArrowPath.stroke()
+        
+        
+        //// NCkLn Drawing
+        let nCkLnPath = UIBezierPath()
+        nCkLnPath.move(to: CGPoint(x: 809.5, y: 919.5))
+        nCkLnPath.addLine(to: CGPoint(x: 715.5, y: 919.5))
+        blackArrow.setStroke()
+        nCkLnPath.lineWidth = 1
+        nCkLnPath.stroke()
+        
+        
+        //// NCkval Drawing
+        let nCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 907.5, width: 24, height: 24), cornerRadius: 5)
+        noFillColor.setFill()
+        nCkvalPath.fill()
+        black.setStroke()
+        nCkvalPath.lineWidth = 1
+        nCkvalPath.stroke()
+        
+        
+        
+        
+        
+        
+        //// BComponents
         //// BBus Drawing
         let bBusPath = UIBezierPath()
-        bBusPath.move(to: CGPoint(x: 570, y: 500))
-        bBusPath.addLine(to: CGPoint(x: 580, y: 500))
-        bBusPath.addLine(to: CGPoint(x: 562.5, y: 525))
-        bBusPath.addLine(to: CGPoint(x: 545, y: 500))
-        bBusPath.addLine(to: CGPoint(x: 555, y: 500))
-        bBusPath.addLine(to: CGPoint(x: 555, y: 245))
-        bBusPath.addLine(to: CGPoint(x: 315, y: 245))
-        bBusPath.addLine(to: CGPoint(x: 315, y: 255))
-        bBusPath.addLine(to: CGPoint(x: 290, y: 238.75))
-        bBusPath.addLine(to: CGPoint(x: 315, y: 220))
-        bBusPath.addLine(to: CGPoint(x: 315, y: 230))
-        bBusPath.addLine(to: CGPoint(x: 555, y: 230))
-        bBusPath.addLine(to: CGPoint(x: 555, y: 185))
-        bBusPath.addLine(to: CGPoint(x: 570, y: 185))
-        bBusPath.addLine(to: CGPoint(x: 570, y: 500))
+        bBusPath.move(to: CGPoint(x: 592.5, y: 495.5))
+        bBusPath.addLine(to: CGPoint(x: 602.5, y: 495.5))
+        bBusPath.addLine(to: CGPoint(x: 585, y: 520.5))
+        bBusPath.addLine(to: CGPoint(x: 567.5, y: 495.5))
+        bBusPath.addLine(to: CGPoint(x: 577.5, y: 495.5))
+        bBusPath.addLine(to: CGPoint(x: 577.5, y: 251.5))
+        bBusPath.addLine(to: CGPoint(x: 360.5, y: 251.5))
+        bBusPath.addLine(to: CGPoint(x: 360.5, y: 261.5))
+        bBusPath.addLine(to: CGPoint(x: 335.5, y: 245.25))
+        bBusPath.addLine(to: CGPoint(x: 360.5, y: 226.5))
+        bBusPath.addLine(to: CGPoint(x: 360.5, y: 236.5))
+        bBusPath.addLine(to: CGPoint(x: 577.5, y: 236.5))
+        bBusPath.addLine(to: CGPoint(x: 577.5, y: 181.5))
+        bBusPath.addLine(to: CGPoint(x: 592.5, y: 181.5))
+        bBusPath.addLine(to: CGPoint(x: 592.5, y: 495.5))
         bBusPath.close()
         bBusPipeColor.setFill()
         bBusPath.fill()
         UIColor.black.setStroke()
         bBusPath.lineWidth = 1
         bBusPath.stroke()
-
-
+        
+        
+        //// BBusText Drawing
+        let bBusTextRect = CGRect(x: 603, y: 197, width: 49, height: 26)
+        let bBusTextTextContent = "BBus"
+        let bBusTextStyle = NSMutableParagraphStyle()
+        bBusTextStyle.alignment = .left
+        let bBusTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: bBusTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let bBusTextTextHeight: CGFloat = bBusTextTextContent.boundingRect(with: CGSize(width: bBusTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: bBusTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: bBusTextRect)
+        bBusTextTextContent.draw(in: CGRect(x: bBusTextRect.minX, y: bBusTextRect.minY + (bBusTextRect.height - bBusTextTextHeight) / 2, width: bBusTextRect.width, height: bBusTextTextHeight), withAttributes: bBusTextFontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// AComponents
+        //// AMuxArrow Drawing
+        let aMuxArrowPath = UIBezierPath()
+        aMuxArrowPath.move(to: CGPoint(x: 474.5, y: 478.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 474.5, y: 498.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 484.5, y: 498.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 466.5, y: 520.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 449.5, y: 498.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 459.5, y: 498.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 459.67, y: 478.5))
+        aMuxArrowPath.addLine(to: CGPoint(x: 474.5, y: 478.5))
+        aMuxArrowPath.close()
+        noFillColor.setFill()
+        aMuxArrowPath.fill()
+        UIColor.black.setStroke()
+        aMuxArrowPath.lineWidth = 1
+        aMuxArrowPath.stroke()
+        
+        
+        //// Amux Drawing
+        let amuxRect = CGRect(x: 417.5, y: 453.5, width: 100, height: 25)
+        let amuxPath = UIBezierPath(rect: amuxRect)
+        noFillColor.setFill()
+        amuxPath.fill()
+        UIColor.black.setStroke()
+        amuxPath.lineWidth = 1
+        amuxPath.stroke()
+        let amuxTextContent = "AMux"
+        let amuxStyle = NSMutableParagraphStyle()
+        amuxStyle.alignment = .center
+        let amuxFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: amuxStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let amuxTextHeight: CGFloat = amuxTextContent.boundingRect(with: CGSize(width: amuxRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: amuxFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: amuxRect)
+        amuxTextContent.draw(in: CGRect(x: amuxRect.minX, y: amuxRect.minY + (amuxRect.height - amuxTextHeight) / 2, width: amuxRect.width, height: amuxTextHeight), withAttributes: amuxFontAttributes)
+        context.restoreGState()
+        
+        
+        //// MDRCktoAMux Drawing
+        let mDRCktoAMuxPath = UIBezierPath()
+        mDRCktoAMuxPath.move(to: CGPoint(x: 445.5, y: 425.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 455.5, y: 425.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 438, y: 450.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 420.5, y: 425.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 430.5, y: 425.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 430.5, y: 410.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 331.5, y: 410.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 331.5, y: 395.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 430.5, y: 395.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 445.5, y: 395.5))
+        mDRCktoAMuxPath.addLine(to: CGPoint(x: 445.5, y: 425.5))
+        mDRCktoAMuxPath.close()
+        addressBusColor.setFill()
+        mDRCktoAMuxPath.fill()
+        UIColor.black.setStroke()
+        mDRCktoAMuxPath.lineWidth = 1
+        mDRCktoAMuxPath.stroke()
+        
+        
         //// ABus Drawing
         let aBusPath = UIBezierPath()
-        aBusPath.move(to: CGPoint(x: 475, y: 420))
-        aBusPath.addLine(to: CGPoint(x: 485, y: 420))
-        aBusPath.addLine(to: CGPoint(x: 467.5, y: 445))
-        aBusPath.addLine(to: CGPoint(x: 450, y: 420))
-        aBusPath.addLine(to: CGPoint(x: 460, y: 420))
-        aBusPath.addLine(to: CGPoint(x: 460, y: 330))
-        aBusPath.addLine(to: CGPoint(x: 315, y: 330))
-        aBusPath.addLine(to: CGPoint(x: 315, y: 340))
-        aBusPath.addLine(to: CGPoint(x: 290, y: 323.75))
-        aBusPath.addLine(to: CGPoint(x: 315, y: 305))
-        aBusPath.addLine(to: CGPoint(x: 315, y: 315))
-        aBusPath.addLine(to: CGPoint(x: 460, y: 315))
-        aBusPath.addLine(to: CGPoint(x: 460, y: 185))
-        aBusPath.addLine(to: CGPoint(x: 475, y: 185))
-        aBusPath.addLine(to: CGPoint(x: 475, y: 420))
+        aBusPath.move(to: CGPoint(x: 506.5, y: 425.5))
+        aBusPath.addLine(to: CGPoint(x: 516.5, y: 425.5))
+        aBusPath.addLine(to: CGPoint(x: 499, y: 450.5))
+        aBusPath.addLine(to: CGPoint(x: 481.5, y: 425.5))
+        aBusPath.addLine(to: CGPoint(x: 491.5, y: 425.5))
+        aBusPath.addLine(to: CGPoint(x: 491.5, y: 335.5))
+        aBusPath.addLine(to: CGPoint(x: 359.5, y: 335.5))
+        aBusPath.addLine(to: CGPoint(x: 359.5, y: 345.5))
+        aBusPath.addLine(to: CGPoint(x: 334.5, y: 329.25))
+        aBusPath.addLine(to: CGPoint(x: 359.5, y: 310.5))
+        aBusPath.addLine(to: CGPoint(x: 359.5, y: 320.5))
+        aBusPath.addLine(to: CGPoint(x: 491.5, y: 320.5))
+        aBusPath.addLine(to: CGPoint(x: 491.5, y: 193.5))
+        aBusPath.addLine(to: CGPoint(x: 506.5, y: 193.5))
+        aBusPath.addLine(to: CGPoint(x: 506.5, y: 425.5))
         aBusPath.close()
         aBusPipeColor.setFill()
         aBusPath.fill()
         UIColor.black.setStroke()
         aBusPath.lineWidth = 1
         aBusPath.stroke()
-
-
-        //// ALU Drawing
-        let aLUPath = UIBezierPath()
-        aLUPath.move(to: CGPoint(x: 388, y: 530))
-        aLUPath.addLine(to: CGPoint(x: 473, y: 530))
-        aLUPath.addLine(to: CGPoint(x: 483, y: 550))
-        aLUPath.addLine(to: CGPoint(x: 512.64, y: 550))
-        aLUPath.addLine(to: CGPoint(x: 523, y: 530))
-        aLUPath.addLine(to: CGPoint(x: 608, y: 530))
-        aLUPath.addLine(to: CGPoint(x: 578, y: 620))
-        aLUPath.addLine(to: CGPoint(x: 418, y: 620))
-        aLUPath.addLine(to: CGPoint(x: 388, y: 530))
-        aLUPath.close()
-        aLUColor.setFill()
-        aLUPath.fill()
-        UIColor.black.setStroke()
-        aLUPath.lineWidth = 1
-        aLUPath.stroke()
-
-
-        //// AMux(combo) Drawing
-        let aMuxcomboPath = UIBezierPath()
-        aMuxcomboPath.move(to: CGPoint(x: 485, y: 450))
-        aMuxcomboPath.addLine(to: CGPoint(x: 485, y: 475))
-        aMuxcomboPath.addLine(to: CGPoint(x: 435, y: 475))
-        aMuxcomboPath.addLine(to: CGPoint(x: 435, y: 500))
-        aMuxcomboPath.addLine(to: CGPoint(x: 445, y: 500))
-        aMuxcomboPath.addLine(to: CGPoint(x: 427.5, y: 525))
-        aMuxcomboPath.addLine(to: CGPoint(x: 410, y: 500))
-        aMuxcomboPath.addLine(to: CGPoint(x: 420, y: 500))
-        aMuxcomboPath.addLine(to: CGPoint(x: 420.17, y: 475))
-        aMuxcomboPath.addLine(to: CGPoint(x: 435, y: 475))
-        aMuxcomboPath.addLine(to: CGPoint(x: 420.17, y: 475))
-        aMuxcomboPath.addLine(to: CGPoint(x: 370, y: 475))
-        aMuxcomboPath.addLine(to: CGPoint(x: 370, y: 450))
-        aMuxcomboPath.addLine(to: CGPoint(x: 420, y: 450))
-        aMuxcomboPath.addLine(to: CGPoint(x: 435, y: 450))
-        aMuxcomboPath.addLine(to: CGPoint(x: 485, y: 450))
-        aMuxcomboPath.close()
-        aMuxComboColor.setFill()
-        aMuxcomboPath.fill()
-        UIColor.black.setStroke()
-        aMuxcomboPath.lineWidth = 1
-        aMuxcomboPath.stroke()
-
-
-        //// MARB Drawing
-        let mARBPath = UIBezierPath(rect: CGRect(x: 179.5, y: 225, width: 100, height: 25))
-        mARBColor.setFill()
-        mARBPath.fill()
-        UIColor.black.setStroke()
-        mARBPath.lineWidth = 1
-        mARBPath.stroke()
-
-
-        //// MARA Drawing
-        let mARAPath = UIBezierPath(rect: CGRect(x: 180, y: 310, width: 100, height: 25))
-        mARAColor.setFill()
-        mARAPath.fill()
-        UIColor.black.setStroke()
-        mARAPath.lineWidth = 1
-        mARAPath.stroke()
-
-
-        //// MARArrow Drawing
-        let mARArrowPath = UIBezierPath()
-        mARArrowPath.move(to: CGPoint(x: 239.59, y: 250))
-        mARArrowPath.addCurve(to: CGPoint(x: 239.59, y: 279.87), controlPoint1: CGPoint(x: 239.59, y: 250), controlPoint2: CGPoint(x: 239.59, y: 276.94))
-        mARArrowPath.addCurve(to: CGPoint(x: 239.59, y: 280.13), controlPoint1: CGPoint(x: 239.59, y: 280.04), controlPoint2: CGPoint(x: 239.59, y: 280.13))
-        mARArrowPath.addCurve(to: CGPoint(x: 129.59, y: 280.13), controlPoint1: CGPoint(x: 239.59, y: 280.59), controlPoint2: CGPoint(x: 129.59, y: 280.13))
-        mARArrowPath.addLine(to: CGPoint(x: 239.59, y: 280.13))
-        mARArrowPath.addLine(to: CGPoint(x: 239.59, y: 310))
-        mARArrowPath.addLine(to: CGPoint(x: 224.59, y: 310))
-        mARArrowPath.addLine(to: CGPoint(x: 224.59, y: 294.87))
-        mARArrowPath.addLine(to: CGPoint(x: 129.59, y: 294.87))
-        mARArrowPath.addLine(to: CGPoint(x: 129.59, y: 304.87))
-        mARArrowPath.addCurve(to: CGPoint(x: 105.74, y: 279.87), controlPoint1: CGPoint(x: 129.59, y: 304.87), controlPoint2: CGPoint(x: 105.58, y: 279.87))
-        mARArrowPath.addCurve(to: CGPoint(x: 121.46, y: 263.57), controlPoint1: CGPoint(x: 107.23, y: 278.33), controlPoint2: CGPoint(x: 115.15, y: 270.12))
-        mARArrowPath.addCurve(to: CGPoint(x: 129.59, y: 255.13), controlPoint1: CGPoint(x: 125.93, y: 258.93), controlPoint2: CGPoint(x: 129.59, y: 255.13))
-        mARArrowPath.addLine(to: CGPoint(x: 129.59, y: 265.13))
-        mARArrowPath.addLine(to: CGPoint(x: 224.59, y: 265.13))
-        mARArrowPath.addLine(to: CGPoint(x: 224.59, y: 250))
-        mARArrowPath.addLine(to: CGPoint(x: 239.59, y: 250))
-        mARArrowPath.addLine(to: CGPoint(x: 239.59, y: 250))
-        mARArrowPath.close()
-        mARArrowColor.setFill()
-        mARArrowPath.fill()
-        UIColor.black.setStroke()
-        mARArrowPath.lineWidth = 1
-        mARArrowPath.stroke()
-
-
+        
+        
+        //// ABusText Drawing
+        let aBusTextRect = CGRect(x: 515, y: 197, width: 49, height: 26)
+        let aBusTextTextContent = "ABus"
+        let aBusTextStyle = NSMutableParagraphStyle()
+        aBusTextStyle.alignment = .left
+        let aBusTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: aBusTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aBusTextTextHeight: CGFloat = aBusTextTextContent.boundingRect(with: CGSize(width: aBusTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aBusTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: aBusTextRect)
+        aBusTextTextContent.draw(in: CGRect(x: aBusTextRect.minX, y: aBusTextRect.minY + (aBusTextRect.height - aBusTextTextHeight) / 2, width: aBusTextRect.width, height: aBusTextTextHeight), withAttributes: aBusTextFontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
         //// SystemBus
+        //// BusMDRMux Drawing
+        let busMDRMuxPath = UIBezierPath()
+        busMDRMuxPath.move(to: CGPoint(x: 265.34, y: 495.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 274.5, y: 495.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 256.98, y: 470.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 239.45, y: 495.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 248.61, y: 495.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 248.61, y: 505.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 112.5, y: 505.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 112.5, y: 520.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 248.61, y: 520.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 265.34, y: 520.5))
+        busMDRMuxPath.addLine(to: CGPoint(x: 265.34, y: 495.5))
+        busMDRMuxPath.close()
+        dataBusColor.setFill()
+        busMDRMuxPath.fill()
+        UIColor.black.setStroke()
+        busMDRMuxPath.lineWidth = 1
+        busMDRMuxPath.stroke()
+        
+        
+        //// DataArrow Drawing
+        let dataArrowPath = UIBezierPath()
+        dataArrowPath.move(to: CGPoint(x: 56.53, y: 542.5))
+        dataArrowPath.addLine(to: CGPoint(x: 47.75, y: 542.5))
+        dataArrowPath.addLine(to: CGPoint(x: 47.75, y: 550.5))
+        dataArrowPath.addLine(to: CGPoint(x: 31.5, y: 535.5))
+        dataArrowPath.addLine(to: CGPoint(x: 47.75, y: 519.5))
+        dataArrowPath.addLine(to: CGPoint(x: 47.75, y: 527.5))
+        dataArrowPath.move(to: CGPoint(x: 47.75, y: 527.5))
+        dataArrowPath.addLine(to: CGPoint(x: 56.53, y: 527.5))
+        dataArrowPath.addLine(to: CGPoint(x: 65.25, y: 527.5))
+        dataArrowPath.addLine(to: CGPoint(x: 65.25, y: 519.5))
+        dataArrowPath.addLine(to: CGPoint(x: 81.5, y: 534.5))
+        dataArrowPath.addLine(to: CGPoint(x: 65.25, y: 550.5))
+        dataArrowPath.addLine(to: CGPoint(x: 65.25, y: 542.5))
+        dataArrowPath.addLine(to: CGPoint(x: 56.53, y: 542.5))
+        dataBusColor.setFill()
+        dataArrowPath.fill()
+        UIColor.black.setStroke()
+        dataArrowPath.lineWidth = 1
+        dataArrowPath.stroke()
+        
+        
+        //// AddrArrow Drawing
+        let addrArrowPath = UIBezierPath()
+        addrArrowPath.move(to: CGPoint(x: 83.5, y: 484.5))
+        addrArrowPath.addLine(to: CGPoint(x: 55.28, y: 484.5))
+        addrArrowPath.addLine(to: CGPoint(x: 55.33, y: 490.5))
+        addrArrowPath.addLine(to: CGPoint(x: 28.5, y: 469.5))
+        addrArrowPath.addLine(to: CGPoint(x: 55.33, y: 449.5))
+        addrArrowPath.addLine(to: CGPoint(x: 55.28, y: 455.5))
+        addrArrowPath.addLine(to: CGPoint(x: 83.5, y: 455.5))
+        addrArrowPath.addLine(to: CGPoint(x: 83.5, y: 484.5))
+        addrArrowPath.close()
+        addressBusColor.setFill()
+        addrArrowPath.fill()
+        UIColor.black.setStroke()
+        addrArrowPath.lineWidth = 1
+        addrArrowPath.stroke()
+        
+        
         //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRect(x: 55, y: 248.62, width: 29, height: 752.12))
-        systemBusColor.setFill()
+        let rectanglePath = UIBezierPath(rect: CGRect(x: 83, y: 257.62, width: 29, height: 752.12))
+        addressBusColor.setFill()
         rectanglePath.fill()
         UIColor.black.setStroke()
         rectanglePath.lineWidth = 1
         rectanglePath.stroke()
-
-
+        
+        
         //// SystemBus2 Drawing
-        let systemBus2Path = UIBezierPath(rect: CGRect(x: 84, y: 381.62, width: 10, height: 619.12))
-        systemBusColor.setFill()
+        let systemBus2Path = UIBezierPath(rect: CGRect(x: 112, y: 390.5, width: 15.5, height: 619.24))
+        dataBusColor.setFill()
         systemBus2Path.fill()
         UIColor.black.setStroke()
         systemBus2Path.lineWidth = 1
         systemBus2Path.stroke()
-
-
-
-
-        //// MDRCk Drawing
-        let mDRCkPath = UIBezierPath(rect: CGRect(x: 180, y: 390, width: 100, height: 25))
+        
+        
+        //// SystemBusText Drawing
+        context.saveGState()
+        context.translateBy(x: 49, y: 391)
+        context.rotate(by: -90 * CGFloat.pi/180)
+        
+        let systemBusTextRect = CGRect(x: 0, y: 0, width: 98, height: 34)
+        let systemBusTextTextContent = "System Bus"
+        let systemBusTextStyle = NSMutableParagraphStyle()
+        systemBusTextStyle.alignment = .left
+        let systemBusTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: systemBusTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let systemBusTextTextHeight: CGFloat = systemBusTextTextContent.boundingRect(with: CGSize(width: systemBusTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: systemBusTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: systemBusTextRect)
+        systemBusTextTextContent.draw(in: CGRect(x: systemBusTextRect.minX, y: systemBusTextRect.minY + (systemBusTextRect.height - systemBusTextTextHeight) / 2, width: systemBusTextRect.width, height: systemBusTextTextHeight), withAttributes: systemBusTextFontAttributes)
+        context.restoreGState()
+        
+        context.restoreGState()
+        
+        
+        //// AddrArrowText Drawing
+        let addrArrowTextRect = CGRect(x: 39, y: 431, width: 42, height: 18)
+        let addrArrowTextTextContent = "Addr"
+        let addrArrowTextStyle = NSMutableParagraphStyle()
+        addrArrowTextStyle.alignment = .left
+        let addrArrowTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: addrArrowTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let addrArrowTextTextHeight: CGFloat = addrArrowTextTextContent.boundingRect(with: CGSize(width: addrArrowTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: addrArrowTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: addrArrowTextRect)
+        addrArrowTextTextContent.draw(in: CGRect(x: addrArrowTextRect.minX, y: addrArrowTextRect.minY + (addrArrowTextRect.height - addrArrowTextTextHeight) / 2, width: addrArrowTextRect.width, height: addrArrowTextTextHeight), withAttributes: addrArrowTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// DataArrowText Drawing
+        let dataArrowTextRect = CGRect(x: 39, y: 553, width: 42, height: 18)
+        let dataArrowTextTextContent = "Data"
+        let dataArrowTextStyle = NSMutableParagraphStyle()
+        dataArrowTextStyle.alignment = .left
+        let dataArrowTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: dataArrowTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let dataArrowTextTextHeight: CGFloat = dataArrowTextTextContent.boundingRect(with: CGSize(width: dataArrowTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: dataArrowTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: dataArrowTextRect)
+        dataArrowTextTextContent.draw(in: CGRect(x: dataArrowTextRect.minX, y: dataArrowTextRect.minY + (dataArrowTextRect.height - dataArrowTextTextHeight) / 2, width: dataArrowTextRect.width, height: dataArrowTextTextHeight), withAttributes: dataArrowTextFontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// MARComponents
+        //// MARArrow Drawing
+        let mARArrowPath = UIBezierPath()
+        mARArrowPath.move(to: CGPoint(x: 289.59, y: 258))
+        mARArrowPath.addCurve(to: CGPoint(x: 289.59, y: 287.87), controlPoint1: CGPoint(x: 289.59, y: 258), controlPoint2: CGPoint(x: 289.59, y: 284.94))
+        mARArrowPath.addCurve(to: CGPoint(x: 289.59, y: 288.13), controlPoint1: CGPoint(x: 289.59, y: 288.04), controlPoint2: CGPoint(x: 289.59, y: 288.13))
+        mARArrowPath.addCurve(to: CGPoint(x: 145.59, y: 288.13), controlPoint1: CGPoint(x: 289.59, y: 288.59), controlPoint2: CGPoint(x: 145.59, y: 288.13))
+        mARArrowPath.addLine(to: CGPoint(x: 289.59, y: 288.13))
+        mARArrowPath.addLine(to: CGPoint(x: 289.59, y: 318))
+        mARArrowPath.addLine(to: CGPoint(x: 274.59, y: 318))
+        mARArrowPath.addLine(to: CGPoint(x: 274.59, y: 302.87))
+        mARArrowPath.addLine(to: CGPoint(x: 145.59, y: 302.87))
+        mARArrowPath.addLine(to: CGPoint(x: 145.59, y: 312.87))
+        mARArrowPath.addCurve(to: CGPoint(x: 121.74, y: 287.87), controlPoint1: CGPoint(x: 145.59, y: 312.87), controlPoint2: CGPoint(x: 121.58, y: 287.87))
+        mARArrowPath.addCurve(to: CGPoint(x: 137.46, y: 271.57), controlPoint1: CGPoint(x: 123.23, y: 286.33), controlPoint2: CGPoint(x: 131.15, y: 278.12))
+        mARArrowPath.addCurve(to: CGPoint(x: 145.59, y: 263.13), controlPoint1: CGPoint(x: 141.93, y: 266.93), controlPoint2: CGPoint(x: 145.59, y: 263.13))
+        mARArrowPath.addLine(to: CGPoint(x: 145.59, y: 273.13))
+        mARArrowPath.addLine(to: CGPoint(x: 274.59, y: 273.13))
+        mARArrowPath.addLine(to: CGPoint(x: 274.59, y: 258))
+        mARArrowPath.addLine(to: CGPoint(x: 289.59, y: 258))
+        mARArrowPath.close()
+        addressBusColor.setFill()
+        mARArrowPath.fill()
+        UIColor.black.setStroke()
+        mARArrowPath.lineWidth = 1
+        mARArrowPath.stroke()
+        
+        
+        //// MARB Drawing
+        let mARBRect = CGRect(x: 231.5, y: 232.5, width: 100, height: 25)
+        let mARBPath = UIBezierPath(rect: mARBRect)
         registerBankColor.setFill()
-        mDRCkPath.fill()
+        mARBPath.fill()
         UIColor.black.setStroke()
-        mDRCkPath.lineWidth = 1
-        mDRCkPath.stroke()
-
-
-        //// MDRCktoAMux Drawing
-        let mDRCktoAMuxPath = UIBezierPath()
-        mDRCktoAMuxPath.move(to: CGPoint(x: 400, y: 420))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 410, y: 420))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 392.5, y: 445))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 375, y: 420))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 385, y: 420))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 385, y: 410))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 280, y: 410))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 280, y: 395))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 385, y: 395))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 400, y: 395))
-        mDRCktoAMuxPath.addLine(to: CGPoint(x: 400, y: 420))
-        mDRCktoAMuxPath.close()
-        mDRCktoAMuxColor.setFill()
-        mDRCktoAMuxPath.fill()
+        mARBPath.lineWidth = 1
+        mARBPath.stroke()
+        let mARBTextContent = "0x00"
+        let mARBStyle = NSMutableParagraphStyle()
+        mARBStyle.alignment = .center
+        let mARBFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mARBStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mARBTextHeight: CGFloat = mARBTextContent.boundingRect(with: CGSize(width: mARBRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARBFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mARBRect)
+        mARBTextContent.draw(in: CGRect(x: mARBRect.minX, y: mARBRect.minY + (mARBRect.height - mARBTextHeight) / 2, width: mARBRect.width, height: mARBTextHeight), withAttributes: mARBFontAttributes)
+        context.restoreGState()
+        
+        
+        //// MARBLabel Drawing
+        let mARBLabelRect = CGRect(x: 180, y: 239, width: 51, height: 15)
+        let mARBLabelTextContent = "MARB"
+        let mARBLabelStyle = NSMutableParagraphStyle()
+        mARBLabelStyle.alignment = .center
+        let mARBLabelFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+            .foregroundColor: labelBlack,
+            .paragraphStyle: mARBLabelStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mARBLabelTextHeight: CGFloat = mARBLabelTextContent.boundingRect(with: CGSize(width: mARBLabelRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARBLabelFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mARBLabelRect)
+        mARBLabelTextContent.draw(in: CGRect(x: mARBLabelRect.minX, y: mARBLabelRect.minY + (mARBLabelRect.height - mARBLabelTextHeight) / 2, width: mARBLabelRect.width, height: mARBLabelTextHeight), withAttributes: mARBLabelFontAttributes)
+        context.restoreGState()
+        
+        
+        //// MARB 2 Drawing
+        let mARB2Rect = CGRect(x: 231.5, y: 317.5, width: 100, height: 25)
+        let mARB2Path = UIBezierPath(rect: mARB2Rect)
+        registerBankColor.setFill()
+        mARB2Path.fill()
         UIColor.black.setStroke()
-        mDRCktoAMuxPath.lineWidth = 1
-        mDRCktoAMuxPath.stroke()
-
-
-        //// MDRMux Drawing
-        let mDRMuxPath = UIBezierPath()
-        mDRMuxPath.move(to: CGPoint(x: 280, y: 485))
-        mDRMuxPath.addLine(to: CGPoint(x: 280, y: 460))
-        mDRMuxPath.addLine(to: CGPoint(x: 237, y: 460))
-        mDRMuxPath.addLine(to: CGPoint(x: 237, y: 445))
-        mDRMuxPath.addLine(to: CGPoint(x: 247, y: 445))
-        mDRMuxPath.addLine(to: CGPoint(x: 229.5, y: 420))
-        mDRMuxPath.addLine(to: CGPoint(x: 212, y: 445))
-        mDRMuxPath.addLine(to: CGPoint(x: 222, y: 445))
-        mDRMuxPath.addLine(to: CGPoint(x: 222.17, y: 460))
-        mDRMuxPath.addLine(to: CGPoint(x: 237, y: 460))
-        mDRMuxPath.addLine(to: CGPoint(x: 222.17, y: 460))
-        mDRMuxPath.addLine(to: CGPoint(x: 179, y: 460))
-        mDRMuxPath.addLine(to: CGPoint(x: 179, y: 485))
-        mDRMuxPath.addLine(to: CGPoint(x: 222, y: 485))
-        mDRMuxPath.addLine(to: CGPoint(x: 237, y: 485))
-        mDRMuxPath.addLine(to: CGPoint(x: 280, y: 485))
-        mDRMuxPath.close()
-        mDRMuxColor.setFill()
-        mDRMuxPath.fill()
+        mARB2Path.lineWidth = 1
+        mARB2Path.stroke()
+        let mARB2TextContent = "0x00"
+        let mARB2Style = NSMutableParagraphStyle()
+        mARB2Style.alignment = .center
+        let mARB2FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mARB2Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mARB2TextHeight: CGFloat = mARB2TextContent.boundingRect(with: CGSize(width: mARB2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARB2FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mARB2Rect)
+        mARB2TextContent.draw(in: CGRect(x: mARB2Rect.minX, y: mARB2Rect.minY + (mARB2Rect.height - mARB2TextHeight) / 2, width: mARB2Rect.width, height: mARB2TextHeight), withAttributes: mARB2FontAttributes)
+        context.restoreGState()
+        
+        
+        //// MARALabel Drawing
+        let mARALabelRect = CGRect(x: 180, y: 323, width: 51, height: 15)
+        let mARALabelTextContent = "MARA"
+        let mARALabelStyle = NSMutableParagraphStyle()
+        mARALabelStyle.alignment = .center
+        let mARALabelFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+            .foregroundColor: labelBlack,
+            .paragraphStyle: mARALabelStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mARALabelTextHeight: CGFloat = mARALabelTextContent.boundingRect(with: CGSize(width: mARALabelRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARALabelFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mARALabelRect)
+        mARALabelTextContent.draw(in: CGRect(x: mARALabelRect.minX, y: mARALabelRect.minY + (mARALabelRect.height - mARALabelTextHeight) / 2, width: mARALabelRect.width, height: mARALabelTextHeight), withAttributes: mARALabelFontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// MDRComponents
+        //// MDR Drawing
+        let mDRRect = CGRect(x: 231.5, y: 391.5, width: 100, height: 25)
+        let mDRPath = UIBezierPath(rect: mDRRect)
+        registerBankColor.setFill()
+        mDRPath.fill()
         UIColor.black.setStroke()
-        mDRMuxPath.lineWidth = 1
-        mDRMuxPath.stroke()
-
-
-        //// CMux Drawing
-        let cMuxPath = UIBezierPath()
-        cMuxPath.move(to: CGPoint(x: 343.5, y: 190))
-        cMuxPath.addCurve(to: CGPoint(x: 361, y: 215), controlPoint1: CGPoint(x: 343.5, y: 190), controlPoint2: CGPoint(x: 361, y: 215))
-        cMuxPath.addLine(to: CGPoint(x: 351, y: 215))
-        cMuxPath.addLine(to: CGPoint(x: 351, y: 594))
-        cMuxPath.addLine(to: CGPoint(x: 336.17, y: 594))
-        cMuxPath.addLine(to: CGPoint(x: 351, y: 594))
-        cMuxPath.addLine(to: CGPoint(x: 394, y: 594))
-        cMuxPath.addLine(to: CGPoint(x: 394, y: 619))
-        cMuxPath.addLine(to: CGPoint(x: 293, y: 619))
-        cMuxPath.addLine(to: CGPoint(x: 293, y: 594))
-        cMuxPath.addLine(to: CGPoint(x: 336.17, y: 594))
-        cMuxPath.addCurve(to: CGPoint(x: 336.16, y: 567.92), controlPoint1: CGPoint(x: 336.17, y: 594), controlPoint2: CGPoint(x: 336.16, y: 584.27))
-        cMuxPath.addCurve(to: CGPoint(x: 336.15, y: 544), controlPoint1: CGPoint(x: 336.15, y: 561.04), controlPoint2: CGPoint(x: 336.15, y: 552.99))
-        cMuxPath.addLine(to: CGPoint(x: 251, y: 544))
-        cMuxPath.addLine(to: CGPoint(x: 251, y: 519))
-        cMuxPath.addLine(to: CGPoint(x: 241, y: 519))
-        cMuxPath.addLine(to: CGPoint(x: 258.5, y: 494))
-        cMuxPath.addLine(to: CGPoint(x: 276, y: 519))
-        cMuxPath.addLine(to: CGPoint(x: 266, y: 519))
-        cMuxPath.addLine(to: CGPoint(x: 266, y: 529))
-        cMuxPath.addLine(to: CGPoint(x: 336.14, y: 529))
-        cMuxPath.addCurve(to: CGPoint(x: 336, y: 215), controlPoint1: CGPoint(x: 336.09, y: 420.68), controlPoint2: CGPoint(x: 336, y: 215))
-        cMuxPath.addLine(to: CGPoint(x: 326, y: 215))
-        cMuxPath.addLine(to: CGPoint(x: 343.5, y: 190))
-        cMuxPath.addLine(to: CGPoint(x: 343.5, y: 190))
-        cMuxPath.close()
-        cBusPipeColor.setFill()
-        cMuxPath.fill()
-        UIColor.black.setStroke()
-        cMuxPath.lineWidth = 1
-        cMuxPath.stroke()
-
-
+        mDRPath.lineWidth = 1
+        mDRPath.stroke()
+        let mDRTextContent = "0x00"
+        let mDRStyle = NSMutableParagraphStyle()
+        mDRStyle.alignment = .center
+        let mDRFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mDRStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mDRTextHeight: CGFloat = mDRTextContent.boundingRect(with: CGSize(width: mDRRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mDRFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mDRRect)
+        mDRTextContent.draw(in: CGRect(x: mDRRect.minX, y: mDRRect.minY + (mDRRect.height - mDRTextHeight) / 2, width: mDRRect.width, height: mDRTextHeight), withAttributes: mDRFontAttributes)
+        context.restoreGState()
+        
+        
         //// MemWrite Drawing
         let memWritePath = UIBezierPath()
-        memWritePath.move(to: CGPoint(x: 180, y: 410))
-        memWritePath.addLine(to: CGPoint(x: 135, y: 410))
-        memWritePath.addLine(to: CGPoint(x: 135, y: 420))
-        memWritePath.addLine(to: CGPoint(x: 110, y: 403.75))
-        memWritePath.addLine(to: CGPoint(x: 135, y: 385))
-        memWritePath.addLine(to: CGPoint(x: 135, y: 395))
-        memWritePath.addLine(to: CGPoint(x: 180, y: 395))
-        memWritePath.addLine(to: CGPoint(x: 180, y: 410))
+        memWritePath.move(to: CGPoint(x: 231.5, y: 411.5))
+        memWritePath.addLine(to: CGPoint(x: 156.29, y: 411.5))
+        memWritePath.addLine(to: CGPoint(x: 156.29, y: 421.5))
+        memWritePath.addLine(to: CGPoint(x: 128.5, y: 404.5))
+        memWritePath.addLine(to: CGPoint(x: 156.29, y: 386.5))
+        memWritePath.addLine(to: CGPoint(x: 156.29, y: 396.5))
+        memWritePath.addLine(to: CGPoint(x: 231.5, y: 396.5))
+        memWritePath.addLine(to: CGPoint(x: 231.5, y: 411.5))
         memWritePath.close()
-        memWriteColor.setFill()
+        mDRColor.setFill()
         memWritePath.fill()
         UIColor.black.setStroke()
         memWritePath.lineWidth = 1
         memWritePath.stroke()
-
-
-        //// BustoMDRMux Drawing
-        let bustoMDRMuxPath = UIBezierPath()
-        bustoMDRMuxPath.move(to: CGPoint(x: 207, y: 518))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 217, y: 518))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 199.5, y: 493))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 182, y: 518))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 192, y: 518))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 192, y: 528))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 94, y: 528))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 94, y: 543))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 192, y: 543))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 207, y: 543))
-        bustoMDRMuxPath.addLine(to: CGPoint(x: 207, y: 518))
-        bustoMDRMuxPath.close()
-        bustoMDRMuxColor.setFill()
-        bustoMDRMuxPath.fill()
+        
+        
+        //// MDRMux Drawing
+        let mDRMuxRect = CGRect(x: 231.5, y: 443.5, width: 100, height: 25)
+        let mDRMuxPath = UIBezierPath(rect: mDRMuxRect)
+        noFillColor.setFill()
+        mDRMuxPath.fill()
         UIColor.black.setStroke()
-        bustoMDRMuxPath.lineWidth = 1
-        bustoMDRMuxPath.stroke()
-
-
+        mDRMuxPath.lineWidth = 1
+        mDRMuxPath.stroke()
+        let mDRMuxTextContent = "MDRMux"
+        let mDRMuxStyle = NSMutableParagraphStyle()
+        mDRMuxStyle.alignment = .center
+        let mDRMuxFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mDRMuxStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mDRMuxTextHeight: CGFloat = mDRMuxTextContent.boundingRect(with: CGSize(width: mDRMuxRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mDRMuxFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mDRMuxRect)
+        mDRMuxTextContent.draw(in: CGRect(x: mDRMuxRect.minX, y: mDRMuxRect.minY + (mDRMuxRect.height - mDRMuxTextHeight) / 2, width: mDRMuxRect.width, height: mDRMuxTextHeight), withAttributes: mDRMuxFontAttributes)
+        context.restoreGState()
+        
+        
+        //// MDRMuxArrow Drawing
+        context.saveGState()
+        context.translateBy(x: 293.5, y: 418.5)
+        context.rotate(by: 90 * CGFloat.pi/180)
+        
+        let mDRMuxArrowPath = UIBezierPath()
+        mDRMuxArrowPath.move(to: CGPoint(x: 25, y: 20.14))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 12.1, y: 20.14))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 12.1, y: 27))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 0, y: 12))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 12.1, y: -3))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 12.1, y: 3.86))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 25, y: 3.86))
+        mDRMuxArrowPath.addLine(to: CGPoint(x: 25, y: 20.14))
+        mDRMuxArrowPath.close()
+        noFillColor.setFill()
+        mDRMuxArrowPath.fill()
+        UIColor.black.setStroke()
+        mDRMuxArrowPath.lineWidth = 1
+        mDRMuxArrowPath.stroke()
+        
+        context.restoreGState()
+        
+        
+        
+        
+        //// CComponents
+        //// Zeros Drawing
+        let zerosRect = CGRect(x: 409, y: 826, width: 11, height: 106)
+        let zerosTextContent = "0\n0\n0\n0\n"
+        let zerosStyle = NSMutableParagraphStyle()
+        zerosStyle.alignment = .left
+        let zerosFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: zerosStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let zerosTextHeight: CGFloat = zerosTextContent.boundingRect(with: CGSize(width: zerosRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: zerosFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: zerosRect)
+        zerosTextContent.draw(in: CGRect(x: zerosRect.minX, y: zerosRect.minY + (zerosRect.height - zerosTextHeight) / 2, width: zerosRect.width, height: zerosTextHeight), withAttributes: zerosFontAttributes)
+        context.restoreGState()
+        
+        
+        //// CBusText Drawing
+        let cBusTextRect = CGRect(x: 412, y: 197, width: 49, height: 26)
+        let cBusTextTextContent = "CBus"
+        let cBusTextStyle = NSMutableParagraphStyle()
+        cBusTextStyle.alignment = .left
+        let cBusTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.labelFontSize),
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cBusTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cBusTextTextHeight: CGFloat = cBusTextTextContent.boundingRect(with: CGSize(width: cBusTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cBusTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: cBusTextRect)
+        cBusTextTextContent.draw(in: CGRect(x: cBusTextRect.minX, y: cBusTextRect.minY + (cBusTextRect.height - cBusTextTextHeight) / 2, width: cBusTextRect.width, height: cBusTextTextHeight), withAttributes: cBusTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// CBus Drawing
+        let cBusPath = UIBezierPath()
+        cBusPath.move(to: CGPoint(x: 392, y: 200.5))
+        cBusPath.addCurve(to: CGPoint(x: 409.5, y: 225.5), controlPoint1: CGPoint(x: 392, y: 200.5), controlPoint2: CGPoint(x: 409.5, y: 225.5))
+        cBusPath.addLine(to: CGPoint(x: 399.5, y: 225.5))
+        cBusPath.addLine(to: CGPoint(x: 399.5, y: 589.5))
+        cBusPath.addLine(to: CGPoint(x: 384.67, y: 589.5))
+        cBusPath.addLine(to: CGPoint(x: 399.5, y: 589.5))
+        cBusPath.addLine(to: CGPoint(x: 384.67, y: 589.5))
+        cBusPath.addCurve(to: CGPoint(x: 384.66, y: 543.42), controlPoint1: CGPoint(x: 384.67, y: 589.5), controlPoint2: CGPoint(x: 384.66, y: 559.77))
+        cBusPath.addCurve(to: CGPoint(x: 384.65, y: 521.5), controlPoint1: CGPoint(x: 384.65, y: 536.54), controlPoint2: CGPoint(x: 384.65, y: 530.49))
+        cBusPath.addLine(to: CGPoint(x: 299.5, y: 521.5))
+        cBusPath.addLine(to: CGPoint(x: 299.5, y: 496.5))
+        cBusPath.addLine(to: CGPoint(x: 289.5, y: 496.5))
+        cBusPath.addLine(to: CGPoint(x: 307, y: 471.5))
+        cBusPath.addLine(to: CGPoint(x: 324.5, y: 496.5))
+        cBusPath.addLine(to: CGPoint(x: 314.5, y: 496.5))
+        cBusPath.addLine(to: CGPoint(x: 314.5, y: 506.5))
+        cBusPath.addLine(to: CGPoint(x: 384.64, y: 506.5))
+        cBusPath.addCurve(to: CGPoint(x: 384.5, y: 225.5), controlPoint1: CGPoint(x: 384.59, y: 398.18), controlPoint2: CGPoint(x: 384.5, y: 225.5))
+        cBusPath.addLine(to: CGPoint(x: 374.5, y: 225.5))
+        cBusPath.addLine(to: CGPoint(x: 392, y: 200.5))
+        cBusPath.addLine(to: CGPoint(x: 392, y: 200.5))
+        cBusPath.close()
+        cBusColor.setFill()
+        cBusPath.fill()
+        UIColor.black.setStroke()
+        cBusPath.lineWidth = 1
+        cBusPath.stroke()
+        
+        
+        //// CMux Drawing
+        let cMuxRect = CGRect(x: 342.5, y: 589.5, width: 100, height: 25)
+        let cMuxPath = UIBezierPath(rect: cMuxRect)
+        noFillColor.setFill()
+        cMuxPath.fill()
+        UIColor.black.setStroke()
+        cMuxPath.lineWidth = 1
+        cMuxPath.stroke()
+        let cMuxTextContent = "CMux"
+        let cMuxStyle = NSMutableParagraphStyle()
+        cMuxStyle.alignment = .center
+        let cMuxFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cMuxStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cMuxTextHeight: CGFloat = cMuxTextContent.boundingRect(with: CGSize(width: cMuxRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cMuxFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: cMuxRect)
+        cMuxTextContent.draw(in: CGRect(x: cMuxRect.minX, y: cMuxRect.minY + (cMuxRect.height - cMuxTextHeight) / 2, width: cMuxRect.width, height: cMuxTextHeight), withAttributes: cMuxFontAttributes)
+        context.restoreGState()
+        
+        
+        //// CmuxBus Drawing
+        let cmuxBusPath = UIBezierPath()
+        cmuxBusPath.move(to: CGPoint(x: 354, y: 641.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 344, y: 641.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 361.5, y: 616.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 379, y: 641.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 369, y: 641.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 369, y: 821.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 407, y: 821.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 407, y: 740.27))
+        cmuxBusPath.addLine(to: CGPoint(x: 407, y: 912.88))
+        cmuxBusPath.addLine(to: CGPoint(x: 407, y: 836.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 369, y: 836.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 354, y: 836.75))
+        cmuxBusPath.addLine(to: CGPoint(x: 354, y: 641.75))
+        cmuxBusPath.close()
+        addressBusColor.setFill()
+        cmuxBusPath.fill()
+        UIColor.black.setStroke()
+        cmuxBusPath.lineWidth = 1
+        cmuxBusPath.stroke()
+        
+        
+        
+        
+        //// ALUComponents
         //// ALUtoCMux Drawing
         let aLUtoCMuxPath = UIBezierPath()
-        aLUtoCMuxPath.move(to: CGPoint(x: 379.5, y: 627.5))
-        aLUtoCMuxPath.addCurve(to: CGPoint(x: 397, y: 652.5), controlPoint1: CGPoint(x: 379.5, y: 627.5), controlPoint2: CGPoint(x: 397, y: 652.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 387, y: 652.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 387, y: 662.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 430, y: 662.5))
-        aLUtoCMuxPath.addCurve(to: CGPoint(x: 430, y: 620), controlPoint1: CGPoint(x: 430, y: 656.17), controlPoint2: CGPoint(x: 430, y: 620))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 445, y: 620))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 445, y: 677.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 372, y: 677.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 372, y: 652.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 362, y: 652.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 379.5, y: 627.5))
-        aLUtoCMuxPath.addLine(to: CGPoint(x: 379.5, y: 627.5))
+        aLUtoCMuxPath.move(to: CGPoint(x: 422.5, y: 617.5))
+        aLUtoCMuxPath.addCurve(to: CGPoint(x: 440, y: 642.5), controlPoint1: CGPoint(x: 422.5, y: 617.5), controlPoint2: CGPoint(x: 440, y: 642.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 430, y: 642.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 430, y: 656.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 478, y: 656.5))
+        aLUtoCMuxPath.addCurve(to: CGPoint(x: 478, y: 602), controlPoint1: CGPoint(x: 478, y: 650.17), controlPoint2: CGPoint(x: 478, y: 602))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 493, y: 602))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 493, y: 671.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 415, y: 671.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 415, y: 642.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 405, y: 642.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 422.5, y: 617.5))
+        aLUtoCMuxPath.addLine(to: CGPoint(x: 422.5, y: 617.5))
         aLUtoCMuxPath.close()
-        aLUtoCMuxColor.setFill()
+        cBusColor.setFill()
         aLUtoCMuxPath.fill()
         UIColor.black.setStroke()
         aLUtoCMuxPath.lineWidth = 1
         aLUtoCMuxPath.stroke()
-
-
+        
+        
+        //// ALU Drawing
+        let aLUPath = UIBezierPath()
+        aLUPath.move(to: CGPoint(x: 438.5, y: 521.5))
+        aLUPath.addLine(to: CGPoint(x: 497.5, y: 521.5))
+        aLUPath.addLine(to: CGPoint(x: 507.5, y: 541.5))
+        aLUPath.addLine(to: CGPoint(x: 544.14, y: 541.5))
+        aLUPath.addLine(to: CGPoint(x: 554.5, y: 521.5))
+        aLUPath.addLine(to: CGPoint(x: 613.5, y: 521.5))
+        aLUPath.addLine(to: CGPoint(x: 583.5, y: 605.5))
+        aLUPath.addLine(to: CGPoint(x: 468.5, y: 605.5))
+        aLUPath.addLine(to: CGPoint(x: 438.5, y: 521.5))
+        aLUPath.close()
+        cBusColor.setFill()
+        aLUPath.fill()
+        UIColor.black.setStroke()
+        aLUPath.lineWidth = 1
+        aLUPath.stroke()
+        
+        
+        //// ALUText Drawing
+        let aLUTextRect = CGRect(x: 494, y: 575, width: 65, height: 15)
+        let aLUTextTextContent = "ALU"
+        let aLUTextStyle = NSMutableParagraphStyle()
+        aLUTextStyle.alignment = .center
+        let aLUTextFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+            .foregroundColor: labelBlack,
+            .paragraphStyle: aLUTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aLUTextTextHeight: CGFloat = aLUTextTextContent.boundingRect(with: CGSize(width: aLUTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aLUTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: aLUTextRect)
+        aLUTextTextContent.draw(in: CGRect(x: aLUTextRect.minX, y: aLUTextRect.minY + (aLUTextRect.height - aLUTextTextHeight) / 2, width: aLUTextRect.width, height: aLUTextTextHeight), withAttributes: aLUTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// ALUInstruction Drawing
+        let aLUInstructionRect = CGRect(x: 494, y: 550, width: 65, height: 15)
+        let aLUInstructionTextContent = "   "
+        let aLUInstructionStyle = NSMutableParagraphStyle()
+        aLUInstructionStyle.alignment = .center
+        let aLUInstructionFontAttributes = [
+            .font: UIFont.systemFont(ofSize: UIFont.systemFontSize),
+            .foregroundColor: labelBlack,
+            .paragraphStyle: aLUInstructionStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aLUInstructionTextHeight: CGFloat = aLUInstructionTextContent.boundingRect(with: CGSize(width: aLUInstructionRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aLUInstructionFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: aLUInstructionRect)
+        aLUInstructionTextContent.draw(in: CGRect(x: aLUInstructionRect.minX, y: aLUInstructionRect.minY + (aLUInstructionRect.height - aLUInstructionTextHeight) / 2, width: aLUInstructionRect.width, height: aLUInstructionTextHeight), withAttributes: aLUInstructionFontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// CSMuxComponents
         //// CSMux Drawing
-        let cSMuxPath = UIBezierPath()
-        cSMuxPath.move(to: CGPoint(x: 690, y: 664.5))
-        cSMuxPath.addLine(to: CGPoint(x: 690, y: 639.5))
-        cSMuxPath.addLine(to: CGPoint(x: 632.17, y: 639.5))
-        cSMuxPath.addLine(to: CGPoint(x: 647, y: 639.5))
-        cSMuxPath.addLine(to: CGPoint(x: 632.17, y: 639.5))
-        cSMuxPath.addLine(to: CGPoint(x: 589, y: 639.5))
-        cSMuxPath.addLine(to: CGPoint(x: 589, y: 664.5))
-        cSMuxPath.addLine(to: CGPoint(x: 632, y: 664.5))
-        cSMuxPath.addLine(to: CGPoint(x: 647, y: 664.5))
-        cSMuxPath.addLine(to: CGPoint(x: 690, y: 664.5))
-        cSMuxPath.close()
-        cSMuxColor.setFill()
+        let cSMuxRect = CGRect(x: 601.5, y: 618.5, width: 100, height: 25)
+        let cSMuxPath = UIBezierPath(rect: cSMuxRect)
+        noFillColor.setFill()
         cSMuxPath.fill()
         UIColor.black.setStroke()
         cSMuxPath.lineWidth = 1
         cSMuxPath.stroke()
-
-
-        //// BustoMDRMux 2 Drawing
-        let bustoMDRMux2Path = UIBezierPath()
-        bustoMDRMux2Path.move(to: CGPoint(x: 304, y: 651.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 294, y: 651.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 311.5, y: 626.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 329, y: 651.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 319, y: 651.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 319, y: 831.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 357, y: 831.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 357, y: 750.27))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 357, y: 922.88))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 357, y: 846.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 319, y: 846.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 304, y: 846.75))
-        bustoMDRMux2Path.addLine(to: CGPoint(x: 304, y: 651.75))
-        bustoMDRMux2Path.close()
-        bitstoCMuxColor.setFill()
-        bustoMDRMux2Path.fill()
-        UIColor.black.setStroke()
-        bustoMDRMux2Path.lineWidth = 1
-        bustoMDRMux2Path.stroke()
-
-
-        //// SCkValue Drawing
-        let sCkValuePath = UIBezierPath()
-        sCkValuePath.move(to: CGPoint(x: 690, y: 715))
-        sCkValuePath.addLine(to: CGPoint(x: 690, y: 690))
-        sCkValuePath.addLine(to: CGPoint(x: 665, y: 690))
-        sCkValuePath.addLine(to: CGPoint(x: 665, y: 715))
-        sCkValuePath.addLine(to: CGPoint(x: 690, y: 715))
-        sCkValuePath.close()
-        bitsBoxColor.setFill()
-        sCkValuePath.fill()
-        UIColor.black.setStroke()
-        sCkValuePath.lineWidth = 1
-        sCkValuePath.stroke()
-
-
-        //// CCkValue Drawing
-        let cCkValuePath = UIBezierPath()
-        cCkValuePath.move(to: CGPoint(x: 690, y: 750))
-        cCkValuePath.addLine(to: CGPoint(x: 690, y: 725))
-        cCkValuePath.addLine(to: CGPoint(x: 665, y: 725))
-        cCkValuePath.addLine(to: CGPoint(x: 665, y: 750))
-        cCkValuePath.addLine(to: CGPoint(x: 690, y: 750))
-        cCkValuePath.close()
-        bitsBoxColor.setFill()
-        cCkValuePath.fill()
-        UIColor.black.setStroke()
-        cCkValuePath.lineWidth = 1
-        cCkValuePath.stroke()
-
-
-        //// VCkValue Drawing
-        let vCkValuePath = UIBezierPath()
-        vCkValuePath.move(to: CGPoint(x: 690, y: 785))
-        vCkValuePath.addLine(to: CGPoint(x: 690, y: 760))
-        vCkValuePath.addLine(to: CGPoint(x: 665, y: 760))
-        vCkValuePath.addLine(to: CGPoint(x: 665, y: 785))
-        vCkValuePath.addLine(to: CGPoint(x: 690, y: 785))
-        vCkValuePath.close()
-        bitsBoxColor.setFill()
-        vCkValuePath.fill()
-        UIColor.black.setStroke()
-        vCkValuePath.lineWidth = 1
-        vCkValuePath.stroke()
-
-
-        //// ZCkValue Drawing
-        let zCkValuePath = UIBezierPath()
-        zCkValuePath.move(to: CGPoint(x: 690, y: 870))
-        zCkValuePath.addLine(to: CGPoint(x: 690, y: 845))
-        zCkValuePath.addLine(to: CGPoint(x: 665, y: 845))
-        zCkValuePath.addLine(to: CGPoint(x: 665, y: 870))
-        zCkValuePath.addLine(to: CGPoint(x: 690, y: 870))
-        zCkValuePath.close()
-        bitsBoxColor.setFill()
-        zCkValuePath.fill()
-        UIColor.black.setStroke()
-        zCkValuePath.lineWidth = 1
-        zCkValuePath.stroke()
-
-
-        //// NCkValue Drawing
-        let nCkValuePath = UIBezierPath()
-        nCkValuePath.move(to: CGPoint(x: 690, y: 940))
-        nCkValuePath.addLine(to: CGPoint(x: 690, y: 915))
-        nCkValuePath.addLine(to: CGPoint(x: 665, y: 915))
-        nCkValuePath.addLine(to: CGPoint(x: 665, y: 940))
-        nCkValuePath.addLine(to: CGPoint(x: 690, y: 940))
-        nCkValuePath.close()
-        bitsBoxColor.setFill()
-        nCkValuePath.fill()
-        UIColor.black.setStroke()
-        nCkValuePath.lineWidth = 1
-        nCkValuePath.stroke()
-
-
-        //// AndZ Drawing
-        let andZPath = UIBezierPath()
-        andZPath.move(to: CGPoint(x: 640, y: 870))
-        andZPath.addLine(to: CGPoint(x: 640, y: 845))
-        andZPath.addLine(to: CGPoint(x: 585, y: 845))
-        andZPath.addLine(to: CGPoint(x: 585, y: 870))
-        andZPath.addLine(to: CGPoint(x: 640, y: 870))
-        andZPath.close()
-        bitsBoxColor.setFill()
-        andZPath.fill()
-        UIColor.black.setStroke()
-        andZPath.lineWidth = 1
-        andZPath.stroke()
-
-
-        //// Symbol 13 Drawing
-        let symbol13Rect = CGRect(x: 55, y: 10, width: 123, height: 33)
+        let cSMuxTextContent = "CSMux"
+        let cSMuxStyle = NSMutableParagraphStyle()
+        cSMuxStyle.alignment = .center
+        let cSMuxFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cSMuxStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cSMuxTextHeight: CGFloat = cSMuxTextContent.boundingRect(with: CGSize(width: cSMuxRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cSMuxFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: symbol13Rect)
-        context.translateBy(x: symbol13Rect.minX, y: symbol13Rect.minY)
-
-        CPU1ByteRenderer.drawALUbox(frame: CGRect(origin: .zero, size: symbol13Rect.size), resizing: .stretch)
+        context.clip(to: cSMuxRect)
+        cSMuxTextContent.draw(in: CGRect(x: cSMuxRect.minX, y: cSMuxRect.minY + (cSMuxRect.height - cSMuxTextHeight) / 2, width: cSMuxRect.width, height: cSMuxTextHeight), withAttributes: cSMuxFontAttributes)
         context.restoreGState()
-
-
-        //// Group 30
-        //// Text 5 Drawing
-        let text5Rect = CGRect(x: 55, y: 94, width: 22, height: 15)
-        let text5TextContent = "SP"
-        let text5Style = NSMutableParagraphStyle()
-        text5Style.alignment = .right
-        let text5FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text5Style] as [NSAttributedStringKey : Any]
-
-        let text5TextHeight: CGFloat = text5TextContent.boundingRect(with: CGSize(width: text5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text5FontAttributes, context: nil).height
+        
+        
+        
+        
+        //// Bits
+        //// Rectangle 2 Drawing
+        let rectangle2Rect = CGRect(x: 677, y: 683, width: 25, height: 25)
+        let rectangle2Path = UIBezierPath(rect: rectangle2Rect)
+        registerBankColor.setFill()
+        rectangle2Path.fill()
+        black.setStroke()
+        rectangle2Path.lineWidth = 1
+        rectangle2Path.stroke()
+        let rectangle2TextContent = "0"
+        let rectangle2Style = NSMutableParagraphStyle()
+        rectangle2Style.alignment = .center
+        let rectangle2FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: rectangle2Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let rectangle2TextHeight: CGFloat = rectangle2TextContent.boundingRect(with: CGSize(width: rectangle2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle2FontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: text5Rect)
-        text5TextContent.draw(in: CGRect(x: text5Rect.minX, y: text5Rect.minY + (text5Rect.height - text5TextHeight) / 2, width: text5Rect.width, height: text5TextHeight), withAttributes: text5FontAttributes)
+        context.clip(to: rectangle2Rect)
+        rectangle2TextContent.draw(in: CGRect(x: rectangle2Rect.minX, y: rectangle2Rect.minY + (rectangle2Rect.height - rectangle2TextHeight) / 2, width: rectangle2Rect.width, height: rectangle2TextHeight), withAttributes: rectangle2FontAttributes)
         context.restoreGState()
-
-
+        
+        
+        //// Rectangle 3 Drawing
+        let rectangle3Rect = CGRect(x: 677.5, y: 721.5, width: 25, height: 25)
+        let rectangle3Path = UIBezierPath(rect: rectangle3Rect)
+        registerBankColor.setFill()
+        rectangle3Path.fill()
+        black.setStroke()
+        rectangle3Path.lineWidth = 1
+        rectangle3Path.stroke()
+        let rectangle3TextContent = "0"
+        let rectangle3Style = NSMutableParagraphStyle()
+        rectangle3Style.alignment = .center
+        let rectangle3FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: rectangle3Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let rectangle3TextHeight: CGFloat = rectangle3TextContent.boundingRect(with: CGSize(width: rectangle3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle3FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: rectangle3Rect)
+        rectangle3TextContent.draw(in: CGRect(x: rectangle3Rect.minX, y: rectangle3Rect.minY + (rectangle3Rect.height - rectangle3TextHeight) / 2, width: rectangle3Rect.width, height: rectangle3TextHeight), withAttributes: rectangle3FontAttributes)
+        context.restoreGState()
+        
+        
         //// Rectangle 4 Drawing
-        let rectangle4Path = UIBezierPath(rect: CGRect(x: 86.87, y: 93, width: 45, height: 17))
-        aLUvalgrey.setFill()
+        let rectangle4Rect = CGRect(x: 677, y: 759, width: 25, height: 25)
+        let rectangle4Path = UIBezierPath(rect: rectangle4Rect)
+        registerBankColor.setFill()
         rectangle4Path.fill()
-        aLUstrokeblack.setStroke()
+        black.setStroke()
         rectangle4Path.lineWidth = 1
         rectangle4Path.stroke()
+        let rectangle4TextContent = "0"
+        let rectangle4Style = NSMutableParagraphStyle()
+        rectangle4Style.alignment = .center
+        let rectangle4FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: rectangle4Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let rectangle4TextHeight: CGFloat = rectangle4TextContent.boundingRect(with: CGSize(width: rectangle4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle4FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: rectangle4Rect)
+        rectangle4TextContent.draw(in: CGRect(x: rectangle4Rect.minX, y: rectangle4Rect.minY + (rectangle4Rect.height - rectangle4TextHeight) / 2, width: rectangle4Rect.width, height: rectangle4TextHeight), withAttributes: rectangle4FontAttributes)
+        context.restoreGState()
         
         
-        "Hello".draw(in: CGRect(x: 86.87, y: 93, width: 45, height: 17), withAttributes: text5FontAttributes)
-
-
         //// Rectangle 5 Drawing
-        let rectangle5Path = UIBezierPath(rect: CGRect(x: 131.87, y: 93, width: 45, height: 17))
-        aLUvalgrey.setFill()
+        let rectangle5Rect = CGRect(x: 677, y: 838, width: 25, height: 25)
+        let rectangle5Path = UIBezierPath(rect: rectangle5Rect)
+        registerBankColor.setFill()
         rectangle5Path.fill()
-        aLUstrokeblack.setStroke()
+        black.setStroke()
         rectangle5Path.lineWidth = 1
         rectangle5Path.stroke()
-
-
-        //// Text 6 Drawing
-        let text6Rect = CGRect(x: 86.87, y: 80, width: 16, height: 13)
-        let text6TextContent = "4"
-        let text6Style = NSMutableParagraphStyle()
-        text6Style.alignment = .left
-        let text6FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text6Style] as [NSAttributedStringKey : Any]
-
-        let text6TextHeight: CGFloat = text6TextContent.boundingRect(with: CGSize(width: text6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text6FontAttributes, context: nil).height
+        let rectangle5TextContent = "0"
+        let rectangle5Style = NSMutableParagraphStyle()
+        rectangle5Style.alignment = .center
+        let rectangle5FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: rectangle5Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let rectangle5TextHeight: CGFloat = rectangle5TextContent.boundingRect(with: CGSize(width: rectangle5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle5FontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: text6Rect)
-        text6TextContent.draw(in: CGRect(x: text6Rect.minX, y: text6Rect.minY + (text6Rect.height - text6TextHeight) / 2, width: text6Rect.width, height: text6TextHeight), withAttributes: text6FontAttributes)
+        context.clip(to: rectangle5Rect)
+        rectangle5TextContent.draw(in: CGRect(x: rectangle5Rect.minX, y: rectangle5Rect.minY + (rectangle5Rect.height - rectangle5TextHeight) / 2, width: rectangle5Rect.width, height: rectangle5TextHeight), withAttributes: rectangle5FontAttributes)
         context.restoreGState()
-
-
-        //// Text 7 Drawing
-        let text7Rect = CGRect(x: 132, y: 80, width: 16, height: 13)
-        let text7TextContent = "5"
-        let text7Style = NSMutableParagraphStyle()
-        text7Style.alignment = .left
-        let text7FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text7Style] as [NSAttributedStringKey : Any]
-
-        let text7TextHeight: CGFloat = text7TextContent.boundingRect(with: CGSize(width: text7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text7FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text7Rect)
-        text7TextContent.draw(in: CGRect(x: text7Rect.minX, y: text7Rect.minY + (text7Rect.height - text7TextHeight) / 2, width: text7Rect.width, height: text7TextHeight), withAttributes: text7FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 31
-        //// Text 8 Drawing
-        let text8Rect = CGRect(x: 55, y: 129, width: 22, height: 15)
-        let text8TextContent = "PC"
-        let text8Style = NSMutableParagraphStyle()
-        text8Style.alignment = .right
-        let text8FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text8Style] as [NSAttributedStringKey : Any]
-
-        let text8TextHeight: CGFloat = text8TextContent.boundingRect(with: CGSize(width: text8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text8FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text8Rect)
-        text8TextContent.draw(in: CGRect(x: text8Rect.minX, y: text8Rect.minY + (text8Rect.height - text8TextHeight) / 2, width: text8Rect.width, height: text8TextHeight), withAttributes: text8FontAttributes)
-        context.restoreGState()
-
-
+        
+        
         //// Rectangle 6 Drawing
-        let rectangle6Path = UIBezierPath(rect: CGRect(x: 86.87, y: 128, width: 45, height: 17))
-        aLUvalgrey.setFill()
+        let rectangle6Rect = CGRect(x: 677.5, y: 907.5, width: 25, height: 25)
+        let rectangle6Path = UIBezierPath(rect: rectangle6Rect)
+        registerBankColor.setFill()
         rectangle6Path.fill()
-        aLUstrokeblack.setStroke()
+        black.setStroke()
         rectangle6Path.lineWidth = 1
         rectangle6Path.stroke()
-
-
+        let rectangle6TextContent = "0"
+        let rectangle6Style = NSMutableParagraphStyle()
+        rectangle6Style.alignment = .center
+        let rectangle6FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: rectangle6Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let rectangle6TextHeight: CGFloat = rectangle6TextContent.boundingRect(with: CGSize(width: rectangle6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle6FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: rectangle6Rect)
+        rectangle6TextContent.draw(in: CGRect(x: rectangle6Rect.minX, y: rectangle6Rect.minY + (rectangle6Rect.height - rectangle6TextHeight) / 2, width: rectangle6Rect.width, height: rectangle6TextHeight), withAttributes: rectangle6FontAttributes)
+        context.restoreGState()
+        
+        
         //// Rectangle 7 Drawing
-        let rectangle7Path = UIBezierPath(rect: CGRect(x: 131.87, y: 128, width: 45, height: 17))
-        aLUvalgrey.setFill()
+        let rectangle7Rect = CGRect(x: 594.5, y: 836.5, width: 56, height: 26)
+        let rectangle7Path = UIBezierPath(rect: rectangle7Rect)
+        noFillColor.setFill()
         rectangle7Path.fill()
-        aLUstrokeblack.setStroke()
+        UIColor.black.setStroke()
         rectangle7Path.lineWidth = 1
         rectangle7Path.stroke()
-
-
-        //// Text 9 Drawing
-        let text9Rect = CGRect(x: 87, y: 115, width: 16, height: 13)
-        let text9TextContent = "6"
-        let text9Style = NSMutableParagraphStyle()
-        text9Style.alignment = .left
-        let text9FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text9Style] as [NSAttributedStringKey : Any]
-
-        let text9TextHeight: CGFloat = text9TextContent.boundingRect(with: CGSize(width: text9Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text9FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text9Rect)
-        text9TextContent.draw(in: CGRect(x: text9Rect.minX, y: text9Rect.minY + (text9Rect.height - text9TextHeight) / 2, width: text9Rect.width, height: text9TextHeight), withAttributes: text9FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 10 Drawing
-        let text10Rect = CGRect(x: 132, y: 115, width: 16, height: 13)
-        let text10TextContent = "7"
-        let text10Style = NSMutableParagraphStyle()
-        text10Style.alignment = .left
-        let text10FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text10Style] as [NSAttributedStringKey : Any]
-
-        let text10TextHeight: CGFloat = text10TextContent.boundingRect(with: CGSize(width: text10Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text10FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text10Rect)
-        text10TextContent.draw(in: CGRect(x: text10Rect.minX, y: text10Rect.minY + (text10Rect.height - text10TextHeight) / 2, width: text10Rect.width, height: text10TextHeight), withAttributes: text10FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 29
-        //// Text 2 Drawing
-        let text2Rect = CGRect(x: 55, y: 59, width: 22, height: 15)
-        let text2TextContent = "X"
-        let text2Style = NSMutableParagraphStyle()
-        text2Style.alignment = .right
-        let text2FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text2Style] as [NSAttributedStringKey : Any]
-
-        let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text2Rect)
-        text2TextContent.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 2 Drawing
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: 86.87, y: 58, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle2Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle2Path.lineWidth = 1
-        rectangle2Path.stroke()
-
-
-        //// Rectangle 3 Drawing
-        let rectangle3Path = UIBezierPath(rect: CGRect(x: 131.87, y: 58, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle3Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle3Path.lineWidth = 1
-        rectangle3Path.stroke()
-
-
-        //// Text 3 Drawing
-        let text3Rect = CGRect(x: 86.87, y: 45, width: 16, height: 13)
-        let text3TextContent = "2"
-        let text3Style = NSMutableParagraphStyle()
-        text3Style.alignment = .left
-        let text3FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text3Style] as [NSAttributedStringKey : Any]
-
-        let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text3Rect)
-        text3TextContent.draw(in: CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 4 Drawing
-        let text4Rect = CGRect(x: 131.87, y: 45, width: 16, height: 13)
-        let text4TextContent = "3"
-        let text4Style = NSMutableParagraphStyle()
-        text4Style.alignment = .left
-        let text4FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text4Style] as [NSAttributedStringKey : Any]
-
-        let text4TextHeight: CGFloat = text4TextContent.boundingRect(with: CGSize(width: text4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text4FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text4Rect)
-        text4TextContent.draw(in: CGRect(x: text4Rect.minX, y: text4Rect.minY + (text4Rect.height - text4TextHeight) / 2, width: text4Rect.width, height: text4TextHeight), withAttributes: text4FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 42
-        //// Text 41 Drawing
-        let text41Rect = CGRect(x: 195, y: 24, width: 22, height: 15)
-        let text41TextContent = "IR"
-        let text41Style = NSMutableParagraphStyle()
-        text41Style.alignment = .right
-        let text41FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text41Style] as [NSAttributedStringKey : Any]
-
-        let text41TextHeight: CGFloat = text41TextContent.boundingRect(with: CGSize(width: text41Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text41FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text41Rect)
-        text41TextContent.draw(in: CGRect(x: text41Rect.minX, y: text41Rect.minY + (text41Rect.height - text41TextHeight) / 2, width: text41Rect.width, height: text41TextHeight), withAttributes: text41FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 28 Drawing
-        let rectangle28Path = UIBezierPath(rect: CGRect(x: 226.87, y: 23, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle28Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle28Path.lineWidth = 1
-        rectangle28Path.stroke()
-
-
-        //// Text 42 Drawing
-        let text42Rect = CGRect(x: 227, y: 10, width: 16, height: 13)
-        let text42TextContent = "8"
-        let text42Style = NSMutableParagraphStyle()
-        text42Style.alignment = .left
-        let text42FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text42Style] as [NSAttributedStringKey : Any]
-
-        let text42TextHeight: CGFloat = text42TextContent.boundingRect(with: CGSize(width: text42Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text42FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text42Rect)
-        text42TextContent.draw(in: CGRect(x: text42Rect.minX, y: text42Rect.minY + (text42Rect.height - text42TextHeight) / 2, width: text42Rect.width, height: text42TextHeight), withAttributes: text42FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 32
-        //// Text 11 Drawing
-        let text11Rect = CGRect(x: 195, y: 94, width: 22, height: 15)
-        let text11TextContent = "T1"
-        let text11Style = NSMutableParagraphStyle()
-        text11Style.alignment = .right
-        let text11FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text11Style] as [NSAttributedStringKey : Any]
-
-        let text11TextHeight: CGFloat = text11TextContent.boundingRect(with: CGSize(width: text11Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text11FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text11Rect)
-        text11TextContent.draw(in: CGRect(x: text11Rect.minX, y: text11Rect.minY + (text11Rect.height - text11TextHeight) / 2, width: text11Rect.width, height: text11TextHeight), withAttributes: text11FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 8 Drawing
-        let rectangle8Path = UIBezierPath(rect: CGRect(x: 226.87, y: 93, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle8Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle8Path.lineWidth = 1
-        rectangle8Path.stroke()
-
-
-        //// Text 12 Drawing
-        let text12Rect = CGRect(x: 227, y: 80, width: 16, height: 13)
-        let text12TextContent = "11"
-        let text12Style = NSMutableParagraphStyle()
-        text12Style.alignment = .left
-        let text12FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text12Style] as [NSAttributedStringKey : Any]
-
-        let text12TextHeight: CGFloat = text12TextContent.boundingRect(with: CGSize(width: text12Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text12FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text12Rect)
-        text12TextContent.draw(in: CGRect(x: text12Rect.minX, y: text12Rect.minY + (text12Rect.height - text12TextHeight) / 2, width: text12Rect.width, height: text12TextHeight), withAttributes: text12FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 33
-        //// Text 14 Drawing
-        let text14Rect = CGRect(x: 195, y: 129, width: 22, height: 15)
-        let text14TextContent = "T2"
-        let text14Style = NSMutableParagraphStyle()
-        text14Style.alignment = .right
-        let text14FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text14Style] as [NSAttributedStringKey : Any]
-
-        let text14TextHeight: CGFloat = text14TextContent.boundingRect(with: CGSize(width: text14Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text14FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text14Rect)
-        text14TextContent.draw(in: CGRect(x: text14Rect.minX, y: text14Rect.minY + (text14Rect.height - text14TextHeight) / 2, width: text14Rect.width, height: text14TextHeight), withAttributes: text14FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 10 Drawing
-        let rectangle10Path = UIBezierPath(rect: CGRect(x: 226.87, y: 128, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle10Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle10Path.lineWidth = 1
-        rectangle10Path.stroke()
-
-
-        //// Rectangle 11 Drawing
-        let rectangle11Path = UIBezierPath(rect: CGRect(x: 271.87, y: 128, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle11Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle11Path.lineWidth = 1
-        rectangle11Path.stroke()
-
-
-        //// Text 15 Drawing
-        let text15Rect = CGRect(x: 227, y: 115, width: 16, height: 13)
-        let text15TextContent = "12"
-        let text15Style = NSMutableParagraphStyle()
-        text15Style.alignment = .left
-        let text15FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text15Style] as [NSAttributedStringKey : Any]
-
-        let text15TextHeight: CGFloat = text15TextContent.boundingRect(with: CGSize(width: text15Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text15FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text15Rect)
-        text15TextContent.draw(in: CGRect(x: text15Rect.minX, y: text15Rect.minY + (text15Rect.height - text15TextHeight) / 2, width: text15Rect.width, height: text15TextHeight), withAttributes: text15FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 16 Drawing
-        let text16Rect = CGRect(x: 272, y: 115, width: 16, height: 13)
-        let text16TextContent = "13"
-        let text16Style = NSMutableParagraphStyle()
-        text16Style.alignment = .left
-        let text16FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text16Style] as [NSAttributedStringKey : Any]
-
-        let text16TextHeight: CGFloat = text16TextContent.boundingRect(with: CGSize(width: text16Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text16FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text16Rect)
-        text16TextContent.draw(in: CGRect(x: text16Rect.minX, y: text16Rect.minY + (text16Rect.height - text16TextHeight) / 2, width: text16Rect.width, height: text16TextHeight), withAttributes: text16FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 34
-        //// Rectangle 12 Drawing
-        let rectangle12Path = UIBezierPath(rect: CGRect(x: 226.87, y: 58, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle12Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle12Path.lineWidth = 1
-        rectangle12Path.stroke()
-
-
-        //// Rectangle 13 Drawing
-        let rectangle13Path = UIBezierPath(rect: CGRect(x: 271.87, y: 58, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle13Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle13Path.lineWidth = 1
-        rectangle13Path.stroke()
-
-
-        //// Text 18 Drawing
-        let text18Rect = CGRect(x: 227, y: 45, width: 16, height: 13)
-        let text18TextContent = "9"
-        let text18Style = NSMutableParagraphStyle()
-        text18Style.alignment = .left
-        let text18FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text18Style] as [NSAttributedStringKey : Any]
-
-        let text18TextHeight: CGFloat = text18TextContent.boundingRect(with: CGSize(width: text18Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text18FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text18Rect)
-        text18TextContent.draw(in: CGRect(x: text18Rect.minX, y: text18Rect.minY + (text18Rect.height - text18TextHeight) / 2, width: text18Rect.width, height: text18TextHeight), withAttributes: text18FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 19 Drawing
-        let text19Rect = CGRect(x: 272, y: 45, width: 16, height: 13)
-        let text19TextContent = "10"
-        let text19Style = NSMutableParagraphStyle()
-        text19Style.alignment = .left
-        let text19FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text19Style] as [NSAttributedStringKey : Any]
-
-        let text19TextHeight: CGFloat = text19TextContent.boundingRect(with: CGSize(width: text19Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text19FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text19Rect)
-        text19TextContent.draw(in: CGRect(x: text19Rect.minX, y: text19Rect.minY + (text19Rect.height - text19TextHeight) / 2, width: text19Rect.width, height: text19TextHeight), withAttributes: text19FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 43
-        //// Text 17 Drawing
-        let text17Rect = CGRect(x: 335, y: 24, width: 22, height: 15)
-        let text17TextContent = "T3"
-        let text17Style = NSMutableParagraphStyle()
-        text17Style.alignment = .right
-        let text17FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text17Style] as [NSAttributedStringKey : Any]
-
-        let text17TextHeight: CGFloat = text17TextContent.boundingRect(with: CGSize(width: text17Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text17FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text17Rect)
-        text17TextContent.draw(in: CGRect(x: text17Rect.minX, y: text17Rect.minY + (text17Rect.height - text17TextHeight) / 2, width: text17Rect.width, height: text17TextHeight), withAttributes: text17FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 29 Drawing
-        let rectangle29Path = UIBezierPath(rect: CGRect(x: 366.87, y: 23, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle29Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle29Path.lineWidth = 1
-        rectangle29Path.stroke()
-
-
-        //// Rectangle 30 Drawing
-        let rectangle30Path = UIBezierPath(rect: CGRect(x: 411.87, y: 23, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle30Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle30Path.lineWidth = 1
-        rectangle30Path.stroke()
-
-
-        //// Text 43 Drawing
-        let text43Rect = CGRect(x: 367, y: 10, width: 16, height: 13)
-        let text43TextContent = "14"
-        let text43Style = NSMutableParagraphStyle()
-        text43Style.alignment = .left
-        let text43FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text43Style] as [NSAttributedStringKey : Any]
-
-        let text43TextHeight: CGFloat = text43TextContent.boundingRect(with: CGSize(width: text43Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text43FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text43Rect)
-        text43TextContent.draw(in: CGRect(x: text43Rect.minX, y: text43Rect.minY + (text43Rect.height - text43TextHeight) / 2, width: text43Rect.width, height: text43TextHeight), withAttributes: text43FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 44 Drawing
-        let text44Rect = CGRect(x: 412, y: 10, width: 16, height: 13)
-        let text44TextContent = "15"
-        let text44Style = NSMutableParagraphStyle()
-        text44Style.alignment = .left
-        let text44FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text44Style] as [NSAttributedStringKey : Any]
-
-        let text44TextHeight: CGFloat = text44TextContent.boundingRect(with: CGSize(width: text44Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text44FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text44Rect)
-        text44TextContent.draw(in: CGRect(x: text44Rect.minX, y: text44Rect.minY + (text44Rect.height - text44TextHeight) / 2, width: text44Rect.width, height: text44TextHeight), withAttributes: text44FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 35
-        //// Text 20 Drawing
-        let text20Rect = CGRect(x: 335, y: 94, width: 22, height: 15)
-        let text20TextContent = "T5"
-        let text20Style = NSMutableParagraphStyle()
-        text20Style.alignment = .right
-        let text20FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text20Style] as [NSAttributedStringKey : Any]
-
-        let text20TextHeight: CGFloat = text20TextContent.boundingRect(with: CGSize(width: text20Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text20FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text20Rect)
-        text20TextContent.draw(in: CGRect(x: text20Rect.minX, y: text20Rect.minY + (text20Rect.height - text20TextHeight) / 2, width: text20Rect.width, height: text20TextHeight), withAttributes: text20FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 14 Drawing
-        let rectangle14Path = UIBezierPath(rect: CGRect(x: 366.87, y: 93, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle14Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle14Path.lineWidth = 1
-        rectangle14Path.stroke()
-
-
-        //// Rectangle 15 Drawing
-        let rectangle15Path = UIBezierPath(rect: CGRect(x: 411.87, y: 93, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle15Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle15Path.lineWidth = 1
-        rectangle15Path.stroke()
-
-
-        //// Text 21 Drawing
-        let text21Rect = CGRect(x: 367, y: 80, width: 16, height: 13)
-        let text21TextContent = "18"
-        let text21Style = NSMutableParagraphStyle()
-        text21Style.alignment = .left
-        let text21FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text21Style] as [NSAttributedStringKey : Any]
-
-        let text21TextHeight: CGFloat = text21TextContent.boundingRect(with: CGSize(width: text21Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text21FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text21Rect)
-        text21TextContent.draw(in: CGRect(x: text21Rect.minX, y: text21Rect.minY + (text21Rect.height - text21TextHeight) / 2, width: text21Rect.width, height: text21TextHeight), withAttributes: text21FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 22 Drawing
-        let text22Rect = CGRect(x: 412, y: 80, width: 16, height: 13)
-        let text22TextContent = "19"
-        let text22Style = NSMutableParagraphStyle()
-        text22Style.alignment = .left
-        let text22FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text22Style] as [NSAttributedStringKey : Any]
-
-        let text22TextHeight: CGFloat = text22TextContent.boundingRect(with: CGSize(width: text22Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text22FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text22Rect)
-        text22TextContent.draw(in: CGRect(x: text22Rect.minX, y: text22Rect.minY + (text22Rect.height - text22TextHeight) / 2, width: text22Rect.width, height: text22TextHeight), withAttributes: text22FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 36
-        //// Text 23 Drawing
-        let text23Rect = CGRect(x: 335, y: 129, width: 22, height: 15)
-        let text23TextContent = "T6"
-        let text23Style = NSMutableParagraphStyle()
-        text23Style.alignment = .right
-        let text23FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text23Style] as [NSAttributedStringKey : Any]
-
-        let text23TextHeight: CGFloat = text23TextContent.boundingRect(with: CGSize(width: text23Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text23FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text23Rect)
-        text23TextContent.draw(in: CGRect(x: text23Rect.minX, y: text23Rect.minY + (text23Rect.height - text23TextHeight) / 2, width: text23Rect.width, height: text23TextHeight), withAttributes: text23FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 16 Drawing
-        let rectangle16Path = UIBezierPath(rect: CGRect(x: 366.87, y: 128, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle16Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle16Path.lineWidth = 1
-        rectangle16Path.stroke()
-
-
-        //// Rectangle 17 Drawing
-        let rectangle17Path = UIBezierPath(rect: CGRect(x: 411.87, y: 128, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle17Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle17Path.lineWidth = 1
-        rectangle17Path.stroke()
-
-
-        //// Text 24 Drawing
-        let text24Rect = CGRect(x: 367, y: 115, width: 16, height: 13)
-        let text24TextContent = "20"
-        let text24Style = NSMutableParagraphStyle()
-        text24Style.alignment = .left
-        let text24FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text24Style] as [NSAttributedStringKey : Any]
-
-        let text24TextHeight: CGFloat = text24TextContent.boundingRect(with: CGSize(width: text24Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text24FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text24Rect)
-        text24TextContent.draw(in: CGRect(x: text24Rect.minX, y: text24Rect.minY + (text24Rect.height - text24TextHeight) / 2, width: text24Rect.width, height: text24TextHeight), withAttributes: text24FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 25 Drawing
-        let text25Rect = CGRect(x: 412, y: 115, width: 16, height: 13)
-        let text25TextContent = "21"
-        let text25Style = NSMutableParagraphStyle()
-        text25Style.alignment = .left
-        let text25FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text25Style] as [NSAttributedStringKey : Any]
-
-        let text25TextHeight: CGFloat = text25TextContent.boundingRect(with: CGSize(width: text25Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text25FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text25Rect)
-        text25TextContent.draw(in: CGRect(x: text25Rect.minX, y: text25Rect.minY + (text25Rect.height - text25TextHeight) / 2, width: text25Rect.width, height: text25TextHeight), withAttributes: text25FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 37
-        //// Text 26 Drawing
-        let text26Rect = CGRect(x: 335, y: 59, width: 22, height: 15)
-        let text26TextContent = "T4"
-        let text26Style = NSMutableParagraphStyle()
-        text26Style.alignment = .right
-        let text26FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text26Style] as [NSAttributedStringKey : Any]
-
-        let text26TextHeight: CGFloat = text26TextContent.boundingRect(with: CGSize(width: text26Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text26FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text26Rect)
-        text26TextContent.draw(in: CGRect(x: text26Rect.minX, y: text26Rect.minY + (text26Rect.height - text26TextHeight) / 2, width: text26Rect.width, height: text26TextHeight), withAttributes: text26FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 18 Drawing
-        let rectangle18Path = UIBezierPath(rect: CGRect(x: 366.87, y: 58, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle18Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle18Path.lineWidth = 1
-        rectangle18Path.stroke()
-
-
-        //// Rectangle 19 Drawing
-        let rectangle19Path = UIBezierPath(rect: CGRect(x: 411.87, y: 58, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle19Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle19Path.lineWidth = 1
-        rectangle19Path.stroke()
-
-
-        //// Text 27 Drawing
-        let text27Rect = CGRect(x: 367, y: 45, width: 16, height: 13)
-        let text27TextContent = "16"
-        let text27Style = NSMutableParagraphStyle()
-        text27Style.alignment = .left
-        let text27FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text27Style] as [NSAttributedStringKey : Any]
-
-        let text27TextHeight: CGFloat = text27TextContent.boundingRect(with: CGSize(width: text27Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text27FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text27Rect)
-        text27TextContent.draw(in: CGRect(x: text27Rect.minX, y: text27Rect.minY + (text27Rect.height - text27TextHeight) / 2, width: text27Rect.width, height: text27TextHeight), withAttributes: text27FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 28 Drawing
-        let text28Rect = CGRect(x: 412, y: 45, width: 16, height: 13)
-        let text28TextContent = "17"
-        let text28Style = NSMutableParagraphStyle()
-        text28Style.alignment = .left
-        let text28FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text28Style] as [NSAttributedStringKey : Any]
-
-        let text28TextHeight: CGFloat = text28TextContent.boundingRect(with: CGSize(width: text28Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text28FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text28Rect)
-        text28TextContent.draw(in: CGRect(x: text28Rect.minX, y: text28Rect.minY + (text28Rect.height - text28TextHeight) / 2, width: text28Rect.width, height: text28TextHeight), withAttributes: text28FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 44
-        //// Text 45 Drawing
-        let text45Rect = CGRect(x: 475, y: 24, width: 22, height: 15)
-        let text45TextContent = "M1"
-        let text45Style = NSMutableParagraphStyle()
-        text45Style.alignment = .right
-        let text45FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text45Style] as [NSAttributedStringKey : Any]
-
-        let text45TextHeight: CGFloat = text45TextContent.boundingRect(with: CGSize(width: text45Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text45FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text45Rect)
-        text45TextContent.draw(in: CGRect(x: text45Rect.minX, y: text45Rect.minY + (text45Rect.height - text45TextHeight) / 2, width: text45Rect.width, height: text45TextHeight), withAttributes: text45FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 31 Drawing
-        let rectangle31Path = UIBezierPath(rect: CGRect(x: 506.87, y: 23, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle31Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle31Path.lineWidth = 1
-        rectangle31Path.stroke()
-
-
-        //// Rectangle 32 Drawing
-        let rectangle32Path = UIBezierPath(rect: CGRect(x: 551.87, y: 23, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle32Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle32Path.lineWidth = 1
-        rectangle32Path.stroke()
-
-
-        //// Text 46 Drawing
-        let text46Rect = CGRect(x: 507, y: 10, width: 16, height: 13)
-        let text46TextContent = "22"
-        let text46Style = NSMutableParagraphStyle()
-        text46Style.alignment = .left
-        let text46FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text46Style] as [NSAttributedStringKey : Any]
-
-        let text46TextHeight: CGFloat = text46TextContent.boundingRect(with: CGSize(width: text46Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text46FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text46Rect)
-        text46TextContent.draw(in: CGRect(x: text46Rect.minX, y: text46Rect.minY + (text46Rect.height - text46TextHeight) / 2, width: text46Rect.width, height: text46TextHeight), withAttributes: text46FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 47 Drawing
-        let text47Rect = CGRect(x: 552, y: 10, width: 16, height: 13)
-        let text47TextContent = "23"
-        let text47Style = NSMutableParagraphStyle()
-        text47Style.alignment = .left
-        let text47FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text47Style] as [NSAttributedStringKey : Any]
-
-        let text47TextHeight: CGFloat = text47TextContent.boundingRect(with: CGSize(width: text47Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text47FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text47Rect)
-        text47TextContent.draw(in: CGRect(x: text47Rect.minX, y: text47Rect.minY + (text47Rect.height - text47TextHeight) / 2, width: text47Rect.width, height: text47TextHeight), withAttributes: text47FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 13 Drawing
-        let text13Rect = CGRect(x: 512, y: 25, width: 39.87, height: 13)
-        let text13TextContent = "0x00"
-        let text13Style = NSMutableParagraphStyle()
-        text13Style.alignment = .left
-        let text13FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text13Style] as [NSAttributedStringKey : Any]
-
-        let text13TextHeight: CGFloat = text13TextContent.boundingRect(with: CGSize(width: text13Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text13FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text13Rect)
-        text13TextContent.draw(in: CGRect(x: text13Rect.minX, y: text13Rect.minY + (text13Rect.height - text13TextHeight) / 2, width: text13Rect.width, height: text13TextHeight), withAttributes: text13FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 48 Drawing
-        let text48Rect = CGRect(x: 557, y: 25, width: 39.87, height: 13)
-        let text48TextContent = "0x01"
-        let text48Style = NSMutableParagraphStyle()
-        text48Style.alignment = .left
-        let text48FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text48Style] as [NSAttributedStringKey : Any]
-
-        let text48TextHeight: CGFloat = text48TextContent.boundingRect(with: CGSize(width: text48Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text48FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text48Rect)
-        text48TextContent.draw(in: CGRect(x: text48Rect.minX, y: text48Rect.minY + (text48Rect.height - text48TextHeight) / 2, width: text48Rect.width, height: text48TextHeight), withAttributes: text48FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 38
-        //// Text 29 Drawing
-        let text29Rect = CGRect(x: 475, y: 59, width: 22, height: 15)
-        let text29TextContent = "M2"
-        let text29Style = NSMutableParagraphStyle()
-        text29Style.alignment = .right
-        let text29FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text29Style] as [NSAttributedStringKey : Any]
-
-        let text29TextHeight: CGFloat = text29TextContent.boundingRect(with: CGSize(width: text29Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text29FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text29Rect)
-        text29TextContent.draw(in: CGRect(x: text29Rect.minX, y: text29Rect.minY + (text29Rect.height - text29TextHeight) / 2, width: text29Rect.width, height: text29TextHeight), withAttributes: text29FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 9 Drawing
-        let rectangle9Path = UIBezierPath(rect: CGRect(x: 506.87, y: 58, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle9Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle9Path.lineWidth = 1
-        rectangle9Path.stroke()
-
-
-        //// Rectangle 20 Drawing
-        let rectangle20Path = UIBezierPath(rect: CGRect(x: 551.87, y: 58, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle20Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle20Path.lineWidth = 1
-        rectangle20Path.stroke()
-
-
-        //// Text 30 Drawing
-        let text30Rect = CGRect(x: 507, y: 45, width: 16, height: 13)
-        let text30TextContent = "24"
-        let text30Style = NSMutableParagraphStyle()
-        text30Style.alignment = .left
-        let text30FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text30Style] as [NSAttributedStringKey : Any]
-
-        let text30TextHeight: CGFloat = text30TextContent.boundingRect(with: CGSize(width: text30Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text30FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text30Rect)
-        text30TextContent.draw(in: CGRect(x: text30Rect.minX, y: text30Rect.minY + (text30Rect.height - text30TextHeight) / 2, width: text30Rect.width, height: text30TextHeight), withAttributes: text30FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 31 Drawing
-        let text31Rect = CGRect(x: 552, y: 45, width: 16, height: 13)
-        let text31TextContent = "25"
-        let text31Style = NSMutableParagraphStyle()
-        text31Style.alignment = .left
-        let text31FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text31Style] as [NSAttributedStringKey : Any]
-
-        let text31TextHeight: CGFloat = text31TextContent.boundingRect(with: CGSize(width: text31Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text31FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text31Rect)
-        text31TextContent.draw(in: CGRect(x: text31Rect.minX, y: text31Rect.minY + (text31Rect.height - text31TextHeight) / 2, width: text31Rect.width, height: text31TextHeight), withAttributes: text31FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 32 Drawing
-        let text32Rect = CGRect(x: 512, y: 60, width: 39.87, height: 13)
-        let text32TextContent = "0x02"
-        let text32Style = NSMutableParagraphStyle()
-        text32Style.alignment = .left
-        let text32FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text32Style] as [NSAttributedStringKey : Any]
-
-        let text32TextHeight: CGFloat = text32TextContent.boundingRect(with: CGSize(width: text32Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text32FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text32Rect)
-        text32TextContent.draw(in: CGRect(x: text32Rect.minX, y: text32Rect.minY + (text32Rect.height - text32TextHeight) / 2, width: text32Rect.width, height: text32TextHeight), withAttributes: text32FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 33 Drawing
-        let text33Rect = CGRect(x: 557, y: 60, width: 39.87, height: 13)
-        let text33TextContent = "0x03"
-        let text33Style = NSMutableParagraphStyle()
-        text33Style.alignment = .left
-        let text33FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text33Style] as [NSAttributedStringKey : Any]
-
-        let text33TextHeight: CGFloat = text33TextContent.boundingRect(with: CGSize(width: text33Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text33FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text33Rect)
-        text33TextContent.draw(in: CGRect(x: text33Rect.minX, y: text33Rect.minY + (text33Rect.height - text33TextHeight) / 2, width: text33Rect.width, height: text33TextHeight), withAttributes: text33FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 39
-        //// Text 34 Drawing
-        let text34Rect = CGRect(x: 475, y: 94, width: 22, height: 15)
-        let text34TextContent = "M3"
-        let text34Style = NSMutableParagraphStyle()
-        text34Style.alignment = .right
-        let text34FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text34Style] as [NSAttributedStringKey : Any]
-
-        let text34TextHeight: CGFloat = text34TextContent.boundingRect(with: CGSize(width: text34Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text34FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text34Rect)
-        text34TextContent.draw(in: CGRect(x: text34Rect.minX, y: text34Rect.minY + (text34Rect.height - text34TextHeight) / 2, width: text34Rect.width, height: text34TextHeight), withAttributes: text34FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 21 Drawing
-        let rectangle21Path = UIBezierPath(rect: CGRect(x: 506.87, y: 93, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle21Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle21Path.lineWidth = 1
-        rectangle21Path.stroke()
-
-
-        //// Rectangle 22 Drawing
-        let rectangle22Path = UIBezierPath(rect: CGRect(x: 551.87, y: 93, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle22Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle22Path.lineWidth = 1
-        rectangle22Path.stroke()
-
-
-        //// Text 35 Drawing
-        let text35Rect = CGRect(x: 507, y: 80, width: 16, height: 13)
-        let text35TextContent = "26"
-        let text35Style = NSMutableParagraphStyle()
-        text35Style.alignment = .left
-        let text35FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text35Style] as [NSAttributedStringKey : Any]
-
-        let text35TextHeight: CGFloat = text35TextContent.boundingRect(with: CGSize(width: text35Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text35FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text35Rect)
-        text35TextContent.draw(in: CGRect(x: text35Rect.minX, y: text35Rect.minY + (text35Rect.height - text35TextHeight) / 2, width: text35Rect.width, height: text35TextHeight), withAttributes: text35FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 36 Drawing
-        let text36Rect = CGRect(x: 552, y: 80, width: 16, height: 13)
-        let text36TextContent = "27"
-        let text36Style = NSMutableParagraphStyle()
-        text36Style.alignment = .left
-        let text36FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text36Style] as [NSAttributedStringKey : Any]
-
-        let text36TextHeight: CGFloat = text36TextContent.boundingRect(with: CGSize(width: text36Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text36FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text36Rect)
-        text36TextContent.draw(in: CGRect(x: text36Rect.minX, y: text36Rect.minY + (text36Rect.height - text36TextHeight) / 2, width: text36Rect.width, height: text36TextHeight), withAttributes: text36FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 37 Drawing
-        let text37Rect = CGRect(x: 512, y: 95, width: 39.87, height: 13)
-        let text37TextContent = "0x04"
-        let text37Style = NSMutableParagraphStyle()
-        text37Style.alignment = .left
-        let text37FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text37Style] as [NSAttributedStringKey : Any]
-
-        let text37TextHeight: CGFloat = text37TextContent.boundingRect(with: CGSize(width: text37Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text37FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text37Rect)
-        text37TextContent.draw(in: CGRect(x: text37Rect.minX, y: text37Rect.minY + (text37Rect.height - text37TextHeight) / 2, width: text37Rect.width, height: text37TextHeight), withAttributes: text37FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 38 Drawing
-        let text38Rect = CGRect(x: 557, y: 95, width: 39.87, height: 13)
-        let text38TextContent = "0x08"
-        let text38Style = NSMutableParagraphStyle()
-        text38Style.alignment = .left
-        let text38FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text38Style] as [NSAttributedStringKey : Any]
-
-        let text38TextHeight: CGFloat = text38TextContent.boundingRect(with: CGSize(width: text38Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text38FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text38Rect)
-        text38TextContent.draw(in: CGRect(x: text38Rect.minX, y: text38Rect.minY + (text38Rect.height - text38TextHeight) / 2, width: text38Rect.width, height: text38TextHeight), withAttributes: text38FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 40
-        //// Text 39 Drawing
-        let text39Rect = CGRect(x: 475, y: 129, width: 22, height: 15)
-        let text39TextContent = "M4"
-        let text39Style = NSMutableParagraphStyle()
-        text39Style.alignment = .right
-        let text39FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text39Style] as [NSAttributedStringKey : Any]
-
-        let text39TextHeight: CGFloat = text39TextContent.boundingRect(with: CGSize(width: text39Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text39FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text39Rect)
-        text39TextContent.draw(in: CGRect(x: text39Rect.minX, y: text39Rect.minY + (text39Rect.height - text39TextHeight) / 2, width: text39Rect.width, height: text39TextHeight), withAttributes: text39FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 23 Drawing
-        let rectangle23Path = UIBezierPath(rect: CGRect(x: 506.87, y: 128, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle23Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle23Path.lineWidth = 1
-        rectangle23Path.stroke()
-
-
-        //// Rectangle 24 Drawing
-        let rectangle24Path = UIBezierPath(rect: CGRect(x: 551.87, y: 128, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle24Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle24Path.lineWidth = 1
-        rectangle24Path.stroke()
-
-
-        //// Text 40 Drawing
-        let text40Rect = CGRect(x: 507, y: 115, width: 16, height: 13)
-        let text40TextContent = "28"
-        let text40Style = NSMutableParagraphStyle()
-        text40Style.alignment = .left
-        let text40FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text40Style] as [NSAttributedStringKey : Any]
-
-        let text40TextHeight: CGFloat = text40TextContent.boundingRect(with: CGSize(width: text40Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text40FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text40Rect)
-        text40TextContent.draw(in: CGRect(x: text40Rect.minX, y: text40Rect.minY + (text40Rect.height - text40TextHeight) / 2, width: text40Rect.width, height: text40TextHeight), withAttributes: text40FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 49 Drawing
-        let text49Rect = CGRect(x: 552, y: 115, width: 16, height: 13)
-        let text49TextContent = "29"
-        let text49Style = NSMutableParagraphStyle()
-        text49Style.alignment = .left
-        let text49FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text49Style] as [NSAttributedStringKey : Any]
-
-        let text49TextHeight: CGFloat = text49TextContent.boundingRect(with: CGSize(width: text49Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text49FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text49Rect)
-        text49TextContent.draw(in: CGRect(x: text49Rect.minX, y: text49Rect.minY + (text49Rect.height - text49TextHeight) / 2, width: text49Rect.width, height: text49TextHeight), withAttributes: text49FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 50 Drawing
-        let text50Rect = CGRect(x: 512, y: 130, width: 39.87, height: 13)
-        let text50TextContent = "0xF0"
-        let text50Style = NSMutableParagraphStyle()
-        text50Style.alignment = .left
-        let text50FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text50Style] as [NSAttributedStringKey : Any]
-
-        let text50TextHeight: CGFloat = text50TextContent.boundingRect(with: CGSize(width: text50Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text50FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text50Rect)
-        text50TextContent.draw(in: CGRect(x: text50Rect.minX, y: text50Rect.minY + (text50Rect.height - text50TextHeight) / 2, width: text50Rect.width, height: text50TextHeight), withAttributes: text50FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 51 Drawing
-        let text51Rect = CGRect(x: 557, y: 130, width: 39.87, height: 13)
-        let text51TextContent = "0xF6"
-        let text51Style = NSMutableParagraphStyle()
-        text51Style.alignment = .left
-        let text51FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text51Style] as [NSAttributedStringKey : Any]
-
-        let text51TextHeight: CGFloat = text51TextContent.boundingRect(with: CGSize(width: text51Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text51FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text51Rect)
-        text51TextContent.draw(in: CGRect(x: text51Rect.minX, y: text51Rect.minY + (text51Rect.height - text51TextHeight) / 2, width: text51Rect.width, height: text51TextHeight), withAttributes: text51FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Group 41
-        //// Text 52 Drawing
-        let text52Rect = CGRect(x: 475, y: 164, width: 22, height: 15)
-        let text52TextContent = "M5"
-        let text52Style = NSMutableParagraphStyle()
-        text52Style.alignment = .right
-        let text52FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text52Style] as [NSAttributedStringKey : Any]
-
-        let text52TextHeight: CGFloat = text52TextContent.boundingRect(with: CGSize(width: text52Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text52FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text52Rect)
-        text52TextContent.draw(in: CGRect(x: text52Rect.minX, y: text52Rect.minY + (text52Rect.height - text52TextHeight) / 2, width: text52Rect.width, height: text52TextHeight), withAttributes: text52FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 25 Drawing
-        let rectangle25Path = UIBezierPath(rect: CGRect(x: 506.87, y: 163, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle25Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle25Path.lineWidth = 1
-        rectangle25Path.stroke()
-
-
-        //// Rectangle 26 Drawing
-        let rectangle26Path = UIBezierPath(rect: CGRect(x: 551.87, y: 163, width: 45, height: 17))
-        mWhite.setFill()
-        rectangle26Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle26Path.lineWidth = 1
-        rectangle26Path.stroke()
-
-
-        //// Text 53 Drawing
-        let text53Rect = CGRect(x: 507, y: 150, width: 16, height: 13)
-        let text53TextContent = "30"
-        let text53Style = NSMutableParagraphStyle()
-        text53Style.alignment = .left
-        let text53FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text53Style] as [NSAttributedStringKey : Any]
-
-        let text53TextHeight: CGFloat = text53TextContent.boundingRect(with: CGSize(width: text53Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text53FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text53Rect)
-        text53TextContent.draw(in: CGRect(x: text53Rect.minX, y: text53Rect.minY + (text53Rect.height - text53TextHeight) / 2, width: text53Rect.width, height: text53TextHeight), withAttributes: text53FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 54 Drawing
-        let text54Rect = CGRect(x: 552, y: 150, width: 16, height: 13)
-        let text54TextContent = "31"
-        let text54Style = NSMutableParagraphStyle()
-        text54Style.alignment = .left
-        let text54FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text54Style] as [NSAttributedStringKey : Any]
-
-        let text54TextHeight: CGFloat = text54TextContent.boundingRect(with: CGSize(width: text54Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text54FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text54Rect)
-        text54TextContent.draw(in: CGRect(x: text54Rect.minX, y: text54Rect.minY + (text54Rect.height - text54TextHeight) / 2, width: text54Rect.width, height: text54TextHeight), withAttributes: text54FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 55 Drawing
-        let text55Rect = CGRect(x: 512, y: 165, width: 39.87, height: 13)
-        let text55TextContent = "0xFE"
-        let text55Style = NSMutableParagraphStyle()
-        text55Style.alignment = .left
-        let text55FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text55Style] as [NSAttributedStringKey : Any]
-
-        let text55TextHeight: CGFloat = text55TextContent.boundingRect(with: CGSize(width: text55Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text55FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text55Rect)
-        text55TextContent.draw(in: CGRect(x: text55Rect.minX, y: text55Rect.minY + (text55Rect.height - text55TextHeight) / 2, width: text55Rect.width, height: text55TextHeight), withAttributes: text55FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 56 Drawing
-        let text56Rect = CGRect(x: 557, y: 165, width: 39.87, height: 13)
-        let text56TextContent = "0xFF"
-        let text56Style = NSMutableParagraphStyle()
-        text56Style.alignment = .left
-        let text56FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text56Style] as [NSAttributedStringKey : Any]
-
-        let text56TextHeight: CGFloat = text56TextContent.boundingRect(with: CGSize(width: text56Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text56FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text56Rect)
-        text56TextContent.draw(in: CGRect(x: text56Rect.minX, y: text56Rect.minY + (text56Rect.height - text56TextHeight) / 2, width: text56Rect.width, height: text56TextHeight), withAttributes: text56FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// RightHandText
-        //// Text 60 Drawing
-        let text60Rect = CGRect(x: 760, y: 108, width: 14, height: 15)
-        let text60TextContent = "C"
-        let text60Style = NSMutableParagraphStyle()
-        text60Style.alignment = .left
-        let text60FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text60Style] as [NSAttributedStringKey : Any]
-
-        let text60TextHeight: CGFloat = text60TextContent.boundingRect(with: CGSize(width: text60Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text60FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text60Rect)
-        text60TextContent.draw(in: CGRect(x: text60Rect.minX, y: text60Rect.minY + (text60Rect.height - text60TextHeight) / 2, width: text60Rect.width, height: text60TextHeight), withAttributes: text60FontAttributes)
-        context.restoreGState()
-
-
-        //// LoadCK Drawing
-        let loadCKRect = CGRect(x: 760, y: 55, width: 60.03, height: 15)
-        let loadCKTextContent = "LoadCK"
-        let loadCKStyle = NSMutableParagraphStyle()
-        loadCKStyle.alignment = .left
-        let loadCKFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: loadCKStyle] as [NSAttributedStringKey : Any]
-
-        let loadCKTextHeight: CGFloat = loadCKTextContent.boundingRect(with: CGSize(width: loadCKRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: loadCKFontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: loadCKRect)
-        loadCKTextContent.draw(in: CGRect(x: loadCKRect.minX, y: loadCKRect.minY + (loadCKRect.height - loadCKTextHeight) / 2, width: loadCKRect.width, height: loadCKTextHeight), withAttributes: loadCKFontAttributes)
-        context.restoreGState()
-
-
-        //// Text 62 Drawing
-        let text62Rect = CGRect(x: 760, y: 138, width: 14, height: 15)
-        let text62TextContent = "B"
-        let text62Style = NSMutableParagraphStyle()
-        text62Style.alignment = .left
-        let text62FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text62Style] as [NSAttributedStringKey : Any]
-
-        let text62TextHeight: CGFloat = text62TextContent.boundingRect(with: CGSize(width: text62Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text62FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text62Rect)
-        text62TextContent.draw(in: CGRect(x: text62Rect.minX, y: text62Rect.minY + (text62Rect.height - text62TextHeight) / 2, width: text62Rect.width, height: text62TextHeight), withAttributes: text62FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 63 Drawing
-        let text63Rect = CGRect(x: 760, y: 168, width: 14, height: 15)
-        let text63TextContent = "A"
-        let text63Style = NSMutableParagraphStyle()
-        text63Style.alignment = .left
-        let text63FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text63Style] as [NSAttributedStringKey : Any]
-
-        let text63TextHeight: CGFloat = text63TextContent.boundingRect(with: CGSize(width: text63Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text63FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text63Rect)
-        text63TextContent.draw(in: CGRect(x: text63Rect.minX, y: text63Rect.minY + (text63Rect.height - text63TextHeight) / 2, width: text63Rect.width, height: text63TextHeight), withAttributes: text63FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 64 Drawing
-        let text64Rect = CGRect(x: 760, y: 273, width: 68, height: 15)
-        let text64TextContent = "MARCk"
-        let text64Style = NSMutableParagraphStyle()
-        text64Style.alignment = .left
-        let text64FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text64Style] as [NSAttributedStringKey : Any]
-
-        let text64TextHeight: CGFloat = text64TextContent.boundingRect(with: CGSize(width: text64Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text64FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text64Rect)
-        text64TextContent.draw(in: CGRect(x: text64Rect.minX, y: text64Rect.minY + (text64Rect.height - text64TextHeight) / 2, width: text64Rect.width, height: text64TextHeight), withAttributes: text64FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 65 Drawing
-        let text65Rect = CGRect(x: 760, y: 358, width: 51.5, height: 15)
-        let text65TextContent = "MDRCk"
-        let text65Style = NSMutableParagraphStyle()
-        text65Style.alignment = .left
-        let text65FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text65Style] as [NSAttributedStringKey : Any]
-
-        let text65TextHeight: CGFloat = text65TextContent.boundingRect(with: CGSize(width: text65Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text65FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text65Rect)
-        text65TextContent.draw(in: CGRect(x: text65Rect.minX, y: text65Rect.minY + (text65Rect.height - text65TextHeight) / 2, width: text65Rect.width, height: text65TextHeight), withAttributes: text65FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 66 Drawing
-        let text66Rect = CGRect(x: 760, y: 453, width: 51.5, height: 15)
-        let text66TextContent = "AMUX"
-        let text66Style = NSMutableParagraphStyle()
-        text66Style.alignment = .left
-        let text66FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text66Style] as [NSAttributedStringKey : Any]
-
-        let text66TextHeight: CGFloat = text66TextContent.boundingRect(with: CGSize(width: text66Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text66FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text66Rect)
-        text66TextContent.draw(in: CGRect(x: text66Rect.minX, y: text66Rect.minY + (text66Rect.height - text66TextHeight) / 2, width: text66Rect.width, height: text66TextHeight), withAttributes: text66FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 67 Drawing
-        let text67Rect = CGRect(x: 760, y: 498, width: 58.8, height: 15)
-        let text67TextContent = "MDRMux"
-        let text67Style = NSMutableParagraphStyle()
-        text67Style.alignment = .left
-        let text67FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text67Style] as [NSAttributedStringKey : Any]
-
-        let text67TextHeight: CGFloat = text67TextContent.boundingRect(with: CGSize(width: text67Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text67FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text67Rect)
-        text67TextContent.draw(in: CGRect(x: text67Rect.minX, y: text67Rect.minY + (text67Rect.height - text67TextHeight) / 2, width: text67Rect.width, height: text67TextHeight), withAttributes: text67FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 68 Drawing
-        let text68Rect = CGRect(x: 760, y: 563, width: 58.8, height: 15)
-        let text68TextContent = "CMux"
-        let text68Style = NSMutableParagraphStyle()
-        text68Style.alignment = .left
-        let text68FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text68Style] as [NSAttributedStringKey : Any]
-
-        let text68TextHeight: CGFloat = text68TextContent.boundingRect(with: CGSize(width: text68Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text68FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text68Rect)
-        text68TextContent.draw(in: CGRect(x: text68Rect.minX, y: text68Rect.minY + (text68Rect.height - text68TextHeight) / 2, width: text68Rect.width, height: text68TextHeight), withAttributes: text68FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 69 Drawing
-        let text69Rect = CGRect(x: 760, y: 588, width: 41.72, height: 15)
-        let text69TextContent = "ALU"
-        let text69Style = NSMutableParagraphStyle()
-        text69Style.alignment = .left
-        let text69FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text69Style] as [NSAttributedStringKey : Any]
-
-        let text69TextHeight: CGFloat = text69TextContent.boundingRect(with: CGSize(width: text69Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text69FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text69Rect)
-        text69TextContent.draw(in: CGRect(x: text69Rect.minX, y: text69Rect.minY + (text69Rect.height - text69TextHeight) / 2, width: text69Rect.width, height: text69TextHeight), withAttributes: text69FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 70 Drawing
-        let text70Rect = CGRect(x: 760, y: 643, width: 51.5, height: 15)
-        let text70TextContent = "CSMux"
-        let text70Style = NSMutableParagraphStyle()
-        text70Style.alignment = .left
-        let text70FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text70Style] as [NSAttributedStringKey : Any]
-
-        let text70TextHeight: CGFloat = text70TextContent.boundingRect(with: CGSize(width: text70Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text70FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text70Rect)
-        text70TextContent.draw(in: CGRect(x: text70Rect.minX, y: text70Rect.minY + (text70Rect.height - text70TextHeight) / 2, width: text70Rect.width, height: text70TextHeight), withAttributes: text70FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 71 Drawing
-        let text71Rect = CGRect(x: 760, y: 693, width: 41.72, height: 15)
-        let text71TextContent = "SCk"
-        let text71Style = NSMutableParagraphStyle()
-        text71Style.alignment = .left
-        let text71FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text71Style] as [NSAttributedStringKey : Any]
-
-        let text71TextHeight: CGFloat = text71TextContent.boundingRect(with: CGSize(width: text71Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text71FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text71Rect)
-        text71TextContent.draw(in: CGRect(x: text71Rect.minX, y: text71Rect.minY + (text71Rect.height - text71TextHeight) / 2, width: text71Rect.width, height: text71TextHeight), withAttributes: text71FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 72 Drawing
-        let text72Rect = CGRect(x: 760, y: 728, width: 41.72, height: 15)
-        let text72TextContent = "CCk"
-        let text72Style = NSMutableParagraphStyle()
-        text72Style.alignment = .left
-        let text72FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text72Style] as [NSAttributedStringKey : Any]
-
-        let text72TextHeight: CGFloat = text72TextContent.boundingRect(with: CGSize(width: text72Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text72FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text72Rect)
-        text72TextContent.draw(in: CGRect(x: text72Rect.minX, y: text72Rect.minY + (text72Rect.height - text72TextHeight) / 2, width: text72Rect.width, height: text72TextHeight), withAttributes: text72FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 73 Drawing
-        let text73Rect = CGRect(x: 760, y: 763, width: 41.72, height: 15)
-        let text73TextContent = "VCk"
-        let text73Style = NSMutableParagraphStyle()
-        text73Style.alignment = .left
-        let text73FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text73Style] as [NSAttributedStringKey : Any]
-
-        let text73TextHeight: CGFloat = text73TextContent.boundingRect(with: CGSize(width: text73Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text73FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text73Rect)
-        text73TextContent.draw(in: CGRect(x: text73Rect.minX, y: text73Rect.minY + (text73Rect.height - text73TextHeight) / 2, width: text73Rect.width, height: text73TextHeight), withAttributes: text73FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 74 Drawing
-        let text74Rect = CGRect(x: 760, y: 812.85, width: 41.72, height: 15)
-        let text74TextContent = "AndZ"
-        let text74Style = NSMutableParagraphStyle()
-        text74Style.alignment = .left
-        let text74FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text74Style] as [NSAttributedStringKey : Any]
-
-        let text74TextHeight: CGFloat = text74TextContent.boundingRect(with: CGSize(width: text74Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text74FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text74Rect)
-        text74TextContent.draw(in: CGRect(x: text74Rect.minX, y: text74Rect.minY + (text74Rect.height - text74TextHeight) / 2, width: text74Rect.width, height: text74TextHeight), withAttributes: text74FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 75 Drawing
-        let text75Rect = CGRect(x: 760, y: 848, width: 41.72, height: 15)
-        let text75TextContent = "ZCk"
-        let text75Style = NSMutableParagraphStyle()
-        text75Style.alignment = .left
-        let text75FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text75Style] as [NSAttributedStringKey : Any]
-
-        let text75TextHeight: CGFloat = text75TextContent.boundingRect(with: CGSize(width: text75Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text75FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text75Rect)
-        text75TextContent.draw(in: CGRect(x: text75Rect.minX, y: text75Rect.minY + (text75Rect.height - text75TextHeight) / 2, width: text75Rect.width, height: text75TextHeight), withAttributes: text75FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 76 Drawing
-        let text76Rect = CGRect(x: 760, y: 918, width: 51.5, height: 15)
-        let text76TextContent = "NCk"
-        let text76Style = NSMutableParagraphStyle()
-        text76Style.alignment = .left
-        let text76FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text76Style] as [NSAttributedStringKey : Any]
-
-        let text76TextHeight: CGFloat = text76TextContent.boundingRect(with: CGSize(width: text76Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text76FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text76Rect)
-        text76TextContent.draw(in: CGRect(x: text76Rect.minX, y: text76Rect.minY + (text76Rect.height - text76TextHeight) / 2, width: text76Rect.width, height: text76TextHeight), withAttributes: text76FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 77 Drawing
-        let text77Rect = CGRect(x: 760, y: 963, width: 68, height: 15)
-        let text77TextContent = "MemWrite"
-        let text77Style = NSMutableParagraphStyle()
-        text77Style.alignment = .left
-        let text77FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text77Style] as [NSAttributedStringKey : Any]
-
-        let text77TextHeight: CGFloat = text77TextContent.boundingRect(with: CGSize(width: text77Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text77FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text77Rect)
-        text77TextContent.draw(in: CGRect(x: text77Rect.minX, y: text77Rect.minY + (text77Rect.height - text77TextHeight) / 2, width: text77Rect.width, height: text77TextHeight), withAttributes: text77FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 78 Drawing
-        let text78Rect = CGRect(x: 760, y: 978, width: 78.79, height: 15)
-        let text78TextContent = "MemRead"
-        let text78Style = NSMutableParagraphStyle()
-        text78Style.alignment = .left
-        let text78FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text78Style] as [NSAttributedStringKey : Any]
-
-        let text78TextHeight: CGFloat = text78TextContent.boundingRect(with: CGSize(width: text78Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text78FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text78Rect)
-        text78TextContent.draw(in: CGRect(x: text78Rect.minX, y: text78Rect.minY + (text78Rect.height - text78TextHeight) / 2, width: text78Rect.width, height: text78TextHeight), withAttributes: text78FontAttributes)
-        context.restoreGState()
-
-
-
-
-        //// Text 79 Drawing
-        let text79Rect = CGRect(x: 362, y: 188, width: 68, height: 15)
-        let text79TextContent = " CBus"
-        let text79Style = NSMutableParagraphStyle()
-        text79Style.alignment = .left
-        let text79FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text79Style] as [NSAttributedStringKey : Any]
-
-        let text79TextHeight: CGFloat = text79TextContent.boundingRect(with: CGSize(width: text79Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text79FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text79Rect)
-        text79TextContent.draw(in: CGRect(x: text79Rect.minX, y: text79Rect.minY + (text79Rect.height - text79TextHeight) / 2, width: text79Rect.width, height: text79TextHeight), withAttributes: text79FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 80 Drawing
-        let text80Rect = CGRect(x: 474.5, y: 188, width: 68, height: 15)
-        let text80TextContent = " ABus"
-        let text80Style = NSMutableParagraphStyle()
-        text80Style.alignment = .left
-        let text80FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text80Style] as [NSAttributedStringKey : Any]
-
-        let text80TextHeight: CGFloat = text80TextContent.boundingRect(with: CGSize(width: text80Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text80FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text80Rect)
-        text80TextContent.draw(in: CGRect(x: text80Rect.minX, y: text80Rect.minY + (text80Rect.height - text80TextHeight) / 2, width: text80Rect.width, height: text80TextHeight), withAttributes: text80FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 81 Drawing
-        let text81Rect = CGRect(x: 569.5, y: 188, width: 68, height: 15)
-        let text81TextContent = " BBus"
-        let text81Style = NSMutableParagraphStyle()
-        text81Style.alignment = .left
-        let text81FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text81Style] as [NSAttributedStringKey : Any]
-
-        let text81TextHeight: CGFloat = text81TextContent.boundingRect(with: CGSize(width: text81Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text81FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text81Rect)
-        text81TextContent.draw(in: CGRect(x: text81Rect.minX, y: text81Rect.minY + (text81Rect.height - text81TextHeight) / 2, width: text81Rect.width, height: text81TextHeight), withAttributes: text81FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 82 Drawing
-        let text82Rect = CGRect(x: 35.5, y: 212.66, width: 68, height: 35.96)
-        let text82TextContent = " System\nBus"
-        let text82Style = NSMutableParagraphStyle()
-        text82Style.alignment = .center
-        let text82FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text82Style] as [NSAttributedStringKey : Any]
-
-        let text82TextHeight: CGFloat = text82TextContent.boundingRect(with: CGSize(width: text82Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text82FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text82Rect)
-        text82TextContent.draw(in: CGRect(x: text82Rect.minX, y: text82Rect.minY + (text82Rect.height - text82TextHeight) / 2, width: text82Rect.width, height: text82TextHeight), withAttributes: text82FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 83 Drawing
-        let text83Rect = CGRect(x: 195.5, y: 230, width: 68, height: 15)
-        let text83TextContent = "MARB"
-        let text83Style = NSMutableParagraphStyle()
-        text83Style.alignment = .center
-        let text83FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text83Style] as [NSAttributedStringKey : Any]
-
-        let text83TextHeight: CGFloat = text83TextContent.boundingRect(with: CGSize(width: text83Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text83FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text83Rect)
-        text83TextContent.draw(in: CGRect(x: text83Rect.minX, y: text83Rect.minY + (text83Rect.height - text83TextHeight) / 2, width: text83Rect.width, height: text83TextHeight), withAttributes: text83FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 84 Drawing
-        let text84Rect = CGRect(x: 195.5, y: 315, width: 68, height: 15)
-        let text84TextContent = "MARA"
-        let text84Style = NSMutableParagraphStyle()
-        text84Style.alignment = .center
-        let text84FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text84Style] as [NSAttributedStringKey : Any]
-
-        let text84TextHeight: CGFloat = text84TextContent.boundingRect(with: CGSize(width: text84Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text84FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text84Rect)
-        text84TextContent.draw(in: CGRect(x: text84Rect.minX, y: text84Rect.minY + (text84Rect.height - text84TextHeight) / 2, width: text84Rect.width, height: text84TextHeight), withAttributes: text84FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 85 Drawing
-        let text85Rect = CGRect(x: 196, y: 395, width: 68, height: 15)
-        let text85TextContent = "MDR"
-        let text85Style = NSMutableParagraphStyle()
-        text85Style.alignment = .center
-        let text85FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text85Style] as [NSAttributedStringKey : Any]
-
-        let text85TextHeight: CGFloat = text85TextContent.boundingRect(with: CGSize(width: text85Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text85FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text85Rect)
-        text85TextContent.draw(in: CGRect(x: text85Rect.minX, y: text85Rect.minY + (text85Rect.height - text85TextHeight) / 2, width: text85Rect.width, height: text85TextHeight), withAttributes: text85FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 86 Drawing
-        let text86Rect = CGRect(x: 195.5, y: 465.82, width: 68, height: 15)
-        let text86TextContent = "MDRMux "
-        let text86Style = NSMutableParagraphStyle()
-        text86Style.alignment = .center
-        let text86FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text86Style] as [NSAttributedStringKey : Any]
-
-        let text86TextHeight: CGFloat = text86TextContent.boundingRect(with: CGSize(width: text86Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text86FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text86Rect)
-        text86TextContent.draw(in: CGRect(x: text86Rect.minX, y: text86Rect.minY + (text86Rect.height - text86TextHeight) / 2, width: text86Rect.width, height: text86TextHeight), withAttributes: text86FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 87 Drawing
-        let text87Rect = CGRect(x: 394, y: 454.4, width: 68, height: 15)
-        let text87TextContent = "AMux"
-        let text87Style = NSMutableParagraphStyle()
-        text87Style.alignment = .center
-        let text87FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text87Style] as [NSAttributedStringKey : Any]
-
-        let text87TextHeight: CGFloat = text87TextContent.boundingRect(with: CGSize(width: text87Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text87FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text87Rect)
-        text87TextContent.draw(in: CGRect(x: text87Rect.minX, y: text87Rect.minY + (text87Rect.height - text87TextHeight) / 2, width: text87Rect.width, height: text87TextHeight), withAttributes: text87FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 88 Drawing
-        let text88Rect = CGRect(x: 311, y: 599.06, width: 68, height: 15)
-        let text88TextContent = "CMux"
-        let text88Style = NSMutableParagraphStyle()
-        text88Style.alignment = .center
-        let text88FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text88Style] as [NSAttributedStringKey : Any]
-
-        let text88TextHeight: CGFloat = text88TextContent.boundingRect(with: CGSize(width: text88Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text88FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text88Rect)
-        text88TextContent.draw(in: CGRect(x: text88Rect.minX, y: text88Rect.minY + (text88Rect.height - text88TextHeight) / 2, width: text88Rect.width, height: text88TextHeight), withAttributes: text88FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 89 Drawing
-        let text89Rect = CGRect(x: 464, y: 567.5, width: 68, height: 15)
-        let text89TextContent = "ALU"
-        let text89Style = NSMutableParagraphStyle()
-        text89Style.alignment = .center
-        let text89FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text89Style] as [NSAttributedStringKey : Any]
-
-        let text89TextHeight: CGFloat = text89TextContent.boundingRect(with: CGSize(width: text89Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text89FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text89Rect)
-        text89TextContent.draw(in: CGRect(x: text89Rect.minX, y: text89Rect.minY + (text89Rect.height - text89TextHeight) / 2, width: text89Rect.width, height: text89TextHeight), withAttributes: text89FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 91 Drawing
-        let text91Rect = CGRect(x: 605.5, y: 644.5, width: 68, height: 15)
-        let text91TextContent = "CSMux"
-        let text91Style = NSMutableParagraphStyle()
-        text91Style.alignment = .center
-        let text91FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text91Style] as [NSAttributedStringKey : Any]
-
-        let text91TextHeight: CGFloat = text91TextContent.boundingRect(with: CGSize(width: text91Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text91FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text91Rect)
-        text91TextContent.draw(in: CGRect(x: text91Rect.minX, y: text91Rect.minY + (text91Rect.height - text91TextHeight) / 2, width: text91Rect.width, height: text91TextHeight), withAttributes: text91FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 93 Drawing
-        let text93Rect = CGRect(x: 643.5, y: 695, width: 68, height: 15)
-        let text93TextContent = "S"
-        let text93Style = NSMutableParagraphStyle()
-        text93Style.alignment = .center
-        let text93FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text93Style] as [NSAttributedStringKey : Any]
-
-        let text93TextHeight: CGFloat = text93TextContent.boundingRect(with: CGSize(width: text93Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text93FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text93Rect)
-        text93TextContent.draw(in: CGRect(x: text93Rect.minX, y: text93Rect.minY + (text93Rect.height - text93TextHeight) / 2, width: text93Rect.width, height: text93TextHeight), withAttributes: text93FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 94 Drawing
-        let text94Rect = CGRect(x: 643.5, y: 730, width: 68, height: 15)
-        let text94TextContent = "C"
-        let text94Style = NSMutableParagraphStyle()
-        text94Style.alignment = .center
-        let text94FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text94Style] as [NSAttributedStringKey : Any]
-
-        let text94TextHeight: CGFloat = text94TextContent.boundingRect(with: CGSize(width: text94Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text94FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text94Rect)
-        text94TextContent.draw(in: CGRect(x: text94Rect.minX, y: text94Rect.minY + (text94Rect.height - text94TextHeight) / 2, width: text94Rect.width, height: text94TextHeight), withAttributes: text94FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 95 Drawing
-        let text95Rect = CGRect(x: 643.5, y: 765, width: 68, height: 15)
-        let text95TextContent = "V"
-        let text95Style = NSMutableParagraphStyle()
-        text95Style.alignment = .center
-        let text95FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text95Style] as [NSAttributedStringKey : Any]
-
-        let text95TextHeight: CGFloat = text95TextContent.boundingRect(with: CGSize(width: text95Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text95FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text95Rect)
-        text95TextContent.draw(in: CGRect(x: text95Rect.minX, y: text95Rect.minY + (text95Rect.height - text95TextHeight) / 2, width: text95Rect.width, height: text95TextHeight), withAttributes: text95FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 96 Drawing
-        let text96Rect = CGRect(x: 643.5, y: 850, width: 68, height: 15)
-        let text96TextContent = "Z"
-        let text96Style = NSMutableParagraphStyle()
-        text96Style.alignment = .center
-        let text96FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text96Style] as [NSAttributedStringKey : Any]
-
-        let text96TextHeight: CGFloat = text96TextContent.boundingRect(with: CGSize(width: text96Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text96FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text96Rect)
-        text96TextContent.draw(in: CGRect(x: text96Rect.minX, y: text96Rect.minY + (text96Rect.height - text96TextHeight) / 2, width: text96Rect.width, height: text96TextHeight), withAttributes: text96FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 97 Drawing
-        let text97Rect = CGRect(x: 643.5, y: 920, width: 68, height: 15)
-        let text97TextContent = "N"
-        let text97Style = NSMutableParagraphStyle()
-        text97Style.alignment = .center
-        let text97FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text97Style] as [NSAttributedStringKey : Any]
-
-        let text97TextHeight: CGFloat = text97TextContent.boundingRect(with: CGSize(width: text97Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text97FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text97Rect)
-        text97TextContent.draw(in: CGRect(x: text97Rect.minX, y: text97Rect.minY + (text97Rect.height - text97TextHeight) / 2, width: text97Rect.width, height: text97TextHeight), withAttributes: text97FontAttributes)
-        context.restoreGState()
-
-
-        //// Text 98 Drawing
-        let text98Rect = CGRect(x: 578.5, y: 850, width: 68, height: 15)
-        let text98TextContent = "AndZ"
-        let text98Style = NSMutableParagraphStyle()
-        text98Style.alignment = .center
-        let text98FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text98Style] as [NSAttributedStringKey : Any]
-
-        let text98TextHeight: CGFloat = text98TextContent.boundingRect(with: CGSize(width: text98Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text98FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text98Rect)
-        text98TextContent.draw(in: CGRect(x: text98Rect.minX, y: text98Rect.minY + (text98Rect.height - text98TextHeight) / 2, width: text98Rect.width, height: text98TextHeight), withAttributes: text98FontAttributes)
-        context.restoreGState()
-
-
-        //// 0 0 0 0 Drawing
-        let _0000Rect = CGRect(x: 335, y: 834, width: 68, height: 90)
-        let _0000TextContent = "0\n0\n0\n0"
-        let _0000Style = NSMutableParagraphStyle()
-        _0000Style.alignment = .center
-        let _0000FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: _0000Style] as [NSAttributedStringKey : Any]
-
-        let _0000TextHeight: CGFloat = _0000TextContent.boundingRect(with: CGSize(width: _0000Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: _0000FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: _0000Rect)
-        _0000TextContent.draw(in: CGRect(x: _0000Rect.minX, y: _0000Rect.minY + (_0000Rect.height - _0000TextHeight) / 2, width: _0000Rect.width, height: _0000TextHeight), withAttributes: _0000FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 27 Drawing
-        let rectangle27Path = UIBezierPath(rect: CGRect(x: 728.05, y: 54.25, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle27Path.fill()
-        UIColor.black.setStroke()
-        rectangle27Path.lineWidth = 1
-        rectangle27Path.stroke()
-
-
-        //// Rectangle 33 Drawing
-        let rectangle33Path = UIBezierPath(rect: CGRect(x: 728.05, y: 105.25, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle33Path.fill()
-        UIColor.black.setStroke()
-        rectangle33Path.lineWidth = 1
-        rectangle33Path.stroke()
-
-
-        //// Rectangle 34 Drawing
-        let rectangle34Path = UIBezierPath(rect: CGRect(x: 728.05, y: 135.25, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle34Path.fill()
-        UIColor.black.setStroke()
-        rectangle34Path.lineWidth = 1
-        rectangle34Path.stroke()
-
-
-        //// Rectangle 35 Drawing
-        let rectangle35Path = UIBezierPath(rect: CGRect(x: 728.01, y: 165.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle35Path.fill()
-        UIColor.black.setStroke()
-        rectangle35Path.lineWidth = 1
-        rectangle35Path.stroke()
-
-
-        //// Rectangle 36 Drawing
-        let rectangle36Path = UIBezierPath(rect: CGRect(x: 728.01, y: 270.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle36Path.fill()
-        UIColor.black.setStroke()
-        rectangle36Path.lineWidth = 1
-        rectangle36Path.stroke()
-
-
-        //// Rectangle 37 Drawing
-        let rectangle37Path = UIBezierPath(rect: CGRect(x: 728.01, y: 358.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle37Path.fill()
-        UIColor.black.setStroke()
-        rectangle37Path.lineWidth = 1
-        rectangle37Path.stroke()
-
-
-        //// Rectangle 38 Drawing
-        let rectangle38Path = UIBezierPath(rect: CGRect(x: 728.01, y: 450.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle38Path.fill()
-        UIColor.black.setStroke()
-        rectangle38Path.lineWidth = 1
-        rectangle38Path.stroke()
-
-
-        //// Rectangle 39 Drawing
-        let rectangle39Path = UIBezierPath(rect: CGRect(x: 728.01, y: 495.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle39Path.fill()
-        UIColor.black.setStroke()
-        rectangle39Path.lineWidth = 1
-        rectangle39Path.stroke()
-
-
-        //// Rectangle 40 Drawing
-        let rectangle40Path = UIBezierPath(rect: CGRect(x: 728.01, y: 564.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle40Path.fill()
-        UIColor.black.setStroke()
-        rectangle40Path.lineWidth = 1
-        rectangle40Path.stroke()
-
-
-        //// Rectangle 41 Drawing
-        let rectangle41Path = UIBezierPath(rect: CGRect(x: 728.01, y: 584.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle41Path.fill()
-        UIColor.black.setStroke()
-        rectangle41Path.lineWidth = 1
-        rectangle41Path.stroke()
-
-
-        //// Rectangle 42 Drawing
-        let rectangle42Path = UIBezierPath(rect: CGRect(x: 728.01, y: 642.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle42Path.fill()
-        UIColor.black.setStroke()
-        rectangle42Path.lineWidth = 1
-        rectangle42Path.stroke()
-
-
-        //// Rectangle 43 Drawing
-        let rectangle43Path = UIBezierPath(rect: CGRect(x: 728.01, y: 693.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle43Path.fill()
-        UIColor.black.setStroke()
-        rectangle43Path.lineWidth = 1
-        rectangle43Path.stroke()
-
-
-        //// Rectangle 44 Drawing
-        let rectangle44Path = UIBezierPath(rect: CGRect(x: 728.01, y: 727.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle44Path.fill()
-        UIColor.black.setStroke()
-        rectangle44Path.lineWidth = 1
-        rectangle44Path.stroke()
-
-
-        //// Rectangle 45 Drawing
-        let rectangle45Path = UIBezierPath(rect: CGRect(x: 728.01, y: 762.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle45Path.fill()
-        UIColor.black.setStroke()
-        rectangle45Path.lineWidth = 1
-        rectangle45Path.stroke()
-
-
-        //// Rectangle 46 Drawing
-        let rectangle46Path = UIBezierPath(rect: CGRect(x: 728.01, y: 812.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle46Path.fill()
-        UIColor.black.setStroke()
-        rectangle46Path.lineWidth = 1
-        rectangle46Path.stroke()
-
-
-        //// Rectangle 47 Drawing
-        let rectangle47Path = UIBezierPath(rect: CGRect(x: 728.01, y: 847.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle47Path.fill()
-        UIColor.black.setStroke()
-        rectangle47Path.lineWidth = 1
-        rectangle47Path.stroke()
-
-
-        //// Rectangle 48 Drawing
-        let rectangle48Path = UIBezierPath(rect: CGRect(x: 728.01, y: 917.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle48Path.fill()
-        UIColor.black.setStroke()
-        rectangle48Path.lineWidth = 1
-        rectangle48Path.stroke()
-
-
-        //// Rectangle 49 Drawing
-        let rectangle49Path = UIBezierPath(rect: CGRect(x: 728.01, y: 957.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle49Path.fill()
-        UIColor.black.setStroke()
-        rectangle49Path.lineWidth = 1
-        rectangle49Path.stroke()
-
-
-        //// Rectangle 50 Drawing
-        let rectangle50Path = UIBezierPath(rect: CGRect(x: 728.01, y: 977.5, width: 25, height: 20))
-        checkBoxFill.setFill()
-        rectangle50Path.fill()
-        UIColor.black.setStroke()
-        rectangle50Path.lineWidth = 1
-        rectangle50Path.stroke()
+        let rectangle7TextContent = "AndZ"
+        let rectangle7Style = NSMutableParagraphStyle()
+        rectangle7Style.alignment = .center
+        let rectangle7FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: rectangle7Style,
+            ] as [NSAttributedString.Key: Any]
         
+        let rectangle7TextHeight: CGFloat = rectangle7TextContent.boundingRect(with: CGSize(width: rectangle7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle7FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: rectangle7Rect)
+        rectangle7TextContent.draw(in: CGRect(x: rectangle7Rect.minX, y: rectangle7Rect.minY + (rectangle7Rect.height - rectangle7TextHeight) / 2, width: rectangle7Rect.width, height: rectangle7TextHeight), withAttributes: rectangle7FontAttributes)
         context.restoreGState()
+        
+        
+        
+        
+        //// RegisterBankComponents
+        //// RegisterBank Drawing
+        let registerBankPath = UIBezierPath(rect: CGRect(x: 29, y: 17.51, width: 687.5, height: 175.49))
+        registerBankColor.setFill()
+        registerBankPath.fill()
+        UIColor.black.setStroke()
+        registerBankPath.lineWidth = 1
+        registerBankPath.stroke()
+        
+        
+        //// RegisterCol0
+        //// ProgramCounter
+        //// ProgramCounterText Drawing
+        let programCounterTextRect = CGRect(x: 92.5, y: 161.5, width: 100, height: 25)
+        let programCounterTextPath = UIBezierPath(rect: programCounterTextRect)
+        noFillColor.setFill()
+        programCounterTextPath.fill()
+        UIColor.black.setStroke()
+        programCounterTextPath.lineWidth = 1
+        programCounterTextPath.stroke()
+        let programCounterTextTextContent = "0x0000"
+        let programCounterTextStyle = NSMutableParagraphStyle()
+        programCounterTextStyle.alignment = .center
+        let programCounterTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: programCounterTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let programCounterTextTextHeight: CGFloat = programCounterTextTextContent.boundingRect(with: CGSize(width: programCounterTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: programCounterTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: programCounterTextRect)
+        programCounterTextTextContent.draw(in: CGRect(x: programCounterTextRect.minX, y: programCounterTextRect.minY + (programCounterTextRect.height - programCounterTextTextHeight) / 2, width: programCounterTextRect.width, height: programCounterTextTextHeight), withAttributes: programCounterTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// PC Drawing
+        let pCRect = CGRect(x: 71, y: 166, width: 19, height: 15)
+        let pCStyle = NSMutableParagraphStyle()
+        pCStyle.alignment = .right
+        let pCFontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: pCStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        "PC".draw(in: pCRect, withAttributes: pCFontAttributes)
+        
+        
+        //// RegText67 Drawing
+        let regText67Rect = CGRect(x: 36, y: 167, width: 31, height: 13)
+        let regText67TextContent = "6,7"
+        let regText67Style = NSMutableParagraphStyle()
+        regText67Style.alignment = .right
+        let regText67FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText67Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText67TextHeight: CGFloat = regText67TextContent.boundingRect(with: CGSize(width: regText67Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText67FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText67Rect)
+        regText67TextContent.draw(in: CGRect(x: regText67Rect.minX, y: regText67Rect.minY + (regText67Rect.height - regText67TextHeight) / 2, width: regText67Rect.width, height: regText67TextHeight), withAttributes: regText67FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// StackPointer
+        //// StackPointerText Drawing
+        let stackPointerTextRect = CGRect(x: 92.5, y: 113.5, width: 100, height: 25)
+        let stackPointerTextPath = UIBezierPath(rect: stackPointerTextRect)
+        noFillColor.setFill()
+        stackPointerTextPath.fill()
+        UIColor.black.setStroke()
+        stackPointerTextPath.lineWidth = 1
+        stackPointerTextPath.stroke()
+        let stackPointerTextTextContent = "0x0000"
+        let stackPointerTextStyle = NSMutableParagraphStyle()
+        stackPointerTextStyle.alignment = .center
+        let stackPointerTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: stackPointerTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let stackPointerTextTextHeight: CGFloat = stackPointerTextTextContent.boundingRect(with: CGSize(width: stackPointerTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: stackPointerTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: stackPointerTextRect)
+        stackPointerTextTextContent.draw(in: CGRect(x: stackPointerTextRect.minX, y: stackPointerTextRect.minY + (stackPointerTextRect.height - stackPointerTextTextHeight) / 2, width: stackPointerTextRect.width, height: stackPointerTextTextHeight), withAttributes: stackPointerTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// SP Drawing
+        let sPRect = CGRect(x: 71, y: 118, width: 19, height: 15)
+        let sPStyle = NSMutableParagraphStyle()
+        sPStyle.alignment = .right
+        let sPFontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: sPStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        "SP".draw(in: sPRect, withAttributes: sPFontAttributes)
+        
+        
+        //// RegText45 Drawing
+        let regText45Rect = CGRect(x: 36, y: 119, width: 31, height: 13)
+        let regText45TextContent = "4,5 "
+        let regText45Style = NSMutableParagraphStyle()
+        regText45Style.alignment = .right
+        let regText45FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText45Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText45TextHeight: CGFloat = regText45TextContent.boundingRect(with: CGSize(width: regText45Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText45FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText45Rect)
+        regText45TextContent.draw(in: CGRect(x: regText45Rect.minX, y: regText45Rect.minY + (regText45Rect.height - regText45TextHeight) / 2, width: regText45Rect.width, height: regText45TextHeight), withAttributes: regText45FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// IndexRegister
+        //// IndexRegisterText Drawing
+        let indexRegisterTextRect = CGRect(x: 92.5, y: 68.5, width: 100, height: 25)
+        let indexRegisterTextPath = UIBezierPath(rect: indexRegisterTextRect)
+        noFillColor.setFill()
+        indexRegisterTextPath.fill()
+        UIColor.black.setStroke()
+        indexRegisterTextPath.lineWidth = 1
+        indexRegisterTextPath.stroke()
+        let indexRegisterTextTextContent = "0x0000"
+        let indexRegisterTextStyle = NSMutableParagraphStyle()
+        indexRegisterTextStyle.alignment = .center
+        let indexRegisterTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: indexRegisterTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let indexRegisterTextTextHeight: CGFloat = indexRegisterTextTextContent.boundingRect(with: CGSize(width: indexRegisterTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: indexRegisterTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: indexRegisterTextRect)
+        indexRegisterTextTextContent.draw(in: CGRect(x: indexRegisterTextRect.minX, y: indexRegisterTextRect.minY + (indexRegisterTextRect.height - indexRegisterTextTextHeight) / 2, width: indexRegisterTextRect.width, height: indexRegisterTextTextHeight), withAttributes: indexRegisterTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// X Drawing
+        let xRect = CGRect(x: 71, y: 73, width: 19, height: 15)
+        let xStyle = NSMutableParagraphStyle()
+        xStyle.alignment = .right
+        let xFontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: xStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        "X".draw(in: xRect, withAttributes: xFontAttributes)
+        
+        
+        //// RegText23 Drawing
+        let regText23Rect = CGRect(x: 36, y: 74, width: 31, height: 13)
+        let regText23TextContent = "2,3"
+        let regText23Style = NSMutableParagraphStyle()
+        regText23Style.alignment = .right
+        let regText23FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText23Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText23TextHeight: CGFloat = regText23TextContent.boundingRect(with: CGSize(width: regText23Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText23FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText23Rect)
+        regText23TextContent.draw(in: CGRect(x: regText23Rect.minX, y: regText23Rect.minY + (regText23Rect.height - regText23TextHeight) / 2, width: regText23Rect.width, height: regText23TextHeight), withAttributes: regText23FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// Accumulator
+        //// AccumulatorText Drawing
+        let accumulatorTextRect = CGRect(x: 92.5, y: 23.5, width: 100, height: 25)
+        let accumulatorTextPath = UIBezierPath(rect: accumulatorTextRect)
+        noFillColor.setFill()
+        accumulatorTextPath.fill()
+        UIColor.black.setStroke()
+        accumulatorTextPath.lineWidth = 1
+        accumulatorTextPath.stroke()
+        let accumulatorTextTextContent = "0x0000"
+        let accumulatorTextStyle = NSMutableParagraphStyle()
+        accumulatorTextStyle.alignment = .center
+        let accumulatorTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: accumulatorTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let accumulatorTextTextHeight: CGFloat = accumulatorTextTextContent.boundingRect(with: CGSize(width: accumulatorTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: accumulatorTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: accumulatorTextRect)
+        accumulatorTextTextContent.draw(in: CGRect(x: accumulatorTextRect.minX, y: accumulatorTextRect.minY + (accumulatorTextRect.height - accumulatorTextTextHeight) / 2, width: accumulatorTextRect.width, height: accumulatorTextTextHeight), withAttributes: accumulatorTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// A Drawing
+        let aRect = CGRect(x: 71, y: 28, width: 19, height: 15)
+        let aStyle = NSMutableParagraphStyle()
+        aStyle.alignment = .right
+        let aFontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: aStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        "A".draw(in: aRect, withAttributes: aFontAttributes)
+        
+        
+        //// RegText01 Drawing
+        let regText01Rect = CGRect(x: 36, y: 29, width: 31, height: 13)
+        let regText01TextContent = "0,1 "
+        let regText01Style = NSMutableParagraphStyle()
+        regText01Style.alignment = .right
+        let regText01FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText01Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText01TextHeight: CGFloat = regText01TextContent.boundingRect(with: CGSize(width: regText01Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText01FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText01Rect)
+        regText01TextContent.draw(in: CGRect(x: regText01Rect.minX, y: regText01Rect.minY + (regText01Rect.height - regText01TextHeight) / 2, width: regText01Rect.width, height: regText01TextHeight), withAttributes: regText01FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        
+        
+        //// RegisterCol1
+        //// T3Register
+        //// T3RegText Drawing
+        let t3RegTextRect = CGRect(x: 274.5, y: 161.5, width: 100, height: 25)
+        let t3RegTextPath = UIBezierPath(rect: t3RegTextRect)
+        noFillColor.setFill()
+        t3RegTextPath.fill()
+        UIColor.black.setStroke()
+        t3RegTextPath.lineWidth = 1
+        t3RegTextPath.stroke()
+        let t3RegTextTextContent = "0x0000"
+        let t3RegTextStyle = NSMutableParagraphStyle()
+        t3RegTextStyle.alignment = .center
+        let t3RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t3RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let t3RegTextTextHeight: CGFloat = t3RegTextTextContent.boundingRect(with: CGSize(width: t3RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: t3RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: t3RegTextRect)
+        t3RegTextTextContent.draw(in: CGRect(x: t3RegTextRect.minX, y: t3RegTextRect.minY + (t3RegTextRect.height - t3RegTextTextHeight) / 2, width: t3RegTextRect.width, height: t3RegTextTextHeight), withAttributes: t3RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// T3 Drawing
+        let t3Rect = CGRect(x: 253, y: 166, width: 19, height: 15)
+        let t3Style = NSMutableParagraphStyle()
+        t3Style.alignment = .right
+        let t3FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t3Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "T3".draw(in: t3Rect, withAttributes: t3FontAttributes)
+        
+        
+        //// RegText1415 Drawing
+        let regText1415Rect = CGRect(x: 206, y: 168, width: 46, height: 13)
+        let regText1415TextContent = "14,15"
+        let regText1415Style = NSMutableParagraphStyle()
+        regText1415Style.alignment = .left
+        let regText1415FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText1415Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText1415TextHeight: CGFloat = regText1415TextContent.boundingRect(with: CGSize(width: regText1415Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText1415FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText1415Rect)
+        regText1415TextContent.draw(in: CGRect(x: regText1415Rect.minX, y: regText1415Rect.minY + (regText1415Rect.height - regText1415TextHeight) / 2, width: regText1415Rect.width, height: regText1415TextHeight), withAttributes: regText1415FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// T2Register
+        //// T2RegText Drawing
+        let t2RegTextRect = CGRect(x: 274.5, y: 113.5, width: 100, height: 25)
+        let t2RegTextPath = UIBezierPath(rect: t2RegTextRect)
+        noFillColor.setFill()
+        t2RegTextPath.fill()
+        UIColor.black.setStroke()
+        t2RegTextPath.lineWidth = 1
+        t2RegTextPath.stroke()
+        let t2RegTextTextContent = "0x0000"
+        let t2RegTextStyle = NSMutableParagraphStyle()
+        t2RegTextStyle.alignment = .center
+        let t2RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t2RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let t2RegTextTextHeight: CGFloat = t2RegTextTextContent.boundingRect(with: CGSize(width: t2RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: t2RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: t2RegTextRect)
+        t2RegTextTextContent.draw(in: CGRect(x: t2RegTextRect.minX, y: t2RegTextRect.minY + (t2RegTextRect.height - t2RegTextTextHeight) / 2, width: t2RegTextRect.width, height: t2RegTextTextHeight), withAttributes: t2RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// T2 Drawing
+        let t2Rect = CGRect(x: 253, y: 118, width: 19, height: 15)
+        let t2Style = NSMutableParagraphStyle()
+        t2Style.alignment = .right
+        let t2FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t2Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "T2".draw(in: t2Rect, withAttributes: t2FontAttributes)
+        
+        
+        //// RegText1213 Drawing
+        let regText1213Rect = CGRect(x: 206, y: 120, width: 46, height: 13)
+        let regText1213TextContent = "12,13"
+        let regText1213Style = NSMutableParagraphStyle()
+        regText1213Style.alignment = .left
+        let regText1213FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText1213Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText1213TextHeight: CGFloat = regText1213TextContent.boundingRect(with: CGSize(width: regText1213Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText1213FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText1213Rect)
+        regText1213TextContent.draw(in: CGRect(x: regText1213Rect.minX, y: regText1213Rect.minY + (regText1213Rect.height - regText1213TextHeight) / 2, width: regText1213Rect.width, height: regText1213TextHeight), withAttributes: regText1213FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// T1Register
+        //// T1RegText Drawing
+        let t1RegTextRect = CGRect(x: 274.5, y: 68.5, width: 100, height: 25)
+        let t1RegTextPath = UIBezierPath(rect: t1RegTextRect)
+        noFillColor.setFill()
+        t1RegTextPath.fill()
+        UIColor.black.setStroke()
+        t1RegTextPath.lineWidth = 1
+        t1RegTextPath.stroke()
+        let t1RegTextTextContent = "0x00"
+        let t1RegTextStyle = NSMutableParagraphStyle()
+        t1RegTextStyle.alignment = .center
+        let t1RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t1RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let t1RegTextTextHeight: CGFloat = t1RegTextTextContent.boundingRect(with: CGSize(width: t1RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: t1RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: t1RegTextRect)
+        t1RegTextTextContent.draw(in: CGRect(x: t1RegTextRect.minX, y: t1RegTextRect.minY + (t1RegTextRect.height - t1RegTextTextHeight) / 2, width: t1RegTextRect.width, height: t1RegTextTextHeight), withAttributes: t1RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// T1 Drawing
+        let t1Rect = CGRect(x: 253, y: 73, width: 19, height: 15)
+        let t1Style = NSMutableParagraphStyle()
+        t1Style.alignment = .right
+        let t1FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t1Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "T1".draw(in: t1Rect, withAttributes: t1FontAttributes)
+        
+        
+        //// RegText11 Drawing
+        let regText11Rect = CGRect(x: 218, y: 74, width: 31, height: 13)
+        let regText11TextContent = "11"
+        let regText11Style = NSMutableParagraphStyle()
+        regText11Style.alignment = .right
+        let regText11FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText11Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText11TextHeight: CGFloat = regText11TextContent.boundingRect(with: CGSize(width: regText11Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText11FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText11Rect)
+        regText11TextContent.draw(in: CGRect(x: regText11Rect.minX, y: regText11Rect.minY + (regText11Rect.height - regText11TextHeight) / 2, width: regText11Rect.width, height: regText11TextHeight), withAttributes: regText11FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// InstrRegister
+        //// InstrRegText Drawing
+        let instrRegTextRect = CGRect(x: 274.5, y: 23.5, width: 100, height: 25)
+        let instrRegTextPath = UIBezierPath(rect: instrRegTextRect)
+        noFillColor.setFill()
+        instrRegTextPath.fill()
+        UIColor.black.setStroke()
+        instrRegTextPath.lineWidth = 1
+        instrRegTextPath.stroke()
+        let instrRegTextTextContent = "0x000000"
+        let instrRegTextStyle = NSMutableParagraphStyle()
+        instrRegTextStyle.alignment = .center
+        let instrRegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: instrRegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let instrRegTextTextHeight: CGFloat = instrRegTextTextContent.boundingRect(with: CGSize(width: instrRegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: instrRegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: instrRegTextRect)
+        instrRegTextTextContent.draw(in: CGRect(x: instrRegTextRect.minX, y: instrRegTextRect.minY + (instrRegTextRect.height - instrRegTextTextHeight) / 2, width: instrRegTextRect.width, height: instrRegTextTextHeight), withAttributes: instrRegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// IR Drawing
+        let iRRect = CGRect(x: 253, y: 28, width: 19, height: 15)
+        let iRStyle = NSMutableParagraphStyle()
+        iRStyle.alignment = .right
+        let iRFontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: iRStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        "IR\n".draw(in: iRRect, withAttributes: iRFontAttributes)
+        
+        
+        //// RegText8-10 Drawing
+        let regText810Rect = CGRect(x: 215, y: 30, width: 45, height: 13)
+        let regText810TextContent = "8-10"
+        let regText810Style = NSMutableParagraphStyle()
+        regText810Style.alignment = .left
+        let regText810FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText810Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText810TextHeight: CGFloat = regText810TextContent.boundingRect(with: CGSize(width: regText810Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText810FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText810Rect)
+        regText810TextContent.draw(in: CGRect(x: regText810Rect.minX, y: regText810Rect.minY + (regText810Rect.height - regText810TextHeight) / 2, width: regText810Rect.width, height: regText810TextHeight), withAttributes: regText810FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        
+        
+        //// RegisterCol2
+        //// M1Register
+        //// M1Text Drawing
+        let m1TextRect = CGRect(x: 453.5, y: 161.5, width: 100, height: 25)
+        let m1TextTextContent = "0x0001"
+        let m1TextStyle = NSMutableParagraphStyle()
+        m1TextStyle.alignment = .center
+        let m1TextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m1TextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let m1TextTextHeight: CGFloat = m1TextTextContent.boundingRect(with: CGSize(width: m1TextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: m1TextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: m1TextRect)
+        m1TextTextContent.draw(in: CGRect(x: m1TextRect.minX, y: m1TextRect.minY + (m1TextRect.height - m1TextTextHeight) / 2, width: m1TextRect.width, height: m1TextTextHeight), withAttributes: m1TextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// M1 Drawing
+        let m1Rect = CGRect(x: 432, y: 166, width: 19, height: 15)
+        let m1Style = NSMutableParagraphStyle()
+        m1Style.alignment = .right
+        let m1FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m1Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "M1\n".draw(in: m1Rect, withAttributes: m1FontAttributes)
+        
+        
+        //// RegText2223 Drawing
+        let regText2223Rect = CGRect(x: 385, y: 168, width: 46, height: 13)
+        let regText2223TextContent = "22,23"
+        let regText2223Style = NSMutableParagraphStyle()
+        regText2223Style.alignment = .left
+        let regText2223FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText2223Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText2223TextHeight: CGFloat = regText2223TextContent.boundingRect(with: CGSize(width: regText2223Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText2223FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText2223Rect)
+        regText2223TextContent.draw(in: CGRect(x: regText2223Rect.minX, y: regText2223Rect.minY + (regText2223Rect.height - regText2223TextHeight) / 2, width: regText2223Rect.width, height: regText2223TextHeight), withAttributes: regText2223FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// T6Register
+        //// T6RegText2 Drawing
+        let t6RegText2Rect = CGRect(x: 453.5, y: 113.5, width: 100, height: 25)
+        let t6RegText2Path = UIBezierPath(rect: t6RegText2Rect)
+        noFillColor.setFill()
+        t6RegText2Path.fill()
+        UIColor.black.setStroke()
+        t6RegText2Path.lineWidth = 1
+        t6RegText2Path.stroke()
+        let t6RegText2TextContent = "0x0000"
+        let t6RegText2Style = NSMutableParagraphStyle()
+        t6RegText2Style.alignment = .center
+        let t6RegText2FontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t6RegText2Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let t6RegText2TextHeight: CGFloat = t6RegText2TextContent.boundingRect(with: CGSize(width: t6RegText2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: t6RegText2FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: t6RegText2Rect)
+        t6RegText2TextContent.draw(in: CGRect(x: t6RegText2Rect.minX, y: t6RegText2Rect.minY + (t6RegText2Rect.height - t6RegText2TextHeight) / 2, width: t6RegText2Rect.width, height: t6RegText2TextHeight), withAttributes: t6RegText2FontAttributes)
+        context.restoreGState()
+        
+        
+        //// T6 Drawing
+        let t6Rect = CGRect(x: 432, y: 118, width: 19, height: 15)
+        let t6Style = NSMutableParagraphStyle()
+        t6Style.alignment = .right
+        let t6FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t6Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "T6".draw(in: t6Rect, withAttributes: t6FontAttributes)
+        
+        
+        //// RegText2021 Drawing
+        let regText2021Rect = CGRect(x: 385, y: 120, width: 46, height: 13)
+        let regText2021TextContent = "20,21"
+        let regText2021Style = NSMutableParagraphStyle()
+        regText2021Style.alignment = .left
+        let regText2021FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText2021Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText2021TextHeight: CGFloat = regText2021TextContent.boundingRect(with: CGSize(width: regText2021Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText2021FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText2021Rect)
+        regText2021TextContent.draw(in: CGRect(x: regText2021Rect.minX, y: regText2021Rect.minY + (regText2021Rect.height - regText2021TextHeight) / 2, width: regText2021Rect.width, height: regText2021TextHeight), withAttributes: regText2021FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// T5Register
+        //// T5RegText Drawing
+        let t5RegTextRect = CGRect(x: 453.5, y: 68.5, width: 100, height: 25)
+        let t5RegTextPath = UIBezierPath(rect: t5RegTextRect)
+        noFillColor.setFill()
+        t5RegTextPath.fill()
+        UIColor.black.setStroke()
+        t5RegTextPath.lineWidth = 1
+        t5RegTextPath.stroke()
+        let t5RegTextTextContent = "0x0000"
+        let t5RegTextStyle = NSMutableParagraphStyle()
+        t5RegTextStyle.alignment = .center
+        let t5RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t5RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let t5RegTextTextHeight: CGFloat = t5RegTextTextContent.boundingRect(with: CGSize(width: t5RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: t5RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: t5RegTextRect)
+        t5RegTextTextContent.draw(in: CGRect(x: t5RegTextRect.minX, y: t5RegTextRect.minY + (t5RegTextRect.height - t5RegTextTextHeight) / 2, width: t5RegTextRect.width, height: t5RegTextTextHeight), withAttributes: t5RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// T5 Drawing
+        let t5Rect = CGRect(x: 432, y: 73, width: 19, height: 15)
+        let t5Style = NSMutableParagraphStyle()
+        t5Style.alignment = .right
+        let t5FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t5Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "T5".draw(in: t5Rect, withAttributes: t5FontAttributes)
+        
+        
+        //// RegText1718 Drawing
+        let regText1718Rect = CGRect(x: 385, y: 75, width: 46, height: 13)
+        let regText1718TextContent = "17,18"
+        let regText1718Style = NSMutableParagraphStyle()
+        regText1718Style.alignment = .left
+        let regText1718FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText1718Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText1718TextHeight: CGFloat = regText1718TextContent.boundingRect(with: CGSize(width: regText1718Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText1718FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText1718Rect)
+        regText1718TextContent.draw(in: CGRect(x: regText1718Rect.minX, y: regText1718Rect.minY + (regText1718Rect.height - regText1718TextHeight) / 2, width: regText1718Rect.width, height: regText1718TextHeight), withAttributes: regText1718FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// T4Register
+        //// T4RegText Drawing
+        let t4RegTextRect = CGRect(x: 453.5, y: 23.5, width: 100, height: 25)
+        let t4RegTextPath = UIBezierPath(rect: t4RegTextRect)
+        noFillColor.setFill()
+        t4RegTextPath.fill()
+        UIColor.black.setStroke()
+        t4RegTextPath.lineWidth = 1
+        t4RegTextPath.stroke()
+        let t4RegTextTextContent = "0x0000"
+        let t4RegTextStyle = NSMutableParagraphStyle()
+        t4RegTextStyle.alignment = .center
+        let t4RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t4RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let t4RegTextTextHeight: CGFloat = t4RegTextTextContent.boundingRect(with: CGSize(width: t4RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: t4RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: t4RegTextRect)
+        t4RegTextTextContent.draw(in: CGRect(x: t4RegTextRect.minX, y: t4RegTextRect.minY + (t4RegTextRect.height - t4RegTextTextHeight) / 2, width: t4RegTextRect.width, height: t4RegTextTextHeight), withAttributes: t4RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// T4 Drawing
+        let t4Rect = CGRect(x: 432, y: 28, width: 19, height: 15)
+        let t4Style = NSMutableParagraphStyle()
+        t4Style.alignment = .right
+        let t4FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: t4Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "T4\n\n".draw(in: t4Rect, withAttributes: t4FontAttributes)
+        
+        
+        //// RegTex1617 Drawing
+        let regTex1617Rect = CGRect(x: 385, y: 30, width: 46, height: 13)
+        let regTex1617TextContent = "16,17"
+        let regTex1617Style = NSMutableParagraphStyle()
+        regTex1617Style.alignment = .left
+        let regTex1617FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regTex1617Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regTex1617TextHeight: CGFloat = regTex1617TextContent.boundingRect(with: CGSize(width: regTex1617Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regTex1617FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regTex1617Rect)
+        regTex1617TextContent.draw(in: CGRect(x: regTex1617Rect.minX, y: regTex1617Rect.minY + (regTex1617Rect.height - regTex1617TextHeight) / 2, width: regTex1617Rect.width, height: regTex1617TextHeight), withAttributes: regTex1617FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        
+        
+        //// RegisterCol3
+        //// M5Register
+        //// M5Text Drawing
+        let m5TextRect = CGRect(x: 626.5, y: 161.5, width: 100, height: 25)
+        let m5TextTextContent = "0xFEFF"
+        let m5TextStyle = NSMutableParagraphStyle()
+        m5TextStyle.alignment = .center
+        let m5TextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m5TextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let m5TextTextHeight: CGFloat = m5TextTextContent.boundingRect(with: CGSize(width: m5TextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: m5TextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: m5TextRect)
+        m5TextTextContent.draw(in: CGRect(x: m5TextRect.minX, y: m5TextRect.minY + (m5TextRect.height - m5TextTextHeight) / 2, width: m5TextRect.width, height: m5TextTextHeight), withAttributes: m5TextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// M5 Drawing
+        let m5Rect = CGRect(x: 618, y: 166, width: 19, height: 15)
+        let m5Style = NSMutableParagraphStyle()
+        m5Style.alignment = .right
+        let m5FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m5Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "M5\n".draw(in: m5Rect, withAttributes: m5FontAttributes)
+        
+        
+        //// RegText3031 Drawing
+        let regText3031Rect = CGRect(x: 568, y: 168, width: 46, height: 13)
+        let regText3031TextContent = "30,31"
+        let regText3031Style = NSMutableParagraphStyle()
+        regText3031Style.alignment = .left
+        let regText3031FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText3031Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText3031TextHeight: CGFloat = regText3031TextContent.boundingRect(with: CGSize(width: regText3031Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText3031FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText3031Rect)
+        regText3031TextContent.draw(in: CGRect(x: regText3031Rect.minX, y: regText3031Rect.minY + (regText3031Rect.height - regText3031TextHeight) / 2, width: regText3031Rect.width, height: regText3031TextHeight), withAttributes: regText3031FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// M4Register
+        //// M4RegText Drawing
+        let m4RegTextRect = CGRect(x: 626.5, y: 113.5, width: 100, height: 25)
+        let m4RegTextTextContent = "0xF0F6"
+        let m4RegTextStyle = NSMutableParagraphStyle()
+        m4RegTextStyle.alignment = .center
+        let m4RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m4RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let m4RegTextTextHeight: CGFloat = m4RegTextTextContent.boundingRect(with: CGSize(width: m4RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: m4RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: m4RegTextRect)
+        m4RegTextTextContent.draw(in: CGRect(x: m4RegTextRect.minX, y: m4RegTextRect.minY + (m4RegTextRect.height - m4RegTextTextHeight) / 2, width: m4RegTextRect.width, height: m4RegTextTextHeight), withAttributes: m4RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// M4 Drawing
+        let m4Rect = CGRect(x: 618, y: 118, width: 19, height: 15)
+        let m4Style = NSMutableParagraphStyle()
+        m4Style.alignment = .right
+        let m4FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m4Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "M4".draw(in: m4Rect, withAttributes: m4FontAttributes)
+        
+        
+        //// RegText2829 Drawing
+        let regText2829Rect = CGRect(x: 568, y: 120, width: 46, height: 13)
+        let regText2829TextContent = "28,29"
+        let regText2829Style = NSMutableParagraphStyle()
+        regText2829Style.alignment = .left
+        let regText2829FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText2829Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText2829TextHeight: CGFloat = regText2829TextContent.boundingRect(with: CGSize(width: regText2829Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText2829FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText2829Rect)
+        regText2829TextContent.draw(in: CGRect(x: regText2829Rect.minX, y: regText2829Rect.minY + (regText2829Rect.height - regText2829TextHeight) / 2, width: regText2829Rect.width, height: regText2829TextHeight), withAttributes: regText2829FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// M3Register
+        //// M3RegText Drawing
+        let m3RegTextRect = CGRect(x: 626.5, y: 68.5, width: 100, height: 25)
+        let m3RegTextTextContent = "0x0408"
+        let m3RegTextStyle = NSMutableParagraphStyle()
+        m3RegTextStyle.alignment = .center
+        let m3RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m3RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let m3RegTextTextHeight: CGFloat = m3RegTextTextContent.boundingRect(with: CGSize(width: m3RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: m3RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: m3RegTextRect)
+        m3RegTextTextContent.draw(in: CGRect(x: m3RegTextRect.minX, y: m3RegTextRect.minY + (m3RegTextRect.height - m3RegTextTextHeight) / 2, width: m3RegTextRect.width, height: m3RegTextTextHeight), withAttributes: m3RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// M3 Drawing
+        let m3Rect = CGRect(x: 618, y: 73, width: 19, height: 15)
+        let m3Style = NSMutableParagraphStyle()
+        m3Style.alignment = .right
+        let m3FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m3Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "M3".draw(in: m3Rect, withAttributes: m3FontAttributes)
+        
+        
+        //// RegText2627 Drawing
+        let regText2627Rect = CGRect(x: 568, y: 75, width: 46, height: 13)
+        let regText2627TextContent = "26,27"
+        let regText2627Style = NSMutableParagraphStyle()
+        regText2627Style.alignment = .left
+        let regText2627FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regText2627Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regText2627TextHeight: CGFloat = regText2627TextContent.boundingRect(with: CGSize(width: regText2627Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regText2627FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regText2627Rect)
+        regText2627TextContent.draw(in: CGRect(x: regText2627Rect.minX, y: regText2627Rect.minY + (regText2627Rect.height - regText2627TextHeight) / 2, width: regText2627Rect.width, height: regText2627TextHeight), withAttributes: regText2627FontAttributes)
+        context.restoreGState()
+        
+        
+        
+        
+        //// M2Register
+        //// M2RegText Drawing
+        let m2RegTextRect = CGRect(x: 626.5, y: 23.5, width: 100, height: 25)
+        let m2RegTextTextContent = "0x0203"
+        let m2RegTextStyle = NSMutableParagraphStyle()
+        m2RegTextStyle.alignment = .center
+        let m2RegTextFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m2RegTextStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let m2RegTextTextHeight: CGFloat = m2RegTextTextContent.boundingRect(with: CGSize(width: m2RegTextRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: m2RegTextFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: m2RegTextRect)
+        m2RegTextTextContent.draw(in: CGRect(x: m2RegTextRect.minX, y: m2RegTextRect.minY + (m2RegTextRect.height - m2RegTextTextHeight) / 2, width: m2RegTextRect.width, height: m2RegTextTextHeight), withAttributes: m2RegTextFontAttributes)
+        context.restoreGState()
+        
+        
+        //// M2 Drawing
+        let m2Rect = CGRect(x: 618, y: 28, width: 19, height: 15)
+        let m2Style = NSMutableParagraphStyle()
+        m2Style.alignment = .right
+        let m2FontAttributes = [
+            .font: UIFont(name: "CourierNewPS-BoldMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: m2Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        "M2\n\n".draw(in: m2Rect, withAttributes: m2FontAttributes)
+        
+        
+        //// RegTex2425 Drawing
+        let regTex2425Rect = CGRect(x: 568, y: 30, width: 46, height: 13)
+        let regTex2425TextContent = "24,25"
+        let regTex2425Style = NSMutableParagraphStyle()
+        regTex2425Style.alignment = .left
+        let regTex2425FontAttributes = [
+            .font: UIFont(name: "CourierNewPSMT", size: 15)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: regTex2425Style,
+            ] as [NSAttributedString.Key: Any]
+        
+        let regTex2425TextHeight: CGFloat = regTex2425TextContent.boundingRect(with: CGSize(width: regTex2425Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: regTex2425FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: regTex2425Rect)
+        regTex2425TextContent.draw(in: CGRect(x: regTex2425Rect.minX, y: regTex2425Rect.minY + (regTex2425Rect.height - regTex2425TextHeight) / 2, width: regTex2425Rect.width, height: regTex2425TextHeight), withAttributes: regTex2425FontAttributes)
+        context.restoreGState()
+
 
     }
-
-    @objc public dynamic class func drawPointerCross(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 50), resizing: ResizingBehavior = .aspectFit) {
-        //// General Declarations
-        let context = UIGraphicsGetCurrentContext()!
-        
-        //// Resize to Target Frame
-        context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 75, height: 50), target: targetFrame)
-        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 75, y: resizedFrame.height / 50)
-
-
-        //// Color Declarations
-        let arrowBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-
-        //// Bezier 4 Drawing
-        let bezier4Path = UIBezierPath()
-        bezier4Path.move(to: CGPoint(x: 0, y: 23.5))
-        bezier4Path.addLine(to: CGPoint(x: 9.44, y: 19.5))
-        bezier4Path.addLine(to: CGPoint(x: 9.44, y: 22.5))
-        bezier4Path.addLine(to: CGPoint(x: 9.44, y: 24.5))
-        bezier4Path.addLine(to: CGPoint(x: 9.44, y: 27.5))
-        bezier4Path.addLine(to: CGPoint(x: 0, y: 23.5))
-        bezier4Path.close()
-        arrowBlack.setFill()
-        bezier4Path.fill()
-
-
-        //// Bezier 5 Drawing
-        let bezier5Path = UIBezierPath()
-        bezier5Path.move(to: CGPoint(x: 8, y: 23.43))
-        bezier5Path.addLine(to: CGPoint(x: 58, y: 23.43))
-        arrowBlack.setStroke()
-        bezier5Path.lineWidth = 1
-        bezier5Path.stroke()
-
-
-        //// Bezier 10 Drawing
-        let bezier10Path = UIBezierPath()
-        bezier10Path.move(to: CGPoint(x: 22.14, y: 15.5))
-        bezier10Path.addLine(to: CGPoint(x: 36.79, y: 31.36))
-        arrowBlack.setStroke()
-        bezier10Path.lineWidth = 1
-        bezier10Path.stroke()
-
-
-        //// Text Drawing
-        let textRect = CGRect(x: 30, y: 8.43, width: 14, height: 15)
-        let textTextContent = "5"
-        let textStyle = NSMutableParagraphStyle()
-        textStyle.alignment = .left
-        let textFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: arrowBlack, NSAttributedStringKey.paragraphStyle: textStyle]
-
-        let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: textRect)
-        textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
-        context.restoreGState()
-        
-        context.restoreGState()
-
-    }
-
-    @objc public dynamic class func drawArrow(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 24), resizing: ResizingBehavior = .aspectFit) {
-        //// General Declarations
-        let context = UIGraphicsGetCurrentContext()!
-        
-        //// Resize to Target Frame
-        context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 75, height: 24), target: targetFrame)
-        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 75, y: resizedFrame.height / 24)
-
-
-        //// Color Declarations
-        let arrowBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-
-        //// Bezier 2 Drawing
-        let bezier2Path = UIBezierPath()
-        bezier2Path.move(to: CGPoint(x: 0, y: 4.5))
-        bezier2Path.addLine(to: CGPoint(x: 9.44, y: 0.5))
-        bezier2Path.addLine(to: CGPoint(x: 9.44, y: 3.5))
-        bezier2Path.addLine(to: CGPoint(x: 9.44, y: 5.5))
-        bezier2Path.addLine(to: CGPoint(x: 9.44, y: 8.5))
-        bezier2Path.addLine(to: CGPoint(x: 0, y: 4.5))
-        bezier2Path.close()
-        arrowBlack.setFill()
-        bezier2Path.fill()
-
-
-        //// Bezier 3 Drawing
-        let bezier3Path = UIBezierPath()
-        bezier3Path.move(to: CGPoint(x: 8, y: 4.5))
-        bezier3Path.addLine(to: CGPoint(x: 58, y: 4.5))
-        arrowBlack.setStroke()
-        bezier3Path.lineWidth = 1
-        bezier3Path.stroke()
-        
-        context.restoreGState()
-
-    }
-
-    @objc public dynamic class func drawCircleConnector(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 10, height: 10), resizing: ResizingBehavior = .aspectFit) {
-        //// General Declarations
-        let context = UIGraphicsGetCurrentContext()!
-        
-        //// Resize to Target Frame
-        context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 10, height: 10), target: targetFrame)
-        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 10, y: resizedFrame.height / 10)
-
-
-        //// Color Declarations
-        let arrowBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-
-        //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 5, height: 5))
-        arrowBlack.setFill()
-        ovalPath.fill()
-        
-        context.restoreGState()
-
-    }
-
-    @objc public dynamic class func drawALUbox(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 123, height: 33), resizing: ResizingBehavior = .aspectFit) {
-        //// General Declarations
-        let context = UIGraphicsGetCurrentContext()!
-        
-        //// Resize to Target Frame
-        context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 123, height: 33), target: targetFrame)
-        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 123, y: resizedFrame.height / 33)
-
-
-        //// Color Declarations
-        let aLUstrokeblack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-        let labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-        let aLUvalgrey = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1.000)
-
-        //// Text 2 Drawing
-        let text2Rect = CGRect(x: 0, y: 14, width: 22, height: 15)
-        let text2TextContent = "A"
-        let text2Style = NSMutableParagraphStyle()
-        text2Style.alignment = .right
-        let text2FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text2Style]
-
-        let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text2Rect)
-        text2TextContent.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
-        context.restoreGState()
-
-
-        //// Rectangle 2 Drawing
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: 31.87, y: 13, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle2Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle2Path.lineWidth = 1
-        rectangle2Path.stroke()
-
-
-        //// Rectangle 3 Drawing
-        let rectangle3Path = UIBezierPath(rect: CGRect(x: 76.87, y: 13, width: 45, height: 17))
-        aLUvalgrey.setFill()
-        rectangle3Path.fill()
-        aLUstrokeblack.setStroke()
-        rectangle3Path.lineWidth = 1
-        rectangle3Path.stroke()
-
-
-        //// Text Drawing
-        let textRect = CGRect(x: 32, y: 0, width: 16, height: 13)
-        let textTextContent = "0"
-        let textStyle = NSMutableParagraphStyle()
-        textStyle.alignment = .left
-        let textFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: textStyle]
-
-        let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: textRect)
-        textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
-        context.restoreGState()
-
-
-        //// Text 3 Drawing
-        let text3Rect = CGRect(x: 77, y: 0, width: 16, height: 13)
-        let text3TextContent = "1"
-        let text3Style = NSMutableParagraphStyle()
-        text3Style.alignment = .left
-        let text3FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text3Style]
-
-        let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
-        context.saveGState()
-        context.clip(to: text3Rect)
-        text3TextContent.draw(in: CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
-        context.restoreGState()
-        
-        context.restoreGState()
-
-    }
-
-
-
 
     @objc public enum ResizingBehavior: Int {
         case aspectFit /// The content is proportionally resized to fit into the target rectangle.

@@ -11,7 +11,7 @@ import FontAwesome_swift
 
 class CPUViewController: UIViewController {
 
-    let drawingOneByteSize = CGRect(x: 0.0, y: 0.0, width: 840, height: 1024)
+    let drawingOneByteSize = CGRect(x: 0.0, y: 0.0, width: 950, height: 1024)
     let drawingTwoByteSize = CGRect(x: 0.0, y: 0.0, width: 2000, height: 2000)
     
     lazy var oneByteCPUDisplay = CPU1ByteView(frame: drawingOneByteSize)
@@ -163,7 +163,6 @@ class CPUViewController: UIViewController {
     @IBAction func runBtnPressed(_ sender: Any) {
         cpuProjectModel.sourceStr = codeView.textView.text
         cpuAssembler.microAssemble()
-        oneByteCPUDisplay.testColor()
         CPUScrollView.subviews[0].setNeedsDisplay()
 //        let subViews = CPUScrollView.subviews
 //        for subview in subViews{

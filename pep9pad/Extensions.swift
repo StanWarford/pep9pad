@@ -389,7 +389,24 @@ extension Substring {
 //    }
 //}
 
-
+extension UIColor {
+    
+    struct CPUColors{
+        static let registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
+        static let addressBusColor = UIColor(red: 1.000, green: 0.845, blue: 0.000, alpha: 1.000)
+        static let dataBusColor = UIColor(red: 1.000, green: 0.252, blue: 0.131, alpha: 1.000)
+        static let labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        static let mDRColor = UIColor(red: 0.649, green: 0.906, blue: 0.000, alpha: 1.000)
+        static let cBusColor = UIColor(red: 0.295, green: 0.495, blue: 1.000, alpha: 1.000)
+        static let aBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        static let bBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        static let blackArrow = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        static let grayArrow = UIColor(red: 0.709, green: 0.709, blue: 0.709, alpha: 1.000)
+        static let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        static let noFillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+    }
+    
+}
 
 
 
