@@ -16,33 +16,66 @@ import UIKit
 public class CPU1ByteRenderer : NSObject {
     
 
+    //// Color Declarations
     static var registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
-    static var labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
     static var black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-    static var noFillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-    
-    static var addressBusColor = UIColor.CPUColors.noFillColor
+    static var registerColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+    static var labelBlack = UIColor.black
+    //
+    static var mDRToAmuxArrowColor = UIColor.CPUColors.noFillColor
     static var dataBusColor = UIColor.CPUColors.noFillColor
     static var mDRColor = UIColor.CPUColors.noFillColor
+    static var mDRMuxColor = UIColor.CPUColors.noFillColor
     static var cBusColor = UIColor.CPUColors.noFillColor
-    static var aBusPipeColor = UIColor.CPUColors.noFillColor
-    static var bBusPipeColor = UIColor.CPUColors.noFillColor
-    static var blackArrow = UIColor.CPUColors.grayArrow
-    static var grayArrow = UIColor.CPUColors.grayArrow
-   
+    static var aLUColor = UIColor.CPUColors.noFillColor
+    static var aBusColor = UIColor.CPUColors.noFillColor
+    static var bBusColor = UIColor.CPUColors.noFillColor
+    static var cSMuxColor = UIColor.CPUColors.noFillColor
+    static var cMuxLeftColor = UIColor.CPUColors.noFillColor
+    static var cMuxColor = UIColor.CPUColors.noFillColor
+    static var mDRMuxOutArrowColor = UIColor.CPUColors.noFillColor
+    static var mARColor = UIColor.CPUColors.noFillColor
+    static var aMuxColor = UIColor.CPUColors.noFillColor
+    static var aMuxOutArrow = UIColor.CPUColors.noFillColor
     
-//    static var registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
-//    static var addressBusColor = UIColor(red: 1.000, green: 0.845, blue: 0.000, alpha: 1.000)
-//    static var dataBusColor = UIColor(red: 1.000, green: 0.252, blue: 0.131, alpha: 1.000)
-//    static var labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-//    static var mDRColor = UIColor(red: 0.649, green: 0.906, blue: 0.000, alpha: 1.000)
-//    static var cBusColor = UIColor(red: 0.295, green: 0.495, blue: 1.000, alpha: 1.000)
-//    static var aBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-//    static var bBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-//    static var blackArrow = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-//    static var grayArrow = UIColor(red: 0.709, green: 0.709, blue: 0.709, alpha: 1.000)
-//    static var black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-//    static var noFillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+    //Lines
+    static var zCkLineColor = UIColor.CPUColors.grayArrow
+    static var nCkLineColor = UIColor.CPUColors.grayArrow
+    static var vCKLineColor = UIColor.CPUColors.grayArrow
+    static var cCkLineColor = UIColor.CPUColors.grayArrow
+    static var sCkLineColor = UIColor.CPUColors.grayArrow
+    static var cCkToCSMuxArrowColor = UIColor.CPUColors.grayArrow
+    static var sCkToCSMuxArrowColor = UIColor.CPUColors.grayArrow
+    static var cSMuxToALUArrowColor = UIColor.CPUColors.grayArrow
+    static var cSMuxLineColor = UIColor.CPUColors.grayArrow
+    static var cMuxLineColor = UIColor.CPUColors.grayArrow
+    static var aLULineColor = UIColor.CPUColors.grayArrow
+    static var mDRMuxLineColor = UIColor.CPUColors.grayArrow
+    static var loadCkLineColor = UIColor.CPUColors.grayArrow
+    static var aLineColor = UIColor.CPUColors.grayArrow
+    static var andZLineColor = UIColor.CPUColors.grayArrow
+    static var bLineColor = UIColor.CPUColors.grayArrow
+    static var cLineColor = UIColor.CPUColors.grayArrow
+    static var mDRCkLineColor = UIColor.CPUColors.grayArrow
+    static var memReadLineColor = UIColor.CPUColors.grayArrow
+    static var nBitLineColor = UIColor.CPUColors.grayArrow
+    static var cBitLineColor = UIColor.CPUColors.grayArrow
+    static var vBitLineColor = UIColor.CPUColors.grayArrow
+    static var zBitLineColor = UIColor.CPUColors.grayArrow
+    static var aLUToNBitLineColor = UIColor.CPUColors.grayArrow
+    static var aLUToVBitLineColor = UIColor.CPUColors.grayArrow
+    static var aLUToZBitLineColor = UIColor.CPUColors.grayArrow
+    static var aLUToCBitLineColor = UIColor.CPUColors.grayArrow
+    static var mARCkLineColor = UIColor.CPUColors.grayArrow
+    static var aMuxLineColor = UIColor.CPUColors.grayArrow
+    static var memWrLineColor = UIColor.CPUColors.grayArrow
+    
+    //text
+    static var accumulatorText = "0x0000"
+    static var indexRegisterText = "0x0000"
+    static var stackPointerText = "0x0000"
+    static var programCounterText = "0x0000"
+    static var ALUInstruction = ""
 
     //// Drawing Methods
 
@@ -52,7 +85,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-      
+        
         //// TextColumn
         //// Text Drawing
         let textRect = CGRect(x: 852, y: 41, width: 85, height: 31)
@@ -361,7 +394,7 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// Text 18 Drawing
-        let text18Rect = CGRect(x: 852, y: 955, width: 85, height: 24)
+        let text18Rect = CGRect(x: 852, y: 980, width: 85, height: 24)
         let text18TextContent = "MemRead"
         let text18Style = NSMutableParagraphStyle()
         text18Style.alignment = .left
@@ -379,7 +412,7 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// Text 19 Drawing
-        let text19Rect = CGRect(x: 852, y: 979, width: 85, height: 24)
+        let text19Rect = CGRect(x: 852, y: 956, width: 85, height: 24)
         let text19TextContent = "MemWrite"
         let text19Style = NSMutableParagraphStyle()
         text19Style.alignment = .left
@@ -407,16 +440,16 @@ public class CPU1ByteRenderer : NSObject {
         memWrLnPath.addLine(to: CGPoint(x: 171.5, y: 422.5))
         memWrLnPath.move(to: CGPoint(x: 138.5, y: 966.5))
         memWrLnPath.addCurve(to: CGPoint(x: 171.5, y: 966.5), controlPoint1: CGPoint(x: 166.5, y: 966.5), controlPoint2: CGPoint(x: 171.5, y: 966.5))
-        blackArrow.setStroke()
+        memWrLineColor.setStroke()
         memWrLnPath.lineWidth = 1
         memWrLnPath.stroke()
         
         
         //// MemWrConnector Drawing
         let memWrConnectorPath = UIBezierPath(ovalIn: CGRect(x: 169, y: 964, width: 5, height: 5))
-        blackArrow.setFill()
+        memWrLineColor.setFill()
         memWrConnectorPath.fill()
-        blackArrow.setStroke()
+        memWrLineColor.setStroke()
         memWrConnectorPath.lineWidth = 1
         memWrConnectorPath.lineJoinStyle = .bevel
         memWrConnectorPath.stroke()
@@ -431,38 +464,38 @@ public class CPU1ByteRenderer : NSObject {
         memWrArrowPath.addLine(to: CGPoint(x: 140.28, y: 970.38))
         memWrArrowPath.addLine(to: CGPoint(x: 129.97, y: 966.38))
         memWrArrowPath.close()
-        blackArrow.setFill()
+        memWrLineColor.setFill()
         memWrArrowPath.fill()
-        blackArrow.setStroke()
+        memWrLineColor.setStroke()
         memWrArrowPath.lineWidth = 1
         memWrArrowPath.stroke()
         
         
-        //// MemReadTopArrow Drawing
+        //// MemWriteTopArrow Drawing
         context.saveGState()
         context.translateBy(x: 175.97, y: 415.38)
         context.rotate(by: 90 * CGFloat.pi/180)
         
-        let memReadTopArrowPath = UIBezierPath()
-        memReadTopArrowPath.move(to: CGPoint(x: 0, y: 4))
-        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
-        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
-        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
-        memReadTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
-        memReadTopArrowPath.addLine(to: CGPoint(x: 0, y: 4))
-        memReadTopArrowPath.close()
-        blackArrow.setFill()
-        memReadTopArrowPath.fill()
-        blackArrow.setStroke()
-        memReadTopArrowPath.lineWidth = 1
-        memReadTopArrowPath.stroke()
+        let memWriteTopArrowPath = UIBezierPath()
+        memWriteTopArrowPath.move(to: CGPoint(x: 0, y: 4))
+        memWriteTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 0))
+        memWriteTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 3))
+        memWriteTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 5))
+        memWriteTopArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
+        memWriteTopArrowPath.addLine(to: CGPoint(x: 0, y: 4))
+        memWriteTopArrowPath.close()
+        memWrLineColor.setFill()
+        memWriteTopArrowPath.fill()
+        memWrLineColor.setStroke()
+        memWriteTopArrowPath.lineWidth = 1
+        memWriteTopArrowPath.stroke()
         
         context.restoreGState()
         
         
         //// MemWriteval Drawing
         let memWritevalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 979.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         memWritevalPath.fill()
         black.setStroke()
         memWritevalPath.lineWidth = 1
@@ -481,9 +514,9 @@ public class CPU1ByteRenderer : NSObject {
         aMuxLnArrowPath.addLine(to: CGPoint(x: 530.28, y: 469.38))
         aMuxLnArrowPath.addLine(to: CGPoint(x: 519.97, y: 465.38))
         aMuxLnArrowPath.close()
-        blackArrow.setFill()
+        aMuxLineColor.setFill()
         aMuxLnArrowPath.fill()
-        blackArrow.setStroke()
+        aMuxLineColor.setStroke()
         aMuxLnArrowPath.lineWidth = 1
         aMuxLnArrowPath.stroke()
         
@@ -492,14 +525,14 @@ public class CPU1ByteRenderer : NSObject {
         let aMuxLnPath = UIBezierPath()
         aMuxLnPath.move(to: CGPoint(x: 809.5, y: 465.5))
         aMuxLnPath.addLine(to: CGPoint(x: 528.5, y: 465.5))
-        blackArrow.setStroke()
+        aMuxLineColor.setStroke()
         aMuxLnPath.lineWidth = 1
         aMuxLnPath.stroke()
         
         
         //// AMuxval Drawing
         let aMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 453.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         aMuxvalPath.fill()
         black.setStroke()
         aMuxvalPath.lineWidth = 1
@@ -515,7 +548,7 @@ public class CPU1ByteRenderer : NSObject {
         mARCkLnPath.addLine(to: CGPoint(x: 314.5, y: 286.5))
         mARCkLnPath.addLine(to: CGPoint(x: 314.5, y: 271.5))
         mARCkLnPath.addLine(to: CGPoint(x: 314.5, y: 304.5))
-        blackArrow.setStroke()
+        mARCkLineColor.setStroke()
         mARCkLnPath.lineWidth = 1
         mARCkLnPath.stroke()
         
@@ -533,9 +566,9 @@ public class CPU1ByteRenderer : NSObject {
         mARBConnectorPath.addLine(to: CGPoint(x: 10.31, y: 8))
         mARBConnectorPath.addLine(to: CGPoint(x: 0, y: 4))
         mARBConnectorPath.close()
-        blackArrow.setFill()
+        mARCkLineColor.setFill()
         mARBConnectorPath.fill()
-        blackArrow.setStroke()
+        mARCkLineColor.setStroke()
         mARBConnectorPath.lineWidth = 1
         mARBConnectorPath.stroke()
         
@@ -555,9 +588,9 @@ public class CPU1ByteRenderer : NSObject {
         mARAArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         mARAArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         mARAArrowPath.close()
-        blackArrow.setFill()
+        mARCkLineColor.setFill()
         mARAArrowPath.fill()
-        blackArrow.setStroke()
+        mARCkLineColor.setStroke()
         mARAArrowPath.lineWidth = 1
         mARAArrowPath.stroke()
         
@@ -566,9 +599,9 @@ public class CPU1ByteRenderer : NSObject {
         
         //// MARConnector Drawing
         let mARConnectorPath = UIBezierPath(ovalIn: CGRect(x: 312, y: 284, width: 5, height: 5))
-        blackArrow.setFill()
+        mARCkLineColor.setFill()
         mARConnectorPath.fill()
-        blackArrow.setStroke()
+        mARCkLineColor.setStroke()
         mARConnectorPath.lineWidth = 1
         mARConnectorPath.lineJoinStyle = .bevel
         mARConnectorPath.stroke()
@@ -576,7 +609,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// MARCkval Drawing
         let mARCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 274.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         mARCkvalPath.fill()
         black.setStroke()
         mARCkvalPath.lineWidth = 1
@@ -595,7 +628,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUToCLnPath.addLine(to: CGPoint(x: 671.5, y: 734.5))
         aLUToCLnPath.move(to: CGPoint(x: 672.5, y: 694.5))
         aLUToCLnPath.addLine(to: CGPoint(x: 576.5, y: 694.5))
-        blackArrow.setStroke()
+        aLUToCBitLineColor.setStroke()
         aLUToCLnPath.lineWidth = 1
         aLUToCLnPath.stroke()
         
@@ -613,9 +646,9 @@ public class CPU1ByteRenderer : NSObject {
         cArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         cArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         cArrowPath.close()
-        blackArrow.setFill()
+        aLUToCBitLineColor.setFill()
         cArrowPath.fill()
-        blackArrow.setStroke()
+        aLUToCBitLineColor.setStroke()
         cArrowPath.lineWidth = 1
         cArrowPath.stroke()
         
@@ -635,9 +668,9 @@ public class CPU1ByteRenderer : NSObject {
         sArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         sArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         sArrowPath.close()
-        blackArrow.setFill()
+        aLUToCBitLineColor.setFill()
         sArrowPath.fill()
-        blackArrow.setStroke()
+        aLUToCBitLineColor.setStroke()
         sArrowPath.lineWidth = 1
         sArrowPath.stroke()
         
@@ -646,9 +679,9 @@ public class CPU1ByteRenderer : NSObject {
         
         //// CBitConnector Drawing
         let cBitConnectorPath = UIBezierPath(ovalIn: CGRect(x: 574, y: 692, width: 5, height: 5))
-        blackArrow.setFill()
+        aLUToCBitLineColor.setFill()
         cBitConnectorPath.fill()
-        blackArrow.setStroke()
+        aLUToCBitLineColor.setStroke()
         cBitConnectorPath.lineWidth = 1
         cBitConnectorPath.lineJoinStyle = .bevel
         cBitConnectorPath.stroke()
@@ -662,7 +695,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUToANDZLnPath.move(to: CGPoint(x: 534.5, y: 604.5))
         aLUToANDZLnPath.addLine(to: CGPoint(x: 534.5, y: 851.5))
         aLUToANDZLnPath.addLine(to: CGPoint(x: 588.5, y: 851.5))
-        blackArrow.setStroke()
+        aLUToZBitLineColor.setStroke()
         aLUToANDZLnPath.lineWidth = 1
         aLUToANDZLnPath.stroke()
         
@@ -680,9 +713,9 @@ public class CPU1ByteRenderer : NSObject {
         leftANDZArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         leftANDZArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         leftANDZArrowPath.close()
-        blackArrow.setFill()
+        aLUToZBitLineColor.setFill()
         leftANDZArrowPath.fill()
-        blackArrow.setStroke()
+        aLUToZBitLineColor.setStroke()
         leftANDZArrowPath.lineWidth = 1
         leftANDZArrowPath.stroke()
         
@@ -693,7 +726,7 @@ public class CPU1ByteRenderer : NSObject {
         let aNDZToZLnPath = UIBezierPath()
         aNDZToZLnPath.move(to: CGPoint(x: 650.5, y: 850.5))
         aNDZToZLnPath.addLine(to: CGPoint(x: 665.5, y: 850.5))
-        UIColor.black.setStroke()
+        aLUToZBitLineColor.setStroke()
         aNDZToZLnPath.lineWidth = 1
         aNDZToZLnPath.stroke()
         
@@ -711,9 +744,9 @@ public class CPU1ByteRenderer : NSObject {
         aNDZToZArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         aNDZToZArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         aNDZToZArrowPath.close()
-        blackArrow.setFill()
+        aLUToZBitLineColor.setFill()
         aNDZToZArrowPath.fill()
-        blackArrow.setStroke()
+        aLUToZBitLineColor.setStroke()
         aNDZToZArrowPath.lineWidth = 1
         aNDZToZArrowPath.stroke()
         
@@ -728,7 +761,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUToVLnPath.move(to: CGPoint(x: 554.5, y: 604.5))
         aLUToVLnPath.addLine(to: CGPoint(x: 554.5, y: 772.5))
         aLUToVLnPath.addLine(to: CGPoint(x: 670.5, y: 772.5))
-        blackArrow.setStroke()
+        aLUToVBitLineColor.setStroke()
         aLUToVLnPath.lineWidth = 1
         aLUToVLnPath.stroke()
         
@@ -746,9 +779,9 @@ public class CPU1ByteRenderer : NSObject {
         vArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         vArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         vArrowPath.close()
-        blackArrow.setFill()
+        aLUToVBitLineColor.setFill()
         vArrowPath.fill()
-        blackArrow.setStroke()
+        aLUToVBitLineColor.setStroke()
         vArrowPath.lineWidth = 1
         vArrowPath.stroke()
         
@@ -763,7 +796,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUToNBitLnPath.move(to: CGPoint(x: 512.5, y: 604.5))
         aLUToNBitLnPath.addLine(to: CGPoint(x: 512.5, y: 919.5))
         aLUToNBitLnPath.addLine(to: CGPoint(x: 669.5, y: 919.5))
-        blackArrow.setStroke()
+        aLUToNBitLineColor.setStroke()
         aLUToNBitLnPath.lineWidth = 1
         aLUToNBitLnPath.stroke()
         
@@ -781,9 +814,9 @@ public class CPU1ByteRenderer : NSObject {
         aLUToNBitArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         aLUToNBitArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         aLUToNBitArrowPath.close()
-        blackArrow.setFill()
+        aLUToNBitLineColor.setFill()
         aLUToNBitArrowPath.fill()
-        blackArrow.setStroke()
+        aLUToNBitLineColor.setStroke()
         aLUToNBitArrowPath.lineWidth = 1
         aLUToNBitArrowPath.stroke()
         
@@ -802,9 +835,9 @@ public class CPU1ByteRenderer : NSObject {
         zInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 803.38))
         zInLnArrowPath.addLine(to: CGPoint(x: 409.97, y: 799.38))
         zInLnArrowPath.close()
-        blackArrow.setFill()
+        zBitLineColor.setFill()
         zInLnArrowPath.fill()
-        blackArrow.setStroke()
+        zBitLineColor.setStroke()
         zInLnArrowPath.lineWidth = 1
         zInLnArrowPath.stroke()
         
@@ -822,9 +855,9 @@ public class CPU1ByteRenderer : NSObject {
         andZInBottomArrowPath.addLine(to: CGPoint(x: 1, y: 8))
         andZInBottomArrowPath.addLine(to: CGPoint(x: 11.11, y: 4))
         andZInBottomArrowPath.close()
-        blackArrow.setFill()
+        zBitLineColor.setFill()
         andZInBottomArrowPath.fill()
-        blackArrow.setStroke()
+        zBitLineColor.setStroke()
         andZInBottomArrowPath.lineWidth = 1
         andZInBottomArrowPath.stroke()
         
@@ -833,9 +866,9 @@ public class CPU1ByteRenderer : NSObject {
         
         //// AndZConnector Drawing
         let andZConnectorPath = UIBezierPath(ovalIn: CGRect(x: 620.68, y: 878.13, width: 5, height: 5))
-        blackArrow.setFill()
+        zBitLineColor.setFill()
         andZConnectorPath.fill()
-        blackArrow.setStroke()
+        zBitLineColor.setStroke()
         andZConnectorPath.lineWidth = 1
         andZConnectorPath.stroke()
         
@@ -851,7 +884,7 @@ public class CPU1ByteRenderer : NSObject {
         zBitLnPath.addLine(to: CGPoint(x: 450.5, y: 880.5))
         zBitLnPath.addLine(to: CGPoint(x: 450.5, y: 799.5))
         zBitLnPath.addLine(to: CGPoint(x: 414.5, y: 799.5))
-        blackArrow.setStroke()
+        zBitLineColor.setStroke()
         zBitLnPath.lineWidth = 1
         zBitLnPath.stroke()
         
@@ -866,7 +899,7 @@ public class CPU1ByteRenderer : NSObject {
         vBitLnPath.addLine(to: CGPoint(x: 473.5, y: 804.5))
         vBitLnPath.addLine(to: CGPoint(x: 473.5, y: 776.5))
         vBitLnPath.addLine(to: CGPoint(x: 416.5, y: 776.5))
-        blackArrow.setStroke()
+        vBitLineColor.setStroke()
         vBitLnPath.lineWidth = 1
         vBitLnPath.stroke()
         
@@ -880,9 +913,9 @@ public class CPU1ByteRenderer : NSObject {
         vInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 780.38))
         vInLnArrowPath.addLine(to: CGPoint(x: 409.97, y: 776.38))
         vInLnArrowPath.close()
-        blackArrow.setFill()
+        vBitLineColor.setFill()
         vInLnArrowPath.fill()
-        blackArrow.setStroke()
+        vBitLineColor.setStroke()
         vInLnArrowPath.lineWidth = 1
         vInLnArrowPath.stroke()
         
@@ -895,7 +928,7 @@ public class CPU1ByteRenderer : NSObject {
         cIBitLnPath.move(to: CGPoint(x: 690.5, y: 745.5))
         cIBitLnPath.addLine(to: CGPoint(x: 690.5, y: 753.5))
         cIBitLnPath.addLine(to: CGPoint(x: 414.5, y: 753.5))
-        blackArrow.setStroke()
+        cBitLineColor.setStroke()
         cIBitLnPath.lineWidth = 1
         cIBitLnPath.stroke()
         
@@ -909,9 +942,9 @@ public class CPU1ByteRenderer : NSObject {
         cInLnArrowPath.addLine(to: CGPoint(x: 420.28, y: 757.38))
         cInLnArrowPath.addLine(to: CGPoint(x: 409.97, y: 753.38))
         cInLnArrowPath.close()
-        blackArrow.setFill()
+        cBitLineColor.setFill()
         cInLnArrowPath.fill()
-        blackArrow.setStroke()
+        cBitLineColor.setStroke()
         cInLnArrowPath.lineWidth = 1
         cInLnArrowPath.stroke()
         
@@ -933,9 +966,9 @@ public class CPU1ByteRenderer : NSObject {
         nBitInArrowPath.addLine(to: CGPoint(x: -17.55, y: -60))
         nBitInArrowPath.addLine(to: CGPoint(x: -27.86, y: -64))
         nBitInArrowPath.close()
-        blackArrow.setFill()
+        nBitLineColor.setFill()
         nBitInArrowPath.fill()
-        blackArrow.setStroke()
+        nBitLineColor.setStroke()
         nBitInArrowPath.lineWidth = 1
         nBitInArrowPath.stroke()
         
@@ -948,7 +981,7 @@ public class CPU1ByteRenderer : NSObject {
         nBitLnPath.addLine(to: CGPoint(x: -23.33, y: -63.88))
         nBitLnPath.move(to: CGPoint(x: 252.67, y: 55.12))
         nBitLnPath.addLine(to: CGPoint(x: 252.67, y: 47.12))
-        blackArrow.setStroke()
+        nBitLineColor.setStroke()
         nBitLnPath.lineWidth = 1
         nBitLnPath.lineCapStyle = .square
         nBitLnPath.stroke()
@@ -968,7 +1001,7 @@ public class CPU1ByteRenderer : NSObject {
         let memRdLnPath = UIBezierPath()
         memRdLnPath.move(to: CGPoint(x: 8.56, y: 4.5))
         memRdLnPath.addLine(to: CGPoint(x: 678.37, y: 4.5))
-        grayArrow.setStroke()
+        memReadLineColor.setStroke()
         memRdLnPath.lineWidth = 1
         memRdLnPath.stroke()
         
@@ -982,16 +1015,16 @@ public class CPU1ByteRenderer : NSObject {
         memRdArrowPath.addLine(to: CGPoint(x: 10.98, y: 8.5))
         memRdArrowPath.addLine(to: CGPoint(x: 0.87, y: 4.5))
         memRdArrowPath.close()
-        grayArrow.setFill()
+        memReadLineColor.setFill()
         memRdArrowPath.fill()
-        grayArrow.setStroke()
+        memReadLineColor.setStroke()
         memRdArrowPath.lineWidth = 1
         memRdArrowPath.stroke()
         
         
         //// MemReadval Drawing
         let memReadvalPath = UIBezierPath(rect: CGRect(x: 684.37, y: -32.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         memReadvalPath.fill()
         black.setStroke()
         memReadvalPath.lineWidth = 1
@@ -1005,7 +1038,7 @@ public class CPU1ByteRenderer : NSObject {
         //// MDRCkLine
         //// MDRCkval Drawing
         let mDRCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 352.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         mDRCkvalPath.fill()
         black.setStroke()
         mDRCkvalPath.lineWidth = 1
@@ -1017,7 +1050,7 @@ public class CPU1ByteRenderer : NSObject {
         mDRCkLnPath.move(to: CGPoint(x: 282.5, y: 386.5))
         mDRCkLnPath.addLine(to: CGPoint(x: 282.5, y: 364.5))
         mDRCkLnPath.addLine(to: CGPoint(x: 809.5, y: 364.5))
-        blackArrow.setStroke()
+        mDRCkLineColor.setStroke()
         mDRCkLnPath.lineWidth = 1
         mDRCkLnPath.stroke()
         
@@ -1035,9 +1068,9 @@ public class CPU1ByteRenderer : NSObject {
         mDRCkArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         mDRCkArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         mDRCkArrowPath.close()
-        blackArrow.setFill()
+        mDRCkLineColor.setFill()
         mDRCkArrowPath.fill()
-        blackArrow.setStroke()
+        mDRCkLineColor.setStroke()
         mDRCkArrowPath.lineWidth = 1
         mDRCkArrowPath.stroke()
         
@@ -1053,7 +1086,7 @@ public class CPU1ByteRenderer : NSObject {
         cLnPath.addLine(to: CGPoint(x: 809.5, y: 115.5))
         cLnPath.move(to: CGPoint(x: 764.5, y: 105.5))
         cLnPath.addLine(to: CGPoint(x: 785.5, y: 126.5))
-        blackArrow.setStroke()
+        cLineColor.setStroke()
         cLnPath.lineWidth = 1
         cLnPath.stroke()
         
@@ -1067,9 +1100,9 @@ public class CPU1ByteRenderer : NSObject {
         cArrPath.addLine(to: CGPoint(x: 730.28, y: 119.38))
         cArrPath.addLine(to: CGPoint(x: 719.97, y: 115.38))
         cArrPath.close()
-        blackArrow.setFill()
+        cLineColor.setFill()
         cArrPath.fill()
-        blackArrow.setStroke()
+        cLineColor.setStroke()
         cArrPath.lineWidth = 1
         cArrPath.stroke()
         
@@ -1094,7 +1127,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// C Drawing
         let cPath = UIBezierPath(rect: CGRect(x: 815, y: 104, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         cPath.fill()
         black.setStroke()
         cPath.lineWidth = 1
@@ -1110,7 +1143,7 @@ public class CPU1ByteRenderer : NSObject {
         bLnPath.addLine(to: CGPoint(x: 809.5, y: 145.5))
         bLnPath.move(to: CGPoint(x: 764.5, y: 135.5))
         bLnPath.addLine(to: CGPoint(x: 785.5, y: 156.5))
-        blackArrow.setStroke()
+        bLineColor.setStroke()
         bLnPath.lineWidth = 1
         bLnPath.stroke()
         
@@ -1124,9 +1157,9 @@ public class CPU1ByteRenderer : NSObject {
         bArrPath.addLine(to: CGPoint(x: 730.28, y: 149.38))
         bArrPath.addLine(to: CGPoint(x: 719.97, y: 145.38))
         bArrPath.close()
-        blackArrow.setFill()
+        bLineColor.setFill()
         bArrPath.fill()
-        blackArrow.setStroke()
+        bLineColor.setStroke()
         bArrPath.lineWidth = 1
         bArrPath.stroke()
         
@@ -1151,7 +1184,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// B Drawing
         let bPath = UIBezierPath(rect: CGRect(x: 815, y: 133.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         bPath.fill()
         black.setStroke()
         bPath.lineWidth = 1
@@ -1166,7 +1199,7 @@ public class CPU1ByteRenderer : NSObject {
         andZLnPath.move(to: CGPoint(x: 809.5, y: 818.5))
         andZLnPath.addLine(to: CGPoint(x: 622.5, y: 818.5))
         andZLnPath.addLine(to: CGPoint(x: 622.5, y: 825.5))
-        blackArrow.setStroke()
+        andZLineColor.setStroke()
         andZLnPath.lineWidth = 1
         andZLnPath.stroke()
         
@@ -1184,18 +1217,15 @@ public class CPU1ByteRenderer : NSObject {
         andZArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         andZArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         andZArrowPath.close()
-        blackArrow.setFill()
+        andZLineColor.setFill()
         andZArrowPath.fill()
-        blackArrow.setStroke()
-        andZArrowPath.lineWidth = 1
-        andZArrowPath.stroke()
         
         context.restoreGState()
         
         
         //// AndZval Drawing
         let andZvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 806.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         andZvalPath.fill()
         black.setStroke()
         andZvalPath.lineWidth = 1
@@ -1211,7 +1241,7 @@ public class CPU1ByteRenderer : NSObject {
         aLnPath.addLine(to: CGPoint(x: 809.5, y: 175.5))
         aLnPath.move(to: CGPoint(x: 764.5, y: 165.5))
         aLnPath.addLine(to: CGPoint(x: 785.5, y: 186.5))
-        blackArrow.setStroke()
+        aLineColor.setStroke()
         aLnPath.lineWidth = 1
         aLnPath.stroke()
         
@@ -1225,9 +1255,9 @@ public class CPU1ByteRenderer : NSObject {
         aArrPath.addLine(to: CGPoint(x: 730.28, y: 179.38))
         aArrPath.addLine(to: CGPoint(x: 719.97, y: 175.38))
         aArrPath.close()
-        blackArrow.setFill()
+        aLineColor.setFill()
         aArrPath.fill()
-        blackArrow.setStroke()
+        aLineColor.setStroke()
         aArrPath.lineWidth = 1
         aArrPath.stroke()
         
@@ -1252,7 +1282,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// Aval Drawing
         let avalPath = UIBezierPath(rect: CGRect(x: 815, y: 163.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         avalPath.fill()
         black.setStroke()
         avalPath.lineWidth = 1
@@ -1271,25 +1301,22 @@ public class CPU1ByteRenderer : NSObject {
         loadCkArrowPath.addLine(to: CGPoint(x: 729.28, y: 58.38))
         loadCkArrowPath.addLine(to: CGPoint(x: 718.97, y: 54.38))
         loadCkArrowPath.close()
-        blackArrow.setFill()
+        loadCkLineColor.setFill()
         loadCkArrowPath.fill()
-        blackArrow.setStroke()
-        loadCkArrowPath.lineWidth = 1
-        loadCkArrowPath.stroke()
         
         
         //// LoadCkLn Drawing
         let loadCkLnPath = UIBezierPath()
         loadCkLnPath.move(to: CGPoint(x: 809.5, y: 54.5))
         loadCkLnPath.addLine(to: CGPoint(x: 729.5, y: 54.5))
-        blackArrow.setStroke()
+        loadCkLineColor.setStroke()
         loadCkLnPath.lineWidth = 1
         loadCkLnPath.stroke()
         
         
         //// LoadCkval Drawing
         let loadCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 43, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         loadCkvalPath.fill()
         black.setStroke()
         loadCkvalPath.lineWidth = 1
@@ -1305,7 +1332,7 @@ public class CPU1ByteRenderer : NSObject {
         mDRMuxLnPath.addLine(to: CGPoint(x: 364.5, y: 456.5))
         mDRMuxLnPath.addLine(to: CGPoint(x: 364.5, y: 490.5))
         mDRMuxLnPath.addLine(to: CGPoint(x: 809.5, y: 490.5))
-        blackArrow.setStroke()
+        mDRMuxLineColor.setStroke()
         mDRMuxLnPath.lineWidth = 1
         mDRMuxLnPath.stroke()
         
@@ -1319,16 +1346,16 @@ public class CPU1ByteRenderer : NSObject {
         mDRMuxLnArrowPath.addLine(to: CGPoint(x: 344.28, y: 460.38))
         mDRMuxLnArrowPath.addLine(to: CGPoint(x: 333.97, y: 456.38))
         mDRMuxLnArrowPath.close()
-        blackArrow.setFill()
+        mDRMuxLineColor.setFill()
         mDRMuxLnArrowPath.fill()
-        blackArrow.setStroke()
+        mDRMuxLineColor.setStroke()
         mDRMuxLnArrowPath.lineWidth = 1
         mDRMuxLnArrowPath.stroke()
         
         
         //// MDRMuxval Drawing
         let mDRMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 478.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         mDRMuxvalPath.fill()
         black.setStroke()
         mDRMuxvalPath.lineWidth = 1
@@ -1344,7 +1371,7 @@ public class CPU1ByteRenderer : NSObject {
         aLULinesPath.addLine(to: CGPoint(x: 809.5, y: 577.5))
         aLULinesPath.move(to: CGPoint(x: 730.5, y: 567.5))
         aLULinesPath.addLine(to: CGPoint(x: 751.5, y: 588.5))
-        blackArrow.setStroke()
+        aLULineColor.setStroke()
         aLULinesPath.lineWidth = 1
         aLULinesPath.stroke()
         
@@ -1358,9 +1385,9 @@ public class CPU1ByteRenderer : NSObject {
         aLUArrowPath.addLine(to: CGPoint(x: 615.28, y: 581.38))
         aLUArrowPath.addLine(to: CGPoint(x: 604.97, y: 577.38))
         aLUArrowPath.close()
-        blackArrow.setFill()
+        aLULineColor.setFill()
         aLUArrowPath.fill()
-        blackArrow.setStroke()
+        aLULineColor.setStroke()
         aLUArrowPath.lineWidth = 1
         aLUArrowPath.stroke()
         
@@ -1385,7 +1412,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// ALUval Drawing
         let aLUvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 565.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         aLUvalPath.fill()
         black.setStroke()
         aLUvalPath.lineWidth = 1
@@ -1400,7 +1427,7 @@ public class CPU1ByteRenderer : NSObject {
         cMuxLnPath.move(to: CGPoint(x: 360.5, y: 578.5))
         cMuxLnPath.addLine(to: CGPoint(x: 360.5, y: 552.5))
         cMuxLnPath.addLine(to: CGPoint(x: 809.5, y: 552.5))
-        blackArrow.setStroke()
+        cMuxLineColor.setStroke()
         cMuxLnPath.lineWidth = 1
         cMuxLnPath.stroke()
         
@@ -1418,9 +1445,9 @@ public class CPU1ByteRenderer : NSObject {
         cMuxArrowPath.addLine(to: CGPoint(x: 10.31, y: 8))
         cMuxArrowPath.addLine(to: CGPoint(x: 0, y: 4))
         cMuxArrowPath.close()
-        blackArrow.setFill()
+        cMuxLineColor.setFill()
         cMuxArrowPath.fill()
-        blackArrow.setStroke()
+        cMuxLineColor.setStroke()
         cMuxArrowPath.lineWidth = 1
         cMuxArrowPath.stroke()
         
@@ -1429,7 +1456,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// CMuxval Drawing
         let cMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 540.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         cMuxvalPath.fill()
         black.setStroke()
         cMuxvalPath.lineWidth = 1
@@ -1448,9 +1475,9 @@ public class CPU1ByteRenderer : NSObject {
         cSMuxArrowPath.addLine(to: CGPoint(x: 715.28, y: 635.38))
         cSMuxArrowPath.addLine(to: CGPoint(x: 704.97, y: 631.38))
         cSMuxArrowPath.close()
-        blackArrow.setFill()
+        cSMuxLineColor.setFill()
         cSMuxArrowPath.fill()
-        blackArrow.setStroke()
+        cSMuxLineColor.setStroke()
         cSMuxArrowPath.lineWidth = 1
         cSMuxArrowPath.stroke()
         
@@ -1459,7 +1486,7 @@ public class CPU1ByteRenderer : NSObject {
         let cSMuxLinePath = UIBezierPath()
         cSMuxLinePath.move(to: CGPoint(x: 809.5, y: 631.5))
         cSMuxLinePath.addLine(to: CGPoint(x: 715.5, y: 631.5))
-        blackArrow.setStroke()
+        cSMuxLineColor.setStroke()
         cSMuxLinePath.lineWidth = 1
         cSMuxLinePath.stroke()
         
@@ -1469,7 +1496,7 @@ public class CPU1ByteRenderer : NSObject {
         cSMuxToALULnPath.move(to: CGPoint(x: 651.5, y: 618.5))
         cSMuxToALULnPath.addLine(to: CGPoint(x: 651.5, y: 597.5))
         cSMuxToALULnPath.addLine(to: CGPoint(x: 600.5, y: 597.5))
-        blackArrow.setStroke()
+        cSMuxToALUArrowColor.setStroke()
         cSMuxToALULnPath.lineWidth = 1
         cSMuxToALULnPath.stroke()
         
@@ -1483,9 +1510,9 @@ public class CPU1ByteRenderer : NSObject {
         cSMuxToALUArrowPath.addLine(to: CGPoint(x: 600.28, y: 601.38))
         cSMuxToALUArrowPath.addLine(to: CGPoint(x: 589.97, y: 597.38))
         cSMuxToALUArrowPath.close()
-        blackArrow.setFill()
+        cSMuxToALUArrowColor.setFill()
         cSMuxToALUArrowPath.fill()
-        blackArrow.setStroke()
+        cSMuxToALUArrowColor.setStroke()
         cSMuxToALUArrowPath.lineWidth = 1
         cSMuxToALUArrowPath.stroke()
         
@@ -1496,7 +1523,7 @@ public class CPU1ByteRenderer : NSObject {
         cCkToCSMuxLnPath.addLine(to: CGPoint(x: 690, y: 714.5))
         cCkToCSMuxLnPath.addLine(to: CGPoint(x: 613, y: 714.5))
         cCkToCSMuxLnPath.addLine(to: CGPoint(x: 613, y: 648.5))
-        blackArrow.setStroke()
+        cCkToCSMuxArrowColor.setStroke()
         cCkToCSMuxLnPath.lineWidth = 1
         cCkToCSMuxLnPath.stroke()
         
@@ -1505,7 +1532,7 @@ public class CPU1ByteRenderer : NSObject {
         let sCkToCSMuxLnPath = UIBezierPath()
         sCkToCSMuxLnPath.move(to: CGPoint(x: 690.5, y: 682.5))
         sCkToCSMuxLnPath.addLine(to: CGPoint(x: 690.5, y: 648.5))
-        blackArrow.setStroke()
+        sCkToCSMuxArrowColor.setStroke()
         sCkToCSMuxLnPath.lineWidth = 1
         sCkToCSMuxLnPath.stroke()
         
@@ -1523,9 +1550,9 @@ public class CPU1ByteRenderer : NSObject {
         sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 8))
         sCkToCSMuxArrowPath.addLine(to: CGPoint(x: 11.11, y: 4))
         sCkToCSMuxArrowPath.close()
-        blackArrow.setFill()
+        sCkToCSMuxArrowColor.setFill()
         sCkToCSMuxArrowPath.fill()
-        blackArrow.setStroke()
+        sCkToCSMuxArrowColor.setStroke()
         sCkToCSMuxArrowPath.lineWidth = 1
         sCkToCSMuxArrowPath.stroke()
         
@@ -1545,9 +1572,9 @@ public class CPU1ByteRenderer : NSObject {
         cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 1, y: 8))
         cCkToCSMuxArrowPath.addLine(to: CGPoint(x: 11.11, y: 4))
         cCkToCSMuxArrowPath.close()
-        blackArrow.setFill()
+        cCkToCSMuxArrowColor.setFill()
         cCkToCSMuxArrowPath.fill()
-        blackArrow.setStroke()
+        cCkToCSMuxArrowColor.setStroke()
         cCkToCSMuxArrowPath.lineWidth = 1
         cCkToCSMuxArrowPath.stroke()
         
@@ -1556,7 +1583,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// CSMuxval Drawing
         let cSMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 619.5, width: 30, height: 24))
-        noFillColor.setFill()
+        registerColor.setFill()
         cSMuxvalPath.fill()
         black.setStroke()
         cSMuxvalPath.lineWidth = 1
@@ -1575,9 +1602,9 @@ public class CPU1ByteRenderer : NSObject {
         sCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 699.38))
         sCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 695.38))
         sCkArrowPath.close()
-        blackArrow.setFill()
+        sCkLineColor.setFill()
         sCkArrowPath.fill()
-        blackArrow.setStroke()
+        sCkLineColor.setStroke()
         sCkArrowPath.lineWidth = 1
         sCkArrowPath.stroke()
         
@@ -1586,14 +1613,14 @@ public class CPU1ByteRenderer : NSObject {
         let sCkLnPath = UIBezierPath()
         sCkLnPath.move(to: CGPoint(x: 809.5, y: 695.5))
         sCkLnPath.addLine(to: CGPoint(x: 715.5, y: 695.5))
-        blackArrow.setStroke()
+        sCkLineColor.setStroke()
         sCkLnPath.lineWidth = 1
         sCkLnPath.stroke()
         
         
         //// SCkval Drawing
         let sCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 683.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         sCkvalPath.fill()
         black.setStroke()
         sCkvalPath.lineWidth = 1
@@ -1612,9 +1639,9 @@ public class CPU1ByteRenderer : NSObject {
         cCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 738.38))
         cCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 734.38))
         cCkArrowPath.close()
-        blackArrow.setFill()
+        cCkLineColor.setFill()
         cCkArrowPath.fill()
-        blackArrow.setStroke()
+        cCkLineColor.setStroke()
         cCkArrowPath.lineWidth = 1
         cCkArrowPath.stroke()
         
@@ -1623,14 +1650,14 @@ public class CPU1ByteRenderer : NSObject {
         let cCkLnPath = UIBezierPath()
         cCkLnPath.move(to: CGPoint(x: 809.5, y: 734.5))
         cCkLnPath.addLine(to: CGPoint(x: 715.5, y: 734.5))
-        blackArrow.setStroke()
+        cCkLineColor.setStroke()
         cCkLnPath.lineWidth = 1
         cCkLnPath.stroke()
         
         
         //// CCkval Drawing
         let cCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 722.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         cCkvalPath.fill()
         black.setStroke()
         cCkvalPath.lineWidth = 1
@@ -1649,9 +1676,9 @@ public class CPU1ByteRenderer : NSObject {
         vCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 775.38))
         vCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 771.38))
         vCkArrowPath.close()
-        blackArrow.setFill()
+        vCKLineColor.setFill()
         vCkArrowPath.fill()
-        blackArrow.setStroke()
+        vCKLineColor.setStroke()
         vCkArrowPath.lineWidth = 1
         vCkArrowPath.stroke()
         
@@ -1660,14 +1687,14 @@ public class CPU1ByteRenderer : NSObject {
         let vCkLnPath = UIBezierPath()
         vCkLnPath.move(to: CGPoint(x: 809.5, y: 771.5))
         vCkLnPath.addLine(to: CGPoint(x: 715.5, y: 771.5))
-        blackArrow.setStroke()
+        vCKLineColor.setStroke()
         vCkLnPath.lineWidth = 1
         vCkLnPath.stroke()
         
         
         //// VCkval Drawing
         let vCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 759.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         vCkvalPath.fill()
         black.setStroke()
         vCkvalPath.lineWidth = 1
@@ -1686,9 +1713,9 @@ public class CPU1ByteRenderer : NSObject {
         zCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 854.38))
         zCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 850.38))
         zCkArrowPath.close()
-        blackArrow.setFill()
+        zCkLineColor.setFill()
         zCkArrowPath.fill()
-        blackArrow.setStroke()
+        zCkLineColor.setStroke()
         zCkArrowPath.lineWidth = 1
         zCkArrowPath.stroke()
         
@@ -1697,14 +1724,14 @@ public class CPU1ByteRenderer : NSObject {
         let zCkLnPath = UIBezierPath()
         zCkLnPath.move(to: CGPoint(x: 809.5, y: 850.5))
         zCkLnPath.addLine(to: CGPoint(x: 715.5, y: 850.5))
-        blackArrow.setStroke()
+        zCkLineColor.setStroke()
         zCkLnPath.lineWidth = 1
         zCkLnPath.stroke()
         
         
         //// ZCkval Drawing
         let zCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 838.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         zCkvalPath.fill()
         black.setStroke()
         zCkvalPath.lineWidth = 1
@@ -1723,9 +1750,9 @@ public class CPU1ByteRenderer : NSObject {
         nCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 923.38))
         nCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 919.38))
         nCkArrowPath.close()
-        blackArrow.setFill()
+        nCkLineColor.setFill()
         nCkArrowPath.fill()
-        blackArrow.setStroke()
+        nCkLineColor.setStroke()
         nCkArrowPath.lineWidth = 1
         nCkArrowPath.stroke()
         
@@ -1734,14 +1761,14 @@ public class CPU1ByteRenderer : NSObject {
         let nCkLnPath = UIBezierPath()
         nCkLnPath.move(to: CGPoint(x: 809.5, y: 919.5))
         nCkLnPath.addLine(to: CGPoint(x: 715.5, y: 919.5))
-        blackArrow.setStroke()
+        nCkLineColor.setStroke()
         nCkLnPath.lineWidth = 1
         nCkLnPath.stroke()
         
         
         //// NCkval Drawing
         let nCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 907.5, width: 24, height: 24), cornerRadius: 5)
-        noFillColor.setFill()
+        registerColor.setFill()
         nCkvalPath.fill()
         black.setStroke()
         nCkvalPath.lineWidth = 1
@@ -1771,7 +1798,7 @@ public class CPU1ByteRenderer : NSObject {
         bBusPath.addLine(to: CGPoint(x: 592.5, y: 181.5))
         bBusPath.addLine(to: CGPoint(x: 592.5, y: 495.5))
         bBusPath.close()
-        bBusPipeColor.setFill()
+        bBusColor.setFill()
         bBusPath.fill()
         UIColor.black.setStroke()
         bBusPath.lineWidth = 1
@@ -1810,7 +1837,7 @@ public class CPU1ByteRenderer : NSObject {
         aMuxArrowPath.addLine(to: CGPoint(x: 459.67, y: 478.5))
         aMuxArrowPath.addLine(to: CGPoint(x: 474.5, y: 478.5))
         aMuxArrowPath.close()
-        noFillColor.setFill()
+        aMuxOutArrow.setFill()
         aMuxArrowPath.fill()
         UIColor.black.setStroke()
         aMuxArrowPath.lineWidth = 1
@@ -1820,7 +1847,7 @@ public class CPU1ByteRenderer : NSObject {
         //// Amux Drawing
         let amuxRect = CGRect(x: 417.5, y: 453.5, width: 100, height: 25)
         let amuxPath = UIBezierPath(rect: amuxRect)
-        noFillColor.setFill()
+        aMuxColor.setFill()
         amuxPath.fill()
         UIColor.black.setStroke()
         amuxPath.lineWidth = 1
@@ -1855,7 +1882,7 @@ public class CPU1ByteRenderer : NSObject {
         mDRCktoAMuxPath.addLine(to: CGPoint(x: 445.5, y: 395.5))
         mDRCktoAMuxPath.addLine(to: CGPoint(x: 445.5, y: 425.5))
         mDRCktoAMuxPath.close()
-        addressBusColor.setFill()
+        mDRToAmuxArrowColor.setFill()
         mDRCktoAMuxPath.fill()
         UIColor.black.setStroke()
         mDRCktoAMuxPath.lineWidth = 1
@@ -1880,7 +1907,7 @@ public class CPU1ByteRenderer : NSObject {
         aBusPath.addLine(to: CGPoint(x: 506.5, y: 193.5))
         aBusPath.addLine(to: CGPoint(x: 506.5, y: 425.5))
         aBusPath.close()
-        aBusPipeColor.setFill()
+        aBusColor.setFill()
         aBusPath.fill()
         UIColor.black.setStroke()
         aBusPath.lineWidth = 1
@@ -1963,29 +1990,29 @@ public class CPU1ByteRenderer : NSObject {
         addrArrowPath.addLine(to: CGPoint(x: 83.5, y: 455.5))
         addrArrowPath.addLine(to: CGPoint(x: 83.5, y: 484.5))
         addrArrowPath.close()
-        addressBusColor.setFill()
+        mDRToAmuxArrowColor.setFill()
         addrArrowPath.fill()
         UIColor.black.setStroke()
         addrArrowPath.lineWidth = 1
         addrArrowPath.stroke()
         
         
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRect(x: 83, y: 257.62, width: 29, height: 752.12))
-        addressBusColor.setFill()
-        rectanglePath.fill()
+        //// AddressBus Drawing
+        let addressBusPath = UIBezierPath(rect: CGRect(x: 83, y: 257.62, width: 29, height: 752.12))
+        mDRToAmuxArrowColor.setFill()
+        addressBusPath.fill()
         UIColor.black.setStroke()
-        rectanglePath.lineWidth = 1
-        rectanglePath.stroke()
+        addressBusPath.lineWidth = 1
+        addressBusPath.stroke()
         
         
-        //// SystemBus2 Drawing
-        let systemBus2Path = UIBezierPath(rect: CGRect(x: 112, y: 390.5, width: 15.5, height: 619.24))
+        //// DataBus Drawing
+        let dataBusPath = UIBezierPath(rect: CGRect(x: 112, y: 390.5, width: 15.5, height: 619.24))
         dataBusColor.setFill()
-        systemBus2Path.fill()
+        dataBusPath.fill()
         UIColor.black.setStroke()
-        systemBus2Path.lineWidth = 1
-        systemBus2Path.stroke()
+        dataBusPath.lineWidth = 1
+        dataBusPath.stroke()
         
         
         //// SystemBusText Drawing
@@ -2071,7 +2098,7 @@ public class CPU1ByteRenderer : NSObject {
         mARArrowPath.addLine(to: CGPoint(x: 274.59, y: 258))
         mARArrowPath.addLine(to: CGPoint(x: 289.59, y: 258))
         mARArrowPath.close()
-        addressBusColor.setFill()
+        mARColor.setFill()
         mARArrowPath.fill()
         UIColor.black.setStroke()
         mARArrowPath.lineWidth = 1
@@ -2210,7 +2237,7 @@ public class CPU1ByteRenderer : NSObject {
         //// MDRMux Drawing
         let mDRMuxRect = CGRect(x: 231.5, y: 443.5, width: 100, height: 25)
         let mDRMuxPath = UIBezierPath(rect: mDRMuxRect)
-        noFillColor.setFill()
+        mDRMuxColor.setFill()
         mDRMuxPath.fill()
         UIColor.black.setStroke()
         mDRMuxPath.lineWidth = 1
@@ -2246,7 +2273,7 @@ public class CPU1ByteRenderer : NSObject {
         mDRMuxArrowPath.addLine(to: CGPoint(x: 25, y: 3.86))
         mDRMuxArrowPath.addLine(to: CGPoint(x: 25, y: 20.14))
         mDRMuxArrowPath.close()
-        noFillColor.setFill()
+        mDRMuxOutArrowColor.setFill()
         mDRMuxArrowPath.fill()
         UIColor.black.setStroke()
         mDRMuxArrowPath.lineWidth = 1
@@ -2328,7 +2355,7 @@ public class CPU1ByteRenderer : NSObject {
         //// CMux Drawing
         let cMuxRect = CGRect(x: 342.5, y: 589.5, width: 100, height: 25)
         let cMuxPath = UIBezierPath(rect: cMuxRect)
-        noFillColor.setFill()
+        cMuxColor.setFill()
         cMuxPath.fill()
         UIColor.black.setStroke()
         cMuxPath.lineWidth = 1
@@ -2365,7 +2392,7 @@ public class CPU1ByteRenderer : NSObject {
         cmuxBusPath.addLine(to: CGPoint(x: 354, y: 836.75))
         cmuxBusPath.addLine(to: CGPoint(x: 354, y: 641.75))
         cmuxBusPath.close()
-        addressBusColor.setFill()
+        cMuxLeftColor.setFill()
         cmuxBusPath.fill()
         UIColor.black.setStroke()
         cmuxBusPath.lineWidth = 1
@@ -2391,7 +2418,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUtoCMuxPath.addLine(to: CGPoint(x: 422.5, y: 617.5))
         aLUtoCMuxPath.addLine(to: CGPoint(x: 422.5, y: 617.5))
         aLUtoCMuxPath.close()
-        cBusColor.setFill()
+        aLUColor.setFill()
         aLUtoCMuxPath.fill()
         UIColor.black.setStroke()
         aLUtoCMuxPath.lineWidth = 1
@@ -2410,7 +2437,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUPath.addLine(to: CGPoint(x: 468.5, y: 605.5))
         aLUPath.addLine(to: CGPoint(x: 438.5, y: 521.5))
         aLUPath.close()
-        cBusColor.setFill()
+        aLUColor.setFill()
         aLUPath.fill()
         UIColor.black.setStroke()
         aLUPath.lineWidth = 1
@@ -2437,7 +2464,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// ALUInstruction Drawing
         let aLUInstructionRect = CGRect(x: 494, y: 550, width: 65, height: 15)
-        let aLUInstructionTextContent = "   "
+        let aLUInstructionTextContent = ALUInstruction
         let aLUInstructionStyle = NSMutableParagraphStyle()
         aLUInstructionStyle.alignment = .center
         let aLUInstructionFontAttributes = [
@@ -2459,7 +2486,7 @@ public class CPU1ByteRenderer : NSObject {
         //// CSMux Drawing
         let cSMuxRect = CGRect(x: 601.5, y: 618.5, width: 100, height: 25)
         let cSMuxPath = UIBezierPath(rect: cSMuxRect)
-        noFillColor.setFill()
+        cSMuxColor.setFill()
         cSMuxPath.fill()
         UIColor.black.setStroke()
         cSMuxPath.lineWidth = 1
@@ -2606,7 +2633,7 @@ public class CPU1ByteRenderer : NSObject {
         //// Rectangle 7 Drawing
         let rectangle7Rect = CGRect(x: 594.5, y: 836.5, width: 56, height: 26)
         let rectangle7Path = UIBezierPath(rect: rectangle7Rect)
-        noFillColor.setFill()
+        registerColor.setFill()
         rectangle7Path.fill()
         UIColor.black.setStroke()
         rectangle7Path.lineWidth = 1
@@ -2644,12 +2671,12 @@ public class CPU1ByteRenderer : NSObject {
         //// ProgramCounterText Drawing
         let programCounterTextRect = CGRect(x: 92.5, y: 161.5, width: 100, height: 25)
         let programCounterTextPath = UIBezierPath(rect: programCounterTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         programCounterTextPath.fill()
         UIColor.black.setStroke()
         programCounterTextPath.lineWidth = 1
         programCounterTextPath.stroke()
-        let programCounterTextTextContent = "0x0000"
+        let programCounterTextTextContent = programCounterText
         let programCounterTextStyle = NSMutableParagraphStyle()
         programCounterTextStyle.alignment = .center
         let programCounterTextFontAttributes = [
@@ -2702,12 +2729,12 @@ public class CPU1ByteRenderer : NSObject {
         //// StackPointerText Drawing
         let stackPointerTextRect = CGRect(x: 92.5, y: 113.5, width: 100, height: 25)
         let stackPointerTextPath = UIBezierPath(rect: stackPointerTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         stackPointerTextPath.fill()
         UIColor.black.setStroke()
         stackPointerTextPath.lineWidth = 1
         stackPointerTextPath.stroke()
-        let stackPointerTextTextContent = "0x0000"
+        let stackPointerTextTextContent = stackPointerText
         let stackPointerTextStyle = NSMutableParagraphStyle()
         stackPointerTextStyle.alignment = .center
         let stackPointerTextFontAttributes = [
@@ -2760,12 +2787,12 @@ public class CPU1ByteRenderer : NSObject {
         //// IndexRegisterText Drawing
         let indexRegisterTextRect = CGRect(x: 92.5, y: 68.5, width: 100, height: 25)
         let indexRegisterTextPath = UIBezierPath(rect: indexRegisterTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         indexRegisterTextPath.fill()
         UIColor.black.setStroke()
         indexRegisterTextPath.lineWidth = 1
         indexRegisterTextPath.stroke()
-        let indexRegisterTextTextContent = "0x0000"
+        let indexRegisterTextTextContent = indexRegisterText
         let indexRegisterTextStyle = NSMutableParagraphStyle()
         indexRegisterTextStyle.alignment = .center
         let indexRegisterTextFontAttributes = [
@@ -2818,12 +2845,12 @@ public class CPU1ByteRenderer : NSObject {
         //// AccumulatorText Drawing
         let accumulatorTextRect = CGRect(x: 92.5, y: 23.5, width: 100, height: 25)
         let accumulatorTextPath = UIBezierPath(rect: accumulatorTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         accumulatorTextPath.fill()
         UIColor.black.setStroke()
         accumulatorTextPath.lineWidth = 1
         accumulatorTextPath.stroke()
-        let accumulatorTextTextContent = "0x0000"
+        let accumulatorTextTextContent = accumulatorText
         let accumulatorTextStyle = NSMutableParagraphStyle()
         accumulatorTextStyle.alignment = .center
         let accumulatorTextFontAttributes = [
@@ -2879,7 +2906,7 @@ public class CPU1ByteRenderer : NSObject {
         //// T3RegText Drawing
         let t3RegTextRect = CGRect(x: 274.5, y: 161.5, width: 100, height: 25)
         let t3RegTextPath = UIBezierPath(rect: t3RegTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         t3RegTextPath.fill()
         UIColor.black.setStroke()
         t3RegTextPath.lineWidth = 1
@@ -2937,7 +2964,7 @@ public class CPU1ByteRenderer : NSObject {
         //// T2RegText Drawing
         let t2RegTextRect = CGRect(x: 274.5, y: 113.5, width: 100, height: 25)
         let t2RegTextPath = UIBezierPath(rect: t2RegTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         t2RegTextPath.fill()
         UIColor.black.setStroke()
         t2RegTextPath.lineWidth = 1
@@ -2995,7 +3022,7 @@ public class CPU1ByteRenderer : NSObject {
         //// T1RegText Drawing
         let t1RegTextRect = CGRect(x: 274.5, y: 68.5, width: 100, height: 25)
         let t1RegTextPath = UIBezierPath(rect: t1RegTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         t1RegTextPath.fill()
         UIColor.black.setStroke()
         t1RegTextPath.lineWidth = 1
@@ -3053,7 +3080,7 @@ public class CPU1ByteRenderer : NSObject {
         //// InstrRegText Drawing
         let instrRegTextRect = CGRect(x: 274.5, y: 23.5, width: 100, height: 25)
         let instrRegTextPath = UIBezierPath(rect: instrRegTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         instrRegTextPath.fill()
         UIColor.black.setStroke()
         instrRegTextPath.lineWidth = 1
@@ -3166,7 +3193,7 @@ public class CPU1ByteRenderer : NSObject {
         //// T6RegText2 Drawing
         let t6RegText2Rect = CGRect(x: 453.5, y: 113.5, width: 100, height: 25)
         let t6RegText2Path = UIBezierPath(rect: t6RegText2Rect)
-        noFillColor.setFill()
+        registerColor.setFill()
         t6RegText2Path.fill()
         UIColor.black.setStroke()
         t6RegText2Path.lineWidth = 1
@@ -3224,7 +3251,7 @@ public class CPU1ByteRenderer : NSObject {
         //// T5RegText Drawing
         let t5RegTextRect = CGRect(x: 453.5, y: 68.5, width: 100, height: 25)
         let t5RegTextPath = UIBezierPath(rect: t5RegTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         t5RegTextPath.fill()
         UIColor.black.setStroke()
         t5RegTextPath.lineWidth = 1
@@ -3282,7 +3309,7 @@ public class CPU1ByteRenderer : NSObject {
         //// T4RegText Drawing
         let t4RegTextRect = CGRect(x: 453.5, y: 23.5, width: 100, height: 25)
         let t4RegTextPath = UIBezierPath(rect: t4RegTextRect)
-        noFillColor.setFill()
+        registerColor.setFill()
         t4RegTextPath.fill()
         UIColor.black.setStroke()
         t4RegTextPath.lineWidth = 1
@@ -3543,6 +3570,7 @@ public class CPU1ByteRenderer : NSObject {
         context.clip(to: regTex2425Rect)
         regTex2425TextContent.draw(in: CGRect(x: regTex2425Rect.minX, y: regTex2425Rect.minY + (regTex2425Rect.height - regTex2425TextHeight) / 2, width: regTex2425Rect.width, height: regTex2425TextHeight), withAttributes: regTex2425FontAttributes)
         context.restoreGState()
+
 
 
     }
