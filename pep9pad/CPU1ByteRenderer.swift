@@ -70,13 +70,32 @@ public class CPU1ByteRenderer : NSObject {
     static var aMuxLineColor = UIColor.CPUColors.grayArrow
     static var memWrLineColor = UIColor.CPUColors.grayArrow
     
-    //text
+    //Register Bank Text
     static var accumulatorText = "0x0000"
     static var indexRegisterText = "0x0000"
     static var stackPointerText = "0x0000"
     static var programCounterText = "0x0000"
+    
+    static var instructionRegisterText = "0x000000"
+    static var t1Text = "0x00"
+    static var t2Text = "0x0000"
+    static var t3Text = "0x0000"
+    
+    static var t4Text = "0x0000"
+    static var t5Text = "0x0000"
+    static var t6Text = "0x0000"
+    
+    static var MARAText = "0x00"
+    static var MARBText = "0x00"
+    
     static var ALUInstruction = ""
 
+    static var nBit = "0"
+    static var zBit = "0"
+    static var vBit = "0"
+    static var cBit = "0"
+    static var sBit = "0"
+    
     //// Drawing Methods
 
     @objc public dynamic class func drawIpad(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 950, height: 1024), resizing: ResizingBehavior = .aspectFit) {
@@ -2113,7 +2132,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         mARBPath.lineWidth = 1
         mARBPath.stroke()
-        let mARBTextContent = "0x00"
+        let mARBTextContent = MARBText
         let mARBStyle = NSMutableParagraphStyle()
         mARBStyle.alignment = .center
         let mARBFontAttributes = [
@@ -2148,26 +2167,26 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// MARB 2 Drawing
-        let mARB2Rect = CGRect(x: 231.5, y: 317.5, width: 100, height: 25)
-        let mARB2Path = UIBezierPath(rect: mARB2Rect)
+        let mARARect = CGRect(x: 231.5, y: 317.5, width: 100, height: 25)
+        let mARAPath = UIBezierPath(rect: mARARect)
         registerBankColor.setFill()
-        mARB2Path.fill()
+        mARAPath.fill()
         UIColor.black.setStroke()
-        mARB2Path.lineWidth = 1
-        mARB2Path.stroke()
-        let mARB2TextContent = "0x00"
-        let mARB2Style = NSMutableParagraphStyle()
-        mARB2Style.alignment = .center
+        mARAPath.lineWidth = 1
+        mARAPath.stroke()
+        let mARATextContent = MARAText
+        let mARAStyle = NSMutableParagraphStyle()
+        mARAStyle.alignment = .center
         let mARB2FontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: mARB2Style,
+            .paragraphStyle: mARAStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let mARB2TextHeight: CGFloat = mARB2TextContent.boundingRect(with: CGSize(width: mARB2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARB2FontAttributes, context: nil).height
+        let mARB2TextHeight: CGFloat = mARATextContent.boundingRect(with: CGSize(width: mARARect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARB2FontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: mARB2Rect)
-        mARB2TextContent.draw(in: CGRect(x: mARB2Rect.minX, y: mARB2Rect.minY + (mARB2Rect.height - mARB2TextHeight) / 2, width: mARB2Rect.width, height: mARB2TextHeight), withAttributes: mARB2FontAttributes)
+        context.clip(to: mARARect)
+        mARATextContent.draw(in: CGRect(x: mARARect.minX, y: mARARect.minY + (mARARect.height - mARB2TextHeight) / 2, width: mARARect.width, height: mARB2TextHeight), withAttributes: mARB2FontAttributes)
         context.restoreGState()
         
         
@@ -2510,7 +2529,7 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// Bits
-        //// Rectangle 2 Drawing
+        //// Rectangle 2 Drawing -- S
         let rectangle2Rect = CGRect(x: 677, y: 683, width: 25, height: 25)
         let rectangle2Path = UIBezierPath(rect: rectangle2Rect)
         registerBankColor.setFill()
@@ -2518,7 +2537,7 @@ public class CPU1ByteRenderer : NSObject {
         black.setStroke()
         rectangle2Path.lineWidth = 1
         rectangle2Path.stroke()
-        let rectangle2TextContent = "0"
+        let rectangle2TextContent = sBit
         let rectangle2Style = NSMutableParagraphStyle()
         rectangle2Style.alignment = .center
         let rectangle2FontAttributes = [
@@ -2534,7 +2553,7 @@ public class CPU1ByteRenderer : NSObject {
         context.restoreGState()
         
         
-        //// Rectangle 3 Drawing
+        //// Rectangle 3 Drawing -- C
         let rectangle3Rect = CGRect(x: 677.5, y: 721.5, width: 25, height: 25)
         let rectangle3Path = UIBezierPath(rect: rectangle3Rect)
         registerBankColor.setFill()
@@ -2542,7 +2561,7 @@ public class CPU1ByteRenderer : NSObject {
         black.setStroke()
         rectangle3Path.lineWidth = 1
         rectangle3Path.stroke()
-        let rectangle3TextContent = "0"
+        let rectangle3TextContent = cBit
         let rectangle3Style = NSMutableParagraphStyle()
         rectangle3Style.alignment = .center
         let rectangle3FontAttributes = [
@@ -2558,7 +2577,7 @@ public class CPU1ByteRenderer : NSObject {
         context.restoreGState()
         
         
-        //// Rectangle 4 Drawing
+        //// Rectangle 4 Drawing --
         let rectangle4Rect = CGRect(x: 677, y: 759, width: 25, height: 25)
         let rectangle4Path = UIBezierPath(rect: rectangle4Rect)
         registerBankColor.setFill()
@@ -2566,7 +2585,7 @@ public class CPU1ByteRenderer : NSObject {
         black.setStroke()
         rectangle4Path.lineWidth = 1
         rectangle4Path.stroke()
-        let rectangle4TextContent = "0"
+        let rectangle4TextContent = vBit
         let rectangle4Style = NSMutableParagraphStyle()
         rectangle4Style.alignment = .center
         let rectangle4FontAttributes = [
@@ -2582,7 +2601,7 @@ public class CPU1ByteRenderer : NSObject {
         context.restoreGState()
         
         
-        //// Rectangle 5 Drawing
+        //// Rectangle 5 Drawing -- N
         let rectangle5Rect = CGRect(x: 677, y: 838, width: 25, height: 25)
         let rectangle5Path = UIBezierPath(rect: rectangle5Rect)
         registerBankColor.setFill()
@@ -2590,7 +2609,7 @@ public class CPU1ByteRenderer : NSObject {
         black.setStroke()
         rectangle5Path.lineWidth = 1
         rectangle5Path.stroke()
-        let rectangle5TextContent = "0"
+        let rectangle5TextContent = zBit
         let rectangle5Style = NSMutableParagraphStyle()
         rectangle5Style.alignment = .center
         let rectangle5FontAttributes = [
@@ -2606,7 +2625,7 @@ public class CPU1ByteRenderer : NSObject {
         context.restoreGState()
         
         
-        //// Rectangle 6 Drawing
+        //// Rectangle 6 Drawing -- N
         let rectangle6Rect = CGRect(x: 677.5, y: 907.5, width: 25, height: 25)
         let rectangle6Path = UIBezierPath(rect: rectangle6Rect)
         registerBankColor.setFill()
@@ -2614,7 +2633,7 @@ public class CPU1ByteRenderer : NSObject {
         black.setStroke()
         rectangle6Path.lineWidth = 1
         rectangle6Path.stroke()
-        let rectangle6TextContent = "0"
+        let rectangle6TextContent = nBit
         let rectangle6Style = NSMutableParagraphStyle()
         rectangle6Style.alignment = .center
         let rectangle6FontAttributes = [
@@ -2911,7 +2930,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         t3RegTextPath.lineWidth = 1
         t3RegTextPath.stroke()
-        let t3RegTextTextContent = "0x0000"
+        let t3RegTextTextContent = t3Text
         let t3RegTextStyle = NSMutableParagraphStyle()
         t3RegTextStyle.alignment = .center
         let t3RegTextFontAttributes = [
@@ -2969,7 +2988,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         t2RegTextPath.lineWidth = 1
         t2RegTextPath.stroke()
-        let t2RegTextTextContent = "0x0000"
+        let t2RegTextTextContent = t2Text
         let t2RegTextStyle = NSMutableParagraphStyle()
         t2RegTextStyle.alignment = .center
         let t2RegTextFontAttributes = [
@@ -3027,7 +3046,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         t1RegTextPath.lineWidth = 1
         t1RegTextPath.stroke()
-        let t1RegTextTextContent = "0x00"
+        let t1RegTextTextContent = t1Text
         let t1RegTextStyle = NSMutableParagraphStyle()
         t1RegTextStyle.alignment = .center
         let t1RegTextFontAttributes = [
@@ -3085,7 +3104,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         instrRegTextPath.lineWidth = 1
         instrRegTextPath.stroke()
-        let instrRegTextTextContent = "0x000000"
+        let instrRegTextTextContent = instructionRegisterText
         let instrRegTextStyle = NSMutableParagraphStyle()
         instrRegTextStyle.alignment = .center
         let instrRegTextFontAttributes = [
@@ -3198,7 +3217,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         t6RegText2Path.lineWidth = 1
         t6RegText2Path.stroke()
-        let t6RegText2TextContent = "0x0000"
+        let t6RegText2TextContent = t6Text
         let t6RegText2Style = NSMutableParagraphStyle()
         t6RegText2Style.alignment = .center
         let t6RegText2FontAttributes = [
@@ -3256,7 +3275,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         t5RegTextPath.lineWidth = 1
         t5RegTextPath.stroke()
-        let t5RegTextTextContent = "0x0000"
+        let t5RegTextTextContent = t5Text
         let t5RegTextStyle = NSMutableParagraphStyle()
         t5RegTextStyle.alignment = .center
         let t5RegTextFontAttributes = [
@@ -3314,7 +3333,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         t4RegTextPath.lineWidth = 1
         t4RegTextPath.stroke()
-        let t4RegTextTextContent = "0x0000"
+        let t4RegTextTextContent = t4Text
         let t4RegTextStyle = NSMutableParagraphStyle()
         t4RegTextStyle.alignment = .center
         let t4RegTextFontAttributes = [
