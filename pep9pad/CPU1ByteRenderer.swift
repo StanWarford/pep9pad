@@ -85,16 +85,40 @@ public class CPU1ByteRenderer : NSObject {
     static var t5Text = "0x0000"
     static var t6Text = "0x0000"
     
+    //Mar Text
     static var MARAText = "0x00"
     static var MARBText = "0x00"
     
+    //ALU Text
     static var ALUInstruction = ""
 
+    //Bit Text
     static var nBit = "0"
     static var zBit = "0"
     static var vBit = "0"
     static var cBit = "0"
     static var sBit = "0"
+    
+    //LineText
+    static var loadCkText = ""
+    static var cText = ""
+    static var bText = ""
+    static var aText = ""
+    static var MARCkText = ""
+    static var MDRCkText = ""
+    static var aMuxText = ""
+    static var mdrMuxText = ""
+    static var cMuxText = ""
+    static var ALUInputText = ""
+    static var csMuxText = ""
+    static var sCkText = ""
+    static var cCkText = ""
+    static var vCkText = ""
+    static var andZText = ""
+    static var zCkText = ""
+    static var nCkText = ""
+    static var memWrText = ""
+    static var memRdText = ""
     
     //// Drawing Methods
 
@@ -513,12 +537,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// MemWriteval Drawing
-        let memWritevalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 979.5, width: 30, height: 24))
+        let memWritevalRect = CGRect(x: 815.5, y: 979.5, width: 30, height: 24)
+        let memWritevalPath = UIBezierPath(rect: memWritevalRect)
         registerColor.setFill()
         memWritevalPath.fill()
         black.setStroke()
         memWritevalPath.lineWidth = 1
         memWritevalPath.stroke()
+        let memWritevalTextContent = memWrText
+        let memWritevalStyle = NSMutableParagraphStyle()
+        memWritevalStyle.alignment = .center
+        let memWritevalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 20)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: memWritevalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let memWritevalTextHeight: CGFloat = memWritevalTextContent.boundingRect(with: CGSize(width: memWritevalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: memWritevalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: memWritevalRect)
+        memWritevalTextContent.draw(in: CGRect(x: memWritevalRect.minX, y: memWritevalRect.minY + (memWritevalRect.height - memWritevalTextHeight) / 2, width: memWritevalRect.width, height: memWritevalTextHeight), withAttributes: memWritevalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -550,12 +589,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// AMuxval Drawing
-        let aMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 453.5, width: 30, height: 24))
+        let aMuxvalRect = CGRect(x: 815.5, y: 453.5, width: 30, height: 24)
+        let aMuxvalPath = UIBezierPath(rect: aMuxvalRect)
         registerColor.setFill()
         aMuxvalPath.fill()
         black.setStroke()
         aMuxvalPath.lineWidth = 1
         aMuxvalPath.stroke()
+        let aMuxvalTextContent = aMuxText
+        let aMuxvalStyle = NSMutableParagraphStyle()
+        aMuxvalStyle.alignment = .center
+        let aMuxvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: aMuxvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aMuxvalTextHeight: CGFloat = aMuxvalTextContent.boundingRect(with: CGSize(width: aMuxvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aMuxvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: aMuxvalRect)
+        aMuxvalTextContent.draw(in: CGRect(x: aMuxvalRect.minX, y: aMuxvalRect.minY + (aMuxvalRect.height - aMuxvalTextHeight) / 2, width: aMuxvalRect.width, height: aMuxvalTextHeight), withAttributes: aMuxvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -627,12 +681,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// MARCkval Drawing
-        let mARCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 274.5, width: 24, height: 24), cornerRadius: 5)
+        let mARCkvalRect = CGRect(x: 816, y: 274.5, width: 24, height: 24)
+        let mARCkvalPath = UIBezierPath(roundedRect: mARCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         mARCkvalPath.fill()
         black.setStroke()
         mARCkvalPath.lineWidth = 1
         mARCkvalPath.stroke()
+        let mARCkvalTextContent = MARCkText
+        let mARCkvalStyle = NSMutableParagraphStyle()
+        mARCkvalStyle.alignment = .center
+        let mARCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mARCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mARCkvalTextHeight: CGFloat = mARCkvalTextContent.boundingRect(with: CGSize(width: mARCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mARCkvalRect)
+        mARCkvalTextContent.draw(in: CGRect(x: mARCkvalRect.minX, y: mARCkvalRect.minY + (mARCkvalRect.height - mARCkvalTextHeight) / 2, width: mARCkvalRect.width, height: mARCkvalTextHeight), withAttributes: mARCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1042,12 +1111,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// MemReadval Drawing
-        let memReadvalPath = UIBezierPath(rect: CGRect(x: 684.37, y: -32.5, width: 30, height: 24))
+        let memReadvalRect = CGRect(x: 684.37, y: -32.5, width: 30, height: 24)
+        let memReadvalPath = UIBezierPath(rect: memReadvalRect)
         registerColor.setFill()
         memReadvalPath.fill()
         black.setStroke()
         memReadvalPath.lineWidth = 1
         memReadvalPath.stroke()
+        let memReadvalTextContent = memRdText
+        let memReadvalStyle = NSMutableParagraphStyle()
+        memReadvalStyle.alignment = .center
+        let memReadvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 20)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: memReadvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let memReadvalTextHeight: CGFloat = memReadvalTextContent.boundingRect(with: CGSize(width: memReadvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: memReadvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: memReadvalRect)
+        memReadvalTextContent.draw(in: CGRect(x: memReadvalRect.minX, y: memReadvalRect.minY + (memReadvalRect.height - memReadvalTextHeight) / 2, width: memReadvalRect.width, height: memReadvalTextHeight), withAttributes: memReadvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1056,12 +1140,27 @@ public class CPU1ByteRenderer : NSObject {
         
         //// MDRCkLine
         //// MDRCkval Drawing
-        let mDRCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 352.5, width: 24, height: 24), cornerRadius: 5)
+        let mDRCkvalRect = CGRect(x: 816, y: 352.5, width: 24, height: 24)
+        let mDRCkvalPath = UIBezierPath(roundedRect: mDRCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         mDRCkvalPath.fill()
         black.setStroke()
         mDRCkvalPath.lineWidth = 1
         mDRCkvalPath.stroke()
+        let mDRCkvalTextContent = MDRCkText
+        let mDRCkvalStyle = NSMutableParagraphStyle()
+        mDRCkvalStyle.alignment = .center
+        let mDRCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mDRCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mDRCkvalTextHeight: CGFloat = mDRCkvalTextContent.boundingRect(with: CGSize(width: mDRCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mDRCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mDRCkvalRect)
+        mDRCkvalTextContent.draw(in: CGRect(x: mDRCkvalRect.minX, y: mDRCkvalRect.minY + (mDRCkvalRect.height - mDRCkvalTextHeight) / 2, width: mDRCkvalRect.width, height: mDRCkvalTextHeight), withAttributes: mDRCkvalFontAttributes)
+        context.restoreGState()
         
         
         //// MDRCkLn Drawing
@@ -1145,12 +1244,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// C Drawing
-        let cPath = UIBezierPath(rect: CGRect(x: 815, y: 104, width: 30, height: 24))
+        let cRect = CGRect(x: 815, y: 104, width: 30, height: 24)
+        let cPath = UIBezierPath(rect: cRect)
         registerColor.setFill()
         cPath.fill()
         black.setStroke()
         cPath.lineWidth = 1
         cPath.stroke()
+        let cTextContent = cText
+        let cStyle = NSMutableParagraphStyle()
+        cStyle.alignment = .center
+        let cFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cTextHeight: CGFloat = cTextContent.boundingRect(with: CGSize(width: cRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: cRect)
+        cTextContent.draw(in: CGRect(x: cRect.minX, y: cRect.minY + (cRect.height - cTextHeight) / 2, width: cRect.width, height: cTextHeight), withAttributes: cFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1202,12 +1316,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// B Drawing
-        let bPath = UIBezierPath(rect: CGRect(x: 815, y: 133.5, width: 30, height: 24))
+        let bRect = CGRect(x: 815, y: 133.5, width: 30, height: 24)
+        let bPath = UIBezierPath(rect: bRect)
         registerColor.setFill()
         bPath.fill()
         black.setStroke()
         bPath.lineWidth = 1
         bPath.stroke()
+        let bTextContent = bText
+        let bStyle = NSMutableParagraphStyle()
+        bStyle.alignment = .center
+        let bFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: bStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let bTextHeight: CGFloat = bTextContent.boundingRect(with: CGSize(width: bRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: bFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: bRect)
+        bTextContent.draw(in: CGRect(x: bRect.minX, y: bRect.minY + (bRect.height - bTextHeight) / 2, width: bRect.width, height: bTextHeight), withAttributes: bFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1243,12 +1372,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// AndZval Drawing
-        let andZvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 806.5, width: 30, height: 24))
+        let andZvalRect = CGRect(x: 815.5, y: 806.5, width: 30, height: 24)
+        let andZvalPath = UIBezierPath(rect: andZvalRect)
         registerColor.setFill()
         andZvalPath.fill()
         black.setStroke()
         andZvalPath.lineWidth = 1
         andZvalPath.stroke()
+        let andZvalTextContent = andZText
+        let andZvalStyle = NSMutableParagraphStyle()
+        andZvalStyle.alignment = .center
+        let andZvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: andZvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let andZvalTextHeight: CGFloat = andZvalTextContent.boundingRect(with: CGSize(width: andZvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: andZvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: andZvalRect)
+        andZvalTextContent.draw(in: CGRect(x: andZvalRect.minX, y: andZvalRect.minY + (andZvalRect.height - andZvalTextHeight) / 2, width: andZvalRect.width, height: andZvalTextHeight), withAttributes: andZvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1300,12 +1444,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// Aval Drawing
-        let avalPath = UIBezierPath(rect: CGRect(x: 815, y: 163.5, width: 30, height: 24))
+        let avalRect = CGRect(x: 815, y: 163.5, width: 30, height: 24)
+        let avalPath = UIBezierPath(rect: avalRect)
         registerColor.setFill()
         avalPath.fill()
         black.setStroke()
         avalPath.lineWidth = 1
         avalPath.stroke()
+        let avalTextContent = aText
+        let avalStyle = NSMutableParagraphStyle()
+        avalStyle.alignment = .center
+        let avalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: avalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let avalTextHeight: CGFloat = avalTextContent.boundingRect(with: CGSize(width: avalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: avalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: avalRect)
+        avalTextContent.draw(in: CGRect(x: avalRect.minX, y: avalRect.minY + (avalRect.height - avalTextHeight) / 2, width: avalRect.width, height: avalTextHeight), withAttributes: avalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1334,12 +1493,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// LoadCkval Drawing
-        let loadCkvalPath = UIBezierPath(roundedRect: CGRect(x: 816, y: 43, width: 24, height: 24), cornerRadius: 5)
+        let loadCkvalRect = CGRect(x: 816, y: 43, width: 24, height: 24)
+        let loadCkvalPath = UIBezierPath(roundedRect: loadCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         loadCkvalPath.fill()
         black.setStroke()
         loadCkvalPath.lineWidth = 1
         loadCkvalPath.stroke()
+        let loadCkvalTextContent = loadCkText
+        let loadCkvalStyle = NSMutableParagraphStyle()
+        loadCkvalStyle.alignment = .center
+        let loadCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: loadCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let loadCkvalTextHeight: CGFloat = loadCkvalTextContent.boundingRect(with: CGSize(width: loadCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: loadCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: loadCkvalRect)
+        loadCkvalTextContent.draw(in: CGRect(x: loadCkvalRect.minX, y: loadCkvalRect.minY + (loadCkvalRect.height - loadCkvalTextHeight) / 2, width: loadCkvalRect.width, height: loadCkvalTextHeight), withAttributes: loadCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1373,12 +1547,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// MDRMuxval Drawing
-        let mDRMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 478.5, width: 30, height: 24))
+        let mDRMuxvalRect = CGRect(x: 815.5, y: 478.5, width: 30, height: 24)
+        let mDRMuxvalPath = UIBezierPath(rect: mDRMuxvalRect)
         registerColor.setFill()
         mDRMuxvalPath.fill()
         black.setStroke()
         mDRMuxvalPath.lineWidth = 1
         mDRMuxvalPath.stroke()
+        let mDRMuxvalTextContent = mdrMuxText
+        let mDRMuxvalStyle = NSMutableParagraphStyle()
+        mDRMuxvalStyle.alignment = .center
+        let mDRMuxvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: mDRMuxvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let mDRMuxvalTextHeight: CGFloat = mDRMuxvalTextContent.boundingRect(with: CGSize(width: mDRMuxvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mDRMuxvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: mDRMuxvalRect)
+        mDRMuxvalTextContent.draw(in: CGRect(x: mDRMuxvalRect.minX, y: mDRMuxvalRect.minY + (mDRMuxvalRect.height - mDRMuxvalTextHeight) / 2, width: mDRMuxvalRect.width, height: mDRMuxvalTextHeight), withAttributes: mDRMuxvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1430,12 +1619,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// ALUval Drawing
-        let aLUvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 565.5, width: 30, height: 24))
+        let aLUvalRect = CGRect(x: 815.5, y: 565.5, width: 30, height: 24)
+        let aLUvalPath = UIBezierPath(rect: aLUvalRect)
         registerColor.setFill()
         aLUvalPath.fill()
         black.setStroke()
         aLUvalPath.lineWidth = 1
         aLUvalPath.stroke()
+        let aLUvalTextContent = ALUInputText
+        let aLUvalStyle = NSMutableParagraphStyle()
+        aLUvalStyle.alignment = .center
+        let aLUvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: aLUvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let aLUvalTextHeight: CGFloat = aLUvalTextContent.boundingRect(with: CGSize(width: aLUvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: aLUvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: aLUvalRect)
+        aLUvalTextContent.draw(in: CGRect(x: aLUvalRect.minX, y: aLUvalRect.minY + (aLUvalRect.height - aLUvalTextHeight) / 2, width: aLUvalRect.width, height: aLUvalTextHeight), withAttributes: aLUvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1474,12 +1678,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// CMuxval Drawing
-        let cMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 540.5, width: 30, height: 24))
+        let cMuxvalRect = CGRect(x: 815.5, y: 540.5, width: 30, height: 24)
+        let cMuxvalPath = UIBezierPath(rect: cMuxvalRect)
         registerColor.setFill()
         cMuxvalPath.fill()
         black.setStroke()
         cMuxvalPath.lineWidth = 1
         cMuxvalPath.stroke()
+        let cMuxvalTextContent = cMuxText
+        let cMuxvalStyle = NSMutableParagraphStyle()
+        cMuxvalStyle.alignment = .center
+        let cMuxvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cMuxvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cMuxvalTextHeight: CGFloat = cMuxvalTextContent.boundingRect(with: CGSize(width: cMuxvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cMuxvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: cMuxvalRect)
+        cMuxvalTextContent.draw(in: CGRect(x: cMuxvalRect.minX, y: cMuxvalRect.minY + (cMuxvalRect.height - cMuxvalTextHeight) / 2, width: cMuxvalRect.width, height: cMuxvalTextHeight), withAttributes: cMuxvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1601,12 +1820,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// CSMuxval Drawing
-        let cSMuxvalPath = UIBezierPath(rect: CGRect(x: 815.5, y: 619.5, width: 30, height: 24))
+        let cSMuxvalRect = CGRect(x: 815.5, y: 619.5, width: 30, height: 24)
+        let cSMuxvalPath = UIBezierPath(rect: cSMuxvalRect)
         registerColor.setFill()
         cSMuxvalPath.fill()
         black.setStroke()
         cSMuxvalPath.lineWidth = 1
         cSMuxvalPath.stroke()
+        let cSMuxvalTextContent = csMuxText
+        let cSMuxvalStyle = NSMutableParagraphStyle()
+        cSMuxvalStyle.alignment = .center
+        let cSMuxvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 17)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cSMuxvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cSMuxvalTextHeight: CGFloat = cSMuxvalTextContent.boundingRect(with: CGSize(width: cSMuxvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cSMuxvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: cSMuxvalRect)
+        cSMuxvalTextContent.draw(in: CGRect(x: cSMuxvalRect.minX, y: cSMuxvalRect.minY + (cSMuxvalRect.height - cSMuxvalTextHeight) / 2, width: cSMuxvalRect.width, height: cSMuxvalTextHeight), withAttributes: cSMuxvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1638,12 +1872,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// SCkval Drawing
-        let sCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 683.5, width: 24, height: 24), cornerRadius: 5)
+        let sCkvalRect = CGRect(x: 815.5, y: 683.5, width: 24, height: 24)
+        let sCkvalPath = UIBezierPath(roundedRect: sCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         sCkvalPath.fill()
         black.setStroke()
         sCkvalPath.lineWidth = 1
         sCkvalPath.stroke()
+        let sCkvalTextContent = sCkText
+        let sCkvalStyle = NSMutableParagraphStyle()
+        sCkvalStyle.alignment = .center
+        let sCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: sCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let sCkvalTextHeight: CGFloat = sCkvalTextContent.boundingRect(with: CGSize(width: sCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: sCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: sCkvalRect)
+        sCkvalTextContent.draw(in: CGRect(x: sCkvalRect.minX, y: sCkvalRect.minY + (sCkvalRect.height - sCkvalTextHeight) / 2, width: sCkvalRect.width, height: sCkvalTextHeight), withAttributes: sCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1675,12 +1924,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// CCkval Drawing
-        let cCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 722.5, width: 24, height: 24), cornerRadius: 5)
+        let cCkvalRect = CGRect(x: 815.5, y: 722.5, width: 24, height: 24)
+        let cCkvalPath = UIBezierPath(roundedRect: cCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         cCkvalPath.fill()
         black.setStroke()
         cCkvalPath.lineWidth = 1
         cCkvalPath.stroke()
+        let cCkvalTextContent = cCkText
+        let cCkvalStyle = NSMutableParagraphStyle()
+        cCkvalStyle.alignment = .center
+        let cCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: cCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let cCkvalTextHeight: CGFloat = cCkvalTextContent.boundingRect(with: CGSize(width: cCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: cCkvalRect)
+        cCkvalTextContent.draw(in: CGRect(x: cCkvalRect.minX, y: cCkvalRect.minY + (cCkvalRect.height - cCkvalTextHeight) / 2, width: cCkvalRect.width, height: cCkvalTextHeight), withAttributes: cCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1712,12 +1976,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// VCkval Drawing
-        let vCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 759.5, width: 24, height: 24), cornerRadius: 5)
+        let vCkvalRect = CGRect(x: 815.5, y: 759.5, width: 24, height: 24)
+        let vCkvalPath = UIBezierPath(roundedRect: vCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         vCkvalPath.fill()
         black.setStroke()
         vCkvalPath.lineWidth = 1
         vCkvalPath.stroke()
+        let vCkvalTextContent = vCkText
+        let vCkvalStyle = NSMutableParagraphStyle()
+        vCkvalStyle.alignment = .center
+        let vCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: vCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let vCkvalTextHeight: CGFloat = vCkvalTextContent.boundingRect(with: CGSize(width: vCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: vCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: vCkvalRect)
+        vCkvalTextContent.draw(in: CGRect(x: vCkvalRect.minX, y: vCkvalRect.minY + (vCkvalRect.height - vCkvalTextHeight) / 2, width: vCkvalRect.width, height: vCkvalTextHeight), withAttributes: vCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1749,12 +2028,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// ZCkval Drawing
-        let zCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 838.5, width: 24, height: 24), cornerRadius: 5)
+        let zCkvalRect = CGRect(x: 815.5, y: 838.5, width: 24, height: 24)
+        let zCkvalPath = UIBezierPath(roundedRect: zCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         zCkvalPath.fill()
         black.setStroke()
         zCkvalPath.lineWidth = 1
         zCkvalPath.stroke()
+        let zCkvalTextContent = zCkText
+        let zCkvalStyle = NSMutableParagraphStyle()
+        zCkvalStyle.alignment = .center
+        let zCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: zCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let zCkvalTextHeight: CGFloat = zCkvalTextContent.boundingRect(with: CGSize(width: zCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: zCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: zCkvalRect)
+        zCkvalTextContent.draw(in: CGRect(x: zCkvalRect.minX, y: zCkvalRect.minY + (zCkvalRect.height - zCkvalTextHeight) / 2, width: zCkvalRect.width, height: zCkvalTextHeight), withAttributes: zCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -1786,12 +2080,27 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// NCkval Drawing
-        let nCkvalPath = UIBezierPath(roundedRect: CGRect(x: 815.5, y: 907.5, width: 24, height: 24), cornerRadius: 5)
+        let nCkvalRect = CGRect(x: 815.5, y: 907.5, width: 24, height: 24)
+        let nCkvalPath = UIBezierPath(roundedRect: nCkvalRect, cornerRadius: 5)
         registerColor.setFill()
         nCkvalPath.fill()
         black.setStroke()
         nCkvalPath.lineWidth = 1
         nCkvalPath.stroke()
+        let nCkvalTextContent = nCkText
+        let nCkvalStyle = NSMutableParagraphStyle()
+        nCkvalStyle.alignment = .center
+        let nCkvalFontAttributes = [
+            .font: UIFont(name: "HelveticaNeue", size: 25)!,
+            .foregroundColor: UIColor.black,
+            .paragraphStyle: nCkvalStyle,
+            ] as [NSAttributedString.Key: Any]
+        
+        let nCkvalTextHeight: CGFloat = nCkvalTextContent.boundingRect(with: CGSize(width: nCkvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: nCkvalFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: nCkvalRect)
+        nCkvalTextContent.draw(in: CGRect(x: nCkvalRect.minX, y: nCkvalRect.minY + (nCkvalRect.height - nCkvalTextHeight) / 2, width: nCkvalRect.width, height: nCkvalTextHeight), withAttributes: nCkvalFontAttributes)
+        context.restoreGState()
         
         
         
@@ -2166,7 +2475,7 @@ public class CPU1ByteRenderer : NSObject {
         context.restoreGState()
         
         
-        //// MARB 2 Drawing
+        //// MARA Drawing
         let mARARect = CGRect(x: 231.5, y: 317.5, width: 100, height: 25)
         let mARAPath = UIBezierPath(rect: mARARect)
         registerBankColor.setFill()
@@ -2177,16 +2486,16 @@ public class CPU1ByteRenderer : NSObject {
         let mARATextContent = MARAText
         let mARAStyle = NSMutableParagraphStyle()
         mARAStyle.alignment = .center
-        let mARB2FontAttributes = [
+        let mARAFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
             .paragraphStyle: mARAStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let mARB2TextHeight: CGFloat = mARATextContent.boundingRect(with: CGSize(width: mARARect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARB2FontAttributes, context: nil).height
+        let mARATextHeight: CGFloat = mARATextContent.boundingRect(with: CGSize(width: mARARect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: mARAFontAttributes, context: nil).height
         context.saveGState()
         context.clip(to: mARARect)
-        mARATextContent.draw(in: CGRect(x: mARARect.minX, y: mARARect.minY + (mARARect.height - mARB2TextHeight) / 2, width: mARARect.width, height: mARB2TextHeight), withAttributes: mARB2FontAttributes)
+        mARATextContent.draw(in: CGRect(x: mARARect.minX, y: mARARect.minY + (mARARect.height - mARATextHeight) / 2, width: mARARect.width, height: mARATextHeight), withAttributes: mARAFontAttributes)
         context.restoreGState()
         
         
@@ -2529,147 +2838,147 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// Bits
-        //// Rectangle 2 Drawing -- S
-        let rectangle2Rect = CGRect(x: 677, y: 683, width: 25, height: 25)
-        let rectangle2Path = UIBezierPath(rect: rectangle2Rect)
+        //// SBit Drawing
+        let sBitRect = CGRect(x: 677, y: 683, width: 25, height: 25)
+        let sBitPath = UIBezierPath(rect: sBitRect)
         registerBankColor.setFill()
-        rectangle2Path.fill()
+        sBitPath.fill()
         black.setStroke()
-        rectangle2Path.lineWidth = 1
-        rectangle2Path.stroke()
-        let rectangle2TextContent = sBit
-        let rectangle2Style = NSMutableParagraphStyle()
-        rectangle2Style.alignment = .center
-        let rectangle2FontAttributes = [
+        sBitPath.lineWidth = 1
+        sBitPath.stroke()
+        let sBitTextContent = sBit
+        let sBitStyle = NSMutableParagraphStyle()
+        sBitStyle.alignment = .center
+        let sBitFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: rectangle2Style,
+            .paragraphStyle: sBitStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let rectangle2TextHeight: CGFloat = rectangle2TextContent.boundingRect(with: CGSize(width: rectangle2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle2FontAttributes, context: nil).height
+        let sBitTextHeight: CGFloat = sBitTextContent.boundingRect(with: CGSize(width: sBitRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: sBitFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: rectangle2Rect)
-        rectangle2TextContent.draw(in: CGRect(x: rectangle2Rect.minX, y: rectangle2Rect.minY + (rectangle2Rect.height - rectangle2TextHeight) / 2, width: rectangle2Rect.width, height: rectangle2TextHeight), withAttributes: rectangle2FontAttributes)
+        context.clip(to: sBitRect)
+        sBitTextContent.draw(in: CGRect(x: sBitRect.minX, y: sBitRect.minY + (sBitRect.height - sBitTextHeight) / 2, width: sBitRect.width, height: sBitTextHeight), withAttributes: sBitFontAttributes)
         context.restoreGState()
         
         
-        //// Rectangle 3 Drawing -- C
-        let rectangle3Rect = CGRect(x: 677.5, y: 721.5, width: 25, height: 25)
-        let rectangle3Path = UIBezierPath(rect: rectangle3Rect)
+        //// CBit Drawing
+        let cBitRect = CGRect(x: 677.5, y: 721.5, width: 25, height: 25)
+        let cBitPath = UIBezierPath(rect: cBitRect)
         registerBankColor.setFill()
-        rectangle3Path.fill()
+        cBitPath.fill()
         black.setStroke()
-        rectangle3Path.lineWidth = 1
-        rectangle3Path.stroke()
-        let rectangle3TextContent = cBit
-        let rectangle3Style = NSMutableParagraphStyle()
-        rectangle3Style.alignment = .center
-        let rectangle3FontAttributes = [
+        cBitPath.lineWidth = 1
+        cBitPath.stroke()
+        let cBitTextContent = cBit
+        let cBitStyle = NSMutableParagraphStyle()
+        cBitStyle.alignment = .center
+        let cBitFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: rectangle3Style,
+            .paragraphStyle: cBitStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let rectangle3TextHeight: CGFloat = rectangle3TextContent.boundingRect(with: CGSize(width: rectangle3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle3FontAttributes, context: nil).height
+        let cBitTextHeight: CGFloat = cBitTextContent.boundingRect(with: CGSize(width: cBitRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: cBitFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: rectangle3Rect)
-        rectangle3TextContent.draw(in: CGRect(x: rectangle3Rect.minX, y: rectangle3Rect.minY + (rectangle3Rect.height - rectangle3TextHeight) / 2, width: rectangle3Rect.width, height: rectangle3TextHeight), withAttributes: rectangle3FontAttributes)
+        context.clip(to: cBitRect)
+        cBitTextContent.draw(in: CGRect(x: cBitRect.minX, y: cBitRect.minY + (cBitRect.height - cBitTextHeight) / 2, width: cBitRect.width, height: cBitTextHeight), withAttributes: cBitFontAttributes)
         context.restoreGState()
         
         
-        //// Rectangle 4 Drawing --
-        let rectangle4Rect = CGRect(x: 677, y: 759, width: 25, height: 25)
-        let rectangle4Path = UIBezierPath(rect: rectangle4Rect)
+        //// VBit Drawing
+        let vBitRect = CGRect(x: 677, y: 759, width: 25, height: 25)
+        let vBitPath = UIBezierPath(rect: vBitRect)
         registerBankColor.setFill()
-        rectangle4Path.fill()
+        vBitPath.fill()
         black.setStroke()
-        rectangle4Path.lineWidth = 1
-        rectangle4Path.stroke()
-        let rectangle4TextContent = vBit
-        let rectangle4Style = NSMutableParagraphStyle()
-        rectangle4Style.alignment = .center
-        let rectangle4FontAttributes = [
+        vBitPath.lineWidth = 1
+        vBitPath.stroke()
+        let vBitTextContent = vBit
+        let vBitStyle = NSMutableParagraphStyle()
+        vBitStyle.alignment = .center
+        let vBitFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: rectangle4Style,
+            .paragraphStyle: vBitStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let rectangle4TextHeight: CGFloat = rectangle4TextContent.boundingRect(with: CGSize(width: rectangle4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle4FontAttributes, context: nil).height
+        let vBitTextHeight: CGFloat = vBitTextContent.boundingRect(with: CGSize(width: vBitRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: vBitFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: rectangle4Rect)
-        rectangle4TextContent.draw(in: CGRect(x: rectangle4Rect.minX, y: rectangle4Rect.minY + (rectangle4Rect.height - rectangle4TextHeight) / 2, width: rectangle4Rect.width, height: rectangle4TextHeight), withAttributes: rectangle4FontAttributes)
+        context.clip(to: vBitRect)
+        vBitTextContent.draw(in: CGRect(x: vBitRect.minX, y: vBitRect.minY + (vBitRect.height - vBitTextHeight) / 2, width: vBitRect.width, height: vBitTextHeight), withAttributes: vBitFontAttributes)
         context.restoreGState()
         
         
-        //// Rectangle 5 Drawing -- N
-        let rectangle5Rect = CGRect(x: 677, y: 838, width: 25, height: 25)
-        let rectangle5Path = UIBezierPath(rect: rectangle5Rect)
+        //// ZBit Drawing
+        let zBitRect = CGRect(x: 677, y: 838, width: 25, height: 25)
+        let zBitPath = UIBezierPath(rect: zBitRect)
         registerBankColor.setFill()
-        rectangle5Path.fill()
+        zBitPath.fill()
         black.setStroke()
-        rectangle5Path.lineWidth = 1
-        rectangle5Path.stroke()
-        let rectangle5TextContent = zBit
-        let rectangle5Style = NSMutableParagraphStyle()
-        rectangle5Style.alignment = .center
-        let rectangle5FontAttributes = [
+        zBitPath.lineWidth = 1
+        zBitPath.stroke()
+        let zBitTextContent = zBit
+        let zBitStyle = NSMutableParagraphStyle()
+        zBitStyle.alignment = .center
+        let zBitFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: rectangle5Style,
+            .paragraphStyle: zBitStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let rectangle5TextHeight: CGFloat = rectangle5TextContent.boundingRect(with: CGSize(width: rectangle5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle5FontAttributes, context: nil).height
+        let zBitTextHeight: CGFloat = zBitTextContent.boundingRect(with: CGSize(width: zBitRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: zBitFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: rectangle5Rect)
-        rectangle5TextContent.draw(in: CGRect(x: rectangle5Rect.minX, y: rectangle5Rect.minY + (rectangle5Rect.height - rectangle5TextHeight) / 2, width: rectangle5Rect.width, height: rectangle5TextHeight), withAttributes: rectangle5FontAttributes)
+        context.clip(to: zBitRect)
+        zBitTextContent.draw(in: CGRect(x: zBitRect.minX, y: zBitRect.minY + (zBitRect.height - zBitTextHeight) / 2, width: zBitRect.width, height: zBitTextHeight), withAttributes: zBitFontAttributes)
         context.restoreGState()
         
         
-        //// Rectangle 6 Drawing -- N
-        let rectangle6Rect = CGRect(x: 677.5, y: 907.5, width: 25, height: 25)
-        let rectangle6Path = UIBezierPath(rect: rectangle6Rect)
+        //// NBit Drawing
+        let nBitRect = CGRect(x: 677.5, y: 907.5, width: 25, height: 25)
+        let nBitPath = UIBezierPath(rect: nBitRect)
         registerBankColor.setFill()
-        rectangle6Path.fill()
+        nBitPath.fill()
         black.setStroke()
-        rectangle6Path.lineWidth = 1
-        rectangle6Path.stroke()
-        let rectangle6TextContent = nBit
-        let rectangle6Style = NSMutableParagraphStyle()
-        rectangle6Style.alignment = .center
-        let rectangle6FontAttributes = [
+        nBitPath.lineWidth = 1
+        nBitPath.stroke()
+        let nBitTextContent = nBit
+        let nBitStyle = NSMutableParagraphStyle()
+        nBitStyle.alignment = .center
+        let nBitFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: rectangle6Style,
+            .paragraphStyle: nBitStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let rectangle6TextHeight: CGFloat = rectangle6TextContent.boundingRect(with: CGSize(width: rectangle6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle6FontAttributes, context: nil).height
+        let nBitTextHeight: CGFloat = nBitTextContent.boundingRect(with: CGSize(width: nBitRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: nBitFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: rectangle6Rect)
-        rectangle6TextContent.draw(in: CGRect(x: rectangle6Rect.minX, y: rectangle6Rect.minY + (rectangle6Rect.height - rectangle6TextHeight) / 2, width: rectangle6Rect.width, height: rectangle6TextHeight), withAttributes: rectangle6FontAttributes)
+        context.clip(to: nBitRect)
+        nBitTextContent.draw(in: CGRect(x: nBitRect.minX, y: nBitRect.minY + (nBitRect.height - nBitTextHeight) / 2, width: nBitRect.width, height: nBitTextHeight), withAttributes: nBitFontAttributes)
         context.restoreGState()
         
         
-        //// Rectangle 7 Drawing
-        let rectangle7Rect = CGRect(x: 594.5, y: 836.5, width: 56, height: 26)
-        let rectangle7Path = UIBezierPath(rect: rectangle7Rect)
+        //// AndZ Drawing
+        let andZRect = CGRect(x: 594.5, y: 836.5, width: 56, height: 26)
+        let andZPath = UIBezierPath(rect: andZRect)
         registerColor.setFill()
-        rectangle7Path.fill()
+        andZPath.fill()
         UIColor.black.setStroke()
-        rectangle7Path.lineWidth = 1
-        rectangle7Path.stroke()
-        let rectangle7TextContent = "AndZ"
-        let rectangle7Style = NSMutableParagraphStyle()
-        rectangle7Style.alignment = .center
-        let rectangle7FontAttributes = [
+        andZPath.lineWidth = 1
+        andZPath.stroke()
+        let andZTextContent = "AndZ"
+        let andZStyle = NSMutableParagraphStyle()
+        andZStyle.alignment = .center
+        let andZFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 15)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: rectangle7Style,
+            .paragraphStyle: andZStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let rectangle7TextHeight: CGFloat = rectangle7TextContent.boundingRect(with: CGSize(width: rectangle7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: rectangle7FontAttributes, context: nil).height
+        let andZTextHeight: CGFloat = andZTextContent.boundingRect(with: CGSize(width: andZRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: andZFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: rectangle7Rect)
-        rectangle7TextContent.draw(in: CGRect(x: rectangle7Rect.minX, y: rectangle7Rect.minY + (rectangle7Rect.height - rectangle7TextHeight) / 2, width: rectangle7Rect.width, height: rectangle7TextHeight), withAttributes: rectangle7FontAttributes)
+        context.clip(to: andZRect)
+        andZTextContent.draw(in: CGRect(x: andZRect.minX, y: andZRect.minY + (andZRect.height - andZTextHeight) / 2, width: andZRect.width, height: andZTextHeight), withAttributes: andZFontAttributes)
         context.restoreGState()
         
         
@@ -3589,7 +3898,6 @@ public class CPU1ByteRenderer : NSObject {
         context.clip(to: regTex2425Rect)
         regTex2425TextContent.draw(in: CGRect(x: regTex2425Rect.minX, y: regTex2425Rect.minY + (regTex2425Rect.height - regTex2425TextHeight) / 2, width: regTex2425Rect.width, height: regTex2425TextHeight), withAttributes: regTex2425FontAttributes)
         context.restoreGState()
-
 
 
     }
