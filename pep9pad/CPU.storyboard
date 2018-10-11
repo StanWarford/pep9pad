@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1">
-                                <rect key="frame" x="0.0" y="384" width="512" height="334"/>
+                                <rect key="frame" x="0.0" y="384" width="412" height="334"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-ce-SFd">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
@@ -220,10 +220,10 @@
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdJ-Ke-L4q">
-                                <rect key="frame" x="512" y="70" width="512" height="648"/>
+                                <rect key="frame" x="412" y="70" width="612" height="648"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS" customClass="CodeView" customModule="pep9pad">
-                                <rect key="frame" x="0.0" y="70" width="512" height="314"/>
+                                <rect key="frame" x="0.0" y="70" width="412" height="314"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </view>
                         </subviews>
@@ -241,7 +241,7 @@
                             <constraint firstItem="5GI-ce-SFd" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="e4W-Uy-PDd"/>
                             <constraint firstItem="zwR-yE-CAS" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="hLi-eD-V2S"/>
                             <constraint firstItem="5GI-ce-SFd" firstAttribute="top" secondItem="23h-pM-lfg" secondAttribute="top" id="hPT-Kg-D5T"/>
-                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" id="iFK-Hx-qaW"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" constant="-100" id="iFK-Hx-qaW"/>
                             <constraint firstItem="MI6-iK-UP1" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="iM9-qB-Et2"/>
                             <constraint firstItem="MI6-iK-UP1" firstAttribute="top" secondItem="zwR-yE-CAS" secondAttribute="bottom" id="lw0-wr-aYU"/>
                         </constraints>
