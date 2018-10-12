@@ -21,22 +21,23 @@ public class CPU1ByteRenderer : NSObject {
     static var black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
     static var registerColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
     static var labelBlack = UIColor.black
-    //
-    static var mDRToAmuxArrowColor = UIColor.CPUColors.noFillColor
-    static var dataBusColor = UIColor.CPUColors.noFillColor
-    static var mDRColor = UIColor.CPUColors.noFillColor
-    static var mDRMuxColor = UIColor.CPUColors.noFillColor
-    static var cBusColor = UIColor.CPUColors.noFillColor
-    static var aLUColor = UIColor.CPUColors.noFillColor
-    static var aBusColor = UIColor.CPUColors.noFillColor
-    static var bBusColor = UIColor.CPUColors.noFillColor
     static var cSMuxColor = UIColor.CPUColors.noFillColor
-    static var cMuxLeftColor = UIColor.CPUColors.noFillColor
-    static var cMuxColor = UIColor.CPUColors.noFillColor
-    static var mDRMuxOutArrowColor = UIColor.CPUColors.noFillColor
-    static var mARColor = UIColor.CPUColors.noFillColor
-    static var aMuxColor = UIColor.CPUColors.noFillColor
-    static var aMuxOutArrow = UIColor.CPUColors.noFillColor
+    //
+    static var addrBusColor = UIColor.CPUColors.addressBusColor
+    static var mDRToAmuxArrowColor = UIColor.CPUColors.mdrOutColor
+    static var dataBusColor = UIColor.CPUColors.dataBusColor
+    static var mDRToSysBusColor = UIColor.CPUColors.mdrOutColor
+    static var mDRMuxColor = UIColor.CPUColors.dataBusColor
+    static var cBusColor = UIColor.CPUColors.aluColor
+    static var aLUColor = UIColor.CPUColors.aluColor
+    static var aBusColor = UIColor.CPUColors.aBusColor
+    static var bBusColor = UIColor.CPUColors.bBusColor
+    static var cMuxLeftColor = UIColor.CPUColors.bitBusColor
+    static var cMuxColor = UIColor.CPUColors.aluColor
+    static var mDRMuxOutArrowColor = UIColor.CPUColors.dataBusColor
+    static var mARColor = UIColor.CPUColors.addressBusColor
+    static var aMuxColor = UIColor.CPUColors.aBusColor
+    static var aMuxOutArrow = UIColor.CPUColors.aBusColor
     
     //Lines
     static var zCkLineColor = UIColor.CPUColors.grayArrow
@@ -2318,7 +2319,7 @@ public class CPU1ByteRenderer : NSObject {
         addrArrowPath.addLine(to: CGPoint(x: 83.5, y: 455.5))
         addrArrowPath.addLine(to: CGPoint(x: 83.5, y: 484.5))
         addrArrowPath.close()
-        mDRToAmuxArrowColor.setFill()
+        addrBusColor.setFill()
         addrArrowPath.fill()
         UIColor.black.setStroke()
         addrArrowPath.lineWidth = 1
@@ -2327,7 +2328,7 @@ public class CPU1ByteRenderer : NSObject {
         
         //// AddressBus Drawing
         let addressBusPath = UIBezierPath(rect: CGRect(x: 83, y: 257.62, width: 29, height: 752.12))
-        mDRToAmuxArrowColor.setFill()
+        addrBusColor.setFill()
         addressBusPath.fill()
         UIColor.black.setStroke()
         addressBusPath.lineWidth = 1
@@ -2555,7 +2556,7 @@ public class CPU1ByteRenderer : NSObject {
         memWritePath.addLine(to: CGPoint(x: 231.5, y: 396.5))
         memWritePath.addLine(to: CGPoint(x: 231.5, y: 411.5))
         memWritePath.close()
-        mDRColor.setFill()
+        mDRToSysBusColor.setFill()
         memWritePath.fill()
         UIColor.black.setStroke()
         memWritePath.lineWidth = 1

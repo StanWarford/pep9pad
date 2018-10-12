@@ -393,13 +393,24 @@ extension UIColor {
     
     struct CPUColors{
         static let registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
-        static let addressBusColor = UIColor(red: 1.000, green: 0.845, blue: 0.000, alpha: 1.000)
-        static let dataBusColor = UIColor(red: 1.000, green: 0.252, blue: 0.131, alpha: 1.000)
+        
+        static let aBusColor = UIColor(red:0.93, green:0.33, blue:0.34, alpha:1.0)
+        static let bBusColor = UIColor(red:0.93, green:0.33, blue:0.34, alpha:1.0)
+        static let aluColor = UIColor(red:0.36, green:0.61, blue:0.93, alpha:1.0)
+        //static let cBusColor = UIColor(red:0.55, green:0.76, blue:0.33, alpha:1.0) // never use this make it something else
+        static let bitBusColor = UIColor(red:0.55, green:0.76, blue:0.33, alpha:1.0)
+        static let mdrOutColor = UIColor(red:0.98, green:0.60, blue:0.00, alpha:1.0)
+        static let dataBusColor = UIColor(red:0.59, green:0.48, blue:0.87, alpha:1.0)
+        static let addressBusColor = UIColor(red:0.85, green:0.44, blue:0.68, alpha:1.0)
+        
+        //static let addressBusColor = UIColor(red: 1.000, green: 0.845, blue: 0.000, alpha: 1.000)
+        //static let dataBusColor = UIColor(red: 1.000, green: 0.252, blue: 0.131, alpha: 1.000)
         static let labelBlack = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-        static let mDRColor = UIColor(red: 0.649, green: 0.906, blue: 0.000, alpha: 1.000)
-        static let cBusColor = UIColor(red: 0.295, green: 0.495, blue: 1.000, alpha: 1.000)
-        static let aBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
-        static let bBusPipeColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        //static let mDRColor = UIColor(red: 0.649, green: 0.906, blue: 0.000, alpha: 1.000)
+        //static let cBusColor = UIColor(red: 0.295, green: 0.495, blue: 1.000, alpha: 1.000)
+        //static let aBusColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        //static let bBusColor = UIColor(red: 1.000, green: 0.000, blue: 0.000, alpha: 1.000)
+        
         static let blackArrow = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
         static let grayArrow = UIColor(red: 0.709, green: 0.709, blue: 0.709, alpha: 1.000)
         static let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
