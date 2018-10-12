@@ -23,21 +23,29 @@ public class CPU1ByteRenderer : NSObject {
     static var labelBlack = UIColor.black
     static var cSMuxColor = UIColor.CPUColors.noFillColor
     //
-    static var addrBusColor = UIColor.CPUColors.addressBusColor
+    static var addrBusColor = UIColor.CPUColors.noFillColor
+    static var dataBusColor = UIColor.CPUColors.noFillColor
+    
+    static var aBusColor = UIColor.CPUColors.noFillColor
+    static var aMuxColor = UIColor.CPUColors.noFillColor
+    static var aMuxOutArrow = UIColor.CPUColors.noFillColor
+    
+    static var bBusColor = UIColor.CPUColors.noFillColor
+    static var aLUColor = UIColor.CPUColors.noFillColor
+    
     static var mDRToAmuxArrowColor = UIColor.CPUColors.mdrOutColor
-    static var dataBusColor = UIColor.CPUColors.dataBusColor
     static var mDRToSysBusColor = UIColor.CPUColors.mdrOutColor
-    static var mDRMuxColor = UIColor.CPUColors.dataBusColor
-    static var cBusColor = UIColor.CPUColors.aluColor
-    static var aLUColor = UIColor.CPUColors.aluColor
-    static var aBusColor = UIColor.CPUColors.aBusColor
-    static var bBusColor = UIColor.CPUColors.bBusColor
+    
+    static var mDRMuxColor = UIColor.CPUColors.noFillColor
+    static var mDRMuxOutArrowColor = UIColor.CPUColors.noFillColor
+    
     static var cMuxLeftColor = UIColor.CPUColors.bitBusColor
-    static var cMuxColor = UIColor.CPUColors.aluColor
-    static var mDRMuxOutArrowColor = UIColor.CPUColors.dataBusColor
+    
+    static var cMuxColor = UIColor.CPUColors.noFillColor
+    static var cBusColor = UIColor.CPUColors.noFillColor
+   
     static var mARColor = UIColor.CPUColors.addressBusColor
-    static var aMuxColor = UIColor.CPUColors.aBusColor
-    static var aMuxOutArrow = UIColor.CPUColors.aBusColor
+   
     
     //Lines
     static var zCkLineColor = UIColor.CPUColors.grayArrow
