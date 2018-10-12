@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI6-iK-UP1">
-                                <rect key="frame" x="0.0" y="384" width="412" height="334"/>
+                                <rect key="frame" x="0.0" y="384" width="258.5" height="334"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GI-ce-SFd">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
@@ -226,16 +226,40 @@
                                 <rect key="frame" x="0.0" y="70" width="412" height="314"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QP-4c-LJh">
+                                <rect key="frame" x="258.5" y="384" width="153.5" height="334"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1le-r3-VhL">
+                                        <rect key="frame" x="0.0" y="56" width="154" height="278"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2b-Ol-XIr">
+                                        <rect key="frame" x="10" y="16" width="135" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Copy To MicroCode"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1le-r3-VhL" firstAttribute="leading" secondItem="1QP-4c-LJh" secondAttribute="leading" id="0jH-er-ZTj"/>
+                                    <constraint firstItem="1le-r3-VhL" firstAttribute="top" secondItem="1QP-4c-LJh" secondAttribute="top" constant="56" id="FOD-7j-D2S"/>
+                                    <constraint firstAttribute="bottom" secondItem="1le-r3-VhL" secondAttribute="bottom" id="drI-dS-nd2"/>
+                                    <constraint firstAttribute="trailing" secondItem="1le-r3-VhL" secondAttribute="trailing" constant="-0.5" id="k2B-1w-kX6"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zwR-yE-CAS" firstAttribute="top" secondItem="jmD-Ih-6aP" secondAttribute="bottom" id="BiP-9E-Kdp"/>
                             <constraint firstItem="y7X-om-hTN" firstAttribute="top" secondItem="QdJ-Ke-L4q" secondAttribute="bottom" id="GB0-1b-QrK"/>
-                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="MI6-iK-UP1" secondAttribute="trailing" id="HDt-F5-GnO"/>
                             <constraint firstAttribute="trailing" secondItem="QdJ-Ke-L4q" secondAttribute="trailing" id="I3X-bj-TGS"/>
+                            <constraint firstItem="y7X-om-hTN" firstAttribute="top" secondItem="1QP-4c-LJh" secondAttribute="bottom" id="KuQ-wd-Ojj"/>
                             <constraint firstAttribute="centerY" secondItem="zwR-yE-CAS" secondAttribute="bottom" id="R6a-4y-Lap"/>
                             <constraint firstItem="y7X-om-hTN" firstAttribute="top" secondItem="MI6-iK-UP1" secondAttribute="bottom" id="SHF-Ar-GoC"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="MI6-iK-UP1" secondAttribute="trailing" multiplier="1.4" constant="50" id="VTh-pf-B69"/>
                             <constraint firstItem="QdJ-Ke-L4q" firstAttribute="top" secondItem="jmD-Ih-6aP" secondAttribute="bottom" id="Wbl-wP-MLC"/>
+                            <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="1QP-4c-LJh" secondAttribute="trailing" id="Wis-pL-vN3"/>
                             <constraint firstAttribute="trailing" secondItem="5GI-ce-SFd" secondAttribute="trailing" id="a8w-Hi-6A4"/>
                             <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="zwR-yE-CAS" secondAttribute="trailing" id="aHo-De-e5C"/>
                             <constraint firstItem="5GI-ce-SFd" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="e4W-Uy-PDd"/>
@@ -244,6 +268,8 @@
                             <constraint firstItem="QdJ-Ke-L4q" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="centerX" constant="-100" id="iFK-Hx-qaW"/>
                             <constraint firstItem="MI6-iK-UP1" firstAttribute="leading" secondItem="23h-pM-lfg" secondAttribute="leading" id="iM9-qB-Et2"/>
                             <constraint firstItem="MI6-iK-UP1" firstAttribute="top" secondItem="zwR-yE-CAS" secondAttribute="bottom" id="lw0-wr-aYU"/>
+                            <constraint firstItem="1QP-4c-LJh" firstAttribute="leading" secondItem="MI6-iK-UP1" secondAttribute="trailing" id="tjl-Ze-j3A"/>
+                            <constraint firstItem="1QP-4c-LJh" firstAttribute="top" secondItem="zwR-yE-CAS" secondAttribute="bottom" id="vhQ-6Y-5Rw"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
