@@ -15,7 +15,6 @@ import UIKit
 
 public class CPU1ByteRenderer : NSObject {
     
-
     //// Color Declarations
     static var registerBankColor = UIColor(red: 0.868, green: 0.782, blue: 0.687, alpha: 1.000)
     static var black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)

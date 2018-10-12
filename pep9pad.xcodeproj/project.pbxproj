@@ -232,6 +232,10 @@
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
 		A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07500B72166A95B009BB75A /* CPUSimulator.swift */; };
 		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
+		A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B3217023AC00151440 /* clockLineCell.swift */; };
+		A0D1F8B6217023AC00151440 /* clockLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D1F8B4217023AC00151440 /* clockLineCell.xib */; };
+		A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B82170252000151440 /* numericLineCell.swift */; };
+		A0D1F8BB2170252000151440 /* numericLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D1F8B92170252000151440 /* numericLineCell.xib */; };
 		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
@@ -505,6 +509,10 @@
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		A07500B72166A95B009BB75A /* CPUSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUSimulator.swift; sourceTree = "<group>"; };
 		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
+		A0D1F8B3217023AC00151440 /* clockLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clockLineCell.swift; sourceTree = "<group>"; };
+		A0D1F8B4217023AC00151440 /* clockLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = clockLineCell.xib; sourceTree = "<group>"; };
+		A0D1F8B82170252000151440 /* numericLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numericLineCell.swift; sourceTree = "<group>"; };
+		A0D1F8B92170252000151440 /* numericLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = numericLineCell.xib; sourceTree = "<group>"; };
 		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -831,6 +839,7 @@
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
 				A013EB16215C09B5008CF1A6 /* CPUCode */,
 				A013EB13215C0508008CF1A6 /* Enumerations */,
+				A0D1F8B7217023B500151440 /* LineTable */,
 			);
 			name = CPUModels;
 			sourceTree = "<group>";
@@ -1094,6 +1103,25 @@
 			name = CPUCode;
 			sourceTree = "<group>";
 		};
+		A0D1F8B7217023B500151440 /* LineTable */ = {
+			isa = PBXGroup;
+			children = (
+				A0D1F8BC2170252700151440 /* cells */,
+			);
+			name = LineTable;
+			sourceTree = "<group>";
+		};
+		A0D1F8BC2170252700151440 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0D1F8B3217023AC00151440 /* clockLineCell.swift */,
+				A0D1F8B4217023AC00151440 /* clockLineCell.xib */,
+				A0D1F8B82170252000151440 /* numericLineCell.swift */,
+				A0D1F8B92170252000151440 /* numericLineCell.xib */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 		A0DE5D9F2159A6C600DF78D9 /* OneByteModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,6 +1334,7 @@
 				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
 				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
 				462BA76A1E2B2A3B00BBABCD /* fig0627.txt in Resources */,
+				A0D1F8B6217023AC00151440 /* clockLineCell.xib in Resources */,
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
 				462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */,
@@ -1391,6 +1420,7 @@
 				46A911991E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib in Resources */,
 				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
 				46539C711E9AEED700718705 /* fig0522.pepo in Resources */,
+				A0D1F8BB2170252000151440 /* numericLineCell.xib in Resources */,
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
 				46539C7B1E9AEED700718705 /* fig0618.pepo in Resources */,
@@ -1514,6 +1544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */,
+				A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */,
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
@@ -1555,6 +1586,7 @@
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
 				F613FD6F1E89D1F4003939C0 /* UnaryMnemonics.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
+				A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */,
 				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
