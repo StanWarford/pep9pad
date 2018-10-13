@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class clockLineCell: UITableViewCell {
     var line : CPUEMnemonic!
+    var delegate : LineTableDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +25,9 @@ class clockLineCell: UITableViewCell {
     }
     
     @IBOutlet weak var lineName: UILabel!
+    @IBAction func changeLineValue(_ sender: Any) {
+        delegate.changeClockLine(line: line, value: true)
+    }
+    
     
 }

@@ -232,6 +232,7 @@
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
 		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
 		A042384121724D2800DAAECE /* LineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042384021724D2800DAAECE /* LineTable.swift */; };
+		A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04238422172683200DAAECE /* lineTableDelegate.swift */; };
 		A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07500B72166A95B009BB75A /* CPUSimulator.swift */; };
 		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
 		A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B3217023AC00151440 /* clockLineCell.swift */; };
@@ -509,6 +510,7 @@
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
 		A042384021724D2800DAAECE /* LineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTable.swift; sourceTree = "<group>"; };
+		A04238422172683200DAAECE /* lineTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineTableDelegate.swift; sourceTree = "<group>"; };
 		A07500B72166A95B009BB75A /* CPUSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUSimulator.swift; sourceTree = "<group>"; };
 		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
 		A0D1F8B3217023AC00151440 /* clockLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clockLineCell.swift; sourceTree = "<group>"; };
@@ -1118,6 +1120,7 @@
 			children = (
 				A0D1F8B3217023AC00151440 /* clockLineCell.swift */,
 				A0D1F8B82170252000151440 /* numericLineCell.swift */,
+				A04238422172683200DAAECE /* lineTableDelegate.swift */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -1547,6 +1550,7 @@
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
+				A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
 				A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */,
 				46A9119B1E9F3736002C9DAE /* DebugMenu.swift in Sources */,

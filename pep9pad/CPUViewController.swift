@@ -102,7 +102,7 @@ class CPUViewController: UIViewController {
     func setupLines(){
      // Need to do this or the maps will be empty
      // C B A AndZ...
-        let decControlLines = ["C","B","A","AMUX","MDRMUX","CMUX","ALU","CSMUX","ANDZ","MEMREAD","MEMWRITE"]
+        let decControlLines = ["C","B","A","AMux","MDRMux","CMux","ALU","CSMux","AndZ","MemRead","MemWrite"]
         let clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
         
         lines = [decControlLines,clockControlLines]
@@ -318,20 +318,41 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
             cell.lineName.text = lines[indexPath.section][indexPath.row]
-            //cell.line = mnemonToMemControlMap[lines[indexPath.section][indexPath.row]]!
-
+            
+            cell.line = mnemonToMemControlMap.keys.contains(lines[indexPath.section][indexPath.row].uppercased()) ?
+                mnemonToMemControlMap[lines[indexPath.section][indexPath.row].uppercased()]! :
+                mnemonToDecControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
+            
+           cell.delegate = self
+            
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
 
             cell.lineName.text = lines[indexPath.section][indexPath.row]
-            //cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row]]!
-//             let cell = tableView.dequeueReusableCell(withIdentifier: "clock") as! clockLineCell
-//             cell.lineName.text = lines[indexPath.section][indexPath.row]
-//             cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row]]!
+            cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
+            cell.delegate = self
             return cell
         }
    }
 
+    
+}
+
+
+extension CPUViewController : LineTableDelegate{
+    
+    func changeNumericLine(line: CPUEMnemonic, value: String) {
+        print("Nice")
+//        
+//        CPU1ByteRenderer.aBusColor = UIColor.CPUColors.aBusColor
+//        oneByteCPUDisplay.setNeedsDisplay()
+        //oneByteCPUDisplay.updateCPU(line: line, value: value)
+    }
+    
+    func changeClockLine(line: CPUEMnemonic, value: Bool) {
+        print("Extra Nice")
+    }
+    
     
 }

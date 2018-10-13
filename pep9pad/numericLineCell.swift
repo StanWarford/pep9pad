@@ -11,6 +11,8 @@ import UIKit
 @IBDesignable
 class numericLineCell: UITableViewCell {
     var line : CPUEMnemonic!
+    var delegate : LineTableDelegate!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +24,9 @@ class numericLineCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func changeLineValue(_ sender: Any) {
+        delegate.changeNumericLine(line: line, value: "hi")
+    }
     @IBOutlet weak var lineName: UILabel!
     
 }

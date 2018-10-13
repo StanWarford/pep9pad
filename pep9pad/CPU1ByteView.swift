@@ -34,6 +34,9 @@ class CPU1ByteView: CPUView {
         CPU1ByteRenderer.drawIpad()
     }
     
+    func updateCPU(line: CPUEMnemonic, value: String){
+        
+    }
     
     
     func singleStep(errorMessage: inout String) -> Bool {
