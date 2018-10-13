@@ -230,12 +230,12 @@
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
 		A013EB15215C0551008CF1A6 /* CPUEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB14215C0551008CF1A6 /* CPUEnum.swift */; };
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
+		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
+		A042384121724D2800DAAECE /* LineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042384021724D2800DAAECE /* LineTable.swift */; };
 		A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07500B72166A95B009BB75A /* CPUSimulator.swift */; };
 		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
 		A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B3217023AC00151440 /* clockLineCell.swift */; };
-		A0D1F8B6217023AC00151440 /* clockLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D1F8B4217023AC00151440 /* clockLineCell.xib */; };
 		A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B82170252000151440 /* numericLineCell.swift */; };
-		A0D1F8BB2170252000151440 /* numericLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0D1F8B92170252000151440 /* numericLineCell.xib */; };
 		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
@@ -507,12 +507,12 @@
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
 		A013EB14215C0551008CF1A6 /* CPUEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUEnum.swift; sourceTree = "<group>"; };
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
+		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
+		A042384021724D2800DAAECE /* LineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTable.swift; sourceTree = "<group>"; };
 		A07500B72166A95B009BB75A /* CPUSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUSimulator.swift; sourceTree = "<group>"; };
 		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
 		A0D1F8B3217023AC00151440 /* clockLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clockLineCell.swift; sourceTree = "<group>"; };
-		A0D1F8B4217023AC00151440 /* clockLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = clockLineCell.xib; sourceTree = "<group>"; };
 		A0D1F8B82170252000151440 /* numericLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numericLineCell.swift; sourceTree = "<group>"; };
-		A0D1F8B92170252000151440 /* numericLineCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = numericLineCell.xib; sourceTree = "<group>"; };
 		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1106,6 +1106,8 @@
 		A0D1F8B7217023B500151440 /* LineTable */ = {
 			isa = PBXGroup;
 			children = (
+				A042383E21724C8300DAAECE /* LineTableView.swift */,
+				A042384021724D2800DAAECE /* LineTable.swift */,
 				A0D1F8BC2170252700151440 /* cells */,
 			);
 			name = LineTable;
@@ -1115,9 +1117,7 @@
 			isa = PBXGroup;
 			children = (
 				A0D1F8B3217023AC00151440 /* clockLineCell.swift */,
-				A0D1F8B4217023AC00151440 /* clockLineCell.xib */,
 				A0D1F8B82170252000151440 /* numericLineCell.swift */,
-				A0D1F8B92170252000151440 /* numericLineCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -1334,7 +1334,6 @@
 				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
 				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
 				462BA76A1E2B2A3B00BBABCD /* fig0627.txt in Resources */,
-				A0D1F8B6217023AC00151440 /* clockLineCell.xib in Resources */,
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
 				462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */,
@@ -1420,7 +1419,6 @@
 				46A911991E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib in Resources */,
 				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
 				46539C711E9AEED700718705 /* fig0522.pepo in Resources */,
-				A0D1F8BB2170252000151440 /* numericLineCell.xib in Resources */,
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
 				46539C7B1E9AEED700718705 /* fig0618.pepo in Resources */,
@@ -1599,6 +1597,7 @@
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
+				A042383F21724C8300DAAECE /* LineTableView.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
 				A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */,
@@ -1626,6 +1625,7 @@
 				0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */,
 				467F35B72123B28E00E117AA /* FrameCell.swift in Sources */,
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
+				A042384121724D2800DAAECE /* LineTable.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
 				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,

@@ -11,6 +11,9 @@ import FontAwesome_swift
 
 class CPUViewController: UIViewController {
 
+    let clockCellId = "clock"
+    let numericCellId = "number"
+    
     let drawingOneByteSize = CGRect(x: 0.0, y: 0.0, width: 950, height: 1024)
     let drawingTwoByteSize = CGRect(x: 0.0, y: 0.0, width: 2000, height: 2000)
     
@@ -26,12 +29,19 @@ class CPUViewController: UIViewController {
     internal let nonunaryMnemonics = NonunaryMnemonics()
     var testBtn: UIBarButtonItem!
     
+    //For Table
+    var lines = [[String]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
         setupCPU()
         setupCodeView()
         setupMemView()
+        setupLines()
+        setupLineTable()
+        
+        initEnumMnemonMaps()
     }
     
     override func viewWillLayoutSubviews() {
@@ -48,6 +58,7 @@ class CPUViewController: UIViewController {
     @IBOutlet weak var memory: UIView!
     @IBOutlet weak var codeView: CodeView!
     @IBOutlet weak var CPUScrollView: UIScrollView!
+    @IBOutlet weak var lineTable: UITableView!
     
     //Mark :- Set Up Funcs
     /// This function adds a title and another button to the navigationItem.
@@ -88,6 +99,34 @@ class CPUViewController: UIViewController {
         
     }
     
+    func setupLines(){
+     // Need to do this or the maps will be empty
+     // C B A AndZ...
+        let decControlLines = ["C","B","A","AMUX","MDRMUX","CMUX","ALU","CSMUX","ANDZ","MEMREAD","MEMWRITE"]
+        let clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
+        
+        lines = [decControlLines,clockControlLines]
+        //Need 2Byte bus stuff
+        
+        
+        //Didn't put them in the right order
+//        for line in  decControlToMnemonMap.keys{
+//            decControlLines.append(decControlToMnemonMap[line]!)
+//            print(line)
+//        }
+     // MemRead and Write
+//        for line in memControlToMnemonMap.keys{
+//            memLines.append(memControlToMnemonMap[line]!)
+//        }
+     //Clocks
+        
+
+    }
+    
+    func setupLineTable(){
+        lineTable.dataSource = self
+        lineTable.delegate = self
+    }
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
@@ -173,6 +212,11 @@ class CPUViewController: UIViewController {
 //        CPUScrollView.addSubview(oneByteCPUDisplay)
     }
     
+    
+    
+    
+    
+    
     // Called when the dynamically added button is pressed.
     @objc func btnPressed() {
             //self.dismiss(animated: true, completion: nil)
@@ -247,4 +291,47 @@ extension CPUViewController : UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return currentCPUSize == .oneByte ? oneByteCPUDisplay : twoByteCPUDisplay
     }
+}
+
+extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = (section == 0 ? "Numeric Entries" : "Clock Lines")
+        label.backgroundColor = UIColor.CPUColors.aluColor
+        label.textAlignment = .center
+        return label
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //return 1
+        return lines.count
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return 10
+        return lines[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
+//        cell.lineName.text = "HI"
+//
+//        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
+            cell.lineName.text = lines[indexPath.section][indexPath.row]
+            //cell.line = mnemonToMemControlMap[lines[indexPath.section][indexPath.row]]!
+
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
+
+            cell.lineName.text = lines[indexPath.section][indexPath.row]
+            //cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row]]!
+//             let cell = tableView.dequeueReusableCell(withIdentifier: "clock") as! clockLineCell
+//             cell.lineName.text = lines[indexPath.section][indexPath.row]
+//             cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row]]!
+            return cell
+        }
+   }
+
+    
 }

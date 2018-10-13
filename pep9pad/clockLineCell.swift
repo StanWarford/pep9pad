@@ -8,8 +8,9 @@
 
 import UIKit
 
+@IBDesignable
 class clockLineCell: UITableViewCell {
-
+    var line : CPUEMnemonic!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +21,7 @@ class clockLineCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBOutlet weak var lineName: UILabel!
     
 }

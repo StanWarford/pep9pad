@@ -65,8 +65,9 @@ func initEnumMnemonMaps(){
         mnemonToMemControlMap.removeAll()
     
         memControlToMnemonMap[.MemWrite] = "MemWrite"
-        mnemonToMemControlMap["MEMWRITE"] =  .MemWrite
         memControlToMnemonMap[.MemRead] =  "MemRead"
+    
+        mnemonToMemControlMap["MEMWRITE"] =  .MemWrite
         mnemonToMemControlMap["MEMREAD"] = .MemRead
     //
         clockControlToMnemonMap.removeAll()
