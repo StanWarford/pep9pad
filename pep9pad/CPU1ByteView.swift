@@ -35,15 +35,47 @@ class CPU1ByteView: CPUView {
     }
     
     func updateCPU(line: CPUEMnemonic, value: String){
+        let emptyValue = value == ""
+        let intValue = Int(value)
+        
         switch (line){
-        case .A:
-            CPU1ByteRenderer.aLineColor = UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.aBusColor = UIColor.CPUColors.aBusColor
-            CPU1ByteRenderer.aText = value
+        case .C:
+            CPU1ByteRenderer.cLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.cBusColor = emptyValue ? UIColor.CPUColors.noFillColor : CPU1ByteRenderer.cMuxColor
+            CPU1ByteRenderer.cText = value
+            
         case .B:
-            CPU1ByteRenderer.bLineColor = UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.bBusColor = UIColor.CPUColors.bBusColor
+            CPU1ByteRenderer.bLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.bBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.bBusColor
             CPU1ByteRenderer.bText = value
+            
+        case .A:
+            CPU1ByteRenderer.aLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.aBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.aBusColor
+            CPU1ByteRenderer.aText = value
+            
+            if CPU1ByteRenderer.aMuxText == "1"{
+                CPU1ByteRenderer.aMuxColor = CPU1ByteRenderer.aBusColor
+                CPU1ByteRenderer.aMuxOutArrow = CPU1ByteRenderer.aMuxColor
+            }
+            
+        // MUX
+        case .AMux:
+            //AMux
+            CPU1ByteRenderer.aMuxLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.aMuxColor = emptyValue ? UIColor.CPUColors.noFillColor : intValue == 1 ? CPU1ByteRenderer.aBusColor : UIColor.CPUColors.mdrOutColor
+            CPU1ByteRenderer.aMuxOutArrow = CPU1ByteRenderer.aMuxColor
+            CPU1ByteRenderer.aMuxText = value
+        
+        case .CMux:
+            //CMux
+            CPU1ByteRenderer.cMuxLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.cMuxColor = emptyValue ? UIColor.CPUColors.noFillColor : intValue == 1 ? CPU1ByteRenderer.aLUOutArrowColor : CPU1ByteRenderer.cMuxLeftColor
+            CPU1ByteRenderer.cMuxText = value
+            
+            //CBus
+            CPU1ByteRenderer.cBusColor = CPU1ByteRenderer.cMuxColor
+            
         default:
             break
         }

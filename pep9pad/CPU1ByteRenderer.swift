@@ -30,13 +30,15 @@ public class CPU1ByteRenderer : NSObject {
     static var aMuxOutArrow = UIColor.CPUColors.noFillColor
     
     static var bBusColor = UIColor.CPUColors.noFillColor
-    static var aLUColor = UIColor.CPUColors.noFillColor
+    static var aLUColor = UIColor.CPUColors.aluColor
     
     static var mDRToAmuxArrowColor = UIColor.CPUColors.mdrOutColor
     static var mDRToSysBusColor = UIColor.CPUColors.mdrOutColor
     
     static var mDRMuxColor = UIColor.CPUColors.noFillColor
     static var mDRMuxOutArrowColor = UIColor.CPUColors.noFillColor
+    
+    static var aLUOutArrowColor = UIColor.CPUColors.noFillColor
     
     static var cMuxLeftColor = UIColor.CPUColors.bitBusColor
     
@@ -2754,7 +2756,7 @@ public class CPU1ByteRenderer : NSObject {
         aLUtoCMuxPath.addLine(to: CGPoint(x: 422.5, y: 617.5))
         aLUtoCMuxPath.addLine(to: CGPoint(x: 422.5, y: 617.5))
         aLUtoCMuxPath.close()
-        aLUColor.setFill()
+        aLUOutArrowColor.setFill()
         aLUtoCMuxPath.fill()
         UIColor.black.setStroke()
         aLUtoCMuxPath.lineWidth = 1
