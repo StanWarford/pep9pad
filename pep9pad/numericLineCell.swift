@@ -24,8 +24,13 @@ class numericLineCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBOutlet weak var textField: UITextField!
+    @IBAction func editLineValue(_ sender: Any) {
+        delegate.changeNumericLine(line: line, value: textField.text!)
+    
+    }
     @IBAction func changeLineValue(_ sender: Any) {
-        delegate.changeNumericLine(line: line, value: "hi")
+        
     }
     @IBOutlet weak var lineName: UILabel!
     

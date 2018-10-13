@@ -34,13 +34,14 @@ class CPUViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupNavBar()
         setupCPU()
         setupCodeView()
         setupMemView()
         setupLines()
         setupLineTable()
-        
+       
         initEnumMnemonMaps()
     }
     
@@ -317,6 +318,7 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
 //        return cell
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
+            //cell.textField.text = ""
             cell.lineName.text = lines[indexPath.section][indexPath.row]
             
             cell.line = mnemonToMemControlMap.keys.contains(lines[indexPath.section][indexPath.row].uppercased()) ?
@@ -347,7 +349,8 @@ extension CPUViewController : LineTableDelegate{
 //        
 //        CPU1ByteRenderer.aBusColor = UIColor.CPUColors.aBusColor
 //        oneByteCPUDisplay.setNeedsDisplay()
-        //oneByteCPUDisplay.updateCPU(line: line, value: value)
+        oneByteCPUDisplay.updateCPU(line: line, value: value)
+        oneByteCPUDisplay.setNeedsDisplay()
     }
     
     func changeClockLine(line: CPUEMnemonic, value: Bool) {

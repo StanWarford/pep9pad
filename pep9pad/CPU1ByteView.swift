@@ -35,7 +35,18 @@ class CPU1ByteView: CPUView {
     }
     
     func updateCPU(line: CPUEMnemonic, value: String){
-        
+        switch (line){
+        case .A:
+            CPU1ByteRenderer.aLineColor = UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.aBusColor = UIColor.CPUColors.aBusColor
+            CPU1ByteRenderer.aText = value
+        case .B:
+            CPU1ByteRenderer.bLineColor = UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.bBusColor = UIColor.CPUColors.bBusColor
+            CPU1ByteRenderer.bText = value
+        default:
+            break
+        }
     }
     
     

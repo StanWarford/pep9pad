@@ -255,12 +255,14 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="changeLineValue:" destination="2Hz-BL-3lU" eventType="editingDidEnd" id="w4j-93-jkk"/>
+                                                                <action selector="editLineValue:" destination="2Hz-BL-3lU" eventType="editingChanged" id="ozQ-1g-zKj"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="lineName" destination="XlM-nL-awK" id="nBo-H8-iQD"/>
+                                                    <outlet property="textField" destination="qdr-ga-pDJ" id="q1w-Wr-cMN"/>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="clock" id="cCd-55-s1S" customClass="clockLineCell" customModule="pep9pad" customModuleProvider="target">
