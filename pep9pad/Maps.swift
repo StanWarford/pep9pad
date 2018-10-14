@@ -24,6 +24,24 @@ var mnemonToMemSpecMap: [String: CPUEMnemonic] = [:]
 var mnemonToRegSpecMap: [String: CPUEMnemonic] = [:]
 var mnemonToStatusSpecMap: [String: CPUEMnemonic] = [:]
 
+var aluInstructionMap : [Int : String] = [
+                                            0 : "A",
+                                            1 : "A plus B",
+                                            2 : "A plus B plus Cin",
+                                            3 : "A plus B̅ plus 1",
+                                            4 : "A  plus B̅ plus Cin",
+                                            5 : "A・B",
+                                            6 : "Need",
+                                            7 : "A+B",
+                                            8 : "Need",
+                                            9 : "A⊕B",
+                                            10 : "A̅",
+                                            11 : "ASL A",
+                                            12 : "ROL A",
+                                            13 : "ASR A",
+                                            14 : "ROR A",
+                                            15 : "0"
+                                        ]
 
 func initEnumMnemonMaps(){
     mnemonToDecControlMap.removeAll()

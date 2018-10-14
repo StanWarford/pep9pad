@@ -44,6 +44,11 @@ class CPU1ByteView: CPUView {
             CPU1ByteRenderer.cBusColor = emptyValue ? UIColor.CPUColors.noFillColor : CPU1ByteRenderer.cMuxColor
             CPU1ByteRenderer.cText = value
             
+            if CPU1ByteRenderer.mdrMuxText == "1"{
+                CPU1ByteRenderer.mDRMuxColor = CPU1ByteRenderer.cBusColor
+                CPU1ByteRenderer.mDRMuxOutArrowColor = CPU1ByteRenderer.mDRMuxColor
+            }
+            
         case .B:
             CPU1ByteRenderer.bLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
             CPU1ByteRenderer.bBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.bBusColor
@@ -66,7 +71,13 @@ class CPU1ByteView: CPUView {
             CPU1ByteRenderer.aMuxColor = emptyValue ? UIColor.CPUColors.noFillColor : intValue == 1 ? CPU1ByteRenderer.aBusColor : UIColor.CPUColors.mdrOutColor
             CPU1ByteRenderer.aMuxOutArrow = CPU1ByteRenderer.aMuxColor
             CPU1ByteRenderer.aMuxText = value
-        
+            
+        case .MDRMux:
+            CPU1ByteRenderer.mDRMuxLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.mDRMuxColor = emptyValue ? UIColor.CPUColors.noFillColor : intValue == 1 ? CPU1ByteRenderer.cBusColor : CPU1ByteRenderer.addrBusColor
+            CPU1ByteRenderer.mDRMuxOutArrowColor = CPU1ByteRenderer.mDRMuxColor
+            CPU1ByteRenderer.mdrMuxText = value
+            
         case .CMux:
             //CMux
             CPU1ByteRenderer.cMuxLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
@@ -75,6 +86,25 @@ class CPU1ByteView: CPUView {
             
             //CBus
             CPU1ByteRenderer.cBusColor = CPU1ByteRenderer.cMuxColor
+            
+            //MDRMux
+            if CPU1ByteRenderer.mdrMuxText == "1"{
+                CPU1ByteRenderer.mDRMuxColor = CPU1ByteRenderer.cBusColor
+                CPU1ByteRenderer.mDRMuxOutArrowColor = CPU1ByteRenderer.mDRMuxColor
+            }
+        case .ALU:
+             CPU1ByteRenderer.aLULineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+             CPU1ByteRenderer.aLUOutArrowColor = emptyValue ? UIColor.CPUColors.noFillColor :  UIColor.CPUColors.aluColor
+             CPU1ByteRenderer.ALUInstruction = emptyValue ? "" : aluInstructionMap[intValue!]!
+            
+             if CPU1ByteRenderer.cMuxText == "1"{
+                CPU1ByteRenderer.cMuxColor = CPU1ByteRenderer.aLUOutArrowColor
+                CPU1ByteRenderer.cBusColor =  CPU1ByteRenderer.cMuxColor
+                if CPU1ByteRenderer.mdrMuxText == "1"{
+                    CPU1ByteRenderer.mDRMuxColor = CPU1ByteRenderer.cBusColor
+                    CPU1ByteRenderer.mDRMuxOutArrowColor = CPU1ByteRenderer.mDRMuxColor
+                }
+            }
             
         default:
             break

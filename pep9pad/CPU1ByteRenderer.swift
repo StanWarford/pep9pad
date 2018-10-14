@@ -2801,7 +2801,7 @@ public class CPU1ByteRenderer : NSObject {
         
         
         //// ALUInstruction Drawing
-        let aLUInstructionRect = CGRect(x: 494, y: 550, width: 65, height: 15)
+        let aLUInstructionRect = CGRect(x: 466, y: 550, width: 120, height: 15)
         let aLUInstructionTextContent = ALUInstruction
         let aLUInstructionStyle = NSMutableParagraphStyle()
         aLUInstructionStyle.alignment = .center
