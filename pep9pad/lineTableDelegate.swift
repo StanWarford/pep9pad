@@ -10,6 +10,5 @@ import Foundation
 import UIKit
 
 protocol LineTableDelegate {
-    func changeNumericLine(line : CPUEMnemonic, value : String)
-    func changeClockLine(line : CPUEMnemonic, value : Bool)
+    func updateCPU(element : CPUEMnemonic, value : String)
 }

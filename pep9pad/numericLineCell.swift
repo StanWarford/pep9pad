@@ -31,7 +31,7 @@ class numericLineCell: UITableViewCell {
     }
     @IBAction func editLineValue(_ sender: Any) {
         print(textField.text)
-        delegate.changeNumericLine(line: line, value: textField.text!)
+        delegate.updateCPU(element: line, value: textField.text!)
     
     }
     @IBAction func changeLineValue(_ sender: Any) {

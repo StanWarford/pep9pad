@@ -273,9 +273,8 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rT8-1m-3OR">
-                                                            <rect key="frame" x="93" y="6" width="46" height="30"/>
+                                                            <rect key="frame" x="101" y="6" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" title="Button"/>
                                                             <connections>
                                                                 <action selector="changeLineValue:" destination="cCd-55-s1S" eventType="touchUpInside" id="bcj-zj-0Gw"/>
                                                             </connections>
@@ -290,6 +289,7 @@
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="checkbox" destination="rT8-1m-3OR" id="aCA-3u-z0X"/>
                                                     <outlet property="lineName" destination="uND-RJ-WS9" id="b8F-rv-FZf"/>
                                                 </connections>
                                             </tableViewCell>

@@ -103,7 +103,7 @@ class CPUViewController: UIViewController {
     func setupLines(){
      // Need to do this or the maps will be empty
      // C B A AndZ...
-        let decControlLines = ["C","B","A","AMux","MDRMux","CMux","ALU","CSMux","AndZ","MemRead","MemWrite"]
+        let decControlLines = ["C","B","A","AMux","MDRMux","CMux","ALU","CSMux","AndZ","MemWrite","MemRead"]
         let clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
         
         lines = [decControlLines,clockControlLines]
@@ -344,18 +344,11 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
 
 extension CPUViewController : LineTableDelegate{
     
-    func changeNumericLine(line: CPUEMnemonic, value: String) {
-        print("Nice")
-//        
-//        CPU1ByteRenderer.aBusColor = UIColor.CPUColors.aBusColor
-//        oneByteCPUDisplay.setNeedsDisplay()
-        oneByteCPUDisplay.updateCPU(line: line, value: value)
+    func updateCPU(element: CPUEMnemonic, value: String) {
+        oneByteCPUDisplay.updateCPU(line: element, value: value)
         oneByteCPUDisplay.setNeedsDisplay()
     }
     
-    func changeClockLine(line: CPUEMnemonic, value: Bool) {
-        print("Extra Nice")
-    }
     
     
 }

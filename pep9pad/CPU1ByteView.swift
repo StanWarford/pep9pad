@@ -39,6 +39,9 @@ class CPU1ByteView: CPUView {
         let intValue = Int(value)
         
         switch (line){
+        case .LoadCk:
+             CPU1ByteRenderer.loadCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+             CPU1ByteRenderer.loadCkText = value
         case .C:
             CPU1ByteRenderer.cLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
             CPU1ByteRenderer.cBusColor = emptyValue ? UIColor.CPUColors.noFillColor : CPU1ByteRenderer.cMuxColor
@@ -63,8 +66,14 @@ class CPU1ByteView: CPUView {
                 CPU1ByteRenderer.aMuxColor = CPU1ByteRenderer.aBusColor
                 CPU1ByteRenderer.aMuxOutArrow = CPU1ByteRenderer.aMuxColor
             }
+        case .MARCk:
+            CPU1ByteRenderer.mARCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.MARCkText = value
             
-        // MUX
+        case .MDRCk:
+            CPU1ByteRenderer.mDRCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.MDRCkText = value
+            
         case .AMux:
             //AMux
             CPU1ByteRenderer.aMuxLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
@@ -96,7 +105,8 @@ class CPU1ByteView: CPUView {
              CPU1ByteRenderer.aLULineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
              CPU1ByteRenderer.aLUOutArrowColor = emptyValue ? UIColor.CPUColors.noFillColor :  UIColor.CPUColors.aluColor
              CPU1ByteRenderer.ALUInstruction = emptyValue ? "" : aluInstructionMap[intValue!]!
-            
+             CPU1ByteRenderer.ALUInputText = value
+             
              if CPU1ByteRenderer.cMuxText == "1"{
                 CPU1ByteRenderer.cMuxColor = CPU1ByteRenderer.aLUOutArrowColor
                 CPU1ByteRenderer.cBusColor =  CPU1ByteRenderer.cMuxColor
@@ -106,6 +116,51 @@ class CPU1ByteView: CPUView {
                 }
             }
             
+        case .CSMux:
+            CPU1ByteRenderer.cSMuxLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.csMuxText = value
+        
+        case .SCk:
+            CPU1ByteRenderer.sCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.sCkText = value
+            
+        case .CCk:
+            CPU1ByteRenderer.cCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.cCkText = value
+            
+        case .VCk:
+            CPU1ByteRenderer.vCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.vCkText = value
+            
+        case .AndZ:
+            CPU1ByteRenderer.andZLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.andZText = value
+            
+        case .ZCk:
+            CPU1ByteRenderer.zCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.zCkText = value
+            
+        case .NCk:
+            CPU1ByteRenderer.nCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+            CPU1ByteRenderer.nCkText = value
+            
+        case .MemWrite:
+            if CPU1ByteRenderer.memRdText == ""{
+                CPU1ByteRenderer.memWrLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+                CPU1ByteRenderer.memWrText = value
+                
+                CPU1ByteRenderer.addrBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.addressBusColor
+            }
+            
+        case .MemRead:
+            if CPU1ByteRenderer.memWrText == "" {
+                CPU1ByteRenderer.memReadLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
+                CPU1ByteRenderer.memRdText = value
+                
+                CPU1ByteRenderer.addrBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.addressBusColor
+                CPU1ByteRenderer.dataBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.dataBusColor
+                
+            }
         default:
             break
         }

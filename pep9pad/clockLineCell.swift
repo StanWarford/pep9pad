@@ -12,6 +12,7 @@ import UIKit
 class clockLineCell: UITableViewCell {
     var line : CPUEMnemonic!
     var delegate : LineTableDelegate!
+    var lineActive = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +26,19 @@ class clockLineCell: UITableViewCell {
     }
     
     @IBOutlet weak var lineName: UILabel!
+    @IBOutlet weak var checkbox: UIButton!{
+        didSet{
+            checkbox.layer.borderWidth = 0.5
+            checkbox.layer.cornerRadius = 5
+            checkbox.layer.borderColor = UIColor.lightGray.cgColor
+        }
+    }
+    
     @IBAction func changeLineValue(_ sender: Any) {
-        delegate.changeClockLine(line: line, value: true)
+        lineActive = !lineActive
+        let buttonTitle = lineActive ? "✓" : ""
+        checkbox.setTitle(buttonTitle, for: .normal)
+        delegate.updateCPU(element: line, value: buttonTitle)
     }
     
     

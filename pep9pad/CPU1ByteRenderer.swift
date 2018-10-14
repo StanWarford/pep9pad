@@ -51,12 +51,14 @@ public class CPU1ByteRenderer : NSObject {
     //Lines
     static var zCkLineColor = UIColor.CPUColors.grayArrow
     static var nCkLineColor = UIColor.CPUColors.grayArrow
-    static var vCKLineColor = UIColor.CPUColors.grayArrow
+    static var vCkLineColor = UIColor.CPUColors.grayArrow
     static var cCkLineColor = UIColor.CPUColors.grayArrow
     static var sCkLineColor = UIColor.CPUColors.grayArrow
-    static var cCkToCSMuxArrowColor = UIColor.CPUColors.grayArrow
-    static var sCkToCSMuxArrowColor = UIColor.CPUColors.grayArrow
-    static var cSMuxToALUArrowColor = UIColor.CPUColors.grayArrow
+    
+    static var cCkToCSMuxArrowColor = UIColor.CPUColors.blackArrow
+    static var sCkToCSMuxArrowColor = UIColor.CPUColors.blackArrow
+    static var cSMuxToALUArrowColor = UIColor.CPUColors.blackArrow
+    
     static var cSMuxLineColor = UIColor.CPUColors.grayArrow
     static var cMuxLineColor = UIColor.CPUColors.grayArrow
     static var aLULineColor = UIColor.CPUColors.grayArrow
@@ -68,10 +70,12 @@ public class CPU1ByteRenderer : NSObject {
     static var cLineColor = UIColor.CPUColors.grayArrow
     static var mDRCkLineColor = UIColor.CPUColors.grayArrow
     static var memReadLineColor = UIColor.CPUColors.grayArrow
-    static var nBitLineColor = UIColor.CPUColors.grayArrow
-    static var cBitLineColor = UIColor.CPUColors.grayArrow
-    static var vBitLineColor = UIColor.CPUColors.grayArrow
-    static var zBitLineColor = UIColor.CPUColors.grayArrow
+    
+    static var nBitLineColor = UIColor.CPUColors.blackArrow
+    static var cBitLineColor = UIColor.CPUColors.blackArrow
+    static var vBitLineColor = UIColor.CPUColors.blackArrow
+    static var zBitLineColor = UIColor.CPUColors.blackArrow
+    
     static var aLUToNBitLineColor = UIColor.CPUColors.grayArrow
     static var aLUToVBitLineColor = UIColor.CPUColors.grayArrow
     static var aLUToZBitLineColor = UIColor.CPUColors.grayArrow
@@ -546,27 +550,27 @@ public class CPU1ByteRenderer : NSObject {
         context.restoreGState()
         
         
-        //// MemWriteval Drawing
-        let memWritevalRect = CGRect(x: 815.5, y: 979.5, width: 30, height: 24)
-        let memWritevalPath = UIBezierPath(rect: memWritevalRect)
+        //// MemRdeval Drawing
+        let memRdvalRect = CGRect(x: 815.5, y: 979.5, width: 30, height: 24)
+        let memRdvalPath = UIBezierPath(rect: memRdvalRect)
         registerColor.setFill()
-        memWritevalPath.fill()
+        memRdvalPath.fill()
         black.setStroke()
-        memWritevalPath.lineWidth = 1
-        memWritevalPath.stroke()
-        let memWritevalTextContent = memWrText
-        let memWritevalStyle = NSMutableParagraphStyle()
-        memWritevalStyle.alignment = .center
-        let memWritevalFontAttributes = [
+        memRdvalPath.lineWidth = 1
+        memRdvalPath.stroke()
+        let memRdvalTextContent = memRdText
+        let memRdvalStyle = NSMutableParagraphStyle()
+        memRdvalStyle.alignment = .center
+        let memRdvalFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 20)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: memWritevalStyle,
+            .paragraphStyle: memRdvalStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let memWritevalTextHeight: CGFloat = memWritevalTextContent.boundingRect(with: CGSize(width: memWritevalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: memWritevalFontAttributes, context: nil).height
+        let memRdvalTextHeight: CGFloat = memRdvalTextContent.boundingRect(with: CGSize(width: memRdvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: memRdvalFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: memWritevalRect)
-        memWritevalTextContent.draw(in: CGRect(x: memWritevalRect.minX, y: memWritevalRect.minY + (memWritevalRect.height - memWritevalTextHeight) / 2, width: memWritevalRect.width, height: memWritevalTextHeight), withAttributes: memWritevalFontAttributes)
+        context.clip(to: memRdvalRect)
+        memRdvalTextContent.draw(in: CGRect(x: memRdvalRect.minX, y: memRdvalRect.minY + (memRdvalRect.height - memRdvalTextHeight) / 2, width: memRdvalRect.width, height: memRdvalTextHeight), withAttributes: memRdvalFontAttributes)
         context.restoreGState()
         
         
@@ -1120,27 +1124,27 @@ public class CPU1ByteRenderer : NSObject {
         memRdArrowPath.stroke()
         
         
-        //// MemReadval Drawing
-        let memReadvalRect = CGRect(x: 684.37, y: -32.5, width: 30, height: 24)
-        let memReadvalPath = UIBezierPath(rect: memReadvalRect)
+        //// MemWrval Drawing
+        let memWrvalRect = CGRect(x: 684.37, y: -32.5, width: 30, height: 24)
+        let memWrvalPath = UIBezierPath(rect: memWrvalRect)
         registerColor.setFill()
-        memReadvalPath.fill()
+        memWrvalPath.fill()
         black.setStroke()
-        memReadvalPath.lineWidth = 1
-        memReadvalPath.stroke()
-        let memReadvalTextContent = memRdText
-        let memReadvalStyle = NSMutableParagraphStyle()
-        memReadvalStyle.alignment = .center
-        let memReadvalFontAttributes = [
+        memWrvalPath.lineWidth = 1
+        memWrvalPath.stroke()
+        let memWrvalTextContent = memWrText
+        let memWrvalStyle = NSMutableParagraphStyle()
+        memWrvalStyle.alignment = .center
+        let memWrvalFontAttributes = [
             .font: UIFont(name: "HelveticaNeue", size: 20)!,
             .foregroundColor: UIColor.black,
-            .paragraphStyle: memReadvalStyle,
+            .paragraphStyle: memWrvalStyle,
             ] as [NSAttributedString.Key: Any]
         
-        let memReadvalTextHeight: CGFloat = memReadvalTextContent.boundingRect(with: CGSize(width: memReadvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: memReadvalFontAttributes, context: nil).height
+        let memWrvalTextHeight: CGFloat = memWrvalTextContent.boundingRect(with: CGSize(width: memWrvalRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: memWrvalFontAttributes, context: nil).height
         context.saveGState()
-        context.clip(to: memReadvalRect)
-        memReadvalTextContent.draw(in: CGRect(x: memReadvalRect.minX, y: memReadvalRect.minY + (memReadvalRect.height - memReadvalTextHeight) / 2, width: memReadvalRect.width, height: memReadvalTextHeight), withAttributes: memReadvalFontAttributes)
+        context.clip(to: memWrvalRect)
+        memWrvalTextContent.draw(in: CGRect(x: memWrvalRect.minX, y: memWrvalRect.minY + (memWrvalRect.height - memWrvalTextHeight) / 2, width: memWrvalRect.width, height: memWrvalTextHeight), withAttributes: memWrvalFontAttributes)
         context.restoreGState()
         
         
@@ -1969,9 +1973,9 @@ public class CPU1ByteRenderer : NSObject {
         vCkArrowPath.addLine(to: CGPoint(x: 715.28, y: 775.38))
         vCkArrowPath.addLine(to: CGPoint(x: 704.97, y: 771.38))
         vCkArrowPath.close()
-        vCKLineColor.setFill()
+        vCkLineColor.setFill()
         vCkArrowPath.fill()
-        vCKLineColor.setStroke()
+        vCkLineColor.setStroke()
         vCkArrowPath.lineWidth = 1
         vCkArrowPath.stroke()
         
@@ -1980,7 +1984,7 @@ public class CPU1ByteRenderer : NSObject {
         let vCkLnPath = UIBezierPath()
         vCkLnPath.move(to: CGPoint(x: 809.5, y: 771.5))
         vCkLnPath.addLine(to: CGPoint(x: 715.5, y: 771.5))
-        vCKLineColor.setStroke()
+        vCkLineColor.setStroke()
         vCkLnPath.lineWidth = 1
         vCkLnPath.stroke()
         
