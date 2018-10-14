@@ -10,14 +10,10 @@ import UIKit
 
 class LineTableView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+    var masterVC : CPUViewController!
+    
     @IBAction func copyToMicroCode(_ sender: UIButton) {
+        masterVC.copyToMicroCode()
     }
     
 }

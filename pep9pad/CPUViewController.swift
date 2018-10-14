@@ -21,6 +21,9 @@ class CPUViewController: UIViewController {
     lazy var twoByteCPUDisplay = CPU2ByteView(frame: drawingTwoByteSize)
     var currentCPUSize = CPUBusSize.oneByte // default bus view
     
+    //For CopyToMicroCode
+    var copyMicroCodeLine : [CPUEMnemonic : Int] = [:]
+    
     internal let byteCalc = ByteCalc()
     internal let fontMenu = FontMenu()
     internal let debugMenu = DebugMenu()
@@ -39,8 +42,10 @@ class CPUViewController: UIViewController {
         setupCPU()
         setupCodeView()
         setupMemView()
+        setupLineTableView()
         setupLines()
         setupLineTable()
+        setupCopyMicroCodeLine()
        
         initEnumMnemonMaps()
     }
@@ -58,6 +63,7 @@ class CPUViewController: UIViewController {
     var memoryView : MemoryView!
     @IBOutlet weak var memory: UIView!
     @IBOutlet weak var codeView: CodeView!
+    @IBOutlet weak var lineTableView: LineTableView!
     @IBOutlet weak var CPUScrollView: UIScrollView!
     @IBOutlet weak var lineTable: UITableView!
     
@@ -100,6 +106,10 @@ class CPUViewController: UIViewController {
         
     }
     
+    func setupLineTableView(){
+        lineTableView.masterVC = self
+    }
+    
     func setupLines(){
      // Need to do this or the maps will be empty
      // C B A AndZ...
@@ -125,8 +135,32 @@ class CPUViewController: UIViewController {
     }
     
     func setupLineTable(){
+        
         lineTable.dataSource = self
         lineTable.delegate = self
+    }
+    
+    func setupCopyMicroCodeLine(){
+        copyMicroCodeLine = [ .LoadCk : -1,
+                              .C : -1,
+                              .B : -1,
+                              .A : -1,
+                              .MARCk : -1,
+                              .MDRCk : -1,
+                              .AMux : -1,
+                              .MDRMux : -1,
+                              .CMux : -1,
+                              .ALU : -1,
+                              .CSMux : -1,
+                              .SCk : -1,
+                              .CCk : -1,
+                              .VCk : -1,
+                              .AndZ : -1,
+                              .ZCk : -1,
+                              .NCk : -1,
+                              .MemWrite : -1,
+                              .MemRead : -1
+                            ]
     }
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
@@ -276,6 +310,28 @@ class CPUViewController: UIViewController {
 
         CPUScrollView.minimumZoomScale = minScale
         CPUScrollView.zoomScale = minScale
+    }
+    
+    func copyToMicroCode(){
+        //Order Matters
+        var microCodeLine = ""
+        
+        microCodeLine += copyMicroCodeLine[.MemRead] == -1 ? "" : memControlToMnemonMap[.MemRead]! + "=" + String(copyMicroCodeLine[.MemRead]!) + ", "
+        microCodeLine += copyMicroCodeLine[.MemWrite] == -1 ? "" : memControlToMnemonMap[.MemWrite]! + "=" + String(copyMicroCodeLine[.MemWrite]!) + ", "
+        
+        microCodeLine += copyMicroCodeLine[.A] == -1 ? "" :  decControlToMnemonMap[.A]! + "=" + String(copyMicroCodeLine[.A]!) + ", "
+        microCodeLine += copyMicroCodeLine[.B] == -1 ? "" :  decControlToMnemonMap[.B]! + "=" + String(copyMicroCodeLine[.B]!) + ", "
+        microCodeLine += copyMicroCodeLine[.AMux] == -1 ? "" :  decControlToMnemonMap[.AMux]! + "=" + String(copyMicroCodeLine[.AMux]!) + ", "
+        microCodeLine += copyMicroCodeLine[.CSMux] == -1 ? "" :  decControlToMnemonMap[.CSMux]! + "=" + String(copyMicroCodeLine[.CSMux]!) + ", "
+        microCodeLine += copyMicroCodeLine[.ALU] == -1 ? "" :  decControlToMnemonMap[.ALU]! + "=" + String(copyMicroCodeLine[.ALU]!) + ", "
+        microCodeLine += copyMicroCodeLine[.AndZ] == -1 ? "" :  decControlToMnemonMap[.AndZ]! + "=" + String(copyMicroCodeLine[.AndZ]!) + ", "
+        microCodeLine += copyMicroCodeLine[.CMux] == -1 ? "" :  decControlToMnemonMap[.CMux]! + "=" + String(copyMicroCodeLine[.CMux]!) + ", "
+        microCodeLine += copyMicroCodeLine[.C] == -1 ? "" :  decControlToMnemonMap[.C]! + "=" + String(copyMicroCodeLine[.C]!) + "; "
+        
+        
+        microCodeLine += "\n"
+        
+        codeView.textView.text += microCodeLine
     }
 
 }

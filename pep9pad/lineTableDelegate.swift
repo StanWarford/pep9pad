@@ -11,4 +11,6 @@ import UIKit
 
 protocol LineTableDelegate {
     func updateCPU(element : CPUEMnemonic, value : String)
+    
+    var copyMicroCodeLine : [CPUEMnemonic : Int] {get set}
 }

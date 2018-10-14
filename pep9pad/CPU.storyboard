@@ -301,7 +301,8 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Copy To MicroCode"/>
                                         <connections>
-                                            <action selector="copyToMicroCode:" destination="3ph-De-gTb" eventType="touchUpInside" id="6G6-Cf-05W"/>
+                                            <action selector="copyToMicroCode:" destination="1QP-4c-LJh" eventType="touchUpInside" id="Fdo-gL-IJc"/>
+                                            <action selector="copyToMicroCode:" destination="3ph-De-gTb" eventType="touchUpInside" id="eae-CQ-7AM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -380,6 +381,7 @@
                         <outlet property="debugBtn" destination="mXk-Xv-l0w" id="SlE-Zu-xp4"/>
                         <outlet property="fontBtn" destination="sEi-ip-UHE" id="jKj-hx-fsU"/>
                         <outlet property="lineTable" destination="1le-r3-VhL" id="04N-Se-4ZJ"/>
+                        <outlet property="lineTableView" destination="1QP-4c-LJh" id="E01-h7-2OL"/>
                         <outlet property="memory" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
                         <outlet property="runBtn" destination="7xb-aH-y0v" id="JOr-HF-lxH"/>
                         <outlet property="settingsBtn" destination="0Vy-IZ-wVk" id="tSp-qU-lZV"/>

@@ -30,7 +30,8 @@ class numericLineCell: UITableViewCell {
         }
     }
     @IBAction func editLineValue(_ sender: Any) {
-        print(textField.text)
+        
+        delegate.copyMicroCodeLine[line] = Int(textField.text!)
         delegate.updateCPU(element: line, value: textField.text!)
     
     }

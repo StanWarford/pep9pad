@@ -37,6 +37,8 @@ class clockLineCell: UITableViewCell {
     @IBAction func changeLineValue(_ sender: Any) {
         lineActive = !lineActive
         let buttonTitle = lineActive ? "✓" : ""
+        
+        delegate.copyMicroCodeLine[line] = lineActive ? 1 : -1
         checkbox.setTitle(buttonTitle, for: .normal)
         delegate.updateCPU(element: line, value: buttonTitle)
     }
