@@ -319,6 +319,7 @@ class CPUViewController: UIViewController {
         }
 
         CPUScrollView.minimumZoomScale = minScale
+        CPUScrollView.maximumZoomScale = 1.5
         CPUScrollView.zoomScale = minScale
     }
     
