@@ -47,7 +47,7 @@ class CPUViewController: UIViewController {
         setupLineTable()
         setupCopyMicroCodeLine()
        
-        initEnumMnemonMaps()
+        initEnumMnemonMaps(currentBusSize: currentCPUSize)
     }
     
     override func viewWillLayoutSubviews() {
@@ -111,27 +111,22 @@ class CPUViewController: UIViewController {
     }
     
     func setupLines(){
-     // Need to do this or the maps will be empty
-     // C B A AndZ...
-        let decControlLines = ["C","B","A","AMux","MDRMux","CMux","ALU","CSMux","AndZ","MemWrite","MemRead"]
-        let clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
+        
+        let decControlLines : [String]
+        if currentCPUSize == .oneByte{
+            decControlLines = ["C","B","A","AMux","MDRMux","CMux","ALU","CSMux","AndZ","MemWrite","MemRead"]
+        }else{
+            decControlLines = ["C","B","A","MARMux","MDROMux","MDREMux","EOMux","AMux","CMux","ALU","CSMux","AndZ","MemWrite","MemRead"]
+        }
+        
+        let clockControlLines : [String]
+        if currentCPUSize == .oneByte{
+           clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
+        }else{
+           clockControlLines = ["LoadCk", "MARCk","MDROCk","MDRECk","SCk","CCk","VCk","ZCk", "NCk"]
+        }
         
         lines = [decControlLines,clockControlLines]
-        //Need 2Byte bus stuff
-        
-        
-        //Didn't put them in the right order
-//        for line in  decControlToMnemonMap.keys{
-//            decControlLines.append(decControlToMnemonMap[line]!)
-//            print(line)
-//        }
-     // MemRead and Write
-//        for line in memControlToMnemonMap.keys{
-//            memLines.append(memControlToMnemonMap[line]!)
-//        }
-     //Clocks
-        
-
     }
     
     func setupLineTable(){
@@ -141,26 +136,37 @@ class CPUViewController: UIViewController {
     }
     
     func setupCopyMicroCodeLine(){
-        copyMicroCodeLine = [ .LoadCk : -1,
-                              .C : -1,
-                              .B : -1,
-                              .A : -1,
-                              .MARCk : -1,
-                              .MDRCk : -1,
-                              .AMux : -1,
-                              .MDRMux : -1,
-                              .CMux : -1,
-                              .ALU : -1,
-                              .CSMux : -1,
-                              .SCk : -1,
-                              .CCk : -1,
-                              .VCk : -1,
-                              .AndZ : -1,
-                              .ZCk : -1,
-                              .NCk : -1,
-                              .MemWrite : -1,
-                              .MemRead : -1
-                            ]
+        copyMicroCodeLine[.LoadCk] = -1
+        copyMicroCodeLine[.C ] = -1
+        copyMicroCodeLine[.B] = -1
+        copyMicroCodeLine[.A] = -1
+        copyMicroCodeLine[.MARCk] = -1
+        if currentCPUSize == .oneByte{
+            copyMicroCodeLine[.MDRCk] = -1
+        }else{
+             copyMicroCodeLine[.MDROCk] = -1
+             copyMicroCodeLine[.MDRECk] = -1
+        }
+        copyMicroCodeLine[.AMux] = -1
+        if currentCPUSize == .oneByte{
+             copyMicroCodeLine[.MDRMux] = -1
+        }else{
+            copyMicroCodeLine[.MARMux] = -1
+            copyMicroCodeLine[.MDROMux] = -1
+            copyMicroCodeLine[.MDREMux] = -1
+            copyMicroCodeLine[.EOMux] = -1
+        }
+        copyMicroCodeLine[.CMux] = -1
+        copyMicroCodeLine[.ALU] = -1
+        copyMicroCodeLine[.CSMux] = -1
+        copyMicroCodeLine[.SCk] = -1
+        copyMicroCodeLine[.CCk] = -1
+        copyMicroCodeLine[.VCk] = -1
+        copyMicroCodeLine[.AndZ] = -1
+        copyMicroCodeLine[.ZCk] = -1
+        copyMicroCodeLine[.NCk] = -1
+        copyMicroCodeLine[.MemWrite] = -1
+        copyMicroCodeLine[.MemRead] = -1
     }
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
@@ -232,6 +238,7 @@ class CPUViewController: UIViewController {
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
+
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
@@ -285,7 +292,10 @@ class CPUViewController: UIViewController {
                 CPUScrollView.addSubview(oneByteCPUDisplay)
                 currentCPUSize = .oneByte
             }
-            
+            initEnumMnemonMaps(currentBusSize: currentCPUSize)
+            setupCopyMicroCodeLine()
+            setupLines()
+            lineTable.reloadData()
         } else {
             print("no CPU change necessary")
         }
@@ -316,19 +326,47 @@ class CPUViewController: UIViewController {
         //Order Matters
         var microCodeLine = ""
         
-        microCodeLine += copyMicroCodeLine[.MemRead] == -1 ? "" : memControlToMnemonMap[.MemRead]! + "=" + String(copyMicroCodeLine[.MemRead]!) + ", "
-        microCodeLine += copyMicroCodeLine[.MemWrite] == -1 ? "" : memControlToMnemonMap[.MemWrite]! + "=" + String(copyMicroCodeLine[.MemWrite]!) + ", "
+        microCodeLine += copyMicroCodeLine[.MemRead] == -1 ? "" : memControlToMnemonMap[.MemRead]! + ", "
+        microCodeLine += copyMicroCodeLine[.MemWrite] == -1 ? "" : memControlToMnemonMap[.MemWrite]! + ", "
         
         microCodeLine += copyMicroCodeLine[.A] == -1 ? "" :  decControlToMnemonMap[.A]! + "=" + String(copyMicroCodeLine[.A]!) + ", "
         microCodeLine += copyMicroCodeLine[.B] == -1 ? "" :  decControlToMnemonMap[.B]! + "=" + String(copyMicroCodeLine[.B]!) + ", "
+        
+        if currentCPUSize == .twoByte{
+            microCodeLine += copyMicroCodeLine[.MARMux] == -1 ? "" :  decControlToMnemonMap[.MARMux]! + "=" + String(copyMicroCodeLine[.MARMux]!) + ", "
+            microCodeLine += copyMicroCodeLine[.EOMux] == -1 ? "" :  decControlToMnemonMap[.EOMux]! + "=" + String(copyMicroCodeLine[.EOMux]!) + ", "
+        }
+        
         microCodeLine += copyMicroCodeLine[.AMux] == -1 ? "" :  decControlToMnemonMap[.AMux]! + "=" + String(copyMicroCodeLine[.AMux]!) + ", "
         microCodeLine += copyMicroCodeLine[.CSMux] == -1 ? "" :  decControlToMnemonMap[.CSMux]! + "=" + String(copyMicroCodeLine[.CSMux]!) + ", "
         microCodeLine += copyMicroCodeLine[.ALU] == -1 ? "" :  decControlToMnemonMap[.ALU]! + "=" + String(copyMicroCodeLine[.ALU]!) + ", "
         microCodeLine += copyMicroCodeLine[.AndZ] == -1 ? "" :  decControlToMnemonMap[.AndZ]! + "=" + String(copyMicroCodeLine[.AndZ]!) + ", "
         microCodeLine += copyMicroCodeLine[.CMux] == -1 ? "" :  decControlToMnemonMap[.CMux]! + "=" + String(copyMicroCodeLine[.CMux]!) + ", "
+        
+        if currentCPUSize == .oneByte{
+             microCodeLine += copyMicroCodeLine[.MDRMux] == -1 ? "" :  decControlToMnemonMap[.MDRMux]! + "=" + String(copyMicroCodeLine[.MDRMux]!) + ", "
+        }else{
+            microCodeLine += copyMicroCodeLine[.MDROMux] == -1 ? "" :  decControlToMnemonMap[.MDROMux]! + "=" + String(copyMicroCodeLine[.MDROMux]!) + ", "
+            microCodeLine += copyMicroCodeLine[.MDREMux] == -1 ? "" :  decControlToMnemonMap[.MDREMux]! + "=" + String(copyMicroCodeLine[.MDREMux]!) + ", "
+        }
+
         microCodeLine += copyMicroCodeLine[.C] == -1 ? "" :  decControlToMnemonMap[.C]! + "=" + String(copyMicroCodeLine[.C]!) + "; "
+        //Ck
+        microCodeLine += copyMicroCodeLine[.NCk] == -1 ? "" :  clockControlToMnemonMap[.NCk]! + ", "
+        microCodeLine += copyMicroCodeLine[.ZCk] == -1 ? "" :  clockControlToMnemonMap[.ZCk]! + ", "
+        microCodeLine += copyMicroCodeLine[.VCk] == -1 ? "" :  clockControlToMnemonMap[.VCk]! + ", "
+        microCodeLine += copyMicroCodeLine[.CCk] == -1 ? "" :  clockControlToMnemonMap[.CCk]! + ", "
+        microCodeLine += copyMicroCodeLine[.SCk] == -1 ? "" :  clockControlToMnemonMap[.SCk]! + ", "
+        microCodeLine += copyMicroCodeLine[.MARCk] == -1 ? "" :  clockControlToMnemonMap[.MARCk]! + ", "
+        microCodeLine += copyMicroCodeLine[.LoadCk] == -1 ? "" :  clockControlToMnemonMap[.LoadCk]! + ", "
         
-        
+        if currentCPUSize == .oneByte{
+            microCodeLine += copyMicroCodeLine[.MDRCk] == -1 ? "" :  clockControlToMnemonMap[.MDRCk]!
+        }else{
+            microCodeLine += copyMicroCodeLine[.MDRECk] == -1 ? "" :  clockControlToMnemonMap[.MDRECk]! + ", "
+            microCodeLine += copyMicroCodeLine[.MDROCk] == -1 ? "" :  clockControlToMnemonMap[.MDROCk]!
+        }
+
         microCodeLine += "\n"
         
         codeView.textView.text += microCodeLine
@@ -401,8 +439,13 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
 extension CPUViewController : LineTableDelegate{
     
     func updateCPU(element: CPUEMnemonic, value: String) {
-        oneByteCPUDisplay.updateCPU(line: element, value: value)
-        oneByteCPUDisplay.setNeedsDisplay()
+        if currentCPUSize == .oneByte{
+            oneByteCPUDisplay.updateCPU(line: element, value: value)
+            oneByteCPUDisplay.setNeedsDisplay()
+        }else{
+            // TWO BYTE IMPLEMENTATION
+        }
+        
     }
     
     

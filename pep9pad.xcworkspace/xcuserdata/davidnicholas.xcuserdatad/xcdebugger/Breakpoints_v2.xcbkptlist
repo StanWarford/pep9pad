@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.309435"
+            timestampString = "561255275.227206"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "458"
+            endingLineNumber = "458"
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,29 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.309706"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.309858"
+            timestampString = "561255275.227252"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "474"
             endingLineNumber = "474"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -58,13 +42,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.310007"
+            timestampString = "561255275.227285"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "473"
+            endingLineNumber = "473"
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.3101521"
+            timestampString = "561255275.2273149"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "454"
-            endingLineNumber = "454"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "468"
+            endingLineNumber = "468"
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.310294"
+            timestampString = "561255275.227343"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "453"
+            endingLineNumber = "453"
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,13 +90,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "560992958.3104351"
+            timestampString = "561255275.227371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "444"
+            endingLineNumber = "444"
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pep9pad/CPUAssemblerModel.swift"
+            timestampString = "561255275.227398"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
+            landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

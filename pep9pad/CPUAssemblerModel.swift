@@ -176,7 +176,6 @@ class CPUAssemblerModel {
         
         var state : ParseState = .ps_START
     
-        initEnumMnemonMaps() // might not need this
         repeat {
             if !getToken(sourceLine: &sourceLine, token: &token, tokenString: &tokenString){
                 errorString = tokenString

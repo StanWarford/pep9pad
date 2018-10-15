@@ -43,7 +43,7 @@ var aluInstructionMap : [Int : String] = [
                                             15 : "0"
                                         ]
 
-func initEnumMnemonMaps(){
+func initEnumMnemonMaps(currentBusSize : CPUBusSize){
     mnemonToDecControlMap.removeAll()
     decControlToMnemonMap.removeAll()
     
@@ -68,17 +68,22 @@ func initEnumMnemonMaps(){
         .ALU : "ALU",
         .CSMux : "CSMUX"
     ]
-        //if (Pep::cpuFeatures == OneByteDataBus) {
+        if currentBusSize == .oneByte {
             mnemonToDecControlMap["MDRMUX"] = .MDRMux
             decControlToMnemonMap[.MDRMux] = "MDRMUX"
-        //}
-    //    else if (Pep::cpuFeatures == TwoByteDataBus){
-    //        mnemonToDecControlMap.insert("MARMUX", MARMux); decControlToMnemonMap.insert(MARMux,"MARMUX");
-    //        mnemonToDecControlMap.insert("MDROMUX", MDROMux); decControlToMnemonMap.insert(MDROMux,"MDROMUX");
-    //        mnemonToDecControlMap.insert("MDREMUX", MDREMux); decControlToMnemonMap.insert(MDREMux,"MDREMUX");
-    //        mnemonToDecControlMap.insert("EOMUX", EOMux); decControlToMnemonMap.insert(EOMux,"EOMUX");
-    //    }
-    //
+        }else {
+            mnemonToDecControlMap["MARMUX"] = .MARMux
+            mnemonToDecControlMap["MDROMUX"] = .MDROMux
+            mnemonToDecControlMap["MDREMUX"] = .MDREMux
+            mnemonToDecControlMap["EOMUX"] = .EOMux
+            
+            decControlToMnemonMap[.MARMux] = "MARMUX"
+            decControlToMnemonMap[.MDROMux] = "MDROMUX"
+            decControlToMnemonMap[.MDREMux] = "MDREMUX"
+            decControlToMnemonMap[.EOMux] = "EOMUX"
+                
+        }
+    
         memControlToMnemonMap.removeAll()
         mnemonToMemControlMap.removeAll()
     
@@ -87,7 +92,7 @@ func initEnumMnemonMaps(){
     
         mnemonToMemControlMap["MEMWRITE"] =  .MemWrite
         mnemonToMemControlMap["MEMREAD"] = .MemRead
-    //
+
         clockControlToMnemonMap.removeAll()
         clockControlToMnemonMap[.LoadCk] = "LoadCk"
         clockControlToMnemonMap[.MARCk] = "MARCk"
@@ -106,15 +111,17 @@ func initEnumMnemonMaps(){
         mnemonToClockControlMap["ZCK"] = .ZCk
         mnemonToClockControlMap["NCK"] = .NCk
     
-    //    if (Pep::cpuFeatures == OneByteDataBus) {
-        clockControlToMnemonMap[.MDRCk] = "MDRCk"
-        mnemonToClockControlMap["MDRCK"] = .MDRCk
-    //    }
-    //    else if (Pep::cpuFeatures == TwoByteDataBus){
-    //        clockControlToMnemonMap.insert(MDROCk, "MDROCk");     mnemonToClockControlMap.insert("MDROCK", MDROCk);
-    //        clockControlToMnemonMap.insert(MDRECk, "MDRECk");     mnemonToClockControlMap.insert("MDRECK", MDRECk);
-    //    }
-    //
+        if currentBusSize == .oneByte{
+            clockControlToMnemonMap[.MDRCk] = "MDRCk"
+            mnemonToClockControlMap["MDRCK"] = .MDRCk
+        } else {
+            clockControlToMnemonMap[.MDROCk] = "MDROCk"
+            clockControlToMnemonMap[.MDRECk] = "MDRECk"
+            
+            mnemonToClockControlMap["MDROCK"] =  .MDROCk
+            mnemonToClockControlMap["MDRECK"] =  .MDRECk
+        }
+
         specificationToMnemonMap.removeAll()
         specificationToMnemonMap[.Pre] = "UNITPRE:"
         specificationToMnemonMap[.Post] =  "UnitPost:"
@@ -177,6 +184,5 @@ func initEnumMnemonMaps(){
         mnemonToStatusSpecMap["V"] = .V
         mnemonToStatusSpecMap["C"] = .C
         mnemonToStatusSpecMap["S"] = .S
-
 }
 
