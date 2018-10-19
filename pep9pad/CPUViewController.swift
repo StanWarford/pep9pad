@@ -40,7 +40,8 @@ class CPUViewController: UIViewController {
         
         setupNavBar()
         setupCPU()
-        setupCodeView()
+        //setupCodeView()
+        setupCodeEditor()
         setupMemView()
         setupLineTableView()
         setupLines()
@@ -62,7 +63,8 @@ class CPUViewController: UIViewController {
     // Mark:- Vars for Views
     var memoryView : MemoryView!
     @IBOutlet weak var memory: UIView!
-    @IBOutlet weak var codeView: CodeView!
+   // @IBOutlet weak var codeView: CodeView!
+    @IBOutlet weak var codeEditor: CPUCodeEditor!
     @IBOutlet weak var lineTableView: LineTableView!
     @IBOutlet weak var CPUScrollView: UIScrollView!
     @IBOutlet weak var lineTable: UITableView!
@@ -85,15 +87,21 @@ class CPUViewController: UIViewController {
         CPUScrollView.delegate = self
         CPUScrollView.addSubview(oneByteCPUDisplay)
     }
-    func pullFromProjectModel() {
-        codeView.setText(cpuProjectModel.sourceStr)
-    }
+//    func pullFromProjectModel() {
+//        codeView.setText(cpuProjectModel.sourceStr)
+//    }
     
-    func setupCodeView(){
-        let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
-        codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
-        pullFromProjectModel()
-        codeView.textView.scrollRectToVisible(CGRect.zero, animated: true)
+//    func setupCodeView(){
+//        let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
+//        codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
+//        pullFromProjectModel()
+//        codeView.textView.scrollRectToVisible(CGRect.zero, animated: true)
+//    }
+    
+    func setupCodeEditor(){
+        codeEditor.delegate = self
+        codeEditor.backgroundColor = UIColor.white
+        codeEditor.textColor = UIColor.black
     }
     func setupMemView(){
         memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
@@ -242,7 +250,7 @@ class CPUViewController: UIViewController {
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
-        cpuProjectModel.sourceStr = codeView.textView.text
+       // cpuProjectModel.sourceStr = codeView.textView.text
         cpuAssembler.microAssemble()
         CPUScrollView.subviews[0].setNeedsDisplay()
 //        let subViews = CPUScrollView.subviews
@@ -370,7 +378,7 @@ class CPUViewController: UIViewController {
 
         microCodeLine += "\n"
         
-        codeView.textView.text += microCodeLine
+       // codeView.textView.text += microCodeLine
     }
 
 }
@@ -451,4 +459,12 @@ extension CPUViewController : LineTableDelegate{
     
     
     
+}
+
+
+extension CPUViewController : UITextViewDelegate{
+    func textViewDidChange(_ textView: UITextView) {
+        codeEditor.invalidateCachedParagraphs()
+        codeEditor.setNeedsDisplay()
+    }
 }

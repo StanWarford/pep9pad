@@ -222,7 +222,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdJ-Ke-L4q">
                                 <rect key="frame" x="412" y="70" width="612" height="648"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS" customClass="CodeView" customModule="pep9pad">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS" customClass="CPUCodeEditor" customModule="pep9pad" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="70" width="412" height="314"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </view>
@@ -377,7 +377,7 @@
                     <connections>
                         <outlet property="CPUScrollView" destination="QdJ-Ke-L4q" id="JSz-wv-ZkI"/>
                         <outlet property="calcBtn" destination="TQj-sn-Q08" id="Ou6-GI-nge"/>
-                        <outlet property="codeView" destination="zwR-yE-CAS" id="Xbi-NY-1Ib"/>
+                        <outlet property="codeEditor" destination="zwR-yE-CAS" id="Q8L-6z-pFA"/>
                         <outlet property="debugBtn" destination="mXk-Xv-l0w" id="SlE-Zu-xp4"/>
                         <outlet property="fontBtn" destination="sEi-ip-UHE" id="jKj-hx-fsU"/>
                         <outlet property="lineTable" destination="1le-r3-VhL" id="04N-Se-4ZJ"/>

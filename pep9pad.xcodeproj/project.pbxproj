@@ -239,6 +239,7 @@
 		A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B82170252000151440 /* numericLineCell.swift */; };
 		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
+		A0E82DA4217A5BB8003A6CEA /* CPUCodeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */; };
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
@@ -517,6 +518,7 @@
 		A0D1F8B82170252000151440 /* numericLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numericLineCell.swift; sourceTree = "<group>"; };
 		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
+		A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCodeEditor.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonunaryMnemonics.swift; path = pep9pad/NonunaryMnemonics.swift; sourceTree = "<group>"; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
@@ -841,6 +843,7 @@
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
 				A013EB16215C09B5008CF1A6 /* CPUCode */,
 				A013EB13215C0508008CF1A6 /* Enumerations */,
+				A0E82DA5217A5BC2003A6CEA /* CodeEditor */,
 				A0D1F8B7217023B500151440 /* LineTable */,
 			);
 			name = CPUModels;
@@ -1131,6 +1134,14 @@
 				A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */,
 			);
 			name = OneByteModel;
+			sourceTree = "<group>";
+		};
+		A0E82DA5217A5BC2003A6CEA /* CodeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */,
+			);
+			name = CodeEditor;
 			sourceTree = "<group>";
 		};
 		D2B0614D1C7E62040088CEBE = {
@@ -1568,6 +1579,7 @@
 				D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */,
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */,
+				A0E82DA4217A5BB8003A6CEA /* CPUCodeEditor.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
 				46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */,
 				464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */,
