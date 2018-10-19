@@ -467,4 +467,9 @@ extension CPUViewController : UITextViewDelegate{
         codeEditor.invalidateCachedParagraphs()
         codeEditor.setNeedsDisplay()
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        codeEditor.invalidateCachedParagraphs()
+        codeEditor.setNeedsDisplay()
+    }
 }
