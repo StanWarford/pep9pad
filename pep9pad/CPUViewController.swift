@@ -250,7 +250,8 @@ class CPUViewController: UIViewController {
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
-       // cpuProjectModel.sourceStr = codeView.textView.text
+        //print(codeEditor.text)
+       cpuProjectModel.sourceStr = codeEditor.text
         cpuAssembler.microAssemble()
         CPUScrollView.subviews[0].setNeedsDisplay()
 //        let subViews = CPUScrollView.subviews
@@ -378,7 +379,9 @@ class CPUViewController: UIViewController {
 
         microCodeLine += "\n"
         
-       // codeView.textView.text += microCodeLine
+        codeEditor.text += microCodeLine
+        codeEditor.invalidateCachedParagraphs()
+        codeEditor.setNeedsDisplay()
     }
 
 }
