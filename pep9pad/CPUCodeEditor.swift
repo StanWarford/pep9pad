@@ -285,9 +285,15 @@ func generateParagraphs(for textView: CPUCodeEditor, flipRects: Bool = false) ->
     
     var paragraphs = [Paragraph]()
     var i = 0
-    
+    //let pat = ""
     (textView.text as NSString).enumerateSubstrings(in: range, options: [.byParagraphs]) { (paragraphContent, paragraphRange, enclosingRange, stop) in
-        let line = !(paragraphContent?.first == "/" || paragraphContent?.first == nil)
+         var line = false //!//(paragraphContent?.first == "/" || paragraphContent?.first == nil)
+        if let regex = try? NSRegularExpression(pattern: "^\\s*//|^\\s*$|^\\s*unitpre|^\\s*unitpost", options: .caseInsensitive) {
+                if regex.matchesIn(paragraphContent!).isEmpty{
+                    line = true
+                }
+            }
+       
         //print(paragraphContent?.first)
         if line {
             i += 1
