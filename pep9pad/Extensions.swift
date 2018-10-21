@@ -316,6 +316,29 @@ extension UIView {
         self.layer.addSublayer(border)
     }
     
+    func addBorderLeft(){
+        let border = CALayer()
+        let thickness : CGFloat =  1.0
+        border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
+        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+        self.layer.addSublayer(border)
+    }
+    func addBorderRight(){
+        let border = CALayer()
+        let thickness : CGFloat =  1.0
+        border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+        self.layer.addSublayer(border)
+    }
+    func addBorderBottom(){
+        let border = CALayer()
+        let thickness : CGFloat =  1.0
+        
+        border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+        self.layer.addSublayer(border)
+    }
+    
     func removeBorder() {
         self.layer.borderColor = UIColor.clear.cgColor
         self.layer.borderWidth = 0.0

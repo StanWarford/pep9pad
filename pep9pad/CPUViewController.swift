@@ -86,7 +86,8 @@ class CPUViewController: UIViewController {
         CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
         CPUScrollView.delegate = self
         CPUScrollView.addSubview(oneByteCPUDisplay)
-        CPUScrollView.addBorder()
+        //CPUScrollView.superview!.addBorderLeft()
+        
     }
 //    func pullFromProjectModel() {
 //        codeView.setText(cpuProjectModel.sourceStr)
@@ -104,6 +105,15 @@ class CPUViewController: UIViewController {
         codeEditor.backgroundColor = UIColor.white
         codeEditor.textColor = UIColor.black
         codeEditor.autocorrectionType = .no
+        let border = CALayer()
+        let thickness : CGFloat =  1.0
+        //codeEditor.frame
+        border.frame = CGRect(x: codeEditor.frame.width - thickness, y: 0, width: thickness, height: codeEditor.frame.height)
+        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+
+        codeEditor.layer.addSublayer(border)
+        
+        //codeEditor.inputView!.addBorderRight()
         //codeEditor.inputView?.addBorder()
         
     }
@@ -113,14 +123,17 @@ class CPUViewController: UIViewController {
         
         memoryView.pcBtn.isHidden = true
         memoryView.spBtn.isHidden = true
-        memory.addBorder()
+
         memory.addSubview(memoryView)
+        memory.addBorderTop()
+        memory.addBorderRight()
         
     }
     
     func setupLineTableView(){
         lineTableView.masterVC = self
         lineTableView.addBorderTop()
+         lineTableView.addBorderRight()
     }
     
     func setupLines(){
@@ -459,11 +472,26 @@ extension CPUViewController : UITextViewDelegate{
         codeEditor.invalidateCachedParagraphs()
         codeEditor.pepHighlighter(busSize: currentCPUSize)
         codeEditor.setNeedsDisplay()
+        
+//        let border = CALayer()
+//        let thickness : CGFloat =  1.0
+//        //codeEditor.frame
+//        border.frame = CGRect(x: codeEditor.frame.width - thickness, y: 0, width: thickness, height: codeEditor.frame.height)
+//        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+//
+//        codeEditor.layer.addSublayer(border)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         codeEditor.invalidateCachedParagraphs()
         codeEditor.pepHighlighter(busSize: currentCPUSize)
         codeEditor.setNeedsDisplay()
+//        let border = CALayer()
+//        let thickness : CGFloat =  1.0
+//        //codeEditor.frame
+//        border.frame = CGRect(x: codeEditor.frame.width - thickness, y: 0, width: thickness, height: codeEditor.frame.height)
+//        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+//
+//        codeEditor.layer.addSublayer(border)
     }
 }
