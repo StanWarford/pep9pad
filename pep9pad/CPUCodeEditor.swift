@@ -151,6 +151,67 @@ class CPUCodeEditor: UITextView {
     
     #endif
     
+    func pepHighlighter(busSize : CPUBusSize){
+        let codeEditor = self
+        let codeEditorText = self.text
+        
+        let attributedText = codeEditor.attributedText.mutableCopy() as! NSMutableAttributedString
+        
+        let attributedTextRange = NSMakeRange(0, attributedText.length)
+        attributedText.removeAttribute(NSAttributedString.Key.foregroundColor, range: attributedTextRange)
+        
+        //Numbers
+        if let regex = try? NSRegularExpression(pattern: "(0x)?[0-9a-fA-F]+(?=(,|;|(\\s)*$|\\]|(\\s)*//))", options: .caseInsensitive){
+            let range = NSRange(codeEditor.text.startIndex..., in: codeEditorText!)
+            let matches = regex.matches(in: codeEditorText!, options: [], range: range)
+            
+            for match in matches {
+                let matchRange = match.range
+                //let string = codeEditorText!.sub
+                
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: matchRange)
+               
+            }
+             codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
+            
+        }
+        //The oprnds
+        let oprndPattern = "\\bLoadCk\\b|\\bC\\b|\\bB\\b|\\bA\\b|\\bMARCk\\b|\\bMDRCk\\b|\\bAMux\\b|\\bMDRMux\\b|\\bCMux\\b|\\bALU\\b|\\bCSMux\\b|\\bSCk\\b|\\bCCk\\b|\\bVCk\\b|\\bAndZ\\b|\\bZCk\\b|\\bNCk\\b|\\bMemRead\\b|\\bMemWrite\\b|^(\\s)*UnitPre(?=:)\\b|^(\\s)*UnitPost(?=:)\\b|\\bN\\b|\\bZ\\b|\\bV\\b|\\bS\\b|\\bX\\b|\\bSP\\b|\\bPC\\b|\\bIR\\b|\\bT1\\b|\\bT2\\b|\\bT3\\b|\\bT4\\b|\\bT5\\b|\\bT6\\b|\\bMem\\b" //: "\\bLoadCk\\b|\\bC\\b|\\bB\\b|\\bA\\b|\\bMARCk\\b|\\bMARMux\\b|\\bMDROCk\\b|\\bMDRECk\\b|\\bMDROMux\\b|\\bMDREMux\\b|\\bEOMux\\b|\\bCMux\\b|\\bAMux\\|\\bALU\\b|\\bCSMux\\b|\\bSCk\\b|\\bCCk\\b|\\bVCk\\b|\\bAndZ\\b|\\bZCk\\b|\\bNCk\\b|\\bMemRead\\b|\\bMemWrite\\b|^(\\s)*UnitPre(?=:)\\b|^(\\s)*UnitPost(?=:)\\b|\\bN\\b|\\bZ\\b|\\bV\\b|\\bS\\b|\\bX\\b|\\bSP\\b|\\bPC\\b|\\bIR\\b|\\bT1\\b|\\bT2\\b|\\bT3\\b|\\bT4\\b|\\bT5\\b|\\bT6\\b|\\bMem\\b"
+
+        if let regex = try? NSRegularExpression(pattern: oprndPattern, options: .caseInsensitive){
+            let range = NSRange(codeEditor.text.startIndex..., in: codeEditorText!)
+            let matches = regex.matches(in: codeEditorText!, options: [], range: range)
+
+            for match in matches {
+                let matchRange = match.range
+                //let string = codeEditorText!.sub
+
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: matchRange)
+                //attributedText.addAttribute(NSAttributedStringKey.font, value: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize), range: matchRange)
+
+            }
+            codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
+
+        }
+
+        //Comments
+        if let regex = try? NSRegularExpression(pattern: "//.*", options: .caseInsensitive){
+            let range = NSRange(codeEditor.text.startIndex..., in: codeEditorText!)
+            let matches = regex.matches(in: codeEditorText!, options: [], range: range)
+            
+            for match in matches {
+                let matchRange = match.range
+                
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.CPUColors.bitBusColor, range: matchRange)
+                
+            }
+            codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
+            
+        }
+        
+        
+    }
+    
 }
 
 struct Paragraph {
@@ -425,3 +486,4 @@ func drawLineNumbers(_ paragraphs: [Paragraph], in rect: CGRect, for textView: C
     }
     
 }
+

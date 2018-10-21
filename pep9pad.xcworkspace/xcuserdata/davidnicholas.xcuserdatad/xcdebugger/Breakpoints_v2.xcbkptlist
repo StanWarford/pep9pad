@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.640959"
+            timestampString = "561838862.457655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "458"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.6410201"
+            timestampString = "561838862.457714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "474"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.641063"
+            timestampString = "561838862.457757"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "473"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.641101"
+            timestampString = "561838862.457796"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "468"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.641137"
+            timestampString = "561838862.4578331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "453"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.641173"
+            timestampString = "561838862.45787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "444"
@@ -106,12 +106,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "pep9pad/CPUAssemblerModel.swift"
-            timestampString = "561257179.641207"
+            timestampString = "561838862.457908"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "409"
             endingLineNumber = "409"
             landmarkName = "processSourceLine(sourceLine:code:errorString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pep9pad/CPUCodeEditor.swift"
+            timestampString = "561838862.457947"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "pepHighlighter(busSize:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

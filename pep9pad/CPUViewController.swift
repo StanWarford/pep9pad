@@ -102,6 +102,7 @@ class CPUViewController: UIViewController {
         codeEditor.delegate = self
         codeEditor.backgroundColor = UIColor.white
         codeEditor.textColor = UIColor.black
+        codeEditor.autocorrectionType = .no
     }
     func setupMemView(){
         memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
@@ -380,7 +381,9 @@ class CPUViewController: UIViewController {
         microCodeLine += "\n"
         
         codeEditor.text += microCodeLine
+
         codeEditor.invalidateCachedParagraphs()
+        codeEditor.pepHighlighter(busSize: currentCPUSize)
         codeEditor.setNeedsDisplay()
     }
 
@@ -468,11 +471,13 @@ extension CPUViewController : LineTableDelegate{
 extension CPUViewController : UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         codeEditor.invalidateCachedParagraphs()
+        codeEditor.pepHighlighter(busSize: currentCPUSize)
         codeEditor.setNeedsDisplay()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         codeEditor.invalidateCachedParagraphs()
+        codeEditor.pepHighlighter(busSize: currentCPUSize)
         codeEditor.setNeedsDisplay()
     }
 }
