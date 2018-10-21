@@ -86,6 +86,7 @@ class CPUViewController: UIViewController {
         CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
         CPUScrollView.delegate = self
         CPUScrollView.addSubview(oneByteCPUDisplay)
+        CPUScrollView.addBorder()
     }
 //    func pullFromProjectModel() {
 //        codeView.setText(cpuProjectModel.sourceStr)
@@ -103,6 +104,8 @@ class CPUViewController: UIViewController {
         codeEditor.backgroundColor = UIColor.white
         codeEditor.textColor = UIColor.black
         codeEditor.autocorrectionType = .no
+        //codeEditor.inputView?.addBorder()
+        
     }
     func setupMemView(){
         memoryView = (Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView)
@@ -110,12 +113,14 @@ class CPUViewController: UIViewController {
         
         memoryView.pcBtn.isHidden = true
         memoryView.spBtn.isHidden = true
+        memory.addBorder()
         memory.addSubview(memoryView)
         
     }
     
     func setupLineTableView(){
         lineTableView.masterVC = self
+        lineTableView.addBorderTop()
     }
     
     func setupLines(){
