@@ -33,7 +33,7 @@ class CPUViewController: UIViewController {
     var testBtn: UIBarButtonItem!
     
     //For Table
-    var lines = [[String]]()
+    var lines = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,21 +121,21 @@ class CPUViewController: UIViewController {
     
     func setupLines(){
         
-        let decControlLines : [String]
+        //let decControlLines : [String]
         if currentCPUSize == .oneByte{
-            decControlLines = ["C","B","A","AMux","MDRMux","CMux","ALU","CSMux","AndZ","MemWrite","MemRead"]
+            lines = ["LoadCk", "C","B","A","MARCk","MDRCk","AMux","MDRMux","CMux","ALU","CSMux","SCk","CCk","VCk","ZCk", "NCk","AndZ","MemWrite","MemRead"]
         }else{
-            decControlLines = ["C","B","A","MARMux","MDROMux","MDREMux","EOMux","AMux","CMux","ALU","CSMux","AndZ","MemWrite","MemRead"]
+            lines = ["LoadCk","C","B","A","MARMux","MARCk","MDROCk","MDROMux","MDRECk","MDREMux","EOMux","AMux","CMux","ALU","CSMux","SCk","CCk","VCk","ZCk", "NCk","AndZ","MemWrite","MemRead"]
         }
         
-        let clockControlLines : [String]
-        if currentCPUSize == .oneByte{
-           clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
-        }else{
-           clockControlLines = ["LoadCk", "MARCk","MDROCk","MDRECk","SCk","CCk","VCk","ZCk", "NCk"]
-        }
-        
-        lines = [decControlLines,clockControlLines]
+        //let clockControlLines : [String]
+//        if currentCPUSize == .oneByte{
+//           clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
+//        }else{
+//           clockControlLines = ["LoadCk", "MARCk","MDROCk","MDRECk","SCk","CCk","VCk","ZCk", "NCk"]
+//        }
+//
+//        lines = decControlLines + clockControlLines
     }
     
     func setupLineTable(){
@@ -332,6 +332,24 @@ class CPUViewController: UIViewController {
         CPUScrollView.maximumZoomScale = 1.5
         CPUScrollView.zoomScale = minScale
     }
+//    func getMap(line : String) -> [String : CPUEMnemonic]{
+//        if mnemonToMemControlMap.keys.contains(line){
+//            return mnemonToMemControlMap
+//        }
+//        if  mnemonToDecControlMap.keys.contains(line){
+//            return mnemonToMemControlMap
+//        }
+//
+//        //
+//        //           cell.delegate = self
+//        //
+//        //            return cell
+//        //        }else{
+//        //            let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
+//        //
+//        //            cell.lineName.text = lines[indexPath.section][indexPath.row]
+//        //            cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
+//    }
     
     func copyToMicroCode(){
         //Order Matters
@@ -404,47 +422,73 @@ extension CPUViewController : UIScrollViewDelegate {
 }
 
 extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.text = (section == 0 ? "Numeric Entries" : "Clock Lines")
-        label.backgroundColor = UIColor.CPUColors.aluColor
-        label.textAlignment = .center
-        return label
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let label = UILabel()
+//        label.text = (section == 0 ? "Numeric Entries" : "Clock Lines")
+//        label.backgroundColor = UIColor.CPUColors.aluColor
+//        label.textAlignment = .center
+//        return label
+//    }
     func numberOfSections(in tableView: UITableView) -> Int {
         //return 1
-        return lines.count
+        return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //return 10
-        return lines[section].count
+        return lines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
-//        cell.lineName.text = "HI"
-//
-//        return cell
-        if indexPath.section == 0 {
+        let line = lines[indexPath.row]
+        print(lines)
+        if mnemonToMemControlMap.keys.contains(line.uppercased()) || mnemonToDecControlMap.keys.contains(line.uppercased()){
             let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
-            //cell.textField.text = ""
-            cell.lineName.text = lines[indexPath.section][indexPath.row]
+            cell.lineName.text = line
+            cell.line = mnemonToMemControlMap.keys.contains(line.uppercased()) ?
+                mnemonToMemControlMap[line.uppercased()]! :
+                mnemonToDecControlMap[line.uppercased()]!
             
-            cell.line = mnemonToMemControlMap.keys.contains(lines[indexPath.section][indexPath.row].uppercased()) ?
-                mnemonToMemControlMap[lines[indexPath.section][indexPath.row].uppercased()]! :
-                mnemonToDecControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
-            
-           cell.delegate = self
+            cell.textField.text = copyMicroCodeLine[cell.line] == -1 ? "" : String(copyMicroCodeLine[cell.line]!)
+            cell.delegate = self
             
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
-
-            cell.lineName.text = lines[indexPath.section][indexPath.row]
-            cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
+            
+            cell.lineName.text = line
+            cell.line = mnemonToClockControlMap[line.uppercased()]!
+            cell.lineActive = copyMicroCodeLine[cell.line] == -1 ? false : true
+            let buttonTitle = cell.lineActive ? "✓" : ""
+            cell.checkbox.setTitle(buttonTitle, for: .normal)
+            
             cell.delegate = self
             return cell
         }
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
+//        cell.lineName.text = "HI"
+//
+//        return cell
+//        if indexPath.section == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
+//            //cell.textField.text = ""
+//            cell.lineName.text = lines[indexPath.section][indexPath.row]
+//
+//            cell.line = mnemonToMemControlMap.keys.contains(lines[indexPath.section][indexPath.row].uppercased()) ?
+//                mnemonToMemControlMap[lines[indexPath.section][indexPath.row].uppercased()]! :
+//                mnemonToDecControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
+//
+//           cell.delegate = self
+//
+//            return cell
+//        }else{
+//            let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
+//
+//            cell.lineName.text = lines[indexPath.section][indexPath.row]
+//            cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
+//            cell.delegate = self
+//            return cell
+//        }
    }
 
     
