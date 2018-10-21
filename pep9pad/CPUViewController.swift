@@ -105,9 +105,8 @@ class CPUViewController: UIViewController {
         codeEditor.autocorrectionType = .no
     }
     func setupMemView(){
-        memoryView = Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView
-        memoryView.frame = CGRect(x: memory.frame.origin.x, y: 0.0, width: memory.frame.width,
-                                  height: memory.frame.height-10)
+        memoryView = (Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView)
+        memoryView.frame = CGRect(x: memory.frame.origin.x, y: 0.0, width: memory.frame.width, height: memory.frame.height-10)
         
         memoryView.pcBtn.isHidden = true
         memoryView.spBtn.isHidden = true
@@ -120,22 +119,11 @@ class CPUViewController: UIViewController {
     }
     
     func setupLines(){
-        
-        //let decControlLines : [String]
         if currentCPUSize == .oneByte{
             lines = ["LoadCk", "C","B","A","MARCk","MDRCk","AMux","MDRMux","CMux","ALU","CSMux","SCk","CCk","VCk","ZCk", "NCk","AndZ","MemWrite","MemRead"]
         }else{
             lines = ["LoadCk","C","B","A","MARMux","MARCk","MDROCk","MDROMux","MDRECk","MDREMux","EOMux","AMux","CMux","ALU","CSMux","SCk","CCk","VCk","ZCk", "NCk","AndZ","MemWrite","MemRead"]
         }
-        
-        //let clockControlLines : [String]
-//        if currentCPUSize == .oneByte{
-//           clockControlLines = ["LoadCk", "MARCk","MDRCk","SCk","CCk","VCk","ZCk", "NCk"]
-//        }else{
-//           clockControlLines = ["LoadCk", "MARCk","MDROCk","MDRECk","SCk","CCk","VCk","ZCk", "NCk"]
-//        }
-//
-//        lines = decControlLines + clockControlLines
     }
     
     func setupLineTable(){
@@ -180,7 +168,7 @@ class CPUViewController: UIViewController {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
+        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.setTitleTextAttributes(attrs, for: .disabled)
         btn.setTitleTextAttributes(attrs, for: .highlighted)
@@ -332,24 +320,6 @@ class CPUViewController: UIViewController {
         CPUScrollView.maximumZoomScale = 1.5
         CPUScrollView.zoomScale = minScale
     }
-//    func getMap(line : String) -> [String : CPUEMnemonic]{
-//        if mnemonToMemControlMap.keys.contains(line){
-//            return mnemonToMemControlMap
-//        }
-//        if  mnemonToDecControlMap.keys.contains(line){
-//            return mnemonToMemControlMap
-//        }
-//
-//        //
-//        //           cell.delegate = self
-//        //
-//        //            return cell
-//        //        }else{
-//        //            let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
-//        //
-//        //            cell.lineName.text = lines[indexPath.section][indexPath.row]
-//        //            cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
-//    }
     
     func copyToMicroCode(){
         //Order Matters
@@ -422,13 +392,6 @@ extension CPUViewController : UIScrollViewDelegate {
 }
 
 extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let label = UILabel()
-//        label.text = (section == 0 ? "Numeric Entries" : "Clock Lines")
-//        label.backgroundColor = UIColor.CPUColors.aluColor
-//        label.textAlignment = .center
-//        return label
-//    }
     func numberOfSections(in tableView: UITableView) -> Int {
         //return 1
         return 1
@@ -440,7 +403,6 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let line = lines[indexPath.row]
-        print(lines)
         if mnemonToMemControlMap.keys.contains(line.uppercased()) || mnemonToDecControlMap.keys.contains(line.uppercased()){
             let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
             cell.lineName.text = line
@@ -464,31 +426,6 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
             cell.delegate = self
             return cell
         }
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
-//        cell.lineName.text = "HI"
-//
-//        return cell
-//        if indexPath.section == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: numericCellId, for: indexPath) as! numericLineCell
-//            //cell.textField.text = ""
-//            cell.lineName.text = lines[indexPath.section][indexPath.row]
-//
-//            cell.line = mnemonToMemControlMap.keys.contains(lines[indexPath.section][indexPath.row].uppercased()) ?
-//                mnemonToMemControlMap[lines[indexPath.section][indexPath.row].uppercased()]! :
-//                mnemonToDecControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
-//
-//           cell.delegate = self
-//
-//            return cell
-//        }else{
-//            let cell = tableView.dequeueReusableCell(withIdentifier: clockCellId, for: indexPath) as! clockLineCell
-//
-//            cell.lineName.text = lines[indexPath.section][indexPath.row]
-//            cell.line = mnemonToClockControlMap[lines[indexPath.section][indexPath.row].uppercased()]!
-//            cell.delegate = self
-//            return cell
-//        }
    }
 
     

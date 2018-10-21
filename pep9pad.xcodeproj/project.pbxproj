@@ -844,6 +844,7 @@
 				A013EB16215C09B5008CF1A6 /* CPUCode */,
 				A013EB13215C0508008CF1A6 /* Enumerations */,
 				A0E82DA5217A5BC2003A6CEA /* CodeEditor */,
+				A04F8C5F217D32C800F1A3D6 /* NumberPad */,
 				A0D1F8B7217023B500151440 /* LineTable */,
 			);
 			name = CPUModels;
@@ -1106,6 +1107,13 @@
 				A07500B72166A95B009BB75A /* CPUSimulator.swift */,
 			);
 			name = CPUCode;
+			sourceTree = "<group>";
+		};
+		A04F8C5F217D32C800F1A3D6 /* NumberPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NumberPad;
 			sourceTree = "<group>";
 		};
 		A0D1F8B7217023B500151440 /* LineTable */ = {

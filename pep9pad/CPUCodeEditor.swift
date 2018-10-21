@@ -169,7 +169,7 @@ class CPUCodeEditor: UITextView {
                 let matchRange = match.range
                 //let string = codeEditorText!.sub
                 
-                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: matchRange)
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.CPUCodeEditor.numberColor, range: matchRange)
                
             }
              codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
@@ -186,7 +186,7 @@ class CPUCodeEditor: UITextView {
                 let matchRange = match.range
                 //let string = codeEditorText!.sub
 
-                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.blue, range: matchRange)
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.CPUCodeEditor.identifierColor, range: matchRange)
                 //attributedText.addAttribute(NSAttributedStringKey.font, value: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize), range: matchRange)
 
             }
@@ -202,7 +202,7 @@ class CPUCodeEditor: UITextView {
             for match in matches {
                 let matchRange = match.range
                 
-                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.CPUColors.bitBusColor, range: matchRange)
+                attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.CPUCodeEditor.commentColor, range: matchRange)
                 
             }
             codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
@@ -254,14 +254,11 @@ public struct LineNumbersStyle {
 }
 
 public struct GutterStyle {
-    
     public let backgroundColor: UIColor
-    
     /// If line numbers are displayed, the gutter width adapts to fit all line numbers.
     /// This specifies the minimum width that the gutter should have at all times
     /// regardless of any line numbers.
     public let minimumWidth: CGFloat
-    
     public init(backgroundColor: UIColor, minimumWidth: CGFloat) {
         self.backgroundColor = backgroundColor
         self.minimumWidth = minimumWidth
@@ -269,33 +266,19 @@ public struct GutterStyle {
 }
 
 public protocol SyntaxColorTheme {
-    
     /// Nil hides line numbers.
     var lineNumbersStyle: LineNumbersStyle? { get }
-    
     var gutterStyle: GutterStyle { get }
-    
     var font: UIFont { get }
-    
     var backgroundColor: UIColor { get }
-    
-    //func globalAttributes() -> [NSAttributedString.Key: Any]
-    
-    //func attributes(for token: Token) -> [NSAttributedString.Key: Any]
 }
 
 struct cpuTheme : SyntaxColorTheme {
     var lineNumbersStyle: LineNumbersStyle?
-    
     var gutterStyle: GutterStyle
-    
     var font: UIFont
-    
     var backgroundColor: UIColor
-    
-    //    func globalAttributes() -> [NSAttributedString.Key : Any] {
-    //
-    //    }
+
     
     init(){
         lineNumbersStyle = LineNumbersStyle(font: UIFont(name: "CourierNewPS-BoldMT", size: UIFont.systemFontSize)!, textColor: UIColor.darkGray)
@@ -314,13 +297,8 @@ extension UITextView {
         
         let layoutManager: NSLayoutManager
         let textContainer: NSTextContainer
-        #if os(macOS)
-        layoutManager = self.layoutManager!
-        textContainer = self.textContainer!
-        #else
         layoutManager = self.layoutManager
         textContainer = self.textContainer
-        #endif
         
         nsRange = layoutManager.glyphRange(forCharacterRange: nsRange, actualCharacterRange: nil)
         
@@ -348,77 +326,47 @@ func generateParagraphs(for textView: CPUCodeEditor, flipRects: Bool = false) ->
     var i = 0
     //let pat = ""
     (textView.text as NSString).enumerateSubstrings(in: range, options: [.byParagraphs]) { (paragraphContent, paragraphRange, enclosingRange, stop) in
-         var line = false //!//(paragraphContent?.first == "/" || paragraphContent?.first == nil)
+         var line = false
         if let regex = try? NSRegularExpression(pattern: "^\\s*//|^\\s*$|^\\s*unitpre|^\\s*unitpost", options: .caseInsensitive) {
                 if regex.matchesIn(paragraphContent!).isEmpty{
                     line = true
                 }
             }
-       
-        //print(paragraphContent?.first)
         if line {
             i += 1
-            
             let rect = textView.paragraphRectForRange(range: paragraphRange)
-            
-            
             let paragraph = Paragraph(rect: rect, number: i)
-            
             paragraphs.append(paragraph)
         }else{
             let rect = textView.paragraphRectForRange(range: paragraphRange)
-            
             let paragraph = Paragraph(rect: rect, number: -1)
             paragraphs.append(paragraph)
         }
-        
-        
-        
     }
     
     if textView.text.isEmpty || textView.text.hasSuffix("\n") {
-        
         var rect: CGRect
-        
-        #if os(macOS)
-        let gutterWidth = textView.textContainerInset.width
-        #else
         let gutterWidth = textView.textContainerInset.left
-        #endif
-        
         let lineHeight: CGFloat = 18
         
         if let last = paragraphs.last {
-            
             // FIXME: don't use hardcoded "2" as line spacing
             rect = CGRect(x: 0, y: last.rect.origin.y + last.rect.height + 2, width: gutterWidth, height: last.rect.height)
-            
-        } else {
-            
+        }else{
             rect = CGRect(x: 0, y: 0, width: gutterWidth, height: lineHeight)
-            
         }
-        
-        
         i += 1
         let endParagraph = Paragraph(rect: rect, number: i)
         paragraphs.append(endParagraph)
-        
     }
-    
     
     if flipRects {
-        
         paragraphs = paragraphs.map { (p) -> Paragraph in
-            
             var p = p
             p.rect.origin.y = textView.bounds.height - p.rect.height - p.rect.origin.y
-            
             return p
         }
-        
     }
-    
     return paragraphs
 }
 

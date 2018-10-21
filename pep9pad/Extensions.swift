@@ -417,6 +417,12 @@ extension UIColor {
         static let noFillColor = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
     }
     
+    struct CPUCodeEditor {
+        static let commentColor = UIColor(red:0.00, green:0.50, blue:0.00, alpha:1.0)
+        static let numberColor = UIColor(red:0.50, green:0.00, blue:0.50, alpha:1.0)
+        static let identifierColor = UIColor(red:0.00, green:0.00, blue:0.50, alpha:1.0)
+    }
+    
 }
 
 
