@@ -51,6 +51,24 @@ class CPUViewController: UIViewController {
         initEnumMnemonMaps(currentBusSize: currentCPUSize)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        lineTableView.addBorderTop()
+        lineTableView.addBorderRight()
+        memory.addBorderTop()
+        memory.addBorderRight()
+        codeEditor.superview?.addBorderRight()
+       
+        let border = CALayer()
+        let thickness : CGFloat =  1.0
+        //codeEditor.frame
+        border.frame = CGRect(x: codeEditor.frame.width - thickness, y: 0, width: thickness, height: codeEditor.frame.height)
+        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
+        codeEditor.layer.addSublayer(border)
+        
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         updateMinZoomScaleForSize(CPUScrollView.bounds.size)
@@ -105,14 +123,6 @@ class CPUViewController: UIViewController {
         codeEditor.backgroundColor = UIColor.white
         codeEditor.textColor = UIColor.black
         codeEditor.autocorrectionType = .no
-        let border = CALayer()
-        let thickness : CGFloat =  1.0
-        //codeEditor.frame
-        border.frame = CGRect(x: codeEditor.frame.width - thickness, y: 0, width: thickness, height: codeEditor.frame.height)
-        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
-
-        codeEditor.layer.addSublayer(border)
-        
         //codeEditor.inputView!.addBorderRight()
         //codeEditor.inputView?.addBorder()
         
@@ -125,15 +135,13 @@ class CPUViewController: UIViewController {
         memoryView.spBtn.isHidden = true
 
         memory.addSubview(memoryView)
-        memory.addBorderTop()
-        memory.addBorderRight()
+      
         
     }
     
     func setupLineTableView(){
         lineTableView.masterVC = self
-        lineTableView.addBorderTop()
-         lineTableView.addBorderRight()
+       
     }
     
     func setupLines(){
@@ -470,7 +478,9 @@ extension CPUViewController : LineTableDelegate{
 extension CPUViewController : UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         codeEditor.invalidateCachedParagraphs()
-        codeEditor.pepHighlighter(busSize: currentCPUSize)
+        if codeEditor.text.last == " " || codeEditor.text.last == "," {
+            codeEditor.pepHighlighter(busSize: currentCPUSize)
+        }
         codeEditor.setNeedsDisplay()
         
 //        let border = CALayer()
@@ -484,14 +494,25 @@ extension CPUViewController : UITextViewDelegate{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         codeEditor.invalidateCachedParagraphs()
-        codeEditor.pepHighlighter(busSize: currentCPUSize)
-        codeEditor.setNeedsDisplay()
+        //codeEditor.pepHighlighter(busSize: currentCPUSize)
+        
 //        let border = CALayer()
 //        let thickness : CGFloat =  1.0
 //        //codeEditor.frame
 //        border.frame = CGRect(x: codeEditor.frame.width - thickness, y: 0, width: thickness, height: codeEditor.frame.height)
 //        border.backgroundColor = UIColor(red: 0.816, green: 0.816, blue: 0.816, alpha: 1.0).cgColor
 //
-//        codeEditor.layer.addSublayer(border)
+//        //codeEditor.layer.addSublayer(border)
+//        codeEditor.layer.replaceSublayer((codeEditor.layer.sublayers?[0])!, with: border)
+        //
+        //
+        //codeEditor.view
+        codeEditor.setNeedsDisplay()
     }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        codeEditor.pepHighlighter(busSize: currentCPUSize)
+    }
+    
+    
 }
