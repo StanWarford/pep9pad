@@ -37,7 +37,7 @@ class numericLineCell: UITableViewCell {
         let isAlu = line == .ALU
         let bus = line == .A || line == .B || line == .C
         
-        if text == "" || (isAlu && 0 >= value! && value! <= 15){
+        if text == "" || (isAlu && 0 <= value! && value! <= 15){
             textField.textColor = UIColor.black
             delegate.copyMicroCodeLine[line] = text == "" ? -1 : value
             delegate.updateCPU(element: line, value: text)
@@ -50,7 +50,8 @@ class numericLineCell: UITableViewCell {
             delegate.copyMicroCodeLine[line] = text == "" ? -1 : value
             delegate.updateCPU(element: line, value: text)
         }else{
-            textField.textColor = UIColor.red
+            //textField.textColor = UIColor.red
+            textField.text?.removeLast()
         }
        
     
