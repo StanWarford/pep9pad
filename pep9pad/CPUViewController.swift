@@ -481,10 +481,16 @@ extension CPUViewController : UITextViewDelegate{
         if let selectedRange = codeEditor.selectedTextRange {
             let cursorPosition = codeEditor.offset(from: codeEditor.beginningOfDocument, to: selectedRange.start)
             
-            for char in codeEditor.text{
-                
+            var rangeStart : Int? = codeEditor.text.length >= 0 ? 0 : nil
+            var rangeEnd : Int? = codeEditor.text.length >= 0 ? 0 : nil
+            
+            for i in 0...codeEditor.text.length{
+                if codeEditor.text[i] == "\n"{
+                    rangeStart = rangeEnd
+                    rangeEnd = i
+                }
             }
-            print("\(cursorPosition)")
+//            print("\(cursorPosition)")
         }
 //        if codeEditor.text.last == " " || codeEditor.text.last == "," {
 //            //codeEditor.pepHighlighter(busSize: currentCPUSize)
