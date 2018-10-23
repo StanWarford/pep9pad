@@ -478,9 +478,17 @@ extension CPUViewController : LineTableDelegate{
 extension CPUViewController : UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         codeEditor.invalidateCachedParagraphs()
-        if codeEditor.text.last == " " || codeEditor.text.last == "," {
-            codeEditor.pepHighlighter(busSize: currentCPUSize)
+        if let selectedRange = codeEditor.selectedTextRange {
+            let cursorPosition = codeEditor.offset(from: codeEditor.beginningOfDocument, to: selectedRange.start)
+            
+            for char in codeEditor.text{
+                
+            }
+            print("\(cursorPosition)")
         }
+//        if codeEditor.text.last == " " || codeEditor.text.last == "," {
+//            //codeEditor.pepHighlighter(busSize: currentCPUSize)
+//        }
         codeEditor.setNeedsDisplay()
         
 //        let border = CALayer()
