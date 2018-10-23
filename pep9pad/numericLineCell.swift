@@ -12,10 +12,12 @@ import UIKit
 class numericLineCell: UITableViewCell {
     var line : CPUEMnemonic!
     var delegate : LineTableDelegate!
+    var cellIndex : IndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,11 +31,14 @@ class numericLineCell: UITableViewCell {
             textField.layer.borderWidth = 0.5
             textField.layer.cornerRadius = 5
             textField.layer.borderColor = UIColor.lightGray.cgColor
+            //textField.inputView = UIView()
+            textField.resignFirstResponder()
+            textField.delegate = self
         }
     }
     @IBAction func editLineValue(_ sender: Any) {
         let text = textField.text!
-        let value = Int(text)
+        let value = Int(text) == nil ? -1 : Int(text)
         let isAlu = line == .ALU
         let bus = line == .A || line == .B || line == .C
         
@@ -61,4 +66,10 @@ class numericLineCell: UITableViewCell {
     }
     @IBOutlet weak var lineName: UILabel!
     
+}
+
+extension numericLineCell : UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate.setCurrentIndex(index: cellIndex)
+    }
 }
