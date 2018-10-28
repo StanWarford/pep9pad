@@ -79,4 +79,6 @@ extension numericLineCell : UITextFieldDelegate{
         
         delegate.setCurrentIndex(index: cellIndex)
     }
+    
+    
 }

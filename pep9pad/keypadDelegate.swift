@@ -10,7 +10,9 @@ import Foundation
 import UIKit
 
 protocol keypadDelegate{
-    func keyPressed(value : String)
+    func keyPressed(value : String, label : UILabel)
+    func hideKeyboard()
+    func backspacePressed(label : UILabel)
     
     var currentIndex : IndexPath {get set}
 }

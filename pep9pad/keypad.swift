@@ -18,13 +18,24 @@ class keypad: UIView {
         // Drawing code
     }
     */
-
+    @IBOutlet weak var mCodeLabel : UILabel!{
+        didSet{
+            mCodeLabel.text = ""
+        }
+    }
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        delegate.hideKeyboard()
+    }
+    @IBAction func backspacePressed(_ sender: Any) {
+        delegate.backspacePressed(label: mCodeLabel)
+    }
+    
     @IBAction func testButton(_ sender: UIButton) {
         let value = sender.titleLabel?.text
         if value == "Next" || value == "Prev"{
             
         }else{
-            delegate.keyPressed(value : value!)
+            delegate.keyPressed(value : value!, label: mCodeLabel)
         }
     }
 }

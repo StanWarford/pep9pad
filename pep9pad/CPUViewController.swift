@@ -10,15 +10,47 @@ import UIKit
 import FontAwesome_swift
 
 class CPUViewController: UIViewController, keypadDelegate {
+    func backspacePressed( label: UILabel) {
+        lineTable.scrollToRow(at: currentIndex, at: .middle, animated: true)
+        let cell = lineTable.cellForRow(at: currentIndex) as? numericLineCell
+        
+        cell?.textField.text!.removeLast()
+        cell?.editLineValue(self)
+
+        cell?.editLineValue(self)
+        label.text?.removeLast()
+    }
     
-    func keyPressed(value : String) {
+    
+    func keyPressed(value : String, label: UILabel) {
         lineTable.scrollToRow(at: currentIndex, at: .middle, animated: true)
         let cell = lineTable.cellForRow(at: currentIndex) as? numericLineCell
         
         cell?.textField.text! += value
         cell?.editLineValue(self)
+        var stringVal = decControlToMnemonMap.keys.contains((cell?.line!)!) ? decControlToMnemonMap[(cell?.line)!] : memControlToMnemonMap[(cell?.line!)!]
+        
+        label.text = "MicroCode Equivalent: " + stringVal! + "=" + (cell?.textField.text!)!
         
     }
+    
+    
+    func hideKeyboard() {
+        let cell = lineTable.cellForRow(at: currentIndex) as? numericLineCell
+        cell?.textField.resignFirstResponder()
+        keypad.isHidden = true
+        memView.isHidden = false
+        
+    }
+    
+    func showKeypad(){
+        keypad.isHidden = false
+        keypad.delegate = self
+        memView.isHidden = true
+        let cell = lineTable.cellForRow(at: currentIndex)
+        cell?.setHighlighted(true, animated: false)
+    }
+    
     
     var currentIndex: IndexPath = IndexPath(row: 0, section: 0)
     
@@ -220,14 +252,7 @@ class CPUViewController: UIViewController, keypadDelegate {
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
-    func showKeypad(){
-        keypad.isHidden = !keypad.isHidden
-        keypad.delegate = self
-        memView.isHidden = !memView.isHidden
-        
-        
-    }
-    
+ 
     // Mark:- Nav bar buttons
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
@@ -508,6 +533,8 @@ extension CPUViewController : LineTableDelegate{
     }
     
     func setCurrentIndex(index : IndexPath) {
+        let cell = lineTable.cellForRow(at: currentIndex)
+        cell?.setHighlighted(false, animated: false)
         currentIndex = index
         showKeypad()
         
