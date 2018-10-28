@@ -31,8 +31,12 @@ class numericLineCell: UITableViewCell {
             textField.layer.borderWidth = 0.5
             textField.layer.cornerRadius = 5
             textField.layer.borderColor = UIColor.lightGray.cgColor
-            //textField.inputView = UIView()
-            textField.resignFirstResponder()
+            textField.autocorrectionType = UITextAutocorrectionType.no
+            let items = textField.inputAssistantItem
+            items.leadingBarButtonGroups = []
+            items.trailingBarButtonGroups = []
+            let tempView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: 0.0))
+            textField.inputView = tempView
             textField.delegate = self
         }
     }
@@ -70,6 +74,9 @@ class numericLineCell: UITableViewCell {
 
 extension numericLineCell : UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        //textField.resignFirstResponder()
+        
         delegate.setCurrentIndex(index: cellIndex)
     }
 }
