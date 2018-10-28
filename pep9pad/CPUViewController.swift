@@ -9,7 +9,19 @@
 import UIKit
 import FontAwesome_swift
 
-class CPUViewController: UIViewController {
+class CPUViewController: UIViewController, keypadDelegate {
+    
+    func keyPressed(value : String) {
+        lineTable.scrollToRow(at: currentIndex, at: .middle, animated: true)
+        let cell = lineTable.cellForRow(at: currentIndex) as? numericLineCell
+        
+        cell?.textField.text! += value
+        cell?.editLineValue(self)
+        
+    }
+    
+    var currentIndex: IndexPath = IndexPath(row: 0, section: 0)
+    
 
     let clockCellId = "clock"
     let numericCellId = "number"
@@ -56,8 +68,8 @@ class CPUViewController: UIViewController {
         
         lineTableView.addBorderTop()
         lineTableView.addBorderRight()
-        memory.addBorderTop()
-        memory.addBorderRight()
+//        memory.addBorderTop()
+//        memory.addBorderRight()
         codeEditor.superview?.addBorderRight()
        
         let border = CALayer()
@@ -80,7 +92,11 @@ class CPUViewController: UIViewController {
     }
     // Mark:- Vars for Views
     var memoryView : MemoryView!
-    @IBOutlet weak var memory: UIView!
+    @IBOutlet weak var memPadContainer: UIView!
+    
+    @IBOutlet weak var memView: UIView!
+    @IBOutlet weak var keypad: keypad!
+    
    // @IBOutlet weak var codeView: CodeView!
     @IBOutlet weak var codeEditor: CPUCodeEditor!
     @IBOutlet weak var lineTableView: LineTableView!
@@ -128,13 +144,16 @@ class CPUViewController: UIViewController {
         
     }
     func setupMemView(){
-        memoryView = (Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView)
-        memoryView.frame = CGRect(x: memory.frame.origin.x, y: 0.0, width: memory.frame.width, height: memory.frame.height-10)
+        keypad.isHidden = true
+        memView.isHidden = false
         
+        memoryView = (Bundle.main.loadNibNamed("MemoryHeader", owner: self, options: nil)![0] as! UIView as! MemoryView)
+        memoryView.frame = CGRect(x: memPadContainer.frame.origin.x, y: 0.0, width: memPadContainer.frame.width, height: memPadContainer.frame.height-10)
+
         memoryView.pcBtn.isHidden = true
         memoryView.spBtn.isHidden = true
-
-        memory.addSubview(memoryView)
+        memView.addSubview(memoryView)
+//        memory.addSubview(memoryView)
       
         
     }
@@ -201,6 +220,14 @@ class CPUViewController: UIViewController {
         btn.title = String.fontAwesomeIcon(name: nameOfIcon)
     }
     
+    func showKeypad(){
+        keypad.isHidden = !keypad.isHidden
+        keypad.delegate = self
+        memView.isHidden = !memView.isHidden
+        
+        
+    }
+    
     // Mark:- Nav bar buttons
     @IBOutlet var runBtn: UIBarButtonItem! {
         didSet {
@@ -265,6 +292,9 @@ class CPUViewController: UIViewController {
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
+        //test
+        showKeypad()
+        
         //print(codeEditor.text)
        cpuProjectModel.sourceStr = codeEditor.text
         cpuAssembler.microAssemble()
@@ -427,6 +457,12 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
         return lines.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentIndex = indexPath
+//        showKeypad()
+//        print(currentIndex)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let line = lines[indexPath.row]
         if mnemonToMemControlMap.keys.contains(line.uppercased()) || mnemonToDecControlMap.keys.contains(line.uppercased()){
@@ -438,6 +474,7 @@ extension CPUViewController : UITableViewDataSource, UITableViewDelegate{
             
             cell.textField.text = copyMicroCodeLine[cell.line] == -1 ? "" : String(copyMicroCodeLine[cell.line]!)
             cell.delegate = self
+            cell.cellIndex = indexPath
             
             return cell
         }else{
@@ -470,6 +507,12 @@ extension CPUViewController : LineTableDelegate{
         
     }
     
+    func setCurrentIndex(index : IndexPath) {
+        currentIndex = index
+        showKeypad()
+        
+    }
+    
     
     
 }
@@ -481,9 +524,9 @@ extension CPUViewController : UITextViewDelegate{
         if let selectedRange = codeEditor.selectedTextRange {
             let cursorPosition = codeEditor.offset(from: codeEditor.beginningOfDocument, to: selectedRange.start)
             
-            for char in codeEditor.text{
-                
-            }
+//            for char in codeEditor.text{
+//
+//            }
             print("\(cursorPosition)")
         }
 //        if codeEditor.text.last == " " || codeEditor.text.last == "," {

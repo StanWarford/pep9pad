@@ -228,6 +228,8 @@
 		753780661E96F862002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780651E96F862002E1968 /* ViewController.swift */; };
 		753780681E96F873002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780671E96F873002E1968 /* SecondViewController.swift */; };
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
+		A00A1E34218641C60072A283 /* keypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A1E33218641C60072A283 /* keypad.swift */; };
+		A00A1E36218642130072A283 /* keypadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A1E35218642130072A283 /* keypadDelegate.swift */; };
 		A013EB15215C0551008CF1A6 /* CPUEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB14215C0551008CF1A6 /* CPUEnum.swift */; };
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
 		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
@@ -507,6 +509,8 @@
 		753780671E96F873002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		753780691E96F951002E1968 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		A00A1E33218641C60072A283 /* keypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keypad.swift; sourceTree = "<group>"; };
+		A00A1E35218642130072A283 /* keypadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keypadDelegate.swift; sourceTree = "<group>"; };
 		A013EB14215C0551008CF1A6 /* CPUEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUEnum.swift; sourceTree = "<group>"; };
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
@@ -845,6 +849,7 @@
 				A013EB13215C0508008CF1A6 /* Enumerations */,
 				A0E82DA5217A5BC2003A6CEA /* CodeEditor */,
 				A04F8C5F217D32C800F1A3D6 /* NumberPad */,
+				A00A1E3021863BED0072A283 /* Keypad */,
 				A0D1F8B7217023B500151440 /* LineTable */,
 			);
 			name = CPUModels;
@@ -1088,6 +1093,15 @@
 			);
 			name = Examples;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A00A1E3021863BED0072A283 /* Keypad */ = {
+			isa = PBXGroup;
+			children = (
+				A00A1E33218641C60072A283 /* keypad.swift */,
+				A00A1E35218642130072A283 /* keypadDelegate.swift */,
+			);
+			name = Keypad;
 			sourceTree = "<group>";
 		};
 		A013EB13215C0508008CF1A6 /* Enumerations */ = {
@@ -1581,6 +1595,7 @@
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
 				753780681E96F873002E1968 /* SecondViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
+				A00A1E36218642130072A283 /* keypadDelegate.swift in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46D639FD1EA1BE0C00C44632 /* Pep9TabBarVCs.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
@@ -1593,6 +1608,7 @@
 				464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
+				A00A1E34218641C60072A283 /* keypad.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
