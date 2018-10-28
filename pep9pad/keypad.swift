@@ -25,6 +25,7 @@ class keypad: UIView {
     }
     @IBAction func doneButtonPressed(_ sender: Any) {
         delegate.hideKeyboard()
+        mCodeLabel.text = ""
     }
     @IBAction func backspacePressed(_ sender: Any) {
         delegate.backspacePressed(label: mCodeLabel)
