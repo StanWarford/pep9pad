@@ -232,6 +232,8 @@
 		A00A1E36218642130072A283 /* keypadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A1E35218642130072A283 /* keypadDelegate.swift */; };
 		A013EB15215C0551008CF1A6 /* CPUEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB14215C0551008CF1A6 /* CPUEnum.swift */; };
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
+		A02EECE721877C5500A3459A /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE621877C5500A3459A /* ButtonStackView.swift */; };
+		A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */; };
 		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
 		A042384121724D2800DAAECE /* LineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042384021724D2800DAAECE /* LineTable.swift */; };
 		A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04238422172683200DAAECE /* lineTableDelegate.swift */; };
@@ -513,6 +515,8 @@
 		A00A1E35218642130072A283 /* keypadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keypadDelegate.swift; sourceTree = "<group>"; };
 		A013EB14215C0551008CF1A6 /* CPUEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUEnum.swift; sourceTree = "<group>"; };
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
+		A02EECE621877C5500A3459A /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
+		A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStackViewBottom.swift; sourceTree = "<group>"; };
 		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
 		A042384021724D2800DAAECE /* LineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTable.swift; sourceTree = "<group>"; };
 		A04238422172683200DAAECE /* lineTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineTableDelegate.swift; sourceTree = "<group>"; };
@@ -1099,6 +1103,8 @@
 			isa = PBXGroup;
 			children = (
 				A00A1E33218641C60072A283 /* keypad.swift */,
+				A02EECE621877C5500A3459A /* ButtonStackView.swift */,
+				A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */,
 				A00A1E35218642130072A283 /* keypadDelegate.swift */,
 			);
 			name = Keypad;
@@ -1614,6 +1620,7 @@
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
 				A013EB18215C1697008CF1A6 /* Maps.swift in Sources */,
+				A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4668AA79212138090055A088 /* StackCell.swift in Sources */,
@@ -1638,6 +1645,7 @@
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
+				A02EECE721877C5500A3459A /* ButtonStackView.swift in Sources */,
 				A042383F21724C8300DAAECE /* LineTableView.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
