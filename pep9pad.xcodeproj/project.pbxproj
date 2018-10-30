@@ -234,6 +234,7 @@
 		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
 		A02EECE721877C5500A3459A /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE621877C5500A3459A /* ButtonStackView.swift */; };
 		A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */; };
+		A02F6EC1218825470077A375 /* SimulatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F6EC0218825470077A375 /* SimulatorDelegate.swift */; };
 		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
 		A042384121724D2800DAAECE /* LineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042384021724D2800DAAECE /* LineTable.swift */; };
 		A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04238422172683200DAAECE /* lineTableDelegate.swift */; };
@@ -517,6 +518,7 @@
 		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
 		A02EECE621877C5500A3459A /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
 		A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStackViewBottom.swift; sourceTree = "<group>"; };
+		A02F6EC0218825470077A375 /* SimulatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorDelegate.swift; sourceTree = "<group>"; };
 		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
 		A042384021724D2800DAAECE /* LineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTable.swift; sourceTree = "<group>"; };
 		A04238422172683200DAAECE /* lineTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineTableDelegate.swift; sourceTree = "<group>"; };
@@ -849,6 +851,7 @@
 				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
 				A0DE5D9F2159A6C600DF78D9 /* OneByteModel */,
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
+				A02F6EC0218825470077A375 /* SimulatorDelegate.swift */,
 				A013EB16215C09B5008CF1A6 /* CPUCode */,
 				A013EB13215C0508008CF1A6 /* Enumerations */,
 				A0E82DA5217A5BC2003A6CEA /* CodeEditor */,
@@ -1622,6 +1625,7 @@
 				A013EB18215C1697008CF1A6 /* Maps.swift in Sources */,
 				A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
+				A02F6EC1218825470077A375 /* SimulatorDelegate.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4668AA79212138090055A088 /* StackCell.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,

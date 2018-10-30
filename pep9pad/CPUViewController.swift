@@ -9,7 +9,10 @@
 import UIKit
 import FontAwesome_swift
 
-class CPUViewController: UIViewController, keypadDelegate {
+class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
+    var codeList: [CPUCode]!
+    var cycleCount: Int!
+    
     func backspacePressed( label: UILabel) {
         lineTable.scrollToRow(at: currentIndex, at: .middle, animated: true)
         let cell = lineTable.cellForRow(at: currentIndex) as? numericLineCell
@@ -54,6 +57,7 @@ class CPUViewController: UIViewController, keypadDelegate {
     
     var currentIndex: IndexPath = IndexPath(row: 0, section: 0)
     
+    var microAssembler = CPUAssemblerModel()
 
     let clockCellId = "clock"
     let numericCellId = "number"
@@ -91,7 +95,9 @@ class CPUViewController: UIViewController, keypadDelegate {
         setupLines()
         setupLineTable()
         setupCopyMicroCodeLine()
-       
+        
+        setupAssembler()
+        
         initEnumMnemonMaps(currentBusSize: currentCPUSize)
     }
     
@@ -136,6 +142,13 @@ class CPUViewController: UIViewController, keypadDelegate {
     @IBOutlet weak var lineTable: UITableView!
     
     //Mark :- Set Up Funcs
+    func setupAssembler(){
+        //microAssembler = CPUAssemblerModel()
+        microAssembler.sim = self
+        cycleCount = 0
+        codeList = [CPUCode]()
+    }
+    
     /// This function adds a title and another button to the navigationItem.
     func setupNavBar() {
         self.navigationItem.title = "Pep9 CPU"
@@ -321,16 +334,21 @@ class CPUViewController: UIViewController, keypadDelegate {
         showKeypad()
         
         //print(codeEditor.text)
-       cpuProjectModel.sourceStr = codeEditor.text
-        cpuAssembler.microAssemble()
-        CPUScrollView.subviews[0].setNeedsDisplay()
-//        let subViews = CPUScrollView.subviews
-//        for subview in subViews{
-//            subview.removeFromSuperview()
-//        }
-//        oneByteCPUDisplay.re
-//        CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
-//        CPUScrollView.addSubview(oneByteCPUDisplay)
+        codeEditor.text += "\n"
+        cpuProjectModel.sourceStr = codeEditor.text
+        if microAssembler.microAssemble() {
+            // Do Sim Stuff
+            if currentCPUSize == .oneByte {
+                oneByteCPUDisplay.simulate(codeList: codeList!, cycleCount: cycleCount!)
+                oneByteCPUDisplay.setNeedsDisplay()
+            }else{
+                //Two Byte Implementation
+            }
+        }else{
+            
+        }
+        
+        //CPUScrollView.subviews[0].setNeedsDisplay()
     }
     
     

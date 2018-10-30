@@ -131,9 +131,9 @@ class CPUDetailController : UIViewController {
     // MARK: - IBActions -
 
     @IBAction func runBtnPressed(_ sender: UIBarButtonItem) {
-        if cpuAssembler.microAssemble() {
-            
-        }
+//        if cpuAssembler.microAssemble() {
+//            
+//        }
     }
     
     @IBAction func debugBtnPressed(_ sender: UIBarButtonItem) {

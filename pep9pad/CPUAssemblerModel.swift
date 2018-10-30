@@ -8,9 +8,11 @@
 
 import Foundation
 
-var cpuAssembler = CPUAssemblerModel()
+//var cpuAssembler = CPUAssemblerModel()
 
 class CPUAssemblerModel {
+    
+    var sim : SimulatorDelegate!
     
     // All lexical tokens for the CPUAssemblerModel.
     enum ELexicalToken {
@@ -631,6 +633,11 @@ class CPUAssemblerModel {
                 //appendMessageInSourceCodePaneAt(lineNum, errorString)
                 print("assemble failed")
                 return false
+            }
+            
+            sim.codeList!.append(code)
+            if code.isMicrocode() {
+                sim.cycleCount += 1
             }
 //            Sim::codeList.append(code);
 //            if (code->isMicrocode()) {

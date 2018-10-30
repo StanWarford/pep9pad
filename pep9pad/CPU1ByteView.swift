@@ -9,10 +9,9 @@
 import UIKit
 
 @IBDesignable
-class CPU1ByteView: CPUView {
-    
+class CPU1ByteView: CPUView{
+        
     var thisRect: CGRect!
-    
     // MARK: - Initializers -
     
     override init(frame: CGRect) {
@@ -163,6 +162,21 @@ class CPU1ByteView: CPUView {
             }
         default:
             break
+        }
+    }
+    
+    func simulate(codeList : [CPUCode], cycleCount : Int){
+        for code in codeList{
+            if code.isMicrocode() {
+                let microCodeLine = code as! MicroCode
+                for mnemon in microCodeLine.mnemonicMap.keys {
+                    if microCodeLine.mnemonicMap[mnemon] != -1 {
+                        let value = String(microCodeLine.mnemonicMap[mnemon]!)
+                        updateCPU(line: mnemon, value: value)
+                    }
+                
+                }
+            }
         }
     }
     
