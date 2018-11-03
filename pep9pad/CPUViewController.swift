@@ -110,6 +110,8 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         lineTableView.addBorderRight()
 //        memory.addBorderTop()
 //        memory.addBorderRight()
+        memPadContainer.addBorderTop()
+        memPadContainer.addBorderRight()
         codeEditor.superview?.addBorderRight()
        
         let border = CALayer()
@@ -479,10 +481,10 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         
         //remove stuff
         attributedText.removeAttribute(NSAttributedString.Key.backgroundColor, range: attributedRange)
-        attributedText.removeAttribute(NSAttributedString.Key.foregroundColor, range: attributedRange)
+        //attributedText.removeAttribute(NSAttributedString.Key.foregroundColor, range: attributedRange)
 
         attributedText.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.CPUColors.aluColor, range: newRange)
-        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: newRange)
+        //attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: newRange)
         
         codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
         

@@ -491,7 +491,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="153.5" height="284"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="number" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="number" id="2Hz-BL-3lU" customClass="numericLineCell" customModule="pep9pad" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="number" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="number" id="2Hz-BL-3lU" customClass="numericLineCell" customModule="pep9pad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="153.5" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Hz-BL-3lU" id="dnd-Hn-3hR">
@@ -535,7 +535,7 @@
                                                     <outlet property="textField" destination="qdr-ga-pDJ" id="q1w-Wr-cMN"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="clock" id="cCd-55-s1S" customClass="clockLineCell" customModule="pep9pad" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="clock" id="cCd-55-s1S" customClass="clockLineCell" customModule="pep9pad" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="153.5" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cCd-55-s1S" id="RPx-Fh-nLk">
