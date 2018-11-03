@@ -634,8 +634,26 @@
                                     <action selector="runBtnPressed:" destination="Crp-0P-M8w" id="KM5-lf-TKQ"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="debug" id="mXk-Xv-l0w"/>
-                            <barButtonItem title="stop" id="kEf-co-yiJ"/>
+                            <barButtonItem title="debug" id="mXk-Xv-l0w">
+                                <connections>
+                                    <action selector="debugBtnPressed:" destination="Crp-0P-M8w" id="snc-uy-CJU"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="stop" id="kEf-co-yiJ">
+                                <connections>
+                                    <action selector="stopBtnPressed:" destination="Crp-0P-M8w" id="Zkw-Xc-g2Q"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Single Step" id="ZHY-fo-H3y">
+                                <connections>
+                                    <action selector="singleStepBtnPressed:" destination="Crp-0P-M8w" id="QU0-cq-Am5"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Resume" id="ewz-6v-yha">
+                                <connections>
+                                    <action selector="resumeBtnPressed:" destination="Crp-0P-M8w" id="faQ-gK-Lg9"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="fgy-hD-moK"/>
@@ -673,9 +691,11 @@
                         <outlet property="lineTableView" destination="1QP-4c-LJh" id="E01-h7-2OL"/>
                         <outlet property="memPadContainer" destination="MI6-iK-UP1" id="T73-JH-AkD"/>
                         <outlet property="memView" destination="i4j-NV-19n" id="Yjc-M8-slK"/>
+                        <outlet property="resumeBtn" destination="ewz-6v-yha" id="1wD-kp-GMa"/>
                         <outlet property="runBtn" destination="7xb-aH-y0v" id="JOr-HF-lxH"/>
                         <outlet property="settingsBtn" destination="0Vy-IZ-wVk" id="tSp-qU-lZV"/>
-                        <outlet property="stop" destination="kEf-co-yiJ" id="gYS-Up-Zdm"/>
+                        <outlet property="singleStepBtn" destination="ZHY-fo-H3y" id="xx0-qn-mLi"/>
+                        <outlet property="stopBtn" destination="kEf-co-yiJ" id="ubC-wD-jrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDH-mv-Zj3" userLabel="First Responder" sceneMemberID="firstResponder"/>

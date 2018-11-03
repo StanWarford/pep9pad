@@ -12,6 +12,10 @@ import UIKit
 class CPU1ByteView: CPUView{
         
     var thisRect: CGRect!
+    var codeList : [CPUCode]!
+    var cycleCount = 0
+    var codeIndex = 0
+    var codeLine = 0
     // MARK: - Initializers -
     
     override init(frame: CGRect) {
@@ -40,7 +44,7 @@ class CPU1ByteView: CPUView{
         switch (line){
         case .LoadCk:
              CPU1ByteRenderer.loadCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-             CPU1ByteRenderer.loadCkText = value
+             CPU1ByteRenderer.loadCkText = value == "1" ? "✓" : value
         case .C:
             CPU1ByteRenderer.cLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
             CPU1ByteRenderer.cBusColor = emptyValue ? UIColor.CPUColors.noFillColor : CPU1ByteRenderer.cMuxColor
@@ -67,11 +71,11 @@ class CPU1ByteView: CPUView{
             }
         case .MARCk:
             CPU1ByteRenderer.mARCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.MARCkText = value
+            CPU1ByteRenderer.MARCkText = value == "1" ? "✓" : value
             
         case .MDRCk:
             CPU1ByteRenderer.mDRCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.MDRCkText = value
+            CPU1ByteRenderer.MDRCkText = value == "1" ? "✓" : value
             
         case .AMux:
             //AMux
@@ -121,15 +125,15 @@ class CPU1ByteView: CPUView{
         
         case .SCk:
             CPU1ByteRenderer.sCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.sCkText = value
+            CPU1ByteRenderer.sCkText = value == "1" ? "✓" : value
             
         case .CCk:
             CPU1ByteRenderer.cCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.cCkText = value
+            CPU1ByteRenderer.cCkText = value == "1" ? "✓" : value
             
         case .VCk:
             CPU1ByteRenderer.vCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.vCkText = value
+            CPU1ByteRenderer.vCkText = value == "1" ? "✓" : value
             
         case .AndZ:
             CPU1ByteRenderer.andZLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
@@ -137,11 +141,11 @@ class CPU1ByteView: CPUView{
             
         case .ZCk:
             CPU1ByteRenderer.zCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.zCkText = value
+            CPU1ByteRenderer.zCkText = value == "1" ? "✓" : value
             
         case .NCk:
             CPU1ByteRenderer.nCkLineColor = emptyValue ? UIColor.CPUColors.grayArrow : UIColor.CPUColors.blackArrow
-            CPU1ByteRenderer.nCkText = value
+            CPU1ByteRenderer.nCkText = value == "1" ? "✓" : value
             
         case .MemWrite:
             if CPU1ByteRenderer.memRdText == ""{
@@ -163,6 +167,36 @@ class CPU1ByteView: CPUView{
         default:
             break
         }
+    }
+    func loadSimulator(codeList : [CPUCode], cycleCount : Int){
+        self.codeList = codeList
+        self.cycleCount = cycleCount
+        self.codeIndex = 0
+        self.codeLine = 0
+    }
+    
+    func singleStep() -> Int{
+        //find microCode Line
+        for i in codeIndex..<codeList.count{
+            if codeList[i].isMicrocode(){
+                codeIndex = i
+                break
+            }
+                codeLine = codeLine + 1
+            
+        }
+        
+        let microCodeLine = codeList[codeIndex] as! MicroCode
+        for mnemon in microCodeLine.mnemonicMap.keys{
+            let value = microCodeLine.mnemonicMap[mnemon] == -1 ? "" : String(microCodeLine.mnemonicMap[mnemon]!)
+            
+            updateCPU(line: mnemon, value: value)
+        }
+        
+        codeIndex = codeIndex + 1
+        codeLine = codeLine + 1
+        
+        return codeLine
     }
     
     func simulate(codeList : [CPUCode], cycleCount : Int){

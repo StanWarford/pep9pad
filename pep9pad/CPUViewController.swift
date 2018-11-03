@@ -13,6 +13,8 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     var codeList: [CPUCode]!
     var cycleCount: Int!
     
+    var codeLine = 0
+    
     func backspacePressed( label: UILabel) {
         lineTable.scrollToRow(at: currentIndex, at: .middle, animated: true)
         let cell = lineTable.cellForRow(at: currentIndex) as? numericLineCell
@@ -58,7 +60,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     var currentIndex: IndexPath = IndexPath(row: 0, section: 0)
     
     var microAssembler = CPUAssemblerModel()
-
+   
     let clockCellId = "clock"
     let numericCellId = "number"
     
@@ -158,7 +160,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         self.testBtn = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(self.btnPressed))
         
         UIView.animate(withDuration: 2.0) {
-            self.navigationItem.leftBarButtonItems?.append(self.testBtn)
+            self.navigationItem.leftBarButtonItems?.insert(self.testBtn, at: 0)
         }
     }
     func setupCPU(){
@@ -277,11 +279,28 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             setButtonIcon(forBarBtnItem: self.debugBtn, nameOfIcon: .bug, ofSize: 20)
         }
     }
-    @IBOutlet var stop: UIBarButtonItem! {
-        didSet {
-            self.stop.image = UIImage(named: "ham")
+  
+    @IBOutlet weak var stopBtn: UIBarButtonItem! {
+        didSet{
+             setButtonIcon(forBarBtnItem: self.stopBtn, nameOfIcon: .stop, ofSize: 20)
+             stopBtn.isEnabled = false
         }
     }
+    
+    @IBOutlet weak var singleStepBtn: UIBarButtonItem!{
+        didSet{
+            singleStepBtn.isEnabled = false
+            singleStepBtn.tintColor = UIColor.clear
+        }
+    }
+    
+    @IBOutlet weak var resumeBtn: UIBarButtonItem!{
+        didSet{
+            resumeBtn.isEnabled = false
+            resumeBtn.tintColor = UIColor.clear
+        }
+    }
+    
     @IBOutlet var calcBtn: UIBarButtonItem! {
         didSet {
             setButtonIcon(forBarBtnItem: self.calcBtn, nameOfIcon: .calculator, ofSize: 20)
@@ -326,14 +345,23 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         
         alertController.popoverPresentationController?.barButtonItem = sender
         self.present(alertController, animated: true, completion: nil)
+        
+    }
+   
+    
+    @IBAction func singleStepBtnPressed(_ sender: Any) {
+        codeLine = oneByteCPUDisplay.singleStep()
+        oneByteCPUDisplay.setNeedsDisplay()
+        highlightLine(index : codeLine)
+        if codeLine == codeList.count{
+            stopDebugging()
+        }
 
+    }
+    @IBAction func resumeBtnPressed(_ sender: Any) {
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
-        //test
-        showKeypad()
-        
-        //print(codeEditor.text)
         codeEditor.text += "\n"
         cpuProjectModel.sourceStr = codeEditor.text
         if microAssembler.microAssemble() {
@@ -351,8 +379,15 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         //CPUScrollView.subviews[0].setNeedsDisplay()
     }
     
+    @IBAction func debugBtnPressed(_ sender: Any) {
+        startDebugging()
+    }
     
     
+    @IBAction func stopBtnPressed(_ sender: Any) {
+        stopDebugging()
+        
+    }
     
     
     
@@ -419,7 +454,73 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         CPUScrollView.maximumZoomScale = 1.5
         CPUScrollView.zoomScale = minScale
     }
-    
+    func highlightLine(index : Int){
+        var firstNewLine = index-1
+        
+        var startIndex = 0
+        var endIndex = 0
+        
+        for i in 0..<codeEditor.text!.count {
+            if codeEditor.text[i] == "\n"{
+                if firstNewLine == 1{
+                    startIndex = i
+                    firstNewLine = firstNewLine - 1
+                }else if firstNewLine == 0{
+                    endIndex = i
+                    break
+                }else{
+                    firstNewLine = firstNewLine - 1
+                }
+            }
+        }
+        let attributedText = codeEditor.attributedText.mutableCopy() as! NSMutableAttributedString
+        let attributedRange = NSRange(location: 0, length: attributedText.length)
+        let newRange = NSRange(location: startIndex+1, length: endIndex-startIndex)
+        
+        //remove stuff
+        attributedText.removeAttribute(NSAttributedString.Key.backgroundColor, range: attributedRange)
+        attributedText.removeAttribute(NSAttributedString.Key.foregroundColor, range: attributedRange)
+
+        attributedText.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.CPUColors.aluColor, range: newRange)
+        attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: newRange)
+        
+        codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
+        
+    }
+    func startDebugging(){
+        // Toggle Buttons
+        singleStepBtn.isEnabled = true
+        singleStepBtn.tintColor = nil
+        
+        resumeBtn.isEnabled = true
+        resumeBtn.tintColor = nil
+        
+        debugBtn.isEnabled = false
+        runBtn.isEnabled = false
+        stopBtn.isEnabled = true
+        
+        
+            //codeEditor.text += "\n"
+            cpuProjectModel.sourceStr = codeEditor.text
+            if microAssembler.microAssemble() {
+                oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!)
+            }else{
+                //Errors
+            }
+        
+    }
+    func stopDebugging(){
+        singleStepBtn.isEnabled = false
+        singleStepBtn.tintColor = UIColor.clear
+        
+        resumeBtn.isEnabled = false
+        resumeBtn.tintColor = UIColor.clear
+        
+        debugBtn.isEnabled = true
+        runBtn.isEnabled = true
+        stopBtn.isEnabled = false
+
+    }
     func copyToMicroCode(){
         //Order Matters
         var microCodeLine = ""
