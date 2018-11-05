@@ -505,7 +505,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             //codeEditor.text += "\n"
             cpuProjectModel.sourceStr = codeEditor.text
             if microAssembler.microAssemble() {
-                oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!)
+                oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!, memView: memoryView)
                 oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Errors

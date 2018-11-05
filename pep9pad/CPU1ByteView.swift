@@ -16,6 +16,7 @@ class CPU1ByteView: CPUView{
     var cycleCount = 0
     var codeIndex = 0
     var codeLine = 0
+    var memoryView : MemoryView!
     // MARK: - Initializers -
     
     override init(frame: CGRect) {
@@ -235,12 +236,12 @@ class CPU1ByteView: CPUView{
             break
         }
     }
-    func loadSimulator(codeList : [CPUCode], cycleCount : Int){
+    func loadSimulator(codeList : [CPUCode], cycleCount : Int, memView: MemoryView){
         self.codeList = codeList
         self.cycleCount = cycleCount
         self.codeIndex = 0
         self.codeLine = 0
-        
+        self.memoryView = memView
         for code in codeList {
             if code is UnitPreCode{
                 let unitPreCode = code as! UnitPreCode
@@ -265,7 +266,11 @@ class CPU1ByteView: CPUView{
             
             if spec is MemSpecification{
                 let memSpec = spec as! MemSpecification
-                
+                let value = memSpec.memValue
+//                for bytes in 0..<memSpec.numBytes{
+//                    let valForByte = 0 ^ value
+//                }
+                memoryView.update()
             }
         }
     }
