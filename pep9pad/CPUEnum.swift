@@ -58,6 +58,7 @@ enum EMask : Int // For ALU function 15
         case Pre
         case Post
         case Mem
+        case Acc // For CPUVIEW only
         case X
         case SP
         case PC
@@ -69,6 +70,7 @@ enum EMask : Int // For ALU function 15
         case T5
         case T6
         case N
+        case cBit // FOR CPUVIEW ONLY
         case Z
         case V
         case S

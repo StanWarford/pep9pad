@@ -506,9 +506,11 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             cpuProjectModel.sourceStr = codeEditor.text
             if microAssembler.microAssemble() {
                 oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!)
+                oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Errors
             }
+        
         
     }
     func stopDebugging(){

@@ -649,7 +649,7 @@ class CPUAssemblerModel {
 //        if (!sourceCode.endsWith("\n")) {
 //            editor->appendPlainText("\n");
 //        }
-        print("Asseble Success")
+        print("Assemble Success")
         return true
     }
 

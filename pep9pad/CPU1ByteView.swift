@@ -164,6 +164,73 @@ class CPU1ByteView: CPUView{
                 CPU1ByteRenderer.dataBusColor = emptyValue ? UIColor.CPUColors.noFillColor : UIColor.CPUColors.dataBusColor
                 
             }
+        //Registers
+        case .Acc:
+            if intValue != nil {
+                CPU1ByteRenderer.accumulatorText = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .X:
+            if intValue != nil {
+                 CPU1ByteRenderer.indexRegisterText = "0x" + String(format:"%04X", intValue!)
+            }
+           
+        case .SP:
+            if intValue != nil {
+                CPU1ByteRenderer.stackPointerText = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .PC:
+            if intValue != nil {
+                CPU1ByteRenderer.programCounterText = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .IR:
+            if intValue != nil {
+                CPU1ByteRenderer.instructionRegisterText = "0x" + String(format:"%06X", intValue!)
+            }
+            
+        case .T1:
+            if intValue != nil {
+                CPU1ByteRenderer.t1Text = "0x" + String(format:"%02X", intValue!)
+            }
+            
+        case .T2:
+            if intValue != nil {
+                CPU1ByteRenderer.t2Text = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .T3:
+            if intValue != nil {
+                CPU1ByteRenderer.t3Text = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .T4:
+            if intValue != nil {
+                CPU1ByteRenderer.t4Text = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .T5:
+            if intValue != nil {
+                CPU1ByteRenderer.t5Text = "0x" + String(format:"%04X", intValue!)
+            }
+            
+        case .T6:
+            if intValue != nil {
+                CPU1ByteRenderer.t6Text = "0x" + String(format:"%04X", intValue!)
+            }
+        //Bits
+        case .N:
+            CPU1ByteRenderer.nBit = value
+        case .Z:
+            CPU1ByteRenderer.zBit = value
+        case .V:
+            CPU1ByteRenderer.vBit = value
+        case .S:
+            CPU1ByteRenderer.sBit = value
+        case .cBit:
+            CPU1ByteRenderer.cBit = value
+            
         default:
             break
         }
@@ -173,6 +240,34 @@ class CPU1ByteView: CPUView{
         self.cycleCount = cycleCount
         self.codeIndex = 0
         self.codeLine = 0
+        
+        for code in codeList {
+            if code is UnitPreCode{
+                let unitPreCode = code as! UnitPreCode
+                handleUnitPreCode(unitPreCode: unitPreCode)
+            }
+        }
+    }
+    
+    func handleUnitPreCode(unitPreCode : UnitPreCode){
+        for spec in unitPreCode.unitPreList{
+            if spec is RegSpecification{
+                let regSpec = spec as! RegSpecification
+                let line = regSpec.regAddress == .A ? .Acc : regSpec.regAddress
+                updateCPU(line: line, value: String(regSpec.regValue))
+            }
+            
+            if spec is StatusBitSpecification{
+                let statSpec = spec as! StatusBitSpecification
+                let line = statSpec.nzvcsAddress == .C ? .cBit : statSpec.nzvcsAddress
+                updateCPU(line: line, value: statSpec.nzvcsValue == true ? "1" : "0")
+            }
+            
+            if spec is MemSpecification{
+                let memSpec = spec as! MemSpecification
+                
+            }
+        }
     }
     
     func singleStep() -> Int{
