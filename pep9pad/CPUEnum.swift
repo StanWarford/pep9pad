@@ -6,8 +6,9 @@
 //  Copyright © 2018 Pepperdine University. All rights reserved.
 //
 
-enum EMask : Int // For ALU function 15
+enum EMask : UInt8 // For ALU function 15
     {
+        case SMask = 0x10
         case NMask = 0x08
         case ZMask = 0x04
         case VMask = 0x02

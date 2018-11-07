@@ -18,6 +18,7 @@ class OneByteSimulator {
      var NZVCSbits : UInt8
      
      //Control Signals
+    //var code : [CPUEMnemonic: UInt8]!
      var controlSignals : [UInt8]
      var clockSignals  : [Bool]
      
