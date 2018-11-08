@@ -361,6 +361,15 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
 
     }
     @IBAction func resumeBtnPressed(_ sender: Any) {
+        let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
+        self.present(vc!, animated: true) {
+            if let spvc = vc as! UISplitViewController? {
+                let nav = spvc.viewControllers[0] as! UINavigationController
+                let hm = nav.viewControllers[0] as! HelpMasterController
+                //hm.setup(mvc: self)
+                
+            }
+        }
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
