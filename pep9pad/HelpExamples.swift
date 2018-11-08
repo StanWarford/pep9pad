@@ -6,6 +6,7 @@
 
 import Foundation
 
+//pep9 computer
 enum Figures: String {
     
     case FIG433  = "Figure 4.33"
@@ -235,6 +236,60 @@ enum FigureDescriptions: String {
 }
 
 
+//CPU
+//12.5 -- 12.14
+enum OneByteExamples: String{
+    case FIG1205 = "Figure 12.05"
+    case FIG1207 = "Figure 12.07"
+    case FIG1209 = "Figure 12.09"
+    case FIG1210 = "Figure 12.10"
+    case FIG1211 = "Figure 12.11"
+    case FIG1212 = "Figure 12.12"
+    case FIG1214 = "Figure 12.14"
+    
+    static let allValues = [
+        FIG1205,
+        FIG1207,
+        FIG1209,
+        FIG1210,
+        FIG1211,
+        FIG1212,
+        FIG1214
+    ]
+    
+}
 
+enum OneByteDescriptions: String {
+    case FIG1205 = "The control signals to fetch the instruction specifier and increment PC by 1."
+    case FIG1207 = "Combining cycles of Figure 12.5."
+    case FIG1209 = "The control signals to implement the store byte instruction with direct addressing."
+    case FIG1210 = "The control signals to implement the store word instruction with direct addressing."
+    case FIG1211 = "The control signals to implement the add instruction with immediate addressing."
+    case FIG1212 = "The control signals to implement the load instruction with indirect addressing."
+    case FIG1214 = "The control signals to implement the load unary ASRA instruction"
+    
+    static let allValues = [
+        FIG1205,
+        FIG1207,
+        FIG1209,
+        FIG1210,
+        FIG1211,
+        FIG1212,
+        FIG1214
+    ]
+}
+
+// 12.20 -- 12.23
+enum TwoByteExamples: String{
+    case FIG1220 = "Figure 12.20"
+    case FIG1221 = "Figure 12.21"
+    case FIG1223 = "Figure 12.23"
+    
+    static let allValues = [
+        FIG1220,
+        FIG1221,
+        FIG1223
+    ]
+}
 
 

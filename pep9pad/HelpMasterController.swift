@@ -12,6 +12,9 @@ class HelpMasterController: UITableViewController {
     // MARK: - Internal Variables
     internal var helpDetail: HelpDetailController!
     internal var asmMasterVC: Pep9MasterController!
+    internal var cpuMasterVC: CPUViewController!
+    
+    internal var isCPU = false
     
     
     // MARK: - View Controller Lifecycle
@@ -27,13 +30,24 @@ class HelpMasterController: UITableViewController {
     
     func setup(mvc: Pep9MasterController) {
         self.asmMasterVC = mvc
+        isCPU = false
+    }
+    
+    func setup(cpu : CPUViewController){
+        self.cpuMasterVC = cpu
+        isCPU = true
     }
     
     
     
     func loadExample(_ text: String, ofType: PepFileType, io: String!, usesTerminal: Bool) {
-        self.asmMasterVC.loadExample(text, ofType: ofType, io: io, usesTerminal: usesTerminal)
-        self.close()
+        if !isCPU {
+            self.asmMasterVC.loadExample(text, ofType: ofType, io: io, usesTerminal: usesTerminal)
+            self.close()
+        }else {
+            self.cpuMasterVC.loadExample(text: text)
+            self.close()
+        }
     }
     
     

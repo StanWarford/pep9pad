@@ -366,7 +366,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             if let spvc = vc as! UISplitViewController? {
                 let nav = spvc.viewControllers[0] as! UINavigationController
                 let hm = nav.viewControllers[0] as! HelpMasterController
-                //hm.setup(mvc: self)
+                hm.setup(cpu: self)
                 
             }
         }
@@ -498,6 +498,12 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
         
     }
+    
+    func loadExample(text : String){
+        codeEditor.text.removeAll()
+        codeEditor.text = text
+    }
+    
     func startDebugging(){
         // Toggle Buttons
         singleStepBtn.isEnabled = true
