@@ -289,10 +289,12 @@ class CPU1ByteView: CPUView{
             
             if spec is MemSpecification{
                 let memSpec = spec as! MemSpecification
-                let value = memSpec.memValue
-//                for bytes in 0..<memSpec.numBytes{
-//                    let valForByte = 0 ^ value
-//                }
+                var bytesLeft = memSpec.numBytes - 1
+                for bytes in 0..<memSpec.numBytes {
+                    let value = ((memSpec.memValue >> (bytesLeft*8)) & 0xFF)
+                    machine.mem[memSpec.memAddress + bytes] = value
+                    bytesLeft -= 1
+                }
                 memoryView.update()
             }
         }
