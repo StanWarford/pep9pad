@@ -235,6 +235,70 @@
 		A02EECE721877C5500A3459A /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE621877C5500A3459A /* ButtonStackView.swift */; };
 		A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */; };
 		A02F6EC1218825470077A375 /* SimulatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F6EC0218825470077A375 /* SimulatorDelegate.swift */; };
+		A033D26B2194E26B00DFD052 /* prob1232e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22B2194E26500DFD052 /* prob1232e.pepcpu */; };
+		A033D26C2194E26B00DFD052 /* prob1232c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22C2194E26600DFD052 /* prob1232c.pepcpu */; };
+		A033D26D2194E26B00DFD052 /* prob1233f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22D2194E26600DFD052 /* prob1233f.pepcpu */; };
+		A033D26E2194E26B00DFD052 /* prob1235e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22E2194E26600DFD052 /* prob1235e.pepcpu */; };
+		A033D26F2194E26B00DFD052 /* prob1235j.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22F2194E26600DFD052 /* prob1235j.pepcpu */; };
+		A033D2702194E26B00DFD052 /* prob1232k.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2302194E26600DFD052 /* prob1232k.pepcpu */; };
+		A033D2712194E26B00DFD052 /* prob1231b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2312194E26600DFD052 /* prob1231b.pepcpu */; };
+		A033D2722194E26B00DFD052 /* fig1220.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2322194E26600DFD052 /* fig1220.pepcpu */; };
+		A033D2732194E26B00DFD052 /* prob1232j.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2332194E26600DFD052 /* prob1232j.pepcpu */; };
+		A033D2742194E26B00DFD052 /* prob1229b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2342194E26600DFD052 /* prob1229b.pepcpu */; };
+		A033D2752194E26B00DFD052 /* prob1232g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2352194E26600DFD052 /* prob1232g.pepcpu */; };
+		A033D2762194E26B00DFD052 /* prob1231e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2362194E26600DFD052 /* prob1231e.pepcpu */; };
+		A033D2772194E26B00DFD052 /* prob1229d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2372194E26600DFD052 /* prob1229d.pepcpu */; };
+		A033D2782194E26B00DFD052 /* prob1231f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2382194E26600DFD052 /* prob1231f.pepcpu */; };
+		A033D2792194E26B00DFD052 /* prob1229c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2392194E26600DFD052 /* prob1229c.pepcpu */; };
+		A033D27A2194E26B00DFD052 /* prob1232i.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23A2194E26600DFD052 /* prob1232i.pepcpu */; };
+		A033D27B2194E26B00DFD052 /* prob1235l.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23B2194E26700DFD052 /* prob1235l.pepcpu */; };
+		A033D27C2194E26B00DFD052 /* fig1209.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23C2194E26700DFD052 /* fig1209.pepcpu */; };
+		A033D27D2194E26B00DFD052 /* fig1214.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23D2194E26700DFD052 /* fig1214.pepcpu */; };
+		A033D27E2194E26B00DFD052 /* fig1212.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23E2194E26700DFD052 /* fig1212.pepcpu */; };
+		A033D27F2194E26B00DFD052 /* prob1232h.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23F2194E26700DFD052 /* prob1232h.pepcpu */; };
+		A033D2802194E26B00DFD052 /* prob1235d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2402194E26700DFD052 /* prob1235d.pepcpu */; };
+		A033D2812194E26B00DFD052 /* prob1232f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2412194E26700DFD052 /* prob1232f.pepcpu */; };
+		A033D2822194E26B00DFD052 /* fig1205.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2422194E26700DFD052 /* fig1205.pepcpu */; };
+		A033D2832194E26B00DFD052 /* prob1229a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2432194E26700DFD052 /* prob1229a.pepcpu */; };
+		A033D2842194E26B00DFD052 /* prob1231a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2442194E26700DFD052 /* prob1231a.pepcpu */; };
+		A033D2852194E26B00DFD052 /* prob1236b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2452194E26700DFD052 /* prob1236b.pepcpu */; };
+		A033D2862194E26B00DFD052 /* prob1232a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2462194E26700DFD052 /* prob1232a.pepcpu */; };
+		A033D2872194E26B00DFD052 /* prob1236a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2472194E26800DFD052 /* prob1236a.pepcpu */; };
+		A033D2882194E26B00DFD052 /* prob1233c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2482194E26800DFD052 /* prob1233c.pepcpu */; };
+		A033D2892194E26B00DFD052 /* fig1223.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2492194E26800DFD052 /* fig1223.pepcpu */; };
+		A033D28A2194E26B00DFD052 /* prob1235f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24A2194E26800DFD052 /* prob1235f.pepcpu */; };
+		A033D28B2194E26B00DFD052 /* prob1235c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24B2194E26800DFD052 /* prob1235c.pepcpu */; };
+		A033D28C2194E26B00DFD052 /* prob1229g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24C2194E26800DFD052 /* prob1229g.pepcpu */; };
+		A033D28D2194E26B00DFD052 /* prob1236d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24D2194E26800DFD052 /* prob1236d.pepcpu */; };
+		A033D28E2194E26B00DFD052 /* fig1207.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24E2194E26800DFD052 /* fig1207.pepcpu */; };
+		A033D28F2194E26B00DFD052 /* prob1231c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24F2194E26800DFD052 /* prob1231c.pepcpu */; };
+		A033D2902194E26B00DFD052 /* prob1229e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2502194E26800DFD052 /* prob1229e.pepcpu */; };
+		A033D2912194E26B00DFD052 /* prob1235a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2512194E26800DFD052 /* prob1235a.pepcpu */; };
+		A033D2922194E26B00DFD052 /* prob1235h.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2522194E26800DFD052 /* prob1235h.pepcpu */; };
+		A033D2932194E26B00DFD052 /* prob1229f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2532194E26800DFD052 /* prob1229f.pepcpu */; };
+		A033D2942194E26B00DFD052 /* fig1210.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2542194E26800DFD052 /* fig1210.pepcpu */; };
+		A033D2952194E26B00DFD052 /* prob1233d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2552194E26900DFD052 /* prob1233d.pepcpu */; };
+		A033D2962194E26B00DFD052 /* prob1235k.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2562194E26900DFD052 /* prob1235k.pepcpu */; };
+		A033D2972194E26B00DFD052 /* fig1211.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2572194E26900DFD052 /* fig1211.pepcpu */; };
+		A033D2982194E26B00DFD052 /* prob1230.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2582194E26900DFD052 /* prob1230.pepcpu */; };
+		A033D2992194E26B00DFD052 /* prob1231d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2592194E26900DFD052 /* prob1231d.pepcpu */; };
+		A033D29A2194E26B00DFD052 /* prob1235i.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25A2194E26900DFD052 /* prob1235i.pepcpu */; };
+		A033D29B2194E26B00DFD052 /* prob1233b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25B2194E26900DFD052 /* prob1233b.pepcpu */; };
+		A033D29C2194E26B00DFD052 /* prob1232b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25C2194E26900DFD052 /* prob1232b.pepcpu */; };
+		A033D29D2194E26B00DFD052 /* prob1232d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25D2194E26900DFD052 /* prob1232d.pepcpu */; };
+		A033D29E2194E26B00DFD052 /* prob1233e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25E2194E26900DFD052 /* prob1233e.pepcpu */; };
+		A033D29F2194E26B00DFD052 /* prob1232l.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25F2194E26900DFD052 /* prob1232l.pepcpu */; };
+		A033D2A02194E26B00DFD052 /* prob1235b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2602194E26A00DFD052 /* prob1235b.pepcpu */; };
+		A033D2A12194E26B00DFD052 /* prob1234b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2612194E26A00DFD052 /* prob1234b.pepcpu */; };
+		A033D2A22194E26B00DFD052 /* prob1236c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2622194E26A00DFD052 /* prob1236c.pepcpu */; };
+		A033D2A32194E26B00DFD052 /* prob1233a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2632194E26A00DFD052 /* prob1233a.pepcpu */; };
+		A033D2A42194E26B00DFD052 /* prob1234a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2642194E26A00DFD052 /* prob1234a.pepcpu */; };
+		A033D2A52194E26B00DFD052 /* prob1235g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2652194E26A00DFD052 /* prob1235g.pepcpu */; };
+		A033D2A62194E26B00DFD052 /* prob1236e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2662194E26A00DFD052 /* prob1236e.pepcpu */; };
+		A033D2A72194E26B00DFD052 /* fig1221.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2672194E26A00DFD052 /* fig1221.pepcpu */; };
+		A033D2A82194E26B00DFD052 /* prob1236f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2682194E26A00DFD052 /* prob1236f.pepcpu */; };
+		A033D2A92194E26B00DFD052 /* prob1228.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2692194E26A00DFD052 /* prob1228.pepcpu */; };
+		A033D2AA2194E26B00DFD052 /* prob1231g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D26A2194E26B00DFD052 /* prob1231g.pepcpu */; };
 		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
 		A042384121724D2800DAAECE /* LineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042384021724D2800DAAECE /* LineTable.swift */; };
 		A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04238422172683200DAAECE /* lineTableDelegate.swift */; };
@@ -520,6 +584,70 @@
 		A02EECE621877C5500A3459A /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
 		A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStackViewBottom.swift; sourceTree = "<group>"; };
 		A02F6EC0218825470077A375 /* SimulatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorDelegate.swift; sourceTree = "<group>"; };
+		A033D22B2194E26500DFD052 /* prob1232e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232e.pepcpu; sourceTree = "<group>"; };
+		A033D22C2194E26600DFD052 /* prob1232c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232c.pepcpu; sourceTree = "<group>"; };
+		A033D22D2194E26600DFD052 /* prob1233f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233f.pepcpu; sourceTree = "<group>"; };
+		A033D22E2194E26600DFD052 /* prob1235e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235e.pepcpu; sourceTree = "<group>"; };
+		A033D22F2194E26600DFD052 /* prob1235j.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235j.pepcpu; sourceTree = "<group>"; };
+		A033D2302194E26600DFD052 /* prob1232k.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232k.pepcpu; sourceTree = "<group>"; };
+		A033D2312194E26600DFD052 /* prob1231b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231b.pepcpu; sourceTree = "<group>"; };
+		A033D2322194E26600DFD052 /* fig1220.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1220.pepcpu; sourceTree = "<group>"; };
+		A033D2332194E26600DFD052 /* prob1232j.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232j.pepcpu; sourceTree = "<group>"; };
+		A033D2342194E26600DFD052 /* prob1229b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229b.pepcpu; sourceTree = "<group>"; };
+		A033D2352194E26600DFD052 /* prob1232g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232g.pepcpu; sourceTree = "<group>"; };
+		A033D2362194E26600DFD052 /* prob1231e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231e.pepcpu; sourceTree = "<group>"; };
+		A033D2372194E26600DFD052 /* prob1229d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229d.pepcpu; sourceTree = "<group>"; };
+		A033D2382194E26600DFD052 /* prob1231f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231f.pepcpu; sourceTree = "<group>"; };
+		A033D2392194E26600DFD052 /* prob1229c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229c.pepcpu; sourceTree = "<group>"; };
+		A033D23A2194E26600DFD052 /* prob1232i.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232i.pepcpu; sourceTree = "<group>"; };
+		A033D23B2194E26700DFD052 /* prob1235l.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235l.pepcpu; sourceTree = "<group>"; };
+		A033D23C2194E26700DFD052 /* fig1209.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1209.pepcpu; sourceTree = "<group>"; };
+		A033D23D2194E26700DFD052 /* fig1214.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1214.pepcpu; sourceTree = "<group>"; };
+		A033D23E2194E26700DFD052 /* fig1212.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1212.pepcpu; sourceTree = "<group>"; };
+		A033D23F2194E26700DFD052 /* prob1232h.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232h.pepcpu; sourceTree = "<group>"; };
+		A033D2402194E26700DFD052 /* prob1235d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235d.pepcpu; sourceTree = "<group>"; };
+		A033D2412194E26700DFD052 /* prob1232f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232f.pepcpu; sourceTree = "<group>"; };
+		A033D2422194E26700DFD052 /* fig1205.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1205.pepcpu; sourceTree = "<group>"; };
+		A033D2432194E26700DFD052 /* prob1229a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229a.pepcpu; sourceTree = "<group>"; };
+		A033D2442194E26700DFD052 /* prob1231a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231a.pepcpu; sourceTree = "<group>"; };
+		A033D2452194E26700DFD052 /* prob1236b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236b.pepcpu; sourceTree = "<group>"; };
+		A033D2462194E26700DFD052 /* prob1232a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232a.pepcpu; sourceTree = "<group>"; };
+		A033D2472194E26800DFD052 /* prob1236a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236a.pepcpu; sourceTree = "<group>"; };
+		A033D2482194E26800DFD052 /* prob1233c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233c.pepcpu; sourceTree = "<group>"; };
+		A033D2492194E26800DFD052 /* fig1223.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1223.pepcpu; sourceTree = "<group>"; };
+		A033D24A2194E26800DFD052 /* prob1235f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235f.pepcpu; sourceTree = "<group>"; };
+		A033D24B2194E26800DFD052 /* prob1235c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235c.pepcpu; sourceTree = "<group>"; };
+		A033D24C2194E26800DFD052 /* prob1229g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229g.pepcpu; sourceTree = "<group>"; };
+		A033D24D2194E26800DFD052 /* prob1236d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236d.pepcpu; sourceTree = "<group>"; };
+		A033D24E2194E26800DFD052 /* fig1207.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1207.pepcpu; sourceTree = "<group>"; };
+		A033D24F2194E26800DFD052 /* prob1231c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231c.pepcpu; sourceTree = "<group>"; };
+		A033D2502194E26800DFD052 /* prob1229e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229e.pepcpu; sourceTree = "<group>"; };
+		A033D2512194E26800DFD052 /* prob1235a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235a.pepcpu; sourceTree = "<group>"; };
+		A033D2522194E26800DFD052 /* prob1235h.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235h.pepcpu; sourceTree = "<group>"; };
+		A033D2532194E26800DFD052 /* prob1229f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229f.pepcpu; sourceTree = "<group>"; };
+		A033D2542194E26800DFD052 /* fig1210.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1210.pepcpu; sourceTree = "<group>"; };
+		A033D2552194E26900DFD052 /* prob1233d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233d.pepcpu; sourceTree = "<group>"; };
+		A033D2562194E26900DFD052 /* prob1235k.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235k.pepcpu; sourceTree = "<group>"; };
+		A033D2572194E26900DFD052 /* fig1211.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1211.pepcpu; sourceTree = "<group>"; };
+		A033D2582194E26900DFD052 /* prob1230.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1230.pepcpu; sourceTree = "<group>"; };
+		A033D2592194E26900DFD052 /* prob1231d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231d.pepcpu; sourceTree = "<group>"; };
+		A033D25A2194E26900DFD052 /* prob1235i.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235i.pepcpu; sourceTree = "<group>"; };
+		A033D25B2194E26900DFD052 /* prob1233b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233b.pepcpu; sourceTree = "<group>"; };
+		A033D25C2194E26900DFD052 /* prob1232b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232b.pepcpu; sourceTree = "<group>"; };
+		A033D25D2194E26900DFD052 /* prob1232d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232d.pepcpu; sourceTree = "<group>"; };
+		A033D25E2194E26900DFD052 /* prob1233e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233e.pepcpu; sourceTree = "<group>"; };
+		A033D25F2194E26900DFD052 /* prob1232l.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232l.pepcpu; sourceTree = "<group>"; };
+		A033D2602194E26A00DFD052 /* prob1235b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235b.pepcpu; sourceTree = "<group>"; };
+		A033D2612194E26A00DFD052 /* prob1234b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1234b.pepcpu; sourceTree = "<group>"; };
+		A033D2622194E26A00DFD052 /* prob1236c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236c.pepcpu; sourceTree = "<group>"; };
+		A033D2632194E26A00DFD052 /* prob1233a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233a.pepcpu; sourceTree = "<group>"; };
+		A033D2642194E26A00DFD052 /* prob1234a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1234a.pepcpu; sourceTree = "<group>"; };
+		A033D2652194E26A00DFD052 /* prob1235g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235g.pepcpu; sourceTree = "<group>"; };
+		A033D2662194E26A00DFD052 /* prob1236e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236e.pepcpu; sourceTree = "<group>"; };
+		A033D2672194E26A00DFD052 /* fig1221.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1221.pepcpu; sourceTree = "<group>"; };
+		A033D2682194E26A00DFD052 /* prob1236f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236f.pepcpu; sourceTree = "<group>"; };
+		A033D2692194E26A00DFD052 /* prob1228.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1228.pepcpu; sourceTree = "<group>"; };
+		A033D26A2194E26B00DFD052 /* prob1231g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231g.pepcpu; sourceTree = "<group>"; };
 		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
 		A042384021724D2800DAAECE /* LineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTable.swift; sourceTree = "<group>"; };
 		A04238422172683200DAAECE /* lineTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineTableDelegate.swift; sourceTree = "<group>"; };
@@ -1017,6 +1145,7 @@
 			children = (
 				46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */,
 				46EC8A631C9895CC001405CE /* exer0804.pep */,
+				A033D22A2194E22C00DFD052 /* CPUExamples */,
 				46EC8A641C9895CC001405CE /* fig0433.pepb */,
 				46EC8A651C9895CC001405CE /* fig0433.peph */,
 				46539C931E9AF3A900718705 /* pep9os.pepo */,
@@ -1133,6 +1262,77 @@
 				A07500B72166A95B009BB75A /* CPUSimulator.swift */,
 			);
 			name = CPUCode;
+			sourceTree = "<group>";
+		};
+		A033D22A2194E22C00DFD052 /* CPUExamples */ = {
+			isa = PBXGroup;
+			children = (
+				A033D2422194E26700DFD052 /* fig1205.pepcpu */,
+				A033D24E2194E26800DFD052 /* fig1207.pepcpu */,
+				A033D23C2194E26700DFD052 /* fig1209.pepcpu */,
+				A033D2542194E26800DFD052 /* fig1210.pepcpu */,
+				A033D2572194E26900DFD052 /* fig1211.pepcpu */,
+				A033D23E2194E26700DFD052 /* fig1212.pepcpu */,
+				A033D23D2194E26700DFD052 /* fig1214.pepcpu */,
+				A033D2322194E26600DFD052 /* fig1220.pepcpu */,
+				A033D2672194E26A00DFD052 /* fig1221.pepcpu */,
+				A033D2492194E26800DFD052 /* fig1223.pepcpu */,
+				A033D2692194E26A00DFD052 /* prob1228.pepcpu */,
+				A033D2432194E26700DFD052 /* prob1229a.pepcpu */,
+				A033D2342194E26600DFD052 /* prob1229b.pepcpu */,
+				A033D2392194E26600DFD052 /* prob1229c.pepcpu */,
+				A033D2372194E26600DFD052 /* prob1229d.pepcpu */,
+				A033D2502194E26800DFD052 /* prob1229e.pepcpu */,
+				A033D2532194E26800DFD052 /* prob1229f.pepcpu */,
+				A033D24C2194E26800DFD052 /* prob1229g.pepcpu */,
+				A033D2582194E26900DFD052 /* prob1230.pepcpu */,
+				A033D2442194E26700DFD052 /* prob1231a.pepcpu */,
+				A033D2312194E26600DFD052 /* prob1231b.pepcpu */,
+				A033D24F2194E26800DFD052 /* prob1231c.pepcpu */,
+				A033D2592194E26900DFD052 /* prob1231d.pepcpu */,
+				A033D2362194E26600DFD052 /* prob1231e.pepcpu */,
+				A033D2382194E26600DFD052 /* prob1231f.pepcpu */,
+				A033D26A2194E26B00DFD052 /* prob1231g.pepcpu */,
+				A033D2462194E26700DFD052 /* prob1232a.pepcpu */,
+				A033D25C2194E26900DFD052 /* prob1232b.pepcpu */,
+				A033D22C2194E26600DFD052 /* prob1232c.pepcpu */,
+				A033D25D2194E26900DFD052 /* prob1232d.pepcpu */,
+				A033D22B2194E26500DFD052 /* prob1232e.pepcpu */,
+				A033D2412194E26700DFD052 /* prob1232f.pepcpu */,
+				A033D2352194E26600DFD052 /* prob1232g.pepcpu */,
+				A033D23F2194E26700DFD052 /* prob1232h.pepcpu */,
+				A033D23A2194E26600DFD052 /* prob1232i.pepcpu */,
+				A033D2332194E26600DFD052 /* prob1232j.pepcpu */,
+				A033D2302194E26600DFD052 /* prob1232k.pepcpu */,
+				A033D25F2194E26900DFD052 /* prob1232l.pepcpu */,
+				A033D2632194E26A00DFD052 /* prob1233a.pepcpu */,
+				A033D25B2194E26900DFD052 /* prob1233b.pepcpu */,
+				A033D2482194E26800DFD052 /* prob1233c.pepcpu */,
+				A033D2552194E26900DFD052 /* prob1233d.pepcpu */,
+				A033D25E2194E26900DFD052 /* prob1233e.pepcpu */,
+				A033D22D2194E26600DFD052 /* prob1233f.pepcpu */,
+				A033D2642194E26A00DFD052 /* prob1234a.pepcpu */,
+				A033D2612194E26A00DFD052 /* prob1234b.pepcpu */,
+				A033D2512194E26800DFD052 /* prob1235a.pepcpu */,
+				A033D2602194E26A00DFD052 /* prob1235b.pepcpu */,
+				A033D24B2194E26800DFD052 /* prob1235c.pepcpu */,
+				A033D2402194E26700DFD052 /* prob1235d.pepcpu */,
+				A033D22E2194E26600DFD052 /* prob1235e.pepcpu */,
+				A033D24A2194E26800DFD052 /* prob1235f.pepcpu */,
+				A033D2652194E26A00DFD052 /* prob1235g.pepcpu */,
+				A033D2522194E26800DFD052 /* prob1235h.pepcpu */,
+				A033D25A2194E26900DFD052 /* prob1235i.pepcpu */,
+				A033D22F2194E26600DFD052 /* prob1235j.pepcpu */,
+				A033D2562194E26900DFD052 /* prob1235k.pepcpu */,
+				A033D23B2194E26700DFD052 /* prob1235l.pepcpu */,
+				A033D2472194E26800DFD052 /* prob1236a.pepcpu */,
+				A033D2452194E26700DFD052 /* prob1236b.pepcpu */,
+				A033D2622194E26A00DFD052 /* prob1236c.pepcpu */,
+				A033D24D2194E26800DFD052 /* prob1236d.pepcpu */,
+				A033D2662194E26A00DFD052 /* prob1236e.pepcpu */,
+				A033D2682194E26A00DFD052 /* prob1236f.pepcpu */,
+			);
+			path = CPUExamples;
 			sourceTree = "<group>";
 		};
 		A04F8C5F217D32C800F1A3D6 /* NumberPad */ = {
@@ -1355,25 +1555,39 @@
 			files = (
 				D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */,
 				46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */,
+				A033D29F2194E26B00DFD052 /* prob1232l.pepcpu in Resources */,
 				46539C6A1E9AEED700718705 /* fig0512.pepo in Resources */,
+				A033D2842194E26B00DFD052 /* prob1231a.pepcpu in Resources */,
 				46539C6D1E9AEED700718705 /* fig0514b.pepo in Resources */,
 				46EC8AB61C9895CC001405CE /* fig0433.pepb in Resources */,
+				A033D2852194E26B00DFD052 /* prob1236b.pepcpu in Resources */,
 				46EC8AB71C9895CC001405CE /* fig0433.peph in Resources */,
+				A033D26C2194E26B00DFD052 /* prob1232c.pepcpu in Resources */,
 				46EC8AB81C9895CC001405CE /* fig0433.pepo in Resources */,
 				46EC8AB91C9895CC001405CE /* fig0435.pepb in Resources */,
+				A033D2AA2194E26B00DFD052 /* prob1231g.pepcpu in Resources */,
+				A033D2A52194E26B00DFD052 /* prob1235g.pepcpu in Resources */,
+				A033D2752194E26B00DFD052 /* prob1232g.pepcpu in Resources */,
 				46EC8ABA1C9895CC001405CE /* fig0435.peph in Resources */,
 				46539C6C1E9AEED700718705 /* fig0514a.pepo in Resources */,
 				46539C8F1E9AF19F00718705 /* fig0642.pepo in Resources */,
+				A033D29E2194E26B00DFD052 /* prob1233e.pepcpu in Resources */,
 				46539C7D1E9AEED700718705 /* fig0623.pepo in Resources */,
 				46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */,
+				A033D2A62194E26B00DFD052 /* prob1236e.pepcpu in Resources */,
 				462BA7631E2B2A3B00BBABCD /* fig0610.txt in Resources */,
+				A033D2A12194E26B00DFD052 /* prob1234b.pepcpu in Resources */,
 				46539C761E9AEED700718705 /* fig0608.pepo in Resources */,
 				46EC8ABC1C9895CC001405CE /* fig0436.pepb in Resources */,
+				A033D2722194E26B00DFD052 /* fig1220.pepcpu in Resources */,
 				46539C681E9AEED700718705 /* fig0510.pepo in Resources */,
+				A033D2742194E26B00DFD052 /* prob1229b.pepcpu in Resources */,
 				46EC8ABD1C9895CC001405CE /* fig0436.peph in Resources */,
 				46C76A661DAF173D0071C340 /* Pep9TabBar.storyboard in Resources */,
 				46EC8ABE1C9895CC001405CE /* fig0436.pepo in Resources */,
+				A033D29A2194E26B00DFD052 /* prob1235i.pepcpu in Resources */,
 				46539C661E9AEED700718705 /* fig0506.pepo in Resources */,
+				A033D2A82194E26B00DFD052 /* prob1236f.pepcpu in Resources */,
 				462BA7621E2B2A3B00BBABCD /* fig0608.txt in Resources */,
 				46EC8ABF1C9895CC001405CE /* fig0437.pepb in Resources */,
 				46539C731E9AEED700718705 /* fig0601.pepo in Resources */,
@@ -1387,11 +1601,13 @@
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
 				462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */,
 				46539C941E9AF3A900718705 /* pep9os.pepo in Resources */,
+				A033D28F2194E26B00DFD052 /* prob1231c.pepcpu in Resources */,
 				462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */,
 				46539C721E9AEED700718705 /* fig0527.pepo in Resources */,
 				462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */,
 				D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */,
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
+				A033D2892194E26B00DFD052 /* fig1223.pepcpu in Resources */,
 				D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */,
 				46EC8A601C989229001405CE /* fig0512.pep in Resources */,
 				46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */,
@@ -1403,6 +1619,7 @@
 				46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */,
 				46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */,
 				46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */,
+				A033D26F2194E26B00DFD052 /* prob1235j.pepcpu in Resources */,
 				46539C751E9AEED700718705 /* fig0606.pepo in Resources */,
 				46539C741E9AEED700718705 /* fig0604.pepo in Resources */,
 				46C76A541DA494130071C340 /* FontAwesome in Resources */,
@@ -1414,13 +1631,19 @@
 				46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */,
 				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
 				46539C6B1E9AEED700718705 /* fig0513.pepo in Resources */,
+				A033D2702194E26B00DFD052 /* prob1232k.pepcpu in Resources */,
 				462BA7671E2B2A3B00BBABCD /* fig0621.txt in Resources */,
 				462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
 				4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */,
+				A033D2782194E26B00DFD052 /* prob1231f.pepcpu in Resources */,
 				46C76A5D1DA711690071C340 /* FileSystem.storyboard in Resources */,
 				46539C8A1E9AF19F00718705 /* fig0632.pepo in Resources */,
+				A033D27C2194E26B00DFD052 /* fig1209.pepcpu in Resources */,
 				462BA7681E2B2A3B00BBABCD /* fig0623.txt in Resources */,
+				A033D28E2194E26B00DFD052 /* fig1207.pepcpu in Resources */,
+				A033D2A92194E26B00DFD052 /* prob1228.pepcpu in Resources */,
+				A033D26E2194E26B00DFD052 /* prob1235e.pepcpu in Resources */,
 				46539C7C1E9AEED700718705 /* fig0621.pepo in Resources */,
 				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
 				46539C7F1E9AEED700718705 /* fig0627.pepo in Resources */,
@@ -1433,81 +1656,122 @@
 				464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
+				A033D2A22194E26B00DFD052 /* prob1236c.pepcpu in Resources */,
 				4668AA752121322F0055A088 /* StackCell.xib in Resources */,
+				A033D27B2194E26B00DFD052 /* prob1235l.pepcpu in Resources */,
 				46539C6E1E9AEED700718705 /* fig0515.pepo in Resources */,
 				4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */,
 				468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */,
+				A033D2922194E26B00DFD052 /* prob1235h.pepcpu in Resources */,
 				46539C911E9AF19F00718705 /* fig0646.pepo in Resources */,
 				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
 				462BA7661E2B2A3B00BBABCD /* fig0618.txt in Resources */,
+				A033D2962194E26B00DFD052 /* prob1235k.pepcpu in Resources */,
+				A033D2792194E26B00DFD052 /* prob1229c.pepcpu in Resources */,
 				4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */,
 				46539C7E1E9AEED700718705 /* fig0625.pepo in Resources */,
 				46539C801E9AEED700718705 /* fig0629.pepo in Resources */,
+				A033D28C2194E26B00DFD052 /* prob1229g.pepcpu in Resources */,
+				A033D27D2194E26B00DFD052 /* fig1214.pepcpu in Resources */,
 				46EC8AE51C9895CC001405CE /* fig0623.pep in Resources */,
 				462BA76B1E2B2A3B00BBABCD /* fig0629.txt in Resources */,
 				46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */,
+				A033D2882194E26B00DFD052 /* prob1233c.pepcpu in Resources */,
 				462BA7711E2B2A3B00BBABCD /* fig0642.txt in Resources */,
 				46539C901E9AF19F00718705 /* fig0644.pepo in Resources */,
 				462BA76C1E2B2A3B00BBABCD /* fig0632.txt in Resources */,
 				46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */,
+				A033D2802194E26B00DFD052 /* prob1235d.pepcpu in Resources */,
 				46539C8B1E9AF19F00718705 /* fig0634.pepo in Resources */,
 				46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */,
 				46539C771E9AEED700718705 /* fig0610.pepo in Resources */,
 				46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */,
+				A033D2812194E26B00DFD052 /* prob1232f.pepcpu in Resources */,
 				4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */,
 				46EC8AEF1C9895CD001405CE /* fig0634.pep in Resources */,
+				A033D29C2194E26B00DFD052 /* prob1232b.pepcpu in Resources */,
+				A033D26B2194E26B00DFD052 /* prob1232e.pepcpu in Resources */,
 				46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */,
 				46539C651E9AEED700718705 /* fig0503.pepo in Resources */,
 				46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */,
 				46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */,
 				46539C8E1E9AF19F00718705 /* fig0640.pepo in Resources */,
+				A033D29D2194E26B00DFD052 /* prob1232d.pepcpu in Resources */,
 				46539C8C1E9AF19F00718705 /* fig0636.pepo in Resources */,
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
+				A033D2952194E26B00DFD052 /* prob1233d.pepcpu in Resources */,
 				462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */,
 				462BA76E1E2B2A3B00BBABCD /* fig0636.txt in Resources */,
+				A033D2762194E26B00DFD052 /* prob1231e.pepcpu in Resources */,
+				A033D27F2194E26B00DFD052 /* prob1232h.pepcpu in Resources */,
 				46A911991E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib in Resources */,
 				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
 				46539C711E9AEED700718705 /* fig0522.pepo in Resources */,
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
+				A033D27E2194E26B00DFD052 /* fig1212.pepcpu in Resources */,
+				A033D2992194E26B00DFD052 /* prob1231d.pepcpu in Resources */,
+				A033D2A42194E26B00DFD052 /* prob1234a.pepcpu in Resources */,
 				46539C7B1E9AEED700718705 /* fig0618.pepo in Resources */,
 				46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */,
 				4637EF961E5E72B7007593E1 /* FontMenuColorCell.xib in Resources */,
+				A033D28A2194E26B00DFD052 /* prob1235f.pepcpu in Resources */,
 				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
 				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
+				A033D2732194E26B00DFD052 /* prob1232j.pepcpu in Resources */,
 				46539C921E9AF19F00718705 /* fig0648.pepo in Resources */,
 				46EC8B001C9895CD001405CE /* prob0827.pep in Resources */,
 				46EC8B011C9895CD001405CE /* prob0828.pep in Resources */,
+				A033D26D2194E26B00DFD052 /* prob1233f.pepcpu in Resources */,
+				A033D2A32194E26B00DFD052 /* prob1233a.pepcpu in Resources */,
 				46EC8B021C9895CD001405CE /* prob0829.pep in Resources */,
+				A033D2912194E26B00DFD052 /* prob1235a.pepcpu in Resources */,
 				46EC8B031C9895CD001405CE /* prob0830.pep in Resources */,
 				46EC8B041C9895CD001405CE /* prob0831.pep in Resources */,
+				A033D28D2194E26B00DFD052 /* prob1236d.pepcpu in Resources */,
 				46BCDC3F1E9D7067008BF3DC /* MemoryHeader.xib in Resources */,
 				462BA7691E2B2A3B00BBABCD /* fig0625.txt in Resources */,
+				A033D2902194E26B00DFD052 /* prob1229e.pepcpu in Resources */,
 				462BA7611E2B2A3B00BBABCD /* fig0606.txt in Resources */,
 				462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */,
 				46EC8B051C9895CD001405CE /* prob0832.pep in Resources */,
 				461875AB1C900D740095B818 /* writingprograms.html in Resources */,
+				A033D2982194E26B00DFD052 /* prob1230.pepcpu in Resources */,
 				462BA76F1E2B2A3B00BBABCD /* fig0638.txt in Resources */,
 				461875A71C900D740095B818 /* images in Resources */,
 				461875A61C900D740095B818 /* figures in Resources */,
 				46539C6F1E9AEED700718705 /* fig0516.pepo in Resources */,
+				A033D2972194E26B00DFD052 /* fig1211.pepcpu in Resources */,
+				A033D2A02194E26B00DFD052 /* prob1235b.pepcpu in Resources */,
 				461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */,
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
 				461875AA1C900D740095B818 /* problems.html in Resources */,
+				A033D2772194E26B00DFD052 /* prob1229d.pepcpu in Resources */,
 				462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */,
 				46539C701E9AEED700718705 /* fig0519.pepo in Resources */,
 				462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
+				A033D27A2194E26B00DFD052 /* prob1232i.pepcpu in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
+				A033D2A72194E26B00DFD052 /* fig1221.pepcpu in Resources */,
+				A033D2862194E26B00DFD052 /* prob1232a.pepcpu in Resources */,
+				A033D2872194E26B00DFD052 /* prob1236a.pepcpu in Resources */,
 				D2B061641C7E62040088CEBE /* Images.xcassets in Resources */,
 				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
 				462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */,
+				A033D2942194E26B00DFD052 /* fig1210.pepcpu in Resources */,
 				46539C691E9AEED700718705 /* fig0511.pepo in Resources */,
 				7537806A1E96F951002E1968 /* Main.storyboard in Resources */,
+				A033D2832194E26B00DFD052 /* prob1229a.pepcpu in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
+				A033D2822194E26B00DFD052 /* fig1205.pepcpu in Resources */,
+				A033D2932194E26B00DFD052 /* prob1229f.pepcpu in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
+				A033D28B2194E26B00DFD052 /* prob1235c.pepcpu in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
+				A033D29B2194E26B00DFD052 /* prob1233b.pepcpu in Resources */,
 				461875A51C900D740095B818 /* examples.html in Resources */,
+				A033D2712194E26B00DFD052 /* prob1231b.pepcpu in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
