@@ -292,4 +292,255 @@ enum TwoByteExamples: String{
     ]
 }
 
+enum TwoByteDescriptions : String {
+    
+    case FIG1220 = "The fetch and increment part of the von Neumann cycle with the two-byte data bus."
+    case FIG1221 = "The fetch and increment part of the von Neumann cycle with pre-fetched instruction specifier."
+    case FIG1223 = "The two-byte bus implementation of the load word instruction with indirect addressing."
+    
+    static let allValues = [
+        FIG1220,
+        FIG1221,
+        FIG1223
+    ]
+}
 
+enum OneByteProblems : String {
+    case PROB1228 = "Problem 12.28"
+    case PROB1229a = "Problem 12.29a"
+    case PROB1229b = "Problem 12.29b"
+    case PROB1229c = "Problem 12.29c"
+    case PROB1229d = "Problem 12.29d"
+    case PROB1229e = "Problem 12.29e"
+    case PROB1229f = "Problem 12.29f"
+    case PROB1229g = "Problem 12.29g"
+    case PROB1230 = "Problem 12.30"
+    case PROB1231a = "Problem 12.31a"
+    case PROB1231b = "Problem 12.31b"
+    case PROB1231c = "Problem 12.31c"
+    case PROB1231d = "Problem 12.31d"
+    case PROB1231e = "Problem 12.31e"
+    case PROB1231f = "Problem 12.31f"
+    case PROB1231g = "Problem 12.31g"
+    case PROB1232a = "Problem 12.32a"
+    case PROB1232b = "Problem 12.32b"
+    case PROB1232c = "Problem 12.32c"
+    case PROB1232d = "Problem 12.32d"
+    case PROB1232e = "Problem 12.32e"
+    case PROB1232f = "Problem 12.32f"
+    case PROB1232g = "Problem 12.32g"
+    case PROB1232h = "Problem 12.32h"
+    case PROB1232i = "Problem 12.32i"
+    case PROB1232j = "Problem 12.32j"
+    case PROB1232k = "Problem 12.32k"
+    case PROB1232l = "Problem 12.32l"
+    case PROB1233a = "Problem 12.33a"
+    case PROB1233b = "Problem 12.33b"
+    case PROB1233c = "Problem 12.33c"
+    case PROB1233d = "Problem 12.33d"
+    case PROB1233e = "Problem 12.33e"
+    case PROB1233f = "Problem 12.33f"
+    
+    static let allValues = [
+        PROB1228,
+        PROB1229a,
+        PROB1229b,
+        PROB1229c,
+        PROB1229d,
+        PROB1229e,
+        PROB1229f,
+        PROB1229g,
+        PROB1230,
+        PROB1231a,
+        PROB1231b,
+        PROB1231c,
+        PROB1231d,
+        PROB1231e,
+        PROB1231f,
+        PROB1231g,
+        PROB1232a,
+        PROB1232b,
+        PROB1232c,
+        PROB1232d,
+        PROB1232e,
+        PROB1232f,
+        PROB1232g,
+        PROB1232h,
+        PROB1232i,
+        PROB1232j,
+        PROB1232k,
+        PROB1232l,
+        PROB1233a,
+        PROB1233b,
+        PROB1233c,
+        PROB1233d,
+        PROB1233e,
+        PROB1233f
+    ]
+}
+
+enum OneByteProblemDescriptions : String {
+    case PROB1228 = "Specification to fetch the operand specifier and increment PC."
+    case PROB1229a = "Specification for MOVSPA."
+    case PROB1229b = "Specification for MOVFLGA."
+    case PROB1229c = "Specification for MOVAFLG."
+    case PROB1229d = "Specification for NOTA."
+    case PROB1229e = "Specification for NEGA."
+    case PROB1229f = "Specification for ROLA."
+    case PROB1229g = "Specification for RORA."
+    case PROB1230 = "Specification for ASLA."
+    case PROB1231a = "Specification for SUBA this,i."
+    case PROB1231b = "Specification for ANDA this,i."
+    case PROB1231c = "Specification for ORA this,i."
+    case PROB1231d = "Specification for CPWA this,i."
+    case PROB1231e = "Specification for CPBA this,i."
+    case PROB1231f = "Specification for LDWA this,i."
+    case PROB1231g = "Specification for LDBA this,i."
+    case PROB1232a = "Specification for LDWA here,d."
+    case PROB1232b = "Specification for LDWA here,s."
+    case PROB1232c = "Specification for LDWA here,sf."
+    case PROB1232d = "Specification for LDWA here,x."
+    case PROB1232e = "Specification for LDWA here,sx."
+    case PROB1232f = "Specification for LDWA here,sfx."
+    case PROB1232g = "Specification for STWA there,n."
+    case PROB1232h = "Specification for STWA there,s."
+    case PROB1232i = "Specification for STWA there,sf."
+    case PROB1232j = "Specification for STWA there,x."
+    case PROB1232k = "Specification for STWA there,sx."
+    case PROB1232l = "Specification for STWA there,sfx."
+    case PROB1233a = "Specification for BR main."
+    case PROB1233b = "Specification for BR guessJT,x."
+    case PROB1233c = "Specification for CALL alpha."
+    case PROB1233d = "Specification for RET."
+    case PROB1233e = "Specification for DECO num,i."
+    case PROB1233f = "Specification for RETTR."
+    
+    static let allValues = [
+        PROB1228,
+        PROB1229a,
+        PROB1229b,
+        PROB1229c,
+        PROB1229d,
+        PROB1229e,
+        PROB1229f,
+        PROB1229g,
+        PROB1230,
+        PROB1231a,
+        PROB1231b,
+        PROB1231c,
+        PROB1231d,
+        PROB1231e,
+        PROB1231f,
+        PROB1231g,
+        PROB1232a,
+        PROB1232b,
+        PROB1232c,
+        PROB1232d,
+        PROB1232e,
+        PROB1232f,
+        PROB1232g,
+        PROB1232h,
+        PROB1232i,
+        PROB1232j,
+        PROB1232k,
+        PROB1232l,
+        PROB1233a,
+        PROB1233b,
+        PROB1233c,
+        PROB1233d,
+        PROB1233e,
+        PROB1233f
+    ]
+}
+
+enum TwoByteProblems : String {
+    case PROB1234a = "Problem 12.34a"
+    case PROB1234b = "Problem 12.34b"
+    case PROB1235a = "Problem 12.35a"
+    case PROB1235b = "Problem 12.35b"
+    case PROB1235c = "Problem 12.35c"
+    case PROB1235d = "Problem 12.35d"
+    case PROB1235e = "Problem 12.35e"
+    case PROB1235f = "Problem 12.35f"
+    case PROB1235g = "Problem 12.35g"
+    case PROB1235h = "Problem 12.35h"
+    case PROB1235i = "Problem 12.35i"
+    case PROB1235j = "Problem 12.35j"
+    case PROB1235k = "Problem 12.35k"
+    case PROB1235l = "Problem 12.35l"
+    case PROB1236a = "Problem 12.36a"
+    case PROB1236b = "Problem 12.36b"
+    case PROB1236c = "Problem 12.36c"
+    case PROB1236d = "Problem 12.36d"
+    case PROB1236e = "Problem 12.36e"
+    case PROB1236f = "Problem 12.36f"
+    
+    static let allValues = [
+        PROB1234a,
+        PROB1234b,
+        PROB1235a,
+        PROB1235b,
+        PROB1235c,
+        PROB1235d,
+        PROB1235e,
+        PROB1235f,
+        PROB1235g,
+        PROB1235h,
+        PROB1235i,
+        PROB1235j,
+        PROB1235k,
+        PROB1235l,
+        PROB1236a,
+        PROB1236b,
+        PROB1236c,
+        PROB1236d,
+        PROB1236e,
+        PROB1236f
+    ]
+}
+
+enum TwoByteProblemDescriptions : String {
+    case PROB1234a = "Specification to fetch OprndSpec assuming no previous pre-fetch."
+    case PROB1234b = "Specification to fetch OprndSpec assuming previous pre-fetch."
+    case PROB1235a = "Specification for LDWA here,d."
+    case PROB1235b = "Specification for LDWA here,s."
+    case PROB1235c = "Specification for LDWA here,sf."
+    case PROB1235d = "Specification for LDWA here,x."
+    case PROB1235e = "Specification for LDWA here,sx."
+    case PROB1235f = "Specification for LDWA here,sfx."
+    case PROB1235g = "Specification for STWA there,n."
+    case PROB1235h = "Specification for STWA there,s."
+    case PROB1235i = "Specification for STWA there,sf."
+    case PROB1235j = "Specification for STWA there,x."
+    case PROB1235k = "Specification for STWA there,sx."
+    case PROB1235l = "Specification for STWA there,sfx."
+    case PROB1236a = "Specification for BR main."
+    case PROB1236b = "Specification for BR guessJT,x."
+    case PROB1236c = "Specification for CALL alpha."
+    case PROB1236d = "Specification for RET."
+    case PROB1236e = "Specification for DECO num,i."
+    case PROB1236f = "Specification for RETTR."
+    
+    static let allValues = [
+        PROB1234a,
+        PROB1234b,
+        PROB1235a,
+        PROB1235b,
+        PROB1235c,
+        PROB1235d,
+        PROB1235e,
+        PROB1235f,
+        PROB1235g,
+        PROB1235h,
+        PROB1235i,
+        PROB1235j,
+        PROB1235k,
+        PROB1235l,
+        PROB1236a,
+        PROB1236b,
+        PROB1236c,
+        PROB1236d,
+        PROB1236e,
+        PROB1236f
+    ]
+}

@@ -304,6 +304,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             resumeBtn.tintColor = UIColor.clear
         }
     }
+    @IBOutlet weak var helpBtn: UIBarButtonItem!
     
     @IBOutlet var calcBtn: UIBarButtonItem! {
         didSet {
@@ -352,17 +353,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         
     }
    
-    
-    @IBAction func singleStepBtnPressed(_ sender: Any) {
-        codeLine = oneByteCPUDisplay.singleStep()
-        oneByteCPUDisplay.setNeedsDisplay()
-        highlightLine(index : codeLine)
-        if codeLine == codeList.count{
-            stopDebugging()
-        }
-
-    }
-    @IBAction func resumeBtnPressed(_ sender: Any) {
+    @IBAction func HelpBtnPressed(_ sender: Any) {
         let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
         cpuHelper.cpuMasterVC = self
         self.present(vc!, animated: true) {
@@ -374,6 +365,20 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
                 
             }
         }
+        
+    }
+    
+    @IBAction func singleStepBtnPressed(_ sender: Any) {
+        codeLine = oneByteCPUDisplay.singleStep()
+        oneByteCPUDisplay.setNeedsDisplay()
+        highlightLine(index : codeLine)
+        if codeLine == codeList.count{
+            stopDebugging()
+        }
+
+    }
+    @IBAction func resumeBtnPressed(_ sender: Any) {
+       
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {

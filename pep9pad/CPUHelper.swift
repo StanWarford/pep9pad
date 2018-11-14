@@ -78,16 +78,15 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
         case 1:
             v.textLabel!.text = OneByteExamples.allValues[indexPath.row].rawValue
             v.detailTextLabel!.text = OneByteDescriptions.allValues[indexPath.row].rawValue
-            //stopped here need 3 more
         case 2:
-            v.textLabel!.text = Problems.allValues[indexPath.row].rawValue
-            v.detailTextLabel!.text = ProblemDescriptions.allValues[indexPath.row].rawValue
+            v.textLabel!.text = TwoByteExamples.allValues[indexPath.row].rawValue
+            v.detailTextLabel!.text = TwoByteDescriptions.allValues[indexPath.row].rawValue
         case 3:
-            v.textLabel!.text = "Pep/9 Operating System"
-            v.detailTextLabel!.text = ""
+            v.textLabel!.text = OneByteProblems.allValues[indexPath.row].rawValue
+            v.detailTextLabel!.text = OneByteProblemDescriptions.allValues[indexPath.row].rawValue
         case 4:
-            v.textLabel!.text = "need to do"
-            v.detailTextLabel!.text = ""
+            v.textLabel!.text = TwoByteProblems.allValues[indexPath.row].rawValue
+            v.detailTextLabel!.text = TwoByteProblemDescriptions.allValues[indexPath.row].rawValue
         default:
             v.textLabel?.text = "Error"
         }
@@ -107,13 +106,12 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
             helpDetail.loadDocumentation(Array(Documentation.allCPU.keys)[indexPath.row])
         case 1:
             helpDetail.loadExample(OneByteExamples.allValues[indexPath.row].rawValue)
-            //stoppedhere
         case 2:
-            helpDetail.loadExample(Problems.allValues[indexPath.row].rawValue)
+            helpDetail.loadExample(TwoByteExamples.allValues[indexPath.row].rawValue)
         case 3:
-            helpDetail.loadExample("Pep/9 Operating System")
+            helpDetail.loadExample(OneByteProblems.allValues[indexPath.row].rawValue)
         case 4:
-            print("need to do")
+           helpDetail.loadExample(TwoByteProblems.allValues[indexPath.row].rawValue)
         default:
             print("Error")
         }
@@ -125,13 +123,12 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
             return Array(Documentation.allCPU.values).count
         case 1:
             return OneByteExamples.allValues.count
-            // stopped here
         case 2:
-            return Problems.allValues.count
+            return TwoByteExamples.allValues.count
         case 3:
-            return 1
+            return OneByteProblems.allValues.count
         case 4:
-            return 1
+            return TwoByteProblems.allValues.count
         default:
             return 0
         }

@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wk4-yE-xb4">
-                                <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="702" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="qht-iR-JGP" kind="embed" identifier="embedTabBarCPU" id="u1H-O8-Nhq"/>
@@ -677,6 +677,11 @@
                                     <action selector="busBtnPressed:" destination="Crp-0P-M8w" id="LcV-4N-AtG"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Help" id="z0k-Hm-cxF">
+                                <connections>
+                                    <action selector="HelpBtnPressed:" destination="Crp-0P-M8w" id="n90-Ed-tKy"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -686,6 +691,7 @@
                         <outlet property="codeEditor" destination="zwR-yE-CAS" id="Q8L-6z-pFA"/>
                         <outlet property="debugBtn" destination="mXk-Xv-l0w" id="SlE-Zu-xp4"/>
                         <outlet property="fontBtn" destination="sEi-ip-UHE" id="jKj-hx-fsU"/>
+                        <outlet property="helpBtn" destination="z0k-Hm-cxF" id="eob-ea-QKN"/>
                         <outlet property="keypad" destination="Jab-dY-3a7" id="ESc-9g-lFm"/>
                         <outlet property="lineTable" destination="1le-r3-VhL" id="04N-Se-4ZJ"/>
                         <outlet property="lineTableView" destination="1QP-4c-LJh" id="E01-h7-2OL"/>
