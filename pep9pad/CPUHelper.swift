@@ -40,7 +40,7 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
         
         switch named {
         case "Figure 12.05":
-            exampleVC.loadExample("fig1205", field: .Top, ofType: .pep)
+            exampleVC.loadExample("fig1205", field: .Top, ofType: .pepcpu)
             exampleVC.setNumTextViews(to: 1)
             exampleVC.bottomTextView.removeAllText()
         default:

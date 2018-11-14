@@ -33,6 +33,10 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    
+    // set to either "PEP" or "CPU"
+    var mode: String? = nil
+    
     func makePep9Main() {
         let storyb = UIStoryboard(name: "Pep9Main", bundle: Bundle.main)
         let vc = storyb.instantiateInitialViewController()
@@ -48,7 +52,12 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     var recents: [String] = []
     
     override func viewDidLoad() {
-        recents = projectModel.recentProjectNames()
+        // load the recent projects, either from Pep9 or CPU project model
+        if mode == "PEP" {
+            recents = projectModel.recentProjectNames()
+        } else {
+            recents = cpuProjectModel.recentProjectNames()
+        }
         dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
         super.viewDidLoad()
     }
@@ -60,8 +69,13 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        projectModel.loadExistingProject(named: recents[indexPath.row])
-        newprojectbuttonpressed(newproject)
+        if mode == "PEP" {
+            projectModel.loadExistingProject(named: recents[indexPath.row])
+            newprojectbuttonpressed(newproject)
+        } else {
+            cpuProjectModel.loadExistingProject(named: recents[indexPath.row])
+            newCPUprojectbuttonpressed(newproject)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

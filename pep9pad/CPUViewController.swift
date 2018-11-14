@@ -180,7 +180,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     
 //    func setupCodeView(){
 //        let codeViewRect = CGRect(x: 0.0, y: 0.0, width: codeView.frame.width, height: codeView.frame.height)
-//        codeView.setupTextView(codeViewRect, delegate: self, highlightAs: .pep)
+//        codeView.setupTexstView(codeViewRect, delegate: self, highlightAs: .pep)
 //        pullFromProjectModel()
 //        codeView.textView.scrollRectToVisible(CGRect.zero, animated: true)
 //    }
@@ -190,6 +190,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         codeEditor.backgroundColor = UIColor.white
         codeEditor.textColor = UIColor.black
         codeEditor.autocorrectionType = .no
+        codeEditor.text = cpuProjectModel.sourceStr
         //codeEditor.inputView!.addBorderRight()
         //codeEditor.inputView?.addBorder()
         

@@ -53,6 +53,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
         let secondVC = segue.destination as! SecondViewController
         secondVC.transitioningDelegate = self
         secondVC.modalPresentationStyle = .custom
+        secondVC.mode = pressed == menuButton ? "PEP" : "CPU"
     }
     
     
