@@ -16,6 +16,7 @@ protocol HelpDelegate {
     
     func loadDocumentation(_ doc : Documentation)
     func loadExample(_ named : String) -> String // For Button Title
+    func loadDefault()
     
     func loadExampleToProj(_ text: String!, ofType: PepFileType!, io: String!, usesTerminal: Bool!)
 }

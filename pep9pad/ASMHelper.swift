@@ -16,6 +16,10 @@ class ASMHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     var exampleVC: ExampleViewController!
     var documentationVC : DocumentationViewController!
     
+    func loadDefault(){
+        loadDocumentation(.AssemblyLanguage)
+    }
+    
     func loadDocumentation(_ doc: Documentation) {
         documentationVC.view.isHidden = false
         exampleVC.view.isHidden = true

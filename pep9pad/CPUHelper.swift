@@ -16,6 +16,10 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate {
     
     var helpDetail: HelpDetailController!
     
+    func loadDefault(){
+        print("Default")
+    }
+    
     func loadDocumentation(_ doc: Documentation) {
         print("load Doc")
     }

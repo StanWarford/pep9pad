@@ -36,9 +36,6 @@ class HelpDetailController: UIViewController {
         view.addSubview(documentationVC.view)
         view.addSubview(exampleVC.view)
         exampleVC.view.isHidden = true
-        
-        // load default detail view
-        //self.master.codeSide.loadDocumentation(.AssemblyLanguage)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +47,9 @@ class HelpDetailController: UIViewController {
         self.master = master
         self.master.codeSide.exampleVC = exampleVC
         self.master.codeSide.documentationVC = documentationVC
+        
+        // load default detail view
+        self.master.codeSide.loadDefault()
     }
     
     
