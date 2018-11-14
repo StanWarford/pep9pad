@@ -307,6 +307,9 @@
 		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
 		A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B3217023AC00151440 /* clockLineCell.swift */; };
 		A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B82170252000151440 /* numericLineCell.swift */; };
+		A0DE030E219CA4410018A6B2 /* HelpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */; };
+		A0DE0310219CA7970018A6B2 /* CPUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE030F219CA7970018A6B2 /* CPUHelper.swift */; };
+		A0DE0312219CA7A10018A6B2 /* ASMHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */; };
 		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
 		A0E82DA4217A5BB8003A6CEA /* CPUCodeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */; };
@@ -656,6 +659,9 @@
 		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
 		A0D1F8B3217023AC00151440 /* clockLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clockLineCell.swift; sourceTree = "<group>"; };
 		A0D1F8B82170252000151440 /* numericLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numericLineCell.swift; sourceTree = "<group>"; };
+		A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpDelegate.swift; sourceTree = "<group>"; };
+		A0DE030F219CA7970018A6B2 /* CPUHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUHelper.swift; sourceTree = "<group>"; };
+		A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMHelper.swift; sourceTree = "<group>"; };
 		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCodeEditor.swift; sourceTree = "<group>"; };
@@ -958,6 +964,9 @@
 			children = (
 				46EC8B061C9895DF001405CE /* Examples */,
 				465C76241C90DBF30029311F /* Help Documentation */,
+				A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */,
+				A0DE030F219CA7970018A6B2 /* CPUHelper.swift */,
+				A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */,
 			);
 			name = "Help Resources";
 			sourceTree = "<group>";
@@ -1912,6 +1921,7 @@
 				A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
 				4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */,
+				A0DE0310219CA7970018A6B2 /* CPUHelper.swift in Sources */,
 				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
@@ -1946,6 +1956,7 @@
 				0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */,
 				467F35B72123B28E00E117AA /* FrameCell.swift in Sources */,
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
+				A0DE030E219CA4410018A6B2 /* HelpDelegate.swift in Sources */,
 				A042384121724D2800DAAECE /* LineTable.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
@@ -1954,6 +1965,7 @@
 				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,
 				4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
+				A0DE0312219CA7A10018A6B2 /* ASMHelper.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
 				4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */,
 			);
