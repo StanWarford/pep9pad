@@ -390,7 +390,7 @@ class ASMHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
         asmMasterVC.loadExample(text, ofType: ofType, io: io, usesTerminal: usesTerminal)
     }
 
-    // MARK: - Overriding UITableViewController
+    // MARK: - TableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // TODO: Set selection style for cells
@@ -407,7 +407,7 @@ class ASMHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
         
         switch (indexPath as NSIndexPath).section {
         case 0:
-            v.textLabel!.text = Array(Documentation.allValues.values)[(indexPath as NSIndexPath).row]
+            v.textLabel!.text = Array(Documentation.allASM.values)[indexPath.row]
             v.detailTextLabel!.text = ""
         case 1:
             v.textLabel!.text = Figures.allValues[indexPath.row].rawValue
@@ -434,7 +434,7 @@ class ASMHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath as NSIndexPath).section {
         case 0:
-            helpDetail.loadDocumentation(Array(Documentation.allValues.keys)[(indexPath as NSIndexPath).row])
+            helpDetail.loadDocumentation(Array(Documentation.allASM.keys)[indexPath.row])
         case 1:
             helpDetail.loadExample(Figures.allValues[indexPath.row].rawValue)
         case 2:
@@ -449,7 +449,7 @@ class ASMHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return Documentation.allValues.count
+            return Array(Documentation.allASM.values).count
         case 1:
             return Figures.allValues.count
         case 2:

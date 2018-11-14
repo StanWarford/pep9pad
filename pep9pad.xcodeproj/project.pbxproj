@@ -310,6 +310,19 @@
 		A0DE030E219CA4410018A6B2 /* HelpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */; };
 		A0DE0310219CA7970018A6B2 /* CPUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE030F219CA7970018A6B2 /* CPUHelper.swift */; };
 		A0DE0312219CA7A10018A6B2 /* ASMHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */; };
+		A0DE0322219CB72D0018A6B2 /* debugging.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0315219CB72C0018A6B2 /* debugging.html */; };
+		A0DE0323219CB72D0018A6B2 /* pep9os.txt in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0316219CB72C0018A6B2 /* pep9os.txt */; };
+		A0DE0324219CB72D0018A6B2 /* beta.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0317219CB72C0018A6B2 /* beta.html */; };
+		A0DE0325219CB72D0018A6B2 /* onebytebusproblems.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0318219CB72C0018A6B2 /* onebytebusproblems.html */; };
+		A0DE0326219CB72D0018A6B2 /* twobytebusexamples.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0319219CB72C0018A6B2 /* twobytebusexamples.html */; };
+		A0DE0327219CB72D0018A6B2 /* pep9reference.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE031A219CB72C0018A6B2 /* pep9reference.html */; };
+		A0DE0328219CB72D0018A6B2 /* onebytebusexamples.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE031B219CB72C0018A6B2 /* onebytebusexamples.html */; };
+		A0DE0329219CB72D0018A6B2 /* cpu.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE031C219CB72D0018A6B2 /* cpu.html */; };
+		A0DE032A219CB72D0018A6B2 /* usingpep9cpu.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE031D219CB72D0018A6B2 /* usingpep9cpu.html */; };
+		A0DE032B219CB72D0018A6B2 /* images in Resources */ = {isa = PBXBuildFile; fileRef = A0DE031E219CB72D0018A6B2 /* images */; };
+		A0DE032C219CB72D0018A6B2 /* figures in Resources */ = {isa = PBXBuildFile; fileRef = A0DE031F219CB72D0018A6B2 /* figures */; };
+		A0DE032D219CB72D0018A6B2 /* microcode.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0320219CB72D0018A6B2 /* microcode.html */; };
+		A0DE032E219CB72D0018A6B2 /* twobytebusproblems.html in Resources */ = {isa = PBXBuildFile; fileRef = A0DE0321219CB72D0018A6B2 /* twobytebusproblems.html */; };
 		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
 		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
 		A0E82DA4217A5BB8003A6CEA /* CPUCodeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */; };
@@ -662,6 +675,19 @@
 		A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpDelegate.swift; sourceTree = "<group>"; };
 		A0DE030F219CA7970018A6B2 /* CPUHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUHelper.swift; sourceTree = "<group>"; };
 		A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMHelper.swift; sourceTree = "<group>"; };
+		A0DE0315219CB72C0018A6B2 /* debugging.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = debugging.html; path = "../../Downloads/pep9cpu-master/help/debugging.html"; sourceTree = "<group>"; };
+		A0DE0316219CB72C0018A6B2 /* pep9os.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pep9os.txt; path = "../../Downloads/pep9cpu-master/help/pep9os.txt"; sourceTree = "<group>"; };
+		A0DE0317219CB72C0018A6B2 /* beta.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = beta.html; path = "../../Downloads/pep9cpu-master/help/beta.html"; sourceTree = "<group>"; };
+		A0DE0318219CB72C0018A6B2 /* onebytebusproblems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = onebytebusproblems.html; path = "../../Downloads/pep9cpu-master/help/onebytebusproblems.html"; sourceTree = "<group>"; };
+		A0DE0319219CB72C0018A6B2 /* twobytebusexamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = twobytebusexamples.html; path = "../../Downloads/pep9cpu-master/help/twobytebusexamples.html"; sourceTree = "<group>"; };
+		A0DE031A219CB72C0018A6B2 /* pep9reference.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = pep9reference.html; path = "../../Downloads/pep9cpu-master/help/pep9reference.html"; sourceTree = "<group>"; };
+		A0DE031B219CB72C0018A6B2 /* onebytebusexamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = onebytebusexamples.html; path = "../../Downloads/pep9cpu-master/help/onebytebusexamples.html"; sourceTree = "<group>"; };
+		A0DE031C219CB72D0018A6B2 /* cpu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = cpu.html; path = "../../Downloads/pep9cpu-master/help/cpu.html"; sourceTree = "<group>"; };
+		A0DE031D219CB72D0018A6B2 /* usingpep9cpu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = usingpep9cpu.html; path = "../../Downloads/pep9cpu-master/help/usingpep9cpu.html"; sourceTree = "<group>"; };
+		A0DE031E219CB72D0018A6B2 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "../../Downloads/pep9cpu-master/help/images"; sourceTree = "<group>"; };
+		A0DE031F219CB72D0018A6B2 /* figures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = figures; path = "../../Downloads/pep9cpu-master/help/figures"; sourceTree = "<group>"; };
+		A0DE0320219CB72D0018A6B2 /* microcode.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = microcode.html; path = "../../Downloads/pep9cpu-master/help/microcode.html"; sourceTree = "<group>"; };
+		A0DE0321219CB72D0018A6B2 /* twobytebusproblems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = twobytebusproblems.html; path = "../../Downloads/pep9cpu-master/help/twobytebusproblems.html"; sourceTree = "<group>"; };
 		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
 		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
 		A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCodeEditor.swift; sourceTree = "<group>"; };
@@ -877,16 +903,8 @@
 			isa = PBXGroup;
 			children = (
 				461875951C90089F0095B818 /* HelpDocumentation.swift */,
-				461875991C900CA10095B818 /* assemblylanguage.html */,
-				4618759B1C900D730095B818 /* debuggingprograms.html */,
-				4618759C1C900D730095B818 /* examples.html */,
-				4618759D1C900D730095B818 /* figures */,
-				4618759E1C900D730095B818 /* images */,
-				4618759F1C900D740095B818 /* machinelanguage.html */,
-				461875A01C900D740095B818 /* pep9reference.html */,
-				461875A11C900D740095B818 /* problems.html */,
-				461875A21C900D740095B818 /* writingprograms.html */,
-				461875A31C900D740095B818 /* writingtraphandlers.html */,
+				A0DE0314219CB7030018A6B2 /* CPUDocumentation */,
+				A0DE0313219CB5F40018A6B2 /* AssemblerDocumentation */,
 			);
 			name = "Help Documentation";
 			sourceTree = "<group>";
@@ -1371,6 +1389,43 @@
 			name = cells;
 			sourceTree = "<group>";
 		};
+		A0DE0313219CB5F40018A6B2 /* AssemblerDocumentation */ = {
+			isa = PBXGroup;
+			children = (
+				461875991C900CA10095B818 /* assemblylanguage.html */,
+				4618759B1C900D730095B818 /* debuggingprograms.html */,
+				4618759C1C900D730095B818 /* examples.html */,
+				4618759D1C900D730095B818 /* figures */,
+				4618759E1C900D730095B818 /* images */,
+				4618759F1C900D740095B818 /* machinelanguage.html */,
+				461875A01C900D740095B818 /* pep9reference.html */,
+				461875A11C900D740095B818 /* problems.html */,
+				461875A21C900D740095B818 /* writingprograms.html */,
+				461875A31C900D740095B818 /* writingtraphandlers.html */,
+			);
+			name = AssemblerDocumentation;
+			sourceTree = "<group>";
+		};
+		A0DE0314219CB7030018A6B2 /* CPUDocumentation */ = {
+			isa = PBXGroup;
+			children = (
+				A0DE0317219CB72C0018A6B2 /* beta.html */,
+				A0DE031C219CB72D0018A6B2 /* cpu.html */,
+				A0DE0315219CB72C0018A6B2 /* debugging.html */,
+				A0DE031F219CB72D0018A6B2 /* figures */,
+				A0DE031E219CB72D0018A6B2 /* images */,
+				A0DE0320219CB72D0018A6B2 /* microcode.html */,
+				A0DE031B219CB72C0018A6B2 /* onebytebusexamples.html */,
+				A0DE0318219CB72C0018A6B2 /* onebytebusproblems.html */,
+				A0DE0316219CB72C0018A6B2 /* pep9os.txt */,
+				A0DE031A219CB72C0018A6B2 /* pep9reference.html */,
+				A0DE0319219CB72C0018A6B2 /* twobytebusexamples.html */,
+				A0DE0321219CB72D0018A6B2 /* twobytebusproblems.html */,
+				A0DE031D219CB72D0018A6B2 /* usingpep9cpu.html */,
+			);
+			name = CPUDocumentation;
+			sourceTree = "<group>";
+		};
 		A0DE5D9F2159A6C600DF78D9 /* OneByteModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1574,16 +1629,19 @@
 				A033D26C2194E26B00DFD052 /* prob1232c.pepcpu in Resources */,
 				46EC8AB81C9895CC001405CE /* fig0433.pepo in Resources */,
 				46EC8AB91C9895CC001405CE /* fig0435.pepb in Resources */,
+				A0DE032A219CB72D0018A6B2 /* usingpep9cpu.html in Resources */,
 				A033D2AA2194E26B00DFD052 /* prob1231g.pepcpu in Resources */,
 				A033D2A52194E26B00DFD052 /* prob1235g.pepcpu in Resources */,
 				A033D2752194E26B00DFD052 /* prob1232g.pepcpu in Resources */,
 				46EC8ABA1C9895CC001405CE /* fig0435.peph in Resources */,
 				46539C6C1E9AEED700718705 /* fig0514a.pepo in Resources */,
+				A0DE0326219CB72D0018A6B2 /* twobytebusexamples.html in Resources */,
 				46539C8F1E9AF19F00718705 /* fig0642.pepo in Resources */,
 				A033D29E2194E26B00DFD052 /* prob1233e.pepcpu in Resources */,
 				46539C7D1E9AEED700718705 /* fig0623.pepo in Resources */,
 				46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */,
 				A033D2A62194E26B00DFD052 /* prob1236e.pepcpu in Resources */,
+				A0DE0323219CB72D0018A6B2 /* pep9os.txt in Resources */,
 				462BA7631E2B2A3B00BBABCD /* fig0610.txt in Resources */,
 				A033D2A12194E26B00DFD052 /* prob1234b.pepcpu in Resources */,
 				46539C761E9AEED700718705 /* fig0608.pepo in Resources */,
@@ -1605,6 +1663,7 @@
 				46EC8AC11C9895CC001405CE /* fig0437.pepo in Resources */,
 				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
 				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
+				A0DE032B219CB72D0018A6B2 /* images in Resources */,
 				462BA76A1E2B2A3B00BBABCD /* fig0627.txt in Resources */,
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
@@ -1614,6 +1673,7 @@
 				462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */,
 				46539C721E9AEED700718705 /* fig0527.pepo in Resources */,
 				462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */,
+				A0DE0325219CB72D0018A6B2 /* onebytebusproblems.html in Resources */,
 				D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */,
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
 				A033D2892194E26B00DFD052 /* fig1223.pepcpu in Resources */,
@@ -1627,6 +1687,7 @@
 				46539C671E9AEED700718705 /* fig0507.pepo in Resources */,
 				46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */,
 				46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */,
+				A0DE032C219CB72D0018A6B2 /* figures in Resources */,
 				46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */,
 				A033D26F2194E26B00DFD052 /* prob1235j.pepcpu in Resources */,
 				46539C751E9AEED700718705 /* fig0606.pepo in Resources */,
@@ -1674,6 +1735,7 @@
 				A033D2922194E26B00DFD052 /* prob1235h.pepcpu in Resources */,
 				46539C911E9AF19F00718705 /* fig0646.pepo in Resources */,
 				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
+				A0DE0328219CB72D0018A6B2 /* onebytebusexamples.html in Resources */,
 				462BA7661E2B2A3B00BBABCD /* fig0618.txt in Resources */,
 				A033D2962194E26B00DFD052 /* prob1235k.pepcpu in Resources */,
 				A033D2792194E26B00DFD052 /* prob1229c.pepcpu in Resources */,
@@ -1690,6 +1752,7 @@
 				46539C901E9AF19F00718705 /* fig0644.pepo in Resources */,
 				462BA76C1E2B2A3B00BBABCD /* fig0632.txt in Resources */,
 				46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */,
+				A0DE0327219CB72D0018A6B2 /* pep9reference.html in Resources */,
 				A033D2802194E26B00DFD052 /* prob1235d.pepcpu in Resources */,
 				46539C8B1E9AF19F00718705 /* fig0634.pepo in Resources */,
 				46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */,
@@ -1709,6 +1772,7 @@
 				46539C8C1E9AF19F00718705 /* fig0636.pepo in Resources */,
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
 				A033D2952194E26B00DFD052 /* prob1233d.pepcpu in Resources */,
+				A0DE032D219CB72D0018A6B2 /* microcode.html in Resources */,
 				462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */,
 				462BA76E1E2B2A3B00BBABCD /* fig0636.txt in Resources */,
 				A033D2762194E26B00DFD052 /* prob1231e.pepcpu in Resources */,
@@ -1728,6 +1792,7 @@
 				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
 				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
 				A033D2732194E26B00DFD052 /* prob1232j.pepcpu in Resources */,
+				A0DE0329219CB72D0018A6B2 /* cpu.html in Resources */,
 				46539C921E9AF19F00718705 /* fig0648.pepo in Resources */,
 				46EC8B001C9895CD001405CE /* prob0827.pep in Resources */,
 				46EC8B011C9895CD001405CE /* prob0828.pep in Resources */,
@@ -1735,12 +1800,14 @@
 				A033D2A32194E26B00DFD052 /* prob1233a.pepcpu in Resources */,
 				46EC8B021C9895CD001405CE /* prob0829.pep in Resources */,
 				A033D2912194E26B00DFD052 /* prob1235a.pepcpu in Resources */,
+				A0DE0322219CB72D0018A6B2 /* debugging.html in Resources */,
 				46EC8B031C9895CD001405CE /* prob0830.pep in Resources */,
 				46EC8B041C9895CD001405CE /* prob0831.pep in Resources */,
 				A033D28D2194E26B00DFD052 /* prob1236d.pepcpu in Resources */,
 				46BCDC3F1E9D7067008BF3DC /* MemoryHeader.xib in Resources */,
 				462BA7691E2B2A3B00BBABCD /* fig0625.txt in Resources */,
 				A033D2902194E26B00DFD052 /* prob1229e.pepcpu in Resources */,
+				A0DE032E219CB72D0018A6B2 /* twobytebusproblems.html in Resources */,
 				462BA7611E2B2A3B00BBABCD /* fig0606.txt in Resources */,
 				462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */,
 				46EC8B051C9895CD001405CE /* prob0832.pep in Resources */,
@@ -1758,6 +1825,7 @@
 				A033D2772194E26B00DFD052 /* prob1229d.pepcpu in Resources */,
 				462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */,
 				46539C701E9AEED700718705 /* fig0519.pepo in Resources */,
+				A0DE0324219CB72D0018A6B2 /* beta.html in Resources */,
 				462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
 				A033D27A2194E26B00DFD052 /* prob1232i.pepcpu in Resources */,

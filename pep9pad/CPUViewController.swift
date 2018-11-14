@@ -64,6 +64,8 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     let clockCellId = "clock"
     let numericCellId = "number"
     
+    let cpuHelper = CPUHelper()
+    
     let drawingOneByteSize = CGRect(x: 0.0, y: 0.0, width: 950, height: 1024)
     let drawingTwoByteSize = CGRect(x: 0.0, y: 0.0, width: 2000, height: 2000)
     
@@ -362,11 +364,13 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     }
     @IBAction func resumeBtnPressed(_ sender: Any) {
         let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
+        cpuHelper.cpuMasterVC = self
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {
                 let nav = spvc.viewControllers[0] as! UINavigationController
                 let hm = nav.viewControllers[0] as! HelpMasterController
-                hm.setup(cpu: self)
+                //hm.setup(cpu: self)
+                hm.setup(master: self.cpuHelper, tableDelegate: self.cpuHelper, dataSource: self.cpuHelper)
                 
             }
         }
