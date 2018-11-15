@@ -316,6 +316,8 @@ class CPU1ByteView: CPUView{
     }
     
     func singleStep() -> Int{
+        let microCodeLine = getMicroLine()
+        controlSignals = microCodeLine.mnemonicMap
         
         handleMainBusState()
         
@@ -385,9 +387,6 @@ class CPU1ByteView: CPUView{
         }
 
         
-        
-        let microCodeLine = getMicroLine()
-        controlSignals = microCodeLine.mnemonicMap
         for mnemon in microCodeLine.mnemonicMap.keys{
             let value = microCodeLine.mnemonicMap[mnemon] == -1 ? "" : String(microCodeLine.mnemonicMap[mnemon]!)
             

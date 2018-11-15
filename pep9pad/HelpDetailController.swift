@@ -50,6 +50,7 @@ class HelpDetailController: UIViewController {
         
         // load default detail view
         self.master.codeSide.loadDefault()
+        copyToBtn.isEnabled = false
     }
     
     
@@ -71,11 +72,15 @@ class HelpDetailController: UIViewController {
     internal func loadDocumentation(_ doc: Documentation) {
         master.codeSide.loadDocumentation(doc)
         copyToBtn.isEnabled = false
+        documentationVC.view.isHidden = false
+        exampleVC.view.isHidden = true
     }
     
     internal func loadExample(_ named: String) {
         copyToBtn.isEnabled = true
         copyToBtn.title = master.codeSide.loadExample(named) // loads example and sets button title
+        documentationVC.view.isHidden = true
+        exampleVC.view.isHidden = false
     }
     
     

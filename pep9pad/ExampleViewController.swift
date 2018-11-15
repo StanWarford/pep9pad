@@ -45,7 +45,7 @@ class ExampleViewController: UIViewController {
         
         do {
             let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-            //print("Loaded file named \(fileName).\(ofType.rawValue)")
+            print("Loaded file named \(fileName).\(ofType.rawValue)")
             let tempCodeView: CodeView
             
             switch field {

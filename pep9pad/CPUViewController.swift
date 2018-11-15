@@ -511,7 +511,10 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     
     func loadExample(text : String){
         codeEditor.text.removeAll()
-        codeEditor.text = text
+        let code = text.replacingOccurrences(of: "\\d*\\. ", with: "", options: .regularExpression)
+        codeEditor.text = code
+        codeEditor.pepHighlighter(busSize: currentCPUSize)
+        codeEditor.delegate?.textViewDidChange!(codeEditor)
     }
     
     func startDebugging(){

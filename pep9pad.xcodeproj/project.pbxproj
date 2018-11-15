@@ -1974,7 +1974,7 @@
 				TargetAttributes = {
 					D2B061551C7E62040088CEBE = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = X2YSEQ9H5E;
+						DevelopmentTeam = 4D624RRDMS;
 						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 					};
@@ -2717,10 +2717,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X2YSEQ9H5E;
+				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.388;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pep9pad/pep9pad-Bridging-Header.h";
@@ -2738,10 +2738,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X2YSEQ9H5E;
+				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.388;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pep9pad/pep9pad-Bridging-Header.h";
