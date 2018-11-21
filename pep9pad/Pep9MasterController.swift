@@ -12,6 +12,7 @@ class Pep9MasterController: UIViewController {
     internal var detail: Pep9DetailController!
     internal var cpu: Pep9ProcessorController!
     internal var io: IOMemController!
+    internal var asmHelper = ASMHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,15 @@ class Pep9MasterController: UIViewController {
     
     @IBAction func helpBtnPressed(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
+        asmHelper.asmMasterVC = self
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {
                 let nav = spvc.viewControllers[0] as! UINavigationController
                 let hm = nav.viewControllers[0] as! HelpMasterController
-                hm.setup(mvc: self)
+                //hm.setup(mvc: self)
+                
+                hm.setup(master: self.asmHelper, tableDelegate: self.asmHelper, dataSource: self.asmHelper
+                )
                 
             }
         }

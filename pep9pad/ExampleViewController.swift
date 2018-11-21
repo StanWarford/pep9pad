@@ -45,7 +45,7 @@ class ExampleViewController: UIViewController {
         
         do {
             let content = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
-            //print("Loaded file named \(fileName).\(ofType.rawValue)")
+            print("Loaded file named \(fileName).\(ofType.rawValue)")
             let tempCodeView: CodeView
             
             switch field {
@@ -89,8 +89,14 @@ class ExampleViewController: UIViewController {
             // grow topTextView to take up entire view, and shrink bottomTextView to height of 0
             let viewHeight = view.frame.height
             let viewWidth = view.frame.width
-            let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: viewHeight-navAndStatBarHeight)
-            let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight, width: viewWidth, height: 0)
+            let newRectForTop = CGRect(x: view.frame.origin.x,
+                                       y: view.frame.origin.y+navAndStatBarHeight,
+                                       width: viewWidth,
+                                       height: viewHeight-navAndStatBarHeight)
+            let newRectForBottom = CGRect(x: view.frame.origin.x,
+                                          y: viewHeight,
+                                          width: viewWidth,
+                                          height: 0)
             // disable the bottom text view
             self.bottomTextView.isUserInteractionEnabled = false
             UIView.animate(withDuration: 0.25) {
@@ -114,8 +120,14 @@ class ExampleViewController: UIViewController {
             let viewHeight = self.view.frame.height
             let viewWidth = self.view.frame.width
             let heightOfEach = (viewHeight-navAndStatBarHeight)/2
-            let newRectForTop = CGRect(x: view.frame.origin.x, y: view.frame.origin.y+navAndStatBarHeight, width: viewWidth, height: heightOfEach)
-            let newRectForBottom = CGRect(x: view.frame.origin.x, y: viewHeight/2+navAndStatBarHeight/2, width: viewWidth, height: heightOfEach)
+            let newRectForTop = CGRect(x: view.frame.origin.x,
+                                       y: view.frame.origin.y+navAndStatBarHeight,
+                                       width: viewWidth,
+                                       height: heightOfEach)
+            let newRectForBottom = CGRect(x: view.frame.origin.x,
+                                          y: viewHeight/2+navAndStatBarHeight/2,
+                                          width: viewWidth,
+                                          height: heightOfEach)
             // disable the bottom text view
             self.bottomTextView.isUserInteractionEnabled = true
             //Displays Regardless, only want for bottom

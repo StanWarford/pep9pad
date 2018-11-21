@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c8S-Mw-mJC">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,11 +19,27 @@
                         <viewControllerLayoutGuide type="bottom" id="ffv-Se-jI9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rVg-JV-3HC">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="840" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="4" translatesAutoresizingMaskIntoConstraints="NO" id="JCn-C6-Lnk">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="655"/>
+                                <rect key="frame" x="0.0" y="0.0" width="840" height="911"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGP-7m-XpP" customClass="CPU1ByteView" customModule="pep9pad" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="840" height="1024"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1024" id="3Y2-2H-btC"/>
+                                            <constraint firstAttribute="width" constant="840" id="thA-Vf-ze4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bGP-7m-XpP" firstAttribute="leading" secondItem="JCn-C6-Lnk" secondAttribute="leading" id="AtP-RP-cYZ"/>
+                                    <constraint firstItem="bGP-7m-XpP" firstAttribute="top" secondItem="JCn-C6-Lnk" secondAttribute="top" id="UOS-xg-dnb"/>
+                                    <constraint firstAttribute="bottom" secondItem="bGP-7m-XpP" secondAttribute="bottom" id="dnK-rP-9LX"/>
+                                    <constraint firstAttribute="trailing" secondItem="bGP-7m-XpP" secondAttribute="trailing" id="kKr-Z3-lWw"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,17 +47,22 @@
                             <constraint firstItem="JCn-C6-Lnk" firstAttribute="leading" secondItem="rVg-JV-3HC" secondAttribute="leading" id="4YE-Q0-alW"/>
                             <constraint firstAttribute="trailing" secondItem="JCn-C6-Lnk" secondAttribute="trailing" id="6Bm-ia-p4h"/>
                             <constraint firstItem="JCn-C6-Lnk" firstAttribute="bottom" secondItem="ffv-Se-jI9" secondAttribute="top" id="FGH-AU-hsE"/>
+                            <constraint firstAttribute="trailing" secondItem="JCn-C6-Lnk" secondAttribute="trailing" id="RPI-Cs-iQ1"/>
+                            <constraint firstItem="JCn-C6-Lnk" firstAttribute="leading" secondItem="rVg-JV-3HC" secondAttribute="leading" id="d0g-wE-MbJ"/>
                             <constraint firstItem="JCn-C6-Lnk" firstAttribute="top" secondItem="ME0-PE-daO" secondAttribute="bottom" id="dRl-aY-kVy"/>
+                            <constraint firstItem="ffv-Se-jI9" firstAttribute="top" secondItem="JCn-C6-Lnk" secondAttribute="bottom" id="kUP-yr-RQI"/>
+                            <constraint firstItem="JCn-C6-Lnk" firstAttribute="top" secondItem="ME0-PE-daO" secondAttribute="bottom" id="kt7-cX-5u9"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" id="ZVV-Bg-AX9"/>
+                    <size key="freeformSize" width="840" height="1024"/>
                     <connections>
                         <outlet property="scrollView" destination="JCn-C6-Lnk" id="DC2-FQ-klK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lyw-1p-mYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-236.13281249999997" y="841.40625"/>
+            <point key="canvasLocation" x="-236" y="1059"/>
         </scene>
         <!--Visual-->
         <scene sceneID="7gg-EU-r0k">
@@ -52,7 +73,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QA8-iO-Kcw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7xZ-dP-3rY">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -71,15 +92,15 @@
                         <viewControllerLayoutGuide type="bottom" id="SJf-az-k8d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fwp-A4-VDX">
-                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uVq-Fy-WbN" customClass="CodeView" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="328"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="327.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-bV-5I1">
-                                <rect key="frame" x="0.0" y="328" width="1024" height="327"/>
+                                <rect key="frame" x="0.0" y="327.5" width="1024" height="327.5"/>
                                 <connections>
                                     <segue destination="nEr-Xs-Y13" kind="embed" id="rSY-lj-Oed"/>
                                 </connections>
@@ -139,7 +160,7 @@
                         <viewControllerLayoutGuide type="bottom" id="S06-8o-Nh3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="thc-4l-TGt">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="327"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="327.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

@@ -255,7 +255,7 @@ void HelpDialog::onCurrentItemChanged(QTreeWidgetItem*, QTreeWidgetItem*) {
             }
             else if (row == ePR1231A) {
                 microcodeEditor->setPlainText(Pep::resToString(":/help/figures/prob1231a.pepcpu"));
-                ui->helpFigureLabel->setText("<b>Problem 12.31 (a)</b> Specification for <code>SUBA this,i</code>.");
+                ui->helpFigureLabel->setText("<b>Problem 12.31 (a)</b> Specification for <code>ASLA</code>.");
             }
             else if (row == ePR1231B) {
                 microcodeEditor->setPlainText(Pep::resToString(":/help/figures/prob1231b.pepcpu"));

@@ -47,6 +47,135 @@
 		462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75B1E2B2A3B00BBABCD /* fig0644.txt */; };
 		462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75C1E2B2A3B00BBABCD /* fig0646.txt */; };
 		462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */ = {isa = PBXBuildFile; fileRef = 462BA75D1E2B2A3B00BBABCD /* fig0648.txt */; };
+		4635082A219CE41A00CFE930 /* pep9os.txt in Resources */ = {isa = PBXBuildFile; fileRef = 463507A7219CE41900CFE930 /* pep9os.txt */; };
+		4635082B219CE41A00CFE930 /* microcode.html in Resources */ = {isa = PBXBuildFile; fileRef = 463507A8219CE41900CFE930 /* microcode.html */; };
+		4635082C219CE41A00CFE930 /* fourbuttonsmicrocodemode.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507AA219CE41900CFE930 /* fourbuttonsmicrocodemode.png */; };
+		4635082D219CE41A00CFE930 /* debugger2.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507AB219CE41900CFE930 /* debugger2.png */; };
+		4635082E219CE41A00CFE930 /* debugger3.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507AC219CE41900CFE930 /* debugger3.png */; };
+		4635082F219CE41A00CFE930 /* errormessage.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507AD219CE41900CFE930 /* errormessage.png */; };
+		46350830219CE41A00CFE930 /* debugger1.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507AE219CE41900CFE930 /* debugger1.png */; };
+		46350831219CE41A00CFE930 /* memreadwrite.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507AF219CE41900CFE930 /* memreadwrite.png */; };
+		46350832219CE41A00CFE930 /* copyexample.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B0219CE41900CFE930 /* copyexample.png */; };
+		46350833219CE41A00CFE930 /* registeraddresssignals.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B1219CE41900CFE930 /* registeraddresssignals.png */; };
+		46350834219CE41A00CFE930 /* startdebuggingicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B2219CE41900CFE930 /* startdebuggingicon.png */; };
+		46350835219CE41A00CFE930 /* debugger4.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B3219CE41900CFE930 /* debugger4.png */; };
+		46350836219CE41A00CFE930 /* debugger5.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B4219CE41900CFE930 /* debugger5.png */; };
+		46350837219CE41A00CFE930 /* debugger7.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B5219CE41900CFE930 /* debugger7.png */; };
+		46350838219CE41A00CFE930 /* runicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B6219CE41900CFE930 /* runicon.png */; };
+		46350839219CE41A00CFE930 /* debugger6.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B7219CE41900CFE930 /* debugger6.png */; };
+		4635083A219CE41A00CFE930 /* settingmemory.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B8219CE41900CFE930 /* settingmemory.png */; };
+		4635083B219CE41A00CFE930 /* objectcode.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507B9219CE41900CFE930 /* objectcode.png */; };
+		4635083C219CE41A00CFE930 /* comment3.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507BA219CE41900CFE930 /* comment3.png */; };
+		4635083D219CE41A00CFE930 /* stopdebuggingicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507BB219CE41900CFE930 /* stopdebuggingicon.png */; };
+		4635083E219CE41A00CFE930 /* formatfromobject2.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507BC219CE41900CFE930 /* formatfromobject2.png */; };
+		4635083F219CE41A00CFE930 /* formatfromobject3.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507BD219CE41900CFE930 /* formatfromobject3.png */; };
+		46350840219CE41A00CFE930 /* comment2.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507BE219CE41900CFE930 /* comment2.png */; };
+		46350841219CE41A00CFE930 /* debugging.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507BF219CE41900CFE930 /* debugging.png */; };
+		46350842219CE41A00CFE930 /* copyexercise.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C0219CE41900CFE930 /* copyexercise.png */; };
+		46350843219CE41A00CFE930 /* switchbus.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C1219CE41900CFE930 /* switchbus.png */; };
+		46350844219CE41A00CFE930 /* comment1.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C2219CE41900CFE930 /* comment1.png */; };
+		46350845219CE41A00CFE930 /* comment5.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C3219CE41900CFE930 /* comment5.png */; };
+		46350846219CE41A00CFE930 /* formatfromobject4.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C4219CE41900CFE930 /* formatfromobject4.png */; };
+		46350847219CE41A00CFE930 /* fourbuttonsinteractivemode.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C5219CE41900CFE930 /* fourbuttonsinteractivemode.png */; };
+		46350848219CE41A00CFE930 /* comment4.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C6219CE41900CFE930 /* comment4.png */; };
+		46350849219CE41A00CFE930 /* comment6.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C7219CE41900CFE930 /* comment6.png */; };
+		4635084A219CE41A00CFE930 /* clocksignal.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C8219CE41900CFE930 /* clocksignal.png */; };
+		4635084B219CE41A00CFE930 /* formatfromobject.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507C9219CE41900CFE930 /* formatfromobject.png */; };
+		4635084C219CE41A00CFE930 /* clearcpu.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507CA219CE41900CFE930 /* clearcpu.png */; };
+		4635084D219CE41A00CFE930 /* cyclenumbers.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507CB219CE41900CFE930 /* cyclenumbers.png */; };
+		4635084E219CE41A00CFE930 /* clearmemory.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507CC219CE41900CFE930 /* clearmemory.png */; };
+		4635084F219CE41A00CFE930 /* startdebuggingmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507CD219CE41900CFE930 /* startdebuggingmenu.png */; };
+		46350850219CE41A00CFE930 /* copycode4.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507CE219CE41900CFE930 /* copycode4.png */; };
+		46350851219CE41A00CFE930 /* resumebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507CF219CE41900CFE930 /* resumebutton.png */; };
+		46350852219CE41A00CFE930 /* togglevbit.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D0219CE41900CFE930 /* togglevbit.png */; };
+		46350853219CE41A00CFE930 /* removeerrormessages.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D1219CE41900CFE930 /* removeerrormessages.png */; };
+		46350854219CE41A00CFE930 /* copycode1.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D2219CE41900CFE930 /* copycode1.png */; };
+		46350855219CE41A00CFE930 /* runmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D3219CE41900CFE930 /* runmenu.png */; };
+		46350856219CE41A00CFE930 /* postconditionerror.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D4219CE41900CFE930 /* postconditionerror.png */; };
+		46350857219CE41A00CFE930 /* copycode3.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D5219CE41900CFE930 /* copycode3.png */; };
+		46350858219CE41A00CFE930 /* copycode2.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D6219CE41900CFE930 /* copycode2.png */; };
+		46350859219CE41A00CFE930 /* byteconverter.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D7219CE41900CFE930 /* byteconverter.png */; };
+		4635085A219CE41A00CFE930 /* stopdebuggingmenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D8219CE41900CFE930 /* stopdebuggingmenu.png */; };
+		4635085B219CE41A00CFE930 /* multiplexersignals.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507D9219CE41900CFE930 /* multiplexersignals.png */; };
+		4635085C219CE41A00CFE930 /* debugger8.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507DA219CE41900CFE930 /* debugger8.png */; };
+		4635085D219CE41A00CFE930 /* settingregister.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507DB219CE41900CFE930 /* settingregister.png */; };
+		4635085E219CE41A00CFE930 /* andzsignal.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507DC219CE41900CFE930 /* andzsignal.png */; };
+		4635085F219CE41A00CFE930 /* interactiveuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507DD219CE41900CFE930 /* interactiveuse.png */; };
+		46350860219CE41A00CFE930 /* clockandcopybuttons.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507DE219CE41900CFE930 /* clockandcopybuttons.png */; };
+		46350861219CE41A00CFE930 /* microcodeuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 463507DF219CE41900CFE930 /* microcodeuse.png */; };
+		46350862219CE41A00CFE930 /* debugging.html in Resources */ = {isa = PBXBuildFile; fileRef = 463507E0219CE41900CFE930 /* debugging.html */; };
+		46350863219CE41A00CFE930 /* onebytebusproblems.html in Resources */ = {isa = PBXBuildFile; fileRef = 463507E1219CE41900CFE930 /* onebytebusproblems.html */; };
+		46350864219CE41A00CFE930 /* cpu.html in Resources */ = {isa = PBXBuildFile; fileRef = 463507E2219CE41900CFE930 /* cpu.html */; };
+		46350865219CE41A00CFE930 /* onebytebusexamples.html in Resources */ = {isa = PBXBuildFile; fileRef = 463507E3219CE41900CFE930 /* onebytebusexamples.html */; };
+		46350866219CE41A00CFE930 /* twobytebusexamples.html in Resources */ = {isa = PBXBuildFile; fileRef = 463507E4219CE41900CFE930 /* twobytebusexamples.html */; };
+		46350867219CE41A00CFE930 /* prob1230.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507E6219CE41900CFE930 /* prob1230.pepcpu */; };
+		46350868219CE41A00CFE930 /* prob1229e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507E7219CE41900CFE930 /* prob1229e.pepcpu */; };
+		46350869219CE41A00CFE930 /* prob1231g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507E8219CE41900CFE930 /* prob1231g.pepcpu */; };
+		4635086A219CE41A00CFE930 /* prob1236f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507E9219CE41900CFE930 /* prob1236f.pepcpu */; };
+		4635086B219CE41A00CFE930 /* prob1233c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507EA219CE41900CFE930 /* prob1233c.pepcpu */; };
+		4635086C219CE41A00CFE930 /* fig1212.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507EB219CE41900CFE930 /* fig1212.pepcpu */; };
+		4635086D219CE41A00CFE930 /* prob1234b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507EC219CE41900CFE930 /* prob1234b.pepcpu */; };
+		4635086E219CE41A00CFE930 /* prob1232a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507ED219CE41900CFE930 /* prob1232a.pepcpu */; };
+		4635086F219CE41A00CFE930 /* prob1235l.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507EE219CE41900CFE930 /* prob1235l.pepcpu */; };
+		46350870219CE41A00CFE930 /* prob1236d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507EF219CE41900CFE930 /* prob1236d.pepcpu */; };
+		46350871219CE41A00CFE930 /* prob1231e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F0219CE41900CFE930 /* prob1231e.pepcpu */; };
+		46350872219CE41A00CFE930 /* prob1232c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F1219CE41900CFE930 /* prob1232c.pepcpu */; };
+		46350873219CE41A00CFE930 /* fig1210.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F2219CE41900CFE930 /* fig1210.pepcpu */; };
+		46350874219CE41A00CFE930 /* prob1233a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F3219CE41900CFE930 /* prob1233a.pepcpu */; };
+		46350875219CE41A00CFE930 /* prob1235b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F4219CE41900CFE930 /* prob1235b.pepcpu */; };
+		46350876219CE41A00CFE930 /* prob1229g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F5219CE41900CFE930 /* prob1229g.pepcpu */; };
+		46350877219CE41A00CFE930 /* prob1233e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F6219CE41900CFE930 /* prob1233e.pepcpu */; };
+		46350878219CE41A00CFE930 /* prob1235f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F7219CE41900CFE930 /* prob1235f.pepcpu */; };
+		46350879219CE41A00CFE930 /* prob1232k.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F8219CE41900CFE930 /* prob1232k.pepcpu */; };
+		4635087A219CE41A00CFE930 /* prob1235j.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507F9219CE41900CFE930 /* prob1235j.pepcpu */; };
+		4635087B219CE41A00CFE930 /* prob1232g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507FA219CE41900CFE930 /* prob1232g.pepcpu */; };
+		4635087C219CE41A00CFE930 /* fig1214.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507FB219CE41900CFE930 /* fig1214.pepcpu */; };
+		4635087D219CE41A00CFE930 /* prob1231a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507FC219CE41900CFE930 /* prob1231a.pepcpu */; };
+		4635087E219CE41A00CFE930 /* prob1229c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507FD219CE41900CFE930 /* prob1229c.pepcpu */; };
+		4635087F219CE41A00CFE930 /* prob1228.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507FE219CE41900CFE930 /* prob1228.pepcpu */; };
+		46350880219CE41A00CFE930 /* prob1229a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 463507FF219CE41900CFE930 /* prob1229a.pepcpu */; };
+		46350881219CE41A00CFE930 /* prob1235h.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350800219CE41900CFE930 /* prob1235h.pepcpu */; };
+		46350882219CE41A00CFE930 /* prob1232e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350801219CE41900CFE930 /* prob1232e.pepcpu */; };
+		46350883219CE41A00CFE930 /* prob1235d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350802219CE41900CFE930 /* prob1235d.pepcpu */; };
+		46350884219CE41A00CFE930 /* prob1232i.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350803219CE41900CFE930 /* prob1232i.pepcpu */; };
+		46350885219CE41A00CFE930 /* prob1236b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350804219CE41900CFE930 /* prob1236b.pepcpu */; };
+		46350886219CE41A00CFE930 /* fig1220.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350805219CE41900CFE930 /* fig1220.pepcpu */; };
+		46350887219CE41A00CFE930 /* prob1231c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350806219CE41900CFE930 /* prob1231c.pepcpu */; };
+		46350888219CE41A00CFE930 /* prob1233b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350807219CE41900CFE930 /* prob1233b.pepcpu */; };
+		46350889219CE41A00CFE930 /* prob1235a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350808219CE41900CFE930 /* prob1235a.pepcpu */; };
+		4635088A219CE41A00CFE930 /* prob1232l.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350809219CE41900CFE930 /* prob1232l.pepcpu */; };
+		4635088B219CE41A00CFE930 /* prob1231f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635080A219CE41900CFE930 /* prob1231f.pepcpu */; };
+		4635088C219CE41A00CFE930 /* prob1229d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635080B219CE41900CFE930 /* prob1229d.pepcpu */; };
+		4635088D219CE41A00CFE930 /* prob1229f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635080C219CE41900CFE930 /* prob1229f.pepcpu */; };
+		4635088E219CE41A00CFE930 /* prob1234a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635080D219CE41900CFE930 /* prob1234a.pepcpu */; };
+		4635088F219CE41A00CFE930 /* fig1211.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635080E219CE41900CFE930 /* fig1211.pepcpu */; };
+		46350890219CE41A00CFE930 /* prob1232b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635080F219CE41900CFE930 /* prob1232b.pepcpu */; };
+		46350891219CE41A00CFE930 /* prob1235c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350810219CE41900CFE930 /* prob1235c.pepcpu */; };
+		46350892219CE41A00CFE930 /* prob1236e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350811219CE41900CFE930 /* prob1236e.pepcpu */; };
+		46350893219CE41A00CFE930 /* prob1231d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350812219CE41900CFE930 /* prob1231d.pepcpu */; };
+		46350894219CE41A00CFE930 /* prob1229b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350813219CE41900CFE930 /* prob1229b.pepcpu */; };
+		46350895219CE41A00CFE930 /* fig1223.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350814219CE41900CFE930 /* fig1223.pepcpu */; };
+		46350896219CE41A00CFE930 /* prob1236a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350815219CE41900CFE930 /* prob1236a.pepcpu */; };
+		46350897219CE41A00CFE930 /* prob1232j.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350816219CE41900CFE930 /* prob1232j.pepcpu */; };
+		46350898219CE41A00CFE930 /* fig1207.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350817219CE41900CFE930 /* fig1207.pepcpu */; };
+		46350899219CE41A00CFE930 /* prob1235g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350818219CE41900CFE930 /* prob1235g.pepcpu */; };
+		4635089A219CE41A00CFE930 /* prob1233d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350819219CE41900CFE930 /* prob1233d.pepcpu */; };
+		4635089B219CE41A00CFE930 /* prob1232f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635081A219CE41900CFE930 /* prob1232f.pepcpu */; };
+		4635089C219CE41A00CFE930 /* prob1235k.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635081B219CE41900CFE930 /* prob1235k.pepcpu */; };
+		4635089D219CE41A00CFE930 /* prob1236c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635081C219CE41900CFE930 /* prob1236c.pepcpu */; };
+		4635089E219CE41A00CFE930 /* prob1231b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635081D219CE41900CFE930 /* prob1231b.pepcpu */; };
+		4635089F219CE41A00CFE930 /* fig1221.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635081E219CE41900CFE930 /* fig1221.pepcpu */; };
+		463508A0219CE41A00CFE930 /* prob1232d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4635081F219CE41900CFE930 /* prob1232d.pepcpu */; };
+		463508A1219CE41A00CFE930 /* fig1209.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350820219CE41900CFE930 /* fig1209.pepcpu */; };
+		463508A2219CE41A00CFE930 /* prob1235i.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350821219CE41900CFE930 /* prob1235i.pepcpu */; };
+		463508A3219CE41A00CFE930 /* prob1233f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350822219CE41900CFE930 /* prob1233f.pepcpu */; };
+		463508A4219CE41A00CFE930 /* fig1205.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350823219CE41900CFE930 /* fig1205.pepcpu */; };
+		463508A5219CE41A00CFE930 /* prob1232h.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350824219CE41900CFE930 /* prob1232h.pepcpu */; };
+		463508A6219CE41A00CFE930 /* prob1235e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 46350825219CE41900CFE930 /* prob1235e.pepcpu */; };
+		463508A7219CE41A00CFE930 /* twobytebusproblems.html in Resources */ = {isa = PBXBuildFile; fileRef = 46350826219CE41900CFE930 /* twobytebusproblems.html */; };
+		463508A8219CE41A00CFE930 /* pep9reference.html in Resources */ = {isa = PBXBuildFile; fileRef = 46350827219CE41900CFE930 /* pep9reference.html */; };
+		463508A9219CE41A00CFE930 /* beta.html in Resources */ = {isa = PBXBuildFile; fileRef = 46350828219CE41900CFE930 /* beta.html */; };
+		463508AA219CE41A00CFE930 /* usingpep9cpu.html in Resources */ = {isa = PBXBuildFile; fileRef = 46350829219CE41900CFE930 /* usingpep9cpu.html */; };
 		4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */; };
 		4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */; };
 		4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */; };
@@ -228,6 +357,91 @@
 		753780661E96F862002E1968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780651E96F862002E1968 /* ViewController.swift */; };
 		753780681E96F873002E1968 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753780671E96F873002E1968 /* SecondViewController.swift */; };
 		7537806A1E96F951002E1968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753780691E96F951002E1968 /* Main.storyboard */; };
+		A00A1E34218641C60072A283 /* keypad.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A1E33218641C60072A283 /* keypad.swift */; };
+		A00A1E36218642130072A283 /* keypadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00A1E35218642130072A283 /* keypadDelegate.swift */; };
+		A013EB15215C0551008CF1A6 /* CPUEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB14215C0551008CF1A6 /* CPUEnum.swift */; };
+		A013EB18215C1697008CF1A6 /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = A013EB17215C1697008CF1A6 /* Maps.swift */; };
+		A02EECE721877C5500A3459A /* ButtonStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE621877C5500A3459A /* ButtonStackView.swift */; };
+		A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */; };
+		A02F6EC1218825470077A375 /* SimulatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F6EC0218825470077A375 /* SimulatorDelegate.swift */; };
+		A033D26B2194E26B00DFD052 /* prob1232e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22B2194E26500DFD052 /* prob1232e.pepcpu */; };
+		A033D26C2194E26B00DFD052 /* prob1232c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22C2194E26600DFD052 /* prob1232c.pepcpu */; };
+		A033D26D2194E26B00DFD052 /* prob1233f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22D2194E26600DFD052 /* prob1233f.pepcpu */; };
+		A033D26E2194E26B00DFD052 /* prob1235e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22E2194E26600DFD052 /* prob1235e.pepcpu */; };
+		A033D26F2194E26B00DFD052 /* prob1235j.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D22F2194E26600DFD052 /* prob1235j.pepcpu */; };
+		A033D2702194E26B00DFD052 /* prob1232k.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2302194E26600DFD052 /* prob1232k.pepcpu */; };
+		A033D2712194E26B00DFD052 /* prob1231b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2312194E26600DFD052 /* prob1231b.pepcpu */; };
+		A033D2722194E26B00DFD052 /* fig1220.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2322194E26600DFD052 /* fig1220.pepcpu */; };
+		A033D2732194E26B00DFD052 /* prob1232j.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2332194E26600DFD052 /* prob1232j.pepcpu */; };
+		A033D2742194E26B00DFD052 /* prob1229b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2342194E26600DFD052 /* prob1229b.pepcpu */; };
+		A033D2752194E26B00DFD052 /* prob1232g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2352194E26600DFD052 /* prob1232g.pepcpu */; };
+		A033D2762194E26B00DFD052 /* prob1231e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2362194E26600DFD052 /* prob1231e.pepcpu */; };
+		A033D2772194E26B00DFD052 /* prob1229d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2372194E26600DFD052 /* prob1229d.pepcpu */; };
+		A033D2782194E26B00DFD052 /* prob1231f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2382194E26600DFD052 /* prob1231f.pepcpu */; };
+		A033D2792194E26B00DFD052 /* prob1229c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2392194E26600DFD052 /* prob1229c.pepcpu */; };
+		A033D27A2194E26B00DFD052 /* prob1232i.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23A2194E26600DFD052 /* prob1232i.pepcpu */; };
+		A033D27B2194E26B00DFD052 /* prob1235l.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23B2194E26700DFD052 /* prob1235l.pepcpu */; };
+		A033D27C2194E26B00DFD052 /* fig1209.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23C2194E26700DFD052 /* fig1209.pepcpu */; };
+		A033D27D2194E26B00DFD052 /* fig1214.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23D2194E26700DFD052 /* fig1214.pepcpu */; };
+		A033D27E2194E26B00DFD052 /* fig1212.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23E2194E26700DFD052 /* fig1212.pepcpu */; };
+		A033D27F2194E26B00DFD052 /* prob1232h.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D23F2194E26700DFD052 /* prob1232h.pepcpu */; };
+		A033D2802194E26B00DFD052 /* prob1235d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2402194E26700DFD052 /* prob1235d.pepcpu */; };
+		A033D2812194E26B00DFD052 /* prob1232f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2412194E26700DFD052 /* prob1232f.pepcpu */; };
+		A033D2822194E26B00DFD052 /* fig1205.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2422194E26700DFD052 /* fig1205.pepcpu */; };
+		A033D2832194E26B00DFD052 /* prob1229a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2432194E26700DFD052 /* prob1229a.pepcpu */; };
+		A033D2842194E26B00DFD052 /* prob1231a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2442194E26700DFD052 /* prob1231a.pepcpu */; };
+		A033D2852194E26B00DFD052 /* prob1236b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2452194E26700DFD052 /* prob1236b.pepcpu */; };
+		A033D2862194E26B00DFD052 /* prob1232a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2462194E26700DFD052 /* prob1232a.pepcpu */; };
+		A033D2872194E26B00DFD052 /* prob1236a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2472194E26800DFD052 /* prob1236a.pepcpu */; };
+		A033D2882194E26B00DFD052 /* prob1233c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2482194E26800DFD052 /* prob1233c.pepcpu */; };
+		A033D2892194E26B00DFD052 /* fig1223.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2492194E26800DFD052 /* fig1223.pepcpu */; };
+		A033D28A2194E26B00DFD052 /* prob1235f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24A2194E26800DFD052 /* prob1235f.pepcpu */; };
+		A033D28B2194E26B00DFD052 /* prob1235c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24B2194E26800DFD052 /* prob1235c.pepcpu */; };
+		A033D28C2194E26B00DFD052 /* prob1229g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24C2194E26800DFD052 /* prob1229g.pepcpu */; };
+		A033D28D2194E26B00DFD052 /* prob1236d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24D2194E26800DFD052 /* prob1236d.pepcpu */; };
+		A033D28E2194E26B00DFD052 /* fig1207.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24E2194E26800DFD052 /* fig1207.pepcpu */; };
+		A033D28F2194E26B00DFD052 /* prob1231c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D24F2194E26800DFD052 /* prob1231c.pepcpu */; };
+		A033D2902194E26B00DFD052 /* prob1229e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2502194E26800DFD052 /* prob1229e.pepcpu */; };
+		A033D2912194E26B00DFD052 /* prob1235a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2512194E26800DFD052 /* prob1235a.pepcpu */; };
+		A033D2922194E26B00DFD052 /* prob1235h.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2522194E26800DFD052 /* prob1235h.pepcpu */; };
+		A033D2932194E26B00DFD052 /* prob1229f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2532194E26800DFD052 /* prob1229f.pepcpu */; };
+		A033D2942194E26B00DFD052 /* fig1210.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2542194E26800DFD052 /* fig1210.pepcpu */; };
+		A033D2952194E26B00DFD052 /* prob1233d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2552194E26900DFD052 /* prob1233d.pepcpu */; };
+		A033D2962194E26B00DFD052 /* prob1235k.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2562194E26900DFD052 /* prob1235k.pepcpu */; };
+		A033D2972194E26B00DFD052 /* fig1211.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2572194E26900DFD052 /* fig1211.pepcpu */; };
+		A033D2982194E26B00DFD052 /* prob1230.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2582194E26900DFD052 /* prob1230.pepcpu */; };
+		A033D2992194E26B00DFD052 /* prob1231d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2592194E26900DFD052 /* prob1231d.pepcpu */; };
+		A033D29A2194E26B00DFD052 /* prob1235i.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25A2194E26900DFD052 /* prob1235i.pepcpu */; };
+		A033D29B2194E26B00DFD052 /* prob1233b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25B2194E26900DFD052 /* prob1233b.pepcpu */; };
+		A033D29C2194E26B00DFD052 /* prob1232b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25C2194E26900DFD052 /* prob1232b.pepcpu */; };
+		A033D29D2194E26B00DFD052 /* prob1232d.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25D2194E26900DFD052 /* prob1232d.pepcpu */; };
+		A033D29E2194E26B00DFD052 /* prob1233e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25E2194E26900DFD052 /* prob1233e.pepcpu */; };
+		A033D29F2194E26B00DFD052 /* prob1232l.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D25F2194E26900DFD052 /* prob1232l.pepcpu */; };
+		A033D2A02194E26B00DFD052 /* prob1235b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2602194E26A00DFD052 /* prob1235b.pepcpu */; };
+		A033D2A12194E26B00DFD052 /* prob1234b.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2612194E26A00DFD052 /* prob1234b.pepcpu */; };
+		A033D2A22194E26B00DFD052 /* prob1236c.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2622194E26A00DFD052 /* prob1236c.pepcpu */; };
+		A033D2A32194E26B00DFD052 /* prob1233a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2632194E26A00DFD052 /* prob1233a.pepcpu */; };
+		A033D2A42194E26B00DFD052 /* prob1234a.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2642194E26A00DFD052 /* prob1234a.pepcpu */; };
+		A033D2A52194E26B00DFD052 /* prob1235g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2652194E26A00DFD052 /* prob1235g.pepcpu */; };
+		A033D2A62194E26B00DFD052 /* prob1236e.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2662194E26A00DFD052 /* prob1236e.pepcpu */; };
+		A033D2A72194E26B00DFD052 /* fig1221.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2672194E26A00DFD052 /* fig1221.pepcpu */; };
+		A033D2A82194E26B00DFD052 /* prob1236f.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2682194E26A00DFD052 /* prob1236f.pepcpu */; };
+		A033D2A92194E26B00DFD052 /* prob1228.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D2692194E26A00DFD052 /* prob1228.pepcpu */; };
+		A033D2AA2194E26B00DFD052 /* prob1231g.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = A033D26A2194E26B00DFD052 /* prob1231g.pepcpu */; };
+		A042383F21724C8300DAAECE /* LineTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042383E21724C8300DAAECE /* LineTableView.swift */; };
+		A042384121724D2800DAAECE /* LineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042384021724D2800DAAECE /* LineTable.swift */; };
+		A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04238422172683200DAAECE /* lineTableDelegate.swift */; };
+		A04B6F892188EAF10018892D /* OneByteSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04B6F882188EAF10018892D /* OneByteSimulator.swift */; };
+		A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07500B72166A95B009BB75A /* CPUSimulator.swift */; };
+		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
+		A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B3217023AC00151440 /* clockLineCell.swift */; };
+		A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B82170252000151440 /* numericLineCell.swift */; };
+		A0DE030E219CA4410018A6B2 /* HelpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */; };
+		A0DE0310219CA7970018A6B2 /* CPUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE030F219CA7970018A6B2 /* CPUHelper.swift */; };
+		A0DE0312219CA7A10018A6B2 /* ASMHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */; };
+		A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */; };
+		A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */; };
+		A0E82DA4217A5BB8003A6CEA /* CPUCodeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */; };
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
@@ -311,6 +525,135 @@
 		462BA75B1E2B2A3B00BBABCD /* fig0644.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0644.txt; path = pep9pad/figures/fig0644.txt; sourceTree = "<group>"; };
 		462BA75C1E2B2A3B00BBABCD /* fig0646.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0646.txt; path = pep9pad/figures/fig0646.txt; sourceTree = "<group>"; };
 		462BA75D1E2B2A3B00BBABCD /* fig0648.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fig0648.txt; path = pep9pad/figures/fig0648.txt; sourceTree = "<group>"; };
+		463507A7219CE41900CFE930 /* pep9os.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pep9os.txt; sourceTree = "<group>"; };
+		463507A8219CE41900CFE930 /* microcode.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = microcode.html; sourceTree = "<group>"; };
+		463507AA219CE41900CFE930 /* fourbuttonsmicrocodemode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourbuttonsmicrocodemode.png; sourceTree = "<group>"; };
+		463507AB219CE41900CFE930 /* debugger2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger2.png; sourceTree = "<group>"; };
+		463507AC219CE41900CFE930 /* debugger3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger3.png; sourceTree = "<group>"; };
+		463507AD219CE41900CFE930 /* errormessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = errormessage.png; sourceTree = "<group>"; };
+		463507AE219CE41900CFE930 /* debugger1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger1.png; sourceTree = "<group>"; };
+		463507AF219CE41900CFE930 /* memreadwrite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = memreadwrite.png; sourceTree = "<group>"; };
+		463507B0219CE41900CFE930 /* copyexample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copyexample.png; sourceTree = "<group>"; };
+		463507B1219CE41900CFE930 /* registeraddresssignals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registeraddresssignals.png; sourceTree = "<group>"; };
+		463507B2219CE41900CFE930 /* startdebuggingicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startdebuggingicon.png; sourceTree = "<group>"; };
+		463507B3219CE41900CFE930 /* debugger4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger4.png; sourceTree = "<group>"; };
+		463507B4219CE41900CFE930 /* debugger5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger5.png; sourceTree = "<group>"; };
+		463507B5219CE41900CFE930 /* debugger7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger7.png; sourceTree = "<group>"; };
+		463507B6219CE41900CFE930 /* runicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runicon.png; sourceTree = "<group>"; };
+		463507B7219CE41900CFE930 /* debugger6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger6.png; sourceTree = "<group>"; };
+		463507B8219CE41900CFE930 /* settingmemory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingmemory.png; sourceTree = "<group>"; };
+		463507B9219CE41900CFE930 /* objectcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = objectcode.png; sourceTree = "<group>"; };
+		463507BA219CE41900CFE930 /* comment3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment3.png; sourceTree = "<group>"; };
+		463507BB219CE41900CFE930 /* stopdebuggingicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopdebuggingicon.png; sourceTree = "<group>"; };
+		463507BC219CE41900CFE930 /* formatfromobject2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formatfromobject2.png; sourceTree = "<group>"; };
+		463507BD219CE41900CFE930 /* formatfromobject3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formatfromobject3.png; sourceTree = "<group>"; };
+		463507BE219CE41900CFE930 /* comment2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment2.png; sourceTree = "<group>"; };
+		463507BF219CE41900CFE930 /* debugging.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugging.png; sourceTree = "<group>"; };
+		463507C0219CE41900CFE930 /* copyexercise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copyexercise.png; sourceTree = "<group>"; };
+		463507C1219CE41900CFE930 /* switchbus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchbus.png; sourceTree = "<group>"; };
+		463507C2219CE41900CFE930 /* comment1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment1.png; sourceTree = "<group>"; };
+		463507C3219CE41900CFE930 /* comment5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment5.png; sourceTree = "<group>"; };
+		463507C4219CE41900CFE930 /* formatfromobject4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formatfromobject4.png; sourceTree = "<group>"; };
+		463507C5219CE41900CFE930 /* fourbuttonsinteractivemode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourbuttonsinteractivemode.png; sourceTree = "<group>"; };
+		463507C6219CE41900CFE930 /* comment4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment4.png; sourceTree = "<group>"; };
+		463507C7219CE41900CFE930 /* comment6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comment6.png; sourceTree = "<group>"; };
+		463507C8219CE41900CFE930 /* clocksignal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clocksignal.png; sourceTree = "<group>"; };
+		463507C9219CE41900CFE930 /* formatfromobject.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = formatfromobject.png; sourceTree = "<group>"; };
+		463507CA219CE41900CFE930 /* clearcpu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearcpu.png; sourceTree = "<group>"; };
+		463507CB219CE41900CFE930 /* cyclenumbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cyclenumbers.png; sourceTree = "<group>"; };
+		463507CC219CE41900CFE930 /* clearmemory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clearmemory.png; sourceTree = "<group>"; };
+		463507CD219CE41900CFE930 /* startdebuggingmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startdebuggingmenu.png; sourceTree = "<group>"; };
+		463507CE219CE41900CFE930 /* copycode4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copycode4.png; sourceTree = "<group>"; };
+		463507CF219CE41900CFE930 /* resumebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = resumebutton.png; sourceTree = "<group>"; };
+		463507D0219CE41900CFE930 /* togglevbit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = togglevbit.png; sourceTree = "<group>"; };
+		463507D1219CE41900CFE930 /* removeerrormessages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = removeerrormessages.png; sourceTree = "<group>"; };
+		463507D2219CE41900CFE930 /* copycode1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copycode1.png; sourceTree = "<group>"; };
+		463507D3219CE41900CFE930 /* runmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = runmenu.png; sourceTree = "<group>"; };
+		463507D4219CE41900CFE930 /* postconditionerror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postconditionerror.png; sourceTree = "<group>"; };
+		463507D5219CE41900CFE930 /* copycode3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copycode3.png; sourceTree = "<group>"; };
+		463507D6219CE41900CFE930 /* copycode2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = copycode2.png; sourceTree = "<group>"; };
+		463507D7219CE41900CFE930 /* byteconverter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = byteconverter.png; sourceTree = "<group>"; };
+		463507D8219CE41900CFE930 /* stopdebuggingmenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stopdebuggingmenu.png; sourceTree = "<group>"; };
+		463507D9219CE41900CFE930 /* multiplexersignals.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiplexersignals.png; sourceTree = "<group>"; };
+		463507DA219CE41900CFE930 /* debugger8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = debugger8.png; sourceTree = "<group>"; };
+		463507DB219CE41900CFE930 /* settingregister.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingregister.png; sourceTree = "<group>"; };
+		463507DC219CE41900CFE930 /* andzsignal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = andzsignal.png; sourceTree = "<group>"; };
+		463507DD219CE41900CFE930 /* interactiveuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = interactiveuse.png; sourceTree = "<group>"; };
+		463507DE219CE41900CFE930 /* clockandcopybuttons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clockandcopybuttons.png; sourceTree = "<group>"; };
+		463507DF219CE41900CFE930 /* microcodeuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microcodeuse.png; sourceTree = "<group>"; };
+		463507E0219CE41900CFE930 /* debugging.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = debugging.html; sourceTree = "<group>"; };
+		463507E1219CE41900CFE930 /* onebytebusproblems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = onebytebusproblems.html; sourceTree = "<group>"; };
+		463507E2219CE41900CFE930 /* cpu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = cpu.html; sourceTree = "<group>"; };
+		463507E3219CE41900CFE930 /* onebytebusexamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = onebytebusexamples.html; sourceTree = "<group>"; };
+		463507E4219CE41900CFE930 /* twobytebusexamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = twobytebusexamples.html; sourceTree = "<group>"; };
+		463507E6219CE41900CFE930 /* prob1230.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1230.pepcpu; sourceTree = "<group>"; };
+		463507E7219CE41900CFE930 /* prob1229e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229e.pepcpu; sourceTree = "<group>"; };
+		463507E8219CE41900CFE930 /* prob1231g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231g.pepcpu; sourceTree = "<group>"; };
+		463507E9219CE41900CFE930 /* prob1236f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236f.pepcpu; sourceTree = "<group>"; };
+		463507EA219CE41900CFE930 /* prob1233c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233c.pepcpu; sourceTree = "<group>"; };
+		463507EB219CE41900CFE930 /* fig1212.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1212.pepcpu; sourceTree = "<group>"; };
+		463507EC219CE41900CFE930 /* prob1234b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1234b.pepcpu; sourceTree = "<group>"; };
+		463507ED219CE41900CFE930 /* prob1232a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232a.pepcpu; sourceTree = "<group>"; };
+		463507EE219CE41900CFE930 /* prob1235l.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235l.pepcpu; sourceTree = "<group>"; };
+		463507EF219CE41900CFE930 /* prob1236d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236d.pepcpu; sourceTree = "<group>"; };
+		463507F0219CE41900CFE930 /* prob1231e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231e.pepcpu; sourceTree = "<group>"; };
+		463507F1219CE41900CFE930 /* prob1232c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232c.pepcpu; sourceTree = "<group>"; };
+		463507F2219CE41900CFE930 /* fig1210.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1210.pepcpu; sourceTree = "<group>"; };
+		463507F3219CE41900CFE930 /* prob1233a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233a.pepcpu; sourceTree = "<group>"; };
+		463507F4219CE41900CFE930 /* prob1235b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235b.pepcpu; sourceTree = "<group>"; };
+		463507F5219CE41900CFE930 /* prob1229g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229g.pepcpu; sourceTree = "<group>"; };
+		463507F6219CE41900CFE930 /* prob1233e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233e.pepcpu; sourceTree = "<group>"; };
+		463507F7219CE41900CFE930 /* prob1235f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235f.pepcpu; sourceTree = "<group>"; };
+		463507F8219CE41900CFE930 /* prob1232k.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232k.pepcpu; sourceTree = "<group>"; };
+		463507F9219CE41900CFE930 /* prob1235j.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235j.pepcpu; sourceTree = "<group>"; };
+		463507FA219CE41900CFE930 /* prob1232g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232g.pepcpu; sourceTree = "<group>"; };
+		463507FB219CE41900CFE930 /* fig1214.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1214.pepcpu; sourceTree = "<group>"; };
+		463507FC219CE41900CFE930 /* prob1231a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231a.pepcpu; sourceTree = "<group>"; };
+		463507FD219CE41900CFE930 /* prob1229c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229c.pepcpu; sourceTree = "<group>"; };
+		463507FE219CE41900CFE930 /* prob1228.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1228.pepcpu; sourceTree = "<group>"; };
+		463507FF219CE41900CFE930 /* prob1229a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229a.pepcpu; sourceTree = "<group>"; };
+		46350800219CE41900CFE930 /* prob1235h.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235h.pepcpu; sourceTree = "<group>"; };
+		46350801219CE41900CFE930 /* prob1232e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232e.pepcpu; sourceTree = "<group>"; };
+		46350802219CE41900CFE930 /* prob1235d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235d.pepcpu; sourceTree = "<group>"; };
+		46350803219CE41900CFE930 /* prob1232i.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232i.pepcpu; sourceTree = "<group>"; };
+		46350804219CE41900CFE930 /* prob1236b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236b.pepcpu; sourceTree = "<group>"; };
+		46350805219CE41900CFE930 /* fig1220.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1220.pepcpu; sourceTree = "<group>"; };
+		46350806219CE41900CFE930 /* prob1231c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231c.pepcpu; sourceTree = "<group>"; };
+		46350807219CE41900CFE930 /* prob1233b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233b.pepcpu; sourceTree = "<group>"; };
+		46350808219CE41900CFE930 /* prob1235a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235a.pepcpu; sourceTree = "<group>"; };
+		46350809219CE41900CFE930 /* prob1232l.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232l.pepcpu; sourceTree = "<group>"; };
+		4635080A219CE41900CFE930 /* prob1231f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231f.pepcpu; sourceTree = "<group>"; };
+		4635080B219CE41900CFE930 /* prob1229d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229d.pepcpu; sourceTree = "<group>"; };
+		4635080C219CE41900CFE930 /* prob1229f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229f.pepcpu; sourceTree = "<group>"; };
+		4635080D219CE41900CFE930 /* prob1234a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1234a.pepcpu; sourceTree = "<group>"; };
+		4635080E219CE41900CFE930 /* fig1211.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1211.pepcpu; sourceTree = "<group>"; };
+		4635080F219CE41900CFE930 /* prob1232b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232b.pepcpu; sourceTree = "<group>"; };
+		46350810219CE41900CFE930 /* prob1235c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235c.pepcpu; sourceTree = "<group>"; };
+		46350811219CE41900CFE930 /* prob1236e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236e.pepcpu; sourceTree = "<group>"; };
+		46350812219CE41900CFE930 /* prob1231d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231d.pepcpu; sourceTree = "<group>"; };
+		46350813219CE41900CFE930 /* prob1229b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229b.pepcpu; sourceTree = "<group>"; };
+		46350814219CE41900CFE930 /* fig1223.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1223.pepcpu; sourceTree = "<group>"; };
+		46350815219CE41900CFE930 /* prob1236a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236a.pepcpu; sourceTree = "<group>"; };
+		46350816219CE41900CFE930 /* prob1232j.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232j.pepcpu; sourceTree = "<group>"; };
+		46350817219CE41900CFE930 /* fig1207.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1207.pepcpu; sourceTree = "<group>"; };
+		46350818219CE41900CFE930 /* prob1235g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235g.pepcpu; sourceTree = "<group>"; };
+		46350819219CE41900CFE930 /* prob1233d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233d.pepcpu; sourceTree = "<group>"; };
+		4635081A219CE41900CFE930 /* prob1232f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232f.pepcpu; sourceTree = "<group>"; };
+		4635081B219CE41900CFE930 /* prob1235k.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235k.pepcpu; sourceTree = "<group>"; };
+		4635081C219CE41900CFE930 /* prob1236c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236c.pepcpu; sourceTree = "<group>"; };
+		4635081D219CE41900CFE930 /* prob1231b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231b.pepcpu; sourceTree = "<group>"; };
+		4635081E219CE41900CFE930 /* fig1221.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1221.pepcpu; sourceTree = "<group>"; };
+		4635081F219CE41900CFE930 /* prob1232d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232d.pepcpu; sourceTree = "<group>"; };
+		46350820219CE41900CFE930 /* fig1209.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1209.pepcpu; sourceTree = "<group>"; };
+		46350821219CE41900CFE930 /* prob1235i.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235i.pepcpu; sourceTree = "<group>"; };
+		46350822219CE41900CFE930 /* prob1233f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233f.pepcpu; sourceTree = "<group>"; };
+		46350823219CE41900CFE930 /* fig1205.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1205.pepcpu; sourceTree = "<group>"; };
+		46350824219CE41900CFE930 /* prob1232h.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232h.pepcpu; sourceTree = "<group>"; };
+		46350825219CE41900CFE930 /* prob1235e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235e.pepcpu; sourceTree = "<group>"; };
+		46350826219CE41900CFE930 /* twobytebusproblems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = twobytebusproblems.html; sourceTree = "<group>"; };
+		46350827219CE41900CFE930 /* pep9reference.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = pep9reference.html; sourceTree = "<group>"; };
+		46350828219CE41900CFE930 /* beta.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = beta.html; sourceTree = "<group>"; };
+		46350829219CE41900CFE930 /* usingpep9cpu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = usingpep9cpu.html; sourceTree = "<group>"; };
 		4636AE3F1DE505C100182C7B /* CodeViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeViewDelegate.swift; sourceTree = "<group>"; };
 		4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteView.swift; sourceTree = "<group>"; };
 		4637EF881E5BBF27007593E1 /* CPU2ByteRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU2ByteRenderer.swift; sourceTree = "<group>"; };
@@ -495,6 +838,104 @@
 		753780671E96F873002E1968 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		753780691E96F951002E1968 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		86789E9DDD8A96EF0A67A7DF /* Pods-pep9pad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pep9pad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pep9pad/Pods-pep9pad.debug.xcconfig"; sourceTree = "<group>"; };
+		A00A1E33218641C60072A283 /* keypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keypad.swift; sourceTree = "<group>"; };
+		A00A1E35218642130072A283 /* keypadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keypadDelegate.swift; sourceTree = "<group>"; };
+		A013EB14215C0551008CF1A6 /* CPUEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUEnum.swift; sourceTree = "<group>"; };
+		A013EB17215C1697008CF1A6 /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
+		A02EECE621877C5500A3459A /* ButtonStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStackView.swift; sourceTree = "<group>"; };
+		A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStackViewBottom.swift; sourceTree = "<group>"; };
+		A02F6EC0218825470077A375 /* SimulatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorDelegate.swift; sourceTree = "<group>"; };
+		A033D22B2194E26500DFD052 /* prob1232e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232e.pepcpu; sourceTree = "<group>"; };
+		A033D22C2194E26600DFD052 /* prob1232c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232c.pepcpu; sourceTree = "<group>"; };
+		A033D22D2194E26600DFD052 /* prob1233f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233f.pepcpu; sourceTree = "<group>"; };
+		A033D22E2194E26600DFD052 /* prob1235e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235e.pepcpu; sourceTree = "<group>"; };
+		A033D22F2194E26600DFD052 /* prob1235j.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235j.pepcpu; sourceTree = "<group>"; };
+		A033D2302194E26600DFD052 /* prob1232k.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232k.pepcpu; sourceTree = "<group>"; };
+		A033D2312194E26600DFD052 /* prob1231b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231b.pepcpu; sourceTree = "<group>"; };
+		A033D2322194E26600DFD052 /* fig1220.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1220.pepcpu; sourceTree = "<group>"; };
+		A033D2332194E26600DFD052 /* prob1232j.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232j.pepcpu; sourceTree = "<group>"; };
+		A033D2342194E26600DFD052 /* prob1229b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229b.pepcpu; sourceTree = "<group>"; };
+		A033D2352194E26600DFD052 /* prob1232g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232g.pepcpu; sourceTree = "<group>"; };
+		A033D2362194E26600DFD052 /* prob1231e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231e.pepcpu; sourceTree = "<group>"; };
+		A033D2372194E26600DFD052 /* prob1229d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229d.pepcpu; sourceTree = "<group>"; };
+		A033D2382194E26600DFD052 /* prob1231f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231f.pepcpu; sourceTree = "<group>"; };
+		A033D2392194E26600DFD052 /* prob1229c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229c.pepcpu; sourceTree = "<group>"; };
+		A033D23A2194E26600DFD052 /* prob1232i.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232i.pepcpu; sourceTree = "<group>"; };
+		A033D23B2194E26700DFD052 /* prob1235l.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235l.pepcpu; sourceTree = "<group>"; };
+		A033D23C2194E26700DFD052 /* fig1209.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1209.pepcpu; sourceTree = "<group>"; };
+		A033D23D2194E26700DFD052 /* fig1214.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1214.pepcpu; sourceTree = "<group>"; };
+		A033D23E2194E26700DFD052 /* fig1212.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1212.pepcpu; sourceTree = "<group>"; };
+		A033D23F2194E26700DFD052 /* prob1232h.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232h.pepcpu; sourceTree = "<group>"; };
+		A033D2402194E26700DFD052 /* prob1235d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235d.pepcpu; sourceTree = "<group>"; };
+		A033D2412194E26700DFD052 /* prob1232f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232f.pepcpu; sourceTree = "<group>"; };
+		A033D2422194E26700DFD052 /* fig1205.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1205.pepcpu; sourceTree = "<group>"; };
+		A033D2432194E26700DFD052 /* prob1229a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229a.pepcpu; sourceTree = "<group>"; };
+		A033D2442194E26700DFD052 /* prob1231a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231a.pepcpu; sourceTree = "<group>"; };
+		A033D2452194E26700DFD052 /* prob1236b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236b.pepcpu; sourceTree = "<group>"; };
+		A033D2462194E26700DFD052 /* prob1232a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232a.pepcpu; sourceTree = "<group>"; };
+		A033D2472194E26800DFD052 /* prob1236a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236a.pepcpu; sourceTree = "<group>"; };
+		A033D2482194E26800DFD052 /* prob1233c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233c.pepcpu; sourceTree = "<group>"; };
+		A033D2492194E26800DFD052 /* fig1223.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1223.pepcpu; sourceTree = "<group>"; };
+		A033D24A2194E26800DFD052 /* prob1235f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235f.pepcpu; sourceTree = "<group>"; };
+		A033D24B2194E26800DFD052 /* prob1235c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235c.pepcpu; sourceTree = "<group>"; };
+		A033D24C2194E26800DFD052 /* prob1229g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229g.pepcpu; sourceTree = "<group>"; };
+		A033D24D2194E26800DFD052 /* prob1236d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236d.pepcpu; sourceTree = "<group>"; };
+		A033D24E2194E26800DFD052 /* fig1207.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1207.pepcpu; sourceTree = "<group>"; };
+		A033D24F2194E26800DFD052 /* prob1231c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231c.pepcpu; sourceTree = "<group>"; };
+		A033D2502194E26800DFD052 /* prob1229e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229e.pepcpu; sourceTree = "<group>"; };
+		A033D2512194E26800DFD052 /* prob1235a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235a.pepcpu; sourceTree = "<group>"; };
+		A033D2522194E26800DFD052 /* prob1235h.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235h.pepcpu; sourceTree = "<group>"; };
+		A033D2532194E26800DFD052 /* prob1229f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1229f.pepcpu; sourceTree = "<group>"; };
+		A033D2542194E26800DFD052 /* fig1210.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1210.pepcpu; sourceTree = "<group>"; };
+		A033D2552194E26900DFD052 /* prob1233d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233d.pepcpu; sourceTree = "<group>"; };
+		A033D2562194E26900DFD052 /* prob1235k.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235k.pepcpu; sourceTree = "<group>"; };
+		A033D2572194E26900DFD052 /* fig1211.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1211.pepcpu; sourceTree = "<group>"; };
+		A033D2582194E26900DFD052 /* prob1230.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1230.pepcpu; sourceTree = "<group>"; };
+		A033D2592194E26900DFD052 /* prob1231d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231d.pepcpu; sourceTree = "<group>"; };
+		A033D25A2194E26900DFD052 /* prob1235i.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235i.pepcpu; sourceTree = "<group>"; };
+		A033D25B2194E26900DFD052 /* prob1233b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233b.pepcpu; sourceTree = "<group>"; };
+		A033D25C2194E26900DFD052 /* prob1232b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232b.pepcpu; sourceTree = "<group>"; };
+		A033D25D2194E26900DFD052 /* prob1232d.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232d.pepcpu; sourceTree = "<group>"; };
+		A033D25E2194E26900DFD052 /* prob1233e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233e.pepcpu; sourceTree = "<group>"; };
+		A033D25F2194E26900DFD052 /* prob1232l.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1232l.pepcpu; sourceTree = "<group>"; };
+		A033D2602194E26A00DFD052 /* prob1235b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235b.pepcpu; sourceTree = "<group>"; };
+		A033D2612194E26A00DFD052 /* prob1234b.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1234b.pepcpu; sourceTree = "<group>"; };
+		A033D2622194E26A00DFD052 /* prob1236c.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236c.pepcpu; sourceTree = "<group>"; };
+		A033D2632194E26A00DFD052 /* prob1233a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1233a.pepcpu; sourceTree = "<group>"; };
+		A033D2642194E26A00DFD052 /* prob1234a.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1234a.pepcpu; sourceTree = "<group>"; };
+		A033D2652194E26A00DFD052 /* prob1235g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1235g.pepcpu; sourceTree = "<group>"; };
+		A033D2662194E26A00DFD052 /* prob1236e.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236e.pepcpu; sourceTree = "<group>"; };
+		A033D2672194E26A00DFD052 /* fig1221.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fig1221.pepcpu; sourceTree = "<group>"; };
+		A033D2682194E26A00DFD052 /* prob1236f.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1236f.pepcpu; sourceTree = "<group>"; };
+		A033D2692194E26A00DFD052 /* prob1228.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1228.pepcpu; sourceTree = "<group>"; };
+		A033D26A2194E26B00DFD052 /* prob1231g.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prob1231g.pepcpu; sourceTree = "<group>"; };
+		A042383E21724C8300DAAECE /* LineTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTableView.swift; sourceTree = "<group>"; };
+		A042384021724D2800DAAECE /* LineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineTable.swift; sourceTree = "<group>"; };
+		A04238422172683200DAAECE /* lineTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineTableDelegate.swift; sourceTree = "<group>"; };
+		A04B6F882188EAF10018892D /* OneByteSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteSimulator.swift; sourceTree = "<group>"; };
+		A07500B72166A95B009BB75A /* CPUSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUSimulator.swift; sourceTree = "<group>"; };
+		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
+		A0D1F8B3217023AC00151440 /* clockLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clockLineCell.swift; sourceTree = "<group>"; };
+		A0D1F8B82170252000151440 /* numericLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numericLineCell.swift; sourceTree = "<group>"; };
+		A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpDelegate.swift; sourceTree = "<group>"; };
+		A0DE030F219CA7970018A6B2 /* CPUHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUHelper.swift; sourceTree = "<group>"; };
+		A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMHelper.swift; sourceTree = "<group>"; };
+		A0DE0315219CB72C0018A6B2 /* debugging.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = debugging.html; path = "../../Downloads/pep9cpu-master/help/debugging.html"; sourceTree = "<group>"; };
+		A0DE0316219CB72C0018A6B2 /* pep9os.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = pep9os.txt; path = "../../Downloads/pep9cpu-master/help/pep9os.txt"; sourceTree = "<group>"; };
+		A0DE0317219CB72C0018A6B2 /* beta.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = beta.html; path = "../../Downloads/pep9cpu-master/help/beta.html"; sourceTree = "<group>"; };
+		A0DE0318219CB72C0018A6B2 /* onebytebusproblems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = onebytebusproblems.html; path = "../../Downloads/pep9cpu-master/help/onebytebusproblems.html"; sourceTree = "<group>"; };
+		A0DE0319219CB72C0018A6B2 /* twobytebusexamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = twobytebusexamples.html; path = "../../Downloads/pep9cpu-master/help/twobytebusexamples.html"; sourceTree = "<group>"; };
+		A0DE031A219CB72C0018A6B2 /* pep9reference.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = pep9reference.html; path = "../../Downloads/pep9cpu-master/help/pep9reference.html"; sourceTree = "<group>"; };
+		A0DE031B219CB72C0018A6B2 /* onebytebusexamples.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = onebytebusexamples.html; path = "../../Downloads/pep9cpu-master/help/onebytebusexamples.html"; sourceTree = "<group>"; };
+		A0DE031C219CB72D0018A6B2 /* cpu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = cpu.html; path = "../../Downloads/pep9cpu-master/help/cpu.html"; sourceTree = "<group>"; };
+		A0DE031D219CB72D0018A6B2 /* usingpep9cpu.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = usingpep9cpu.html; path = "../../Downloads/pep9cpu-master/help/usingpep9cpu.html"; sourceTree = "<group>"; };
+		A0DE031E219CB72D0018A6B2 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = "../../Downloads/pep9cpu-master/help/images"; sourceTree = "<group>"; };
+		A0DE031F219CB72D0018A6B2 /* figures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = figures; path = "../../Downloads/pep9cpu-master/help/figures"; sourceTree = "<group>"; };
+		A0DE0320219CB72D0018A6B2 /* microcode.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = microcode.html; path = "../../Downloads/pep9cpu-master/help/microcode.html"; sourceTree = "<group>"; };
+		A0DE0321219CB72D0018A6B2 /* twobytebusproblems.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = twobytebusproblems.html; path = "../../Downloads/pep9cpu-master/help/twobytebusproblems.html"; sourceTree = "<group>"; };
+		A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteModel.swift; sourceTree = "<group>"; };
+		A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUViewController.swift; sourceTree = "<group>"; };
+		A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCodeEditor.swift; sourceTree = "<group>"; };
 		B2434F9EAA868497780E02A6 /* Pods_pep9pad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pep9pad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonunaryMnemonics.swift; path = pep9pad/NonunaryMnemonics.swift; sourceTree = "<group>"; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
@@ -628,6 +1069,159 @@
 			name = Trace;
 			sourceTree = "<group>";
 		};
+		463507A6219CE41900CFE930 /* help */ = {
+			isa = PBXGroup;
+			children = (
+				463507A7219CE41900CFE930 /* pep9os.txt */,
+				463507A8219CE41900CFE930 /* microcode.html */,
+				463507A9219CE41900CFE930 /* images */,
+				463507E0219CE41900CFE930 /* debugging.html */,
+				463507E1219CE41900CFE930 /* onebytebusproblems.html */,
+				463507E2219CE41900CFE930 /* cpu.html */,
+				463507E3219CE41900CFE930 /* onebytebusexamples.html */,
+				463507E4219CE41900CFE930 /* twobytebusexamples.html */,
+				463507E5219CE41900CFE930 /* figures */,
+				46350826219CE41900CFE930 /* twobytebusproblems.html */,
+				46350827219CE41900CFE930 /* pep9reference.html */,
+				46350828219CE41900CFE930 /* beta.html */,
+				46350829219CE41900CFE930 /* usingpep9cpu.html */,
+			);
+			name = help;
+			path = pep9pad/help;
+			sourceTree = SOURCE_ROOT;
+		};
+		463507A9219CE41900CFE930 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				463507AA219CE41900CFE930 /* fourbuttonsmicrocodemode.png */,
+				463507AB219CE41900CFE930 /* debugger2.png */,
+				463507AC219CE41900CFE930 /* debugger3.png */,
+				463507AD219CE41900CFE930 /* errormessage.png */,
+				463507AE219CE41900CFE930 /* debugger1.png */,
+				463507AF219CE41900CFE930 /* memreadwrite.png */,
+				463507B0219CE41900CFE930 /* copyexample.png */,
+				463507B1219CE41900CFE930 /* registeraddresssignals.png */,
+				463507B2219CE41900CFE930 /* startdebuggingicon.png */,
+				463507B3219CE41900CFE930 /* debugger4.png */,
+				463507B4219CE41900CFE930 /* debugger5.png */,
+				463507B5219CE41900CFE930 /* debugger7.png */,
+				463507B6219CE41900CFE930 /* runicon.png */,
+				463507B7219CE41900CFE930 /* debugger6.png */,
+				463507B8219CE41900CFE930 /* settingmemory.png */,
+				463507B9219CE41900CFE930 /* objectcode.png */,
+				463507BA219CE41900CFE930 /* comment3.png */,
+				463507BB219CE41900CFE930 /* stopdebuggingicon.png */,
+				463507BC219CE41900CFE930 /* formatfromobject2.png */,
+				463507BD219CE41900CFE930 /* formatfromobject3.png */,
+				463507BE219CE41900CFE930 /* comment2.png */,
+				463507BF219CE41900CFE930 /* debugging.png */,
+				463507C0219CE41900CFE930 /* copyexercise.png */,
+				463507C1219CE41900CFE930 /* switchbus.png */,
+				463507C2219CE41900CFE930 /* comment1.png */,
+				463507C3219CE41900CFE930 /* comment5.png */,
+				463507C4219CE41900CFE930 /* formatfromobject4.png */,
+				463507C5219CE41900CFE930 /* fourbuttonsinteractivemode.png */,
+				463507C6219CE41900CFE930 /* comment4.png */,
+				463507C7219CE41900CFE930 /* comment6.png */,
+				463507C8219CE41900CFE930 /* clocksignal.png */,
+				463507C9219CE41900CFE930 /* formatfromobject.png */,
+				463507CA219CE41900CFE930 /* clearcpu.png */,
+				463507CB219CE41900CFE930 /* cyclenumbers.png */,
+				463507CC219CE41900CFE930 /* clearmemory.png */,
+				463507CD219CE41900CFE930 /* startdebuggingmenu.png */,
+				463507CE219CE41900CFE930 /* copycode4.png */,
+				463507CF219CE41900CFE930 /* resumebutton.png */,
+				463507D0219CE41900CFE930 /* togglevbit.png */,
+				463507D1219CE41900CFE930 /* removeerrormessages.png */,
+				463507D2219CE41900CFE930 /* copycode1.png */,
+				463507D3219CE41900CFE930 /* runmenu.png */,
+				463507D4219CE41900CFE930 /* postconditionerror.png */,
+				463507D5219CE41900CFE930 /* copycode3.png */,
+				463507D6219CE41900CFE930 /* copycode2.png */,
+				463507D7219CE41900CFE930 /* byteconverter.png */,
+				463507D8219CE41900CFE930 /* stopdebuggingmenu.png */,
+				463507D9219CE41900CFE930 /* multiplexersignals.png */,
+				463507DA219CE41900CFE930 /* debugger8.png */,
+				463507DB219CE41900CFE930 /* settingregister.png */,
+				463507DC219CE41900CFE930 /* andzsignal.png */,
+				463507DD219CE41900CFE930 /* interactiveuse.png */,
+				463507DE219CE41900CFE930 /* clockandcopybuttons.png */,
+				463507DF219CE41900CFE930 /* microcodeuse.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		463507E5219CE41900CFE930 /* figures */ = {
+			isa = PBXGroup;
+			children = (
+				463507E6219CE41900CFE930 /* prob1230.pepcpu */,
+				463507E7219CE41900CFE930 /* prob1229e.pepcpu */,
+				463507E8219CE41900CFE930 /* prob1231g.pepcpu */,
+				463507E9219CE41900CFE930 /* prob1236f.pepcpu */,
+				463507EA219CE41900CFE930 /* prob1233c.pepcpu */,
+				463507EB219CE41900CFE930 /* fig1212.pepcpu */,
+				463507EC219CE41900CFE930 /* prob1234b.pepcpu */,
+				463507ED219CE41900CFE930 /* prob1232a.pepcpu */,
+				463507EE219CE41900CFE930 /* prob1235l.pepcpu */,
+				463507EF219CE41900CFE930 /* prob1236d.pepcpu */,
+				463507F0219CE41900CFE930 /* prob1231e.pepcpu */,
+				463507F1219CE41900CFE930 /* prob1232c.pepcpu */,
+				463507F2219CE41900CFE930 /* fig1210.pepcpu */,
+				463507F3219CE41900CFE930 /* prob1233a.pepcpu */,
+				463507F4219CE41900CFE930 /* prob1235b.pepcpu */,
+				463507F5219CE41900CFE930 /* prob1229g.pepcpu */,
+				463507F6219CE41900CFE930 /* prob1233e.pepcpu */,
+				463507F7219CE41900CFE930 /* prob1235f.pepcpu */,
+				463507F8219CE41900CFE930 /* prob1232k.pepcpu */,
+				463507F9219CE41900CFE930 /* prob1235j.pepcpu */,
+				463507FA219CE41900CFE930 /* prob1232g.pepcpu */,
+				463507FB219CE41900CFE930 /* fig1214.pepcpu */,
+				463507FC219CE41900CFE930 /* prob1231a.pepcpu */,
+				463507FD219CE41900CFE930 /* prob1229c.pepcpu */,
+				463507FE219CE41900CFE930 /* prob1228.pepcpu */,
+				463507FF219CE41900CFE930 /* prob1229a.pepcpu */,
+				46350800219CE41900CFE930 /* prob1235h.pepcpu */,
+				46350801219CE41900CFE930 /* prob1232e.pepcpu */,
+				46350802219CE41900CFE930 /* prob1235d.pepcpu */,
+				46350803219CE41900CFE930 /* prob1232i.pepcpu */,
+				46350804219CE41900CFE930 /* prob1236b.pepcpu */,
+				46350805219CE41900CFE930 /* fig1220.pepcpu */,
+				46350806219CE41900CFE930 /* prob1231c.pepcpu */,
+				46350807219CE41900CFE930 /* prob1233b.pepcpu */,
+				46350808219CE41900CFE930 /* prob1235a.pepcpu */,
+				46350809219CE41900CFE930 /* prob1232l.pepcpu */,
+				4635080A219CE41900CFE930 /* prob1231f.pepcpu */,
+				4635080B219CE41900CFE930 /* prob1229d.pepcpu */,
+				4635080C219CE41900CFE930 /* prob1229f.pepcpu */,
+				4635080D219CE41900CFE930 /* prob1234a.pepcpu */,
+				4635080E219CE41900CFE930 /* fig1211.pepcpu */,
+				4635080F219CE41900CFE930 /* prob1232b.pepcpu */,
+				46350810219CE41900CFE930 /* prob1235c.pepcpu */,
+				46350811219CE41900CFE930 /* prob1236e.pepcpu */,
+				46350812219CE41900CFE930 /* prob1231d.pepcpu */,
+				46350813219CE41900CFE930 /* prob1229b.pepcpu */,
+				46350814219CE41900CFE930 /* fig1223.pepcpu */,
+				46350815219CE41900CFE930 /* prob1236a.pepcpu */,
+				46350816219CE41900CFE930 /* prob1232j.pepcpu */,
+				46350817219CE41900CFE930 /* fig1207.pepcpu */,
+				46350818219CE41900CFE930 /* prob1235g.pepcpu */,
+				46350819219CE41900CFE930 /* prob1233d.pepcpu */,
+				4635081A219CE41900CFE930 /* prob1232f.pepcpu */,
+				4635081B219CE41900CFE930 /* prob1235k.pepcpu */,
+				4635081C219CE41900CFE930 /* prob1236c.pepcpu */,
+				4635081D219CE41900CFE930 /* prob1231b.pepcpu */,
+				4635081E219CE41900CFE930 /* fig1221.pepcpu */,
+				4635081F219CE41900CFE930 /* prob1232d.pepcpu */,
+				46350820219CE41900CFE930 /* fig1209.pepcpu */,
+				46350821219CE41900CFE930 /* prob1235i.pepcpu */,
+				46350822219CE41900CFE930 /* prob1233f.pepcpu */,
+				46350823219CE41900CFE930 /* fig1205.pepcpu */,
+				46350824219CE41900CFE930 /* prob1232h.pepcpu */,
+				46350825219CE41900CFE930 /* prob1235e.pepcpu */,
+			);
+			path = figures;
+			sourceTree = "<group>";
+		};
 		4637EF8F1E5D843C007593E1 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,16 +1301,8 @@
 			isa = PBXGroup;
 			children = (
 				461875951C90089F0095B818 /* HelpDocumentation.swift */,
-				461875991C900CA10095B818 /* assemblylanguage.html */,
-				4618759B1C900D730095B818 /* debuggingprograms.html */,
-				4618759C1C900D730095B818 /* examples.html */,
-				4618759D1C900D730095B818 /* figures */,
-				4618759E1C900D730095B818 /* images */,
-				4618759F1C900D740095B818 /* machinelanguage.html */,
-				461875A01C900D740095B818 /* pep9reference.html */,
-				461875A11C900D740095B818 /* problems.html */,
-				461875A21C900D740095B818 /* writingprograms.html */,
-				461875A31C900D740095B818 /* writingtraphandlers.html */,
+				A0DE0314219CB7030018A6B2 /* CPUDocumentation */,
+				A0DE0313219CB5F40018A6B2 /* AssemblerDocumentation */,
 			);
 			name = "Help Documentation";
 			sourceTree = "<group>";
@@ -794,6 +1380,9 @@
 			children = (
 				46EC8B061C9895DF001405CE /* Examples */,
 				465C76241C90DBF30029311F /* Help Documentation */,
+				A0DE030D219CA4410018A6B2 /* HelpDelegate.swift */,
+				A0DE030F219CA7970018A6B2 /* CPUHelper.swift */,
+				A0DE0311219CA7A10018A6B2 /* ASMHelper.swift */,
 			);
 			name = "Help Resources";
 			sourceTree = "<group>";
@@ -815,8 +1404,16 @@
 			isa = PBXGroup;
 			children = (
 				4695EB291E417F74007E50BD /* CPUProjectModel.swift */,
+				A0DE5D9F2159A6C600DF78D9 /* OneByteModel */,
 				464D143A1E5273F300C7FCBE /* CPUAssemblerModel.swift */,
-				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
+				A02F6EC0218825470077A375 /* SimulatorDelegate.swift */,
+				A04B6F882188EAF10018892D /* OneByteSimulator.swift */,
+				A013EB16215C09B5008CF1A6 /* CPUCode */,
+				A013EB13215C0508008CF1A6 /* Enumerations */,
+				A0E82DA5217A5BC2003A6CEA /* CodeEditor */,
+				A04F8C5F217D32C800F1A3D6 /* NumberPad */,
+				A00A1E3021863BED0072A283 /* Keypad */,
+				A0D1F8B7217023B500151440 /* LineTable */,
 			);
 			name = CPUModels;
 			sourceTree = "<group>";
@@ -910,9 +1507,11 @@
 			isa = PBXGroup;
 			children = (
 				D2A9BCCA1D776AC800C69724 /* CPU.storyboard */,
+				A0DFCF9E2148385D00B66B41 /* CPUViewController.swift */,
 				46D674DB1E56057B00AE1B8F /* Master */,
 				46D674DC1E5605A200AE1B8F /* Detail */,
 				46A71C0D1E563DC500FCEFEA /* CPUModels */,
+				463507A6219CE41900CFE930 /* help */,
 			);
 			name = Pep9CPU;
 			path = pep9pad;
@@ -972,6 +1571,7 @@
 			children = (
 				46B58BD11C8FD75A006E46B4 /* HelpExamples.swift */,
 				46EC8A631C9895CC001405CE /* exer0804.pep */,
+				A033D22A2194E22C00DFD052 /* CPUExamples */,
 				46EC8A641C9895CC001405CE /* fig0433.pepb */,
 				46EC8A651C9895CC001405CE /* fig0433.peph */,
 				46539C931E9AF3A900718705 /* pep9os.pepo */,
@@ -1058,6 +1658,187 @@
 			);
 			name = Examples;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		A00A1E3021863BED0072A283 /* Keypad */ = {
+			isa = PBXGroup;
+			children = (
+				A00A1E33218641C60072A283 /* keypad.swift */,
+				A02EECE621877C5500A3459A /* ButtonStackView.swift */,
+				A02EECE821877E5700A3459A /* buttonStackViewBottom.swift */,
+				A00A1E35218642130072A283 /* keypadDelegate.swift */,
+			);
+			name = Keypad;
+			sourceTree = "<group>";
+		};
+		A013EB13215C0508008CF1A6 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				A013EB14215C0551008CF1A6 /* CPUEnum.swift */,
+				A013EB17215C1697008CF1A6 /* Maps.swift */,
+			);
+			name = Enumerations;
+			sourceTree = "<group>";
+		};
+		A013EB16215C09B5008CF1A6 /* CPUCode */ = {
+			isa = PBXGroup;
+			children = (
+				464D143C1E52745B00C7FCBE /* CPUCode.swift */,
+				A0C385C5215DC36700303E28 /* Specification.swift */,
+				A07500B72166A95B009BB75A /* CPUSimulator.swift */,
+			);
+			name = CPUCode;
+			sourceTree = "<group>";
+		};
+		A033D22A2194E22C00DFD052 /* CPUExamples */ = {
+			isa = PBXGroup;
+			children = (
+				A033D2422194E26700DFD052 /* fig1205.pepcpu */,
+				A033D24E2194E26800DFD052 /* fig1207.pepcpu */,
+				A033D23C2194E26700DFD052 /* fig1209.pepcpu */,
+				A033D2542194E26800DFD052 /* fig1210.pepcpu */,
+				A033D2572194E26900DFD052 /* fig1211.pepcpu */,
+				A033D23E2194E26700DFD052 /* fig1212.pepcpu */,
+				A033D23D2194E26700DFD052 /* fig1214.pepcpu */,
+				A033D2322194E26600DFD052 /* fig1220.pepcpu */,
+				A033D2672194E26A00DFD052 /* fig1221.pepcpu */,
+				A033D2492194E26800DFD052 /* fig1223.pepcpu */,
+				A033D2692194E26A00DFD052 /* prob1228.pepcpu */,
+				A033D2432194E26700DFD052 /* prob1229a.pepcpu */,
+				A033D2342194E26600DFD052 /* prob1229b.pepcpu */,
+				A033D2392194E26600DFD052 /* prob1229c.pepcpu */,
+				A033D2372194E26600DFD052 /* prob1229d.pepcpu */,
+				A033D2502194E26800DFD052 /* prob1229e.pepcpu */,
+				A033D2532194E26800DFD052 /* prob1229f.pepcpu */,
+				A033D24C2194E26800DFD052 /* prob1229g.pepcpu */,
+				A033D2582194E26900DFD052 /* prob1230.pepcpu */,
+				A033D2442194E26700DFD052 /* prob1231a.pepcpu */,
+				A033D2312194E26600DFD052 /* prob1231b.pepcpu */,
+				A033D24F2194E26800DFD052 /* prob1231c.pepcpu */,
+				A033D2592194E26900DFD052 /* prob1231d.pepcpu */,
+				A033D2362194E26600DFD052 /* prob1231e.pepcpu */,
+				A033D2382194E26600DFD052 /* prob1231f.pepcpu */,
+				A033D26A2194E26B00DFD052 /* prob1231g.pepcpu */,
+				A033D2462194E26700DFD052 /* prob1232a.pepcpu */,
+				A033D25C2194E26900DFD052 /* prob1232b.pepcpu */,
+				A033D22C2194E26600DFD052 /* prob1232c.pepcpu */,
+				A033D25D2194E26900DFD052 /* prob1232d.pepcpu */,
+				A033D22B2194E26500DFD052 /* prob1232e.pepcpu */,
+				A033D2412194E26700DFD052 /* prob1232f.pepcpu */,
+				A033D2352194E26600DFD052 /* prob1232g.pepcpu */,
+				A033D23F2194E26700DFD052 /* prob1232h.pepcpu */,
+				A033D23A2194E26600DFD052 /* prob1232i.pepcpu */,
+				A033D2332194E26600DFD052 /* prob1232j.pepcpu */,
+				A033D2302194E26600DFD052 /* prob1232k.pepcpu */,
+				A033D25F2194E26900DFD052 /* prob1232l.pepcpu */,
+				A033D2632194E26A00DFD052 /* prob1233a.pepcpu */,
+				A033D25B2194E26900DFD052 /* prob1233b.pepcpu */,
+				A033D2482194E26800DFD052 /* prob1233c.pepcpu */,
+				A033D2552194E26900DFD052 /* prob1233d.pepcpu */,
+				A033D25E2194E26900DFD052 /* prob1233e.pepcpu */,
+				A033D22D2194E26600DFD052 /* prob1233f.pepcpu */,
+				A033D2642194E26A00DFD052 /* prob1234a.pepcpu */,
+				A033D2612194E26A00DFD052 /* prob1234b.pepcpu */,
+				A033D2512194E26800DFD052 /* prob1235a.pepcpu */,
+				A033D2602194E26A00DFD052 /* prob1235b.pepcpu */,
+				A033D24B2194E26800DFD052 /* prob1235c.pepcpu */,
+				A033D2402194E26700DFD052 /* prob1235d.pepcpu */,
+				A033D22E2194E26600DFD052 /* prob1235e.pepcpu */,
+				A033D24A2194E26800DFD052 /* prob1235f.pepcpu */,
+				A033D2652194E26A00DFD052 /* prob1235g.pepcpu */,
+				A033D2522194E26800DFD052 /* prob1235h.pepcpu */,
+				A033D25A2194E26900DFD052 /* prob1235i.pepcpu */,
+				A033D22F2194E26600DFD052 /* prob1235j.pepcpu */,
+				A033D2562194E26900DFD052 /* prob1235k.pepcpu */,
+				A033D23B2194E26700DFD052 /* prob1235l.pepcpu */,
+				A033D2472194E26800DFD052 /* prob1236a.pepcpu */,
+				A033D2452194E26700DFD052 /* prob1236b.pepcpu */,
+				A033D2622194E26A00DFD052 /* prob1236c.pepcpu */,
+				A033D24D2194E26800DFD052 /* prob1236d.pepcpu */,
+				A033D2662194E26A00DFD052 /* prob1236e.pepcpu */,
+				A033D2682194E26A00DFD052 /* prob1236f.pepcpu */,
+			);
+			path = CPUExamples;
+			sourceTree = "<group>";
+		};
+		A04F8C5F217D32C800F1A3D6 /* NumberPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NumberPad;
+			sourceTree = "<group>";
+		};
+		A0D1F8B7217023B500151440 /* LineTable */ = {
+			isa = PBXGroup;
+			children = (
+				A042383E21724C8300DAAECE /* LineTableView.swift */,
+				A042384021724D2800DAAECE /* LineTable.swift */,
+				A0D1F8BC2170252700151440 /* cells */,
+			);
+			name = LineTable;
+			sourceTree = "<group>";
+		};
+		A0D1F8BC2170252700151440 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				A0D1F8B3217023AC00151440 /* clockLineCell.swift */,
+				A0D1F8B82170252000151440 /* numericLineCell.swift */,
+				A04238422172683200DAAECE /* lineTableDelegate.swift */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		A0DE0313219CB5F40018A6B2 /* AssemblerDocumentation */ = {
+			isa = PBXGroup;
+			children = (
+				461875991C900CA10095B818 /* assemblylanguage.html */,
+				4618759B1C900D730095B818 /* debuggingprograms.html */,
+				4618759C1C900D730095B818 /* examples.html */,
+				4618759D1C900D730095B818 /* figures */,
+				4618759E1C900D730095B818 /* images */,
+				4618759F1C900D740095B818 /* machinelanguage.html */,
+				461875A01C900D740095B818 /* pep9reference.html */,
+				461875A11C900D740095B818 /* problems.html */,
+				461875A21C900D740095B818 /* writingprograms.html */,
+				461875A31C900D740095B818 /* writingtraphandlers.html */,
+			);
+			name = AssemblerDocumentation;
+			sourceTree = "<group>";
+		};
+		A0DE0314219CB7030018A6B2 /* CPUDocumentation */ = {
+			isa = PBXGroup;
+			children = (
+				A0DE0317219CB72C0018A6B2 /* beta.html */,
+				A0DE031C219CB72D0018A6B2 /* cpu.html */,
+				A0DE0315219CB72C0018A6B2 /* debugging.html */,
+				A0DE031F219CB72D0018A6B2 /* figures */,
+				A0DE031E219CB72D0018A6B2 /* images */,
+				A0DE0320219CB72D0018A6B2 /* microcode.html */,
+				A0DE031B219CB72C0018A6B2 /* onebytebusexamples.html */,
+				A0DE0318219CB72C0018A6B2 /* onebytebusproblems.html */,
+				A0DE0316219CB72C0018A6B2 /* pep9os.txt */,
+				A0DE031A219CB72C0018A6B2 /* pep9reference.html */,
+				A0DE0319219CB72C0018A6B2 /* twobytebusexamples.html */,
+				A0DE0321219CB72D0018A6B2 /* twobytebusproblems.html */,
+				A0DE031D219CB72D0018A6B2 /* usingpep9cpu.html */,
+			);
+			name = CPUDocumentation;
+			sourceTree = "<group>";
+		};
+		A0DE5D9F2159A6C600DF78D9 /* OneByteModel */ = {
+			isa = PBXGroup;
+			children = (
+				A0DE5DA02159A6E700DF78D9 /* OneByteModel.swift */,
+			);
+			name = OneByteModel;
+			sourceTree = "<group>";
+		};
+		A0E82DA5217A5BC2003A6CEA /* CodeEditor */ = {
+			isa = PBXGroup;
+			children = (
+				A0E82DA3217A5BB8003A6CEA /* CPUCodeEditor.swift */,
+			);
+			name = CodeEditor;
 			sourceTree = "<group>";
 		};
 		D2B0614D1C7E62040088CEBE = {
@@ -1193,8 +1974,9 @@
 				TargetAttributes = {
 					D2B061551C7E62040088CEBE = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = X2YSEQ9H5E;
+						DevelopmentTeam = 4D624RRDMS;
 						LastSwiftMigration = 0940;
+						ProvisioningStyle = Automatic;
 					};
 					D2B0616C1C7E62050088CEBE = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1235,160 +2017,353 @@
 			buildActionMask = 2147483647;
 			files = (
 				D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */,
+				463508A3219CE41A00CFE930 /* prob1233f.pepcpu in Resources */,
 				46EC8AB51C9895CC001405CE /* exer0804.pep in Resources */,
+				A033D29F2194E26B00DFD052 /* prob1232l.pepcpu in Resources */,
+				4635085A219CE41A00CFE930 /* stopdebuggingmenu.png in Resources */,
+				4635082B219CE41A00CFE930 /* microcode.html in Resources */,
 				46539C6A1E9AEED700718705 /* fig0512.pepo in Resources */,
+				A033D2842194E26B00DFD052 /* prob1231a.pepcpu in Resources */,
+				46350838219CE41A00CFE930 /* runicon.png in Resources */,
 				46539C6D1E9AEED700718705 /* fig0514b.pepo in Resources */,
 				46EC8AB61C9895CC001405CE /* fig0433.pepb in Resources */,
+				A033D2852194E26B00DFD052 /* prob1236b.pepcpu in Resources */,
+				4635086C219CE41A00CFE930 /* fig1212.pepcpu in Resources */,
 				46EC8AB71C9895CC001405CE /* fig0433.peph in Resources */,
+				A033D26C2194E26B00DFD052 /* prob1232c.pepcpu in Resources */,
+				46350869219CE41A00CFE930 /* prob1231g.pepcpu in Resources */,
 				46EC8AB81C9895CC001405CE /* fig0433.pepo in Resources */,
 				46EC8AB91C9895CC001405CE /* fig0435.pepb in Resources */,
+				4635086A219CE41A00CFE930 /* prob1236f.pepcpu in Resources */,
+				A033D2AA2194E26B00DFD052 /* prob1231g.pepcpu in Resources */,
+				4635089F219CE41A00CFE930 /* fig1221.pepcpu in Resources */,
+				A033D2A52194E26B00DFD052 /* prob1235g.pepcpu in Resources */,
+				46350894219CE41A00CFE930 /* prob1229b.pepcpu in Resources */,
+				46350852219CE41A00CFE930 /* togglevbit.png in Resources */,
+				46350848219CE41A00CFE930 /* comment4.png in Resources */,
+				A033D2752194E26B00DFD052 /* prob1232g.pepcpu in Resources */,
+				46350892219CE41A00CFE930 /* prob1236e.pepcpu in Resources */,
+				4635084C219CE41A00CFE930 /* clearcpu.png in Resources */,
 				46EC8ABA1C9895CC001405CE /* fig0435.peph in Resources */,
+				46350885219CE41A00CFE930 /* prob1236b.pepcpu in Resources */,
 				46539C6C1E9AEED700718705 /* fig0514a.pepo in Resources */,
 				46539C8F1E9AF19F00718705 /* fig0642.pepo in Resources */,
+				46350876219CE41A00CFE930 /* prob1229g.pepcpu in Resources */,
+				A033D29E2194E26B00DFD052 /* prob1233e.pepcpu in Resources */,
 				46539C7D1E9AEED700718705 /* fig0623.pepo in Resources */,
 				46EC8ABB1C9895CC001405CE /* fig0435.pepo in Resources */,
+				463508A8219CE41A00CFE930 /* pep9reference.html in Resources */,
+				A033D2A62194E26B00DFD052 /* prob1236e.pepcpu in Resources */,
 				462BA7631E2B2A3B00BBABCD /* fig0610.txt in Resources */,
+				4635082E219CE41A00CFE930 /* debugger3.png in Resources */,
+				A033D2A12194E26B00DFD052 /* prob1234b.pepcpu in Resources */,
 				46539C761E9AEED700718705 /* fig0608.pepo in Resources */,
+				46350881219CE41A00CFE930 /* prob1235h.pepcpu in Resources */,
 				46EC8ABC1C9895CC001405CE /* fig0436.pepb in Resources */,
+				A033D2722194E26B00DFD052 /* fig1220.pepcpu in Resources */,
 				46539C681E9AEED700718705 /* fig0510.pepo in Resources */,
+				A033D2742194E26B00DFD052 /* prob1229b.pepcpu in Resources */,
+				4635084E219CE41A00CFE930 /* clearmemory.png in Resources */,
 				46EC8ABD1C9895CC001405CE /* fig0436.peph in Resources */,
+				46350872219CE41A00CFE930 /* prob1232c.pepcpu in Resources */,
 				46C76A661DAF173D0071C340 /* Pep9TabBar.storyboard in Resources */,
+				46350837219CE41A00CFE930 /* debugger7.png in Resources */,
 				46EC8ABE1C9895CC001405CE /* fig0436.pepo in Resources */,
+				A033D29A2194E26B00DFD052 /* prob1235i.pepcpu in Resources */,
 				46539C661E9AEED700718705 /* fig0506.pepo in Resources */,
+				A033D2A82194E26B00DFD052 /* prob1236f.pepcpu in Resources */,
 				462BA7621E2B2A3B00BBABCD /* fig0608.txt in Resources */,
+				46350834219CE41A00CFE930 /* startdebuggingicon.png in Resources */,
 				46EC8ABF1C9895CC001405CE /* fig0437.pepb in Resources */,
+				46350873219CE41A00CFE930 /* fig1210.pepcpu in Resources */,
 				46539C731E9AEED700718705 /* fig0601.pepo in Resources */,
 				4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */,
 				46EC8AC01C9895CC001405CE /* fig0437.peph in Resources */,
+				463508A9219CE41A00CFE930 /* beta.html in Resources */,
+				4635089C219CE41A00CFE930 /* prob1235k.pepcpu in Resources */,
 				46EC8AC11C9895CC001405CE /* fig0437.pepo in Resources */,
+				4635087C219CE41A00CFE930 /* fig1214.pepcpu in Resources */,
 				46EC8AC21C9895CC001405CE /* fig0503.pep in Resources */,
 				46EC8AC31C9895CC001405CE /* fig0506.pep in Resources */,
+				46350847219CE41A00CFE930 /* fourbuttonsinteractivemode.png in Resources */,
+				4635082D219CE41A00CFE930 /* debugger2.png in Resources */,
 				462BA76A1E2B2A3B00BBABCD /* fig0627.txt in Resources */,
 				46EC8AC41C9895CC001405CE /* fig0507.pep in Resources */,
 				46EC8AC51C9895CC001405CE /* fig0510.pep in Resources */,
+				46350880219CE41A00CFE930 /* prob1229a.pepcpu in Resources */,
 				462BA7701E2B2A3B00BBABCD /* fig0640.txt in Resources */,
 				46539C941E9AF3A900718705 /* pep9os.pepo in Resources */,
+				46350895219CE41A00CFE930 /* fig1223.pepcpu in Resources */,
+				46350863219CE41A00CFE930 /* onebytebusproblems.html in Resources */,
+				4635083D219CE41A00CFE930 /* stopdebuggingicon.png in Resources */,
+				A033D28F2194E26B00DFD052 /* prob1231c.pepcpu in Resources */,
 				462BA7601E2B2A3B00BBABCD /* fig0527.txt in Resources */,
+				46350857219CE41A00CFE930 /* copycode3.png in Resources */,
+				4635087B219CE41A00CFE930 /* prob1232g.pepcpu in Resources */,
+				4635085F219CE41A00CFE930 /* interactiveuse.png in Resources */,
 				46539C721E9AEED700718705 /* fig0527.pepo in Resources */,
 				462BA75E1E2B2A3B00BBABCD /* fig0519.txt in Resources */,
 				D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */,
 				46EC8AC61C9895CC001405CE /* fig0511.pep in Resources */,
+				A033D2892194E26B00DFD052 /* fig1223.pepcpu in Resources */,
 				D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */,
+				463508A1219CE41A00CFE930 /* fig1209.pepcpu in Resources */,
 				46EC8A601C989229001405CE /* fig0512.pep in Resources */,
 				46EC8AC71C9895CC001405CE /* fig0513.pep in Resources */,
+				4635088B219CE41A00CFE930 /* prob1231f.pepcpu in Resources */,
+				4635087F219CE41A00CFE930 /* prob1228.pepcpu in Resources */,
 				46EC8AC81C9895CC001405CE /* fig0514a.pep in Resources */,
 				46539C791E9AEED700718705 /* fig0614.pepo in Resources */,
 				46EC8AC91C9895CC001405CE /* fig0514b.pep in Resources */,
+				46350851219CE41A00CFE930 /* resumebutton.png in Resources */,
 				46EC8ACA1C9895CC001405CE /* fig0515.pep in Resources */,
+				4635083F219CE41A00CFE930 /* formatfromobject3.png in Resources */,
 				46539C671E9AEED700718705 /* fig0507.pepo in Resources */,
 				46EC8ACB1C9895CC001405CE /* fig0516.pep in Resources */,
+				46350850219CE41A00CFE930 /* copycode4.png in Resources */,
 				46EC8ACD1C9895CC001405CE /* fig0519.pep in Resources */,
 				46EC8ACF1C9895CC001405CE /* fig0522.pep in Resources */,
+				A033D26F2194E26B00DFD052 /* prob1235j.pepcpu in Resources */,
 				46539C751E9AEED700718705 /* fig0606.pepo in Resources */,
+				463508A7219CE41A00CFE930 /* twobytebusproblems.html in Resources */,
 				46539C741E9AEED700718705 /* fig0604.pepo in Resources */,
 				46C76A541DA494130071C340 /* FontAwesome in Resources */,
 				46EC8AD11C9895CC001405CE /* fig0527.pep in Resources */,
+				463508A6219CE41A00CFE930 /* prob1235e.pepcpu in Resources */,
 				46539C8D1E9AF19F00718705 /* fig0638.pepo in Resources */,
+				46350846219CE41A00CFE930 /* formatfromobject4.png in Resources */,
+				4635089B219CE41A00CFE930 /* prob1232f.pepcpu in Resources */,
 				46EC8AD21C9895CC001405CE /* fig0601.pep in Resources */,
 				46EC8AD31C9895CC001405CE /* fig0604.txt in Resources */,
 				46539C781E9AEED700718705 /* fig0612.pepo in Resources */,
 				46EC8AD41C9895CC001405CE /* fig0604.pep in Resources */,
 				46EC8AD61C9895CC001405CE /* fig0606.pep in Resources */,
+				463508A5219CE41A00CFE930 /* prob1232h.pepcpu in Resources */,
 				46539C6B1E9AEED700718705 /* fig0513.pepo in Resources */,
+				A033D2702194E26B00DFD052 /* prob1232k.pepcpu in Resources */,
 				462BA7671E2B2A3B00BBABCD /* fig0621.txt in Resources */,
 				462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
 				4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */,
+				46350890219CE41A00CFE930 /* prob1232b.pepcpu in Resources */,
+				4635087E219CE41A00CFE930 /* prob1229c.pepcpu in Resources */,
+				A033D2782194E26B00DFD052 /* prob1231f.pepcpu in Resources */,
 				46C76A5D1DA711690071C340 /* FileSystem.storyboard in Resources */,
 				46539C8A1E9AF19F00718705 /* fig0632.pepo in Resources */,
+				A033D27C2194E26B00DFD052 /* fig1209.pepcpu in Resources */,
 				462BA7681E2B2A3B00BBABCD /* fig0623.txt in Resources */,
+				4635089D219CE41A00CFE930 /* prob1236c.pepcpu in Resources */,
+				463508A0219CE41A00CFE930 /* prob1232d.pepcpu in Resources */,
+				A033D28E2194E26B00DFD052 /* fig1207.pepcpu in Resources */,
+				A033D2A92194E26B00DFD052 /* prob1228.pepcpu in Resources */,
+				A033D26E2194E26B00DFD052 /* prob1235e.pepcpu in Resources */,
 				46539C7C1E9AEED700718705 /* fig0621.pepo in Resources */,
 				D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */,
 				46539C7F1E9AEED700718705 /* fig0627.pepo in Resources */,
+				46350836219CE41A00CFE930 /* debugger5.png in Resources */,
+				46350889219CE41A00CFE930 /* prob1235a.pepcpu in Resources */,
+				4635085D219CE41A00CFE930 /* settingregister.png in Resources */,
 				462BA75F1E2B2A3B00BBABCD /* fig0522.txt in Resources */,
 				D2DDC5C920DC2F05006ABF0E /* Ref in Resources */,
 				46539C7A1E9AEED700718705 /* fig0616.pepo in Resources */,
 				46EC8ADA1C9895CC001405CE /* fig0610.pep in Resources */,
+				4635088A219CE41A00CFE930 /* prob1232l.pepcpu in Resources */,
 				46EC8ADC1C9895CC001405CE /* fig0612.pep in Resources */,
 				46EC8ADE1C9895CC001405CE /* fig0614.pep in Resources */,
 				464DE4781E6A00B400763503 /* FontMenuSizeCell.xib in Resources */,
 				46EC8ADF1C9895CC001405CE /* fig0616.pep in Resources */,
 				46EC8AE11C9895CC001405CE /* fig0618.pep in Resources */,
+				4635084F219CE41A00CFE930 /* startdebuggingmenu.png in Resources */,
+				A033D2A22194E26B00DFD052 /* prob1236c.pepcpu in Resources */,
 				4668AA752121322F0055A088 /* StackCell.xib in Resources */,
+				A033D27B2194E26B00DFD052 /* prob1235l.pepcpu in Resources */,
+				46350875219CE41A00CFE930 /* prob1235b.pepcpu in Resources */,
+				46350832219CE41A00CFE930 /* copyexample.png in Resources */,
 				46539C6E1E9AEED700718705 /* fig0515.pepo in Resources */,
 				4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */,
+				46350898219CE41A00CFE930 /* fig1207.pepcpu in Resources */,
 				468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */,
+				A033D2922194E26B00DFD052 /* prob1235h.pepcpu in Resources */,
+				463508AA219CE41A00CFE930 /* usingpep9cpu.html in Resources */,
+				46350862219CE41A00CFE930 /* debugging.html in Resources */,
 				46539C911E9AF19F00718705 /* fig0646.pepo in Resources */,
 				46EC8AE31C9895CC001405CE /* fig0621.pep in Resources */,
 				462BA7661E2B2A3B00BBABCD /* fig0618.txt in Resources */,
+				A033D2962194E26B00DFD052 /* prob1235k.pepcpu in Resources */,
+				A033D2792194E26B00DFD052 /* prob1229c.pepcpu in Resources */,
 				4656E1201CE9352B0091AF6E /* CHighlightingPatterns.plist in Resources */,
 				46539C7E1E9AEED700718705 /* fig0625.pepo in Resources */,
+				463508A2219CE41A00CFE930 /* prob1235i.pepcpu in Resources */,
 				46539C801E9AEED700718705 /* fig0629.pepo in Resources */,
+				A033D28C2194E26B00DFD052 /* prob1229g.pepcpu in Resources */,
+				4635087A219CE41A00CFE930 /* prob1235j.pepcpu in Resources */,
+				A033D27D2194E26B00DFD052 /* fig1214.pepcpu in Resources */,
+				46350882219CE41A00CFE930 /* prob1232e.pepcpu in Resources */,
 				46EC8AE51C9895CC001405CE /* fig0623.pep in Resources */,
 				462BA76B1E2B2A3B00BBABCD /* fig0629.txt in Resources */,
 				46EC8AE71C9895CC001405CE /* fig0625.pep in Resources */,
+				46350833219CE41A00CFE930 /* registeraddresssignals.png in Resources */,
+				A033D2882194E26B00DFD052 /* prob1233c.pepcpu in Resources */,
+				4635088E219CE41A00CFE930 /* prob1234a.pepcpu in Resources */,
 				462BA7711E2B2A3B00BBABCD /* fig0642.txt in Resources */,
 				46539C901E9AF19F00718705 /* fig0644.pepo in Resources */,
+				46350849219CE41A00CFE930 /* comment6.png in Resources */,
 				462BA76C1E2B2A3B00BBABCD /* fig0632.txt in Resources */,
 				46EC8AE91C9895CD001405CE /* fig0627.pep in Resources */,
+				A033D2802194E26B00DFD052 /* prob1235d.pepcpu in Resources */,
 				46539C8B1E9AF19F00718705 /* fig0634.pepo in Resources */,
 				46EC8AEB1C9895CD001405CE /* fig0629.pep in Resources */,
+				46350887219CE41A00CFE930 /* prob1231c.pepcpu in Resources */,
 				46539C771E9AEED700718705 /* fig0610.pepo in Resources */,
 				46EC8AED1C9895CD001405CE /* fig0632.pep in Resources */,
+				A033D2812194E26B00DFD052 /* prob1232f.pepcpu in Resources */,
 				4656E11E1CE9329B0091AF6E /* PepHighlightingPatterns.plist in Resources */,
+				46350878219CE41A00CFE930 /* prob1235f.pepcpu in Resources */,
 				46EC8AEF1C9895CD001405CE /* fig0634.pep in Resources */,
+				A033D29C2194E26B00DFD052 /* prob1232b.pepcpu in Resources */,
+				4635086E219CE41A00CFE930 /* prob1232a.pepcpu in Resources */,
+				46350897219CE41A00CFE930 /* prob1232j.pepcpu in Resources */,
+				A033D26B2194E26B00DFD052 /* prob1232e.pepcpu in Resources */,
 				46EC8AF11C9895CD001405CE /* fig0636.pep in Resources */,
 				46539C651E9AEED700718705 /* fig0503.pepo in Resources */,
 				46C7EEE41D80BDD300F74B6E /* Pep9Processor.storyboard in Resources */,
 				46EC8AF31C9895CD001405CE /* fig0638.pep in Resources */,
+				4635083A219CE41A00CFE930 /* settingmemory.png in Resources */,
 				46539C8E1E9AF19F00718705 /* fig0640.pepo in Resources */,
+				4635088F219CE41A00CFE930 /* fig1211.pepcpu in Resources */,
+				A033D29D2194E26B00DFD052 /* prob1232d.pepcpu in Resources */,
 				46539C8C1E9AF19F00718705 /* fig0636.pepo in Resources */,
 				46EC8AF51C9895CD001405CE /* fig0640.pep in Resources */,
+				A033D2952194E26B00DFD052 /* prob1233d.pepcpu in Resources */,
+				46350871219CE41A00CFE930 /* prob1231e.pepcpu in Resources */,
+				4635085E219CE41A00CFE930 /* andzsignal.png in Resources */,
+				46350844219CE41A00CFE930 /* comment1.png in Resources */,
 				462BA7721E2B2A3B00BBABCD /* fig0644.txt in Resources */,
 				462BA76E1E2B2A3B00BBABCD /* fig0636.txt in Resources */,
+				A033D2762194E26B00DFD052 /* prob1231e.pepcpu in Resources */,
+				A033D27F2194E26B00DFD052 /* prob1232h.pepcpu in Resources */,
 				46A911991E9F367C002C9DAE /* DebugMenuTraceTrapsCell.xib in Resources */,
+				4635083B219CE41A00CFE930 /* objectcode.png in Resources */,
+				46350899219CE41A00CFE930 /* prob1235g.pepcpu in Resources */,
 				46EC8AF71C9895CD001405CE /* fig0642.pep in Resources */,
+				46350854219CE41A00CFE930 /* copycode1.png in Resources */,
 				46539C711E9AEED700718705 /* fig0522.pepo in Resources */,
 				46EC8AF91C9895CD001405CE /* fig0644.pep in Resources */,
 				46EC8AFB1C9895CD001405CE /* fig0646.pep in Resources */,
+				46350841219CE41A00CFE930 /* debugging.png in Resources */,
+				46350864219CE41A00CFE930 /* cpu.html in Resources */,
+				46350843219CE41A00CFE930 /* switchbus.png in Resources */,
+				46350879219CE41A00CFE930 /* prob1232k.pepcpu in Resources */,
+				A033D27E2194E26B00DFD052 /* fig1212.pepcpu in Resources */,
+				A033D2992194E26B00DFD052 /* prob1231d.pepcpu in Resources */,
+				46350858219CE41A00CFE930 /* copycode2.png in Resources */,
+				4635086F219CE41A00CFE930 /* prob1235l.pepcpu in Resources */,
+				A033D2A42194E26B00DFD052 /* prob1234a.pepcpu in Resources */,
 				46539C7B1E9AEED700718705 /* fig0618.pepo in Resources */,
+				46350859219CE41A00CFE930 /* byteconverter.png in Resources */,
+				4635089A219CE41A00CFE930 /* prob1233d.pepcpu in Resources */,
 				46EC8AFD1C9895CD001405CE /* fig0648.pep in Resources */,
 				4637EF961E5E72B7007593E1 /* FontMenuColorCell.xib in Resources */,
+				4635086D219CE41A00CFE930 /* prob1234b.pepcpu in Resources */,
+				4635083E219CE41A00CFE930 /* formatfromobject2.png in Resources */,
+				A033D28A2194E26B00DFD052 /* prob1235f.pepcpu in Resources */,
 				46EC8AFE1C9895CD001405CE /* pep9os.pep in Resources */,
+				46350845219CE41A00CFE930 /* comment5.png in Resources */,
 				46EC8AFF1C9895CD001405CE /* prob0826.pep in Resources */,
+				A033D2732194E26B00DFD052 /* prob1232j.pepcpu in Resources */,
 				46539C921E9AF19F00718705 /* fig0648.pepo in Resources */,
+				46350886219CE41A00CFE930 /* fig1220.pepcpu in Resources */,
 				46EC8B001C9895CD001405CE /* prob0827.pep in Resources */,
 				46EC8B011C9895CD001405CE /* prob0828.pep in Resources */,
+				46350867219CE41A00CFE930 /* prob1230.pepcpu in Resources */,
+				A033D26D2194E26B00DFD052 /* prob1233f.pepcpu in Resources */,
+				A033D2A32194E26B00DFD052 /* prob1233a.pepcpu in Resources */,
+				46350883219CE41A00CFE930 /* prob1235d.pepcpu in Resources */,
+				46350842219CE41A00CFE930 /* copyexercise.png in Resources */,
 				46EC8B021C9895CD001405CE /* prob0829.pep in Resources */,
+				A033D2912194E26B00DFD052 /* prob1235a.pepcpu in Resources */,
 				46EC8B031C9895CD001405CE /* prob0830.pep in Resources */,
 				46EC8B041C9895CD001405CE /* prob0831.pep in Resources */,
+				A033D28D2194E26B00DFD052 /* prob1236d.pepcpu in Resources */,
 				46BCDC3F1E9D7067008BF3DC /* MemoryHeader.xib in Resources */,
 				462BA7691E2B2A3B00BBABCD /* fig0625.txt in Resources */,
+				46350835219CE41A00CFE930 /* debugger4.png in Resources */,
+				A033D2902194E26B00DFD052 /* prob1229e.pepcpu in Resources */,
 				462BA7611E2B2A3B00BBABCD /* fig0606.txt in Resources */,
 				462BA7741E2B2A3B00BBABCD /* fig0648.txt in Resources */,
 				46EC8B051C9895CD001405CE /* prob0832.pep in Resources */,
 				461875AB1C900D740095B818 /* writingprograms.html in Resources */,
+				4635084D219CE41A00CFE930 /* cyclenumbers.png in Resources */,
+				A033D2982194E26B00DFD052 /* prob1230.pepcpu in Resources */,
+				46350855219CE41A00CFE930 /* runmenu.png in Resources */,
 				462BA76F1E2B2A3B00BBABCD /* fig0638.txt in Resources */,
+				46350874219CE41A00CFE930 /* prob1233a.pepcpu in Resources */,
 				461875A71C900D740095B818 /* images in Resources */,
 				461875A61C900D740095B818 /* figures in Resources */,
 				46539C6F1E9AEED700718705 /* fig0516.pepo in Resources */,
+				A033D2972194E26B00DFD052 /* fig1211.pepcpu in Resources */,
+				46350831219CE41A00CFE930 /* memreadwrite.png in Resources */,
+				A033D2A02194E26B00DFD052 /* prob1235b.pepcpu in Resources */,
 				461875AC1C900D740095B818 /* writingtraphandlers.html in Resources */,
 				D2B061671C7E62040088CEBE /* LaunchScreen.storyboard in Resources */,
+				4635083C219CE41A00CFE930 /* comment3.png in Resources */,
 				461875AA1C900D740095B818 /* problems.html in Resources */,
+				A033D2772194E26B00DFD052 /* prob1229d.pepcpu in Resources */,
 				462BA76D1E2B2A3B00BBABCD /* fig0634.txt in Resources */,
 				46539C701E9AEED700718705 /* fig0519.pepo in Resources */,
+				46350866219CE41A00CFE930 /* twobytebusexamples.html in Resources */,
+				4635085C219CE41A00CFE930 /* debugger8.png in Resources */,
+				4635085B219CE41A00CFE930 /* multiplexersignals.png in Resources */,
 				462BA7641E2B2A3B00BBABCD /* fig0612.txt in Resources */,
+				463508A4219CE41A00CFE930 /* fig1205.pepcpu in Resources */,
+				46350830219CE41A00CFE930 /* debugger1.png in Resources */,
 				4618759A1C900CA10095B818 /* assemblylanguage.html in Resources */,
+				46350870219CE41A00CFE930 /* prob1236d.pepcpu in Resources */,
+				4635088C219CE41A00CFE930 /* prob1229d.pepcpu in Resources */,
+				A033D27A2194E26B00DFD052 /* prob1232i.pepcpu in Resources */,
 				461875A91C900D740095B818 /* pep9reference.html in Resources */,
+				A033D2A72194E26B00DFD052 /* fig1221.pepcpu in Resources */,
+				A033D2862194E26B00DFD052 /* prob1232a.pepcpu in Resources */,
+				4635088D219CE41A00CFE930 /* prob1229f.pepcpu in Resources */,
+				4635087D219CE41A00CFE930 /* prob1231a.pepcpu in Resources */,
+				A033D2872194E26B00DFD052 /* prob1236a.pepcpu in Resources */,
+				46350868219CE41A00CFE930 /* prob1229e.pepcpu in Resources */,
 				D2B061641C7E62040088CEBE /* Images.xcassets in Resources */,
+				4635086B219CE41A00CFE930 /* prob1233c.pepcpu in Resources */,
+				4635082A219CE41A00CFE930 /* pep9os.txt in Resources */,
 				D2B0615F1C7E62040088CEBE /* Pep9Main.storyboard in Resources */,
+				46350860219CE41A00CFE930 /* clockandcopybuttons.png in Resources */,
 				462BA7651E2B2A3B00BBABCD /* fig0614.txt in Resources */,
+				46350839219CE41A00CFE930 /* debugger6.png in Resources */,
+				46350861219CE41A00CFE930 /* microcodeuse.png in Resources */,
+				4635082F219CE41A00CFE930 /* errormessage.png in Resources */,
+				46350877219CE41A00CFE930 /* prob1233e.pepcpu in Resources */,
+				A033D2942194E26B00DFD052 /* fig1210.pepcpu in Resources */,
+				4635089E219CE41A00CFE930 /* prob1231b.pepcpu in Resources */,
+				46350840219CE41A00CFE930 /* comment2.png in Resources */,
+				46350891219CE41A00CFE930 /* prob1235c.pepcpu in Resources */,
 				46539C691E9AEED700718705 /* fig0511.pepo in Resources */,
+				46350896219CE41A00CFE930 /* prob1236a.pepcpu in Resources */,
+				46350856219CE41A00CFE930 /* postconditionerror.png in Resources */,
 				7537806A1E96F951002E1968 /* Main.storyboard in Resources */,
+				4635084A219CE41A00CFE930 /* clocksignal.png in Resources */,
+				46350853219CE41A00CFE930 /* removeerrormessages.png in Resources */,
+				A033D2832194E26B00DFD052 /* prob1229a.pepcpu in Resources */,
+				4635084B219CE41A00CFE930 /* formatfromobject.png in Resources */,
+				46350888219CE41A00CFE930 /* prob1233b.pepcpu in Resources */,
 				461875A41C900D740095B818 /* debuggingprograms.html in Resources */,
+				46350884219CE41A00CFE930 /* prob1232i.pepcpu in Resources */,
+				A033D2822194E26B00DFD052 /* fig1205.pepcpu in Resources */,
+				4635082C219CE41A00CFE930 /* fourbuttonsmicrocodemode.png in Resources */,
+				46350865219CE41A00CFE930 /* onebytebusexamples.html in Resources */,
+				A033D2932194E26B00DFD052 /* prob1229f.pepcpu in Resources */,
 				461875A81C900D740095B818 /* machinelanguage.html in Resources */,
+				A033D28B2194E26B00DFD052 /* prob1235c.pepcpu in Resources */,
+				46350893219CE41A00CFE930 /* prob1231d.pepcpu in Resources */,
 				46F46D371C8F70070092EF04 /* Help.storyboard in Resources */,
+				A033D29B2194E26B00DFD052 /* prob1233b.pepcpu in Resources */,
 				461875A51C900D740095B818 /* examples.html in Resources */,
+				A033D2712194E26B00DFD052 /* prob1231b.pepcpu in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1472,11 +2447,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				460BD9F31DEA5F8500BE58B9 /* AssemblerModel.swift in Sources */,
+				A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */,
 				466C7A4E1CE4266B00014D62 /* PepTextStorage.swift in Sources */,
 				46F46D331C8F49340092EF04 /* Enums.swift in Sources */,
 				46BB48E01E7230D5001EF954 /* CPUColors.swift in Sources */,
 				D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */,
+				A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */,
 				4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */,
+				A0DE5DA12159A6E700DF78D9 /* OneByteModel.swift in Sources */,
 				46A9119B1E9F3736002C9DAE /* DebugMenu.swift in Sources */,
 				46A911971E9F3600002C9DAE /* DebugMenuTraceTrapsCell.swift in Sources */,
 				46F5F26F1DCA626B002880FE /* ProjectModel.swift in Sources */,
@@ -1486,43 +2464,56 @@
 				46C76A641DAF112A0071C340 /* SourceController.swift in Sources */,
 				753780681E96F873002E1968 /* SecondViewController.swift in Sources */,
 				D2B061621C7E62040088CEBE /* pep9pad.xcdatamodeld in Sources */,
+				A00A1E36218642130072A283 /* keypadDelegate.swift in Sources */,
 				46C76A581DA70B930071C340 /* FSMasterController.swift in Sources */,
 				46D639FD1EA1BE0C00C44632 /* Pep9TabBarVCs.swift in Sources */,
 				46C608D11C8EAC1E00CC161A /* Pep9ProcessorController.swift in Sources */,
 				D2B0615C1C7E62040088CEBE /* Pep9MasterController.swift in Sources */,
 				4670DDC51E30762500293BFA /* HighlightableLanguage.swift in Sources */,
 				4637EF871E5BBE72007593E1 /* CPU2ByteView.swift in Sources */,
+				A0E82DA4217A5BB8003A6CEA /* CPUCodeEditor.swift in Sources */,
 				46C76A6C1DB959480071C340 /* MemoryView.swift in Sources */,
 				46A71C0C1E563CAB00FCEFEA /* CPUView.swift in Sources */,
 				464D143D1E52745B00C7FCBE /* CPUCode.swift in Sources */,
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
+				A00A1E34218641C60072A283 /* keypad.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,
+				A013EB18215C1697008CF1A6 /* Maps.swift in Sources */,
+				A02EECE921877E5700A3459A /* buttonStackViewBottom.swift in Sources */,
 				46C76A681DB856A50071C340 /* ObjectController.swift in Sources */,
+				A02F6EC1218825470077A375 /* SimulatorDelegate.swift in Sources */,
 				46F46D3B1C8F70650092EF04 /* HelpDetailController.swift in Sources */,
 				4668AA79212138090055A088 /* StackCell.swift in Sources */,
 				4642A1701DFE1DFF00D072F0 /* StackState.swift in Sources */,
 				0A15E02D20D0601500FFE446 /* TraceViewController.swift in Sources */,
+				A0C385C6215DC36700303E28 /* Specification.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
 				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
 				F613FD6F1E89D1F4003939C0 /* UnaryMnemonics.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
+				A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */,
 				4637EF911E5D8468007593E1 /* Pep9Mailer.swift in Sources */,
 				4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */,
 				468A95D61DDCEF2600916BE7 /* Instructions.swift in Sources */,
 				4636AE401DE505C100182C7B /* CodeViewDelegate.swift in Sources */,
 				46F46D351C8F661D0092EF04 /* Argument.swift in Sources */,
+				A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */,
 				46F5F26D1DCA528B002880FE /* GCDUtilities.swift in Sources */,
 				4637EF891E5BBF27007593E1 /* CPU2ByteRenderer.swift in Sources */,
+				A0DE0310219CA7970018A6B2 /* CPUHelper.swift in Sources */,
 				46F5F2691DC7D6E9002880FE /* P9Project.swift in Sources */,
 				46B58BD21C8FD75A006E46B4 /* HelpExamples.swift in Sources */,
 				468A95D41DDCECF400916BE7 /* Code.swift in Sources */,
 				46C80BDC1DF0D0830096D4E0 /* Extensions.swift in Sources */,
+				A02EECE721877C5500A3459A /* ButtonStackView.swift in Sources */,
+				A042383F21724C8300DAAECE /* LineTableView.swift in Sources */,
 				D2B0615A1C7E62040088CEBE /* AppDelegate.swift in Sources */,
 				D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */,
+				A0DFCF9F2148385D00B66B41 /* CPUViewController.swift in Sources */,
 				46D7A0A51E36F63900BA14A7 /* ColoredObject.swift in Sources */,
 				46E246B21DE0E32A00611A18 /* NonExecutables.swift in Sources */,
 				46C76A561DA496510071C340 /* Pep9DetailController.swift in Sources */,
@@ -1535,6 +2526,7 @@
 				46C76A5A1DA70BE20071C340 /* FSDetailController.swift in Sources */,
 				753780641E96F80B002E1968 /* CircularTransistion.swift in Sources */,
 				46EC8B0A1C98AA6E001405CE /* ExampleViewController.swift in Sources */,
+				A04B6F892188EAF10018892D /* OneByteSimulator.swift in Sources */,
 				753780661E96F862002E1968 /* ViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
@@ -1543,9 +2535,12 @@
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
 				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
 				46F5F2711DCBB35F002880FE /* ProjectModelEditor.swift in Sources */,
+				A013EB15215C0551008CF1A6 /* CPUEnum.swift in Sources */,
 				0AC85E6620D2FC3700B9BC40 /* StackVC.swift in Sources */,
 				467F35B72123B28E00E117AA /* FrameCell.swift in Sources */,
 				464D143F1E52765800C7FCBE /* CPUMemoryView.swift in Sources */,
+				A0DE030E219CA4410018A6B2 /* HelpDelegate.swift in Sources */,
+				A042384121724D2800DAAECE /* LineTable.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
 				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,
@@ -1553,6 +2548,7 @@
 				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,
 				4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */,
 				46CE259F1C98D6C20006021D /* DocumentationViewController.swift in Sources */,
+				A0DE0312219CA7A10018A6B2 /* ASMHelper.swift in Sources */,
 				46BC04331E18A2DE006ED01F /* AppSettings.swift in Sources */,
 				4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */,
 			);
@@ -1719,11 +2715,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = X2YSEQ9H5E;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.2;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pep9pad/pep9pad-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -1737,11 +2736,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = X2YSEQ9H5E;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4D624RRDMS;
 				INFOPLIST_FILE = pep9pad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.2;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.jhaug.warford.pep9pad.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "pep9pad/pep9pad-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
