@@ -14,5 +14,5 @@ protocol ProjectModelEditor {
     /// Push any changes from this editor's `textView` into the global `projectModel`.
     func pushToProjectModel()
     /// The text view (owned by the viewcontroller).
-    var textView: CodeView! { get set }
+//    optional var textView: CodeView! { get set }
 }
