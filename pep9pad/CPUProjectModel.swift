@@ -85,21 +85,17 @@ class CPUProjectModel {
     }
     
     
-    func saveExistingProject() {
-        if cpuFileSystem.updateProject(named: name, source: sourceStr) {
-            fsState = .SavedNamed
-            addProjectNameToRecents(name)
-        } else {
-            // project could not be updated in FS
-        }
+    func saveExistingProjectInFS() {
+//        if updateProjectInFS(named: name, source: sourceStr) {
+//            fsState = .SavedNamed
+//        }
     }
     
-    func saveAsNewProject(withName: String) {
+    func saveAsNewProjectInFS(withName: String) {
         name = withName
-        if cpuFileSystem.saveNewProject(named: name, source: sourceStr) {
-            fsState = .SavedNamed
-            addProjectNameToRecents(name)
-        }
+//        if saveNewProjectInFS(named: name, source: sourceStr) {
+//            fsState = .SavedNamed
+//        }
     }
     
     
@@ -186,10 +182,6 @@ class CPUProjectModel {
         UserDefaults.standard.synchronize()
     }
     
-    
-    func getData() -> Data! {
-        return sourceStr.data(using: .utf8)
-    }
     
     
 }

@@ -656,11 +656,7 @@
                             </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="action" id="fgy-hD-moK">
-                                <connections>
-                                    <action selector="actionBtnPressed:" destination="Crp-0P-M8w" id="FMQ-gQ-Dfy"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="fgy-hD-moK"/>
                             <barButtonItem title="settings" id="0Vy-IZ-wVk">
                                 <connections>
                                     <action selector="settingsBtnPressed:" destination="Crp-0P-M8w" id="xkw-HT-hm0"/>

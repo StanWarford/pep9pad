@@ -169,7 +169,7 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     }
     
     func loadExampleToProj(_ text: String!, ofType: PepFileType!, io: String!, usesTerminal: Bool!) {
-        cpuMasterVC.loadExample(text: text, ofType: .pepcpu)
+        cpuMasterVC.loadExample(text: text)
     }
     
     // MARK: - TableViewDataSource
