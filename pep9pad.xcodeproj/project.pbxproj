@@ -247,7 +247,6 @@
 		468FB3141E0CF0EB001F154A /* Trace.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468FB3131E0CF0EB001F154A /* Trace.storyboard */; };
 		4694F3D11DBABC0300F0E822 /* IOMem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4694F3D01DBABC0300F0E822 /* IOMem.storyboard */; };
 		4695EB2A1E417F74007E50BD /* CPUProjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB291E417F74007E50BD /* CPUProjectModel.swift */; };
-		4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */; };
 		4695EB2E1E428F85007E50BD /* CPUProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB2D1E428F85007E50BD /* CPUProject.swift */; };
 		4695EB341E43FAF6007E50BD /* CPUFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */; };
 		4695EB361E4404F3007E50BD /* myFirstCPUProject.pepcpu in Resources */ = {isa = PBXBuildFile; fileRef = 4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */; };
@@ -445,7 +444,6 @@
 		D249AF631EEB3403004828FC /* NonunaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */; };
 		D26113A61DCA7B2F00DE8923 /* myFirstProject.pepo in Resources */ = {isa = PBXBuildFile; fileRef = D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */; };
 		D26113A81DCA7B5400DE8923 /* myFirstProject.pepl in Resources */ = {isa = PBXBuildFile; fileRef = D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */; };
-		D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */; };
 		D2A7D0A91E4BC8BB00A9CD37 /* CPUVisualController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */; };
 		D2A7D0AB1E4BC8D700A9CD37 /* CPUTraceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */; };
 		D2A9BCCB1D776AC800C69724 /* CPU.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A9BCCA1D776AC800C69724 /* CPU.storyboard */; };
@@ -460,8 +458,6 @@
 		D2B24BD01E5B868600B5289A /* CPU1ByteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */; };
 		D2CC5E4C1DB800220033CFF4 /* FSState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CC5E4B1DB800220033CFF4 /* FSState.swift */; };
 		D2CC5E4E1DB807990033CFF4 /* myFirstProject.pep in Resources */ = {isa = PBXBuildFile; fileRef = D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */; };
-		D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */; };
-		D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */; };
 		D2DDC5C920DC2F05006ABF0E /* Ref in Resources */ = {isa = PBXBuildFile; fileRef = D2DDC5C820DC2F05006ABF0E /* Ref */; };
 		F613FD6F1E89D1F4003939C0 /* UnaryMnemonics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F613FD6E1E89D1F4003939C0 /* UnaryMnemonics.swift */; };
 /* End PBXBuildFile section */
@@ -726,7 +722,6 @@
 		468FB3131E0CF0EB001F154A /* Trace.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Trace.storyboard; sourceTree = "<group>"; };
 		4694F3D01DBABC0300F0E822 /* IOMem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IOMem.storyboard; sourceTree = "<group>"; };
 		4695EB291E417F74007E50BD /* CPUProjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProjectModel.swift; sourceTree = "<group>"; };
-		4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPUTabBar.storyboard; sourceTree = "<group>"; };
 		4695EB2D1E428F85007E50BD /* CPUProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUProject.swift; sourceTree = "<group>"; };
 		4695EB331E43FAF6007E50BD /* CPUFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUFileSystem.swift; sourceTree = "<group>"; };
 		4695EB351E4404F3007E50BD /* myFirstCPUProject.pepcpu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "myFirst\U0010CPUProject.pepcpu"; sourceTree = "<group>"; };
@@ -940,7 +935,6 @@
 		D249AF621EEB3403004828FC /* NonunaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NonunaryMnemonics.swift; path = pep9pad/NonunaryMnemonics.swift; sourceTree = "<group>"; };
 		D26113A51DCA7B2F00DE8923 /* myFirstProject.pepo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepo; sourceTree = "<group>"; };
 		D26113A71DCA7B5400DE8923 /* myFirstProject.pepl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pepl; sourceTree = "<group>"; };
-		D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUSplitController.swift; sourceTree = "<group>"; };
 		D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUVisualController.swift; sourceTree = "<group>"; };
 		D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUTraceController.swift; sourceTree = "<group>"; };
 		D2A9BCCA1D776AC800C69724 /* CPU.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CPU.storyboard; sourceTree = "<group>"; };
@@ -961,8 +955,6 @@
 		D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU1ByteView.swift; sourceTree = "<group>"; };
 		D2CC5E4B1DB800220033CFF4 /* FSState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSState.swift; sourceTree = "<group>"; };
 		D2CC5E4D1DB807990033CFF4 /* myFirstProject.pep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = myFirstProject.pep; sourceTree = "<group>"; };
-		D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUMasterViewController.swift; sourceTree = "<group>"; };
-		D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUDetailController.swift; sourceTree = "<group>"; };
 		D2DDC5C820DC2F05006ABF0E /* Ref */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Ref; sourceTree = "<group>"; };
 		F613FD6E1E89D1F4003939C0 /* UnaryMnemonics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnaryMnemonics.swift; path = pep9pad/UnaryMnemonics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1530,7 +1522,6 @@
 			isa = PBXGroup;
 			children = (
 				464D143E1E52765800C7FCBE /* CPUMemoryView.swift */,
-				D2D40ED81D80A35900FE4AF4 /* CPUMasterViewController.swift */,
 			);
 			name = Master;
 			sourceTree = "<group>";
@@ -1543,13 +1534,10 @@
 				46BB48DF1E7230D5001EF954 /* CPUColors.swift */,
 				D2B24BCF1E5B868600B5289A /* CPU1ByteView.swift */,
 				4637EF861E5BBE72007593E1 /* CPU2ByteView.swift */,
-				D2D40EDA1D80A41F00FE4AF4 /* CPUDetailController.swift */,
 				46D674DD1E561DB200AE1B8F /* CPUBusSize.swift */,
-				D2A7D0A61E4BC89D00A9CD37 /* CPUSplitController.swift */,
 				D2A7D0A81E4BC8BB00A9CD37 /* CPUVisualController.swift */,
 				D2A7D0AA1E4BC8D700A9CD37 /* CPUTraceController.swift */,
 				46A71C0B1E563CAB00FCEFEA /* CPUView.swift */,
-				4695EB2B1E4180C2007E50BD /* CPUTabBar.storyboard */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -2144,7 +2132,6 @@
 				462BA7671E2B2A3B00BBABCD /* fig0621.txt in Resources */,
 				462BA7731E2B2A3B00BBABCD /* fig0646.txt in Resources */,
 				46EC8AD81C9895CC001405CE /* fig0608.pep in Resources */,
-				4695EB2C1E4180C2007E50BD /* CPUTabBar.storyboard in Resources */,
 				46350890219CE41A00CFE930 /* prob1232b.pepcpu in Resources */,
 				4635087E219CE41A00CFE930 /* prob1229c.pepcpu in Resources */,
 				A033D2782194E26B00DFD052 /* prob1231f.pepcpu in Resources */,
@@ -2491,7 +2478,6 @@
 				0A15E02D20D0601500FFE446 /* TraceViewController.swift in Sources */,
 				A0C385C6215DC36700303E28 /* Specification.swift in Sources */,
 				4642A16E1DFE1DB700D072F0 /* StackFrameFSM.swift in Sources */,
-				D2D40ED91D80A35900FE4AF4 /* CPUMasterViewController.swift in Sources */,
 				46BB48DE1E7227C6001EF954 /* CPU1ByteRenderer.swift in Sources */,
 				F613FD6F1E89D1F4003939C0 /* UnaryMnemonics.swift in Sources */,
 				4689E6DD1E219BA6001AEA05 /* ByteCalc.swift in Sources */,
@@ -2530,7 +2516,6 @@
 				753780661E96F862002E1968 /* ViewController.swift in Sources */,
 				46C76A6A1DB9593A0071C340 /* ListingController.swift in Sources */,
 				4612397D1CF28A8800EF0C18 /* PepSyntaxColors.swift in Sources */,
-				D2D40EDB1D80A41F00FE4AF4 /* CPUDetailController.swift in Sources */,
 				46C76A611DAD86BE0071C340 /* IOMemController.swift in Sources */,
 				46C76A6E1DB959680071C340 /* TraceController.swift in Sources */,
 				46557C0D1E77A00C00DDC7A0 /* ReferencedSymbol.swift in Sources */,
@@ -2543,7 +2528,6 @@
 				A042384121724D2800DAAECE /* LineTable.swift in Sources */,
 				461875961C90089F0095B818 /* HelpDocumentation.swift in Sources */,
 				463A66311C97CE0E004C35B2 /* CodeView.swift in Sources */,
-				D2A7D0A71E4BC89D00A9CD37 /* CPUSplitController.swift in Sources */,
 				46E246AF1DE0E1C300611A18 /* Dots.swift in Sources */,
 				46D674DE1E561DB200AE1B8F /* CPUBusSize.swift in Sources */,
 				4637EF8E1E5D7CCB007593E1 /* FontMenu.swift in Sources */,

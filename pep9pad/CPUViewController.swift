@@ -159,16 +159,21 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
     
     /// This function adds a title and another button to the navigationItem.
     func setupNavBar() {
-        self.navigationItem.title = "Pep9 CPU"
-        
-        
+        var name = (cpuProjectModel.name != "") ? cpuProjectModel.name : "Unsaved"
+        self.navigationItem.title = "Pep9 CPU - \(name)"
         // dynamically create and add a button
-        self.testBtn = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(self.btnPressed))
+        self.testBtn = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(self.homeBtnPressed))
         
         UIView.animate(withDuration: 2.0) {
             self.navigationItem.leftBarButtonItems?.insert(self.testBtn, at: 0)
         }
     }
+    
+    func refreshProjectName() {
+        var name = (cpuProjectModel.name != "") ? cpuProjectModel.name : "Unsaved"
+        self.navigationItem.title = "Pep9 CPU - \(name)"
+    }
+    
     func setupCPU(){
         CPUScrollView.contentSize = CGSize(width: 840, height: 1024)
         CPUScrollView.delegate = self
@@ -181,20 +186,27 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
     }
     
     func pushToProjectModel() {
-        cpuProjectModel.sourceStr = codeEditor.text
+        cpuProjectModel.receiveChanges(from: self, text: codeEditor.text)
+
     }
-    
     
     func setupCodeEditor(){
         codeEditor.delegate = self
         codeEditor.backgroundColor = UIColor.white
         codeEditor.textColor = UIColor.black
         codeEditor.autocorrectionType = .no
-        codeEditor.text = cpuProjectModel.sourceStr
+        if cpuProjectModel.name == "" {
+            // this means the user pressed "new project" on the previous screen
+            cpuProjectModel.newBlankProject()
+            codeEditor.text = cpuProjectModel.sourceStr
+
+        } else {
+            codeEditor.text = cpuProjectModel.sourceStr 
+        }
         //codeEditor.inputView!.addBorderRight()
         //codeEditor.inputView?.addBorder()
-        
     }
+    
     func setupMemView(){
         keypad.isHidden = true
         memView.isHidden = false
@@ -433,7 +445,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
     
     @IBAction func actionBtnPressed(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+        print(cpuProjectModel.fsState)
         let newAction = UIAlertAction(title: "New Project", style: .default) { (action) in
             self.newProjectBtnPressed()
         }
@@ -732,11 +744,12 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
             }
             alertController.addAction(cancelAction)
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                print("saving current project with the given name and opening a preexisting project")
+                print("saving current project with the given name")
                 let name = (alertController.textFields?.first?.text)!
                 if cpuFileSystem.validNameForProject(name: name) {
                     cpuProjectModel.saveAsNewProject(withName: name)
                     self.pullFromProjectModel()
+                    self.refreshProjectName()
                 } else {
                     print("invalid (non-unique or too short) name for project, giving up save")
                 }
@@ -746,8 +759,10 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
             
             
         case .SavedNamed, .Blank:
-            // greyed-out buttons should've prevented you from getting here
-            assert(false, "FSM for FS was not implemented correctly in code.")
+            // was probably called just before going Home
+            // assert(false, "FSM for FS was not implemented correctly in code.")
+            // just exit like normally
+            print("nothing else to save")
         }
     }
     
@@ -882,9 +897,11 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
     
     
     // Called when the dynamically added button is pressed.
-    @objc func btnPressed() {
-            //self.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+    @objc func homeBtnPressed() {
+        self.saveProjectBtnPressed()
+        cpuProjectModel.newBlankProject()
+        self.pullFromProjectModel()
+        self.dismiss(animated: true, completion: nil)
     }
     
     // Mark: - File Private Funcs
@@ -1174,6 +1191,9 @@ extension CPUViewController : UITextViewDelegate{
 //            //codeEditor.pepHighlighter(busSize: currentCPUSize)
 //        }
         codeEditor.setNeedsDisplay()
+        pushToProjectModel()
+
+        
         
 //        let border = CALayer()
 //        let thickness : CGFloat =  1.0

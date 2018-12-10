@@ -62,6 +62,21 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
     }
     
+    
+    /// Overriding the viewDidAppear, so that these are reloaded when the view is loading.
+    override func viewDidAppear(_ animated: Bool) {
+        // load the recent projects, either from Pep9 or CPU project model
+        if mode == "PEP" {
+            recents = projectModel.recentProjectNames()
+        } else {
+            recents = cpuProjectModel.recentProjectNames()
+        }
+        //dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
+        tableOfProjects.reloadData()
+        super.viewDidAppear(animated)
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

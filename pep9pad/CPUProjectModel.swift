@@ -107,13 +107,9 @@ class CPUProjectModel {
     // whenever an editor detects the user has edited its `textField`'s contents.
     // This function sets `fsState` accordingly.
     func receiveChanges(from editor: ProjectModelEditor, text: String) {
-        if editor is CPUSplitController {
-            sourceStr = text
-            changeStateToUnsaved()
-        } else {
-            // unrecognized call
-            assert(false)
-        }
+        sourceStr = text
+        print(fsState)
+        changeStateToUnsaved()
     }
     
     /// Called by `self.receiveChanges()` whenever a change has been detected in source code.

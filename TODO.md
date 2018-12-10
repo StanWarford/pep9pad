@@ -1,17 +1,19 @@
-##  To-Do for Josh
+##  TODO
 * Add scrolling for large stacks/heaps
-- [ ] Merge warning remove branch
+* Help system is very slow in loading
 - [ ] Fix highlighting bugs in stack/heap/globals
-* new help information
+* New help information
 * Fig0629 does not work (terminal bug)
 * Remove assert(false)s
 * Add green highlight for new cells on heap?
+* Code highlighting all the time
 * Trace 
+* Better keypad
+* Add caching to memory view
 
-## Wish List
-* Better borders between regions
-* Add indicator for trap trace
-* Inconsistent grey-outs while debugging
-- Add fast-forward (just calling singleStepBtnPressed over and over again)
-
+## DONE
+* Project names show up after first load
+* Cleaned up lots of old files in CPU
+* Save CPU project, just start typing
+* codeEditor no longer loading existing project
 
