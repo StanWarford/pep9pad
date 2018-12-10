@@ -389,11 +389,13 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
     @IBAction func HelpBtnPressed(_ sender: Any) {
         let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
         cpuHelper.cpuMasterVC = self
+        
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {
                 let nav = spvc.viewControllers[0] as! UINavigationController
                 let hm = nav.viewControllers[0] as! HelpMasterController
                 //hm.setup(cpu: self)
+                
                 hm.setup(master: self.cpuHelper, tableDelegate: self.cpuHelper, dataSource: self.cpuHelper)
                 
             }
@@ -741,6 +743,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
             alertController.addTextField(configurationHandler: nil)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
                 // user would like to cancel this project creation
+                return
             }
             alertController.addAction(cancelAction)
             let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -898,10 +901,65 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate, Pr
     
     // Called when the dynamically added button is pressed.
     @objc func homeBtnPressed() {
-        self.saveProjectBtnPressed()
-        cpuProjectModel.newBlankProject()
-        self.pullFromProjectModel()
-        self.dismiss(animated: true, completion: nil)
+        switch cpuProjectModel.fsState {
+        case .UnsavedNamed:
+            // project has not been saved recently
+            // Rather than present an alertController here, I say we just update the fs.
+            // Having an "are you sure?" message seems redundant for something as innocuous as a save.
+            cpuProjectModel.saveExistingProject()
+            // refresh the project model and the codeEditor
+            cpuProjectModel.newBlankProject()
+            self.pullFromProjectModel()
+            // now pop this view off the stack
+            self.dismiss(animated: true, completion: nil)
+            
+        case .UnsavedUnnamed:
+            // project has never been saved
+            // Similar to above, I don't think we need an "are you sure?" message for saving the current project as a new project.
+            
+            // user needs to name the project
+            let alertController = UIAlertController(title: "Name your project", message: "Please give this project a name.", preferredStyle: .alert)
+            alertController.addTextField(configurationHandler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                // user would like to cancel this project creation
+                // refresh the project model and the codeEditor
+                cpuProjectModel.newBlankProject()
+                self.pullFromProjectModel()
+                // now pop this view off the stack
+                self.dismiss(animated: true, completion: nil)
+            }
+            alertController.addAction(cancelAction)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                print("saving current project with the given name")
+                let name = (alertController.textFields?.first?.text)!
+                if cpuFileSystem.validNameForProject(name: name) {
+                    cpuProjectModel.saveAsNewProject(withName: name)
+                    self.pullFromProjectModel()
+                    self.refreshProjectName()
+                } else {
+                    print("invalid (non-unique or too short) name for project, giving up save")
+                }
+                // refresh the project model and the codeEditor
+                cpuProjectModel.newBlankProject()
+                self.pullFromProjectModel()
+                // now pop this view off the stack
+                self.dismiss(animated: true, completion: nil)
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true)
+            
+            
+        case .SavedNamed, .Blank:
+            // was probably called just before going Home on a presaved project
+            print("nothing else to save")
+            // refresh the project model and the codeEditor
+            cpuProjectModel.newBlankProject()
+            self.pullFromProjectModel()
+            // now pop this view off the stack
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+
     }
     
     // Mark: - File Private Funcs

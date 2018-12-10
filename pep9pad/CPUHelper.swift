@@ -15,6 +15,7 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     var documentationVC: DocumentationViewController!
     var helpDetail: HelpDetailController!
     
+    
     func loadDefault(){
         loadDocumentation(.UsingCPU)
     }
@@ -22,7 +23,11 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     func loadDocumentation(_ doc: Documentation) {
         let url = Bundle.main.url(forResource: doc.rawValue, withExtension:"html")
         let request = URLRequest(url: url!)
-        documentationVC.doc.loadRequest(request)
+
+        // concurrently load the documentation html fil
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.documentationVC.doc.loadRequest(request)
+        }
         
         exampleVC.topTextView.setEditable(false)
         exampleVC.bottomTextView.setEditable(false)

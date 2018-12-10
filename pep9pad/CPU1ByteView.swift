@@ -301,6 +301,7 @@ class CPU1ByteView: CPUView{
     }
     
     func getMicroLine()-> MicroCode {
+        // TODO: account for error when given input where codeList is NIL
         //find microCode Line
         for i in codeIndex..<codeList.count{
             if codeList[i].isMicrocode(){
