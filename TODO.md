@@ -1,6 +1,5 @@
 ##  TODO
 * Add scrolling for large stacks/heaps
-* Help system is very slow in loading
 - [ ] Fix highlighting bugs in stack/heap/globals
 * New help information
 * Fig0629 does not work (terminal bug)
@@ -9,6 +8,11 @@
 * Code highlighting all the time
 * Trace 
 * Better keypad
+* Copy to Microcode button highlighting
+
+* Fix Help loading, the statement: Array(Documentation.allCPU.values).count
+... is causing problems
+
 * Add caching to memory view
 
 ## DONE
