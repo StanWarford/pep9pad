@@ -237,6 +237,17 @@ class CPU1ByteView: CPUView{
         }
     }
     
+    func updateCPUMemReg(reg: EMemoryRegisters, val: UInt8){
+        switch reg {
+        case .MEM_MARA:
+            CPU1ByteRenderer.MARAText = "0x" + String(format:"%02X", val)
+        case .MEM_MARB:
+            CPU1ByteRenderer.MARBText = "0x" + String(format:"%02X", val)
+        default:
+            break
+        }
+    }
+    
     //Simulator
     var registerBank = [UInt8]()
     var memoryRegisters : [EMemoryRegisters: UInt8] = [:]
@@ -265,12 +276,29 @@ class CPU1ByteView: CPUView{
         self.codeIndex = 0
         self.codeLine = 0
         self.memoryView = memView
+        self.mainBusState = .None
+        setUpRegisterBanks()
         for code in codeList {
             if code is UnitPreCode{
                 let unitPreCode = code as! UnitPreCode
                 handleUnitPreCode(unitPreCode: unitPreCode)
             }
         }
+    }
+    func setUpRegisterBanks(){
+        registerBank = [UInt8](repeatElement(0, count: 32))
+        // preset registers for M1--M5
+        registerBank[22] = 0x00
+        registerBank[23] = 0x01
+        registerBank[24] = 0x02
+        registerBank[25] = 0x03
+        registerBank[26] = 0x04
+        registerBank[27] = 0x08
+        registerBank[28] = 0xF0
+        registerBank[29] = 0xF6
+        registerBank[30] = 0xFE
+        registerBank[31] = 0xFF
+        
     }
     
     func handleUnitPreCode(unitPreCode : UnitPreCode){
@@ -279,6 +307,8 @@ class CPU1ByteView: CPUView{
                 let regSpec = spec as! RegSpecification
                 let line = regSpec.regAddress == .A ? .Acc : regSpec.regAddress
                 updateCPU(line: line, value: String(regSpec.regValue))
+                //set value in register bank
+                setRegBankVal(reg: line, value: regSpec.regValue)
             }
             
             if spec is StatusBitSpecification{
@@ -297,6 +327,16 @@ class CPU1ByteView: CPUView{
                 }
                 memoryView.update()
             }
+        }
+    }
+    
+    func setRegBankVal(reg : CPUEMnemonic, value : Int){
+        switch reg{
+        case .PC:
+            registerBank[6] = 0x00
+            registerBank[7] = 0xFF
+        default:
+            break
         }
     }
     
@@ -334,6 +374,7 @@ class CPU1ByteView: CPUView{
         var alu : UInt8 = 0
         var NZVC : UInt8 = 0
         var address : UInt16
+        isALUCacheValid = false
         
         let hasA = valueOnABus(result: &a)
         let hasB = valueOnBBus(result: &b)
@@ -351,18 +392,11 @@ class CPU1ByteView: CPUView{
         }
         
         //MARCk
-        if controlSignals[.MARCk] != 0 { /// CHECK THIS
-            if controlSignals[.MARMux] == 0 {
-                //If MARMux is 0, route MDRE, MDRO to MARA, MARB
-//                onSetMemoryRegister(Enu::MEM_MARA, memoryRegisters[Enu::MEM_MDRE]);
-//                onSetMemoryRegister(Enu::MEM_MARB, memoryRegisters[Enu::MEM_MDRO]);
-            }
-            else if controlSignals[.MARMux] == 1 && hasA && hasB {
-                //If MARMux is 1, route A, B to MARA, MARB
-//                onSetMemoryRegister(Enu::MEM_MARA, a);
-//                onSetMemoryRegister(Enu::MEM_MARB,b );
-            }
-            else {  //Otherwise MARCk is high, but no data flows through MARMux
+        if controlSignals[.MARCk]! == 1 { /// CHECK THIS
+            if hasA && hasB {
+                onSetMemoryRegister(reg: .MEM_MARA, val: a)
+                onSetMemoryRegister(reg: .MEM_MARB, val: b)
+            }else {
                 hadDataError = true
                 errorMessage = "MARMux has no output but MARCk"
                 return -1
@@ -372,7 +406,7 @@ class CPU1ByteView: CPUView{
         
 
         //LoadCk
-        if controlSignals[.LoadCk] != 0 {
+        if controlSignals[.LoadCk]! == 1 {
             if controlSignals[.C] == LINE_DISABLED {
                 hadDataError = true
                 errorMessage = "No destination register specified for LoadCk."
@@ -386,6 +420,36 @@ class CPU1ByteView: CPUView{
             }
         }
 
+        //MDR
+        if controlSignals[.MDRCk]! == 1 {
+            //need to put value in the MDR based on what the MDRMux is
+            switch controlSignals[.MDRMux]{
+            case 0:
+                //get value from memory
+                address = UInt16((memoryRegisters[.MEM_MARA]!<<8) + memoryRegisters[.MEM_MARB]!)
+                address &= 0xFFFE
+                if mainBusState != .MemReadReady{
+                    hadDataError = true
+                    errorMessage = "No value from the data bus to write to MDR"
+                }else{
+                    onSetMemoryRegister(reg: .MEM_MDR, val: 0xFF)
+                }
+                
+            case 1:
+                //get value from C bus
+                break
+            default:
+                hadDataError = true
+                errorMessage = "No value to clock into MDRE"
+                break
+            }
+        }
+        
+        
+        
+        
+        
+        
         
         for mnemon in microCodeLine.mnemonicMap.keys{
             let value = microCodeLine.mnemonicMap[mnemon] == -1 ? "" : String(microCodeLine.mnemonicMap[mnemon]!)
@@ -399,6 +463,7 @@ class CPU1ByteView: CPUView{
         return codeLine
     }
     
+    //DELETE
     func simulate(codeList : [CPUCode], cycleCount : Int){
         for code in codeList{
             if code.isMicrocode() {
@@ -412,6 +477,13 @@ class CPU1ByteView: CPUView{
                 }
             }
         }
+    }
+    
+    func onSetMemoryRegister(reg : EMemoryRegisters, val : UInt8){
+        let intVal = Int(val)
+        memoryRegisters[reg] = val
+            //need to update display
+            updateCPUMemReg(reg: reg, val: val)
     }
     
     func setMemoryWord(quint16 address : UInt8, value : UInt16) {

@@ -372,9 +372,12 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     @IBAction func singleStepBtnPressed(_ sender: Any) {
         codeLine = oneByteCPUDisplay.singleStep()
         oneByteCPUDisplay.setNeedsDisplay()
-        highlightLine(index : codeLine)
+        //highlightLine(index : codeLine)
+        print(codeLine)
         if codeLine == codeList.count{
             stopDebugging()
+        }else if codeLine == -1 {
+            print(oneByteCPUDisplay.errorMessage)
         }
 
     }
