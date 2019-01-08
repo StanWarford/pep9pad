@@ -375,7 +375,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         //highlightLine(index : codeLine)
         print(codeLine)
         if codeLine == codeList.count{
-            stopDebugging()
+            //stopDebugging()
         }else if codeLine == -1 {
             print(oneByteCPUDisplay.errorMessage)
         }
@@ -391,7 +391,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         if microAssembler.microAssemble() {
             // Do Sim Stuff
             if currentCPUSize == .oneByte {
-                oneByteCPUDisplay.simulate(codeList: codeList!, cycleCount: cycleCount!)
+                //oneByteCPUDisplay.simulate(codeList: codeList!, cycleCount: cycleCount!)
                 oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Two Byte Implementation

@@ -62,19 +62,19 @@ enum EWaiting {
 }
 
 
-enum CPURegisters {
-    case nBit
-    case zBit
-    case vBit
-    case cBit
-    case accumulator
-    case indexRegister
-    case stackPointer
-    case programCounter
-    case instructionSpecifier
-    case operandSpecifier
-    case operand
-}
+//enum CPURegisters {
+//    case nBit
+//    case zBit
+//    case vBit
+//    case cBit
+//    case accumulator
+//    case indexRegister
+//    case stackPointer
+//    case programCounter
+//    case instructionSpecifier
+//    case operandSpecifier
+//    case operand
+//}
 
 enum ProjectContents {
     case source

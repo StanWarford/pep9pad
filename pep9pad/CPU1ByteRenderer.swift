@@ -102,6 +102,7 @@ public class CPU1ByteRenderer : NSObject {
     //Mar Text
     static var MARAText = "0x00"
     static var MARBText = "0x00"
+    static var MDRText = "0x00"
     
     //ALU Text
     static var ALUInstruction = ""
@@ -2542,7 +2543,7 @@ public class CPU1ByteRenderer : NSObject {
         UIColor.black.setStroke()
         mDRPath.lineWidth = 1
         mDRPath.stroke()
-        let mDRTextContent = "0x00"
+        let mDRTextContent = MDRText
         let mDRStyle = NSMutableParagraphStyle()
         mDRStyle.alignment = .center
         let mDRFontAttributes = [

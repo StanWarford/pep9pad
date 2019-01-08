@@ -43,15 +43,15 @@ class OneByteSimulator {
     
     //Enums
     
-    enum CPURegisters: UInt8 {
-        //Two byte registers
-        case A = 0; case X = 2; case SP = 4; case PC = 6; case OS = 9; case T2 = 12; case T3 = 14;
-        case T4 = 16; case T5 = 18; case T6 = 20; case M1 = 22; case M2 = 24; case M3 = 26;
-        case M4 = 28; case M5 = 30;
-        
-        //One byte registers
-        case IS = 8; case T1 = 11
-    }
+//    enum CPURegisters: UInt8 {
+//        //Two byte registers
+//        case A = 0; case X = 2; case SP = 4; case PC = 6; case OS = 9; case T2 = 12; case T3 = 14;
+//        case T4 = 16; case T5 = 18; case T6 = 20; case M1 = 22; case M2 = 24; case M3 = 26;
+//        case M4 = 28; case M5 = 30;
+//        
+//        //One byte registers
+//        case IS = 8; case T1 = 11
+//    }
     enum EMemoryRegisters {
         case MEM_MARA; case MEM_MARB; case MEM_MDR; case MEM_MDRO; case MEM_MDRE
     }
@@ -80,12 +80,12 @@ class OneByteSimulator {
         return 1
     }
     
-    func getRegisterBankByte(registerNumber : CPURegisters) -> UInt8{
-        return 1
-    }
-    func getRegisterBankWord(registerNumber : CPURegisters) -> UInt16{
-        return 1
-    }
+//    func getRegisterBankByte(registerNumber : CPURegisters) -> UInt8{
+//        return 1
+//    }
+//    func getRegisterBankWord(registerNumber : CPURegisters) -> UInt16{
+//        return 1
+//    }
     func getMemoryRegister(registerNumber : EMemoryRegisters) -> UInt8{
         return 1
     }

@@ -703,44 +703,44 @@ class MachineModel {
     
     
     
-    // I wrote this function to make the ProcessorController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
-    func prettyVersion(_ register: CPURegisters, format: CPUFormats) -> String {
-        var value = 0
-        
-        // get the value of the field
-        switch register {
-        case .nBit, .zBit, .vBit, .cBit:
-            return ""
-        case .accumulator:
-            value = accumulator
-        case .indexRegister:
-            value = indexRegister
-        case .stackPointer:
-            value = stackPointer
-        case .programCounter:
-            value = programCounter
-        case .instructionSpecifier:
-            value = instructionSpecifier
-        case .operandSpecifier:
-            value = operandSpecifier
-        case .operand:
-            value = operand
-        }
-        
-        // format
-        switch format {
-        case .bin:
-            return value.toBin8()
-        case .hex:
-            return "0x\(value.toHex4())"
-        case .dec:
-            return "\(toSignedDecimal(value))"
-        case .mnemon:
-            return " " + maps.enumToMnemonMap[maps.decodeMnemonic[instructionSpecifier]]! + maps.commaSpaceStringForAddrMode(addressMode: maps.decodeAddrMode[instructionSpecifier])
-            
-            
-        }
-    }
+//    // I wrote this function to make the ProcessorController update() method a bit more elegant. Now that I'm thinking about it, this might be an inappropriate method for the MachineModel.
+//    func prettyVersion(_ register: CPURegisters, format: CPUFormats) -> String {
+//        var value = 0
+//        
+//        // get the value of the field
+//        switch register {
+//        case .nBit, .zBit, .vBit, .cBit:
+//            return ""
+//        case .accumulator:
+//            value = accumulator
+//        case .indexRegister:
+//            value = indexRegister
+//        case .stackPointer:
+//            value = stackPointer
+//        case .programCounter:
+//            value = programCounter
+//        case .instructionSpecifier:
+//            value = instructionSpecifier
+//        case .operandSpecifier:
+//            value = operandSpecifier
+//        case .operand:
+//            value = operand
+//        }
+//        
+//        // format
+//        switch format {
+//        case .bin:
+//            return value.toBin8()
+//        case .hex:
+//            return "0x\(value.toHex4())"
+//        case .dec:
+//            return "\(toSignedDecimal(value))"
+//        case .mnemon:
+//            return " " + maps.enumToMnemonMap[maps.decodeMnemonic[instructionSpecifier]]! + maps.commaSpaceStringForAddrMode(addressMode: maps.decodeAddrMode[instructionSpecifier])
+//            
+//            
+//        }
+//    }
     
     /// Determines whether or not the charIn trap will be used.
     func willAccessCharIn() -> Bool {

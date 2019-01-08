@@ -186,3 +186,22 @@ func initEnumMnemonMaps(currentBusSize : CPUBusSize){
         mnemonToStatusSpecMap["S"] = .S
 }
 
+
+// For Register banks and stuff
+var CPURegisters : [CPUEMnemonic : UInt8] = [
+    .Acc : 0,
+    .X : 2,
+    .SP : 4,
+    .PC : 6,
+    // Present in any derivative of Pep9CPU
+    .T2 : 12,
+    .T3 : 14,
+    .T4 : 16,
+    .T5 : 18,
+    .T6 : 20,
+    // one byte register
+    .T1 : 11,
+    //three byte register
+    .IR : 8
+]
+

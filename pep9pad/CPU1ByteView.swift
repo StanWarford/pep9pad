@@ -236,13 +236,44 @@ class CPU1ByteView: CPUView{
             break
         }
     }
+    func setRegbankText(reg: Int, val: Int){
+        switch reg {
+        case 0, 1:
+            CPU1ByteRenderer.accumulatorText = "0x" + String(format:"%04X", val)
+        case 2, 3:
+            CPU1ByteRenderer.indexRegisterText = "0x" + String(format:"%04X", val)
+        case 4, 5:
+            CPU1ByteRenderer.stackPointerText = "0x" + String(format:"%04X", val)
+        case 6, 7:
+            CPU1ByteRenderer.programCounterText = "0x" + String(format:"%04X", val)
+        case 8, 9, 10:
+            CPU1ByteRenderer.instructionRegisterText = "0x" + String(format:"%06X", val)
+        case 11:
+            CPU1ByteRenderer.t1Text = "0x" + String(format:"%02X", val)
+        case 12, 13:
+            CPU1ByteRenderer.t2Text = "0x" + String(format:"%04X", val)
+        case 14, 15:
+            CPU1ByteRenderer.t3Text = "0x" + String(format:"%04X", val)
+        case 16,17:
+            CPU1ByteRenderer.t4Text = "0x" + String(format:"%04X", val)
+        case 18, 19:
+            CPU1ByteRenderer.t5Text = "0x" + String(format:"%04X", val)
+        case 20, 21:
+            CPU1ByteRenderer.t6Text = "0x" + String(format:"%04X", val)
+        default:
+            break
+        }
+    }
     
+    //CHANGE THIS
     func updateCPUMemReg(reg: EMemoryRegisters, val: UInt8){
         switch reg {
         case .MEM_MARA:
             CPU1ByteRenderer.MARAText = "0x" + String(format:"%02X", val)
         case .MEM_MARB:
             CPU1ByteRenderer.MARBText = "0x" + String(format:"%02X", val)
+        case .MEM_MDR:
+             CPU1ByteRenderer.MDRText = "0x" + String(format:"%02X", val)
         default:
             break
         }
@@ -269,6 +300,10 @@ class CPU1ByteView: CPUView{
         ///Make Sure .rawValue is right for the enums
         ///SetMemWord
         ///MARCK
+    
+
+    
+    
     
     func loadSimulator(codeList : [CPUCode], cycleCount : Int, memView: MemoryView){
         self.codeList = codeList
@@ -331,13 +366,40 @@ class CPU1ByteView: CPUView{
     }
     
     func setRegBankVal(reg : CPUEMnemonic, value : Int){
-        switch reg{
-        case .PC:
-            registerBank[6] = 0x00
-            registerBank[7] = 0xFF
+        switch reg {
+        case .T1:
+            registerBank[11] = UInt8(value & 0xFF)
+        case .IR:
+            registerBank[8] = UInt8(value >> 16 & 0xFF)
+            registerBank[9] = UInt8(value >> 8 & 0xFF)
+            registerBank[10] = UInt8(value & 0xFF)
         default:
-            break
+            let regVal = Int(CPURegisters[reg]!)
+            registerBank[regVal] = UInt8(value >> 8 & 0xFF)
+            registerBank[regVal + 1] = UInt8(value & 0xFF)
         }
+    }
+    
+    func setRegBankByte(reg : Int, value : UInt8){
+        if reg > 21 {
+            return
+        }
+        registerBank[reg] = value
+        
+        var newWord : Int = -1
+        if reg >= 8 && reg <= 10 {
+             newWord = Int(registerBank[8]) << 16
+             newWord |= Int(registerBank[9]) << 8
+             newWord |= Int(registerBank[10])
+        }else if reg == 11 {
+             newWord = Int(registerBank[reg])
+        }else{
+            newWord = Int(registerBank[reg & ~1]) << 8
+            newWord |= Int(registerBank[(reg & ~1)+1])
+        }
+        
+        setRegbankText(reg: reg, val: newWord)
+        
     }
     
     func getMicroLine()-> MicroCode {
@@ -354,6 +416,11 @@ class CPU1ByteView: CPUView{
         
         return microCodeLine
     }
+    /// MOVE THIS TO BOTTOM LATER
+    
+    func writeByte(address : UInt16, val : UInt8){
+        machine.mem[Int(address)] = Int(val)
+    }
     
     func singleStep() -> Int{
         let microCodeLine = getMicroLine()
@@ -367,7 +434,7 @@ class CPU1ByteView: CPUView{
         }
         
         //set up variables
-        var aluInstr = controlSignals[.ALU]
+        var aluInstr = controlSignals[.ALU]!
         var a : UInt8 = 0
         var b : UInt8 = 0
         var c : UInt8 = 0
@@ -385,10 +452,8 @@ class CPU1ByteView: CPUView{
         
         //Handle write to memory
         if(mainBusState == .MemWriteReady) {
-            var address : UInt16 = UInt16((memoryRegisters[.MEM_MARA]!<<8) + memoryRegisters[.MEM_MARB]!)
-            address &= 0xFFFE //Memory access ignores lowest order bit
-            //setMemoryWord(quint16: address, value: value)
-            //memory->setMemoryWord(address, memoryRegisters[Enu::MEM_MDRE]*256 + memoryRegisters[Enu::MEM_MDRO]);
+            var address : UInt16 = UInt16((memoryRegisters[.MEM_MARA]!<<8) | memoryRegisters[.MEM_MARB]!)
+            writeByte(address: address, val: memoryRegisters[.MEM_MDR]!) // check this
         }
         
         //MARCk
@@ -398,7 +463,7 @@ class CPU1ByteView: CPUView{
                 onSetMemoryRegister(reg: .MEM_MARB, val: b)
             }else {
                 hadDataError = true
-                errorMessage = "MARMux has no output but MARCk"
+                errorMessage = "No values on A and B during MARCk"
                 return -1
             }
         }
@@ -416,38 +481,86 @@ class CPU1ByteView: CPUView{
                 errorMessage = "No value on C Bus to clock in."
             }
             else {
-                //onSetRegisterByte(controlSignals[Enu::C], c)
+                setRegBankByte(reg: controlSignals[.C]!, value: c)
             }
         }
 
-        //MDR
+        //MDRCk
         if controlSignals[.MDRCk]! == 1 {
             //need to put value in the MDR based on what the MDRMux is
             switch controlSignals[.MDRMux]{
             case 0:
                 //get value from memory
-                address = UInt16((memoryRegisters[.MEM_MARA]!<<8) + memoryRegisters[.MEM_MARB]!)
-                address &= 0xFFFE
+                address = UInt16((memoryRegisters[.MEM_MARA]!<<8) | memoryRegisters[.MEM_MARB]!)
                 if mainBusState != .MemReadReady{
                     hadDataError = true
                     errorMessage = "No value from the data bus to write to MDR"
                 }else{
-                    onSetMemoryRegister(reg: .MEM_MDR, val: 0xFF)
+                    onSetMemoryRegister(reg: .MEM_MDR, val: UInt8(machine.mem[Int(address)]))
                 }
                 
             case 1:
-                //get value from C bus
+                onSetMemoryRegister(reg: .MEM_MDR, val: c)
                 break
             default:
                 hadDataError = true
-                errorMessage = "No value to clock into MDRE"
+                errorMessage = "No value to clock into MDR"
                 break
             }
         }
         
         
-        
-        
+        //NCk
+        if controlSignals[.NCk] == 1 {
+//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput){
+//                onSetStatusBit(Enu::STATUS_N,Enu::NMask & NZVC)
+//            }
+            if aluInstructionMap[aluInstr] != nil && hasALUOutput {
+                
+            }
+        }
+            else {
+                statusBitError = true
+            }
+//
+//        //ZCk
+//        if(clockSignals[Enu::ZCk]) {
+//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput)
+//            {
+//                if(controlSignals[Enu::AndZ]==0) {
+//                    onSetStatusBit(Enu::STATUS_Z,Enu::ZMask & NZVC);
+//                }
+//                else if(controlSignals[Enu::AndZ]==1) {
+//                    onSetStatusBit(Enu::STATUS_Z,(bool)(Enu::ZMask & NZVC) && getStatusBit(Enu::STATUS_Z));
+//                }
+//                else statusBitError = true;
+//            }
+//            else statusBitError = true;
+//        }
+//        
+//        //VCk
+//        if(clockSignals[Enu::VCk]) {
+//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput) onSetStatusBit(Enu::STATUS_V,Enu::VMask & NZVC);
+//            else statusBitError = true;
+//        }
+//        
+//        //CCk
+//        if(clockSignals[Enu::CCk]) {
+//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput) onSetStatusBit(Enu::STATUS_C,Enu::CMask & NZVC);
+//            else statusBitError = true;
+//        }
+//        
+//        //SCk
+//        if(clockSignals[Enu::SCk]) {
+//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput) onSetStatusBit(Enu::STATUS_S,Enu::CMask & NZVC);
+//            else statusBitError = true;
+//        }
+//        
+//        if(statusBitError) {
+//            hadDataError = true;
+//            errorMessage = "ALU Error: No output from ALU to clock into status bits.";
+//        }
+//        
         
         
         
@@ -463,21 +576,53 @@ class CPU1ByteView: CPUView{
         return codeLine
     }
     
-    //DELETE
-    func simulate(codeList : [CPUCode], cycleCount : Int){
-        for code in codeList{
-            if code.isMicrocode() {
-                let microCodeLine = code as! MicroCode
-                for mnemon in microCodeLine.mnemonicMap.keys {
-                    if microCodeLine.mnemonicMap[mnemon] != -1 {
-                        let value = String(microCodeLine.mnemonicMap[mnemon]!)
-                        updateCPU(line: mnemon, value: value)
-                    }
-                
-                }
-            }
-        }
-    }
+//    func onSetStatusBit(Enu::EStatusBit statusBit, bool val){
+//        bool oldVal = false;
+//        int mask = 0;
+//        switch(statusBit)
+//        {
+//        case Enu::STATUS_N:
+//        mask = Enu::NMask;
+//        break;
+//        case Enu::STATUS_Z:
+//        mask = Enu::ZMask;
+//        break;
+//        case Enu::STATUS_V:
+//        mask = Enu::VMask;
+//        break;
+//        case Enu::STATUS_C:
+//        mask = Enu::CMask;
+//        break;
+//        case Enu::STATUS_S:
+//        mask = Enu::SMask;
+//        break;
+//        default:
+//            // Should never occur, but might happen if a bad status bit is passed
+//            return;
+//        }
+//
+//        // Mask out the original value, then or it with the properly shifted bit
+//        oldVal = NZVCSbits&mask;
+//        NZVCSbits = (NZVCSbits&~mask) | ((val?1:0)*mask);
+//        if(emitEvents) {
+//            if(oldVal != val) emit statusBitChanged(statusBit, val);
+//        }
+//    }
+//    //DELETE
+//    func simulate(codeList : [CPUCode], cycleCount : Int){
+//        for code in codeList{
+//            if code.isMicrocode() {
+//                let microCodeLine = code as! MicroCode
+//                for mnemon in microCodeLine.mnemonicMap.keys {
+//                    if microCodeLine.mnemonicMap[mnemon] != -1 {
+//                        let value = String(microCodeLine.mnemonicMap[mnemon]!)
+//                        updateCPU(line: mnemon, value: value)
+//                    }
+//
+//                }
+//            }
+//        }
+//    }
     
     func onSetMemoryRegister(reg : EMemoryRegisters, val : UInt8){
         let intVal = Int(val)
@@ -499,7 +644,7 @@ class CPU1ByteView: CPUView{
         if controlSignals[.A] == LINE_DISABLED {
             return false
         }
-        result = UInt8(controlSignals[.A]!)
+        result = UInt8(registerBank[controlSignals[.A]!])
         return true
     }
     
@@ -507,7 +652,7 @@ class CPU1ByteView: CPUView{
         if controlSignals[.B] == LINE_DISABLED {
             return false
         }
-        result = UInt8(controlSignals[.B]!)
+        result = UInt8(registerBank[controlSignals[.B]!])
         return true
     }
     
@@ -702,12 +847,14 @@ class CPU1ByteView: CPUView{
             return ALUHasOutputCache
         }
         //Unless otherwise noted, do not return true (sucessfully) early, or the calculation for the NZ bits will be skipped
+        var tempRes : UInt16 = 0 // to handle overflow
         switch(controlSignals[.ALU]) {
         case 0: //A
             res = a
             
         case 1: //A plus B
-            res = a + b
+            tempRes = UInt16(a) + UInt16(b)
+            res = UInt8(tempRes & 0xFF)
             NZVC |= EMask.CMask.rawValue * (UInt8(res<a||res<b ? 0 : 1)) //Carry out if result is unsigned less than a or b. ///Double check this
             //There is a signed overflow iff the high order bits of the input are the same,
             //and the inputs & output differs in sign.
@@ -728,7 +875,8 @@ class CPU1ByteView: CPUView{
             if !hasCIn {
                 return false
             }
-            res = a + b + carryIn;
+            tempRes = UInt16(a) + UInt16(b) + UInt16(carryIn)
+            res = UInt8(tempRes & 0xFF)
             NZVC |= EMask.CMask.rawValue * (UInt8(res<a||res<b ? 0 : 1)) //Carry out if result is unsigned less than a or b.
             //There is a signed overflow iff the high order bits of the input are the same,
             //and the inputs & output differs in sign.
