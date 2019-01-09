@@ -369,10 +369,13 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         
     }
     
+    var line = 0
+    
     @IBAction func singleStepBtnPressed(_ sender: Any) {
         codeLine = oneByteCPUDisplay.singleStep()
         oneByteCPUDisplay.setNeedsDisplay()
-        //highlightLine(index : codeLine)
+        highlightLine(index : line)
+        line = line + 1
         print(codeLine)
         if codeLine == codeList.count{
             //stopDebugging()
@@ -410,7 +413,6 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     
     @IBAction func stopBtnPressed(_ sender: Any) {
         stopDebugging()
-        
     }
     
     
@@ -478,37 +480,87 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         CPUScrollView.maximumZoomScale = 1.5
         CPUScrollView.zoomScale = minScale
     }
-    func highlightLine(index : Int){
-        var firstNewLine = index-1
-        
-        var startIndex = 0
-        var endIndex = 0
-        
-        for i in 0..<codeEditor.text!.count {
-            if codeEditor.text[i] == "\n"{
-                if firstNewLine == 1{
-                    startIndex = i
-                    firstNewLine = firstNewLine - 1
-                }else if firstNewLine == 0{
-                    endIndex = i
-                    break
-                }else{
-                    firstNewLine = firstNewLine - 1
-                }
+    
+    var codeLineIndexes = [Int]()
+    var textStorage : NSTextStorage!
+    var lineRanges = [NSRange]()
+    func findCodeLines(){
+        for index in 0..<codeList.count {
+            if codeList[index] is MicroCode {
+                codeLineIndexes.append(index)
             }
         }
-        let attributedText = codeEditor.attributedText.mutableCopy() as! NSMutableAttributedString
-        let attributedRange = NSRange(location: 0, length: attributedText.length)
-        let newRange = NSRange(location: startIndex+1, length: endIndex-startIndex)
+    }
+    
+    func setupLineHighlighter(){
+        textStorage = codeEditor.textStorage  //textView.textStorage
+        // Use NSString here because textStorage expects the kind of ranges returned by NSString,
+        // not the kind of ranges returned by String.
+                let storageString = textStorage.string as NSString
+                lineRanges = [NSRange]()
+               storageString.enumerateSubstrings(in: NSMakeRange(0, storageString.length), options: .byLines, using: { (_, lineRange, _, _) in
+                    self.lineRanges.append(lineRange)
+                })
+    }
+    
+    func setBackgroundColor(_ color: UIColor?, forLine line: Int) {
+        if let color = color {
+            textStorage.addAttribute(.backgroundColor, value: color, range: lineRanges[line])
+        } else {
+            textStorage.removeAttribute(.backgroundColor, range: lineRanges[line])
+        }
+    }
+    
+    func highlightLine(index : Int){
+        if index > 0 {
+            setBackgroundColor(nil, forLine: codeLineIndexes[index - 1])
+        }
+         setBackgroundColor(.blue, forLine: codeLineIndexes[index])
+//
+//
+//
+//        func scheduleHighlighting(ofLine line: Int) {
+//            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+//                if line > 0 { setBackgroundColor(nil, forLine: line - 1) }
+//                guard line < lineRanges.count else { return }
+//                setBackgroundColor(.yellow, forLine: line)
+//                scheduleHighlighting(ofLine: line + 1)
+//            }
+//        }
+//
+//        scheduleHighlighting(ofLine: 0)
         
-        //remove stuff
-        attributedText.removeAttribute(NSAttributedString.Key.backgroundColor, range: attributedRange)
-        //attributedText.removeAttribute(NSAttributedString.Key.foregroundColor, range: attributedRange)
-
-        attributedText.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.CPUColors.aluColor, range: newRange)
-        //attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: newRange)
         
-        codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
+//        var firstNewLine = index-1
+//
+//        var startIndex = 0
+//        var endIndex = 0
+//
+//        for i in 0..<codeEditor.text!.count {
+//            if codeEditor.text[i] == "\n"{
+//                if firstNewLine == 1{
+//                    startIndex = i
+//                    firstNewLine = firstNewLine - 1
+//                }else if firstNewLine == 0{
+//                    endIndex = i
+//                    break
+//                }else{
+//                    firstNewLine = firstNewLine - 1
+//                }
+//            }
+//        }
+//        let attributedText = codeEditor.attributedText.mutableCopy() as! NSMutableAttributedString
+//        let attributedRange = NSRange(location: 0, length: attributedText.length)
+//        let newRange = NSRange(location: startIndex+1, length: endIndex-startIndex)
+//
+//        //remove stuff
+//        attributedText.removeAttribute(NSAttributedString.Key.backgroundColor, range: attributedRange)
+//        //attributedText.removeAttribute(NSAttributedString.Key.foregroundColor, range: attributedRange)
+//
+//        attributedText.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.CPUColors.aluColor, range: newRange)
+//        //attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: newRange)
+//
+//        codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
         
     }
     
@@ -539,6 +591,8 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             cpuProjectModel.sourceStr = codeEditor.text
             if microAssembler.microAssemble() {
                 oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!, memView: memoryView)
+                findCodeLines()
+                setupLineHighlighter()
                 oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Errors

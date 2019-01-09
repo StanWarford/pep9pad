@@ -511,17 +511,17 @@ class CPU1ByteView: CPUView{
         
         
         //NCk
-        if controlSignals[.NCk] == 1 {
-//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput){
-//                onSetStatusBit(Enu::STATUS_N,Enu::NMask & NZVC)
+//        if controlSignals[.NCk] == 1 {
+////            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput){
+////                onSetStatusBit(Enu::STATUS_N,Enu::NMask & NZVC)
+////            }
+//            if aluInstructionMap[aluInstr] != nil && hasALUOutput {
+//                
 //            }
-            if aluInstructionMap[aluInstr] != nil && hasALUOutput {
-                
-            }
-        }
-            else {
-                statusBitError = true
-            }
+//        }
+//            else {
+//                statusBitError = true
+//            }
 //
 //        //ZCk
 //        if(clockSignals[Enu::ZCk]) {
