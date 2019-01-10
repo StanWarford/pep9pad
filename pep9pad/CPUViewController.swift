@@ -369,13 +369,13 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         
     }
     
-    var line = 0
+    //var line = 0
     
     @IBAction func singleStepBtnPressed(_ sender: Any) {
         codeLine = oneByteCPUDisplay.singleStep()
         oneByteCPUDisplay.setNeedsDisplay()
-        highlightLine(index : line)
-        line = line + 1
+        highlightLine()
+        //line = line + 1
         print(codeLine)
         if codeLine == codeList.count{
             //stopDebugging()
@@ -484,12 +484,50 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     var codeLineIndexes = [Int]()
     var textStorage : NSTextStorage!
     var lineRanges = [NSRange]()
+    var indexOfLine = 0
+    
     func findCodeLines(){
-        for index in 0..<codeList.count {
-            if codeList[index] is MicroCode {
-                codeLineIndexes.append(index)
+//        for index in 0..<codeList.count {
+//            if codeList[index] is MicroCode {
+//                codeLineIndexes.append(index)
+            //}
+        //}
+        let codeText = codeEditor.text
+        for rangeIndex in 0..<lineRanges.count {
+            //ADD IF LET
+            let range = Range(lineRanges[rangeIndex],in: textStorage.string)
+            //let line = codeText?.substring(with: range!)
+            let line = String((codeText?[range!])!)
+            //CHECK HERE FOR LINE IS NIL
+            let lineRange = NSRange(location: 0, length: line.count)
+            
+            if shouldHighlight(line: line, range: Range(lineRange, in: line)!){
+                codeLineIndexes.append(rangeIndex)
             }
         }
+    }
+    
+    func shouldHighlight(line : String, range : Range<String.Index>)->Bool{
+        //check if blank
+        if line == "" {
+            return false
+        }
+        //comments
+        let commentRegex = "//.*"
+        if line.range(of: commentRegex, options: .regularExpression, range: range, locale: nil) != nil {
+            return false
+        }
+        
+        //unitpre and post
+        let unitRegex = "unit.*"
+        let lowercaseLine = line.lowercased() // to normalize the data for the regex
+        if lowercaseLine.range(of: unitRegex, options: .regularExpression, range: range, locale: nil) != nil{
+            return false
+        }
+
+        //Since we have assembeled everything is valid meaning only microcode lines will get this far
+        //So we should highlight it
+        return true
     }
     
     func setupLineHighlighter(){
@@ -501,21 +539,41 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
                storageString.enumerateSubstrings(in: NSMakeRange(0, storageString.length), options: .byLines, using: { (_, lineRange, _, _) in
                     self.lineRanges.append(lineRange)
                 })
+        
     }
     
     func setBackgroundColor(_ color: UIColor?, forLine line: Int) {
         if let color = color {
-            textStorage.addAttribute(.backgroundColor, value: color, range: lineRanges[line])
+//
+            //textStorage.addAttribute(.backgroundColor, value: color, range: lineRanges[line])
+            
+            
+            let attributedText = codeEditor.attributedText.mutableCopy() as! NSMutableAttributedString
+            attributedText.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.CPUColors.aluColor, range: lineRanges[line])
+                codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
         } else {
-            textStorage.removeAttribute(.backgroundColor, range: lineRanges[line])
+            //textStorage.removeAttribute(.backgroundColor, range: lineRanges[line])
+            
+            
+            let attributedText = codeEditor.attributedText.mutableCopy() as! NSMutableAttributedString
+                attributedText.removeAttribute(NSAttributedString.Key.backgroundColor, range: lineRanges[line])
+            codeEditor.attributedText = (attributedText.copy() as! NSAttributedString)
         }
     }
     
-    func highlightLine(index : Int){
-        if index > 0 {
-            setBackgroundColor(nil, forLine: codeLineIndexes[index - 1])
+    func highlightLine(){
+        if indexOfLine > 0 {
+            setBackgroundColor(nil, forLine: codeLineIndexes[indexOfLine - 1])
         }
-         setBackgroundColor(.blue, forLine: codeLineIndexes[index])
+
+        setBackgroundColor(.blue, forLine: codeLineIndexes[indexOfLine])
+        codeEditor.invalidateCachedParagraphs()
+        indexOfLine += 1
+        
+//        if index > 0 {
+//            setBackgroundColor(nil, forLine: codeLineIndexes[index - 1])
+//        }
+//         setBackgroundColor(.blue, forLine: codeLineIndexes[index])
 //
 //
 //
@@ -591,8 +649,8 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             cpuProjectModel.sourceStr = codeEditor.text
             if microAssembler.microAssemble() {
                 oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!, memView: memoryView)
-                findCodeLines()
                 setupLineHighlighter()
+                findCodeLines()
                 oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Errors
