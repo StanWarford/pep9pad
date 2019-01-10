@@ -265,7 +265,23 @@ class CPU1ByteView: CPUView{
         }
     }
     
-    //CHANGE THIS
+    func updateStatusBits(statusBit : EStatusBit, value: String){
+        switch statusBit {
+        case .STATUS_N:
+            CPU1ByteRenderer.nBit = value
+        case .STATUS_Z:
+            CPU1ByteRenderer.zBit = value
+        case .STATUS_V:
+            CPU1ByteRenderer.vBit = value
+        case .STATUS_S:
+            CPU1ByteRenderer.sBit = value
+        case .STATUS_C:
+            CPU1ByteRenderer.cBit = value
+        default:
+            break
+        }
+    }
+
     func updateCPUMemReg(reg: EMemoryRegisters, val: UInt8){
         switch reg {
         case .MEM_MARA:
@@ -412,9 +428,12 @@ class CPU1ByteView: CPUView{
             codeLine = codeLine + 1
             
         }
-         let microCodeLine = codeList[codeIndex] as! MicroCode
-        
-        return microCodeLine
+        if codeIndex <  codeList.count{
+            let mCodeLine = codeList[codeIndex] as! MicroCode
+            
+            return mCodeLine
+        }
+        return MicroCode()
     }
     /// MOVE THIS TO BOTTOM LATER
     
@@ -422,8 +441,20 @@ class CPU1ByteView: CPUView{
         machine.mem[Int(address)] = Int(val)
     }
     
+    var microCodeLine = MicroCode()
+    
+    func loadLine(){
+        microCodeLine = getMicroLine()
+        for mnemon in microCodeLine.mnemonicMap.keys{
+            let value = microCodeLine.mnemonicMap[mnemon] == -1 ? "" : String(microCodeLine.mnemonicMap[mnemon]!)
+            
+            updateCPU(line: mnemon, value: value)
+        }
+        codeIndex = codeIndex + 1
+    }
+    
     func singleStep() -> Int{
-        let microCodeLine = getMicroLine()
+        //let microCodeLine = getMicroLine()
         controlSignals = microCodeLine.mnemonicMap
         
         handleMainBusState()
@@ -511,103 +542,131 @@ class CPU1ByteView: CPUView{
         
         
         //NCk
-//        if controlSignals[.NCk] == 1 {
-////            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput){
-////                onSetStatusBit(Enu::STATUS_N,Enu::NMask & NZVC)
-////            }
+        if controlSignals[.NCk] == 1 {
+            if validALUFunc(instr: aluInstr) && hasALUOutput{
+                onSetStatusBit(statusBit: .STATUS_N, val: EMask.NMask.rawValue & NZVC == 1)
+            }else {
+                statusBitError = true
+            }
+//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput){
+//                onSetStatusBit(Enu::STATUS_N,Enu::NMask & NZVC)
+//            }
 //            if aluInstructionMap[aluInstr] != nil && hasALUOutput {
-//                
+//
 //            }
-//        }
-//            else {
-//                statusBitError = true
-//            }
+        }
 //
 //        //ZCk
-//        if(clockSignals[Enu::ZCk]) {
-//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput)
-//            {
-//                if(controlSignals[Enu::AndZ]==0) {
-//                    onSetStatusBit(Enu::STATUS_Z,Enu::ZMask & NZVC);
-//                }
-//                else if(controlSignals[Enu::AndZ]==1) {
-//                    onSetStatusBit(Enu::STATUS_Z,(bool)(Enu::ZMask & NZVC) && getStatusBit(Enu::STATUS_Z));
-//                }
-//                else statusBitError = true;
-//            }
-//            else statusBitError = true;
-//        }
-//        
-//        //VCk
-//        if(clockSignals[Enu::VCk]) {
-//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput) onSetStatusBit(Enu::STATUS_V,Enu::VMask & NZVC);
-//            else statusBitError = true;
-//        }
-//        
-//        //CCk
-//        if(clockSignals[Enu::CCk]) {
-//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput) onSetStatusBit(Enu::STATUS_C,Enu::CMask & NZVC);
-//            else statusBitError = true;
-//        }
-//        
-//        //SCk
-//        if(clockSignals[Enu::SCk]) {
-//            if(aluFunc!=Enu::UNDEFINED_func && hasALUOutput) onSetStatusBit(Enu::STATUS_S,Enu::CMask & NZVC);
-//            else statusBitError = true;
-//        }
-//        
-//        if(statusBitError) {
-//            hadDataError = true;
-//            errorMessage = "ALU Error: No output from ALU to clock into status bits.";
-//        }
-//        
-        
-        
-        
-        for mnemon in microCodeLine.mnemonicMap.keys{
-            let value = microCodeLine.mnemonicMap[mnemon] == -1 ? "" : String(microCodeLine.mnemonicMap[mnemon]!)
-            
-            updateCPU(line: mnemon, value: value)
+        if controlSignals[.ZCk] == 1 {
+            if validALUFunc(instr: aluInstr) && hasALUOutput {
+                if controlSignals[.AndZ] == 0 {
+                    onSetStatusBit(statusBit: .STATUS_Z, val: EMask.ZMask.rawValue & NZVC == 1)
+                }
+                else if controlSignals[.AndZ] == 1 {
+                    onSetStatusBit(statusBit: .STATUS_Z, val: (EMask.ZMask.rawValue & NZVC == 1) && getStatusBit(statusBit: .STATUS_Z))
+                } else{
+                    statusBitError = true
+                }
+            } else{
+                statusBitError = true
+            }
+        }
+
+        //VCk
+        if controlSignals[.VCk] == 1 {
+            if validALUFunc(instr: aluInstr) && hasALUOutput {
+                onSetStatusBit(statusBit: .STATUS_V, val: EMask.VMask.rawValue & NZVC == 1)
+            } else {
+                statusBitError = true
+            }
         }
         
-        codeIndex = codeIndex + 1
+        //CCk
+        if controlSignals[.CCk] == 1 {
+            if validALUFunc(instr: aluInstr) && hasALUOutput {
+                onSetStatusBit(statusBit: .STATUS_C, val: EMask.CMask.rawValue & NZVC == 1)
+            } else {
+                statusBitError = true
+            }
+        }
+        //SCk
+        if controlSignals[.SCk] == 1 {
+            if validALUFunc(instr: aluInstr) && hasALUOutput {
+                onSetStatusBit(statusBit: .STATUS_S, val: EMask.CMask.rawValue & NZVC == 1)
+            } else {
+                statusBitError = true
+            }
+        }
+        
+        if statusBitError {
+            hadDataError = true
+            errorMessage = "ALU Error: No output from ALU to clock into status bits."
+        }
+        
+        
+        
+//        for mnemon in microCodeLine.mnemonicMap.keys{
+//            let value = microCodeLine.mnemonicMap[mnemon] == -1 ? "" : String(microCodeLine.mnemonicMap[mnemon]!)
+//
+//            updateCPU(line: mnemon, value: value)
+//        }
+//        for signals in controlSignals.arrayOfKeys(){
+//            let value
+//        }
+        
+        //codeIndex = codeIndex + 1
         codeLine = codeLine + 1
         
         return codeLine
     }
     
-//    func onSetStatusBit(Enu::EStatusBit statusBit, bool val){
-//        bool oldVal = false;
-//        int mask = 0;
-//        switch(statusBit)
-//        {
-//        case Enu::STATUS_N:
-//        mask = Enu::NMask;
-//        break;
-//        case Enu::STATUS_Z:
-//        mask = Enu::ZMask;
-//        break;
-//        case Enu::STATUS_V:
-//        mask = Enu::VMask;
-//        break;
-//        case Enu::STATUS_C:
-//        mask = Enu::CMask;
-//        break;
-//        case Enu::STATUS_S:
-//        mask = Enu::SMask;
-//        break;
-//        default:
-//            // Should never occur, but might happen if a bad status bit is passed
-//            return;
-//        }
-//
-//        // Mask out the original value, then or it with the properly shifted bit
-//        oldVal = NZVCSbits&mask;
-//        NZVCSbits = (NZVCSbits&~mask) | ((val?1:0)*mask);
-//        if(emitEvents) {
-//            if(oldVal != val) emit statusBitChanged(statusBit, val);
-//        }
-//    }
+    func getStatusBit(statusBit : EStatusBit) -> Bool {
+        switch(statusBit){
+        // Mask out bit of interest, then convert to bool
+        case .STATUS_N:
+            return (NZVCSbits & EMask.NMask.rawValue) == 1
+        case .STATUS_Z:
+            return (NZVCSbits & EMask.ZMask.rawValue) == 1
+        case .STATUS_V:
+            return (NZVCSbits & EMask.VMask.rawValue) == 1
+        case .STATUS_C:
+            return (NZVCSbits & EMask.CMask.rawValue) == 1
+        case .STATUS_S:
+            return (NZVCSbits & EMask.SMask.rawValue) == 1
+        default:
+            // Should never occur, but might happen if a bad status bit is passed
+            return false
+        }
+    }
+    
+    
+    func validALUFunc(instr : Int) -> Bool {
+        return instr >= 0 && instr <= 15
+    }
+    
+    func onSetStatusBit(statusBit : EStatusBit, val : Bool){
+        var mask : UInt8 = 0
+        switch(statusBit) {
+        case .STATUS_N:
+            mask = EMask.NMask.rawValue
+        case .STATUS_Z:
+            mask = EMask.ZMask.rawValue
+        case .STATUS_V:
+            mask = EMask.VMask.rawValue
+        case .STATUS_C:
+            mask = EMask.CMask.rawValue
+        case .STATUS_S:
+            mask = EMask.SMask.rawValue
+        default:
+            // Should never occur, but might happen if a bad status bit is passed
+            return
+        }
+
+        // Mask out the original value, then or it with the properly shifted bit
+        NZVCSbits = (NZVCSbits & (~mask)) | (val ? mask : 0)
+        //UPDATE DISPLAY
+        updateStatusBits(statusBit: statusBit, value: val ? "1" : "0")
+    }
 //    //DELETE
 //    func simulate(codeList : [CPUCode], cycleCount : Int){
 //        for code in codeList{
@@ -689,13 +748,13 @@ class CPU1ByteView: CPUView{
     func calculateCSMuxOutput(result : inout UInt8) -> Bool {
     //CSMux either outputs C when CS is 0
     if controlSignals[.CSMux] == 0 {
-        result = NZVCSbits & EMask.CMask.rawValue
+        result = NZVCSbits & EMask.CMask.rawValue > 0 ? 1 : 0
         return true
     }
    //Or outputs S when CS is 1
     else if controlSignals[.CSMux] == 1  {
         // CHECK MY CISM STUFF
-        result = NZVCSbits & EMask.SMask.rawValue
+        result = NZVCSbits & EMask.SMask.rawValue > 0 ? 1 : 0
     return true
     }
     else{
@@ -709,6 +768,11 @@ class CPU1ByteView: CPUView{
     
     enum EMemoryRegisters {
         case MEM_MARA; case MEM_MARB; case MEM_MDR; case MEM_MDRO; case MEM_MDRE
+    }
+    
+    enum EStatusBit
+    {
+        case  STATUS_N; case STATUS_Z; case STATUS_V; case STATUS_C; case STATUS_S
     }
     
     ///
@@ -855,29 +919,29 @@ class CPU1ByteView: CPUView{
         case 1: //A plus B
             tempRes = UInt16(a) + UInt16(b)
             res = UInt8(tempRes & 0xFF)
-            NZVC |= EMask.CMask.rawValue * (UInt8(res<a||res<b ? 0 : 1)) //Carry out if result is unsigned less than a or b. ///Double check this
+            NZVC |= EMask.CMask.rawValue * (UInt8(res<a||res<b ? 1 : 0)) //Carry out if result is unsigned less than a or b. ///Double check this
             //There is a signed overflow iff the high order bits of the input are the same,
             //and the inputs & output differs in sign.
             NZVC |= EMask.VMask.rawValue * ((~(a^b)&(a^res))>>7) //Dividing by 128 and >>7 are the same thing for unsigned integers
             
-        case 2: //A plus ~B plus 1
+        case 3: //A plus ~B plus 1
             hasCIn = true
             carryIn = 1
             
-        case 3: //A plus ~B plus Cin
+        case 4: //A plus ~B plus Cin
             hasCIn = true
             carryIn = 1
             b = ~b
             
-        case 4: //A plus B plus Cin
-            hasCIn = true
-            carryIn = 1
+        case 2: //A plus B plus Cin
+            //hasCIn = true
+            //_ = calculateCSMuxOutput(result: &carryIn)
             if !hasCIn {
                 return false
             }
             tempRes = UInt16(a) + UInt16(b) + UInt16(carryIn)
             res = UInt8(tempRes & 0xFF)
-            NZVC |= EMask.CMask.rawValue * (UInt8(res<a||res<b ? 0 : 1)) //Carry out if result is unsigned less than a or b.
+            NZVC |= EMask.CMask.rawValue * (UInt8(res<a||res<b ? 1 : 0)) //Carry out if result is unsigned less than a or b.
             //There is a signed overflow iff the high order bits of the input are the same,
             //and the inputs & output differs in sign.
             NZVC |= EMask.VMask.rawValue * ((~(a^b)&(a^res))>>7)

@@ -372,10 +372,15 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     //var line = 0
     
     @IBAction func singleStepBtnPressed(_ sender: Any) {
-        
         codeLine = oneByteCPUDisplay.singleStep()
-        highlightLine()
         oneByteCPUDisplay.setNeedsDisplay()
+        oneByteCPUDisplay.loadLine()
+        
+        
+        
+
+        highlightLine()
+        
 //        //line = line + 1
 //        print(codeLine)
 //        if codeLine == codeList.count{
@@ -566,10 +571,13 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         if indexOfLine > 0 {
             setBackgroundColor(nil, forLine: codeLineIndexes[indexOfLine - 1])
         }
-
-        setBackgroundColor(.blue, forLine: codeLineIndexes[indexOfLine])
-        codeEditor.invalidateCachedParagraphs()
-        indexOfLine += 1
+        
+        if indexOfLine < codeLineIndexes.count{
+            setBackgroundColor(.blue, forLine: codeLineIndexes[indexOfLine])
+            codeEditor.invalidateCachedParagraphs()
+            indexOfLine += 1
+        }
+        
         
 //        if index > 0 {
 //            setBackgroundColor(nil, forLine: codeLineIndexes[index - 1])
@@ -650,9 +658,11 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
             cpuProjectModel.sourceStr = codeEditor.text
             if microAssembler.microAssemble() {
                 oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!, memView: memoryView)
+                oneByteCPUDisplay.loadLine()
                 setupLineHighlighter()
                 findCodeLines()
                 highlightLine()
+                
                 oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Errors

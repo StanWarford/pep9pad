@@ -67,10 +67,7 @@ class OneByteSimulator {
         case NCk; case ZCk; case VCk; case CCk; case SCk; case MARCk; case LoadCk; case MDRCk; case MDROCk; case MDRECk;
         case PValidCk;
     }
-    enum EStatusBit
-    {
-        case  STATUS_N; case STATUS_Z; case STATUS_V; case STATUS_C; case STATUS_S
-    }
+   
     
     //Access CPU Registers
     func getRegisterBankByte(registerNumber : UInt8) -> UInt8{
@@ -110,9 +107,9 @@ class OneByteSimulator {
         return false
     }
     
-    func getStatusBit(_ : EStatusBit) -> Bool{
-        return false
-    }
+//    func getStatusBit(_ : EStatusBit) -> Bool{
+//        return false
+//    }
     
     func setSignalsFromMicrocode(line : MicroCode) -> Bool{
         return false
