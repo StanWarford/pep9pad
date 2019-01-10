@@ -372,16 +372,17 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     //var line = 0
     
     @IBAction func singleStepBtnPressed(_ sender: Any) {
+        
         codeLine = oneByteCPUDisplay.singleStep()
-        oneByteCPUDisplay.setNeedsDisplay()
         highlightLine()
-        //line = line + 1
-        print(codeLine)
-        if codeLine == codeList.count{
-            //stopDebugging()
-        }else if codeLine == -1 {
-            print(oneByteCPUDisplay.errorMessage)
-        }
+        oneByteCPUDisplay.setNeedsDisplay()
+//        //line = line + 1
+//        print(codeLine)
+//        if codeLine == codeList.count{
+//            //stopDebugging()
+//        }else if codeLine == -1 {
+//            print(oneByteCPUDisplay.errorMessage)
+//        }
 
     }
     @IBAction func resumeBtnPressed(_ sender: Any) {
@@ -651,6 +652,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
                 oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!, memView: memoryView)
                 setupLineHighlighter()
                 findCodeLines()
+                highlightLine()
                 oneByteCPUDisplay.setNeedsDisplay()
             }else{
                 //Errors
