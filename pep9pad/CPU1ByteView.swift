@@ -781,7 +781,7 @@ class CPU1ByteView: CPUView{
         var a : UInt8 = 0
         var b : UInt8 = 0
         
-        if controlSignals[.MARCk] != 0 && valueOnABus(result: &a) && valueOnBBus(result: &b) {
+        if controlSignals[.MARCk] == 1 && valueOnABus(result: &a) && valueOnBBus(result: &b) {
             marChanged = !(a == memoryRegisters[.MEM_MARA] && b == memoryRegisters[.MEM_MARB])
         }
         switch mainBusState {
@@ -810,7 +810,7 @@ class CPU1ByteView: CPUView{
             }
             else{
                 //If neither are check, bus goes back to doing nothing
-                mainBusState = .None;
+                mainBusState = .None
             }
             
         case .MemReadSecondWait:
