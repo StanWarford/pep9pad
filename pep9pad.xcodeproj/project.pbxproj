@@ -433,6 +433,7 @@
 		A04238432172683200DAAECE /* lineTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04238422172683200DAAECE /* lineTableDelegate.swift */; };
 		A04B6F892188EAF10018892D /* OneByteSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04B6F882188EAF10018892D /* OneByteSimulator.swift */; };
 		A07500B82166A95B009BB75A /* CPUSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07500B72166A95B009BB75A /* CPUSimulator.swift */; };
+		A07D487121F7A0C30036E812 /* UnitAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07D487021F7A0C30036E812 /* UnitAlert.swift */; };
 		A0C385C6215DC36700303E28 /* Specification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C385C5215DC36700303E28 /* Specification.swift */; };
 		A0D1F8B5217023AC00151440 /* clockLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B3217023AC00151440 /* clockLineCell.swift */; };
 		A0D1F8BA2170252000151440 /* numericLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D1F8B82170252000151440 /* numericLineCell.swift */; };
@@ -914,6 +915,7 @@
 		A04238422172683200DAAECE /* lineTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineTableDelegate.swift; sourceTree = "<group>"; };
 		A04B6F882188EAF10018892D /* OneByteSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneByteSimulator.swift; sourceTree = "<group>"; };
 		A07500B72166A95B009BB75A /* CPUSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUSimulator.swift; sourceTree = "<group>"; };
+		A07D487021F7A0C30036E812 /* UnitAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitAlert.swift; sourceTree = "<group>"; };
 		A0C385C5215DC36700303E28 /* Specification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specification.swift; sourceTree = "<group>"; };
 		A0D1F8B3217023AC00151440 /* clockLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clockLineCell.swift; sourceTree = "<group>"; };
 		A0D1F8B82170252000151440 /* numericLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numericLineCell.swift; sourceTree = "<group>"; };
@@ -1413,6 +1415,8 @@
 				A0E82DA5217A5BC2003A6CEA /* CodeEditor */,
 				A04F8C5F217D32C800F1A3D6 /* NumberPad */,
 				A00A1E3021863BED0072A283 /* Keypad */,
+				A07D487021F7A0C30036E812 /* UnitAlert.swift */,
+				A07D487221F7A0CC0036E812 /* Alert */,
 				A0D1F8B7217023B500151440 /* LineTable */,
 			);
 			name = CPUModels;
@@ -1766,6 +1770,13 @@
 			children = (
 			);
 			name = NumberPad;
+			sourceTree = "<group>";
+		};
+		A07D487221F7A0CC0036E812 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Alert;
 			sourceTree = "<group>";
 		};
 		A0D1F8B7217023B500151440 /* LineTable */ = {
@@ -2478,6 +2489,7 @@
 				463A662F1C97CD6D004C35B2 /* Fonts.swift in Sources */,
 				46F5F26B1DC7D90F002880FE /* P9FileSystem.swift in Sources */,
 				A00A1E34218641C60072A283 /* keypad.swift in Sources */,
+				A07D487121F7A0C30036E812 /* UnitAlert.swift in Sources */,
 				468BC12E1DC27220000AE01A /* UIConstants.swift in Sources */,
 				468124181DE81B27003D807A /* MachineModel.swift in Sources */,
 				464DE4721E69FD2C00763503 /* FontMenuColorCell.swift in Sources */,

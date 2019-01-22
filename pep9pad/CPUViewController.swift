@@ -395,21 +395,24 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     }
     
     @IBAction func runBtnPressed(_ sender: Any) {
-        codeEditor.text += "\n"
-        cpuProjectModel.sourceStr = codeEditor.text
-        if microAssembler.microAssemble() {
-            // Do Sim Stuff
-            if currentCPUSize == .oneByte {
-                //oneByteCPUDisplay.simulate(codeList: codeList!, cycleCount: cycleCount!)
-                oneByteCPUDisplay.setNeedsDisplay()
-            }else{
-                //Two Byte Implementation
-            }
-        }else{
-            
-        }
-        
-        //CPUScrollView.subviews[0].setNeedsDisplay()
+//        codeEditor.text += "\n"
+//        cpuProjectModel.sourceStr = codeEditor.text
+//        if microAssembler.microAssemble() {
+//            // Do Sim Stuff
+//            if currentCPUSize == .oneByte {
+//                //oneByteCPUDisplay.simulate(codeList: codeList!, cycleCount: cycleCount!)
+//                oneByteCPUDisplay.setNeedsDisplay()
+//            }else{
+//                //Two Byte Implementation
+//            }
+//        }else{
+//
+//        }
+//
+//        //CPUScrollView.subviews[0].setNeedsDisplay()
+        let unitAlert = UnitAlert()
+        //unitAlert.showAlert(masterVC: self, bgColor: UIColor.red, msg:"Failed to Pass Unit Post")
+        unitAlert.showAlert(masterVC: self, bgColor: UIColor.CPUColors.bitBusColor, msg: "Passed Unit Post")
     }
     
     @IBAction func debugBtnPressed(_ sender: Any) {
