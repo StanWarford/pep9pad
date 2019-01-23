@@ -44,7 +44,7 @@ class UnitAlert: NSObject {
             alertView.tag = tag
             alertView.alpha = 0
             //alertView.frame = CGRect(x: x, y: y - bufferVal, width: 0, height: height)
-            alertView.frame = CGRect(x: x, y: y - bufferVal, width: width, height: height)
+            alertView.frame = CGRect(x: x, y: y, width: width, height: height)
             
             msgLabel.frame = CGRect(x: bufferVal, y: 0, width: width - 200, height: height)
             msgLabel.textAlignment = .left

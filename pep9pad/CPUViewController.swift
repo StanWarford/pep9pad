@@ -418,7 +418,36 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
 //        }
 //
 //        //CPUScrollView.subviews[0].setNeedsDisplay()
-        
+        //codeEditor.text += "\n"
+        cpuProjectModel.sourceStr = codeEditor.text
+        if microAssembler.microAssemble() {
+            oneByteCPUDisplay.loadSimulator(codeList: codeList!, cycleCount: cycleCount!, memView: memoryView)
+            oneByteCPUDisplay.loadLine()
+            
+            while oneByteCPUDisplay.codeIndex <= codeList.count {
+                if oneByteCPUDisplay.hadDataError == true {
+                    let alert = UIAlertController(title: "Error", message: oneByteCPUDisplay.errorMessage , preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                    stopDebugging()
+                    return
+                }
+                oneByteCPUDisplay.singleStep()
+                oneByteCPUDisplay.loadLine()
+            }
+            //ADD HIGHLIGHT LAST LINE
+            
+            oneByteCPUDisplay.setNeedsDisplay()
+            let unitAlert = UnitAlert()
+            
+            if oneByteCPUDisplay.passedUnitPost(){
+                unitAlert.showAlert(masterVC: self, bgColor: UIColor.CPUColors.bitBusColor, msg: "Passed Unit Post")
+            }else{
+                unitAlert.showAlert(masterVC: self, bgColor: UIColor.CPUColors.aBusColor, msg:"Failed to Pass Unit Post")
+            }
+            stopDebugging()
+        }
+
     }
     
     @IBAction func debugBtnPressed(_ sender: Any) {
