@@ -362,8 +362,40 @@ class CPU1ByteView: CPUView{
     }
     
     func passedUnitPost() -> Bool{
+        for code in codeList {
+            if code is UnitPostCode{
+                let unitPostCode = code as! UnitPostCode
+                if !handleUnitPostCode(unitPostCode: unitPostCode) {
+                    
+                    return false
+                }
+            }
+        }
         return true
     }
+    
+    func handleUnitPostCode(unitPostCode: UnitPostCode) -> Bool{
+        for spec in unitPostCode.unitPostList {
+            if spec is RegSpecification {
+                let regSpec = spec as! RegSpecification
+                let bankAddress = Int(CPURegisters[regSpec.regAddress]!)
+                    if registerBank[bankAddress] != regSpec.regValue{
+                        return false
+                }
+            }
+            
+            if spec is StatusBitSpecification {
+                let statSpec = spec as! StatusBitSpecification
+            }
+            
+            if spec is MemSpecification {
+                let memSpec = spec as! MemSpecification
+            }
+        }
+        
+        return true
+    }
+    
     
     func handleUnitPreCode(unitPreCode : UnitPreCode){
         for spec in unitPreCode.unitPreList{

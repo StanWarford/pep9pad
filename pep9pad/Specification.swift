@@ -9,13 +9,9 @@
 import Foundation
 
 protocol Specification{
- // FILL THIS IN
-//    virtual void setUnitPre(MainMemory *, CpuPane *) { }
     func testunitPost() -> Bool
     func setUnitPre() -> Bool
     func getSourceCode() -> String
-//    virtual bool testUnitPost(MainMemory *, CpuPane *, QString &) { return true; }
-//    virtual QString getSourceCode() = 0;
 }
 
 
