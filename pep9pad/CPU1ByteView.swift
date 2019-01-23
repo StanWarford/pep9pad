@@ -15,7 +15,7 @@ class CPU1ByteView: CPUView{
     var codeList : [CPUCode]!
     var cycleCount = 0
     var codeIndex = 0
-    var codeLine = 0
+    //var codeLine = 0
     var memoryView : MemoryView!
     // MARK: - Initializers -
     
@@ -317,15 +317,24 @@ class CPU1ByteView: CPUView{
         ///SetMemWord
         ///MARCK
     
-
+    func clearSimulator(){
+        self.codeList = nil
+        self.cycleCount = 0
+        self.codeIndex = 0
+        //self.codeLine = 0
+        self.memoryView = nil
+        self.mainBusState = .None
+    }
     
     
     
     func loadSimulator(codeList : [CPUCode], cycleCount : Int, memView: MemoryView){
+        clearSimulator()
+        
         self.codeList = codeList
         self.cycleCount = cycleCount
         self.codeIndex = 0
-        self.codeLine = 0
+        //self.codeLine = 0
         self.memoryView = memView
         self.mainBusState = .None
         setUpRegisterBanks()
@@ -350,6 +359,10 @@ class CPU1ByteView: CPUView{
         registerBank[30] = 0xFE
         registerBank[31] = 0xFF
         
+    }
+    
+    func passedUnitPost() -> Bool{
+        return true
     }
     
     func handleUnitPreCode(unitPreCode : UnitPreCode){
@@ -425,7 +438,7 @@ class CPU1ByteView: CPUView{
                 codeIndex = i
                 break
             }
-            codeLine = codeLine + 1
+            //codeLine = codeLine + 1
             
         }
         if codeIndex <  codeList.count{
@@ -453,7 +466,7 @@ class CPU1ByteView: CPUView{
         codeIndex = codeIndex + 1
     }
     
-    func singleStep() -> Int{
+    func singleStep(){
         //let microCodeLine = getMicroLine()
         controlSignals = microCodeLine.mnemonicMap
         
@@ -461,11 +474,11 @@ class CPU1ByteView: CPUView{
         
         //check for errors
         if hadDataError{
-            return -1
+            return
         }
         
         //set up variables
-        var aluInstr = controlSignals[.ALU]!
+        let aluInstr = controlSignals[.ALU]!
         var a : UInt8 = 0
         var b : UInt8 = 0
         var c : UInt8 = 0
@@ -479,11 +492,11 @@ class CPU1ByteView: CPUView{
         let hasC = valueOnCBus(result: &c)
         
         var statusBitError = false
-        var hasALUOutput = calculateALUOutput(res: &alu, NZVC: &NZVC)
+        let hasALUOutput = calculateALUOutput(res: &alu, NZVC: &NZVC)
         
         //Handle write to memory
         if(mainBusState == .MemWriteReady) {
-            var address : UInt16 = UInt16((memoryRegisters[.MEM_MARA]!<<8) | memoryRegisters[.MEM_MARB]!)
+            let address : UInt16 = UInt16((memoryRegisters[.MEM_MARA]!<<8) | memoryRegisters[.MEM_MARB]!)
             writeByte(address: address, val: memoryRegisters[.MEM_MDR]!) // check this
         }
         
@@ -495,7 +508,7 @@ class CPU1ByteView: CPUView{
             }else {
                 hadDataError = true
                 errorMessage = "No values on A and B during MARCk"
-                return -1
+                return 
             }
         }
 
@@ -615,9 +628,9 @@ class CPU1ByteView: CPUView{
 //        }
         
         //codeIndex = codeIndex + 1
-        codeLine = codeLine + 1
+        //codeLine = codeLine + 1
         
-        return codeLine
+        //return codeLine
     }
     
     func getStatusBit(statusBit : EStatusBit) -> Bool {

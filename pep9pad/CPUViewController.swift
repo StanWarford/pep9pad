@@ -372,22 +372,30 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     //var line = 0
     
     @IBAction func singleStepBtnPressed(_ sender: Any) {
-        codeLine = oneByteCPUDisplay.singleStep()
-        oneByteCPUDisplay.setNeedsDisplay()
-        oneByteCPUDisplay.loadLine()
+        oneByteCPUDisplay.singleStep()
+        // Check for errors
+        if oneByteCPUDisplay.hadDataError == true {
+            let alert = UIAlertController(title: "Error", message: oneByteCPUDisplay.errorMessage , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true)
+            stopDebugging()
+        }else{
+            highlightLine()
+            oneByteCPUDisplay.setNeedsDisplay()
+            oneByteCPUDisplay.loadLine()
+        }
         
-        
-        
+        // Check if done
+        if oneByteCPUDisplay.codeIndex > codeList.count {
+            let unitAlert = UnitAlert()
 
-        highlightLine()
-        
-//        //line = line + 1
-//        print(codeLine)
-//        if codeLine == codeList.count{
-//            //stopDebugging()
-//        }else if codeLine == -1 {
-//            print(oneByteCPUDisplay.errorMessage)
-//        }
+            if oneByteCPUDisplay.passedUnitPost(){
+                 unitAlert.showAlert(masterVC: self, bgColor: UIColor.CPUColors.bitBusColor, msg: "Passed Unit Post")
+            }else{
+                 unitAlert.showAlert(masterVC: self, bgColor: UIColor.CPUColors.aBusColor, msg:"Failed to Pass Unit Post")
+            }
+            stopDebugging()
+        }
 
     }
     @IBAction func resumeBtnPressed(_ sender: Any) {
@@ -410,9 +418,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
 //        }
 //
 //        //CPUScrollView.subviews[0].setNeedsDisplay()
-        let unitAlert = UnitAlert()
-        //unitAlert.showAlert(masterVC: self, bgColor: UIColor.red, msg:"Failed to Pass Unit Post")
-        unitAlert.showAlert(masterVC: self, bgColor: UIColor.CPUColors.bitBusColor, msg: "Passed Unit Post")
+        
     }
     
     @IBAction func debugBtnPressed(_ sender: Any) {
