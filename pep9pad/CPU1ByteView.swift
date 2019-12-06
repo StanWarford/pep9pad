@@ -362,15 +362,15 @@ class CPU1ByteView: CPUView{
     }
     
     func passedUnitPost() -> Bool{
-        for code in codeList {
-            if code is UnitPostCode{
-                let unitPostCode = code as! UnitPostCode
-                if !handleUnitPostCode(unitPostCode: unitPostCode) {
-                    
-                    return false
-                }
-            }
-        }
+//        for code in codeList {
+//            if code is UnitPostCode{
+//                let unitPostCode = code as! UnitPostCode
+//                if !handleUnitPostCode(unitPostCode: unitPostCode) {
+//                    
+//                    return false
+//                }
+//            }
+//        }
         return true
     }
     
