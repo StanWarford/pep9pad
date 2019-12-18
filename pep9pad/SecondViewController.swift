@@ -40,12 +40,14 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
     func makePep9Main() {
         let storyb = UIStoryboard(name: "Pep9Main", bundle: Bundle.main)
         let vc = storyb.instantiateInitialViewController()
+        vc?.modalPresentationStyle = .fullScreen
         present(vc!, animated: true, completion: nil)
     }
     
     func makeCPU() {
         let storyb = UIStoryboard(name: "CPU", bundle: Bundle.main)
         let vc = storyb.instantiateInitialViewController()
+        vc?.modalPresentationStyle = .fullScreen
         present(vc!, animated: true, completion: nil)
     }
     

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MPr-1x-Fwb">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MPr-1x-Fwb">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +12,7 @@
             <objects>
                 <navigationController id="Brd-0H-ER3" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b12-jd-Olr">
-                        <rect key="frame" x="0.0" y="20" width="703.5" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="703.5" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -117,7 +115,7 @@
             <objects>
                 <navigationController id="ypb-Dv-AdQ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Auy-Kk-9NB">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -153,7 +151,7 @@
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZO-2B-FFr">
-                                <rect key="frame" x="0.0" y="70" width="320" height="431"/>
+                                <rect key="frame" x="0.0" y="50" width="320" height="451"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.42148951480263158" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -246,7 +244,6 @@
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xKx-Wd-6k7">
                                                 <rect key="frame" x="4" y="74" width="250" height="240"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="JeQ-UV-YBy" customClass="ButtonStackView" customModule="pep9pad" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="250" height="60"/>
@@ -478,10 +475,10 @@
                                 </items>
                             </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdJ-Ke-L4q">
-                                <rect key="frame" x="412" y="70" width="612" height="648"/>
+                                <rect key="frame" x="412" y="50" width="612" height="668"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zwR-yE-CAS" customClass="CPUCodeEditor" customModule="pep9pad" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="412" height="314"/>
+                                <rect key="frame" x="0.0" y="50" width="412" height="334"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1QP-4c-LJh" customClass="LineTableView" customModule="pep9pad" customModuleProvider="target">
@@ -492,14 +489,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="number" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="number" id="2Hz-BL-3lU" customClass="numericLineCell" customModule="pep9pad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="153.5" height="44"/>
+                                                <rect key="frame" x="0.0" y="28" width="153.5" height="46.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Hz-BL-3lU" id="dnd-Hn-3hR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="153.5" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="153.5" height="46.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LineName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlM-nL-awK">
-                                                            <rect key="frame" x="15" y="6" width="70" height="31.5"/>
+                                                            <rect key="frame" x="15" y="6" width="70" height="34.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="Lav-j0-mbI"/>
                                                             </constraints>
@@ -508,11 +505,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qdr-ga-pDJ">
-                                                            <rect key="frame" x="98.5" y="6" width="40" height="31.5"/>
+                                                            <rect key="frame" x="98.5" y="6" width="40" height="34.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="pcj-Kf-KXG"/>
                                                             </constraints>
-                                                            <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
@@ -536,14 +532,14 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="clock" id="cCd-55-s1S" customClass="clockLineCell" customModule="pep9pad" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="72" width="153.5" height="44"/>
+                                                <rect key="frame" x="0.0" y="74.5" width="153.5" height="42.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cCd-55-s1S" id="RPx-Fh-nLk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="153.5" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="153.5" height="42.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uND-RJ-WS9">
-                                                            <rect key="frame" x="15" y="6" width="70" height="31.5"/>
+                                                            <rect key="frame" x="15" y="6" width="70" height="30.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="hPM-rW-ELY"/>
                                                             </constraints>
@@ -552,7 +548,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rT8-1m-3OR">
-                                                            <rect key="frame" x="108.5" y="6" width="30" height="31.5"/>
+                                                            <rect key="frame" x="108.5" y="6" width="30" height="30.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="UMB-uu-Sa6"/>
                                                             </constraints>
@@ -657,11 +653,7 @@
                         </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="fgy-hD-moK"/>
-                            <barButtonItem title="settings" id="0Vy-IZ-wVk">
-                                <connections>
-                                    <action selector="settingsBtnPressed:" destination="Crp-0P-M8w" id="xkw-HT-hm0"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem title="settings" id="0Vy-IZ-wVk"/>
                             <barButtonItem title="calc" id="TQj-sn-Q08">
                                 <connections>
                                     <action selector="calcBtnPressed:" destination="Crp-0P-M8w" id="wPW-6b-Jd5"/>
@@ -715,7 +707,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MPr-1x-Fwb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H5k-Gj-HP8">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

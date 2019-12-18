@@ -265,7 +265,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary
+        let attrs = [NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.setTitleTextAttributes(attrs, for: .disabled)
         btn.setTitleTextAttributes(attrs, for: .highlighted)
@@ -356,6 +356,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
    
     @IBAction func HelpBtnPressed(_ sender: Any) {
         let vc = UIStoryboard(name: "Help", bundle: Bundle.main).instantiateInitialViewController()
+        vc?.modalPresentationStyle = .fullScreen
         cpuHelper.cpuMasterVC = self
         self.present(vc!, animated: true) {
             if let spvc = vc as! UISplitViewController? {

@@ -163,7 +163,7 @@ class CPUProjectModel {
         if names.contains(nameOfProject) {
             // this project is already in the list
             // just move it to the front if it isn't already there
-            let curIdx = names.index(of: nameOfProject)!
+            let curIdx = names.firstIndex(of: nameOfProject)!
             names.remove(at: curIdx)
         }
         

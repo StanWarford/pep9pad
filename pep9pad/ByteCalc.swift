@@ -164,14 +164,14 @@ class ByteCalc: NSObject, UITextFieldDelegate {
                 hexField.text = d.toHex2()
                 asciiField.text = d.toASCII()
                 assemblyField.text = maps.getInstruction(Int(d))
-            } else if (textField.text?.characters.count)! > 8 {
+            } else if (textField.text?.count)! > 8 {
                 errorInConverting(textField, .outOfBounds)
             } else {
                 errorInConverting(textField, .badInput)
             }
 
         case ascii:
-            let firstChar = textToConvert.characters.first
+            let firstChar = textToConvert.first
             if let val = firstChar?.asciiValue {
                 clearAnyErrors()
                 let d = UInt8(val)

@@ -45,14 +45,14 @@ public extension UIFont {
     ///
     /// - parameter ofSize: The preferred font size.
     /// - returns: A UIFont object of FontAwesome.
-    public class func fontAwesome(ofSize fontSize: CGFloat) -> UIFont {
+    class func fontAwesome(ofSize fontSize: CGFloat) -> UIFont {
         loadFontAwesome()
         return UIFont(name: FontAwesomeConfig.name, size: fontSize)!
     }
     
     /// Loads the FontAwesome font in to memory.
     /// This method should be called when setting icons without using code.
-    public class func loadFontAwesome() {
+    class func loadFontAwesome() {
         
         if !UIFont.fontNames(forFamilyName: FontAwesomeConfig.name).isEmpty {
             return
@@ -69,7 +69,7 @@ public extension String {
     ///
     /// - parameter name: The preferred icon name.
     /// - returns: A string that will appear as icon with FontAwesome.
-    public static func fontAwesomeIcon(name: FontAwesome) -> String {
+    static func fontAwesomeIcon(name: FontAwesome) -> String {
         let toIndex = name.rawValue.index(name.rawValue.startIndex, offsetBy: 1)
         return String(name.rawValue[name.rawValue.startIndex..<toIndex])
     }
@@ -78,7 +78,7 @@ public extension String {
     ///
     /// - parameter code: The preferred icon name.
     /// - returns: A string that will appear as icon with FontAwesome.
-    public static func fontAwesomeIcon(code: String) -> String? {
+    static func fontAwesomeIcon(code: String) -> String? {
 
         guard let name = self.fontAwesome(code: code) else {
             return nil
@@ -91,7 +91,7 @@ public extension String {
     ///
     /// - parameter code: The preferred icon name.
     /// - returns: An internal corresponding FontAwesome code.
-    public static func fontAwesome(code: String) -> FontAwesome? {
+    static func fontAwesome(code: String) -> FontAwesome? {
         guard let raw = FontAwesomeIcons[code] else { return nil }
         return FontAwesome(rawValue: raw)
     }
@@ -107,7 +107,7 @@ public extension UIImage {
     /// - parameter size: The image size.
     /// - parameter backgroundColor: The background color (optional).
     /// - returns: A string that will appear as icon with FontAwesome
-    public static func fontAwesomeIcon(name: FontAwesome, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage {
+    static func fontAwesomeIcon(name: FontAwesome, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage {
         
         // Prevent application crash when passing size where width or height is set equal to or less than zero, by clipping width and height to a minimum of 1 pixel.
         var size = size
@@ -123,12 +123,12 @@ public extension UIImage {
         let strokeWidth: CGFloat = fontSize == 0 ? 0 : (-100 * borderWidth / fontSize)
 
         let attributedString = NSAttributedString(string: String.fontAwesomeIcon(name: name), attributes: [
-            NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: fontSize),
-            NSAttributedStringKey.foregroundColor: textColor,
-            NSAttributedStringKey.backgroundColor: backgroundColor,
-            NSAttributedStringKey.paragraphStyle: paragraph,
-            NSAttributedStringKey.strokeWidth: strokeWidth,
-            NSAttributedStringKey.strokeColor: borderColor
+            NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: fontSize),
+            NSAttributedString.Key.foregroundColor: textColor,
+            NSAttributedString.Key.backgroundColor: backgroundColor,
+            NSAttributedString.Key.paragraphStyle: paragraph,
+            NSAttributedString.Key.strokeWidth: strokeWidth,
+            NSAttributedString.Key.strokeColor: borderColor
             ])
 
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
@@ -145,7 +145,7 @@ public extension UIImage {
     /// - parameter size: The image size.
     /// - parameter backgroundColor: The background color (optional).
     /// - returns: A string that will appear as icon with FontAwesome
-    public static func fontAwesomeIcon(code: String, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage? {
+    static func fontAwesomeIcon(code: String, textColor: UIColor, size: CGSize, backgroundColor: UIColor = UIColor.clear, borderWidth: CGFloat = 0, borderColor: UIColor = UIColor.clear) -> UIImage? {
         guard let name = String.fontAwesome(code: code) else { return nil }
         return fontAwesomeIcon(name: name, textColor: textColor, size: size, backgroundColor: backgroundColor, borderWidth: borderWidth, borderColor: borderColor)
     }

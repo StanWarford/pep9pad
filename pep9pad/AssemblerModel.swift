@@ -1296,7 +1296,7 @@ class AssemblerModel {
             var objectArr = objectStr.components(separatedBy: ["\n", " "])
             // remove any empty strings
             while objectArr.contains("") {
-                let x = objectArr.index(of: "")
+                let x = objectArr.firstIndex(of: "")
                 objectArr.remove(at: x!)
             }
             // now convert the array into hex and assign to `object`

@@ -15,9 +15,9 @@ class PepTextStorage: BaseTextStorage {
     
     override func processEditing() {
         let text = string as NSString
-        let attributes : [NSAttributedStringKey:AnyObject]? = [
-            NSAttributedStringKey.font : UIFont(name: Courier, size: appSettings.fontSize)!,
-            NSAttributedStringKey.foregroundColor: appSettings.darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.00, green:0.17, blue:0.21, alpha:1.0)
+        let attributes : [NSAttributedString.Key:AnyObject]? = [
+            NSAttributedString.Key.font : UIFont(name: Courier, size: appSettings.fontSize)!,
+            NSAttributedString.Key.foregroundColor: appSettings.darkModeOn ? UIColor(red:0.99, green:0.96, blue:0.89, alpha:1.0) : UIColor(red:0.00, green:0.17, blue:0.21, alpha:1.0)
         ]
         
         setAttributes(attributes, range: NSRange(location: 0, length: length))
@@ -91,51 +91,51 @@ class PepTextStorage: BaseTextStorage {
     }
     
     internal func highlightSyntaxPattern(_ nameOfPattern: String, foundInstances: [NSTextCheckingResult]) {
-        let attributes: [NSAttributedStringKey:AnyObject]
+        let attributes: [NSAttributedString.Key:AnyObject]
         
         switch nameOfPattern {
         case "operator":
             // Operators are blue, bold, and capitalized.
             attributes = [
-                NSAttributedStringKey.foregroundColor:blueColor,
-                NSAttributedStringKey.font:UIFont(name: CourierBold, size: appSettings.fontSize)!
+                NSAttributedString.Key.foregroundColor:blueColor,
+                NSAttributedString.Key.font:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "dot", "keyword":
             // Dot commands are blue, italicized, and capitalized.
             attributes = [
-                NSAttributedStringKey.foregroundColor:blueColor,
-                NSAttributedStringKey.font:UIFont(name: CourierItalic, size: appSettings.fontSize)!
+                NSAttributedString.Key.foregroundColor:blueColor,
+                NSAttributedString.Key.font:UIFont(name: CourierItalic, size: appSettings.fontSize)!
             ]
         case "singleLineComment", "comment", "documentation_comment":
             // Comments are grey.
             attributes = [
-                NSAttributedStringKey.foregroundColor:greyColor
+                NSAttributedString.Key.foregroundColor:greyColor
             ]
         case "symbol":
             // Symbols are green and bold.
             attributes = [
-                NSAttributedStringKey.foregroundColor:greenColor,
-                NSAttributedStringKey.font:UIFont(name: CourierBold, size: appSettings.fontSize)!
+                NSAttributedString.Key.foregroundColor:greenColor,
+                NSAttributedString.Key.font:UIFont(name: CourierBold, size: appSettings.fontSize)!
             ]
         case "singleQuote", "doubleQuote", "string" :
             // Text in quotes is cyan.
             attributes = [
-                NSAttributedStringKey.foregroundColor:cyanColor
+                NSAttributedString.Key.foregroundColor:cyanColor
             ]
         case "warning":
             // Warnings have an orange background.
             attributes = [
-                NSAttributedStringKey.foregroundColor:whiteColor,
-                NSAttributedStringKey.backgroundColor:orangeColor
+                NSAttributedString.Key.foregroundColor:whiteColor,
+                NSAttributedString.Key.backgroundColor:orangeColor
             ]
         case "error":
             // Errors have a red background.
             attributes = [
-                NSAttributedStringKey.foregroundColor:whiteColor,
-                NSAttributedStringKey.backgroundColor:redColor
+                NSAttributedString.Key.foregroundColor:whiteColor,
+                NSAttributedString.Key.backgroundColor:redColor
             ]
         default:
-            attributes = [NSAttributedStringKey.foregroundColor:appSettings.getColorFor(.text)]
+            attributes = [NSAttributedString.Key.foregroundColor:appSettings.getColorFor(.text)]
         }
         
         for instance in foundInstances {

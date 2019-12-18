@@ -517,7 +517,7 @@ class MachineModel {
             if (addrMode != .I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
                 // Memory-mapped input
                 if inputBuffer != "" {
-                    var ch: Character = inputBuffer.characters.removeFirst()
+                    var ch: Character = inputBuffer.removeFirst()
                     operand = Int(ch.asciiValue!) // TODO: Hash value? or toLatin1?
                     operand += operand < 0 ? 256 : 0
                 } else {
@@ -537,7 +537,7 @@ class MachineModel {
             if (addrMode != .I && addrOfByteOprnd(addrMode: addrMode) == 256 * mem[maps.dotBurnArgument - 7] + mem[maps.dotBurnArgument - 6]) {
                 // Memory-mapped input
                 if (inputBuffer != "") {
-                    var ch: Character = inputBuffer.characters.removeFirst()
+                    var ch: Character = inputBuffer.removeFirst()
                     operand = Int(ch.asciiValue!) // TODO: Hash value? or toLatin1?
                     operand += operand < 0 ? 256 : 0
                 } else {

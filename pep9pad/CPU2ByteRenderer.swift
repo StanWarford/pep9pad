@@ -170,7 +170,7 @@ public class CPU2ByteRenderer : NSObject {
         let text57TextContent = "5"
         let text57Style = NSMutableParagraphStyle()
         text57Style.alignment = .left
-        let text57FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: cArrowColor, NSAttributedStringKey.paragraphStyle: text57Style] as [NSAttributedStringKey : Any]
+        let text57FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: cArrowColor, NSAttributedString.Key.paragraphStyle: text57Style] as [NSAttributedString.Key : Any]
 
         let text57TextHeight: CGFloat = text57TextContent.boundingRect(with: CGSize(width: text57Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text57FontAttributes, context: nil).height
         context.saveGState()
@@ -225,7 +225,7 @@ public class CPU2ByteRenderer : NSObject {
         let text58TextContent = "5"
         let text58Style = NSMutableParagraphStyle()
         text58Style.alignment = .left
-        let text58FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: bArrowColor, NSAttributedStringKey.paragraphStyle: text58Style] as [NSAttributedStringKey : Any]
+        let text58FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: bArrowColor, NSAttributedString.Key.paragraphStyle: text58Style] as [NSAttributedString.Key : Any]
 
         let text58TextHeight: CGFloat = text58TextContent.boundingRect(with: CGSize(width: text58Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text58FontAttributes, context: nil).height
         context.saveGState()
@@ -280,7 +280,7 @@ public class CPU2ByteRenderer : NSObject {
         let text59TextContent = "5"
         let text59Style = NSMutableParagraphStyle()
         text59Style.alignment = .left
-        let text59FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: aArrowColor, NSAttributedStringKey.paragraphStyle: text59Style] as [NSAttributedStringKey : Any]
+        let text59FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: aArrowColor, NSAttributedString.Key.paragraphStyle: text59Style] as [NSAttributedString.Key : Any]
 
         let text59TextHeight: CGFloat = text59TextContent.boundingRect(with: CGSize(width: text59Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text59FontAttributes, context: nil).height
         context.saveGState()
@@ -918,7 +918,7 @@ public class CPU2ByteRenderer : NSObject {
         let textTextContent = "4"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
-        let textFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.paragraphStyle: textStyle] as [NSAttributedStringKey : Any]
+        let textFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.paragraphStyle: textStyle] as [NSAttributedString.Key : Any]
 
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
         context.saveGState()
@@ -2291,7 +2291,7 @@ public class CPU2ByteRenderer : NSObject {
         let text5TextContent = "SP"
         let text5Style = NSMutableParagraphStyle()
         text5Style.alignment = .right
-        let text5FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text5Style] as [NSAttributedStringKey : Any]
+        let text5FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text5Style] as [NSAttributedString.Key : Any]
 
         let text5TextHeight: CGFloat = text5TextContent.boundingRect(with: CGSize(width: text5Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text5FontAttributes, context: nil).height
         context.saveGState()
@@ -2323,7 +2323,7 @@ public class CPU2ByteRenderer : NSObject {
         let text6TextContent = "4"
         let text6Style = NSMutableParagraphStyle()
         text6Style.alignment = .left
-        let text6FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text6Style] as [NSAttributedStringKey : Any]
+        let text6FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text6Style] as [NSAttributedString.Key : Any]
 
         let text6TextHeight: CGFloat = text6TextContent.boundingRect(with: CGSize(width: text6Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text6FontAttributes, context: nil).height
         context.saveGState()
@@ -2337,7 +2337,7 @@ public class CPU2ByteRenderer : NSObject {
         let text7TextContent = "5"
         let text7Style = NSMutableParagraphStyle()
         text7Style.alignment = .left
-        let text7FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text7Style] as [NSAttributedStringKey : Any]
+        let text7FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text7Style] as [NSAttributedString.Key : Any]
 
         let text7TextHeight: CGFloat = text7TextContent.boundingRect(with: CGSize(width: text7Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text7FontAttributes, context: nil).height
         context.saveGState()
@@ -2354,7 +2354,7 @@ public class CPU2ByteRenderer : NSObject {
         let text8TextContent = "PC"
         let text8Style = NSMutableParagraphStyle()
         text8Style.alignment = .right
-        let text8FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text8Style] as [NSAttributedStringKey : Any]
+        let text8FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text8Style] as [NSAttributedString.Key : Any]
 
         let text8TextHeight: CGFloat = text8TextContent.boundingRect(with: CGSize(width: text8Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text8FontAttributes, context: nil).height
         context.saveGState()
@@ -2386,7 +2386,7 @@ public class CPU2ByteRenderer : NSObject {
         let text9TextContent = "6"
         let text9Style = NSMutableParagraphStyle()
         text9Style.alignment = .left
-        let text9FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text9Style] as [NSAttributedStringKey : Any]
+        let text9FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text9Style] as [NSAttributedString.Key : Any]
 
         let text9TextHeight: CGFloat = text9TextContent.boundingRect(with: CGSize(width: text9Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text9FontAttributes, context: nil).height
         context.saveGState()
@@ -2400,7 +2400,7 @@ public class CPU2ByteRenderer : NSObject {
         let text10TextContent = "7"
         let text10Style = NSMutableParagraphStyle()
         text10Style.alignment = .left
-        let text10FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text10Style] as [NSAttributedStringKey : Any]
+        let text10FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text10Style] as [NSAttributedString.Key : Any]
 
         let text10TextHeight: CGFloat = text10TextContent.boundingRect(with: CGSize(width: text10Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text10FontAttributes, context: nil).height
         context.saveGState()
@@ -2417,7 +2417,7 @@ public class CPU2ByteRenderer : NSObject {
         let text2TextContent = "X"
         let text2Style = NSMutableParagraphStyle()
         text2Style.alignment = .right
-        let text2FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text2Style] as [NSAttributedStringKey : Any]
+        let text2FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text2Style] as [NSAttributedString.Key : Any]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
         context.saveGState()
@@ -2449,7 +2449,7 @@ public class CPU2ByteRenderer : NSObject {
         let text3TextContent = "2"
         let text3Style = NSMutableParagraphStyle()
         text3Style.alignment = .left
-        let text3FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text3Style] as [NSAttributedStringKey : Any]
+        let text3FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text3Style] as [NSAttributedString.Key : Any]
 
         let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
         context.saveGState()
@@ -2463,7 +2463,7 @@ public class CPU2ByteRenderer : NSObject {
         let text4TextContent = "3"
         let text4Style = NSMutableParagraphStyle()
         text4Style.alignment = .left
-        let text4FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text4Style] as [NSAttributedStringKey : Any]
+        let text4FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text4Style] as [NSAttributedString.Key : Any]
 
         let text4TextHeight: CGFloat = text4TextContent.boundingRect(with: CGSize(width: text4Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text4FontAttributes, context: nil).height
         context.saveGState()
@@ -2480,7 +2480,7 @@ public class CPU2ByteRenderer : NSObject {
         let text41TextContent = "IR"
         let text41Style = NSMutableParagraphStyle()
         text41Style.alignment = .right
-        let text41FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text41Style] as [NSAttributedStringKey : Any]
+        let text41FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text41Style] as [NSAttributedString.Key : Any]
 
         let text41TextHeight: CGFloat = text41TextContent.boundingRect(with: CGSize(width: text41Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text41FontAttributes, context: nil).height
         context.saveGState()
@@ -2503,7 +2503,7 @@ public class CPU2ByteRenderer : NSObject {
         let text42TextContent = "8"
         let text42Style = NSMutableParagraphStyle()
         text42Style.alignment = .left
-        let text42FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text42Style] as [NSAttributedStringKey : Any]
+        let text42FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text42Style] as [NSAttributedString.Key : Any]
 
         let text42TextHeight: CGFloat = text42TextContent.boundingRect(with: CGSize(width: text42Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text42FontAttributes, context: nil).height
         context.saveGState()
@@ -2520,7 +2520,7 @@ public class CPU2ByteRenderer : NSObject {
         let text11TextContent = "T1"
         let text11Style = NSMutableParagraphStyle()
         text11Style.alignment = .right
-        let text11FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text11Style] as [NSAttributedStringKey : Any]
+        let text11FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text11Style] as [NSAttributedString.Key : Any]
 
         let text11TextHeight: CGFloat = text11TextContent.boundingRect(with: CGSize(width: text11Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text11FontAttributes, context: nil).height
         context.saveGState()
@@ -2543,7 +2543,7 @@ public class CPU2ByteRenderer : NSObject {
         let text12TextContent = "11"
         let text12Style = NSMutableParagraphStyle()
         text12Style.alignment = .left
-        let text12FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text12Style] as [NSAttributedStringKey : Any]
+        let text12FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text12Style] as [NSAttributedString.Key : Any]
 
         let text12TextHeight: CGFloat = text12TextContent.boundingRect(with: CGSize(width: text12Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text12FontAttributes, context: nil).height
         context.saveGState()
@@ -2560,7 +2560,7 @@ public class CPU2ByteRenderer : NSObject {
         let text14TextContent = "T2"
         let text14Style = NSMutableParagraphStyle()
         text14Style.alignment = .right
-        let text14FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text14Style] as [NSAttributedStringKey : Any]
+        let text14FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text14Style] as [NSAttributedString.Key : Any]
 
         let text14TextHeight: CGFloat = text14TextContent.boundingRect(with: CGSize(width: text14Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text14FontAttributes, context: nil).height
         context.saveGState()
@@ -2592,7 +2592,7 @@ public class CPU2ByteRenderer : NSObject {
         let text15TextContent = "12"
         let text15Style = NSMutableParagraphStyle()
         text15Style.alignment = .left
-        let text15FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text15Style] as [NSAttributedStringKey : Any]
+        let text15FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text15Style] as [NSAttributedString.Key : Any]
 
         let text15TextHeight: CGFloat = text15TextContent.boundingRect(with: CGSize(width: text15Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text15FontAttributes, context: nil).height
         context.saveGState()
@@ -2606,7 +2606,7 @@ public class CPU2ByteRenderer : NSObject {
         let text16TextContent = "13"
         let text16Style = NSMutableParagraphStyle()
         text16Style.alignment = .left
-        let text16FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text16Style] as [NSAttributedStringKey : Any]
+        let text16FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text16Style] as [NSAttributedString.Key : Any]
 
         let text16TextHeight: CGFloat = text16TextContent.boundingRect(with: CGSize(width: text16Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text16FontAttributes, context: nil).height
         context.saveGState()
@@ -2641,7 +2641,7 @@ public class CPU2ByteRenderer : NSObject {
         let text18TextContent = "9"
         let text18Style = NSMutableParagraphStyle()
         text18Style.alignment = .left
-        let text18FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text18Style] as [NSAttributedStringKey : Any]
+        let text18FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text18Style] as [NSAttributedString.Key : Any]
 
         let text18TextHeight: CGFloat = text18TextContent.boundingRect(with: CGSize(width: text18Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text18FontAttributes, context: nil).height
         context.saveGState()
@@ -2655,7 +2655,7 @@ public class CPU2ByteRenderer : NSObject {
         let text19TextContent = "10"
         let text19Style = NSMutableParagraphStyle()
         text19Style.alignment = .left
-        let text19FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text19Style] as [NSAttributedStringKey : Any]
+        let text19FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text19Style] as [NSAttributedString.Key : Any]
 
         let text19TextHeight: CGFloat = text19TextContent.boundingRect(with: CGSize(width: text19Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text19FontAttributes, context: nil).height
         context.saveGState()
@@ -2672,7 +2672,7 @@ public class CPU2ByteRenderer : NSObject {
         let text17TextContent = "T3"
         let text17Style = NSMutableParagraphStyle()
         text17Style.alignment = .right
-        let text17FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text17Style] as [NSAttributedStringKey : Any]
+        let text17FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text17Style] as [NSAttributedString.Key : Any]
 
         let text17TextHeight: CGFloat = text17TextContent.boundingRect(with: CGSize(width: text17Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text17FontAttributes, context: nil).height
         context.saveGState()
@@ -2704,7 +2704,7 @@ public class CPU2ByteRenderer : NSObject {
         let text43TextContent = "14"
         let text43Style = NSMutableParagraphStyle()
         text43Style.alignment = .left
-        let text43FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text43Style] as [NSAttributedStringKey : Any]
+        let text43FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text43Style] as [NSAttributedString.Key : Any]
 
         let text43TextHeight: CGFloat = text43TextContent.boundingRect(with: CGSize(width: text43Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text43FontAttributes, context: nil).height
         context.saveGState()
@@ -2718,7 +2718,7 @@ public class CPU2ByteRenderer : NSObject {
         let text44TextContent = "15"
         let text44Style = NSMutableParagraphStyle()
         text44Style.alignment = .left
-        let text44FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text44Style] as [NSAttributedStringKey : Any]
+        let text44FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text44Style] as [NSAttributedString.Key : Any]
 
         let text44TextHeight: CGFloat = text44TextContent.boundingRect(with: CGSize(width: text44Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text44FontAttributes, context: nil).height
         context.saveGState()
@@ -2735,7 +2735,7 @@ public class CPU2ByteRenderer : NSObject {
         let text20TextContent = "T5"
         let text20Style = NSMutableParagraphStyle()
         text20Style.alignment = .right
-        let text20FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text20Style] as [NSAttributedStringKey : Any]
+        let text20FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text20Style] as [NSAttributedString.Key : Any]
 
         let text20TextHeight: CGFloat = text20TextContent.boundingRect(with: CGSize(width: text20Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text20FontAttributes, context: nil).height
         context.saveGState()
@@ -2767,7 +2767,7 @@ public class CPU2ByteRenderer : NSObject {
         let text21TextContent = "18"
         let text21Style = NSMutableParagraphStyle()
         text21Style.alignment = .left
-        let text21FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text21Style] as [NSAttributedStringKey : Any]
+        let text21FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text21Style] as [NSAttributedString.Key : Any]
 
         let text21TextHeight: CGFloat = text21TextContent.boundingRect(with: CGSize(width: text21Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text21FontAttributes, context: nil).height
         context.saveGState()
@@ -2781,7 +2781,7 @@ public class CPU2ByteRenderer : NSObject {
         let text22TextContent = "19"
         let text22Style = NSMutableParagraphStyle()
         text22Style.alignment = .left
-        let text22FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text22Style] as [NSAttributedStringKey : Any]
+        let text22FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text22Style] as [NSAttributedString.Key : Any]
 
         let text22TextHeight: CGFloat = text22TextContent.boundingRect(with: CGSize(width: text22Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text22FontAttributes, context: nil).height
         context.saveGState()
@@ -2798,7 +2798,7 @@ public class CPU2ByteRenderer : NSObject {
         let text23TextContent = "T6"
         let text23Style = NSMutableParagraphStyle()
         text23Style.alignment = .right
-        let text23FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text23Style] as [NSAttributedStringKey : Any]
+        let text23FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text23Style] as [NSAttributedString.Key : Any]
 
         let text23TextHeight: CGFloat = text23TextContent.boundingRect(with: CGSize(width: text23Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text23FontAttributes, context: nil).height
         context.saveGState()
@@ -2830,7 +2830,7 @@ public class CPU2ByteRenderer : NSObject {
         let text24TextContent = "20"
         let text24Style = NSMutableParagraphStyle()
         text24Style.alignment = .left
-        let text24FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text24Style] as [NSAttributedStringKey : Any]
+        let text24FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text24Style] as [NSAttributedString.Key : Any]
 
         let text24TextHeight: CGFloat = text24TextContent.boundingRect(with: CGSize(width: text24Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text24FontAttributes, context: nil).height
         context.saveGState()
@@ -2844,7 +2844,7 @@ public class CPU2ByteRenderer : NSObject {
         let text25TextContent = "21"
         let text25Style = NSMutableParagraphStyle()
         text25Style.alignment = .left
-        let text25FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text25Style] as [NSAttributedStringKey : Any]
+        let text25FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text25Style] as [NSAttributedString.Key : Any]
 
         let text25TextHeight: CGFloat = text25TextContent.boundingRect(with: CGSize(width: text25Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text25FontAttributes, context: nil).height
         context.saveGState()
@@ -2861,7 +2861,7 @@ public class CPU2ByteRenderer : NSObject {
         let text26TextContent = "T4"
         let text26Style = NSMutableParagraphStyle()
         text26Style.alignment = .right
-        let text26FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text26Style] as [NSAttributedStringKey : Any]
+        let text26FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text26Style] as [NSAttributedString.Key : Any]
 
         let text26TextHeight: CGFloat = text26TextContent.boundingRect(with: CGSize(width: text26Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text26FontAttributes, context: nil).height
         context.saveGState()
@@ -2893,7 +2893,7 @@ public class CPU2ByteRenderer : NSObject {
         let text27TextContent = "16"
         let text27Style = NSMutableParagraphStyle()
         text27Style.alignment = .left
-        let text27FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text27Style] as [NSAttributedStringKey : Any]
+        let text27FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text27Style] as [NSAttributedString.Key : Any]
 
         let text27TextHeight: CGFloat = text27TextContent.boundingRect(with: CGSize(width: text27Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text27FontAttributes, context: nil).height
         context.saveGState()
@@ -2907,7 +2907,7 @@ public class CPU2ByteRenderer : NSObject {
         let text28TextContent = "17"
         let text28Style = NSMutableParagraphStyle()
         text28Style.alignment = .left
-        let text28FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text28Style] as [NSAttributedStringKey : Any]
+        let text28FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text28Style] as [NSAttributedString.Key : Any]
 
         let text28TextHeight: CGFloat = text28TextContent.boundingRect(with: CGSize(width: text28Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text28FontAttributes, context: nil).height
         context.saveGState()
@@ -2924,7 +2924,7 @@ public class CPU2ByteRenderer : NSObject {
         let text45TextContent = "M1"
         let text45Style = NSMutableParagraphStyle()
         text45Style.alignment = .right
-        let text45FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text45Style] as [NSAttributedStringKey : Any]
+        let text45FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text45Style] as [NSAttributedString.Key : Any]
 
         let text45TextHeight: CGFloat = text45TextContent.boundingRect(with: CGSize(width: text45Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text45FontAttributes, context: nil).height
         context.saveGState()
@@ -2956,7 +2956,7 @@ public class CPU2ByteRenderer : NSObject {
         let text46TextContent = "22"
         let text46Style = NSMutableParagraphStyle()
         text46Style.alignment = .left
-        let text46FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text46Style] as [NSAttributedStringKey : Any]
+        let text46FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text46Style] as [NSAttributedString.Key : Any]
 
         let text46TextHeight: CGFloat = text46TextContent.boundingRect(with: CGSize(width: text46Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text46FontAttributes, context: nil).height
         context.saveGState()
@@ -2970,7 +2970,7 @@ public class CPU2ByteRenderer : NSObject {
         let text47TextContent = "23"
         let text47Style = NSMutableParagraphStyle()
         text47Style.alignment = .left
-        let text47FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text47Style] as [NSAttributedStringKey : Any]
+        let text47FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text47Style] as [NSAttributedString.Key : Any]
 
         let text47TextHeight: CGFloat = text47TextContent.boundingRect(with: CGSize(width: text47Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text47FontAttributes, context: nil).height
         context.saveGState()
@@ -2984,7 +2984,7 @@ public class CPU2ByteRenderer : NSObject {
         let text13TextContent = "0x00"
         let text13Style = NSMutableParagraphStyle()
         text13Style.alignment = .left
-        let text13FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text13Style] as [NSAttributedStringKey : Any]
+        let text13FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text13Style] as [NSAttributedString.Key : Any]
 
         let text13TextHeight: CGFloat = text13TextContent.boundingRect(with: CGSize(width: text13Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text13FontAttributes, context: nil).height
         context.saveGState()
@@ -2998,7 +2998,7 @@ public class CPU2ByteRenderer : NSObject {
         let text48TextContent = "0x01"
         let text48Style = NSMutableParagraphStyle()
         text48Style.alignment = .left
-        let text48FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text48Style] as [NSAttributedStringKey : Any]
+        let text48FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text48Style] as [NSAttributedString.Key : Any]
 
         let text48TextHeight: CGFloat = text48TextContent.boundingRect(with: CGSize(width: text48Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text48FontAttributes, context: nil).height
         context.saveGState()
@@ -3015,7 +3015,7 @@ public class CPU2ByteRenderer : NSObject {
         let text29TextContent = "M2"
         let text29Style = NSMutableParagraphStyle()
         text29Style.alignment = .right
-        let text29FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text29Style] as [NSAttributedStringKey : Any]
+        let text29FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text29Style] as [NSAttributedString.Key : Any]
 
         let text29TextHeight: CGFloat = text29TextContent.boundingRect(with: CGSize(width: text29Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text29FontAttributes, context: nil).height
         context.saveGState()
@@ -3047,7 +3047,7 @@ public class CPU2ByteRenderer : NSObject {
         let text30TextContent = "24"
         let text30Style = NSMutableParagraphStyle()
         text30Style.alignment = .left
-        let text30FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text30Style] as [NSAttributedStringKey : Any]
+        let text30FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text30Style] as [NSAttributedString.Key : Any]
 
         let text30TextHeight: CGFloat = text30TextContent.boundingRect(with: CGSize(width: text30Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text30FontAttributes, context: nil).height
         context.saveGState()
@@ -3061,7 +3061,7 @@ public class CPU2ByteRenderer : NSObject {
         let text31TextContent = "25"
         let text31Style = NSMutableParagraphStyle()
         text31Style.alignment = .left
-        let text31FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text31Style] as [NSAttributedStringKey : Any]
+        let text31FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text31Style] as [NSAttributedString.Key : Any]
 
         let text31TextHeight: CGFloat = text31TextContent.boundingRect(with: CGSize(width: text31Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text31FontAttributes, context: nil).height
         context.saveGState()
@@ -3075,7 +3075,7 @@ public class CPU2ByteRenderer : NSObject {
         let text32TextContent = "0x02"
         let text32Style = NSMutableParagraphStyle()
         text32Style.alignment = .left
-        let text32FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text32Style] as [NSAttributedStringKey : Any]
+        let text32FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text32Style] as [NSAttributedString.Key : Any]
 
         let text32TextHeight: CGFloat = text32TextContent.boundingRect(with: CGSize(width: text32Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text32FontAttributes, context: nil).height
         context.saveGState()
@@ -3089,7 +3089,7 @@ public class CPU2ByteRenderer : NSObject {
         let text33TextContent = "0x03"
         let text33Style = NSMutableParagraphStyle()
         text33Style.alignment = .left
-        let text33FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text33Style] as [NSAttributedStringKey : Any]
+        let text33FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text33Style] as [NSAttributedString.Key : Any]
 
         let text33TextHeight: CGFloat = text33TextContent.boundingRect(with: CGSize(width: text33Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text33FontAttributes, context: nil).height
         context.saveGState()
@@ -3106,7 +3106,7 @@ public class CPU2ByteRenderer : NSObject {
         let text34TextContent = "M3"
         let text34Style = NSMutableParagraphStyle()
         text34Style.alignment = .right
-        let text34FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text34Style] as [NSAttributedStringKey : Any]
+        let text34FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text34Style] as [NSAttributedString.Key : Any]
 
         let text34TextHeight: CGFloat = text34TextContent.boundingRect(with: CGSize(width: text34Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text34FontAttributes, context: nil).height
         context.saveGState()
@@ -3138,7 +3138,7 @@ public class CPU2ByteRenderer : NSObject {
         let text35TextContent = "26"
         let text35Style = NSMutableParagraphStyle()
         text35Style.alignment = .left
-        let text35FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text35Style] as [NSAttributedStringKey : Any]
+        let text35FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text35Style] as [NSAttributedString.Key : Any]
 
         let text35TextHeight: CGFloat = text35TextContent.boundingRect(with: CGSize(width: text35Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text35FontAttributes, context: nil).height
         context.saveGState()
@@ -3152,7 +3152,7 @@ public class CPU2ByteRenderer : NSObject {
         let text36TextContent = "27"
         let text36Style = NSMutableParagraphStyle()
         text36Style.alignment = .left
-        let text36FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text36Style] as [NSAttributedStringKey : Any]
+        let text36FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text36Style] as [NSAttributedString.Key : Any]
 
         let text36TextHeight: CGFloat = text36TextContent.boundingRect(with: CGSize(width: text36Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text36FontAttributes, context: nil).height
         context.saveGState()
@@ -3166,7 +3166,7 @@ public class CPU2ByteRenderer : NSObject {
         let text37TextContent = "0x04"
         let text37Style = NSMutableParagraphStyle()
         text37Style.alignment = .left
-        let text37FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text37Style] as [NSAttributedStringKey : Any]
+        let text37FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text37Style] as [NSAttributedString.Key : Any]
 
         let text37TextHeight: CGFloat = text37TextContent.boundingRect(with: CGSize(width: text37Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text37FontAttributes, context: nil).height
         context.saveGState()
@@ -3180,7 +3180,7 @@ public class CPU2ByteRenderer : NSObject {
         let text38TextContent = "0x08"
         let text38Style = NSMutableParagraphStyle()
         text38Style.alignment = .left
-        let text38FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text38Style] as [NSAttributedStringKey : Any]
+        let text38FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text38Style] as [NSAttributedString.Key : Any]
 
         let text38TextHeight: CGFloat = text38TextContent.boundingRect(with: CGSize(width: text38Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text38FontAttributes, context: nil).height
         context.saveGState()
@@ -3197,7 +3197,7 @@ public class CPU2ByteRenderer : NSObject {
         let text39TextContent = "M4"
         let text39Style = NSMutableParagraphStyle()
         text39Style.alignment = .right
-        let text39FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text39Style] as [NSAttributedStringKey : Any]
+        let text39FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text39Style] as [NSAttributedString.Key : Any]
 
         let text39TextHeight: CGFloat = text39TextContent.boundingRect(with: CGSize(width: text39Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text39FontAttributes, context: nil).height
         context.saveGState()
@@ -3229,7 +3229,7 @@ public class CPU2ByteRenderer : NSObject {
         let text40TextContent = "28"
         let text40Style = NSMutableParagraphStyle()
         text40Style.alignment = .left
-        let text40FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text40Style] as [NSAttributedStringKey : Any]
+        let text40FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text40Style] as [NSAttributedString.Key : Any]
 
         let text40TextHeight: CGFloat = text40TextContent.boundingRect(with: CGSize(width: text40Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text40FontAttributes, context: nil).height
         context.saveGState()
@@ -3243,7 +3243,7 @@ public class CPU2ByteRenderer : NSObject {
         let text49TextContent = "29"
         let text49Style = NSMutableParagraphStyle()
         text49Style.alignment = .left
-        let text49FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text49Style] as [NSAttributedStringKey : Any]
+        let text49FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text49Style] as [NSAttributedString.Key : Any]
 
         let text49TextHeight: CGFloat = text49TextContent.boundingRect(with: CGSize(width: text49Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text49FontAttributes, context: nil).height
         context.saveGState()
@@ -3257,7 +3257,7 @@ public class CPU2ByteRenderer : NSObject {
         let text50TextContent = "0xF0"
         let text50Style = NSMutableParagraphStyle()
         text50Style.alignment = .left
-        let text50FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text50Style] as [NSAttributedStringKey : Any]
+        let text50FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text50Style] as [NSAttributedString.Key : Any]
 
         let text50TextHeight: CGFloat = text50TextContent.boundingRect(with: CGSize(width: text50Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text50FontAttributes, context: nil).height
         context.saveGState()
@@ -3271,7 +3271,7 @@ public class CPU2ByteRenderer : NSObject {
         let text51TextContent = "0xF6"
         let text51Style = NSMutableParagraphStyle()
         text51Style.alignment = .left
-        let text51FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text51Style] as [NSAttributedStringKey : Any]
+        let text51FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text51Style] as [NSAttributedString.Key : Any]
 
         let text51TextHeight: CGFloat = text51TextContent.boundingRect(with: CGSize(width: text51Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text51FontAttributes, context: nil).height
         context.saveGState()
@@ -3288,7 +3288,7 @@ public class CPU2ByteRenderer : NSObject {
         let text52TextContent = "M5"
         let text52Style = NSMutableParagraphStyle()
         text52Style.alignment = .right
-        let text52FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text52Style] as [NSAttributedStringKey : Any]
+        let text52FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text52Style] as [NSAttributedString.Key : Any]
 
         let text52TextHeight: CGFloat = text52TextContent.boundingRect(with: CGSize(width: text52Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text52FontAttributes, context: nil).height
         context.saveGState()
@@ -3320,7 +3320,7 @@ public class CPU2ByteRenderer : NSObject {
         let text53TextContent = "30"
         let text53Style = NSMutableParagraphStyle()
         text53Style.alignment = .left
-        let text53FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text53Style] as [NSAttributedStringKey : Any]
+        let text53FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text53Style] as [NSAttributedString.Key : Any]
 
         let text53TextHeight: CGFloat = text53TextContent.boundingRect(with: CGSize(width: text53Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text53FontAttributes, context: nil).height
         context.saveGState()
@@ -3334,7 +3334,7 @@ public class CPU2ByteRenderer : NSObject {
         let text54TextContent = "31"
         let text54Style = NSMutableParagraphStyle()
         text54Style.alignment = .left
-        let text54FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text54Style] as [NSAttributedStringKey : Any]
+        let text54FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text54Style] as [NSAttributedString.Key : Any]
 
         let text54TextHeight: CGFloat = text54TextContent.boundingRect(with: CGSize(width: text54Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text54FontAttributes, context: nil).height
         context.saveGState()
@@ -3348,7 +3348,7 @@ public class CPU2ByteRenderer : NSObject {
         let text55TextContent = "0xFE"
         let text55Style = NSMutableParagraphStyle()
         text55Style.alignment = .left
-        let text55FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text55Style] as [NSAttributedStringKey : Any]
+        let text55FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text55Style] as [NSAttributedString.Key : Any]
 
         let text55TextHeight: CGFloat = text55TextContent.boundingRect(with: CGSize(width: text55Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text55FontAttributes, context: nil).height
         context.saveGState()
@@ -3362,7 +3362,7 @@ public class CPU2ByteRenderer : NSObject {
         let text56TextContent = "0xFF"
         let text56Style = NSMutableParagraphStyle()
         text56Style.alignment = .left
-        let text56FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text56Style] as [NSAttributedStringKey : Any]
+        let text56FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text56Style] as [NSAttributedString.Key : Any]
 
         let text56TextHeight: CGFloat = text56TextContent.boundingRect(with: CGSize(width: text56Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text56FontAttributes, context: nil).height
         context.saveGState()
@@ -3379,7 +3379,7 @@ public class CPU2ByteRenderer : NSObject {
         let text60TextContent = "C"
         let text60Style = NSMutableParagraphStyle()
         text60Style.alignment = .left
-        let text60FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text60Style] as [NSAttributedStringKey : Any]
+        let text60FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text60Style] as [NSAttributedString.Key : Any]
 
         let text60TextHeight: CGFloat = text60TextContent.boundingRect(with: CGSize(width: text60Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text60FontAttributes, context: nil).height
         context.saveGState()
@@ -3393,7 +3393,7 @@ public class CPU2ByteRenderer : NSObject {
         let loadCKTextContent = "LoadCK"
         let loadCKStyle = NSMutableParagraphStyle()
         loadCKStyle.alignment = .left
-        let loadCKFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: loadCKStyle] as [NSAttributedStringKey : Any]
+        let loadCKFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: loadCKStyle] as [NSAttributedString.Key : Any]
 
         let loadCKTextHeight: CGFloat = loadCKTextContent.boundingRect(with: CGSize(width: loadCKRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: loadCKFontAttributes, context: nil).height
         context.saveGState()
@@ -3407,7 +3407,7 @@ public class CPU2ByteRenderer : NSObject {
         let text62TextContent = "B"
         let text62Style = NSMutableParagraphStyle()
         text62Style.alignment = .left
-        let text62FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text62Style] as [NSAttributedStringKey : Any]
+        let text62FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text62Style] as [NSAttributedString.Key : Any]
 
         let text62TextHeight: CGFloat = text62TextContent.boundingRect(with: CGSize(width: text62Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text62FontAttributes, context: nil).height
         context.saveGState()
@@ -3421,7 +3421,7 @@ public class CPU2ByteRenderer : NSObject {
         let text63TextContent = "A"
         let text63Style = NSMutableParagraphStyle()
         text63Style.alignment = .left
-        let text63FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text63Style] as [NSAttributedStringKey : Any]
+        let text63FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text63Style] as [NSAttributedString.Key : Any]
 
         let text63TextHeight: CGFloat = text63TextContent.boundingRect(with: CGSize(width: text63Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text63FontAttributes, context: nil).height
         context.saveGState()
@@ -3435,7 +3435,7 @@ public class CPU2ByteRenderer : NSObject {
         let text64TextContent = "MARCk"
         let text64Style = NSMutableParagraphStyle()
         text64Style.alignment = .left
-        let text64FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text64Style] as [NSAttributedStringKey : Any]
+        let text64FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text64Style] as [NSAttributedString.Key : Any]
 
         let text64TextHeight: CGFloat = text64TextContent.boundingRect(with: CGSize(width: text64Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text64FontAttributes, context: nil).height
         context.saveGState()
@@ -3449,7 +3449,7 @@ public class CPU2ByteRenderer : NSObject {
         let text65TextContent = "MDROCk"
         let text65Style = NSMutableParagraphStyle()
         text65Style.alignment = .left
-        let text65FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text65Style] as [NSAttributedStringKey : Any]
+        let text65FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text65Style] as [NSAttributedString.Key : Any]
 
         let text65TextHeight: CGFloat = text65TextContent.boundingRect(with: CGSize(width: text65Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text65FontAttributes, context: nil).height
         context.saveGState()
@@ -3463,7 +3463,7 @@ public class CPU2ByteRenderer : NSObject {
         let text66TextContent = "AMux"
         let text66Style = NSMutableParagraphStyle()
         text66Style.alignment = .left
-        let text66FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text66Style] as [NSAttributedStringKey : Any]
+        let text66FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text66Style] as [NSAttributedString.Key : Any]
 
         let text66TextHeight: CGFloat = text66TextContent.boundingRect(with: CGSize(width: text66Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text66FontAttributes, context: nil).height
         context.saveGState()
@@ -3477,7 +3477,7 @@ public class CPU2ByteRenderer : NSObject {
         let text67TextContent = "MDROMux"
         let text67Style = NSMutableParagraphStyle()
         text67Style.alignment = .left
-        let text67FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text67Style] as [NSAttributedStringKey : Any]
+        let text67FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text67Style] as [NSAttributedString.Key : Any]
 
         let text67TextHeight: CGFloat = text67TextContent.boundingRect(with: CGSize(width: text67Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text67FontAttributes, context: nil).height
         context.saveGState()
@@ -3491,7 +3491,7 @@ public class CPU2ByteRenderer : NSObject {
         let text68TextContent = "CMux"
         let text68Style = NSMutableParagraphStyle()
         text68Style.alignment = .left
-        let text68FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text68Style] as [NSAttributedStringKey : Any]
+        let text68FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text68Style] as [NSAttributedString.Key : Any]
 
         let text68TextHeight: CGFloat = text68TextContent.boundingRect(with: CGSize(width: text68Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text68FontAttributes, context: nil).height
         context.saveGState()
@@ -3505,7 +3505,7 @@ public class CPU2ByteRenderer : NSObject {
         let text69TextContent = "ALU"
         let text69Style = NSMutableParagraphStyle()
         text69Style.alignment = .left
-        let text69FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text69Style] as [NSAttributedStringKey : Any]
+        let text69FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text69Style] as [NSAttributedString.Key : Any]
 
         let text69TextHeight: CGFloat = text69TextContent.boundingRect(with: CGSize(width: text69Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text69FontAttributes, context: nil).height
         context.saveGState()
@@ -3519,7 +3519,7 @@ public class CPU2ByteRenderer : NSObject {
         let text70TextContent = "CSMux"
         let text70Style = NSMutableParagraphStyle()
         text70Style.alignment = .left
-        let text70FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text70Style] as [NSAttributedStringKey : Any]
+        let text70FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text70Style] as [NSAttributedString.Key : Any]
 
         let text70TextHeight: CGFloat = text70TextContent.boundingRect(with: CGSize(width: text70Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text70FontAttributes, context: nil).height
         context.saveGState()
@@ -3533,7 +3533,7 @@ public class CPU2ByteRenderer : NSObject {
         let text71TextContent = "SCk"
         let text71Style = NSMutableParagraphStyle()
         text71Style.alignment = .left
-        let text71FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text71Style] as [NSAttributedStringKey : Any]
+        let text71FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text71Style] as [NSAttributedString.Key : Any]
 
         let text71TextHeight: CGFloat = text71TextContent.boundingRect(with: CGSize(width: text71Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text71FontAttributes, context: nil).height
         context.saveGState()
@@ -3547,7 +3547,7 @@ public class CPU2ByteRenderer : NSObject {
         let text72TextContent = "CCk"
         let text72Style = NSMutableParagraphStyle()
         text72Style.alignment = .left
-        let text72FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text72Style] as [NSAttributedStringKey : Any]
+        let text72FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text72Style] as [NSAttributedString.Key : Any]
 
         let text72TextHeight: CGFloat = text72TextContent.boundingRect(with: CGSize(width: text72Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text72FontAttributes, context: nil).height
         context.saveGState()
@@ -3561,7 +3561,7 @@ public class CPU2ByteRenderer : NSObject {
         let text73TextContent = "VCk"
         let text73Style = NSMutableParagraphStyle()
         text73Style.alignment = .left
-        let text73FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text73Style] as [NSAttributedStringKey : Any]
+        let text73FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text73Style] as [NSAttributedString.Key : Any]
 
         let text73TextHeight: CGFloat = text73TextContent.boundingRect(with: CGSize(width: text73Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text73FontAttributes, context: nil).height
         context.saveGState()
@@ -3575,7 +3575,7 @@ public class CPU2ByteRenderer : NSObject {
         let text74TextContent = "AndZ"
         let text74Style = NSMutableParagraphStyle()
         text74Style.alignment = .left
-        let text74FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text74Style] as [NSAttributedStringKey : Any]
+        let text74FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text74Style] as [NSAttributedString.Key : Any]
 
         let text74TextHeight: CGFloat = text74TextContent.boundingRect(with: CGSize(width: text74Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text74FontAttributes, context: nil).height
         context.saveGState()
@@ -3589,7 +3589,7 @@ public class CPU2ByteRenderer : NSObject {
         let text75TextContent = "ZCk"
         let text75Style = NSMutableParagraphStyle()
         text75Style.alignment = .left
-        let text75FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text75Style] as [NSAttributedStringKey : Any]
+        let text75FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text75Style] as [NSAttributedString.Key : Any]
 
         let text75TextHeight: CGFloat = text75TextContent.boundingRect(with: CGSize(width: text75Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text75FontAttributes, context: nil).height
         context.saveGState()
@@ -3603,7 +3603,7 @@ public class CPU2ByteRenderer : NSObject {
         let text76TextContent = "NCk"
         let text76Style = NSMutableParagraphStyle()
         text76Style.alignment = .left
-        let text76FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text76Style] as [NSAttributedStringKey : Any]
+        let text76FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text76Style] as [NSAttributedString.Key : Any]
 
         let text76TextHeight: CGFloat = text76TextContent.boundingRect(with: CGSize(width: text76Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text76FontAttributes, context: nil).height
         context.saveGState()
@@ -3617,7 +3617,7 @@ public class CPU2ByteRenderer : NSObject {
         let text77TextContent = "MemWrite"
         let text77Style = NSMutableParagraphStyle()
         text77Style.alignment = .left
-        let text77FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text77Style] as [NSAttributedStringKey : Any]
+        let text77FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text77Style] as [NSAttributedString.Key : Any]
 
         let text77TextHeight: CGFloat = text77TextContent.boundingRect(with: CGSize(width: text77Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text77FontAttributes, context: nil).height
         context.saveGState()
@@ -3631,7 +3631,7 @@ public class CPU2ByteRenderer : NSObject {
         let text78TextContent = "MemRead"
         let text78Style = NSMutableParagraphStyle()
         text78Style.alignment = .left
-        let text78FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text78Style] as [NSAttributedStringKey : Any]
+        let text78FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text78Style] as [NSAttributedString.Key : Any]
 
         let text78TextHeight: CGFloat = text78TextContent.boundingRect(with: CGSize(width: text78Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text78FontAttributes, context: nil).height
         context.saveGState()
@@ -3645,7 +3645,7 @@ public class CPU2ByteRenderer : NSObject {
         let text100TextContent = "MDRECk"
         let text100Style = NSMutableParagraphStyle()
         text100Style.alignment = .left
-        let text100FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text100Style] as [NSAttributedStringKey : Any]
+        let text100FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text100Style] as [NSAttributedString.Key : Any]
 
         let text100TextHeight: CGFloat = text100TextContent.boundingRect(with: CGSize(width: text100Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text100FontAttributes, context: nil).height
         context.saveGState()
@@ -3659,7 +3659,7 @@ public class CPU2ByteRenderer : NSObject {
         let text101TextContent = "MDREMux"
         let text101Style = NSMutableParagraphStyle()
         text101Style.alignment = .left
-        let text101FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text101Style] as [NSAttributedStringKey : Any]
+        let text101FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text101Style] as [NSAttributedString.Key : Any]
 
         let text101TextHeight: CGFloat = text101TextContent.boundingRect(with: CGSize(width: text101Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text101FontAttributes, context: nil).height
         context.saveGState()
@@ -3673,7 +3673,7 @@ public class CPU2ByteRenderer : NSObject {
         let text102TextContent = "MARMux"
         let text102Style = NSMutableParagraphStyle()
         text102Style.alignment = .left
-        let text102FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text102Style] as [NSAttributedStringKey : Any]
+        let text102FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text102Style] as [NSAttributedString.Key : Any]
 
         let text102TextHeight: CGFloat = text102TextContent.boundingRect(with: CGSize(width: text102Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text102FontAttributes, context: nil).height
         context.saveGState()
@@ -3687,7 +3687,7 @@ public class CPU2ByteRenderer : NSObject {
         let text103TextContent = "EOMux"
         let text103Style = NSMutableParagraphStyle()
         text103Style.alignment = .left
-        let text103FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text103Style] as [NSAttributedStringKey : Any]
+        let text103FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text103Style] as [NSAttributedString.Key : Any]
 
         let text103TextHeight: CGFloat = text103TextContent.boundingRect(with: CGSize(width: text103Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text103FontAttributes, context: nil).height
         context.saveGState()
@@ -3703,7 +3703,7 @@ public class CPU2ByteRenderer : NSObject {
         let text79TextContent = " CBus"
         let text79Style = NSMutableParagraphStyle()
         text79Style.alignment = .left
-        let text79FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text79Style] as [NSAttributedStringKey : Any]
+        let text79FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text79Style] as [NSAttributedString.Key : Any]
 
         let text79TextHeight: CGFloat = text79TextContent.boundingRect(with: CGSize(width: text79Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text79FontAttributes, context: nil).height
         context.saveGState()
@@ -3717,7 +3717,7 @@ public class CPU2ByteRenderer : NSObject {
         let text80TextContent = " ABus"
         let text80Style = NSMutableParagraphStyle()
         text80Style.alignment = .left
-        let text80FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text80Style] as [NSAttributedStringKey : Any]
+        let text80FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text80Style] as [NSAttributedString.Key : Any]
 
         let text80TextHeight: CGFloat = text80TextContent.boundingRect(with: CGSize(width: text80Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text80FontAttributes, context: nil).height
         context.saveGState()
@@ -3731,7 +3731,7 @@ public class CPU2ByteRenderer : NSObject {
         let text81TextContent = " BBus"
         let text81Style = NSMutableParagraphStyle()
         text81Style.alignment = .left
-        let text81FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text81Style] as [NSAttributedStringKey : Any]
+        let text81FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text81Style] as [NSAttributedString.Key : Any]
 
         let text81TextHeight: CGFloat = text81TextContent.boundingRect(with: CGSize(width: text81Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text81FontAttributes, context: nil).height
         context.saveGState()
@@ -3745,7 +3745,7 @@ public class CPU2ByteRenderer : NSObject {
         let text82TextContent = " System\nBus"
         let text82Style = NSMutableParagraphStyle()
         text82Style.alignment = .center
-        let text82FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text82Style] as [NSAttributedStringKey : Any]
+        let text82FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text82Style] as [NSAttributedString.Key : Any]
 
         let text82TextHeight: CGFloat = text82TextContent.boundingRect(with: CGSize(width: text82Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text82FontAttributes, context: nil).height
         context.saveGState()
@@ -3759,7 +3759,7 @@ public class CPU2ByteRenderer : NSObject {
         let text83TextContent = "MARB"
         let text83Style = NSMutableParagraphStyle()
         text83Style.alignment = .center
-        let text83FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text83Style] as [NSAttributedStringKey : Any]
+        let text83FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text83Style] as [NSAttributedString.Key : Any]
 
         let text83TextHeight: CGFloat = text83TextContent.boundingRect(with: CGSize(width: text83Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text83FontAttributes, context: nil).height
         context.saveGState()
@@ -3773,7 +3773,7 @@ public class CPU2ByteRenderer : NSObject {
         let text84TextContent = "MARA"
         let text84Style = NSMutableParagraphStyle()
         text84Style.alignment = .center
-        let text84FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text84Style] as [NSAttributedStringKey : Any]
+        let text84FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text84Style] as [NSAttributedString.Key : Any]
 
         let text84TextHeight: CGFloat = text84TextContent.boundingRect(with: CGSize(width: text84Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text84FontAttributes, context: nil).height
         context.saveGState()
@@ -3787,7 +3787,7 @@ public class CPU2ByteRenderer : NSObject {
         let text87TextContent = "AMux"
         let text87Style = NSMutableParagraphStyle()
         text87Style.alignment = .center
-        let text87FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text87Style] as [NSAttributedStringKey : Any]
+        let text87FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text87Style] as [NSAttributedString.Key : Any]
 
         let text87TextHeight: CGFloat = text87TextContent.boundingRect(with: CGSize(width: text87Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text87FontAttributes, context: nil).height
         context.saveGState()
@@ -3801,7 +3801,7 @@ public class CPU2ByteRenderer : NSObject {
         let text88TextContent = "CMux"
         let text88Style = NSMutableParagraphStyle()
         text88Style.alignment = .center
-        let text88FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text88Style] as [NSAttributedStringKey : Any]
+        let text88FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text88Style] as [NSAttributedString.Key : Any]
 
         let text88TextHeight: CGFloat = text88TextContent.boundingRect(with: CGSize(width: text88Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text88FontAttributes, context: nil).height
         context.saveGState()
@@ -3815,7 +3815,7 @@ public class CPU2ByteRenderer : NSObject {
         let text89TextContent = "ALU"
         let text89Style = NSMutableParagraphStyle()
         text89Style.alignment = .center
-        let text89FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text89Style] as [NSAttributedStringKey : Any]
+        let text89FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text89Style] as [NSAttributedString.Key : Any]
 
         let text89TextHeight: CGFloat = text89TextContent.boundingRect(with: CGSize(width: text89Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text89FontAttributes, context: nil).height
         context.saveGState()
@@ -3829,7 +3829,7 @@ public class CPU2ByteRenderer : NSObject {
         let text91TextContent = "CSMux"
         let text91Style = NSMutableParagraphStyle()
         text91Style.alignment = .center
-        let text91FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text91Style] as [NSAttributedStringKey : Any]
+        let text91FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text91Style] as [NSAttributedString.Key : Any]
 
         let text91TextHeight: CGFloat = text91TextContent.boundingRect(with: CGSize(width: text91Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text91FontAttributes, context: nil).height
         context.saveGState()
@@ -3843,7 +3843,7 @@ public class CPU2ByteRenderer : NSObject {
         let text93TextContent = "S"
         let text93Style = NSMutableParagraphStyle()
         text93Style.alignment = .center
-        let text93FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text93Style] as [NSAttributedStringKey : Any]
+        let text93FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text93Style] as [NSAttributedString.Key : Any]
 
         let text93TextHeight: CGFloat = text93TextContent.boundingRect(with: CGSize(width: text93Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text93FontAttributes, context: nil).height
         context.saveGState()
@@ -3857,7 +3857,7 @@ public class CPU2ByteRenderer : NSObject {
         let text94TextContent = "C"
         let text94Style = NSMutableParagraphStyle()
         text94Style.alignment = .center
-        let text94FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text94Style] as [NSAttributedStringKey : Any]
+        let text94FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text94Style] as [NSAttributedString.Key : Any]
 
         let text94TextHeight: CGFloat = text94TextContent.boundingRect(with: CGSize(width: text94Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text94FontAttributes, context: nil).height
         context.saveGState()
@@ -3871,7 +3871,7 @@ public class CPU2ByteRenderer : NSObject {
         let text95TextContent = "V"
         let text95Style = NSMutableParagraphStyle()
         text95Style.alignment = .center
-        let text95FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text95Style] as [NSAttributedStringKey : Any]
+        let text95FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text95Style] as [NSAttributedString.Key : Any]
 
         let text95TextHeight: CGFloat = text95TextContent.boundingRect(with: CGSize(width: text95Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text95FontAttributes, context: nil).height
         context.saveGState()
@@ -3885,7 +3885,7 @@ public class CPU2ByteRenderer : NSObject {
         let text96TextContent = "Z"
         let text96Style = NSMutableParagraphStyle()
         text96Style.alignment = .center
-        let text96FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text96Style] as [NSAttributedStringKey : Any]
+        let text96FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text96Style] as [NSAttributedString.Key : Any]
 
         let text96TextHeight: CGFloat = text96TextContent.boundingRect(with: CGSize(width: text96Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text96FontAttributes, context: nil).height
         context.saveGState()
@@ -3899,7 +3899,7 @@ public class CPU2ByteRenderer : NSObject {
         let text97TextContent = "N"
         let text97Style = NSMutableParagraphStyle()
         text97Style.alignment = .center
-        let text97FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text97Style] as [NSAttributedStringKey : Any]
+        let text97FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text97Style] as [NSAttributedString.Key : Any]
 
         let text97TextHeight: CGFloat = text97TextContent.boundingRect(with: CGSize(width: text97Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text97FontAttributes, context: nil).height
         context.saveGState()
@@ -3913,7 +3913,7 @@ public class CPU2ByteRenderer : NSObject {
         let text98TextContent = "AndZ"
         let text98Style = NSMutableParagraphStyle()
         text98Style.alignment = .center
-        let text98FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text98Style] as [NSAttributedStringKey : Any]
+        let text98FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text98Style] as [NSAttributedString.Key : Any]
 
         let text98TextHeight: CGFloat = text98TextContent.boundingRect(with: CGSize(width: text98Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text98FontAttributes, context: nil).height
         context.saveGState()
@@ -3927,7 +3927,7 @@ public class CPU2ByteRenderer : NSObject {
         let _0000TextContent = "0\n0\n0\n0"
         let _0000Style = NSMutableParagraphStyle()
         _0000Style.alignment = .center
-        let _0000FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: _0000Style] as [NSAttributedStringKey : Any]
+        let _0000FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: _0000Style] as [NSAttributedString.Key : Any]
 
         let _0000TextHeight: CGFloat = _0000TextContent.boundingRect(with: CGSize(width: _0000Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: _0000FontAttributes, context: nil).height
         context.saveGState()
@@ -4121,7 +4121,7 @@ public class CPU2ByteRenderer : NSObject {
         let text61TextContent = "MARMux"
         let text61Style = NSMutableParagraphStyle()
         text61Style.alignment = .center
-        let text61FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text61Style] as [NSAttributedStringKey : Any]
+        let text61FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text61Style] as [NSAttributedString.Key : Any]
 
         let text61TextHeight: CGFloat = text61TextContent.boundingRect(with: CGSize(width: text61Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text61FontAttributes, context: nil).height
         context.saveGState()
@@ -4180,7 +4180,7 @@ public class CPU2ByteRenderer : NSObject {
         let text90TextContent = "EOMux "
         let text90Style = NSMutableParagraphStyle()
         text90Style.alignment = .center
-        let text90FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text90Style] as [NSAttributedStringKey : Any]
+        let text90FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text90Style] as [NSAttributedString.Key : Any]
 
         let text90TextHeight: CGFloat = text90TextContent.boundingRect(with: CGSize(width: text90Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text90FontAttributes, context: nil).height
         context.saveGState()
@@ -4248,7 +4248,7 @@ public class CPU2ByteRenderer : NSObject {
         let text85TextContent = "MDROdd"
         let text85Style = NSMutableParagraphStyle()
         text85Style.alignment = .center
-        let text85FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text85Style] as [NSAttributedStringKey : Any]
+        let text85FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text85Style] as [NSAttributedString.Key : Any]
 
         let text85TextHeight: CGFloat = text85TextContent.boundingRect(with: CGSize(width: text85Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text85FontAttributes, context: nil).height
         context.saveGState()
@@ -4262,7 +4262,7 @@ public class CPU2ByteRenderer : NSObject {
         let text86TextContent = "MDROMux "
         let text86Style = NSMutableParagraphStyle()
         text86Style.alignment = .center
-        let text86FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text86Style] as [NSAttributedStringKey : Any]
+        let text86FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text86Style] as [NSAttributedString.Key : Any]
 
         let text86TextHeight: CGFloat = text86TextContent.boundingRect(with: CGSize(width: text86Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text86FontAttributes, context: nil).height
         context.saveGState()
@@ -4393,7 +4393,7 @@ public class CPU2ByteRenderer : NSObject {
         let text92TextContent = "MDREven"
         let text92Style = NSMutableParagraphStyle()
         text92Style.alignment = .center
-        let text92FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text92Style] as [NSAttributedStringKey : Any]
+        let text92FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text92Style] as [NSAttributedString.Key : Any]
 
         let text92TextHeight: CGFloat = text92TextContent.boundingRect(with: CGSize(width: text92Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text92FontAttributes, context: nil).height
         context.saveGState()
@@ -4407,7 +4407,7 @@ public class CPU2ByteRenderer : NSObject {
         let text99TextContent = "MDREMux "
         let text99Style = NSMutableParagraphStyle()
         text99Style.alignment = .center
-        let text99FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text99Style] as [NSAttributedStringKey : Any]
+        let text99FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text99Style] as [NSAttributedString.Key : Any]
 
         let text99TextHeight: CGFloat = text99TextContent.boundingRect(with: CGSize(width: text99Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text99FontAttributes, context: nil).height
         context.saveGState()
@@ -4526,7 +4526,7 @@ public class CPU2ByteRenderer : NSObject {
         let textTextContent = "5"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
-        let textFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: arrowBlack, NSAttributedStringKey.paragraphStyle: textStyle] as [NSAttributedStringKey : Any]
+        let textFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: arrowBlack, NSAttributedString.Key.paragraphStyle: textStyle] as [NSAttributedString.Key : Any]
 
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
         context.saveGState()
@@ -4621,7 +4621,7 @@ public class CPU2ByteRenderer : NSObject {
         let text2TextContent = "A"
         let text2Style = NSMutableParagraphStyle()
         text2Style.alignment = .right
-        let text2FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text2Style] as [NSAttributedStringKey : Any]
+        let text2FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.systemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text2Style] as [NSAttributedString.Key : Any]
 
         let text2TextHeight: CGFloat = text2TextContent.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
         context.saveGState()
@@ -4653,7 +4653,7 @@ public class CPU2ByteRenderer : NSObject {
         let textTextContent = "0"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .left
-        let textFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: textStyle] as [NSAttributedStringKey : Any]
+        let textFontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: textStyle] as [NSAttributedString.Key : Any]
 
         let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
         context.saveGState()
@@ -4667,7 +4667,7 @@ public class CPU2ByteRenderer : NSObject {
         let text3TextContent = "1"
         let text3Style = NSMutableParagraphStyle()
         text3Style.alignment = .left
-        let text3FontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedStringKey.foregroundColor: labelBlack, NSAttributedStringKey.paragraphStyle: text3Style] as [NSAttributedStringKey : Any]
+        let text3FontAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize), NSAttributedString.Key.foregroundColor: labelBlack, NSAttributedString.Key.paragraphStyle: text3Style] as [NSAttributedString.Key : Any]
 
         let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
         context.saveGState()

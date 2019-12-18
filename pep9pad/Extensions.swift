@@ -107,7 +107,7 @@ extension UITextField {
         aLabel.textColor = color
         aLabel.sizeToFit()
         self.leftView = aLabel
-        self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
         self.textAlignment = .right
     }
     
@@ -144,7 +144,7 @@ extension String {
     }
     
     func removeBackwards(untilFirstInstance  thing: String) -> String {
-        var charArr = thing.characters
+        var charArr = thing
         let notFound = true
         var idx = charArr.count
         while notFound {
@@ -175,14 +175,14 @@ extension String {
     
     func startsWith(input: String) -> Bool {
         let length: Int = input.length
-        if input == String(self.characters.prefix(length)) {
+        if input == String(self.prefix(length)) {
             return true
         }
         return false
     }
     
     func left(num: Int) -> String {
-        return String(self.characters.prefix(num))
+        return String(self.prefix(num))
     }
     
     func stringToHex() -> String {

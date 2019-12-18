@@ -135,7 +135,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
     
     /// Convenience function that sets the `title` property of a `UIBarButtonItem` to a `FontAwesome` icon.
     func setButtonIcon(forBarBtnItem btn: UIBarButtonItem, nameOfIcon: FontAwesome, ofSize: CGFloat) {
-        let attrs = [NSAttributedStringKey.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary!
+        let attrs = [NSAttributedString.Key.font: UIFont.fontAwesome(ofSize: ofSize)] as Dictionary?
         btn.setTitleTextAttributes(attrs, for: .normal)
         btn.setTitleTextAttributes(attrs, for: .disabled)
         btn.setTitleTextAttributes(attrs, for: .highlighted)
@@ -274,7 +274,7 @@ class Pep9DetailController: UIViewController, UITabBarDelegate {
             
             activityController.setValue("A Pep/9 Project - \(projectModel.name)", forKey: "subject")
             
-            activityController.completionWithItemsHandler = {(activityType: UIActivityType?, completed: Bool, items: [Any]?, error: Error?) in
+            activityController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, items: [Any]?, error: Error?) in
                 self.deleteTempFiles(fileURLs: [sourceFileURL,objectFileURL,listingFileURL])
             }
             

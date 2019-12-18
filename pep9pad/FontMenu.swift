@@ -33,7 +33,7 @@ class FontMenu: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         
         controller.view.addSubview(tableView)
-        controller.view.bringSubview(toFront: tableView)
+        controller.view.bringSubviewToFront(tableView)
         controller.view.isUserInteractionEnabled = true
         
         tableView.isUserInteractionEnabled = true

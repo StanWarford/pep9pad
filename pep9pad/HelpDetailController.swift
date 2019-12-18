@@ -25,10 +25,10 @@ class HelpDetailController: UIViewController {
         exampleVC = storyboard?.instantiateViewController(withIdentifier: "ExampleViewController") as! ExampleViewController
         
         // add the view controllers as childViewControllers
-        self.addChildViewController(documentationVC)
-        self.addChildViewController(exampleVC)
-        documentationVC.didMove(toParentViewController: self)
-        exampleVC.didMove(toParentViewController: self)
+        self.addChild(documentationVC)
+        self.addChild(exampleVC)
+        documentationVC.didMove(toParent: self)
+        exampleVC.didMove(toParent: self)
         
         // set the views up and add them
         documentationVC.view.bounds = self.view.bounds

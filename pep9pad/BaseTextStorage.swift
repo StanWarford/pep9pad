@@ -17,7 +17,7 @@ class BaseTextStorage: NSTextStorage {
         return storage.string
     }
     
-    override func attributes(at location: Int, effectiveRange: NSRangePointer?) -> [NSAttributedStringKey : Any] {
+    override func attributes(at location: Int, effectiveRange: NSRangePointer?) -> [NSAttributedString.Key : Any] {
         return storage.attributes(at: location, effectiveRange: effectiveRange)
     }
     
@@ -28,7 +28,7 @@ class BaseTextStorage: NSTextStorage {
         
     }
     
-    override func setAttributes(_ attributes: [NSAttributedStringKey : Any]?, range: NSRange) {
+    override func setAttributes(_ attributes: [NSAttributedString.Key : Any]?, range: NSRange) {
         storage.setAttributes(attributes, range: range)
         edited(.editedAttributes, range: range, changeInLength: 0)
     }
