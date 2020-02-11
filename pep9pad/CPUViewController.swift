@@ -332,6 +332,7 @@ class CPUViewController: UIViewController, keypadDelegate, SimulatorDelegate {
         
     }
     
+    // Currently not linked to button because two byte bus is not done
     @IBAction func busBtnPressed(_ sender: UIBarButtonItem) {
         
         var alertController: UIAlertController

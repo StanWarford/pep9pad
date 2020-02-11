@@ -173,6 +173,7 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     }
     
     // MARK: - TableViewDataSource
+    // Cases for two byte problems are commented out because the two byte bus is not done
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // TODO: Set selection style for cells
@@ -185,7 +186,7 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
         }
         
         v.detailTextLabel?.lineBreakMode = .byWordWrapping
-        v.detailTextLabel?.numberOfLines = 4
+        v.detailTextLabel?.numberOfLines = 3
         
         switch (indexPath as NSIndexPath).section {
         case 0:
@@ -194,15 +195,15 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
         case 1:
             v.textLabel!.text = OneByteExamples.allValues[indexPath.row].rawValue
             v.detailTextLabel!.text = OneByteDescriptions.allValues[indexPath.row].rawValue
+//        case 2:
+//            v.textLabel!.text = TwoByteExamples.allValues[indexPath.row].rawValue
+//            v.detailTextLabel!.text = TwoByteDescriptions.allValues[indexPath.row].rawValue
         case 2:
-            v.textLabel!.text = TwoByteExamples.allValues[indexPath.row].rawValue
-            v.detailTextLabel!.text = TwoByteDescriptions.allValues[indexPath.row].rawValue
-        case 3:
             v.textLabel!.text = OneByteProblems.allValues[indexPath.row].rawValue
             v.detailTextLabel!.text = OneByteProblemDescriptions.allValues[indexPath.row].rawValue
-        case 4:
-            v.textLabel!.text = TwoByteProblems.allValues[indexPath.row].rawValue
-            v.detailTextLabel!.text = TwoByteProblemDescriptions.allValues[indexPath.row].rawValue
+//        case 4:
+//            v.textLabel!.text = TwoByteProblems.allValues[indexPath.row].rawValue
+//            v.detailTextLabel!.text = TwoByteProblemDescriptions.allValues[indexPath.row].rawValue
         default:
             v.textLabel?.text = "Error"
         }
@@ -213,7 +214,7 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 3
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -222,12 +223,12 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
             helpDetail.loadDocumentation(Array(Documentation.allCPU.keys)[indexPath.row])
         case 1:
             helpDetail.loadExample(OneByteExamples.allValues[indexPath.row].rawValue)
+//        case 2:
+//            helpDetail.loadExample(TwoByteExamples.allValues[indexPath.row].rawValue)
         case 2:
-            helpDetail.loadExample(TwoByteExamples.allValues[indexPath.row].rawValue)
-        case 3:
             helpDetail.loadExample(OneByteProblems.allValues[indexPath.row].rawValue)
-        case 4:
-           helpDetail.loadExample(TwoByteProblems.allValues[indexPath.row].rawValue)
+//        case 4:
+//           helpDetail.loadExample(TwoByteProblems.allValues[indexPath.row].rawValue)
         default:
             print("Error")
         }
@@ -239,12 +240,12 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
             return Array(Documentation.allCPU.values).count
         case 1:
             return OneByteExamples.allValues.count
+//        case 2:
+//            return TwoByteExamples.allValues.count
         case 2:
-            return TwoByteExamples.allValues.count
-        case 3:
             return OneByteProblems.allValues.count
-        case 4:
-            return TwoByteProblems.allValues.count
+//        case 4:
+//            return TwoByteProblems.allValues.count
         default:
             return 0
         }
@@ -256,12 +257,12 @@ class CPUHelper : NSObject, HelpDelegate, UITableViewDelegate, UITableViewDataSo
             return "Documentation"
         case 1:
             return "One Byte Examples"
+//        case 2:
+//            return "Two Byte Examples"
         case 2:
-            return "Two Byte Examples"
-        case 3:
             return "One Byte Problems"
-        case 4:
-            return "Two Byte Problems"
+//        case 4:
+//            return "Two Byte Problems"
         default:
             return ""
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MPr-1x-Fwb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MPr-1x-Fwb">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -662,11 +662,6 @@
                             <barButtonItem title="Aa" id="sEi-ip-UHE">
                                 <connections>
                                     <action selector="fontBtnPressed:" destination="Crp-0P-M8w" id="pKS-Fq-ijK"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Bus" id="3gN-Xr-Fpa">
-                                <connections>
-                                    <action selector="busBtnPressed:" destination="Crp-0P-M8w" id="LcV-4N-AtG"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Help" id="z0k-Hm-cxF">
