@@ -1,7 +1,7 @@
 # Podfile for Pep9Pad.app
 ##### Dependencies #####
 
-platform :ios, ‘8.0’
+platform :ios, ‘17.0’
 use_frameworks!
 
 ## quick links to licenses
